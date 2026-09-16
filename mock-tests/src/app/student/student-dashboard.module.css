@@ -1,0 +1,525 @@
+/* ============================================
+   Student Dashboard - Kid-Friendly Theme
+   WCAG AA compliant, gender-neutral, vibrant
+   ============================================ */
+
+/* Hero Banner */
+.heroBanner {
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  color: white;
+  min-height: 200px;
+}
+
+.heroBanner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  z-index: 0;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+}
+
+.heroGreeting {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin: 0 0 0.25rem 0;
+  line-height: 1.2;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.heroTagline {
+  font-size: 1.1rem;
+  opacity: 0.92;
+  margin: 0.5rem 0 0;
+  font-weight: 500;
+  max-width: 420px;
+}
+
+.heroRankBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255,255,255,0.22);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin-top: 1rem;
+}
+
+.heroMascotWrapper {
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+  animation: mascotBounce 3s ease-in-out infinite;
+}
+
+@keyframes mascotBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Floating decorative shapes */
+.heroDecor {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.15;
+  z-index: 1;
+}
+
+.heroDecor1 {
+  width: 120px;
+  height: 120px;
+  background: white;
+  top: -30px;
+  right: 80px;
+}
+
+.heroDecor2 {
+  width: 60px;
+  height: 60px;
+  background: white;
+  bottom: -10px;
+  left: 60px;
+}
+
+.heroDecor3 {
+  width: 40px;
+  height: 40px;
+  background: white;
+  top: 20px;
+  right: 200px;
+}
+
+/* Stats Row */
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.statCard {
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 2px solid transparent;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+.statCard:hover {
+  transform: translateY(-3px);
+}
+
+.statCard::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.statCard:hover::after {
+  opacity: 0.04;
+}
+
+.statIcon {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.5rem;
+}
+
+.statValue {
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 0.15rem;
+  opacity: 0.7;
+}
+
+/* Streak Section */
+.streakSection {
+  margin-top: 2rem;
+  border-radius: 1.25rem;
+  padding: 1.75rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  border: 2px solid transparent;
+}
+
+.streakMeta {
+  flex: 1;
+}
+
+.streakTitle {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin: 0 0 0.5rem 0;
+}
+
+.streakSubtitle {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin: 0;
+}
+
+.streakDots {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.streakDot {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  transition: transform 0.2s;
+}
+
+.streakDot:hover {
+  transform: scale(1.15);
+}
+
+.streakDotActive {
+  color: white;
+}
+
+.streakDotInactive {
+  opacity: 0.3;
+}
+
+.streakDotLabel {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+/* Section Headers */
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sectionIcon {
+  font-size: 1.75rem;
+}
+
+/* Assignment Cards */
+.assignmentGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.assignmentCard {
+  border-radius: 1.25rem;
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  border: 2px solid transparent;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.assignmentCard:hover {
+  transform: translateY(-2px);
+}
+
+.assignmentLeft {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.assignmentIcon {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.5rem;
+}
+
+.assignmentInfo {
+  min-width: 0;
+}
+
+.assignmentTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.assignmentMeta {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 0.35rem;
+  font-size: 0.8rem;
+}
+
+.assignmentMetaItem {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  opacity: 0.65;
+}
+
+/* Start Test Button */
+.startButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 2rem;
+  border: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.startButton:hover {
+  transform: scale(1.05);
+}
+
+.startButton:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}
+
+/* Empty State */
+.emptyState {
+  border-radius: 1.25rem;
+  padding: 4rem 2rem;
+  text-align: center;
+  border: 2px dashed;
+  opacity: 0.85;
+}
+
+.emptyIcon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.emptyTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+}
+
+.emptyText {
+  font-size: 0.9rem;
+  opacity: 0.65;
+  margin: 0 0 1.5rem 0;
+}
+
+/* AI Practice Banner */
+.aiBanner {
+  margin-top: 2.5rem;
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  color: white;
+}
+
+.aiBannerContent {
+  position: relative;
+  z-index: 2;
+  max-width: 480px;
+}
+
+.aiBannerTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0 0 0.5rem 0;
+}
+
+.aiBannerText {
+  opacity: 0.9;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.aiBannerBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 2rem;
+  border: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  background: rgba(255,255,255,0.95);
+  transition: transform 0.15s ease;
+  text-decoration: none;
+  margin-top: 1.25rem;
+}
+
+.aiBannerBtn:hover {
+  transform: scale(1.05);
+}
+
+.aiBannerMascot {
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+  opacity: 0.3;
+}
+
+/* Progress Bar */
+.progressBarOuter {
+  height: 12px;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progressBarInner {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.6s ease;
+  position: relative;
+}
+
+.progressBarInner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .heroBanner {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+
+  .heroMascotWrapper {
+    order: -1;
+  }
+
+  .heroTagline {
+    max-width: 100%;
+  }
+
+  .statsRow {
+    grid-template-columns: 1fr;
+  }
+
+  .streakSection {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .assignmentCard {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .assignmentLeft {
+    flex-direction: column;
+  }
+
+  .aiBanner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .aiBannerContent {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroGreeting {
+    font-size: 1.35rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.2rem;
+  }
+}

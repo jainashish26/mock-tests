@@ -1,0 +1,1563 @@
+================================================================================
+MOCK TESTS WEB PLATFORM — CHRONOLOGICAL BUILD PROMPTS
+================================================================================
+
+Usage: Copy each prompt and paste it into Copilot Agent mode (or your AI coding
+assistant) in order. Wait for each step to complete before moving to the next.
+Some prompts reference project docs — keep them in the workspace root.
+
+Reference docs (always in workspace):
+  01-mock-tests-project-charter.md
+  02-mock-tests-rls-and-seed-plan.md
+  03-mock-tests-sprint-plan.md
+  04-mock-tests-db-schema.md
+  05-mock-tests-env-vars.md
+  06-env.example
+  07-implementation-plan.md
+  DeepSeek Writing Prompt.txt
+
+================================================================================
+SPRINT 1 — FOUNDATIONS + DB + AUTH + RLS + SEED DATA
+================================================================================
+
+--------------------------------------------------------------------------------
+PROMPT 1: Project Scaffold
+--------------------------------------------------------------------------------
+
+Scaffold a new Next.js 15 project with App Router and TypeScript. Use the following exact configuration:
+
+1. Run `npx create-next-app@latest mock-tests --typescript --tailwind --eslint --app --src-dir --import-alias "@/*"` in the current workspace directory.
+2. Enable TypeScript strict mode in tsconfig.json.
+3. Install these exact dependencies:
+   - Core: @supabase/supabase-js @supabase/ssr
+   - UI: lucide-react class-variance-authority clsx tailwind-merge
+   - State: @tanstack/react-query zustand
+   - Validation: zod
+   - Utilities: nanoid date-fns
+   - Dev: vitest @vitejs/plugin-react @testing-library/react @testing-library/jest-dom playwright @playwright/test
+4. Initialize shadcn/ui with `npx shadcn@latest init` — use "New York" style, slate base color, and CSS variables.
+5. Add these shadcn components: button, input, label, card, dialog, dropdown-menu, select, tabs, badge, toast, separator, skeleton, avatar, sheet, table, checkbox, radio-group, textarea, form, popover, command, scroll-area, tooltip, progress.
+6. Create a vitest.config.ts at the project root configured for React with path aliases matching tsconfig.
+7. Create a playwright.config.ts with a basic setup for local dev server at port 3000.
+8. Add these scripts to package.json:
+   - "typecheck": "tsc --noEmit"
+   - "test": "vitest run"
+   - "test:watch": "vitest"
+   - "test:e2e": "playwright test"
+9. Create a `.env.local` file by copying `06-env.example` from the workspace root. Do NOT fill in any secret values — leave them as empty strings.
+10. Set up ESLint flat config with Prettier integration.
+
+Verify everything works: `npm run dev`, `npm run lint`, `npm run typecheck` should all pass.
+
+Reference: See `07-implementation-plan.md` Section 2 (Key Technical Decisions) and Section 11 (Project Directory Structure) for the target layout.
+
+--------------------------------------------------------------------------------
+PROMPT 2: Design System + Tailwind Tokens + Layout Shell
+--------------------------------------------------------------------------------
+
+Set up the design system and layout shell for the Mock Tests platform. This is a premium academic, mobile-first web app for Year 2–8 Australian students.
+
+1. Configure Tailwind CSS design tokens in `src/styles/globals.css` and `tailwind.config.ts`:
+   - Colors: primary navy (#1a1f36), accent teal (#0d9488), background warm white (#fafaf9), surface white (#ffffff), text primary (#1a1f36), text secondary (#64748b), error (#dc2626), success (#16a34a), warning (#f59e0b), info (#2563eb).
+   - Typography: Use Inter from Google Fonts. Scale: xs (12px), sm (14px), base (16px), lg (18px), xl (20px), 2xl (24px), 3xl (30px), 4xl (36px).
+   - Spacing: follows Tailwind defaults (4px base).
+   - Border radius: sm (6px), md (8px), lg (12px), xl (16px).
+   - Breakpoints: mobile-first — sm: 640px, md: 768px, lg: 1024px, xl: 1440px.
+
+2. Create layout components:
+   - `src/components/layout/AppShell.tsx` — responsive layout: sidebar on desktop (240px wide, collapsible), bottom navigation bar on mobile. Accepts `role` prop to determine which nav items to show.
+   - `src/components/layout/Header.tsx` — top header with: logo ("Mock Tests" text), user avatar dropdown (profile, logout), notifications bell icon with unread badge (placeholder count), mobile menu trigger.
+   - `src/components/layout/MobileNav.tsx` — fixed bottom nav bar (visible below md breakpoint) with icons for key actions per role.
+   - `src/components/layout/RoleGuard.tsx` — client component that checks user role and either renders children or redirects to appropriate page.
+
+3. Define navigation items per role:
+   - PARENT: Dashboard, Children, Shop, Notifications
+   - STUDENT: Home, My Tests, Reports
+   - TEST_CREATOR: Dashboard, Questions, Tests
+   - ADMIN: Dashboard, Approvals, Catalog, Ops
+
+4. Create route group layouts:
+   - `src/app/(public)/layout.tsx` — minimal layout for landing and auth pages (no sidebar/nav).
+   - `src/app/parent/layout.tsx` — AppShell with PARENT nav.
+   - `src/app/student/layout.tsx` — AppShell with STUDENT nav.
+   - `src/app/creator/layout.tsx` — AppShell with TEST_CREATOR nav.
+   - `src/app/admin/layout.tsx` — AppShell with ADMIN nav.
+
+5. Create the root layout (`src/app/layout.tsx`):
+   - Import Inter font from next/font/google.
+   - Include global CSS.
+   - Add metadata (title: "Mock Tests", description).
+   - Wrap with TanStack QueryClientProvider (create a `src/components/providers/QueryProvider.tsx` client component).
+   - Add a Toaster component (from shadcn/ui).
+
+6. Create placeholder pages that just show the page name:
+   - `src/app/(public)/page.tsx` — Landing page
+   - `src/app/parent/page.tsx` — Parent Dashboard
+   - `src/app/student/page.tsx` — Student Home
+   - `src/app/creator/page.tsx` — Creator Dashboard
+   - `src/app/admin/page.tsx` — Admin Dashboard
+
+Reference: See `01-mock-tests-project-charter.md` (Design & Quality Standards section) and `07-implementation-plan.md` Section 11 for directory structure.
+
+--------------------------------------------------------------------------------
+PROMPT 3: Supabase Client Utilities
+--------------------------------------------------------------------------------
+
+Create the Supabase client utilities for the Mock Tests platform. We need three separate clients for different contexts. Reference the env vars from `05-mock-tests-env-vars.md`.
+
+1. `src/lib/supabase/client.ts` — Browser client:
+   - Uses `createBrowserClient` from `@supabase/ssr`.
+   - Reads `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`.
+   - Export as a function `createClient()` that returns the browser Supabase client.
+
+2. `src/lib/supabase/server.ts` — Server component / Server Action / Route Handler client:
+   - Uses `createServerClient` from `@supabase/ssr`.
+   - Reads cookies from Next.js `cookies()` for session management.
+   - This client respects RLS — queries run as the authenticated user.
+   - Export as an async function `createClient()`.
+
+3. `src/lib/supabase/admin.ts` — Service-role client (SERVER ONLY):
+   - Uses `createClient` from `@supabase/supabase-js` directly.
+   - Uses `SUPABASE_SERVICE_ROLE_KEY` — this bypasses RLS.
+   - Add a comment: "// SECURITY: Only use in trusted server endpoints (webhooks, jobs, admin bulk). Never import in client code."
+   - Export as `createAdminClient()`.
+
+4. `src/middleware.ts` — Auth middleware:
+   - Create Next.js middleware that refreshes the Supabase Auth session on every request.
+   - Use `createServerClient` from `@supabase/ssr` with `request`/`response` cookie handling.
+   - Matcher: exclude static files, _next, favicon, and public API routes.
+
+5. `src/types/database.ts` — Create a placeholder file with a comment explaining this will hold generated Supabase types later (from `supabase gen types typescript`).
+
+All files must be TypeScript with proper typing. No `any` types.
+
+--------------------------------------------------------------------------------
+PROMPT 4: Database Schema Migration
+--------------------------------------------------------------------------------
+
+Create the initial Supabase database migration for the Mock Tests platform. Write a single comprehensive SQL migration file at `supabase/migrations/001_initial_schema.sql` based on the schema defined in `04-mock-tests-db-schema.md`.
+
+The migration must include, in this order:
+
+1. **Enums** — Create these Postgres enum types:
+   - `public.user_role`: PARENT, TUTOR, STUDENT, TEST_CREATOR, ADMIN
+   - `public.exam_type`: BENCHMARK, NAPLAN_STYLE, OLYMPIAD, SELECTIVE
+   - `public.content_status`: DRAFT, PENDING_APPROVAL, PUBLISHED, ARCHIVED
+   - `public.question_type`: MCQ, SHORT_ANSWER, WRITING
+   - `public.attempt_status`: IN_PROGRESS, SUBMITTED, WRITING_PENDING, COMPLETE
+
+2. **Tables** — Create ALL tables from the schema doc (sections 3.1 through 3.18), PLUS these additional tables from the implementation plan:
+   - `purchase_items` (purchase_id FK → purchases, product_id FK → products, price_cents int NOT NULL)
+
+3. **Schema fixes** from the implementation plan (Section 3.1):
+   - Add UNIQUE constraint on `assignments(student_id, test_id)` — prevents duplicate assignment
+   - Add UNIQUE constraint on `attempts(student_id, test_id)` — enforces no re-attempts
+   - Make `responses.answer` NULLABLE (student may skip a question)
+
+4. **Auto-update trigger** — Create a reusable function `update_updated_at()` and apply a trigger to all tables that have an `updated_at` column: student_profiles, tests, questions.
+
+5. **Indexes** — Create ALL indexes listed in schema doc Section 5:
+   - parent_student_links(parent_user_id), parent_student_links(student_id)
+   - assignments(student_id), assignments(test_id)
+   - attempts(student_id), attempts(test_id)
+   - responses(attempt_id), responses(question_id)
+   - tests(status, exam_type)
+   - questions(status, type)
+   - purchases(user_id)
+   - entitlements(user_id), entitlements(test_id)
+   - notifications(user_id, created_at DESC)
+
+Follow every FK, PK, UQ, CK constraint exactly as documented. Use `gen_random_uuid()` for default UUIDs. Use `timestamptz` with `now()` defaults for timestamps.
+
+Also create `supabase/config.toml` placeholder if it doesn't exist.
+
+Reference: `04-mock-tests-db-schema.md` for complete schema, `07-implementation-plan.md` Section 12 for migration strategy.
+
+--------------------------------------------------------------------------------
+PROMPT 5: RLS Helper Functions
+--------------------------------------------------------------------------------
+
+Create a Supabase migration file at `supabase/migrations/002_rls_functions.sql` that defines ALL the RLS helper functions documented in `02-mock-tests-rls-and-seed-plan.md` Section 3.
+
+Create these functions in the `public` schema with `SECURITY DEFINER` and `STABLE` attributes:
+
+1. `has_role(target_role user_role)` → returns boolean
+   - Returns true if current user (`auth.uid()`) has the specified role in `app_user_roles`.
+
+2. `is_parent_of(p_student_id uuid)` → returns boolean
+   - Returns true if `(auth.uid(), p_student_id)` exists in `parent_student_links`.
+
+3. `is_student_self(p_student_id uuid)` → returns boolean
+   - Returns true if a `student_profiles` row exists where `id = p_student_id` AND `auth_user_id = auth.uid()`.
+
+4. `is_attempt_owner(p_attempt_id uuid)` → returns boolean
+   - Joins `attempts` → `student_profiles` and returns true if `student_profiles.auth_user_id = auth.uid()`.
+
+5. `has_entitlement(p_test_id uuid)` → returns boolean
+   - Returns true if `entitlements` has a row with `user_id = auth.uid()`, `test_id = p_test_id`, and `active = true`.
+
+6. `can_access_published_test(p_test_id uuid)` → returns boolean
+   - Returns true if:
+     - `auth.uid()` IS NOT NULL (user is logged in), AND
+     - The test exists with `status = 'PUBLISHED'`, AND
+     - (`is_free = true` OR `has_entitlement(p_test_id)` returns true)
+
+Each function should:
+- Set `search_path = public` for security.
+- Use `auth.uid()` to identify the caller.
+- Be marked as `STABLE` (no side effects).
+- Include a brief SQL comment explaining its purpose.
+
+Reference: `02-mock-tests-rls-and-seed-plan.md` Section 3 for exact semantics.
+
+--------------------------------------------------------------------------------
+PROMPT 6: RLS Policies
+--------------------------------------------------------------------------------
+
+Create a Supabase migration file at `supabase/migrations/003_rls_policies.sql` that enables RLS and defines ALL policies based on `02-mock-tests-rls-and-seed-plan.md` Section 4.
+
+First, enable RLS (ALTER TABLE ... ENABLE ROW LEVEL SECURITY) on ALL these tables:
+app_user_roles, student_profiles, parent_student_links, tests, test_sections, questions, test_questions, assignments, attempts, responses, writing_evaluations, notifications, products, product_tests, purchases, purchase_items, entitlements, processed_webhook_events, processed_jobs
+
+Then create policies for each table. Use the helper functions from the previous migration. Policy naming convention: `{table}_{operation}_{who}` (e.g., `tests_select_published_access`).
+
+Follow the COMPLETE policy catalogue from `02-mock-tests-rls-and-seed-plan.md` Section 4 (subsections 4.1 through 4.15). Key rules:
+
+- **app_user_roles**: user reads own; admin reads/writes all.
+- **student_profiles**: parent reads linked; student reads self; admin reads all. Parent inserts (child creation). Parent/admin updates.
+- **parent_student_links**: parent manages own links; admin manages all.
+- **tests (published)**: only `can_access_published_test(id)`.
+- **tests (draft/pending)**: creator reads own; admin reads all. Creator inserts drafts. Creator updates own draft/pending. Admin updates any.
+- **test_sections**: follows test visibility rules.
+- **questions (published)**: logged-in AND question belongs to at least one accessible published test (via test_questions + can_access_published_test).
+- **questions (draft/pending)**: creator reads own; admin reads all.
+- **test_questions**: follows test visibility rules.
+- **assignments**: parent reads for linked students; student reads own; admin all. Parent inserts for linked students.
+- **attempts**: student reads/creates/updates own; parent reads for linked students; admin all.
+- **responses**: student manages own (via attempt ownership); parent reads via attempt ownership; admin all.
+- **writing_evaluations**: read follows attempt access rules; write is service-role only.
+- **notifications**: user reads/updates own; admin reads all. Insert via service-role.
+- **products, product_tests**: all logged-in users can read; admin writes.
+- **purchases, purchase_items, entitlements**: user reads own; admin reads all. Writes via service-role.
+- **processed_webhook_events, processed_jobs**: no policies for regular users (service-role only).
+
+IMPORTANT: For the deny-by-default pattern, since RLS is enabled with no policies, access is already denied. Only add ALLOW policies. Never add overly broad policies.
+
+Reference: `02-mock-tests-rls-and-seed-plan.md` Section 4 for the complete policy catalogue, `07-implementation-plan.md` Section 14 for security checklist.
+
+--------------------------------------------------------------------------------
+PROMPT 7: Auth Pages + Role-Based Redirect
+--------------------------------------------------------------------------------
+
+Build the authentication system for the Mock Tests platform using Supabase Auth.
+
+1. Create `src/app/auth/login/page.tsx`:
+   - Clean, mobile-first login page with the app logo and "Welcome back" heading.
+   - Email input + "Send magic link" button for parents/creators/admin.
+   - Link to student login page.
+   - Link to signup page.
+   - On successful auth, call a server action that looks up the user's role from `app_user_roles` and redirects: PARENT → /parent, STUDENT → /student, TEST_CREATOR → /creator, ADMIN → /admin.
+   - Show toast on error.
+
+2. Create `src/app/auth/signup/page.tsx`:
+   - Signup form with email input + "Create account" button.
+   - Uses Supabase Auth `signUp` with email (sends verification/OTP).
+   - After signup, show "Check your email for a verification link" message.
+   - After verification, user must complete onboarding where they pick their role (PARENT only for self-signup; ADMIN creates other roles).
+
+3. Create `src/app/auth/student-login/page.tsx`:
+   - Student-specific login: username input + password input + "Log in" button.
+   - Server action maps username to synthetic email pattern: look up `student_profiles` by username, get `auth_user_id`, then look up that user's email (which is `student_{profile_id}@mock-tests.internal`).
+   - Authenticate with Supabase Auth using that email + password.
+   - Redirect to `/student`.
+   - Show clear error: "Invalid username or password" on failure.
+
+4. Create `src/app/auth/callback/route.ts`:
+   - Handle the OAuth/magic link callback from Supabase Auth.
+   - Exchange the code for a session.
+   - Redirect based on user role.
+
+5. Update `src/middleware.ts`:
+   - If user is authenticated and tries to access `/auth/*`, redirect to their role's dashboard.
+   - If user is NOT authenticated and tries to access `/parent/*`, `/student/*`, `/creator/*`, or `/admin/*`, redirect to `/auth/login`.
+   - Allow `/`, `/pricing`, and `/auth/*` for unauthenticated users.
+
+6. Create `src/lib/auth/actions.ts`:
+   - Server action `signOut()` — signs user out and redirects to `/auth/login`.
+   - Server action `getSessionUser()` — returns current user with role, or null.
+
+Use shadcn/ui form components. All forms must have loading states, error states, and be mobile-first (max-width 400px centered card on desktop, full width on mobile). Use Zod for email validation.
+
+Reference: `01-mock-tests-project-charter.md` (Auth section), `07-implementation-plan.md` S1.4.
+
+--------------------------------------------------------------------------------
+PROMPT 8: RBAC Middleware + API Error Handling
+--------------------------------------------------------------------------------
+
+Create the server-side RBAC system and consistent API error handling for the Mock Tests platform.
+
+1. Create `src/lib/logging/correlation.ts`:
+   - Function `generateCorrelationId()` that returns a short unique ID (use nanoid, 12 chars).
+   - Function `getCorrelationId(request)` that reads `x-correlation-id` header or generates a new one.
+
+2. Create `src/lib/utils/api-response.ts`:
+   - Helper `successResponse(data, status = 200)` — returns NextResponse with JSON body.
+   - Helper `errorResponse(code, message, correlationId, status)` — returns NextResponse with shape:
+     ```json
+     { "error": { "code": "UNAUTHORIZED", "message": "...", "correlationId": "..." } }
+     ```
+   - Predefined error creators:
+     - `unauthorizedError(correlationId)` — 401
+     - `forbiddenError(correlationId)` — 403
+     - `notFoundError(correlationId)` — 404
+     - `validationError(message, correlationId)` — 400
+     - `rateLimitError(correlationId)` — 429
+     - `serverError(correlationId)` — 500
+
+3. Create `src/lib/rbac/guards.ts`:
+   - `getUserRole(userId: string)` — queries `app_user_roles` table, returns the role string or null.
+   - `requireAuth(request)` — async function that:
+     - Creates a Supabase server client.
+     - Gets the session user.
+     - If no user, returns an unauthorizedError.
+     - Returns the user object.
+   - `requireRole(request, allowedRoles: string[])` — async function that:
+     - Calls requireAuth.
+     - Looks up role via getUserRole.
+     - If role not in allowedRoles, returns forbiddenError.
+     - Returns { user, role }.
+   - These functions return either the success value OR a NextResponse error — the caller checks and returns early if it's an error.
+
+4. Create a sample protected API route at `src/app/api/admin/health/route.ts`:
+   - Uses `requireRole(request, ['ADMIN'])`.
+   - Returns `{ status: "ok", role: "ADMIN" }`.
+   - This is a smoke test for RBAC.
+
+All functions should be fully typed with TypeScript. No `any`. Use the project's Supabase types.
+
+Reference: `07-implementation-plan.md` S1.5, `01-mock-tests-project-charter.md` (Error Handling section).
+
+--------------------------------------------------------------------------------
+PROMPT 9: Seed Data
+--------------------------------------------------------------------------------
+
+Create a comprehensive seed SQL script at `supabase/seed/seed.sql` for the Mock Tests platform. This seed data is used for development and testing. Reference `02-mock-tests-rls-and-seed-plan.md` Section 5 for the seed plan.
+
+The seed script must create — in dependency order — the following data:
+
+1. **Auth users** — Use Supabase's `auth.users` insert pattern (or document that these must be created via Supabase Dashboard / CLI first). Create 4 users:
+   - Admin: email `admin@mock-tests.dev`, role ADMIN
+   - Creator: email `creator@mock-tests.dev`, role TEST_CREATOR
+   - Parent: email `parent@mock-tests.dev`, role PARENT
+   - (Student will be created programmatically via the parent flow, but for seed, create one directly)
+   - Student: synthetic email `student_seed_001@mock-tests.internal`, role STUDENT
+
+2. **app_user_roles** — Insert a role row for each user.
+
+3. **student_profiles** — Insert profile for the student (username: `bright-koala-4821`, year_level: 5).
+
+4. **parent_student_links** — Link parent to student.
+
+5. **Benchmark tests (7 tests, one per year 2–8)** — Each test:
+   - exam_type = 'BENCHMARK', status = 'PUBLISHED', is_free = true
+   - created_by = admin user, approved_by = admin user, published_at = now()
+   - Year 2–3: 45 mins, Year 4–5: 60 mins, Year 6–7: 75 mins, Year 8: 90 mins
+   - Title format: "Year {N} Benchmark Test"
+
+6. **test_sections (5 per test)** — For each benchmark test, create:
+   - Numeracy (order 1), Reading (order 2), Spelling & Grammar (order 3), Verbal Reasoning (order 4), Numerical Reasoning (order 5)
+   - Question counts from the seed plan:
+     Year 2–3: 12/12/9/6/6 = 45
+     Year 4–5: 20/20/15/10/10 = 75
+     Year 6–7: 24/24/18/12/12 = 90
+     Year 8: 32/32/24/16/16 = 120
+
+7. **Questions (~20 placeholder MCQ per section of the Year 5 benchmark test)** — For the Year 5 test only (to keep seed manageable), create 75 MCQ questions:
+   - Distributed across 5 sections matching the question counts (20/20/15/10/10).
+   - Each question: type = 'MCQ', status = 'PUBLISHED', created_by = creator user.
+   - Stem: simple placeholder text like "What is the result of {operation}?" or "Read the passage and answer:" etc.
+   - Options: 4 options as JSONB array.
+   - correct_answer: JSONB with correct option key.
+   - Tags: proper JSONB with year (5), subject matching section, topic (placeholder), skill (placeholder), difficulty (distribute 1-4 evenly), reasoning_type (placeholder), exam_type ('BENCHMARK').
+   - Explanation: short placeholder text.
+   - Difficulty spread per section: roughly equal across 1, 2, 3, 4.
+   - Also create 1 WRITING question for a future test (to test the writing pipeline later).
+
+8. **test_questions** — Map all created questions to the Year 5 benchmark test with correct section_name and base_difficulty.
+
+9. **1 Paid test** — Create a paid test (is_free = false, PUBLISHED) with title "NAPLAN Practice Pack – Year 5". Create at least 10 MCQ questions for it. Map them.
+
+10. **1 Product** — Create a product: name "NAPLAN Pack Year 5", price_cents = 1500, currency = 'AUD'. Map it to the paid test via product_tests.
+
+The SQL should use CTEs or DO blocks with variables for user IDs. Add comments throughout. Make it idempotent where possible (use ON CONFLICT DO NOTHING for unique constraints).
+
+Reference: `02-mock-tests-rls-and-seed-plan.md` Section 5, `04-mock-tests-db-schema.md` for exact column types.
+
+--------------------------------------------------------------------------------
+PROMPT 10: Supabase Type Generation + Verification
+--------------------------------------------------------------------------------
+
+Now that we have the schema and seed data, let's generate TypeScript types and verify everything works:
+
+1. If not already set up, initialize a `supabase/config.toml` for the local Supabase CLI.
+
+2. Create a script in package.json: `"db:types": "supabase gen types typescript --local > src/types/database.ts"` (or use project-ref for remote). Document the command in a comment at the top of `src/types/database.ts`.
+
+3. Create `src/types/index.ts` with shared domain types that extend the generated types:
+   - `UserRole` = 'PARENT' | 'TUTOR' | 'STUDENT' | 'TEST_CREATOR' | 'ADMIN'
+   - `ExamType` = 'BENCHMARK' | 'NAPLAN_STYLE' | 'OLYMPIAD' | 'SELECTIVE'
+   - `ContentStatus` = 'DRAFT' | 'PENDING_APPROVAL' | 'PUBLISHED' | 'ARCHIVED'
+   - `QuestionType` = 'MCQ' | 'SHORT_ANSWER' | 'WRITING'
+   - `AttemptStatus` = 'IN_PROGRESS' | 'SUBMITTED' | 'WRITING_PENDING' | 'COMPLETE'
+   - `QuestionTags` type: { year: number, subject: string, topic: string, skill: string, difficulty: 1|2|3|4, reasoning_type: string, exam_type: ExamType }
+   - `MCQOptions` type: Array<{ key: string, text: string }>
+   - `SectionScores` type: Record<string, number>
+
+4. Create `src/types/api.ts` with API request/response types:
+   - `ApiError`: { code: string, message: string, correlationId: string }
+   - `ApiErrorResponse`: { error: ApiError }
+   - `ApiSuccessResponse<T>`: { data: T }
+
+5. Verify: run `npm run typecheck` — it should pass with no errors.
+
+Reference: `07-implementation-plan.md` Section 11 (types directory).
+
+
+================================================================================
+SPRINT 2 — CHILD PROFILES + CMS + TEST RUNNER v1
+================================================================================
+
+--------------------------------------------------------------------------------
+PROMPT 11: Sentry + Structured Logging
+--------------------------------------------------------------------------------
+
+Set up error tracking and structured logging for the Mock Tests platform.
+
+1. Install `@sentry/nextjs`.
+2. Run the Sentry Next.js wizard or manually configure:
+   - `sentry.client.config.ts` — initialize Sentry with DSN from `SENTRY_DSN` env var.
+   - `sentry.server.config.ts` — same for server-side.
+   - `sentry.edge.config.ts` — same for edge runtime.
+   - Update `next.config.ts` to include Sentry webpack plugin (for source maps in production).
+   - Add `instrumentation.ts` with Sentry init.
+3. Create `src/components/error/GlobalErrorBoundary.tsx` — a React error boundary that reports to Sentry and shows a user-friendly error page with a "Try again" button.
+4. Create `src/app/error.tsx` and `src/app/global-error.tsx` using the error boundary.
+
+5. Create `src/lib/logging/logger.ts`:
+   - A structured logger that outputs JSON in production, pretty-prints in development.
+   - Methods: `logger.info(message, context)`, `logger.warn(...)`, `logger.error(...)`, `logger.debug(...)`.
+   - Always includes: timestamp, level, correlationId, message.
+   - Redacts sensitive fields: password, token, secret, authorization, cookie (replace values with "[REDACTED]").
+   - Uses `LOG_LEVEL` env var to filter.
+
+6. Ensure Sentry DSN and related env vars are in `.env.local` (with empty values — to be filled later).
+
+Reference: `07-implementation-plan.md` S2.1.
+
+--------------------------------------------------------------------------------
+PROMPT 12: Parent Dashboard + Child Profile Management
+--------------------------------------------------------------------------------
+
+Build the parent's child profile management system. This is the core parent experience.
+
+1. Create `src/app/parent/page.tsx` — Parent Dashboard:
+   - Server component that fetches the parent's linked children from `student_profiles` via `parent_student_links`.
+   - Displays children as cards. Each card shows: username, year level, avatar placeholder (first letter of username), "View details" link.
+   - If no children, show an empty state: illustration placeholder + "Add your first child to get started" with CTA button.
+   - "Add child" button in the top-right corner.
+   - Mobile-first: cards stack vertically on mobile, 2-column grid on tablet+.
+
+2. Create a dialog/sheet for "Add Child" flow (`src/features/auth/components/AddChildDialog.tsx`):
+   - Form fields:
+     - Year level: select dropdown (2 through 8).
+     - Username: auto-generated suggestions (3 options using adjective + animal + 4 random digits). User can regenerate or pick one. Use `src/lib/utils/username-generator.ts`.
+     - Password: password input with confirmation. Minimum 6 characters.
+   - On submit (server action):
+     a. Generate synthetic email: `student_{new_uuid}@mock-tests.internal`.
+     b. Create Supabase Auth user via admin client (`admin.createUser`) with email + password.
+     c. Insert `app_user_roles` (STUDENT).
+     d. Insert `student_profiles` (auth_user_id, year_level, username).
+     e. Insert `parent_student_links` (parent_user_id = current user, student_id).
+   - Validation with Zod. Show toast on success or error.
+   - After success, revalidate the parent dashboard.
+
+3. Create `src/lib/utils/username-generator.ts`:
+   - Lists of adjectives (bright, calm, swift, happy, clever, brave, gentle, etc. — 30+ words).
+   - Lists of animals (koala, falcon, dolphin, panda, tiger, robin, etc. — 30+ words).
+   - Function `generateUsernames(count = 3)` → returns array of strings like "bright-koala-4821".
+   - Function `checkUsernameAvailable(username)` → queries student_profiles.
+
+4. Create child detail page `src/app/parent/child/[id]/page.tsx`:
+   - Shows child's username, year level.
+   - "Reset Password" button — opens a dialog to enter new password. Server action calls `adminClient.updateUserById(auth_user_id, { password: newPassword })`. Validate that the current user is the parent of this student (check parent_student_links).
+   - "Assigned Tests" section (placeholder for now — will be populated in the assignment story).
+   - "Past Attempts" section (placeholder).
+
+Reference: `07-implementation-plan.md` S2.2, `02-mock-tests-rls-and-seed-plan.md` (parent_student_links policies).
+
+--------------------------------------------------------------------------------
+PROMPT 13: Student Login + Student Dashboard
+--------------------------------------------------------------------------------
+
+Build the student login flow and student dashboard.
+
+1. Update `src/app/auth/student-login/page.tsx` (if not already complete):
+   - A dedicated student login page with username + password fields.
+   - On form submit, call a server action:
+     a. Query `student_profiles` where `username = input_username`. If not found → error "Invalid username or password".
+     b. Get the `auth_user_id` from the profile.
+     c. Query `auth.users` to get the email (synthetic). Or compute it deterministically — but since we use random UUIDs in the email, we need to look it up.
+     d. Use Supabase Auth `signInWithPassword({ email, password })`.
+     e. On success → redirect to `/student`.
+     f. On failure → show generic error (don't leak whether username exists).
+   - This must work with the Supabase server client to avoid exposing the synthetic email to the browser.
+
+2. Create `src/app/student/page.tsx` — Student Home:
+   - Server component that fetches:
+     a. The student's profile (join through auth_user_id = current user).
+     b. Assignments for this student (join assignments → tests for test details).
+     c. Past attempts (join attempts → tests for test names + scores).
+   - Display:
+     - "Welcome, {username}" greeting.
+     - "Assigned Tests" section: cards showing test title, exam type, year level, time limit, and "Start test" button. If the student already has a COMPLETE attempt for that test, show "Completed" badge with score instead of "Start". Remember: no re-attempts allowed.
+     - "Past Attempts" section: list of completed attempts with test name, score out of 100, date completed. Each links to the student report page.
+   - Empty states for both sections.
+   - Mobile-first card layout.
+
+Reference: `07-implementation-plan.md` S2.3.
+
+--------------------------------------------------------------------------------
+PROMPT 14: Test Assignment (Parent → Student)
+--------------------------------------------------------------------------------
+
+Build the test assignment flow where a parent assigns tests to their child.
+
+1. Update `src/app/parent/child/[id]/page.tsx` to include the assignment section:
+   - "Assign a Test" button that opens a dialog or navigates to a selection page.
+   - Dialog shows available tests:
+     - Fetch tests where: test is PUBLISHED AND (is_free = true OR user has entitlement).
+     - Filter by child's year level (test.year_level_min <= child.year_level <= test.year_level_max).
+     - Display as a list: test title, exam type, time limit, "Assign" button.
+     - Tests already assigned to this child should show "Already assigned" badge (disabled).
+   - On "Assign" click: server action inserts into `assignments` table.
+   - Validation:
+     - Verify parent is linked to student (check parent_student_links).
+     - Verify (student_id, test_id) doesn't already exist in assignments (unique constraint handles DB level, but give UX feedback).
+     - Verify year level match.
+   - Show toast on success: "Test assigned to {username}".
+
+2. "Assigned Tests" section on the child detail page now populates:
+   - List of assigned tests with: test title, exam type, assigned date, status (Not started / Completed with score).
+
+3. Student dashboard should now reflect assignments — verify the student page shows these assigned tests after the parent assigns them.
+
+Reference: `07-implementation-plan.md` S2.4.
+
+--------------------------------------------------------------------------------
+PROMPT 15: CMS — Question Editor
+--------------------------------------------------------------------------------
+
+Build the question editor for test creators. This is the CMS for authoring questions.
+
+1. Create `src/app/creator/page.tsx` — Creator Dashboard:
+   - Two tabs: "My Questions" and "My Tests".
+   - "My Questions" tab: table/list of creator's own questions (fetched where created_by = current user). Columns: stem (truncated), type, status, difficulty, created_at. Click navigates to editor.
+   - "My Tests" tab: table/list of creator's own tests. Columns: title, exam_type, status, section count, created_at.
+   - "New Question" and "New Test" buttons.
+
+2. Create `src/app/creator/questions/new/page.tsx` and `src/app/creator/questions/[id]/page.tsx` — Question Editor:
+   - Both share the same editor component: `src/features/cms/components/QuestionEditor.tsx`.
+   - The editor must handle three question types with conditional fields:
+
+   **Common fields (all types)**:
+   - Type selector: MCQ / Short Answer / Writing (radio group).
+   - Stem: textarea (required). Label: "Question text".
+   - Passage: textarea (optional). Label: "Reading passage (if applicable)".
+   - Image URL: text input (optional) or file upload to Supabase Storage. Label: "Question image".
+   - Tags panel — ALL REQUIRED:
+     - Year level: select (2–8).
+     - Subject: select (Numeracy, Reading, Spelling & Grammar, Verbal Reasoning, Numerical Reasoning).
+     - Topic: text input (e.g., "Fractions", "Comprehension").
+     - Skill: text input (e.g., "Addition", "Inference").
+     - Difficulty: select (1, 2, 3, 4).
+     - Reasoning type: text input (e.g., "Logical", "Spatial").
+     - Exam type: select (BENCHMARK, NAPLAN_STYLE, OLYMPIAD, SELECTIVE).
+
+   **MCQ-specific fields**:
+   - Options: 4 text inputs labeled A, B, C, D (all required).
+   - Correct answer: radio group to select which option is correct.
+   - Explanation: textarea.
+   - Explanation steps: (for Numeracy) — dynamic list of step inputs (add/remove step).
+
+   **Short Answer-specific fields**:
+   - Correct answer pattern: text input for regex pattern.
+   - Expected answer: text input showing what a correct answer looks like.
+   - Explanation: textarea.
+
+   **Writing-specific fields**:
+   - Writing prompt: textarea (this is the stem — shown prominently).
+   - No correct answer, no explanation (writing is evaluated by AI).
+
+   - Use Zod schema for validation. All tags required. MCQ must have all 4 options + correct answer. Short answer must have pattern.
+   - "Save as Draft" button (primary action).
+   - Status badge showing current status (DRAFT).
+   - For existing questions: if status is DRAFT, allow editing. If PENDING_APPROVAL or PUBLISHED, show read-only with a message.
+
+3. Create Zod validation schemas in `src/features/cms/lib/validation.ts`.
+
+Reference: `07-implementation-plan.md` S2.5, `04-mock-tests-db-schema.md` Section 3.6 (questions table).
+
+--------------------------------------------------------------------------------
+PROMPT 16: CMS — Test Builder
+--------------------------------------------------------------------------------
+
+Build the test builder for test creators. This allows creators to assemble tests from their question bank.
+
+1. Create `src/app/creator/tests/new/page.tsx` and `src/app/creator/tests/[id]/page.tsx` — Test Builder:
+   - Shared component: `src/features/cms/components/TestBuilder.tsx`.
+
+   **Test metadata section**:
+   - Title: text input (required).
+   - Exam type: select (BENCHMARK, NAPLAN_STYLE, OLYMPIAD, SELECTIVE).
+   - Year level range: two selects — min (2–8) and max (2–8). Max >= min.
+   - Time limit (minutes): number input (required, > 0).
+
+   **Sections manager**:
+   - List of sections. Each section has: name (text input), question count (number input), order (drag to reorder or up/down buttons).
+   - "Add section" button. "Remove section" button per section.
+   - Suggested section names: Numeracy, Reading, Spelling & Grammar, Verbal Reasoning, Numerical Reasoning (as autocomplete/suggestions, not enforced).
+
+   **Question mapper** (per section):
+   - For each section, show a panel to select questions.
+   - "Add Questions" button opens a question picker dialog:
+     - Shows a searchable/filterable table of the creator's DRAFT/PUBLISHED questions.
+     - Filters: type (MCQ/Short Answer/Writing), subject, difficulty (1–4), year level.
+     - Checkbox to select multiple questions.
+     - Show how many are selected vs. section's question_count.
+   - Selected questions shown in the section with: stem (truncated), type badge, difficulty badge.
+   - Can remove questions from section.
+   - **IMPORTANT**: Enforce max 1 WRITING question across the entire test. If the creator tries to add a second writing question to any section, show a validation error: "A test can contain at most 1 writing question."
+
+   **Save and status**:
+   - "Save as Draft" button.
+   - Inserts/updates `tests` table + `test_sections` + `test_questions`.
+   - Validate: each section's mapped question count must match the declared question_count.
+
+   **Submit for approval**:
+   - "Submit for Approval" button (visible only when test is DRAFT and all sections have the correct number of mapped questions).
+   - Changes status to PENDING_APPROVAL.
+
+Reference: `07-implementation-plan.md` S2.6, `04-mock-tests-db-schema.md` Sections 3.4, 3.5, 3.7.
+
+--------------------------------------------------------------------------------
+PROMPT 17: CMS — Admin Approval Workflow
+--------------------------------------------------------------------------------
+
+Build the admin approval workflow for the CMS.
+
+1. Update `src/app/admin/page.tsx` — Admin Dashboard:
+   - Three tabs: "Pending Approval", "Published", "All Drafts".
+   - **Pending Approval tab**: lists all tests and questions with status = PENDING_APPROVAL. Show: title/stem, type, creator email, submitted date. Click navigates to review page.
+   - **Published tab**: lists all published tests and questions. Filterable by exam type and year level.
+   - **All Drafts tab**: lists all drafts (admin can see all creators' drafts via RLS).
+   - Count badges on each tab.
+
+2. Create `src/app/admin/review/[type]/[id]/page.tsx` — Review Page:
+   - `type` is either "test" or "question".
+   - For questions: show full question preview (stem, passage, options, correct answer, explanation, tags). Read-only.
+   - For tests: show test metadata + all sections + all mapped questions with previews. Read-only.
+   - Two action buttons:
+     - "Approve & Publish" — updates status to PUBLISHED, sets approved_by to current admin user, sets published_at to now(). For tests, also publishes all PENDING_APPROVAL questions within the test.
+     - "Reject" — opens a dialog for rejection comment (text input required). Sets status back to DRAFT. (Store the rejection comment — add a `rejection_comment` field to tests/questions or log it; for MVP, show as a toast to the creator on their dashboard if they reload, or store in a simple JSON notes field.)
+   - Server actions with RBAC: only ADMIN role can approve/reject.
+
+3. Create `src/app/admin/catalog/page.tsx` — Catalog Manager:
+   - Lists all products with: name, price, included tests count, active status.
+   - "Create Product" button → dialog or page with: name, description, price (AUD cents), active toggle.
+   - "Manage Tests" button per product → dialog to add/remove tests from product_tests.
+   - Admin only (RBAC enforced).
+
+Reference: `07-implementation-plan.md` S2.7.
+
+--------------------------------------------------------------------------------
+PROMPT 18: Test Runner v1 — Core MCQ Experience
+--------------------------------------------------------------------------------
+
+Build the test runner — the core exam-taking experience for students. This is the most critical UX component and must be mobile-first, distraction-free, and pixel-perfect.
+
+1. Create `src/features/runner/hooks/useRunnerStore.ts` — Zustand store:
+   - State: attemptId, testId, currentSectionIndex, currentQuestionIndex, questions (per section), responses (Map of questionId → { answer, flagged, timeStarted }), timerSeconds, isSubmitting, connectionStatus.
+   - Actions: setAnswer, toggleFlag, nextQuestion, prevQuestion, jumpToQuestion, goToSection, tick (decrement timer), syncResponse, submitAttempt.
+   - Persist to localStorage for offline resilience (use Zustand persist middleware with localStorage).
+
+2. Create `src/app/student/test/[assignmentId]/page.tsx` — Test Runner Page:
+   - On mount:
+     a. Fetch assignment details (verify assignmentId belongs to current student).
+     b. Check for existing attempt on this (student_id, test_id). If a COMPLETE attempt exists, redirect to report page with message "You have already completed this test."
+     c. If an IN_PROGRESS attempt exists, resume it (load existing responses into store).
+     d. If no attempt, create a new one via API (POST to create attempt, set status = IN_PROGRESS).
+     e. Load test structure: sections + question counts.
+     f. Request the first question from the server.
+   - Full-screen layout (hide sidebar/nav). Only show: minimal header with test title.
+
+3. Create runner sub-components in `src/features/runner/components/`:
+
+   **RunnerHeader.tsx**:
+   - Test title (truncated on mobile).
+   - Current section name.
+   - Timer component.
+   - "Question X of Y" indicator.
+   - Compact on mobile (single row).
+
+   **Timer.tsx**:
+   - Countdown from test's time_limit_mins × 60 seconds.
+   - Display as MM:SS.
+   - Color changes: normal (navy text), warning at 5 min (amber), critical at 1 min (red, pulsing).
+   - Auto-submit when reaches 0.
+   - Uses requestAnimationFrame or setInterval for accuracy.
+
+   **QuestionCard.tsx**:
+   - Displays question stem text.
+   - If question has a passage, show a "Show passage" button that opens PassagePane.
+   - If question has an image_url, render the image.
+   - For MCQ: radio button group with options A, B, C, D. Each option is a large, touch-friendly card (min 48px height).
+   - Selected option highlighted with accent color.
+   - Flag button (bookmark icon) that toggles flag state.
+
+   **PassagePane.tsx**:
+   - On desktop: side-by-side split view (passage left, question right).
+   - On mobile: full-screen overlay sheet that slides up, with a close button.
+   - Scrollable passage text with good typography.
+
+   **QuestionPalette.tsx**:
+   - Grid of numbered squares representing all questions in current section.
+   - Color coding: answered (teal/green), unanswered (gray), flagged (amber), current (outlined).
+   - Click on any number to jump to that question.
+   - On desktop: always visible in sidebar.
+   - On mobile: accessible via a button that opens a bottom sheet.
+
+   **NavigationBar.tsx**:
+   - Fixed bottom bar with: "Previous" button, "Next" button, "Flag" toggle, palette trigger (mobile).
+   - "Previous" disabled on first question. "Next" changes to "Next Section" or "Review" on last question of section.
+
+4. Answer persistence:
+   - When student selects an answer, immediately update Zustand store.
+   - Debounced server sync: POST to `/api/student/save-response` with { attemptId, questionId, answer, sectionName, difficultyServed, timeSpentSeconds }.
+   - Upsert into `responses` table.
+   - Track time per question (start timer when question loads, record duration when moving to next).
+   - If server call fails, keep in store (localStorage backup). Show "Saving..." / "Saved" / "Connection lost" indicator.
+
+5. Create API route `src/app/api/student/save-response/route.ts`:
+   - Validates: user owns the attempt, attempt is IN_PROGRESS.
+   - Upserts response row.
+   - Returns success.
+
+Reference: `07-implementation-plan.md` S2.8. This is the most important UX — make it smooth, fast, and mobile-first.
+
+--------------------------------------------------------------------------------
+PROMPT 19: Test Runner v1 — Review Screen + Submit
+--------------------------------------------------------------------------------
+
+Build the review screen and submission flow for the test runner.
+
+1. Create `src/app/student/test/[assignmentId]/review/page.tsx` — Review Before Submit:
+   - Shows a summary grid of ALL questions across ALL sections:
+     - Section headers.
+     - Per question: number, answered/unanswered status, flagged status.
+     - Color coding: answered (teal), unanswered (red), flagged (amber border).
+   - Statistics: "You answered X of Y questions. Z flagged."
+   - Clicking a question number navigates back to that question in the runner.
+   - Two prominent buttons:
+     - "Go back to test" — returns to where you left off.
+     - "Submit test" — with a confirmation dialog: "Are you sure? You cannot go back after submitting."
+
+2. Submission flow (on confirm):
+   - Call `POST /api/student/submit` with { attemptId }.
+   - Server action:
+     a. Verify user owns the attempt.
+     b. Verify attempt status is IN_PROGRESS.
+     c. Set `attempts.status = SUBMITTED`, `submitted_at = now()`.
+     d. For each MCQ response: compare answer to `questions.correct_answer`, set `responses.is_correct`.
+     e. Calculate basic score: count correct / total × 100. Store in `attempts.score_out_of100`.
+     f. Calculate `time_spent_seconds` = submitted_at - started_at.
+     g. If the test has NO writing questions: set status to COMPLETE.
+     h. If the test HAS a writing question: set status to WRITING_PENDING (async pipeline handles the rest — built in Sprint 4).
+     i. Return { attemptId, status, score }.
+   - On success: redirect to `/student/report/[attemptId]`.
+   - Show loading state during submission. Disable submit button to prevent double-click.
+
+3. Create API route `src/app/api/student/submit/route.ts` with the above logic.
+
+4. Handle timer expiry: when timer hits 0 in the runner, automatically trigger the submit flow (same as clicking submit, but skip the confirmation dialog — show a "Time's up! Submitting your test..." overlay instead).
+
+Reference: `07-implementation-plan.md` S2.8 (Submit section).
+
+
+================================================================================
+SPRINT 3 — ADAPTIVE ENGINE + SCORING + REPORTS
+================================================================================
+
+--------------------------------------------------------------------------------
+PROMPT 20: Adaptive Question Selection Engine
+--------------------------------------------------------------------------------
+
+Build the server-side adaptive question selection engine. This runs on the server — the client never sees the question pool or difficulty logic.
+
+1. Create `src/features/runner/lib/adaptive.ts` — Adaptive Engine Logic:
+   - Function `computeTargetDifficulty(responses: Response[])` → number (1–4):
+     - Input: array of responses for current section, ordered by creation time.
+     - Look at the last 2 responses.
+     - If both correct → difficulty +1 (max 4).
+     - If both incorrect → difficulty -1 (min 1).
+     - Otherwise → unchanged.
+     - Initial difficulty (no responses yet): 2.
+   - Function `selectNextQuestion(params)`:
+     - Inputs: testId, sectionName, answeredQuestionIds, targetDifficulty.
+     - Query `test_questions` WHERE test_id AND section_name AND base_difficulty = targetDifficulty AND question_id NOT IN answeredQuestionIds.
+     - Random selection from matching pool.
+     - If no match at targetDifficulty, try fallback (documented below).
+     - Return the question (without correct_answer or explanation fields — NEVER send these to client).
+   - Function `fallbackSelection(params)`:
+     - Try difficulty ± 1 from target, then ± 2.
+     - If all exhausted, return null (section complete).
+     - Log the fallback event: { attemptId, section, target, actual, reason }.
+
+2. Create API route `src/app/api/student/next-question/route.ts`:
+   - Input: { attemptId, sectionName }.
+   - Auth: verify current user owns the attempt (via student_profiles.auth_user_id).
+   - Logic:
+     a. Get attempt (verify status = IN_PROGRESS).
+     b. Get all responses for this attempt + section.
+     c. Check if section is complete (responses count >= section's question_count). If yes, return { sectionComplete: true }.
+     d. Compute target difficulty.
+     e. Select next question using adaptive engine.
+     f. Return question object (id, stem, passage, image_url, options, type) — NO correct_answer, NO explanation.
+     g. Also return: { questionNumber, totalInSection, sectionName, difficultyServed }.
+
+3. Update the test runner (`src/app/student/test/[assignmentId]/page.tsx`):
+   - Replace any "load all questions at once" pattern with sequential fetching via `next-question` API.
+   - When entering a section, call next-question. On answer + next, save response then call next-question again.
+   - Handle section transitions: when sectionComplete is returned, show "Section Complete! Moving to {nextSection}..." message for 2 seconds, then load first question of next section.
+   - When all sections complete, navigate to review screen.
+
+4. Write unit tests in `tests/unit/adaptive.test.ts`:
+   - Test computeTargetDifficulty with various response histories.
+   - Test 2-correct raises difficulty.
+   - Test 2-incorrect lowers difficulty.
+   - Test mixed responses keep difficulty unchanged.
+   - Test boundaries (doesn't exceed 4, doesn't go below 1).
+   - Test initial state returns 2.
+
+Reference: `07-implementation-plan.md` S3.1 and S3.2, `03-mock-tests-sprint-plan.md` Story 9.1.
+
+--------------------------------------------------------------------------------
+PROMPT 21: Score Computation
+--------------------------------------------------------------------------------
+
+Build the scoring system. All scores are out of 100, no negative marking.
+
+1. Create `src/features/reporting/lib/scoring.ts`:
+   - Function `computeSectionScore(responses: Response[])` → number (0–100):
+     - Count correct (is_correct = true) vs total responses in section.
+     - Score = (correct / total) × 100. Round to 2 decimal places.
+     - No negative marking: unanswered / incorrect = 0 points.
+   - Function `computeOverallScore(sectionScores: Record<string, number>, sectionWeights: Record<string, number>)` → number:
+     - Weighted average where weights are the question counts per section.
+     - Formula: sum(score_i × weight_i) / sum(weight_i).
+   - Function `computeAttemptScores(attemptId)`:
+     - Fetch all responses for the attempt.
+     - Group by section_name.
+     - For each section, compute section score.
+     - Compute overall weighted score.
+     - Compute raw_accuracy (total correct / total questions × 100).
+     - Compute time_spent_seconds.
+     - Return { scoreOutOf100, sectionScores, rawAccuracy, timeSpentSeconds }.
+
+2. Update the submit API route (`src/app/api/student/submit/route.ts`):
+   - After marking MCQ answers as correct/incorrect, call computeAttemptScores.
+   - Update the attempt row:
+     - `score_out_of100` = overall score.
+     - `section_scores` = JSON object { "Numeracy": 85.0, "Reading": 72.5, ... }.
+     - `raw_accuracy` = raw accuracy.
+     - `time_spent_seconds` = total time.
+   - Set status to COMPLETE (or WRITING_PENDING if writing exists).
+
+3. Write unit tests for scoring functions:
+   - All correct → 100.
+   - All incorrect → 0.
+   - Mixed → correct percentage.
+   - Weighted average with different section sizes.
+   - Empty section → 0.
+
+Reference: `07-implementation-plan.md` S3.3.
+
+--------------------------------------------------------------------------------
+PROMPT 22: Parent Premium Report
+--------------------------------------------------------------------------------
+
+Build the parent's premium report page — the most valuable feature for parents.
+
+1. Create `src/app/parent/report/[attemptId]/page.tsx`:
+   - Server component that fetches attempt details. Verify parent is linked to the student who owns the attempt (RLS handles this, but double-check).
+   - Redirect with error if attempt not found or not authorized.
+
+2. Create report sub-components in `src/features/reporting/components/`:
+
+   **ScoreSummary.tsx**:
+   - Large circular or card display with overall score (e.g., big "85" with "/100" label).
+   - Color coded: green (>=80), amber (60-79), red (<60).
+   - Two smaller stats: "Time used: 42 min / 60 min" and "Date: March 18, 2026".
+   - Attempt status badge (COMPLETE or WRITING_PENDING).
+
+   **SectionBreakdown.tsx**:
+   - Horizontal bar chart showing each section's score out of 100.
+   - Each bar labeled with section name and score.
+   - Color intensity maps to score value.
+   - Use a chart library (Recharts) or pure CSS bars for simplicity.
+
+   **TimeAnalysis.tsx**:
+   - Table showing per-section: section name, avg time per question (seconds), total time, questions answered.
+   - Highlight sections where avg time is unusually high (>2× overall average) with a yellow indicator.
+
+   **WeakAreas.tsx**:
+   - Group all responses by question tags (topic, skill).
+   - For each tag group with ≥3 questions, compute accuracy.
+   - Show bottom 3 tag groups as "Areas to improve" with: tag name, accuracy percentage, suggestion text.
+   - Suggestion text: "Practice {topic} questions" or "Focus on {skill} skills".
+   - If no weak areas (all > 80%), show "Great job! Performance is strong across all areas."
+
+   **QuestionReview.tsx**:
+   - Navigable list of ALL questions in the attempt.
+   - Section tabs to filter by section.
+   - Per question card:
+     - Question stem text (and passage excerpt if applicable).
+     - Student's answer (highlighted red if incorrect, green if correct).
+     - Correct answer (always shown).
+     - Explanation: for Numeracy, render `explanation_steps` as a numbered list. For others, render `explanation` as text. If no explanation, show "Explanation not available."
+     - Metadata: difficulty served, time spent.
+   - Prev/Next navigation within the review.
+
+3. Compose all components on the report page:
+   - ScoreSummary at top.
+   - SectionBreakdown below.
+   - TimeAnalysis.
+   - WeakAreas.
+   - QuestionReview (collapsible or on a separate tab).
+   - Print button (optional, for generating a report).
+
+4. Make it responsive: on mobile, all sections stack vertically with full-width charts.
+
+Reference: `07-implementation-plan.md` S3.4.
+
+--------------------------------------------------------------------------------
+PROMPT 23: Student Report (Simplified)
+--------------------------------------------------------------------------------
+
+Build the student's simplified report page.
+
+1. Create `src/app/student/report/[attemptId]/page.tsx`:
+   - Similar to parent report but simpler.
+   - Verify the current user is the student who owns the attempt.
+   - Show: ScoreSummary, SectionBreakdown, QuestionReview.
+   - Do NOT show: WeakAreas, TimeAnalysis (these are parent-only features).
+   - Reuse the same components from the reporting feature but conditionally render.
+
+2. Create a shared report layout component `src/features/reporting/components/ReportLayout.tsx`:
+   - Accepts a `variant` prop: 'parent' | 'student'.
+   - Renders appropriate sections based on variant.
+   - Both parent and student report pages use this layout.
+
+3. Update student dashboard to link completed attempts to this report page.
+
+Reference: `07-implementation-plan.md` S3.5.
+
+
+================================================================================
+SPRINT 4 — PAYMENTS + SHORT ANSWER + WRITING PIPELINE
+================================================================================
+
+--------------------------------------------------------------------------------
+PROMPT 24: Product Catalog + Shop Page
+--------------------------------------------------------------------------------
+
+Build the product catalog and shopping experience.
+
+1. Create `src/app/shop/page.tsx` — Shop page:
+   - Auth required (redirect to login if anonymous).
+   - Fetch all active products from `products` table with their included tests via `product_tests`.
+   - Also fetch user's existing entitlements to show "Purchased" state.
+   - Display as a responsive grid of product cards:
+     - Product name, description, price formatted as AUD (e.g., "$15.00 AUD").
+     - Number of tests included.
+     - List of included test names (collapsible if many).
+     - "Add to cart" button OR "Purchased ✓" badge if already entitled to all tests in the product.
+   - Shopping cart:
+     - Zustand store `src/features/payments/hooks/useCartStore.ts`: items array, addItem, removeItem, clearCart, totalCents.
+     - Cart icon in header showing item count.
+     - Cart dropdown or sheet showing items, individual remove, total, "Checkout" button.
+
+2. Create `src/features/payments/components/`:
+   - `ProductCard.tsx` — individual product display card.
+   - `CartSheet.tsx` — slide-over cart panel.
+   - `CartBadge.tsx` — header badge with count.
+
+Reference: `07-implementation-plan.md` S4.1.
+
+--------------------------------------------------------------------------------
+PROMPT 25: Stripe Checkout + Webhook + Entitlements
+--------------------------------------------------------------------------------
+
+Build the complete Stripe payment flow: checkout session creation, webhook handling, and entitlement granting.
+
+1. Install `stripe` and `@stripe/stripe-js` packages.
+
+2. Create `src/lib/stripe/checkout.ts`:
+   - Function `createCheckoutSession({ userId, productIds, successUrl, cancelUrl })`:
+     - Look up products + stripe_price_id from database.
+     - Create Stripe Checkout Session with line_items, mode: 'payment', customer_email (from user), metadata: { userId, productIds }.
+     - Return session URL.
+
+3. Create API route `src/app/api/payments/create-checkout/route.ts`:
+   - POST handler. Requires auth (logged-in user).
+   - Input: { productIds: string[] }.
+   - Validate products exist and are active.
+   - Create checkout session.
+   - Return { url: sessionUrl }.
+
+4. Create `src/app/checkout/success/page.tsx` — simple success page: "Payment received! Your tests are now available." Link back to dashboard.
+5. Create `src/app/checkout/cancel/page.tsx` — cancel page: "Payment cancelled." Link back to shop.
+
+6. Create `src/lib/stripe/webhook.ts`:
+   - Function `verifyStripeWebhook(rawBody: string, signature: string)` — verifies using STRIPE_WEBHOOK_SECRET. Returns the verified event or throws.
+   - Function `processCheckoutCompleted(event)`:
+     a. Extract userId and productIds from session metadata.
+     b. Check idempotency: query `processed_webhook_events` for event.id. If exists, return early (already processed).
+     c. Create `purchases` row (status = 'SUCCEEDED', total_amount_cents, provider_ref = session.id).
+     d. Create `purchase_items` rows for each product.
+     e. For each product: look up `product_tests`, insert `entitlements` rows (user_id, purchase_id, test_id, active = true). Use ON CONFLICT DO NOTHING to prevent duplicates.
+     f. Record event.id in `processed_webhook_events`.
+   - Use the admin Supabase client (service-role) for all writes — this bypasses RLS intentionally.
+
+7. Create API route `src/app/api/webhooks/stripe/route.ts`:
+   - CRITICAL: Export `const config = { api: { bodyParser: false } }` or read raw body using `request.text()` — Stripe signature verification requires the RAW body, not parsed JSON.
+   - No auth middleware (webhooks authenticate via signature).
+   - Read raw body, verify signature, parse event.
+   - Handle `checkout.session.completed` event.
+   - Return 200 status quickly.
+   - Log errors with correlation IDs. Never return error details to Stripe (just 200 or 500).
+
+8. Add test for webhook idempotency: calling with the same event_id twice should not create duplicate entitlements.
+
+Reference: `07-implementation-plan.md` S4.2, S4.3. SECURITY: Raw body MUST be used for Stripe verification — see `01-mock-tests-project-charter.md` gotcha #2.
+
+--------------------------------------------------------------------------------
+PROMPT 26: Paid Content Gating (UI + API)
+--------------------------------------------------------------------------------
+
+Verify and enhance the content gating for paid tests.
+
+1. RLS should already block paid tests for non-entitled users (from Sprint 1 policies). VERIFY this works:
+   - Write a test: logged-in user without entitlement queries published paid tests → should get zero results.
+   - Write a test: same user WITH entitlement → should see the test.
+
+2. Update the parent's test assignment dialog:
+   - Paid tests the parent does NOT have entitlements for should show a "🔒 Purchase required" badge with a "Buy" link to `/shop`.
+   - Paid tests the parent HAS entitlements for should be assignable normally.
+
+3. Update the student dashboard:
+   - Only assigned tests are shown — no change needed (students don't browse catalog).
+
+4. API hardening:
+   - The next-question API should verify the student has an assignment for the test (which implies access).
+   - Return 404 (not 403) for any test the user shouldn't know about — don't leak existence.
+
+Reference: `07-implementation-plan.md` S4.4.
+
+--------------------------------------------------------------------------------
+PROMPT 27: Short Answer Regex Marking
+--------------------------------------------------------------------------------
+
+Build the short answer marking system using regex pattern matching with normalization.
+
+1. Create `src/lib/utils/regex-safe.ts`:
+   - Function `safeRegexTest(pattern: string, input: string, timeoutMs = 1000)` → boolean:
+     - Wraps regex execution with a timeout to prevent ReDoS attacks.
+     - Returns true if pattern matches, false otherwise. On timeout, returns false and logs a warning.
+   - Function `normalizeAnswer(input: string)` → string:
+     - Trim whitespace.
+     - Collapse multiple spaces to single space.
+     - Convert to lowercase.
+
+2. Update the submit API route (`src/app/api/student/submit/route.ts`):
+   - After processing MCQ answers, also process SHORT_ANSWER responses:
+     a. Get the question's `correct_answer` JSON: expected shape `{ "pattern": "^answer$", "flags": "i" }`.
+     b. Normalize the student's answer text.
+     c. Run `safeRegexTest` with the pattern and normalized answer.
+     d. Set `responses.is_correct` accordingly.
+   - Include short answer scores in the section and overall score calculations.
+
+3. Update the CMS question editor:
+   - For SHORT_ANSWER type, add a "Test pattern" feature: an input where the creator can type a sample answer and see if it matches the regex pattern. This helps creators validate their patterns.
+   - Validate that the regex pattern compiles without errors on save.
+
+4. Write unit tests:
+   - Normalization: "  Hello  World  " → "hello world".
+   - Regex match: pattern "^42$" matches "42", "  42  " (after normalization).
+   - Regex reject: pattern "^42$" does not match "43".
+   - Timeout: a catastrophic regex pattern (e.g., "(a+)+$" with "aaaaaaaab") should timeout gracefully.
+
+Reference: `07-implementation-plan.md` S4.5.
+
+--------------------------------------------------------------------------------
+PROMPT 28: Writing Async Pipeline (QStash + DeepSeek)
+--------------------------------------------------------------------------------
+
+Build the async writing evaluation pipeline using QStash and DeepSeek. Reference the full rubric in `DeepSeek Writing Prompt.txt`.
+
+1. Install `@upstash/qstash`.
+
+2. Create `src/lib/qstash/publish.ts`:
+   - Function `publishWritingEvalJob(payload)`:
+     - payload: { attemptId, questionId, writingText, questionPrompt, rubricVersion }.
+     - Uses QStash client to publish to the writing-eval endpoint URL (from QSTASH_WRITING_EVAL_ENDPOINT env var).
+     - Set retries from QSTASH_MAX_RETRIES env var.
+     - Returns the QStash messageId.
+
+3. Create `src/lib/qstash/verify.ts`:
+   - Function `verifyQStashSignature(request)`:
+     - Uses the Receiver from @upstash/qstash to verify the request signature.
+     - Uses QSTASH_CURRENT_SIGNING_KEY and QSTASH_NEXT_SIGNING_KEY.
+     - Returns the parsed body or throws.
+
+4. Update the submit API (`src/app/api/student/submit/route.ts`):
+   - After scoring MCQ + short answer, check if the test has a writing question:
+     a. Query `test_questions` joined with `questions` where type = 'WRITING' for this test.
+     b. If a writing question exists and the student provided a response:
+        - Set attempt status to WRITING_PENDING.
+        - Publish QStash job with the writing response text + question prompt.
+     c. If no writing question: set status to COMPLETE immediately.
+
+5. Create API route `src/app/api/jobs/writing-eval/route.ts` — QStash job handler:
+   a. Verify QStash signature.
+   b. Parse payload: { attemptId, questionId, writingText, questionPrompt, rubricVersion }.
+   c. Extract job_id from QStash headers (Upstash-Message-Id).
+   d. Check idempotency: query `processed_jobs` for job_id. If exists → return 200 (already done).
+   e. Build the DeepSeek prompt:
+     - Load the full rubric from a constant or config (based on `DeepSeek Writing Prompt.txt`).
+     - Append the writing prompt/topic and the student's text.
+   f. Call DeepSeek API (POST to their chat completions endpoint with DEEPSEEK_API_KEY).
+   g. Parse the structured response. Extract:
+     - Overall score (X/100).
+     - Category scores (Language Mechanics, Vocabulary, Cohesion, Content, Engagement — with sub-scores).
+     - Text type (Narrative / Persuasive).
+     - Detected techniques/devices.
+     - Strengths (array of strings).
+     - Areas for improvement (array of objects with suggestion + score impact).
+     - Polished rewritten text.
+     - Targeted practice exercise.
+   h. Insert `writing_evaluations` row:
+     - score_out_of100 = overall score.
+     - strengths = JSONB array of strength points.
+     - improvements = JSONB with { categoryScores, textType, techniques, improvements, practiceExercise }.
+     - improved_text = polished rewrite text.
+     - raw_response = full DeepSeek API response (for debugging/audit).
+   i. Update `attempts.status = COMPLETE`.
+   j. Insert `processed_jobs` row.
+   k. Create `notifications` row for the parent(s) linked to this student:
+     - type: 'WRITING_READY'.
+     - title: 'Writing Report Ready'.
+     - message: 'The writing evaluation for {test_title} is complete.'.
+     - link_url: '/parent/report/{attemptId}'.
+   l. Return 200.
+
+6. Add error handling: if DeepSeek API fails, log the error and let QStash retry. After max retries, the job stays unprocessed — admin can investigate.
+
+7. Create `src/config/writing-rubric.ts`:
+   - Export the full rubric prompt as a constant string, loaded from the content in `DeepSeek Writing Prompt.txt`.
+   - Export a function `buildWritingEvalPrompt(studentText, writingPrompt)` that combines the rubric + student text into the final prompt.
+
+Reference: `07-implementation-plan.md` S4.6, `DeepSeek Writing Prompt.txt` for the full rubric.
+
+--------------------------------------------------------------------------------
+PROMPT 29: Writing Report UI + Notifications
+--------------------------------------------------------------------------------
+
+Build the writing evaluation report UI and the notification system.
+
+1. Create `src/features/reporting/components/WritingReport.tsx`:
+   - Displayed within the parent and student report pages when a writing evaluation exists.
+   - Sections:
+     - **Overall Writing Score**: large display (X/100) with color coding.
+     - **Category Breakdown**: visual display (segmented bar or radar chart using Recharts) of:
+       Language Mechanics (/20), Vocabulary (/15), Cohesion & Structure (/20), Content & Ideas (/25), Engagement & Style (/20).
+       Show sub-scores for each category.
+     - **Text Type**: badge showing "Narrative" or "Persuasive".
+     - **Techniques Detected**: collapsible list of narrative devices or persuasive techniques found in the text.
+     - **Strengths**: bullet list with green check icons.
+     - **Areas for Improvement**: bullet list with amber warning icons. Include score impact + corrected sentences.
+     - **Side-by-side Comparison**: two columns (or toggle on mobile): student's original text on left, polished rewrite on right. Highlight differences if possible (or just show both).
+     - **Practice Exercise**: rendered section with the targeted exercise.
+
+2. Update the parent report page to include WritingReport when `writing_evaluations` data exists for the attempt.
+3. Update the student report page similarly.
+
+4. Build the notification system:
+
+   Create `src/app/notifications/page.tsx`:
+   - Fetch all notifications for current user, ordered by created_at DESC.
+   - Display as a list: title, message, time ago, read/unread indicator (dot).
+   - Click on a notification: mark as read (update is_read = true) and navigate to link_url.
+   - "Mark all as read" button.
+
+   Create `src/features/notifications/hooks/useNotifications.ts`:
+   - TanStack Query hook that fetches unread notification count.
+   - Polling: refetch every 30 seconds.
+   - Export: unreadCount, notifications, markAsRead, markAllAsRead.
+
+   Update `src/components/layout/Header.tsx`:
+   - Notification bell icon shows unread count badge.
+   - Click navigates to /notifications.
+
+Reference: `07-implementation-plan.md` S4.6 (Writing Report UI) and S4.7 (Notifications).
+
+
+================================================================================
+SPRINT 5 — UI POLISH + ANALYTICS + PERCENTILES
+================================================================================
+
+--------------------------------------------------------------------------------
+PROMPT 30: Design System Polish + Component Refinement
+--------------------------------------------------------------------------------
+
+Perform a comprehensive UI polish pass on the Mock Tests platform. The design should feel premium academic — clean, high-contrast, confident. Think: Duolingo's polish meets an exam platform's seriousness.
+
+1. Review and finalize design tokens in `globals.css` and `tailwind.config.ts`:
+   - Primary: deep navy #1a1f36.
+   - Accent: teal #0d9488. Accent light: #ccfbf1.
+   - Background: warm white #fafaf9. Surface: #ffffff.
+   - Text: primary #1a1f36, secondary #64748b, muted #94a3b8.
+   - Error: #dc2626, Success: #16a34a, Warning: #f59e0b.
+   - Border: #e2e8f0. Border strong: #cbd5e1.
+   - Shadows: subtle, warm-toned.
+
+2. Typography: ensure Inter font is loaded via next/font/google. Headings: semibold/bold. Body: regular. Use proper hierarchy.
+
+3. Polish every screen for mobile-first (verify at 375px, 390px, 412px, 768px, 1024px):
+   - Landing page: hero with CTA, value props, footer.
+   - Auth pages: centered card, clean.
+   - Parent dashboard: child cards with avatars.
+   - Student dashboard: test cards with status badges.
+   - Test runner: distraction-free, large touch targets.
+   - Reports: clear data visualizations, readable on small screens.
+   - Shop: product cards with pricing.
+   - Creator dashboard: clean data tables, form layouts.
+   - Admin dashboard: functional but clean.
+
+4. Implement these UX patterns across the app:
+   - Loading states: skeleton components (not spinners) for all data-fetching pages.
+   - Empty states: illustration placeholder + descriptive text + CTA button.
+   - Error states: error message + "Try again" button.
+   - Success feedback: toast notifications (using shadcn/ui sonner or toast).
+   - Transitions: subtle fade-in for page content. Smooth expand/collapse for panels.
+   - No layout shifts: use fixed-size containers or skeleton placeholders.
+
+5. Test runner specific polish:
+   - Timer: larger font, color transitions (teal → amber at 5min → red at 1min with gentle pulse animation).
+   - Question options: larger cards on mobile (min 52px), clear active/selected state with accent border and background.
+   - Navigation: smooth slide animation between questions.
+   - Question palette: clean grid with proper spacing, readable numbers.
+
+6. Install Recharts (`recharts`) for charts used in reports if not already installed.
+
+Reference: `07-implementation-plan.md` S5.1, `01-mock-tests-project-charter.md` (Design & Quality Standards).
+
+--------------------------------------------------------------------------------
+PROMPT 31: Accessibility Pass
+--------------------------------------------------------------------------------
+
+Perform an accessibility audit and fix pass across the entire application.
+
+1. Focus management:
+   - All interactive elements must have visible focus rings (use Tailwind's ring utilities with accent color).
+   - Logical tab order on all pages (no tabindex hacks).
+   - When dialogs/sheets open, focus moves to first interactive element. On close, focus returns to trigger.
+   - After page navigation, focus moves to main content heading.
+
+2. ARIA attributes:
+   - Timer: `role="timer"` with `aria-live="polite"`. At 1 minute remaining, announce "1 minute remaining" via `aria-live="assertive"`.
+   - Question palette: `role="navigation"` with `aria-label="Question navigation"`.
+   - Flag button: `aria-pressed` state.
+   - Progress indicators: `role="progressbar"` with `aria-valuenow`.
+   - Score displays: ensure screen readers read "Score: 85 out of 100" not just "85".
+   - Toast notifications: `role="alert"`.
+
+3. Color contrast:
+   - Verify all text meets WCAG AA contrast ratios (4.5:1 for normal text, 3:1 for large text).
+   - Status badges must not rely solely on color — include text labels or icons.
+   - Chart data points should be distinguishable without color (patterns or labels).
+
+4. Keyboard navigation:
+   - Test runner: navigate questions with arrow keys, select MCQ option with Enter/Space, flag with F key.
+   - Question palette: navigate with arrow keys, select with Enter.
+   - All forms: submittable with Enter key.
+   - All dialogs: closeable with Escape key.
+
+5. Screen reader testing: verify all pages are coherent when read linearly.
+
+Reference: `07-implementation-plan.md` S5.2.
+
+--------------------------------------------------------------------------------
+PROMPT 32: Analytics Rollups + Parent Dashboard Trends
+--------------------------------------------------------------------------------
+
+Build analytics aggregations and trend visualizations for the parent dashboard.
+
+1. Update the submit/scoring flow to compute tag-level analytics:
+   - After scoring, group responses by question tags (topic, skill).
+   - For each tag group, compute: accuracy (correct/total), count, average time.
+   - Store as expanded JSON in `attempts.section_scores` or in a new `tag_analytics` JSONB field on attempts. Preferred: extend section_scores to include:
+     ```json
+     {
+       "Numeracy": { "score": 85, "tagBreakdown": { "Fractions": { "accuracy": 75, "count": 4, "avgTime": 45 }, ... } },
+       ...
+     }
+     ```
+
+2. Update the parent dashboard (`src/app/parent/page.tsx`):
+   - For each child card, show: last test score (big number) + trend arrow (compare to previous attempt score — up/down/flat).
+   - Recent activity: last 3 attempts across all children with test name + score + date.
+
+3. Create `src/app/parent/child/[id]/page.tsx` trend section:
+   - **Score Over Time chart**: line chart (Recharts) showing score_out_of100 for each attempt, X-axis = date, Y-axis = 0–100. Group by exam_type if multiple types.
+   - **Section Performance chart**: grouped bar chart comparing section scores across the last 3–5 attempts.
+   - **Weak Tags table**: aggregate tag accuracy across all attempts. Show tags below 70% accuracy with suggestion text. Sort by lowest accuracy first.
+
+4. Create `src/features/reporting/components/TrendCharts.tsx` and `src/features/reporting/components/WeakTagsTable.tsx`.
+
+Reference: `07-implementation-plan.md` S5.3 and S5.5.
+
+--------------------------------------------------------------------------------
+PROMPT 33: Percentiles (Feature-Flagged)
+--------------------------------------------------------------------------------
+
+Implement the percentile ranking system behind a feature flag.
+
+1. Create `src/config/feature-flags.ts`:
+   - Read `FF_PERCENTILES_ENABLED` from env. Default false.
+   - Export `isPercentilesEnabled()` → boolean.
+
+2. Create `src/features/reporting/lib/percentiles.ts`:
+   - Function `computePercentile(score: number, cohortScores: number[])` → number:
+     - Standard percentile rank: percentage of cohort scores that fall below the given score.
+     - Round to nearest integer.
+   - Function `getCohortStats(yearLevel: number, examType: string)`:
+     - Query: count of COMPLETE attempts WHERE student's year_level = yearLevel AND test.exam_type = examType.
+     - If count < 200, return null (threshold not met).
+     - If count >= 200, fetch all scores for the cohort.
+     - Return { count, percentile, median, p25, p75 }.
+
+3. Update report pages:
+   - If `FF_PERCENTILES_ENABLED` is true AND cohort stats are available:
+     - Show percentile badge on ScoreSummary: "Higher than 72% of Year 5 NAPLAN students".
+     - Show a small distribution curve or bar indicating where the student falls.
+   - If flag is false or cohort too small: don't show anything percentile-related.
+
+4. Write unit tests for percentile computation.
+
+Reference: `07-implementation-plan.md` S5.4.
+
+
+================================================================================
+SPRINT 6 — SECURITY + QA + LAUNCH
+================================================================================
+
+--------------------------------------------------------------------------------
+PROMPT 34: Rate Limiting
+--------------------------------------------------------------------------------
+
+Add rate limiting to protect sensitive endpoints using Upstash Redis.
+
+1. Install `@upstash/ratelimit` and `@upstash/redis`.
+
+2. Create `src/lib/rate-limit/limiter.ts`:
+   - Initialize Upstash Redis client from env vars (UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN).
+   - Create rate limiter presets:
+     - `authLimiter`: 5 requests per 60 seconds (per IP).
+     - `paymentLimiter`: 10 requests per 60 seconds (per user).
+     - `submitLimiter`: 5 requests per 60 seconds (per user).
+     - `adminLimiter`: 30 requests per 60 seconds (per user).
+     - `webhookLimiter`: 100 requests per 60 seconds (per IP).
+   - Helper function `checkRateLimit(limiter, identifier)` that returns { success, remaining, reset } or a 429 error response.
+
+3. Apply rate limiters to endpoints:
+   - `src/app/auth/*/` actions → authLimiter by IP.
+   - `src/app/api/payments/*` → paymentLimiter by userId.
+   - `src/app/api/student/submit/` → submitLimiter by userId.
+   - `src/app/api/admin/*` → adminLimiter by userId.
+   - `src/app/api/webhooks/stripe/` → webhookLimiter by IP.
+
+4. Rate limit responses must include `Retry-After` header with seconds until reset.
+
+Reference: `07-implementation-plan.md` S6.3.
+
+--------------------------------------------------------------------------------
+PROMPT 35: Access Control Regression Tests
+--------------------------------------------------------------------------------
+
+Write comprehensive access control regression tests to prevent security regressions.
+
+1. Create Vitest integration tests in `tests/integration/rls/`:
+
+   **rls-tests.test.ts**:
+   - Set up test users: admin, parent, student, creator, anonymous.
+   - Test app_user_roles: user can read own role, cannot read others'.
+   - Test student_profiles: parent reads linked student, cannot read unlinked. Student reads self. Anonymous reads nothing.
+   - Test tests (published): anonymous gets 0 results. Logged-in sees free tests. Non-entitled user doesn't see paid tests. Entitled user sees paid tests.
+   - Test tests (drafts): creator sees own drafts. Creator cannot see other creator's drafts. Admin sees all drafts.
+   - Test assignments: student sees own. Parent sees linked student's. Cannot see unrelated.
+   - Test attempts/responses: student sees own. Parent sees linked. Cannot see unrelated.
+   - Test entitlements: user sees own. Cannot see others'.
+   - Test notifications: user sees own. Cannot see others'.
+
+2. Create Playwright E2E tests in `tests/e2e/`:
+
+   **access-control.spec.ts**:
+   - Student navigates to /admin → redirected to /student or shows 403.
+   - Parent navigates to /creator → redirected or blocked.
+   - Unauthenticated user navigates to /parent → redirected to login.
+   - Parent tries to view report for a student they don't own → 404 or error.
+
+   **payment-security.spec.ts**:
+   - User without entitlement visits a paid test's page → not visible / 404.
+   - User with entitlement can access the test.
+
+3. Ensure all tests run in CI and block merges on failure.
+
+Reference: `07-implementation-plan.md` S6.2.
+
+--------------------------------------------------------------------------------
+PROMPT 36: ASVS L2 Security Evidence Pack
+--------------------------------------------------------------------------------
+
+Create the ASVS Level 2 security verification evidence document.
+
+1. Create `docs/security/asvs-l2-evidence.md` with sections for each ASVS category:
+
+   **V2 — Authentication**:
+   - Document: Supabase Auth with email OTP (magic link) for parents. Username/password for students (via synthetic email). No password stored by our app — Supabase handles hashing. Session management via httpOnly cookies.
+   - Evidence: auth flow screenshots, session cookie configuration.
+
+   **V4 — Access Control**:
+   - Document: deny-by-default RBAC middleware. RLS enabled on all 18+ tables. Content gating (free vs paid). Role-specific route protection.
+   - Evidence: list all RLS policies from migration. List all RBAC guards. Link to regression test results.
+
+   **V5 — Validation**:
+   - Document: Zod schemas on all API inputs. Regex timeout protection. No raw SQL (Supabase client parameterized).
+   - Evidence: list Zod schemas. Link to regex-safe utility.
+
+   **V7 — Error Handling & Logging**:
+   - Document: Sentry error tracking. Structured JSON logging with correlation IDs. Sensitive field redaction.
+   - Evidence: Sentry dashboard screenshot. Log output sample.
+
+   **V8 — Data Protection**:
+   - Document: no student PII. Pseudonymous usernames. Service-role key restricted to server-only env vars.
+   - Evidence: schema showing no name/DOB/school columns. .env.example showing key separation.
+
+   **V9 — Communication Security**:
+   - Document: Vercel enforces HTTPS. Supabase connections are TLS. Stripe webhooks over TLS.
+   - Evidence: Vercel domain settings. Stripe webhook URL.
+
+   **V13 — API Security**:
+   - Document: rate limiting on all sensitive endpoints. CORS. Content-type validation.
+   - Evidence: rate limit configuration. Test results.
+
+2. Include a summary checklist at the top with pass/fail/n-a for each verification item.
+
+Reference: `07-implementation-plan.md` S6.1, `01-mock-tests-project-charter.md` (Security Verification section).
+
+--------------------------------------------------------------------------------
+PROMPT 37: Full Regression QA
+--------------------------------------------------------------------------------
+
+Run a comprehensive regression test across all critical paths. Fix any bugs found.
+
+Test these exact scenarios end-to-end:
+
+1. **Parent onboarding**: Sign up with email → receive OTP → log in → land on parent dashboard.
+2. **Add child**: Parent adds child with year level 5 → username generated → student created.
+3. **Student login**: Use the generated username + password → student dashboard loads.
+4. **Assign free test**: Parent assigns Year 5 Benchmark to child → appears on student dashboard.
+5. **Take test (adaptive)**: Student starts test → questions adapt per section → timer runs → flag a question → navigate via palette → review screen shows all questions.
+6. **Submit test**: Student submits → score computed out of 100 → section scores stored → redirected to report.
+7. **Parent report**: Parent views premium report → score summary, section breakdown, weak areas, full question review with explanations all render correctly.
+8. **Student report**: Student views simplified report → score + sections + question review.
+9. **Purchase paid test**: Parent goes to shop → adds product to cart → completes Stripe test checkout → entitlement created → paid test visible.
+10. **Assign + take paid test**: Parent assigns paid test → student takes it → completes → report works.
+11. **Writing pipeline**: If a test with writing exists → submit → status shows WRITING_PENDING → QStash job fires → DeepSeek evaluates → writing_evaluations row created → notification created → parent sees writing report.
+12. **CMS**: Creator creates MCQ question → creates test → submits for approval → Admin approves → test appears as published.
+13. **Password reset**: Parent resets student password → student logs in with new password.
+14. **Security**: Verify all access control regression tests pass. Verify rate limiting returns 429.
+15. **Mobile**: Run through scenarios 1–8 on a 375px viewport.
+
+For each failing scenario, document the bug and fix it before moving on.
+
+Reference: `07-implementation-plan.md` S6.4.
+
+--------------------------------------------------------------------------------
+PROMPT 38: Operational Readiness + Production Deploy
+--------------------------------------------------------------------------------
+
+Prepare for and execute the production launch.
+
+1. **Verify production environment**:
+   - All env vars set in Vercel for Production environment (use the checklist from `05-mock-tests-env-vars.md` Section 11.1).
+   - Supabase production project has: all migrations applied, RLS enabled, auth SMTP configured with SendGrid.
+   - Stripe: production keys set, webhook endpoint configured pointing to production URL, correct events selected.
+   - QStash: production signing keys set, callback URL points to production.
+   - Sentry: production DSN configured, source maps uploaded.
+   - Upstash Redis: production instance for rate limiting.
+
+2. **Backups**:
+   - Verify Supabase automatic backups are enabled on the production project.
+   - Document restore procedure in `docs/operations/backup-restore.md`.
+
+3. **Rollback plan**:
+   - Document Vercel instant rollback procedure (previous deployment).
+   - Document Supabase migration rollback approach.
+
+4. **Deploy**:
+   - Merge release branch to main.
+   - Verify Vercel production build succeeds.
+   - Run smoke tests on production:
+     a. Landing page loads.
+     b. Auth flow works (fresh signup + login).
+     c. Dashboard renders with seed data.
+     d. Stripe checkout works in live mode (use real test card if in test mode).
+   - Monitor Sentry for any errors for 24 hours.
+
+5. **Post-launch checklist** in `docs/operations/launch-checklist.md`:
+   - [ ] DNS configured (when domain is provided — currently TBD).
+   - [ ] SSL verified.
+   - [ ] All smoke tests pass.
+   - [ ] Sentry monitoring active.
+   - [ ] Supabase backups enabled.
+   - [ ] Key rotation scheduled (quarterly).
+
+Reference: `07-implementation-plan.md` S6.5 and S6.6.
+
+
+================================================================================
+POST-LAUNCH NOTES
+================================================================================
+
+After launch, these items are queued for future sprints:
+- Tutor role + class management (MVP-2).
+- Coupons system.
+- Percentile threshold activation (when cohort >= 200 attempts).
+- Advanced adaptive models beyond rule-based.
+- WebSocket notifications (replace polling).
+- Custom domain configuration (pending PM input).
+
+================================================================================
+END OF BUILD PROMPTS
+================================================================================

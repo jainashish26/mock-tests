@@ -1,0 +1,71 @@
+﻿Field Name,Mandatory Field?,Default Value,Who can add the Data to this field?,Data Type,Purpose / Description
+QuestionID,Yes,,System generated maintained by the database,Text/Integer,Unique identifier universally for each question in the bank.
+ExamID,Yes,,Test Creator,Text,Links the question to a specific exam paper (e.g. NAPLAN001).
+ExamType,Yes,,Test Creator,Text,"Category of exam: NAPLAN, Selective, Olympiad, Benchmark, Practice."
+Exam Section,Yes,,Test Creator,Text,"Section within the exam (e.g. Reading, Language Conventions, Numeracy)."
+YearLevel,Yes,,Test Creator,Integer,Australian school year the question is calibrated for (2–8).
+Subject,Yes,,Test Creator,Text,"Broad subject: English, Maths, or Reasoning."
+Topic,No,,Test Creator,Text,"Broad topic within the subject (e.g. Fractions, Punctuation)."
+SubTopic,No,,Test Creator,Text,"Granular sub-topic (e.g. Adding Unlike Fractions, Comma Splices)."
+Question Type,Yes,,Test Creator,Text,"Format: Multiple Choice, Short Answer, ReadingComprehension"
+ComprehensionText,No,,Test Creator,Long Text,Passage or stimulus text shown before comprehension questions.
+Question Text,Yes,,Test Creator,Long Text,The full text of the question presented to the student.
+Question Media,No,,Test Creator,URL,Link to an image either in jpg or png saved in the project folder QuestionMedia associated with the question.
+Correct,Yes,,Test Creator,Text,"The correct answer key (A, B, C, D, or free-text for short answer)."
+Answer A,Yes,,Test Creator,Text,The five answer options displayed to the student for multiple choice questions. If 3 options have value then display only those 3 choices. If 4 options have value then show those 4 choices.
+Answer B,Yes,,Test Creator,Text,The five answer options displayed to the student for multiple choice questions. If 3 options have value then display only those 3 choices. If 4 options have value then show those 4 choices.
+Answer C,No,,Test Creator,Text,The five answer options displayed to the student for multiple choice questions. If 3 options have value then display only those 3 choices. If 4 options have value then show those 4 choices.
+Answer D,No,,Test Creator,Text,The five answer options displayed to the student for multiple choice questions. If 3 options have value then display only those 3 choices. If 4 options have value then show those 4 choices.
+Answer E,No,,Test Creator,Text,The five answer options displayed to the student for multiple choice questions. If 3 options have value then display only those 3 choices. If 4 options have value then show those 4 choices.
+Difficulty,Yes,2,Test Creator,Integer (1–5),Manually assigned difficulty level from question author.
+DifficultyDynamic,No,,System Generated,Decimal (0–1),System-calculated difficulty score based on real student success rate. Updates over time using the formula (1-(CorrectAttempts/Total Attempts))
+DiscriminationIndex,No,,System Generated,Decimal (0–1),"Psychometric score measuring how well the question separates strong from weak students.
+
+This measures how well a question separates your strong students from your weak ones. A good question should be answered correctly by strong students and incorrectly by weak ones.
+Classic Formula (Upper/Lower 27% method — used in NAPLAN & psychometrics)
+D=Cupper−ClowernD = \frac{C_{upper} - C_{lower}}{n}D=nCupper​−Clower​​
+Where:
+
+C_upper = number of correct answers from the top 27% of students (ranked by total exam score)
+C_lower = number of correct answers from the bottom 27% of students
+n = total number of students in each group (i.e. 27% of total cohort)
+
+Step-by-step example
+Say you have 100 students who sat the exam:
+
+Rank all 100 students by their total exam score
+Take the top 27 (upper group) and bottom 27 (lower group)
+For a specific question, count how many in each group got it right:
+
+Upper group: 22 correct → C_upper = 22
+Lower group: 8 correct → C_lower = 8
+n = 27
+
+Then D = (22-8)/27 = 0.52"
+AverageTimeSeconds,No,,System Generated,Integer,"Benchmark time (seconds) to answer the question, based on aggregated student data."
+ExplanationText,No,,Test Creator,Long Text,Full worked solution shown after submission to support self-directed learning.
+ExplanationMedia,No,,Test Creator,URL,Link to a video or image explaining the worked solution.
+IsActive,Yes,1,Test Creator,Boolean,Soft-delete flag. FALSE removes the question from circulation without deleting history.
+CorrectAnswerScore,Yes,1,Test Creator,Integer,Marks awarded for this question
+SkillScore_Grammar,No,0,Test Creator,Decimal (0–1),"Weighted contribution of this question to this skill area. A single question can contribute to multiple skills (e.g. 1.0 for WordProblems, 0.5 for NumericalReasoning). This would later help in creating student report."
+SkillScore_Spelling,No,0,Test Creator,Decimal (0–1),"Weighted contribution of this question to this skill area. A single question can contribute to multiple skills (e.g. 1.0 for WordProblems, 0.5 for NumericalReasoning). This would later help in creating student report."
+SkillScore_Vocabulary,No,0,Test Creator,Decimal (0–1),"Weighted contribution of this question to this skill area. A single question can contribute to multiple skills (e.g. 1.0 for WordProblems, 0.5 for NumericalReasoning). This would later help in creating student report."
+SkillScore_Reading,No,0,Test Creator,Decimal (0–1),"Weighted contribution of this question to this skill area. A single question can contribute to multiple skills (e.g. 1.0 for WordProblems, 0.5 for NumericalReasoning). This would later help in creating student report."
+SkillScore_Writing,No,0,Test Creator,Decimal (0–1),"Weighted contribution of this question to this skill area. A single question can contribute to multiple skills (e.g. 1.0 for WordProblems, 0.5 for NumericalReasoning). This would later help in creating student report."
+SkillScore_Algebra,No,0,Test Creator,Decimal (0–1),"Weighted contribution of this question to this skill area. A single question can contribute to multiple skills (e.g. 1.0 for WordProblems, 0.5 for NumericalReasoning). This would later help in creating student report."
+SkillScore_WordProblems,No,0,Test Creator,Decimal (0–1),"Weighted contribution of this question to this skill area. A single question can contribute to multiple skills (e.g. 1.0 for WordProblems, 0.5 for NumericalReasoning). This would later help in creating student report."
+SkillScore_Geometry,No,0,Test Creator,Decimal (0–1),"Weighted contribution of this question to this skill area. A single question can contribute to multiple skills (e.g. 1.0 for WordProblems, 0.5 for NumericalReasoning). This would later help in creating student report."
+SkillScore_Statistics,No,0,Test Creator,Decimal (0–1),"Weighted contribution of this question to this skill area. A single question can contribute to multiple skills (e.g. 1.0 for WordProblems, 0.5 for NumericalReasoning). This would later help in creating student report."
+SkillScore_MentalMaths,No,0,Test Creator,Decimal (0–1),"Weighted contribution of this question to this skill area. A single question can contribute to multiple skills (e.g. 1.0 for WordProblems, 0.5 for NumericalReasoning). This would later help in creating student report."
+SkillScore_ProblemSolving,No,0,Test Creator,Decimal (0–1),"Weighted contribution of this question to this skill area. A single question can contribute to multiple skills (e.g. 1.0 for WordProblems, 0.5 for NumericalReasoning). This would later help in creating student report."
+SkillScore_NumericalReasoning,No,0,Test Creator,Decimal (0–1),"Weighted contribution of this question to this skill area. A single question can contribute to multiple skills (e.g. 1.0 for WordProblems, 0.5 for NumericalReasoning). This would later help in creating student report."
+SkillScore_VerbalReasoning,No,0,Test Creator,Decimal (0–1),"Weighted contribution of this question to this skill area. A single question can contribute to multiple skills (e.g. 1.0 for WordProblems, 0.5 for NumericalReasoning). This would later help in creating student report."
+SkillScore_LogicalReasoning,No,0,Test Creator,Decimal (0–1),"Weighted contribution of this question to this skill area. A single question can contribute to multiple skills (e.g. 1.0 for WordProblems, 0.5 for NumericalReasoning). This would later help in creating student report."
+SkillScore_CriticalThinking,No,0,Test Creator,Decimal (0–1),"Weighted contribution of this question to this skill area. A single question can contribute to multiple skills (e.g. 1.0 for WordProblems, 0.5 for NumericalReasoning). This would later help in creating student report."
+TotalAttempts,No,,System Generated,Integer,Total number of times this question has been attempted across all students.
+CorrectAttempts,No,,System Generated,Integer,Number of times this question has been answered correctly.
+SuccessRate,No,,System Generated,Decimal (0–1),Ratio of correct to total attempts. Auto-calculated: CorrectAttempts / TotalAttempts.
+AvgTimeTakenSeconds,No,,System Generated,Integer,"Real average time (seconds) students spend on this question, updated continuously."
+MostCommonWrongAnswer,No,,System Generated,Text,The distractor (A/B/C/D) most frequently selected incorrectly — reveals misconceptions.
+SkipRate,No,,System Generated,Decimal (0–1),Proportion of students who skip this question — may signal poor wording or confusion.
+FlagCount,No,,System Generated,Integer,Number of times students or teachers have flagged this question as unclear or incorrect.

@@ -1,0 +1,110 @@
+# =============================================
+# Mock Tests Platform — .env.example
+# Vercel + Next.js + Supabase + QStash + Stripe + SendGrid + DeepSeek
+#
+# Copy this file to .env.local for local dev (DO NOT commit secrets).
+# In Vercel, set these as Environment Variables (Development/Preview/Production).
+#
+# Conventions:
+# - NEXT_PUBLIC_* variables are safe to expose to the browser.
+# - All other variables are SERVER ONLY.
+# =============================================
+
+# ---------- Core App ----------
+APP_NAME="Mock Tests"
+APP_ENV="development"   # development | staging | production
+APP_URL="http://localhost:3000"
+NEXT_PUBLIC_APP_URL="http://localhost:3000"
+
+# Optional server-side crypto/session (recommended)
+SESSION_SECRET=""
+APP_ENCRYPTION_KEY=""
+CSRF_SECRET=""
+
+# Feature flags (optional)
+FF_PERCENTILES_ENABLED="false"
+FF_LEADERBOARD_ENABLED="false"
+
+# ---------- Supabase ----------
+NEXT_PUBLIC_SUPABASE_URL=""
+NEXT_PUBLIC_SUPABASE_ANON_KEY=""
+
+# Service role bypasses RLS — SERVER ONLY
+SUPABASE_SERVICE_ROLE_KEY=""
+
+# Database URL (optional for Vercel runtime; useful for scripts/CI)
+DATABASE_URL=""
+DATABASE_URL_NON_POOLING=""
+
+# NOTE: Supabase Auth SMTP is configured in Supabase Dashboard:
+# Auth -> SMTP Settings (SendGrid SMTP)
+# SMTP_HOST=smtp.sendgrid.net
+# SMTP_PORT=587
+# SMTP_USER=apikey
+# SMTP_PASS=<SENDGRID_API_KEY>
+# SMTP_SENDER_NAME=Mock Tests
+# SMTP_SENDER_EMAIL=no-reply@yourdomain.com
+
+# ---------- Upstash QStash ----------
+QSTASH_TOKEN=""
+QSTASH_CURRENT_SIGNING_KEY=""
+QSTASH_NEXT_SIGNING_KEY=""
+
+QSTASH_BASE_CALLBACK_URL="http://localhost:3000"
+QSTASH_WRITING_EVAL_ENDPOINT="http://localhost:3000/api/jobs/writing-eval"
+QSTASH_ANALYTICS_ROLLUP_ENDPOINT="http://localhost:3000/api/jobs/analytics-rollup"
+
+QSTASH_MAX_RETRIES="5"
+QSTASH_RETRY_BACKOFF_SECONDS="60"
+
+# ---------- Stripe (One-time purchases) ----------
+STRIPE_SECRET_KEY=""
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=""
+
+# Webhook signing secret for /api/webhooks/stripe
+STRIPE_WEBHOOK_SECRET=""
+STRIPE_WEBHOOK_PATH="/api/webhooks/stripe"
+
+STRIPE_SUCCESS_URL="http://localhost:3000/checkout/success"
+STRIPE_CANCEL_URL="http://localhost:3000/checkout/cancel"
+STRIPE_DEFAULT_CURRENCY="AUD"
+
+# ---------- SendGrid (Optional direct email from app) ----------
+# You are using SendGrid SMTP via Supabase Auth. These are ONLY needed
+# if your app sends additional emails directly.
+SENDGRID_API_KEY=""
+SENDGRID_FROM_EMAIL=""
+SENDGRID_FROM_NAME=""
+
+# ---------- DeepSeek (Writing marking) ----------
+DEEPSEEK_API_KEY=""
+DEEPSEEK_MODEL=""               # optional
+DEEPSEEK_TIMEOUT_SECONDS="30"    # optional
+
+WRITING_RUBRIC_PROMPT_VERSION="v1.0"
+WRITING_RUBRIC_CONFIG_JSON=""    # optional JSON string
+
+# ---------- Rate limiting (Recommended) ----------
+# Use Upstash Redis for per-IP / per-user rate limits.
+UPSTASH_REDIS_REST_URL=""
+UPSTASH_REDIS_REST_TOKEN=""
+
+RATE_LIMIT_WINDOW_SECONDS="60"
+RATE_LIMIT_MAX_REQUESTS="30"
+
+# ---------- Observability (Recommended) ----------
+SENTRY_DSN=""
+SENTRY_AUTH_TOKEN=""
+SENTRY_ORG=""
+SENTRY_PROJECT=""
+
+LOG_LEVEL="info"                 # debug|info|warn|error
+LOG_FORMAT="json"                # json|pretty
+
+# ---------- Analytics / Telemetry (Optional) ----------
+NEXT_PUBLIC_ANALYTICS_ID=""
+ANALYTICS_WRITE_KEY=""
+
+# ---------- Supabase Storage (Optional) ----------
+SUPABASE_STORAGE_BUCKET="question-images"
+NEXT_PUBLIC_SUPABASE_STORAGE_BUCKET="question-images"
