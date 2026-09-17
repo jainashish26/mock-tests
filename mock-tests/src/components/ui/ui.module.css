@@ -95,7 +95,11 @@
   transition: all var(--transition-fast);
   cursor: pointer;
   border: 1px solid transparent;
-  outline: none;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
 .button:disabled {
@@ -106,6 +110,8 @@
 .button-default {
   background-color: var(--color-primary);
   color: white;
+  height: 2.5rem;
+  padding: 0 var(--space-4);
 }
 
 .button-default:hover {
@@ -144,14 +150,9 @@
 }
 
 .button-sm {
-  height: 2rem;
+  min-height: 2.75rem;
   padding: 0 var(--space-3);
   font-size: var(--text-xs);
-}
-
-.button-default {
-  height: 2.5rem;
-  padding: 0 var(--space-4);
 }
 
 .button-lg {

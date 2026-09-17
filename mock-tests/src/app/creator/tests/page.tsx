@@ -32,7 +32,7 @@ export default async function MyTestsPage() {
             </div>
           </div>
           <Link href="/creator/tests/new">
-            <Button className="flex items-center gap-2"><Plus size={18} /> Create New Exam</Button>
+            <Button className="inline-flex items-center gap-2"><Plus size={18} /> Create New Exam</Button>
           </Link>
         </div>
 

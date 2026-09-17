@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { BookOpen, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { motion, AnimatePresence } from "framer-motion";
-import styles from "./Layout.module.css";
 
 interface HeaderProps {
   scrolled?: number;
@@ -26,12 +25,11 @@ export function Header() {
   }, []);
 
   const blurAmount = scrolled * 12;
-  const opacity = 0.7 + scrolled * 0.3;
 
   return (
     <>
       <header 
-        className={styles.header}
+        className="fixed top-0 left-0 right-0 h-18 flex items-center justify-between px-6 lg:px-16 z-[1000] transition-all duration-250"
         style={{
           backdropFilter: `blur(${blurAmount}px) saturate(${1 + scrolled * 0.5})`,
           WebkitBackdropFilter: `blur(${blurAmount}px) saturate(${1 + scrolled * 0.5})`,
@@ -40,29 +38,29 @@ export function Header() {
           boxShadow: scrolled > 0 ? `0 4px ${6 + scrolled * 10}px -1px rgba(0, 0, 0, ${scrolled * 0.1})` : 'none',
         }}
       >
-        <div className={styles.headerGlow} style={{ opacity: scrolled }} />
-        <Link href="/" className={styles.logoContainer}>
+        <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent transition-opacity duration-300" style={{ opacity: scrolled }} />
+        <Link href="/" className="flex items-center gap-3 no-underline text-foreground z-10">
           <div 
-            className={styles.logoIcon}
+            className="w-10 h-10 bg-primary text-white rounded-md flex items-center justify-center transition-all duration-250"
             style={{ 
               transform: `scale(${1 - scrolled * 0.1})`,
               boxShadow: `0 ${4 + scrolled * 4}px ${8 + scrolled * 8}px -2px rgba(25, 75, 251, ${0.3 + scrolled * 0.2})`
             }}
           ><BookOpen size={20} /></div>
-          <span className={styles.logoText}>MockTests Pro</span>
+          <span className="text-xl font-extrabold">MockTests Pro</span>
         </Link>
-        <nav className={styles.navLinks}>
-          <Link href="/features" className={styles.navLink}>Features</Link>
-          <Link href="/tests" className={styles.navLink}>Paid Tests</Link>
-          <Link href="/free" className={styles.navLink}>Free Tests</Link>
-          <Link href="/about" className={styles.navLink}>About Us</Link>
-          <Link href="/blog" className={styles.navLink}>Blog</Link>
+        <nav className="hidden lg:flex gap-12 absolute left-1/2 -translate-x-1/2 z-5">
+          <Link href="/features" className="no-underline text-muted-foreground font-semibold text-[0.9375rem] transition-all duration-150 relative hover:text-primary">Features</Link>
+          <Link href="/tests" className="no-underline text-muted-foreground font-semibold text-[0.9375rem] transition-all duration-150 relative hover:text-primary">Paid Tests</Link>
+          <Link href="/free" className="no-underline text-muted-foreground font-semibold text-[0.9375rem] transition-all duration-150 relative hover:text-primary">Free Tests</Link>
+          <Link href="/about" className="no-underline text-muted-foreground font-semibold text-[0.9375rem] transition-all duration-150 relative hover:text-primary">About Us</Link>
+          <Link href="/blog" className="no-underline text-muted-foreground font-semibold text-[0.9375rem] transition-all duration-150 relative hover:text-primary">Blog</Link>
         </nav>
-        <div className={styles.authButtons}>
+        <div className="hidden lg:flex items-center gap-4 z-10">
           <Link href="/auth/login"><Button variant="ghost">Log In</Button></Link>
           <Link href="/auth/signup">
             <Button 
-              className={styles.signUpBtn}
+              className="font-bold px-6"
               style={{
                 boxShadow: `0 ${2 + scrolled * 4}px ${4 + scrolled * 8}px -1px rgba(25, 75, 251, ${0.2 + scrolled * 0.2})`
               }}
@@ -72,7 +70,7 @@ export function Header() {
         
         <Button 
           variant="ghost" 
-          className={styles.mobileMenuToggle}
+          className="flex lg:hidden z-10"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -85,15 +83,15 @@ export function Header() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className={styles.mobileMenu}
+            className="fixed top-18 left-0 right-0 bg-white p-6 z-[999] shadow-lg border-t border-border lg:hidden"
           >
-            <nav className={styles.mobileNav}>
-              <Link href="/features" onClick={() => setMobileMenuOpen(false)}>Features</Link>
-              <Link href="/tests" onClick={() => setMobileMenuOpen(false)}>Paid Tests</Link>
-              <Link href="/free" onClick={() => setMobileMenuOpen(false)}>Free Tests</Link>
-              <Link href="/about" onClick={() => setMobileMenuOpen(false)}>About Us</Link>
-              <Link href="/blog" onClick={() => setMobileMenuOpen(false)}>Blog</Link>
-              <div className={styles.mobileAuth}>
+            <nav className="flex flex-col gap-4">
+              <Link href="/features" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-foreground no-underline py-2">Features</Link>
+              <Link href="/tests" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-foreground no-underline py-2">Paid Tests</Link>
+              <Link href="/free" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-foreground no-underline py-2">Free Tests</Link>
+              <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-foreground no-underline py-2">About Us</Link>
+              <Link href="/blog" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-foreground no-underline py-2">Blog</Link>
+              <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-border">
                 <Link href="/auth/login" className="w-full"><Button variant="outline" className="w-full">Log In</Button></Link>
                 <Link href="/auth/signup" className="w-full"><Button className="w-full">Sign Up</Button></Link>
               </div>

@@ -82,7 +82,7 @@ export default function UploadQuestionsPage() {
               </div>
             </div>
             <a href="/question_template.csv" download>
-              <Button variant="outline" size="sm" className="flex items-center gap-2">
+              <Button variant="outline" size="sm" className="inline-flex items-center gap-2">
                 <Download size={16} /> Download CSV Template
               </Button>
             </a>

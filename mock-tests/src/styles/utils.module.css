@@ -1,0 +1,91 @@
+/* Utility classes to replace dead Tailwind utilities */
+/* These are CSS Module scoped utilities for consistent spacing/layout */
+
+/* Icon spacing */
+.u-mr1 { margin-right: 0.25rem; }
+.u-mr2 { margin-right: 0.5rem; }
+.u-ml1 { margin-left: 0.25rem; }
+
+/* Flex row with center alignment and gap */
+.u-row-gap2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.u-row-gap3 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Full width */
+.u-full { width: 100%; }
+
+/* Full width button with space-between (for "Start Free Practice" style buttons) */
+.u-btn-full-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Arrow that slides right on parent hover */
+.u-arrow-hover {
+  transition: transform var(--transition-fast);
+}
+
+.u-btn-full-row:hover .u-arrow-hover,
+.u-btn-full-row:focus-visible .u-arrow-hover {
+  transform: translateX(0.25rem);
+}
+
+/* Inline icon with margin */
+.u-inline-mr1 {
+  display: inline;
+  vertical-align: middle;
+  margin-right: 0.25rem;
+}
+
+.u-inline-mr2 {
+  display: inline;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+
+/* Bounce animation */
+@keyframes u-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.u-bounce {
+  animation: u-bounce 1s ease-in-out infinite;
+}
+
+/* Summary element (for <details>) */
+.u-summary {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+  cursor: pointer;
+}
+
+.u-summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Warning text color (replaces text-yellow-500) */
+.u-text-warning {
+  color: var(--color-warning);
+}
+
+/* Reduced motion: disable animations */
+@media (prefers-reduced-motion: reduce) {
+  .u-bounce,
+  .u-arrow-hover {
+    animation: none;
+    transition: none;
+  }
+}

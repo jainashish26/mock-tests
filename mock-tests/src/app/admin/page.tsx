@@ -28,7 +28,7 @@ export default async function AdminDashboard() {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem', marginBottom: '3rem' }}>
         <SpatialCard intensity={5}>
             <div style={{ padding: '2rem', display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-                <div style={{ width: '3.5rem', height: '3.5rem', background: 'var(--color-primary-light)', color: 'var(--color-primary)', borderRadius: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div style={{ width: '3.5rem', height: '3.5rem', background: 'var(--color-primary-light)', color: 'var(--primary)', borderRadius: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <ClipboardCheck size={24} />
                 </div>
                 <div>
@@ -54,7 +54,7 @@ export default async function AdminDashboard() {
         <section>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
             <h2 style={{ fontSize: '1.25rem', fontWeight: 800, margin: 0 }}>Review Queue: Tests</h2>
-            <Link href="/admin/review/tests" style={{ fontSize: '0.8125rem', color: 'var(--color-primary)', display: 'flex', alignItems: 'center' }}>View all <ArrowRight size={14} className="ml-1" /></Link>
+            <Link href="/admin/review/tests" style={{ fontSize: '0.8125rem', color: 'var(--primary)', display: 'flex', alignItems: 'center' }}>View all <ArrowRight size={14} className="ml-1" /></Link>
           </div>
           
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -63,7 +63,7 @@ export default async function AdminDashboard() {
                 <SpatialCard key={t.id} intensity={2}>
                     <div style={{ padding: '1.25rem 1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                          <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-                            <FileText size={20} style={{ color: 'var(--color-primary)' }} />
+                            <FileText size={20} style={{ color: 'var(--primary)' }} />
                             <div>
                                 <div style={{ fontWeight: 700, fontSize: '0.9375rem' }}>{t.title}</div>
                                 <div style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)' }}>{t.exam_type}</div>

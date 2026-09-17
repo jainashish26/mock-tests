@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { PublicLayout } from "@/components/layout/PublicLayout";
 import { Badge } from "@/components/ui/Badge";
-import styles from "@/app/page.module.css";
 import { SpatialCard } from "@/components/ui/SpatialCard";
 import { Zap, Sparkles, BookOpen, Clock, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
@@ -15,26 +14,26 @@ export default function FreeTestsPage() {
 
   return (
     <PublicLayout>
-      <section className={styles.section} style={{ paddingTop: '8rem' }}>
-        <div className={styles.sectionHeader}>
+      <section className="py-24 px-6" style={{ paddingTop: '8rem' }}>
+        <div className="max-w-3xl mx-auto text-center mb-16">
           <Badge variant="secondary">Free Resources</Badge>
-          <h1 className={styles.sectionTitle}>Start practicing for free</h1>
-          <p className={styles.sectionSubtitle}>No credit card required. Experience the power of AI-driven mock testing today.</p>
+          <h1 className="text-3xl md:text-[2.5rem] font-bold text-foreground tracking-tight mt-4 mb-4">Start practicing for free</h1>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">No credit card required. Experience the power of AI-driven mock testing today.</p>
         </div>
         
-        <div className={styles.resourcesGrid} style={{ marginTop: '4rem' }}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto" style={{ marginTop: '4rem' }}>
           {freeTests.map((resource, index) => (
             <SpatialCard key={index} intensity={8}>
-              <div className={styles.testItem} style={{ padding: '2rem' }}>
-                <div className={styles.resourceIcon} style={{ background: resource.color + '15', color: resource.color }}>
+              <div className="bg-card rounded-lg border border-border p-8 transition-all duration-300">
+                <div className="w-14 h-14 rounded-md flex items-center justify-center mb-6" style={{ background: resource.color + '15', color: resource.color }}>
                   {resource.icon}
                 </div>
-                <h3 className={styles.testTitle}>{resource.title}</h3>
-                <div className={styles.testMeta}><Clock size={12} /> {resource.time}</div>
-                <p className={styles.testDescSmall}>{resource.desc}</p>
+                <h3 className="text-lg font-bold mb-2 text-foreground">{resource.title}</h3>
+                <div className="flex items-center gap-1 text-xs text-muted-foreground mb-2"><Clock size={12} /> {resource.time}</div>
+                <p className="text-sm text-muted-foreground leading-relaxed">{resource.desc}</p>
                 <div style={{ marginTop: 'auto', paddingTop: '1.5rem' }}>
-                  <Button variant="ghost" className="w-full flex justify-between group">
-                    Start Free Practice <ArrowRight size={14} className="group-hover:translate-x-1" />
+                  <Button variant="ghost" className="w-full justify-between">
+                    Start Free Practice <ArrowRight size={14} className="ml-1 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </div>
               </div>
@@ -42,13 +41,13 @@ export default function FreeTestsPage() {
           ))}
         </div>
         
-        <div className={styles.section} style={{ marginTop: '4rem', background: 'var(--color-primary-light)', borderRadius: 'var(--radius-lg)' }}>
+        <div className="py-24 px-6" style={{ marginTop: '4rem', background: 'oklch(0.95 0.01 248)', borderRadius: 'var(--radius-lg)' }}>
           <div style={{ display: 'flex', gap: '3rem', alignItems: 'center', padding: '2rem' }}>
             <div style={{ flex: 1 }}>
-              <h2 className={styles.sectionTitle} style={{ fontSize: '1.75rem', textAlign: 'left' }}>Create an account for more free tests</h2>
-              <p className={styles.sectionSubtitle} style={{ textAlign: 'left', margin: 0 }}>Register to track your scores, see history, and unlock more diagnostic tools.</p>
+              <h2 className="text-3xl md:text-[2.5rem] font-bold text-foreground tracking-tight mt-4 mb-4" style={{ fontSize: '1.75rem', textAlign: 'left' }}>Create an account for more free tests</h2>
+              <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed" style={{ textAlign: 'left', margin: 0 }}>Register to track your scores, see history, and unlock more diagnostic tools.</p>
             </div>
-            <Link href="/auth/signup"><Button className={styles.signUpBtn} style={{ height: '3.5rem', fontSize: '1.125rem' }}>Sign Up Free</Button></Link>
+            <Link href="/auth/signup"><Button style={{ height: '3.5rem', fontSize: '1.125rem' }}>Sign Up Free</Button></Link>
           </div>
         </div>
       </section>

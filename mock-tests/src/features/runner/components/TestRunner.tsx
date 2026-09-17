@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import { Flag, Accessibility, Moon, Sun, Monitor, Save, Cloud, CloudOff } from 'lucide-react'
 import styles from './TestRunner.module.css'
+import utils from '@/styles/utils.module.css'
 
 type Theme = 'light' | 'dark' | 'high-contrast'
 type FontSize = 'small' | 'medium' | 'large'
@@ -224,8 +225,8 @@ export function TestRunner({ attemptId, timeLimitMins, initialQuestions }: { att
 
   return (
     <div className={styles.runnerContainer} data-theme={theme} data-font-size={fontSize}>
-      {!isOnline && <div className={styles.offlineBanner} role="alert"><CloudOff size={16} className="inline mr-2"/> Offline Mode: Answers are saving to your device automatically.</div>}
-      {isOnline && syncQueue.length > 0 && <div className={styles.syncingBanner} role="status"><Cloud size={16} className="inline mr-2 animate-bounce"/> Back online! Syncing responses...</div>}
+      {!isOnline && <div className={styles.offlineBanner} role="alert"><CloudOff size={16} className={utils['u-inline-mr2']}/> Offline Mode: Answers are saving to your device automatically.</div>}
+      {isOnline && syncQueue.length > 0 && <div className={styles.syncingBanner} role="status"><Cloud size={16} className={`${utils['u-inline-mr2']} ${utils['u-bounce']}`}/> Back online! Syncing responses...</div>}
       
       {/* Header */}
       <header className={styles.header}>
@@ -244,16 +245,16 @@ export function TestRunner({ attemptId, timeLimitMins, initialQuestions }: { att
       {/* Settings Toolbar */}
       <div className={styles.toolbar} role="toolbar" aria-label="Accessibility Settings">
         <button className={styles.toolBtn} onClick={() => setFontSize(f => f==='small'?'medium':f==='medium'?'large':'small')} aria-label="Toggle Font Size">
-          <Accessibility size={14} className="inline mr-1" /> Size: {fontSize.toUpperCase()}
+          <Accessibility size={14} className={utils['u-inline-mr1']} /> Size: {fontSize.toUpperCase()}
         </button>
         <button className={styles.toolBtn} onClick={() => setTheme('light')} aria-pressed={theme === 'light'}>
-          <Sun size={14} className="inline mr-1" /> Light
+          <Sun size={14} className={utils['u-inline-mr1']} /> Light
         </button>
         <button className={styles.toolBtn} onClick={() => setTheme('dark')} aria-pressed={theme === 'dark'}>
-          <Moon size={14} className="inline mr-1" /> Dark
+          <Moon size={14} className={utils['u-inline-mr1']} /> Dark
         </button>
         <button className={styles.toolBtn} onClick={() => setTheme('high-contrast')} aria-pressed={theme === 'high-contrast'}>
-          <Monitor size={14} className="inline mr-1" /> High Contrast
+          <Monitor size={14} className={utils['u-inline-mr1']} /> High Contrast
         </button>
       </div>
 
@@ -268,7 +269,7 @@ export function TestRunner({ attemptId, timeLimitMins, initialQuestions }: { att
               style={{ color: flags[currentQ.id] ? 'var(--color-warning)' : 'inherit', borderColor: flags[currentQ.id] ? 'var(--color-warning)' : 'inherit' }}
               aria-pressed={flags[currentQ.id]}
             >
-              <Flag size={14} className="inline mr-1" />
+              <Flag size={14} className={utils['u-inline-mr1']} />
               {flags[currentQ.id] ? 'Flagged' : 'Flag for review'} (F)
             </button>
           </div>

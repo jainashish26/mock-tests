@@ -6,7 +6,6 @@ import { SpatialCard } from "@/components/ui/SpatialCard"
 import { Badge } from "@/components/ui/Badge"
 import { Button } from "@/components/ui/Button"
 import { Plus, BookOpen, MessageSquare, ArrowRight, FileEdit, Clock, Upload } from "lucide-react"
-import styles from "@/app/page.module.css"
 
 export default async function CreatorDashboard() {
   const { user } = await requireRole(['TEST_CREATOR'])

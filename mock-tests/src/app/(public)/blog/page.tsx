@@ -2,163 +2,204 @@
 
 import { useState, useMemo } from 'react';
 import { PublicLayout } from "@/components/layout/PublicLayout";
-import { Badge } from "@/components/ui/Badge";
-import styles from "@/app/page.module.css";
-import { BookOpen, ChevronRight, Search, Tag, Calendar, User } from "lucide-react";
-import { SpatialCard } from "@/components/ui/SpatialCard";
-import { Button } from "@/components/ui/Button";
+import { BookOpen, ChevronRight, Search, Calendar } from "lucide-react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import styles from "./blog.module.css";
 import { BLOG_POSTS, BlogPost } from "@/data/blog-posts";
-
 
 export default function BlogPage() {
   const [searchQuery, setSearchQuery] = useState('');
 
   const filteredPosts = useMemo(() => {
-    if (!searchQuery.trim()) return [];
-    const query = searchQuery.toLowerCase().trim();
-    return BLOG_POSTS.filter(post => 
-      post.title.toLowerCase().includes(query) || 
-      post.excerpt.toLowerCase().includes(query) ||
-      post.tags.some(tag => tag.toLowerCase().includes(query))
-    );
+    let posts = BLOG_POSTS;
+    
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase().trim();
+      posts = posts.filter(post => 
+        post.title.toLowerCase().includes(query) || 
+        post.excerpt.toLowerCase().includes(query) ||
+        post.tags.some(tag => tag.toLowerCase().includes(query))
+      );
+    }
+    
+    return posts;
   }, [searchQuery]);
 
-  const latestPosts = useMemo(() => {
-    // Already sorted Descending in the data layer
-    return BLOG_POSTS;
-  }, []);
-
-  const uniqueCategories = useMemo(() => {
-    const rawTags = new Set<string>();
-    BLOG_POSTS.forEach(post => {
-      if (post.tags) {
-        post.tags.forEach(tag => rawTags.add(tag));
-      }
-    });
-    return Array.from(rawTags).sort();
-  }, []);
-
-  const getPostsByTag = (tag: string) => {
-    return BLOG_POSTS.filter(post => post.tags && post.tags.includes(tag));
-  };
-
-  const renderPostCard = (post: BlogPost, showTags = true) => (
-    <SpatialCard key={post.id} intensity={8}>
-      <div className={styles.blogCard}>
-        <Link href={`/blog/${post.slug}`} style={{ display: 'block' }}>
-          <div className={styles.blogImageContainer}>
-            <Image src={post.image} alt={post.imageAlt || post.title} width={400} height={200} className={styles.blogThumb} />
-            {showTags && (
-              <div style={{ position: 'absolute', top: '0.75rem', left: '0.75rem', display: 'flex', gap: '0.25rem', flexWrap: 'wrap' }}>
-                {post.tags.slice(0, 2).map((tag, i) => (
-                  <Badge key={i} variant="outline" style={{ background: 'rgba(255,255,255,0.9)', color: 'var(--color-primary)', fontSize: '0.625rem', border: 'none' }}>{tag}</Badge>
-                ))}
-              </div>
-            )}
-          </div>
-        </Link>
-        <div className={styles.blogBody}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.75rem', color: 'var(--color-text-muted)', marginBottom: '0.25rem' }}>
-            <Calendar size={12} />
-            <span>{post.date}</span>
-          </div>
-          <Link href={`/blog/${post.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-            <h3 className={styles.blogTitle}>{post.title}</h3>
-          </Link>
-          <p className={styles.blogExcerpt}>{post.excerpt}</p>
-          <Link href={`/blog/${post.slug}`} style={{ marginTop: 'auto' }}>
-            <Button variant="ghost" size="sm" className={styles.blogMoreBtn}>
-              Read More <ChevronRight size={14} className="ml-1" />
-            </Button>
-          </Link>
-        </div>
-      </div>
-    </SpatialCard>
-  );
+  const featuredPost = BLOG_POSTS[0];
+  const regularPosts = filteredPosts.slice(1);
 
   return (
     <PublicLayout>
-      <section className={styles.section} style={{ paddingTop: '8rem' }}>
-        <div className={styles.sectionHeader}>
-          <Badge variant="secondary"><BookOpen size={12} className="mr-1" />Knowledge Hub</Badge>
-          <h1 className={styles.sectionTitle}>Helpful Resources & Articles</h1>
-          <p className={styles.sectionSubtitle}>Expert advice on NAPLAN, Selective entry, scholarship exams, and boosting academic performance.</p>
+      <div className={styles.pageContainer}>
+        {/* --- HERO --- */}
+        <section className={styles.hero}>
+          <div className={styles.heroBlob1} aria-hidden="true" />
+          <div className={styles.heroBlob2} aria-hidden="true" />
           
-          <div style={{ position: 'relative', width: '100%', maxWidth: '600px', margin: '2rem auto 0' }}>
-            <Search size={20} style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--color-text-muted)' }} />
-            <input 
-              type="text" 
-              placeholder="Search for articles, topics or tags..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              style={{
-                width: '100%',
-                padding: '1rem 1rem 1rem 3rem',
-                borderRadius: 'var(--radius-lg)',
-                border: '1px solid var(--color-border)',
-                background: 'var(--color-surface)',
-                boxShadow: 'var(--shadow-md)',
-                fontSize: '1rem',
-                outline: 'none',
-                transition: 'all 0.2s'
-              }}
-            />
-          </div>
-        </div>
-
-        {/* SEARCH RESULTS */}
-        {searchQuery.trim() !== '' && (
-          <div style={{ marginBottom: '4rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.5rem' }}>
-              <Tag size={18} color="var(--color-primary)" />
-              <h2 style={{ fontSize: '1.5rem', fontWeight: 800 }}>Search Results for "{searchQuery}"</h2>
-              <Badge variant="secondary" style={{ marginLeft: 'auto' }}>{filteredPosts.length} matches</Badge>
+          <motion.div 
+            className={styles.heroContent}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className={styles.heroBadge}>
+              <BookOpen size={14} />
+              Insights & Resources
             </div>
+            <h1 className={styles.heroTitle}>
+              Explore our <span className={styles.heroTitleAccent}>latest articles</span>
+            </h1>
+            <p className={styles.heroSubtitle}>
+              Expert tips, study guides, and insights to help your child succeed in exams.
+            </p>
+            
+            <div className={styles.searchWrapper}>
+              <Search size={20} className={styles.searchIcon} />
+              <input 
+                type="text" 
+                placeholder="Search for articles, topics or tags..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className={styles.searchInput}
+              />
+            </div>
+          </motion.div>
+        </section>
+
+        {/* --- SEARCH RESULTS --- */}
+        {searchQuery.trim() && (
+          <section className={styles.searchResults}>
+            <div className={styles.searchResultsHeader}>
+              <Search size={20} color="#6366f1" />
+              <h2 className={styles.searchResultsTitle}>Search Results for "{searchQuery}"</h2>
+              <span className={styles.searchResultsCount}>{filteredPosts.length} matches</span>
+            </div>
+            
             {filteredPosts.length > 0 ? (
-              <div className={styles.blogGrid}>
-                {filteredPosts.map(post => renderPostCard(post))}
+              <div className={styles.postsGrid}>
+                {filteredPosts.map((post, index) => (
+                  <PostCard key={post.id} post={post} index={index} />
+                ))}
               </div>
             ) : (
-              <p style={{ textAlign: 'center', padding: '3rem', color: 'var(--color-text-muted)' }}>No articles found matching your search. Try a different keyword.</p>
+              <div className={styles.noResults}>
+                <div className={styles.noResultsIcon}>
+                  <Search size={32} />
+                </div>
+                <h3 className={styles.noResultsTitle}>No articles found</h3>
+                <p className={styles.noResultsText}>Try a different keyword or browse by category.</p>
+              </div>
             )}
-            <hr style={{ margin: '4rem 0', opacity: 0.1 }} />
-          </div>
+          </section>
         )}
 
-        {/* LATEST ARTICLES */}
-        <div style={{ marginBottom: '4rem' }}>
-          <h2 style={{ fontSize: '1.75rem', fontWeight: 800, marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            Latest Insights
-            <span style={{ fontSize: '1rem', color: 'var(--color-primary)', fontWeight: 600, marginLeft: 'auto' }}>View All</span>
-          </h2>
-          <div className={styles.blogGrid}>
-            {latestPosts.slice(0, 3).map(post => renderPostCard(post))}
+        {/* --- FEATURED POST --- */}
+        {!searchQuery.trim() && featuredPost && (
+          <section className={styles.featuredSection}>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+            >
+              <Link href={`/blog/${featuredPost.slug}`} className={styles.featuredCard}>
+                <div className={styles.featuredImage}>
+                  <Image 
+                    src={featuredPost.image} 
+                    alt={featuredPost.imageAlt || featuredPost.title} 
+                    width={800} 
+                    height={500}
+                    priority
+                  />
+                </div>
+                <div className={styles.featuredContent}>
+                  <div className={styles.featuredMeta}>
+                    {featuredPost.tags && featuredPost.tags[0] && (
+                      <span className={styles.featuredTag}>{featuredPost.tags[0]}</span>
+                    )}
+                    <span className={styles.featuredMetaItem}>
+                      <Calendar size={14} />
+                      {featuredPost.date}
+                    </span>
+                  </div>
+                  <h2 className={styles.featuredTitle}>{featuredPost.title}</h2>
+                  <p className={styles.featuredExcerpt}>{featuredPost.excerpt}</p>
+                  <span className={styles.featuredReadMore}>
+                    Read Article <ChevronRight size={16} />
+                  </span>
+                </div>
+              </Link>
+            </motion.div>
+          </section>
+        )}
+
+        {/* --- POSTS GRID --- */}
+        {!searchQuery.trim() && regularPosts.length > 0 && (
+          <section className={styles.postsSection}>
+            <div className={styles.postsHeader}>
+              <h2 className={styles.postsTitle}>
+                <BookOpen size={20} color="#6366f1" />
+                More Articles
+              </h2>
+              <span className={styles.postsCount}>{regularPosts.length} articles</span>
+            </div>
+            
+            <div className={styles.postsGrid}>
+              {regularPosts.map((post, index) => (
+                <PostCard key={post.id} post={post} index={index} />
+              ))}
+            </div>
+          </section>
+        )}
+      </div>
+    </PublicLayout>
+  );
+}
+
+function PostCard({ post, index }: { post: BlogPost; index: number }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+    >
+      <Link href={`/blog/${post.slug}`} className={styles.postCard}>
+        <div className={styles.postCardImage}>
+          <Image 
+            src={post.image} 
+            alt={post.imageAlt || post.title} 
+            width={400} 
+            height={250}
+          />
+          {post.tags && post.tags.length > 0 && (
+            <div className={styles.postCardTags}>
+              {post.tags.slice(0, 2).map((tag, i) => (
+                <span key={i} className={styles.postCardTag}>{tag}</span>
+              ))}
+            </div>
+          )}
+        </div>
+        <div className={styles.postCardBody}>
+          <div className={styles.postCardMeta}>
+            <Calendar size={14} />
+            {post.date}
+          </div>
+          <h3 className={styles.postCardTitle}>{post.title}</h3>
+          <p className={styles.postCardExcerpt}>{post.excerpt}</p>
+          <div className={styles.postCardFooter}>
+            <div className={styles.postCardAuthor}>
+              <div className={styles.postCardAuthorAvatar}>
+                {post.author.name.charAt(0)}
+              </div>
+              <span className={styles.postCardAuthorName}>{post.author.name}</span>
+            </div>
+            <span className={styles.postCardReadMore}>
+              Read <ChevronRight size={14} />
+            </span>
           </div>
         </div>
-
-        {/* ALL CATEGORIZED SECTIONS DYNAMICALLY */}
-        {uniqueCategories.map((cat, index) => {
-          const catPosts = getPostsByTag(cat);
-          if (catPosts.length === 0) return null;
-          
-          return (
-            <div key={index} style={{ marginBottom: '4rem', padding: '2rem', background: 'var(--color-surface)', borderRadius: 'var(--radius-lg)' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
-                <Tag size={24} color="var(--color-primary)" />
-                <h2 style={{ fontSize: '2rem', fontWeight: 800, margin: 0, textTransform: 'capitalize' }}>
-                  {cat.replace(/_/g, ' ')}
-                </h2>
-                <Badge variant="secondary" style={{ marginLeft: 'auto' }}>{catPosts.length} Articles</Badge>
-              </div>
-              <div className={styles.blogGrid}>
-                {catPosts.map(post => renderPostCard(post, false))}
-              </div>
-            </div>
-          );
-        })}
-      </section>
-    </PublicLayout>
+      </Link>
+    </motion.div>
   );
 }

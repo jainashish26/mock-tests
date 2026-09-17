@@ -1,6 +1,5 @@
 import { PublicLayout } from "@/components/layout/PublicLayout";
 import { Badge } from "@/components/ui/Badge";
-import styles from "@/app/page.module.css";
 import { SpatialCard } from "@/components/ui/SpatialCard";
 import { Clock, Star, ArrowRight, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/Button";
@@ -16,33 +15,33 @@ export default function TestsPage() {
 
   return (
     <PublicLayout>
-      <section className={styles.section} style={{ paddingTop: '8rem' }}>
-        <div className={styles.sectionHeader}>
+      <section className="py-24 px-6" style={{ paddingTop: '8rem' }}>
+        <div className="max-w-3xl mx-auto text-center mb-16">
           <Badge variant="secondary"><BookOpen size={12} className="mr-1" />Premium Assessments</Badge>
-          <h1 className={styles.sectionTitle}>Prepare with the best</h1>
-          <p className={styles.sectionSubtitle}>Purchase individual packs or a full subscription for comprehensive success.</p>
+          <h1 className="text-3xl md:text-[2.5rem] font-bold text-foreground tracking-tight mt-4 mb-4">Prepare with the best</h1>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">Purchase individual packs or a full subscription for comprehensive success.</p>
         </div>
         
-        <div className={styles.testGrid} style={{ marginTop: '4rem' }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto" style={{ marginTop: '4rem' }}>
           {tests.map((test, index) => (
             <SpatialCard key={index} intensity={5}>
-              <div className={styles.testItem}>
-                <div className={styles.testImageContainer}>
-                  <Image src={test.image} alt={test.title} width={400} height={200} className={styles.testThumb} />
-                  <div className={styles.testBadgeOverlay}>
-                    <Badge className={styles.glassBadge}>{test.type}</Badge>
+              <div className="bg-card rounded-lg border border-border text-left transition-all duration-300">
+                <div className="relative aspect-[2/1] overflow-hidden rounded-t-lg">
+                  <Image src={test.image} alt={test.title} width={400} height={200} className="h-full w-full object-cover" />
+                  <div className="absolute top-3 left-3 flex gap-1 flex-wrap">
+                    <Badge className="bg-white/90">{test.type}</Badge>
                   </div>
-                  <div className={styles.testPremiumBadge}>
+                  <div className="absolute top-3 right-3">
                     <Badge variant="warning"><Star size={10} fill="white" className="mr-1" /> Premium</Badge>
                   </div>
                 </div>
-                <div className={styles.testInfoBody}>
-                  <h3 className={styles.testTitle}>{test.title}</h3>
-                  <div className={styles.testMeta}><Clock size={14} /> {test.time}</div>
-                  <p className={styles.testDescSmall}>{test.desc}</p>
+                <div className="p-5">
+                  <h3 className="text-lg font-bold mb-2 text-foreground">{test.title}</h3>
+                  <div className="flex items-center gap-1 text-xs text-muted-foreground mb-2"><Clock size={14} /> {test.time}</div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{test.desc}</p>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '1rem' }}>
-                    <span style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--color-primary)' }}>{test.price}</span>
-                    <Button className={styles.viewTestButton}>Unlock Now <ArrowRight size={16} /></Button>
+                    <span style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--primary)' }}>{test.price}</span>
+                    <Button>Unlock Now <ArrowRight size={16} /></Button>
                   </div>
                 </div>
               </div>

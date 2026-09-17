@@ -4,7 +4,6 @@ import { PublicLayout } from "@/components/layout/PublicLayout"
 import { SpatialCard } from "@/components/ui/SpatialCard"
 import { Button } from "@/components/ui/Button"
 import { Badge } from "@/components/ui/Badge"
-import styles from "@/app/page.module.css"
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/client'
 import { useRouter } from 'next/navigation'
@@ -64,12 +63,12 @@ export default function SignupPage() {
   return (
     <PublicLayout>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 'calc(100vh - 10rem)', paddingTop: '5rem' }}>
-        <SpatialCard intensity={10} className={styles.authCard}>
+        <SpatialCard intensity={10} className="max-w-md w-full">
           <div style={{ padding: '3rem', width: '100%', maxWidth: '450px' }}>
             <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
               <Badge variant="secondary" style={{ marginBottom: '1rem' }}>Get Started</Badge>
               <h1 style={{ fontSize: '2.25rem', fontWeight: 800, margin: 0 }}>Create Account</h1>
-              <p style={{ color: 'var(--color-text-muted)', marginTop: '0.5rem' }}>Join 50,000+ families today.</p>
+              <p style={{ color: 'var(--muted-foreground)', marginTop: '0.5rem' }}>Join 50,000+ families today.</p>
             </div>
 
             {error && (
@@ -79,25 +78,25 @@ export default function SignupPage() {
             )}
 
             <form onSubmit={handleSignup} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-              <div className={styles.inputGroup}>
-                <label className={styles.inputLabel}>Parent's Email</label>
+              <div className="flex flex-col gap-2">
+                <label className="text-sm font-semibold text-foreground">Parent's Email</label>
                 <input
                   type="email"
                   name="email"
                   placeholder="parent@example.com"
                   required
-                  className={styles.elegantInput}
+                  className="w-full px-4 py-3 rounded-lg border border-border bg-card text-foreground placeholder:text-muted-foreground transition-all duration-200 focus:outline-none focus:border-primary focus:ring-[3px] focus:ring-primary/10"
                 />
               </div>
-              <div className={styles.inputGroup}>
-                <label className={styles.inputLabel}>Create Password</label>
+              <div className="flex flex-col gap-2">
+                <label className="text-sm font-semibold text-foreground">Create Password</label>
                 <input
                   type="password"
                   name="password"
                   placeholder="Min. 8 characters"
                   required
                   minLength={8}
-                  className={styles.elegantInput}
+                  className="w-full px-4 py-3 rounded-lg border border-border bg-card text-foreground placeholder:text-muted-foreground transition-all duration-200 focus:outline-none focus:border-primary focus:ring-[3px] focus:ring-primary/10"
                 />
               </div>
               <Button type="submit" size="lg" style={{ marginTop: '1rem', width: '100%' }} disabled={loading}>
@@ -105,8 +104,8 @@ export default function SignupPage() {
               </Button>
             </form>
 
-            <div style={{ marginTop: '2rem', textAlign: 'center', fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>
-              Already have an account? <Link href="/auth/login" style={{ color: 'var(--color-primary)', fontWeight: 600 }}>Log In</Link>
+            <div style={{ marginTop: '2rem', textAlign: 'center', fontSize: '0.875rem', color: 'var(--muted-foreground)' }}>
+              Already have an account? <Link href="/auth/login" style={{ color: 'var(--primary)', fontWeight: 600 }}>Log In</Link>
             </div>
 
             <p style={{ marginTop: '2rem', fontSize: '0.6875rem', color: '#94a3b8', textAlign: 'center' }}>

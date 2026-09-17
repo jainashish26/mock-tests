@@ -1,6 +1,5 @@
 import { PublicLayout } from "@/components/layout/PublicLayout";
 import { Badge } from "@/components/ui/Badge";
-import styles from "@/app/page.module.css";
 import { Users, Trophy, Target } from "lucide-react";
 import { SpatialCard } from "@/components/ui/SpatialCard";
 
@@ -31,26 +30,26 @@ export default function AboutPage() {
 
   return (
     <PublicLayout>
-      <section className={styles.section} style={{ paddingTop: '10rem' }}>
-        <div className={styles.sectionHeader}>
+      <section className="py-24 px-6" style={{ paddingTop: '10rem' }}>
+        <div className="max-w-3xl mx-auto text-center mb-16">
           <Badge variant="secondary">About Us</Badge>
-          <h1 className={styles.sectionTitle}>Our Mission & Vision</h1>
-          <p className={styles.sectionSubtitle}>Empowering the next generation of Australian students through AI-driven adaptive learning.</p>
+          <h1 className="text-3xl md:text-[2.5rem] font-bold text-foreground tracking-tight mt-4 mb-4">Our Mission & Vision</h1>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">Empowering the next generation of Australian students through AI-driven adaptive learning.</p>
         </div>
         
-        <div className={styles.stepsGrid} style={{ marginTop: '5rem' }}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto" style={{ marginTop: '5rem' }}>
           {values.map((item, i) => (
             <SpatialCard key={i} intensity={10}>
-              <div className={styles.stepCardContent}>
-                <div className={styles.stepHeaderBg} style={{ background: item.bg, color: item.color }}>
-                  <div className={styles.stepIconContainer}>
+              <div className="overflow-hidden">
+                <div className="flex items-center justify-center relative py-12 px-8" style={{ background: item.bg, color: item.color }}>
+                  <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center relative z-[2] shadow-md">
                     {item.icon}
                   </div>
-                  <span className={styles.stepNumberOverlay}>0{i+1}</span>
+                  <span className="absolute right-6 top-4 text-[5rem] font-black opacity-[0.08] leading-none">0{i+1}</span>
                 </div>
-                <div className={styles.stepBody}>
-                  <h3 className={styles.stepTitle}>{item.title}</h3>
-                  <p className={styles.stepDesc}>{item.desc}</p>
+                <div className="p-8">
+                  <h3 className="text-xl font-bold mb-3 text-foreground">{item.title}</h3>
+                  <p className="text-muted-foreground leading-[1.7] m-0">{item.desc}</p>
                 </div>
               </div>
             </SpatialCard>
@@ -59,27 +58,27 @@ export default function AboutPage() {
       </section>
 
       {/* Additional Mission Details */}
-      <section className={styles.section} style={{ marginTop: '4rem' }}>
-        <div className={styles.missionGrid}>
-          <div className={styles.missionText}>
-            <h2 className={styles.sectionTitle} style={{ fontSize: '2.5rem', textAlign: 'left' }}>Scaling Student Potential</h2>
-            <p className={styles.sectionSubtitle} style={{ textAlign: 'left', marginLeft: 0 }}>
+      <section className="py-24 px-6" style={{ marginTop: '4rem' }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-4xl mx-auto items-center">
+          <div>
+            <h2 className="text-3xl md:text-[2.5rem] font-bold text-foreground tracking-tight mt-4 mb-4" style={{ fontSize: '2.5rem', textAlign: 'left' }}>Scaling Student Potential</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed" style={{ textAlign: 'left', marginLeft: 0 }}>
               At MockTests Pro, we believe that every student has a unique learning path. 
               Our technology is designed not just to test, but to provide the insights 
               needed to bridge gaps and build genuine confidence before stepping into the exam hall.
             </p>
           </div>
-          <div className={styles.missionCard}>
-            <div className={styles.missionList}>
+          <div className="bg-card rounded-lg p-10 border border-border shadow-lg">
+            <div className="flex flex-col gap-5">
               {[
                 "100% Curriculum Aligned content",
                 "Advanced AI Writing Analysis",
                 "Stress-free environment for kids",
                 "Instant feedback for rapid growth"
               ].map((text, i) => (
-                <div key={i} className={styles.missionListItem}>
-                  <div className={styles.checkIndicator}>✓</div>
-                  <span style={{ fontWeight: 600 }}>{text}</span>
+                <div key={i} className="flex items-center gap-4">
+                  <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-sm font-bold flex-shrink-0">✓</div>
+                  <span className="font-semibold">{text}</span>
                 </div>
               ))}
             </div>

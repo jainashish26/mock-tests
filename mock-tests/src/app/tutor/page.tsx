@@ -7,7 +7,8 @@ import { SpatialCard } from "@/components/ui/SpatialCard"
 import { Badge } from "@/components/ui/Badge"
 import { Button } from "@/components/ui/Button"
 import { Users, GraduationCap, ChevronRight, BarChart2, BookOpen } from "lucide-react"
-import styles from "@/app/page.module.css"
+
+
 
 export default async function TutorDashboard() {
   const { user } = await requireRole(['TUTOR'])
@@ -34,7 +35,7 @@ export default async function TutorDashboard() {
 
   return (
     <DashboardLayout role="TUTOR" userName="Tutor Account">
-      <div className={styles.dashboardGrid}>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
             <h2 style={{ fontSize: '1.75rem', fontWeight: 800, margin: 0 }}>My Students</h2>
@@ -45,9 +46,9 @@ export default async function TutorDashboard() {
             {students.length === 0 ? (
               <SpatialCard intensity={0}>
                   <div style={{ padding: '4rem', textAlign: 'center' }}>
-                    <Users size={48} style={{ color: 'var(--color-text-muted)', opacity: 0.2, marginBottom: '1rem' }} />
+                    <Users size={48} style={{ color: 'var(--muted-foreground)', opacity: 0.2, marginBottom: '1rem' }} />
                     <h3 style={{ margin: 0 }}>No Students Yet</h3>
-                    <p style={{ color: 'var(--color-text-muted)' }}>Create student profiles to assign tests and track their progress.</p>
+                    <p style={{ color: 'var(--muted-foreground)' }}>Create student profiles to assign tests and track their progress.</p>
                   </div>
               </SpatialCard>
             ) : (
@@ -71,14 +72,14 @@ export default async function TutorDashboard() {
                             </div>
                             <div>
                                 <h3 style={{ margin: 0, fontSize: '1.25rem' }}>{s.username}</h3>
-                                <div style={{ color: 'var(--color-text-muted)', fontSize: '0.875rem', marginTop: '0.25rem' }}>
+                                <div style={{ color: 'var(--muted-foreground)', fontSize: '0.875rem', marginTop: '0.25rem' }}>
                                     <Badge variant="outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}><GraduationCap size={12} /> Year {s.year_level}</Badge>
                                 </div>
                             </div>
                         </div>
                         {hasAttempts && (
                           <Link href={`/tutor/student/${s.id}`}>
-                              <Button variant="ghost" className="flex items-center gap-2">View Report <BarChart2 size={16} /></Button>
+                              <Button variant="ghost" className="inline-flex items-center gap-2">View Report <BarChart2 size={16} /></Button>
                           </Link>
                         )}
                       </div>
@@ -88,16 +89,16 @@ export default async function TutorDashboard() {
                           <>
                             <div style={{ flex: 1, textAlign: 'center' }}>
                                 <div style={{ fontSize: '1.25rem', fontWeight: 800 }}>{completedAttempts.length}</div>
-                                <div style={{ fontSize: '0.6875rem', color: 'var(--color-text-muted)', textTransform: 'uppercase' }}>Completed Tests</div>
+                                <div style={{ fontSize: '0.6875rem', color: 'var(--muted-foreground)', textTransform: 'uppercase' }}>Completed Tests</div>
                             </div>
                             <div style={{ width: '1px', background: 'var(--color-border)' }} />
                             <div style={{ flex: 1, textAlign: 'center' }}>
                                 <div style={{ fontSize: '1.25rem', fontWeight: 800 }}>{avgScore}%</div>
-                                <div style={{ fontSize: '0.6875rem', color: 'var(--color-text-muted)', textTransform: 'uppercase' }}>Avg Score</div>
+                                <div style={{ fontSize: '0.6875rem', color: 'var(--muted-foreground)', textTransform: 'uppercase' }}>Avg Score</div>
                             </div>
                           </>
                         ) : (
-                          <div style={{ flex: 2, textAlign: 'center', color: 'var(--color-text-muted)', fontSize: '0.875rem', alignSelf: 'center' }}>
+                          <div style={{ flex: 2, textAlign: 'center', color: 'var(--muted-foreground)', fontSize: '0.875rem', alignSelf: 'center' }}>
                             No tests taken yet.
                           </div>
                         )}
@@ -119,7 +120,7 @@ export default async function TutorDashboard() {
           <SpatialCard intensity={2}>
             <div style={{ padding: '2.5rem' }}>
                 <h3 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: '0.5rem' }}>Add a Student</h3>
-                <p style={{ color: 'var(--color-text-muted)', fontSize: '0.875rem', marginBottom: '2rem' }}>Create student profiles to assign any test in the system and monitor their progress.</p>
+                <p style={{ color: 'var(--muted-foreground)', fontSize: '0.875rem', marginBottom: '2rem' }}>Create student profiles to assign any test in the system and monitor their progress.</p>
                 <ChildCreationForm apiEndpoint="/api/tutor/child" maxStudents={null} currentCount={students.length} />
             </div>
           </SpatialCard>

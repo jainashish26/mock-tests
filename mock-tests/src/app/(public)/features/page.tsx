@@ -1,6 +1,5 @@
 import { PublicLayout } from "@/components/layout/PublicLayout";
 import { Badge } from "@/components/ui/Badge";
-import styles from "@/app/page.module.css";
 import { Sparkles, Zap, GraduationCap, Heart, CheckCircle2 } from "lucide-react";
 import { SpatialCard } from "@/components/ui/SpatialCard";
 
@@ -14,25 +13,25 @@ export default function FeaturesPage() {
 
   return (
     <PublicLayout>
-      <section className={styles.section} style={{ paddingTop: '8rem' }}>
-        <div className={styles.sectionHeader}>
+      <section className="py-24 px-6" style={{ paddingTop: '8rem' }}>
+        <div className="max-w-3xl mx-auto text-center mb-16">
           <Badge variant="secondary">Platform Features</Badge>
-          <h1 className={styles.sectionTitle}>Everything you need to excel</h1>
-          <p className={styles.sectionSubtitle}>Explore our innovative features designed for modern education.</p>
+          <h1 className="text-3xl md:text-[2.5rem] font-bold text-foreground tracking-tight mt-4 mb-4">Everything you need to excel</h1>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">Explore our innovative features designed for modern education.</p>
         </div>
         
-        <div className={styles.testGrid} style={{ marginTop: '4rem' }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto" style={{ marginTop: '4rem' }}>
           {features.map((f, i) => (
             <SpatialCard key={i} intensity={10}>
-              <div className={styles.testItem} style={{ padding: '2.5rem', textAlign: 'center' }}>
-                <div className={styles.resourceIcon} style={{ margin: '0 auto 1.5rem', background: f.color + '15', color: f.color }}>
+              <div className="bg-card rounded-lg p-10 border border-border text-left transition-all duration-300" style={{ padding: '2.5rem', textAlign: 'center' }}>
+                <div className="w-14 h-14 rounded-md flex items-center justify-center mb-6" style={{ margin: '0 auto 1.5rem', background: f.color + '15', color: f.color }}>
                   {f.icon}
                 </div>
-                <h3 className={styles.testTitle}>{f.title}</h3>
-                <p className={styles.testDescSmall}>{f.desc}</p>
+                <h3 className="text-lg font-bold mb-2 text-foreground">{f.title}</h3>
+                <p className="text-sm text-muted-foreground leading-[1.6]">{f.desc}</p>
                 <div style={{ marginTop: '1.5rem', display: 'flex', gap: '0.75rem', justifyContent: 'center' }}>
                   <CheckCircle2 size={16} color="#059669" />
-                  <span style={{ fontSize: '0.8125rem', fontWeight: 600 }}>Available for all years</span>
+                  <span className="text-[0.8125rem] font-semibold">Available for all years</span>
                 </div>
               </div>
             </SpatialCard>
