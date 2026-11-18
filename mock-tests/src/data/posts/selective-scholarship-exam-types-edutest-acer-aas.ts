@@ -540,8 +540,10 @@ export const selectiveScholarshipExamTypesEduTestAcerAas = {
   image:
     "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Student sitting at a desk with exam papers and stationery, preparing for a scholarship test",
-  date: "March 28, 2026",
+    "Student sitting at a desk with exam papers and stationery, preparing for a scholarship test",  date: "December 17, 2026",
+  updatedDate: "December 19, 2026",
+  readingTime: 16,
+  category: "scholarship-exams",
   tags: [
     "SELECTIVE ENTRY",
     "SCHOLARSHIPS",
@@ -569,6 +571,13 @@ export const selectiveScholarshipExamTypesEduTestAcerAas = {
     "ACER cooperative scholarship testing",
     "EduTest practice test",
     "AAS abstract reasoning exam",
+  ],
+  keyTakeaways: [
+    "Three providers dominate Australian selective-entry and scholarship testing: EduTest, ACER and AAS, and schools choose between them.",
+    "EduTest typically uses four components, ACER three, and AAS five - the structural difference changes how preparation should be weighted.",
+    "A side-by-side comparison covers format, content and scoring so families can identify which exam their target school actually uses.",
+    "Despite the differences, common skills run across all three exams, which is where general preparation effort pays off.",
+    "A preparation timeline and exam-specific strategies follow, with final advice for parents on choosing where to focus.",
   ],
   author: {
     name: "Ashish Jain",

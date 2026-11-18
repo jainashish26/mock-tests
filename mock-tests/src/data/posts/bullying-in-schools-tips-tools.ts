@@ -191,11 +191,31 @@ export const bullyingInSchools = {
     <p>We're here to support your child's academic journey and their wellbeing. Explore our resources, reach out to the professional services listed above if you need support, and remember: the most powerful thing you can do for your child is to be present, be calm, and believe in them.</p>
 
     <p><strong>Together, we can make a difference.</strong></p>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What actually counts as bullying?</h3>
+    <p>According to the National Centre Against Bullying, bullying involves three elements: repetition (the behaviour happens more than once, or the target believes it will), intent to harm (it is deliberate rather than accidental or playful), and a power imbalance that the target finds difficult to reverse. A single unkind incident is upsetting, but it does not meet this definition on its own.</p>
+
+    <h3>How common is bullying in Australian schools?</h3>
+    <p>Australian Institute of Health and Welfare data indicates that approximately one in four Australian students experiences bullying. The PISA 2022 survey also found Australian 15-year-olds reporting higher rates than many comparable countries, and the eSafety Commissioner's research shows cyberbullying has grown significantly as device access has increased.</p>
+
+    <h3>What are the signs my child is being bullied?</h3>
+    <p>Look for behavioural changes such as reluctance or refusal to go to school and frequent headaches or stomach aches; social withdrawal, including spending less time with friends and becoming unusually quiet; and academic impact such as declining performance, difficulty concentrating or loss of motivation. Social and relational bullying is often the hardest to detect because it happens out of adult sight.</p>
+
+    <h3>Should I contact the other child's parents directly?</h3>
+    <p>Generally no. Approaching another parent can escalate the situation and leave your child in a more difficult social position. The more effective route is to document what has happened with dates and details, go through the school, and ask specifically for its bullying policy and process to be followed so there is a written record of the complaint.</p>
+
+    <h3>How do I handle cyberbullying?</h3>
+    <p>Do not delete the evidence - take screenshots with dates and usernames, then report it to the school. The eSafety Commissioner at esafety.gov.au is Australia's online safety regulator and publishes guidance and complaint pathways for cyberbullying involving children. Blocking the account and adjusting privacy settings helps, but removing the material matters more than retaliation.</p>
+
   `,
   image: "https://images.unsplash.com/photo-1529390079861-591de354faf5?w=1200&q=80",
   imageAlt:
-    "A group of diverse school children supporting each other in a playground, representing friendship, inclusion and wellbeing",
-  date: "March 30, 2026",
+    "A group of diverse school children supporting each other in a playground, representing friendship, inclusion and wellbeing",  date: "August 13, 2026",
+  updatedDate: "August 15, 2026",
+  readingTime: 12,
+  category: "parenting-wellbeing",
   tags: ["WELLBEING", "BULLYING", "SCHOOL SAFETY", "PARENTING", "MENTAL HEALTH"],
   metaTitle: "Bullying in Schools: Tips & Tools for Parents | 2026 Guide",
   metaDescription:
@@ -213,6 +233,13 @@ export const bullyingInSchools = {
     "eSafety Commissioner bullying",
     "Kids Helpline bullying",
     "social bullying in schools",
+  ],
+  keyTakeaways: [
+    "Bullying is defined by repetition, intent to harm and a power imbalance - a single unkind incident is hurtful but is not bullying on its own.",
+    "Around one in four Australian students experiences bullying, according to Australian Institute of Health and Welfare data.",
+    "Social and relational bullying - exclusion, rumours, manipulation - is often the most damaging and the hardest for adults to detect.",
+    "Warning signs include school refusal, unexplained headaches or stomach aches, social withdrawal and a drop in academic performance.",
+    "Record what happened with dates and screenshots, and work through the school's policy rather than approaching another parent directly.",
   ],
   author: {
     name: "The Exam Success Team",

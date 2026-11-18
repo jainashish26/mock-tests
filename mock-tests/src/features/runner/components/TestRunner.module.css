@@ -6,6 +6,8 @@
   color: var(--runner-fg, var(--color-text));
   transition: all var(--transition-normal);
   font-size: var(--runner-font-size, 1rem);
+  /* Room for the fixed bottom navigator bar so it never covers content. */
+  padding-bottom: 4rem;
 }
 
 /* Themes */
@@ -108,7 +110,7 @@
 .mainContent {
   display: flex;
   flex: 1;
-  max-width: 1200px;
+  max-width: 960px;
   margin: 0 auto;
   width: 100%;
   padding: 2rem;
@@ -131,6 +133,54 @@
   font-weight: 500;
   margin-bottom: 2rem;
   line-height: 1.6;
+}
+
+/* Question header row: section/question meta on the left, Flag button far right */
+.questionHeaderRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.questionMeta {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+}
+
+.flagBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+  background: transparent;
+  border: 1px solid var(--runner-border, var(--color-border));
+  color: var(--runner-fg, var(--color-text));
+  padding: 0.3rem 0.9rem;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.flagBtn:hover {
+  border-color: var(--color-warning);
+  color: var(--color-warning);
+}
+
+.flagBtn:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.flagBtnActive {
+  border-color: var(--color-warning);
+  background-color: var(--color-warning-bg);
+  color: var(--color-warning);
 }
 
 /* Options */
@@ -183,6 +233,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   width: 2rem;
   height: 2rem;
   border-radius: var(--radius-full);
@@ -196,34 +247,126 @@
   border: 2px solid currentColor;
 }
 
-/* Sidebar Navigator */
-.sidebar {
-  width: 250px;
-  background-color: var(--runner-surface, var(--color-surface));
-  padding: 1.5rem;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--runner-border, var(--color-border));
-  align-self: flex-start;
-  position: sticky;
-  top: 6rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+.optionText {
+  flex: 1;
+  line-height: 1.55;
 }
 
-.navGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(2.5rem, 1fr));
+/* Bottom Question Navigator (collapsible, horizontally scrollable) */
+.navigatorBar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  background-color: var(--runner-surface, var(--color-surface));
+  border-top: 1px solid var(--runner-border, var(--color-border));
+  box-shadow: 0 -6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.navigatorToggle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: none;
+  color: var(--runner-fg, var(--color-text));
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.navigatorToggle:hover {
+  background: var(--runner-option-hover, rgba(127, 127, 127, 0.1));
+}
+
+.navigatorToggle:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: -3px;
+}
+
+.navigatorCounts {
+  margin-left: auto;
+  font-weight: 500;
+  font-size: 0.8rem;
+  opacity: 0.75;
+  white-space: nowrap;
+}
+
+.navigatorBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem 0.9rem;
+  border-top: 1px solid var(--runner-border, var(--color-border));
+}
+
+.navigatorTrack {
+  display: flex;
   gap: 0.5rem;
+  overflow-x: auto;
+  padding: 0.35rem 0.15rem 0.6rem;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.navigatorTrack::-webkit-scrollbar {
+  height: 6px;
+}
+
+.navigatorTrack::-webkit-scrollbar-thumb {
+  background: var(--runner-border, var(--color-border));
+  border-radius: 999px;
+}
+
+.navigatorStats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.25rem;
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  white-space: nowrap;
+}
+
+.legendSwatch {
+  display: inline-block;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.legendAnswered {
+  background-color: var(--color-primary);
+}
+
+.legendUnanswered {
+  border: 1px solid var(--runner-border, var(--color-border));
+  background: transparent;
+}
+
+.legendFlagged {
+  background-color: var(--color-warning);
 }
 
 .navBadge {
-  width: 100%;
-  aspect-ratio: 1;
+  flex: 0 0 auto;
+  width: 2.6rem;
+  height: 2.6rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   border: 1px solid var(--runner-border, var(--color-border));
   background: transparent;
   color: var(--runner-fg, var(--color-text));
@@ -231,6 +374,7 @@
   font-weight: 600;
   cursor: pointer;
   position: relative;
+  transition: all var(--transition-fast);
 }
 
 .navBadge:hover {
@@ -375,10 +519,34 @@
     padding: 0.75rem 1rem;
   }
 
-  .sidebar {
-    width: 100%;
-    position: static;
-    order: 2; /* Displays the navigator below the question on mobile */
+  .optionLabel {
+    width: 1.75rem;
+    height: 1.75rem;
+    margin-right: 0.75rem;
+  }
+
+  .questionHeaderRow {
+    gap: 0.75rem;
+  }
+
+  .flagBtn {
+    padding: 0.25rem 0.7rem;
+    font-size: 0.8rem;
+  }
+
+  .navigatorToggle {
+    padding: 0.65rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .navigatorBody {
+    padding: 0.65rem 1rem 0.8rem;
+  }
+
+  .navBadge {
+    width: 2.35rem;
+    height: 2.35rem;
+    font-size: 0.8rem;
   }
 
   .modalContent {

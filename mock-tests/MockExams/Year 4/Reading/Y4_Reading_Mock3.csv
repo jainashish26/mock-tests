@@ -1,0 +1,751 @@
+﻿QuestionID,ExamID,ExamType,ExamSection,YearLevel,Subject,Topic,SubTopic,QuestionType,ComprehensionText,QuestionText,QuestionMedia,Correct,AnswerA,AnswerB,AnswerC,AnswerD,AnswerE,Difficulty,IsActive,CorrectAnswerScore,Tags,SourceBank,SourceQuestionNumber,SourceComprehensionID,NAPLANFlag,DifficultyScore,DifficultyLabel
+NAPLAN-Y4-READING-M3-Q01,NAPLAN-Y4-READING-M3,NAPLAN_STYLE_READING,Text 1,4,English,Vocabulary,Synonyms,ReadingComprehension,"Last Sunday, members of our local community (30) congregated on the riverbank to witness the annual speed boat race.
+
+We sheltered from the (31) searing heat under the (32) majestic oak trees, waiting anxiously for the first boat to come into view.
+
+Finally the bow of a boat rounded the bend.
+
+A cheer went up, followed by shrieks of laughter as we realised it was only old Fred the fisherman, out in his (33) battered rowboat.","For questions 30 to 33 choose the word CLOSEST IN MEANING to the underlined word. Last Sunday, members of our local community (30) congregated on the riverbank to witness the annual speed boat race.",,C,relaxed,watched,gathered,positioned,,1,1,1,"NAPLAN,Year 4,Mock 3",English_Comprehension_Questions_expanded.csv,4.195.1,60,1,1,Easy
+NAPLAN-Y4-READING-M3-Q02,NAPLAN-Y4-READING-M3,NAPLAN_STYLE_READING,Text 1,4,English,Vocabulary,Synonyms,ReadingComprehension,"Last Sunday, members of our local community (30) congregated on the riverbank to witness the annual speed boat race.
+
+We sheltered from the (31) searing heat under the (32) majestic oak trees, waiting anxiously for the first boat to come into view.
+
+Finally the bow of a boat rounded the bend.
+
+A cheer went up, followed by shrieks of laughter as we realised it was only old Fred the fisherman, out in his (33) battered rowboat.",We sheltered from the (31) searing heat under the majestic oak trees...,,C,humid,soaring,scorching,uncomfortable,,1,1,1,"NAPLAN,Year 4,Mock 3",English_Comprehension_Questions_expanded.csv,4.195.2,60,1,1,Easy
+NAPLAN-Y4-READING-M3-Q03,NAPLAN-Y4-READING-M3,NAPLAN_STYLE_READING,Text 1,4,English,Vocabulary,Synonyms,ReadingComprehension,"Last Sunday, members of our local community (30) congregated on the riverbank to witness the annual speed boat race.
+
+We sheltered from the (31) searing heat under the (32) majestic oak trees, waiting anxiously for the first boat to come into view.
+
+Finally the bow of a boat rounded the bend.
+
+A cheer went up, followed by shrieks of laughter as we realised it was only old Fred the fisherman, out in his (33) battered rowboat.",We sheltered from the searing heat under the (32) majestic oak trees...,,D,shady,ancient,massive,magnificent,,1,1,1,"NAPLAN,Year 4,Mock 3",English_Comprehension_Questions_expanded.csv,4.195.3,60,1,1,Easy
+NAPLAN-Y4-READING-M3-Q04,NAPLAN-Y4-READING-M3,NAPLAN_STYLE_READING,Text 1,4,English,Vocabulary,Synonyms,ReadingComprehension,"Last Sunday, members of our local community (30) congregated on the riverbank to witness the annual speed boat race.
+
+We sheltered from the (31) searing heat under the (32) majestic oak trees, waiting anxiously for the first boat to come into view.
+
+Finally the bow of a boat rounded the bend.
+
+A cheer went up, followed by shrieks of laughter as we realised it was only old Fred the fisherman, out in his (33) battered rowboat.",...out in his (33) battered rowboat.,,B,trusty,shabby,familiar,colourful,,1,1,1,"NAPLAN,Year 4,Mock 3",English_Comprehension_Questions_expanded.csv,4.195.4,60,1,1,Easy
+NAPLAN-Y4-READING-M3-Q05,NAPLAN-Y4-READING-M3,NAPLAN_STYLE_READING,Text 2,4,English,Literary Techniques,Figurative Language,ReadingComprehension,"The house was quiet at 5 am. Only the faint sounds of her father's snores and the big:freezer purring in the store beyond broke the quict. She'<.dreami of the cave last night. The freezer's huin had been the. sea,
+
+Emily pulled on a jumper and shoved some apples into her schoolbag. It was too early for breakfast' She'd eat after she'd ""been ' through the cave, sitting on the Tocks ancl staring: vat the' sea.
+
+She' wished she had a' proper pack. Her schoolbag would have.to do. AtIcast she could slip. it on her-back. What. else? Chocolate ~ she remembered. someone saying chocolate was high energy food - she might ineed it if the cave was cold; a couple of cans of soft drink, you can't drink salt water; sandwiches - but her father might wake-up if she started hauling out bread for sandwiches, he'd want to know why she had to leave so carly. She compromised with some muesli bars, and left a note stuck to the table:
+
+Gone to Rachel's, Back tonight. Emily.
+
+'The sky was high and soft and light ouusicle, though the ""sun still wasn't up.' Even the highway up the Iill was quiet as she made her way down the street. A dog growled from 4 doorway, then thought better of it and shut its eyes again. The wind. from the sea was: fresh andl sweet.
+
+The sandhills still' breathed heat from yesterday's sun, though. the top of the, sand was cool: She ran down the ramp impaticndy, then stopped Emily squinted, through the almost light wong the beach, but there was no one, just flurries of dry sand: dancing in the early wind and seagulls marching up ; and _., down mee ccting ine waves,
+
+'The light, changed suddenly. The first' thin: beams of sunlight stretched across the sca. The sun was pushing Its way over the rim of the world. |
+
+Over the first rocks, along to the point. Emily | glanced back. The beach was still empty. The sun sailed higher in the sky.
+
+She could see the cu now, even darker in the morning light. The sand turned silver then dark gold as the water drained away from it. She had to force herself Lo go closer. Why was itso much more mysterious now? But it would _ be silly to go back now after so much trouble. She needn't go in all the way ...",Which of the Ferowing statements about the passage. is correcr?,,A,The sandhills are clescribed as if they are alive.,The wind is compared to a growling dog.,The description of the sky suggests a storm is approaching.,The morning sun is compared to a piece of oy,,2,1,1,"NAPLAN,Year 4,Mock 3",English_Comprehension_Questions_expanded.csv,4.244.1,109,1,4,Medium
+NAPLAN-Y4-READING-M3-Q06,NAPLAN-Y4-READING-M3,NAPLAN_STYLE_READING,Text 2,4,English,Literary Techniques,Figurative Language,ReadingComprehension,"The house was quiet at 5 am. Only the faint sounds of her father's snores and the big:freezer purring in the store beyond broke the quict. She'<.dreami of the cave last night. The freezer's huin had been the. sea,
+
+Emily pulled on a jumper and shoved some apples into her schoolbag. It was too early for breakfast' She'd eat after she'd ""been ' through the cave, sitting on the Tocks ancl staring: vat the' sea.
+
+She' wished she had a' proper pack. Her schoolbag would have.to do. AtIcast she could slip. it on her-back. What. else? Chocolate ~ she remembered. someone saying chocolate was high energy food - she might ineed it if the cave was cold; a couple of cans of soft drink, you can't drink salt water; sandwiches - but her father might wake-up if she started hauling out bread for sandwiches, he'd want to know why she had to leave so carly. She compromised with some muesli bars, and left a note stuck to the table:
+
+Gone to Rachel's, Back tonight. Emily.
+
+'The sky was high and soft and light ouusicle, though the ""sun still wasn't up.' Even the highway up the Iill was quiet as she made her way down the street. A dog growled from 4 doorway, then thought better of it and shut its eyes again. The wind. from the sea was: fresh andl sweet.
+
+The sandhills still' breathed heat from yesterday's sun, though. the top of the, sand was cool: She ran down the ramp impaticndy, then stopped Emily squinted, through the almost light wong the beach, but there was no one, just flurries of dry sand: dancing in the early wind and seagulls marching up ; and _., down mee ccting ine waves,
+
+'The light, changed suddenly. The first' thin: beams of sunlight stretched across the sca. The sun was pushing Its way over the rim of the world. |
+
+Over the first rocks, along to the point. Emily | glanced back. The beach was still empty. The sun sailed higher in the sky.
+
+She could see the cu now, even darker in the morning light. The sand turned silver then dark gold as the water drained away from it. She had to force herself Lo go closer. Why was itso much more mysterious now? But it would _ be silly to go back now after so much trouble. She needn't go in all the way ...","The sentence ""The stin was pushing its way over the rim of the world"" describes",,B,how far Emily had walked.,the day beginning.,how excited Emily felt.,the morning heat.,,2,1,1,"NAPLAN,Year 4,Mock 3",English_Comprehension_Questions_expanded.csv,4.244.2,109,1,3,Easy
+NAPLAN-Y4-READING-M3-Q07,NAPLAN-Y4-READING-M3,NAPLAN_STYLE_READING,Text 2,4,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The house was quiet at 5 am. Only the faint sounds of her father's snores and the big:freezer purring in the store beyond broke the quict. She'<.dreami of the cave last night. The freezer's huin had been the. sea,
+
+Emily pulled on a jumper and shoved some apples into her schoolbag. It was too early for breakfast' She'd eat after she'd ""been ' through the cave, sitting on the Tocks ancl staring: vat the' sea.
+
+She' wished she had a' proper pack. Her schoolbag would have.to do. AtIcast she could slip. it on her-back. What. else? Chocolate ~ she remembered. someone saying chocolate was high energy food - she might ineed it if the cave was cold; a couple of cans of soft drink, you can't drink salt water; sandwiches - but her father might wake-up if she started hauling out bread for sandwiches, he'd want to know why she had to leave so carly. She compromised with some muesli bars, and left a note stuck to the table:
+
+Gone to Rachel's, Back tonight. Emily.
+
+'The sky was high and soft and light ouusicle, though the ""sun still wasn't up.' Even the highway up the Iill was quiet as she made her way down the street. A dog growled from 4 doorway, then thought better of it and shut its eyes again. The wind. from the sea was: fresh andl sweet.
+
+The sandhills still' breathed heat from yesterday's sun, though. the top of the, sand was cool: She ran down the ramp impaticndy, then stopped Emily squinted, through the almost light wong the beach, but there was no one, just flurries of dry sand: dancing in the early wind and seagulls marching up ; and _., down mee ccting ine waves,
+
+'The light, changed suddenly. The first' thin: beams of sunlight stretched across the sca. The sun was pushing Its way over the rim of the world. |
+
+Over the first rocks, along to the point. Emily | glanced back. The beach was still empty. The sun sailed higher in the sky.
+
+She could see the cu now, even darker in the morning light. The sand turned silver then dark gold as the water drained away from it. She had to force herself Lo go closer. Why was itso much more mysterious now? But it would _ be silly to go back now after so much trouble. She needn't go in all the way ...",What made it possible for Emily to see the entry to the cave?,,B,the fact that the beach was deserted,the change in the angle of the sun,the movement of the tide,the steepness of the ramp,,3,1,1,"NAPLAN,Year 4,Mock 3",English_Comprehension_Questions_expanded.csv,4.244.3,109,1,5,Medium
+NAPLAN-Y4-READING-M3-Q08,NAPLAN-Y4-READING-M3,NAPLAN_STYLE_READING,Text 2,4,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"The house was quiet at 5 am. Only the faint sounds of her father's snores and the big:freezer purring in the store beyond broke the quict. She'<.dreami of the cave last night. The freezer's huin had been the. sea,
+
+Emily pulled on a jumper and shoved some apples into her schoolbag. It was too early for breakfast' She'd eat after she'd ""been ' through the cave, sitting on the Tocks ancl staring: vat the' sea.
+
+She' wished she had a' proper pack. Her schoolbag would have.to do. AtIcast she could slip. it on her-back. What. else? Chocolate ~ she remembered. someone saying chocolate was high energy food - she might ineed it if the cave was cold; a couple of cans of soft drink, you can't drink salt water; sandwiches - but her father might wake-up if she started hauling out bread for sandwiches, he'd want to know why she had to leave so carly. She compromised with some muesli bars, and left a note stuck to the table:
+
+Gone to Rachel's, Back tonight. Emily.
+
+'The sky was high and soft and light ouusicle, though the ""sun still wasn't up.' Even the highway up the Iill was quiet as she made her way down the street. A dog growled from 4 doorway, then thought better of it and shut its eyes again. The wind. from the sea was: fresh andl sweet.
+
+The sandhills still' breathed heat from yesterday's sun, though. the top of the, sand was cool: She ran down the ramp impaticndy, then stopped Emily squinted, through the almost light wong the beach, but there was no one, just flurries of dry sand: dancing in the early wind and seagulls marching up ; and _., down mee ccting ine waves,
+
+'The light, changed suddenly. The first' thin: beams of sunlight stretched across the sca. The sun was pushing Its way over the rim of the world. |
+
+Over the first rocks, along to the point. Emily | glanced back. The beach was still empty. The sun sailed higher in the sky.
+
+She could see the cu now, even darker in the morning light. The sand turned silver then dark gold as the water drained away from it. She had to force herself Lo go closer. Why was itso much more mysterious now? But it would _ be silly to go back now after so much trouble. She needn't go in all the way ...","The words ""She compromised with some muesli bars"" mean that Emily",,C,could not fir the mueski bars in her schoolbag.,thought the muesli bars would stay fresher than sandwiches.,setded for muesli bars instead of sandwiches.,could not find any bread to make sandwiches.,,2,1,1,"NAPLAN,Year 4,Mock 3",English_Comprehension_Questions_expanded.csv,4.244.4,109,1,3,Easy
+NAPLAN-Y4-READING-M3-Q09,NAPLAN-Y4-READING-M3,NAPLAN_STYLE_READING,Text 3,4,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Comet's Promise
+I am a comet, a snowball of dust,
+far out where the cold planets roam.
+I drift through the dark for a hundred long years,
+but always I turn and come home.
+
+Out past the giants with rings and with moons,
+where sunlight is thin as a thread,
+I sleep in the silence, as frozen as stone,
+with nothing but stars overhead.
+
+The Sun is a campfire I glimpse from afar,
+a spark at the edge of the night.
+It tugs at my coat with an invisible string
+and reels me back into the light.
+
+As I rush ever closer, my ice starts to melt,
+and I steam like a pot on the boil.
+A tail made of glitter streams out at my back,
+a long, ghostly ribbon uncoiled.
+
+My tail always points away from the Sun,
+whichever direction I race,
+as though a great wind from the Sun's glowing heart
+were blowing the hair from my face.
+
+On a planet of blue, little faces look up
+and point at the streak in the sky.
+I wish I could stay and say hello to them all,
+but I only have time to fly by.
+
+So I swing round the Sun and race out again,
+my tail drifting after like smoke.
+Remember my face, little planet of blue,
+and the night that I passed and you woke.
+
+The children who wave at me now will be old
+when I come back this way once again,
+so tell all their grandchildren, 'Look to the sky!'
+for I promise that I'll see them then.",How long does the comet drift through the dark?,,A,a hundred years,a single night,ten years,a thousand years,,1,1,1,"NAPLAN,Year 4,Mock 3",English_Comprehension_Questions_expanded.csv,4.1384.1,237,1,1,Easy
+NAPLAN-Y4-READING-M3-Q10,NAPLAN-Y4-READING-M3,NAPLAN_STYLE_READING,Text 3,4,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Comet's Promise
+I am a comet, a snowball of dust,
+far out where the cold planets roam.
+I drift through the dark for a hundred long years,
+but always I turn and come home.
+
+Out past the giants with rings and with moons,
+where sunlight is thin as a thread,
+I sleep in the silence, as frozen as stone,
+with nothing but stars overhead.
+
+The Sun is a campfire I glimpse from afar,
+a spark at the edge of the night.
+It tugs at my coat with an invisible string
+and reels me back into the light.
+
+As I rush ever closer, my ice starts to melt,
+and I steam like a pot on the boil.
+A tail made of glitter streams out at my back,
+a long, ghostly ribbon uncoiled.
+
+My tail always points away from the Sun,
+whichever direction I race,
+as though a great wind from the Sun's glowing heart
+were blowing the hair from my face.
+
+On a planet of blue, little faces look up
+and point at the streak in the sky.
+I wish I could stay and say hello to them all,
+but I only have time to fly by.
+
+So I swing round the Sun and race out again,
+my tail drifting after like smoke.
+Remember my face, little planet of blue,
+and the night that I passed and you woke.
+
+The children who wave at me now will be old
+when I come back this way once again,
+so tell all their grandchildren, 'Look to the sky!'
+for I promise that I'll see them then.",What happens to the comet as it rushes closer to the Sun?,,A,Its ice starts to melt.,It falls asleep.,It freezes like stone.,It loses its way.,,1,1,1,"NAPLAN,Year 4,Mock 3",English_Comprehension_Questions_expanded.csv,4.1384.2,237,1,2,Easy
+NAPLAN-Y4-READING-M3-Q11,NAPLAN-Y4-READING-M3,NAPLAN_STYLE_READING,Text 3,4,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"The Comet's Promise
+I am a comet, a snowball of dust,
+far out where the cold planets roam.
+I drift through the dark for a hundred long years,
+but always I turn and come home.
+
+Out past the giants with rings and with moons,
+where sunlight is thin as a thread,
+I sleep in the silence, as frozen as stone,
+with nothing but stars overhead.
+
+The Sun is a campfire I glimpse from afar,
+a spark at the edge of the night.
+It tugs at my coat with an invisible string
+and reels me back into the light.
+
+As I rush ever closer, my ice starts to melt,
+and I steam like a pot on the boil.
+A tail made of glitter streams out at my back,
+a long, ghostly ribbon uncoiled.
+
+My tail always points away from the Sun,
+whichever direction I race,
+as though a great wind from the Sun's glowing heart
+were blowing the hair from my face.
+
+On a planet of blue, little faces look up
+and point at the streak in the sky.
+I wish I could stay and say hello to them all,
+but I only have time to fly by.
+
+So I swing round the Sun and race out again,
+my tail drifting after like smoke.
+Remember my face, little planet of blue,
+and the night that I passed and you woke.
+
+The children who wave at me now will be old
+when I come back this way once again,
+so tell all their grandchildren, 'Look to the sky!'
+for I promise that I'll see them then.","In the line 'The Sun is a campfire I glimpse from afar', the word 'glimpse' means . . .",,B,stare at for hours,see for a moment,feel the heat of,light up brightly,,2,1,1,"NAPLAN,Year 4,Mock 3",English_Comprehension_Questions_expanded.csv,4.1384.3,237,1,4,Medium
+NAPLAN-Y4-READING-M3-Q12,NAPLAN-Y4-READING-M3,NAPLAN_STYLE_READING,Text 3,4,English,Inference,Character Motivation,ReadingComprehension,"The Comet's Promise
+I am a comet, a snowball of dust,
+far out where the cold planets roam.
+I drift through the dark for a hundred long years,
+but always I turn and come home.
+
+Out past the giants with rings and with moons,
+where sunlight is thin as a thread,
+I sleep in the silence, as frozen as stone,
+with nothing but stars overhead.
+
+The Sun is a campfire I glimpse from afar,
+a spark at the edge of the night.
+It tugs at my coat with an invisible string
+and reels me back into the light.
+
+As I rush ever closer, my ice starts to melt,
+and I steam like a pot on the boil.
+A tail made of glitter streams out at my back,
+a long, ghostly ribbon uncoiled.
+
+My tail always points away from the Sun,
+whichever direction I race,
+as though a great wind from the Sun's glowing heart
+were blowing the hair from my face.
+
+On a planet of blue, little faces look up
+and point at the streak in the sky.
+I wish I could stay and say hello to them all,
+but I only have time to fly by.
+
+So I swing round the Sun and race out again,
+my tail drifting after like smoke.
+Remember my face, little planet of blue,
+and the night that I passed and you woke.
+
+The children who wave at me now will be old
+when I come back this way once again,
+so tell all their grandchildren, 'Look to the sky!'
+for I promise that I'll see them then.",Why does the comet want people to tell their grandchildren to 'Look to the sky'?,,B,It wants the grandchildren to look for its tail now.,It will not return until those grandchildren are alive.,It is worried that the children have forgotten it.,It plans to stay in the sky for a hundred years.,,3,1,1,"NAPLAN,Year 4,Mock 3",English_Comprehension_Questions_expanded.csv,4.1384.4,237,1,5,Medium
+NAPLAN-Y4-READING-M3-Q13,NAPLAN-Y4-READING-M3,NAPLAN_STYLE_READING,Text 3,4,English,Inference,Character Motivation,ReadingComprehension,"The Comet's Promise
+I am a comet, a snowball of dust,
+far out where the cold planets roam.
+I drift through the dark for a hundred long years,
+but always I turn and come home.
+
+Out past the giants with rings and with moons,
+where sunlight is thin as a thread,
+I sleep in the silence, as frozen as stone,
+with nothing but stars overhead.
+
+The Sun is a campfire I glimpse from afar,
+a spark at the edge of the night.
+It tugs at my coat with an invisible string
+and reels me back into the light.
+
+As I rush ever closer, my ice starts to melt,
+and I steam like a pot on the boil.
+A tail made of glitter streams out at my back,
+a long, ghostly ribbon uncoiled.
+
+My tail always points away from the Sun,
+whichever direction I race,
+as though a great wind from the Sun's glowing heart
+were blowing the hair from my face.
+
+On a planet of blue, little faces look up
+and point at the streak in the sky.
+I wish I could stay and say hello to them all,
+but I only have time to fly by.
+
+So I swing round the Sun and race out again,
+my tail drifting after like smoke.
+Remember my face, little planet of blue,
+and the night that I passed and you woke.
+
+The children who wave at me now will be old
+when I come back this way once again,
+so tell all their grandchildren, 'Look to the sky!'
+for I promise that I'll see them then.","The comet says 'always I turn and come home.' Using the whole poem, what really makes it return?",,C,It wants to see the children on Earth.,It becomes too cold far out in space.,The Sun's pull draws it back.,It made a promise to the blue planet.,,4,1,1,"NAPLAN,Year 4,Mock 3",English_Comprehension_Questions_expanded.csv,4.1384.5,237,2,8,Hard
+NAPLAN-Y4-READING-M3-Q14,NAPLAN-Y4-READING-M3,NAPLAN_STYLE_READING,Text 3,4,English,Literary Techniques,Figurative Language,ReadingComprehension,"The Comet's Promise
+I am a comet, a snowball of dust,
+far out where the cold planets roam.
+I drift through the dark for a hundred long years,
+but always I turn and come home.
+
+Out past the giants with rings and with moons,
+where sunlight is thin as a thread,
+I sleep in the silence, as frozen as stone,
+with nothing but stars overhead.
+
+The Sun is a campfire I glimpse from afar,
+a spark at the edge of the night.
+It tugs at my coat with an invisible string
+and reels me back into the light.
+
+As I rush ever closer, my ice starts to melt,
+and I steam like a pot on the boil.
+A tail made of glitter streams out at my back,
+a long, ghostly ribbon uncoiled.
+
+My tail always points away from the Sun,
+whichever direction I race,
+as though a great wind from the Sun's glowing heart
+were blowing the hair from my face.
+
+On a planet of blue, little faces look up
+and point at the streak in the sky.
+I wish I could stay and say hello to them all,
+but I only have time to fly by.
+
+So I swing round the Sun and race out again,
+my tail drifting after like smoke.
+Remember my face, little planet of blue,
+and the night that I passed and you woke.
+
+The children who wave at me now will be old
+when I come back this way once again,
+so tell all their grandchildren, 'Look to the sky!'
+for I promise that I'll see them then.","What does the poet suggest by calling the Sun 'a campfire I glimpse from afar, a spark at the edge of the night'?",,C,The Sun is really much smaller than the comet.,The Sun is burning low and will soon go out.,"From so far away, the Sun looks tiny but warm and inviting.",The comet is afraid of being burnt by the Sun.,,4,1,1,"NAPLAN,Year 4,Mock 3",English_Comprehension_Questions_expanded.csv,4.1384.6,237,1,7,Hard
+NAPLAN-Y4-READING-M3-Q15,NAPLAN-Y4-READING-M3,NAPLAN_STYLE_READING,Text 4,4,English,Reading Comprehension,Evaluating Evidence,ReadingComprehension,"Keep Cars on the Ground
+Every few years, someone promises that flying cars are just around the corner. Videos show shiny machines zooming between skyscrapers. It looks thrilling, but I believe filling our skies with flying cars would be a big mistake.
+Imagine it is the year 2075. Ten-year-old Priya steps outside her front door. Above her, hundreds of flying cars buzz like a swarm of angry bees. She cannot hear the birds or even her own thoughts. Her little brother covers his ears and refuses to walk to school. This is the noisy future we could be choosing.
+Noise is only the first problem. A car with a flat tyre can pull over to the side of the road. A flying car with a broken engine has nowhere to go but down. Every driver would need far more training than drivers need today, and even skilled pilots make mistakes.
+Flying cars would also use huge amounts of energy. Lifting a heavy vehicle into the air takes much more power than rolling it along a road. That means more batteries, more fuel and more harm to our planet.
+Supporters say flying cars would end traffic jams. But the sky would soon fill up too, and a jam a hundred metres up is far more dangerous than one on the ground.
+Instead of wasting billions on flying cars, let's build better trains, safer bike paths and quieter streets. The future should be calm, clean and safe, not buzzing over our heads.",Which reason does the writer give to show that flying cars would harm the planet?,,C,Flying cars would be too noisy for birds.,Drivers would need much more training.,Lifting a vehicle takes more power than rolling it.,Engines could break down in the air.,,1,1,1,"NAPLAN,Year 4,Mock 3",English_Comprehension_Questions_expanded.csv,4.1333.1,186,1,2,Easy
+NAPLAN-Y4-READING-M3-Q16,NAPLAN-Y4-READING-M3,NAPLAN_STYLE_READING,Text 4,4,English,Reading Comprehension,Main Idea,ReadingComprehension,"Keep Cars on the Ground
+Every few years, someone promises that flying cars are just around the corner. Videos show shiny machines zooming between skyscrapers. It looks thrilling, but I believe filling our skies with flying cars would be a big mistake.
+Imagine it is the year 2075. Ten-year-old Priya steps outside her front door. Above her, hundreds of flying cars buzz like a swarm of angry bees. She cannot hear the birds or even her own thoughts. Her little brother covers his ears and refuses to walk to school. This is the noisy future we could be choosing.
+Noise is only the first problem. A car with a flat tyre can pull over to the side of the road. A flying car with a broken engine has nowhere to go but down. Every driver would need far more training than drivers need today, and even skilled pilots make mistakes.
+Flying cars would also use huge amounts of energy. Lifting a heavy vehicle into the air takes much more power than rolling it along a road. That means more batteries, more fuel and more harm to our planet.
+Supporters say flying cars would end traffic jams. But the sky would soon fill up too, and a jam a hundred metres up is far more dangerous than one on the ground.
+Instead of wasting billions on flying cars, let's build better trains, safer bike paths and quieter streets. The future should be calm, clean and safe, not buzzing over our heads.",What is the writer's main point?,,B,Flying cars will be invented by the year 2075.,Flying cars would cause more problems than they solve.,Trains are faster than any car on the road.,Drivers today need much more training.,,1,1,1,"NAPLAN,Year 4,Mock 3",English_Comprehension_Questions_expanded.csv,4.1333.2,186,1,2,Easy
+NAPLAN-Y4-READING-M3-Q17,NAPLAN-Y4-READING-M3,NAPLAN_STYLE_READING,Text 4,4,English,Literary Techniques,Characterisation,ReadingComprehension,"Keep Cars on the Ground
+Every few years, someone promises that flying cars are just around the corner. Videos show shiny machines zooming between skyscrapers. It looks thrilling, but I believe filling our skies with flying cars would be a big mistake.
+Imagine it is the year 2075. Ten-year-old Priya steps outside her front door. Above her, hundreds of flying cars buzz like a swarm of angry bees. She cannot hear the birds or even her own thoughts. Her little brother covers his ears and refuses to walk to school. This is the noisy future we could be choosing.
+Noise is only the first problem. A car with a flat tyre can pull over to the side of the road. A flying car with a broken engine has nowhere to go but down. Every driver would need far more training than drivers need today, and even skilled pilots make mistakes.
+Flying cars would also use huge amounts of energy. Lifting a heavy vehicle into the air takes much more power than rolling it along a road. That means more batteries, more fuel and more harm to our planet.
+Supporters say flying cars would end traffic jams. But the sky would soon fill up too, and a jam a hundred metres up is far more dangerous than one on the ground.
+Instead of wasting billions on flying cars, let's build better trains, safer bike paths and quieter streets. The future should be calm, clean and safe, not buzzing over our heads.",What does the description of Priya's little brother suggest about him?,,B,He is excited by the flying cars above.,He is upset and overwhelmed by the noise.,He is calm and brave about the noise.,He is annoyed that Priya is walking ahead.,,2,1,1,"NAPLAN,Year 4,Mock 3",English_Comprehension_Questions_expanded.csv,4.1333.3,186,1,4,Medium
+NAPLAN-Y4-READING-M3-Q18,NAPLAN-Y4-READING-M3,NAPLAN_STYLE_READING,Text 4,4,English,Persuasive Language,Argument Structure,ReadingComprehension,"Keep Cars on the Ground
+Every few years, someone promises that flying cars are just around the corner. Videos show shiny machines zooming between skyscrapers. It looks thrilling, but I believe filling our skies with flying cars would be a big mistake.
+Imagine it is the year 2075. Ten-year-old Priya steps outside her front door. Above her, hundreds of flying cars buzz like a swarm of angry bees. She cannot hear the birds or even her own thoughts. Her little brother covers his ears and refuses to walk to school. This is the noisy future we could be choosing.
+Noise is only the first problem. A car with a flat tyre can pull over to the side of the road. A flying car with a broken engine has nowhere to go but down. Every driver would need far more training than drivers need today, and even skilled pilots make mistakes.
+Flying cars would also use huge amounts of energy. Lifting a heavy vehicle into the air takes much more power than rolling it along a road. That means more batteries, more fuel and more harm to our planet.
+Supporters say flying cars would end traffic jams. But the sky would soon fill up too, and a jam a hundred metres up is far more dangerous than one on the ground.
+Instead of wasting billions on flying cars, let's build better trains, safer bike paths and quieter streets. The future should be calm, clean and safe, not buzzing over our heads.",The sentence 'Noise is only the first problem.' helps the argument by . . .,,C,summing up all of the writer's reasons,giving the evidence that flying cars are noisy,linking the last point to the reasons still to come,introducing what supporters of flying cars say,,3,1,1,"NAPLAN,Year 4,Mock 3",English_Comprehension_Questions_expanded.csv,4.1333.4,186,1,5,Medium
+NAPLAN-Y4-READING-M3-Q19,NAPLAN-Y4-READING-M3,NAPLAN_STYLE_READING,Text 4,4,English,Inference,Inferential Reasoning,ReadingComprehension,"Keep Cars on the Ground
+Every few years, someone promises that flying cars are just around the corner. Videos show shiny machines zooming between skyscrapers. It looks thrilling, but I believe filling our skies with flying cars would be a big mistake.
+Imagine it is the year 2075. Ten-year-old Priya steps outside her front door. Above her, hundreds of flying cars buzz like a swarm of angry bees. She cannot hear the birds or even her own thoughts. Her little brother covers his ears and refuses to walk to school. This is the noisy future we could be choosing.
+Noise is only the first problem. A car with a flat tyre can pull over to the side of the road. A flying car with a broken engine has nowhere to go but down. Every driver would need far more training than drivers need today, and even skilled pilots make mistakes.
+Flying cars would also use huge amounts of energy. Lifting a heavy vehicle into the air takes much more power than rolling it along a road. That means more batteries, more fuel and more harm to our planet.
+Supporters say flying cars would end traffic jams. But the sky would soon fill up too, and a jam a hundred metres up is far more dangerous than one on the ground.
+Instead of wasting billions on flying cars, let's build better trains, safer bike paths and quieter streets. The future should be calm, clean and safe, not buzzing over our heads.",What can you infer the writer believes about trains and bike paths?,,A,"They avoid the noise, danger and energy use of flying cars.",They would end every traffic jam in the city for good.,They are already perfect and do not need any changes.,They will become popular with drivers by the year 2075.,,4,1,1,"NAPLAN,Year 4,Mock 3",English_Comprehension_Questions_expanded.csv,4.1333.5,186,1,7,Hard
+NAPLAN-Y4-READING-M3-Q20,NAPLAN-Y4-READING-M3,NAPLAN_STYLE_READING,Text 4,4,English,Reading Comprehension,Point of View,ReadingComprehension,"Keep Cars on the Ground
+Every few years, someone promises that flying cars are just around the corner. Videos show shiny machines zooming between skyscrapers. It looks thrilling, but I believe filling our skies with flying cars would be a big mistake.
+Imagine it is the year 2075. Ten-year-old Priya steps outside her front door. Above her, hundreds of flying cars buzz like a swarm of angry bees. She cannot hear the birds or even her own thoughts. Her little brother covers his ears and refuses to walk to school. This is the noisy future we could be choosing.
+Noise is only the first problem. A car with a flat tyre can pull over to the side of the road. A flying car with a broken engine has nowhere to go but down. Every driver would need far more training than drivers need today, and even skilled pilots make mistakes.
+Flying cars would also use huge amounts of energy. Lifting a heavy vehicle into the air takes much more power than rolling it along a road. That means more batteries, more fuel and more harm to our planet.
+Supporters say flying cars would end traffic jams. But the sky would soon fill up too, and a jam a hundred metres up is far more dangerous than one on the ground.
+Instead of wasting billions on flying cars, let's build better trains, safer bike paths and quieter streets. The future should be calm, clean and safe, not buzzing over our heads.",The writer begins with videos of 'shiny machines zooming between skyscrapers' and ends by saying the future should not be 'buzzing over our heads'. What does this tell you about the writer's point of view?,,A,The future that looks exciting in the videos is one the writer hopes we will not choose.,The writer thinks flying cars would be a problem only in cities with tall skyscrapers.,The writer enjoys the videos but is mostly worried about how much flying cars would cost.,"The writer believes flying cars are coming soon, so we should get ready for them now.",,4,1,1,"NAPLAN,Year 4,Mock 3",English_Comprehension_Questions_expanded.csv,4.1333.6,186,2,7,Hard
+NAPLAN-Y4-READING-M3-Q21,NAPLAN-Y4-READING-M3,NAPLAN_STYLE_READING,Text 5,4,English,Reading Comprehension,Text Structure,ReadingComprehension,"Nobody Held the Pen
+The bees build rooms with six straight sides
+and share each waxy wall,
+a golden city, packed so tight
+there's not a gap at all.
+And nobody held the pen.
+
+The snail's shell is a winding stair
+that circles round and in;
+it starts out wide, then turns and turns
+and tightens to a pin.
+And nobody held the pen.
+
+A pebble dropped into the pond
+sends rings that ripple out,
+each circle wider than the last,
+a whisper grown to a shout.
+And nobody held the pen.
+
+A snowflake lands upon my glove
+with six arms, lacy-white,
+each one a copy of the rest,
+then melts before my sight.
+And nobody held the pen.
+
+A spider spins a silver wheel
+of spokes and rings so fine,
+each gap the same from hub to edge,
+each thread a perfect line.
+And nobody held the pen.
+
+The sunflower packs its face with seeds
+in spirals, row on row,
+some curving left and some curving right,
+like whirlpools as they grow.
+And nobody held the pen.
+
+The gum leaf has a map of roads
+that branch from one thick vein,
+like creeks seen from an aeroplane
+across a dusty plain.
+And nobody held the pen.
+
+The wind combs ridges on the dunes
+in long and wavy bands,
+as even as the lines I trace
+with fingers through the sand.
+And nobody held the pen.
+
+I use a ruler for my lines,
+a compass for my rounds,
+and still I rub out half of them
+with grumbling, scratchy sounds.
+So who was holding the pen?",Each of the first eight stanzas describes . . .,,A,a different pattern found in nature,the same pattern in a different season,a different tool used for drawing,a different animal building a home,,1,1,1,"NAPLAN,Year 4,Mock 3",English_Comprehension_Questions_expanded.csv,4.1309.1,162,1,2,Easy
+NAPLAN-Y4-READING-M3-Q22,NAPLAN-Y4-READING-M3,NAPLAN_STYLE_READING,Text 5,4,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Nobody Held the Pen
+The bees build rooms with six straight sides
+and share each waxy wall,
+a golden city, packed so tight
+there's not a gap at all.
+And nobody held the pen.
+
+The snail's shell is a winding stair
+that circles round and in;
+it starts out wide, then turns and turns
+and tightens to a pin.
+And nobody held the pen.
+
+A pebble dropped into the pond
+sends rings that ripple out,
+each circle wider than the last,
+a whisper grown to a shout.
+And nobody held the pen.
+
+A snowflake lands upon my glove
+with six arms, lacy-white,
+each one a copy of the rest,
+then melts before my sight.
+And nobody held the pen.
+
+A spider spins a silver wheel
+of spokes and rings so fine,
+each gap the same from hub to edge,
+each thread a perfect line.
+And nobody held the pen.
+
+The sunflower packs its face with seeds
+in spirals, row on row,
+some curving left and some curving right,
+like whirlpools as they grow.
+And nobody held the pen.
+
+The gum leaf has a map of roads
+that branch from one thick vein,
+like creeks seen from an aeroplane
+across a dusty plain.
+And nobody held the pen.
+
+The wind combs ridges on the dunes
+in long and wavy bands,
+as even as the lines I trace
+with fingers through the sand.
+And nobody held the pen.
+
+I use a ruler for my lines,
+a compass for my rounds,
+and still I rub out half of them
+with grumbling, scratchy sounds.
+So who was holding the pen?",How many sides do the rooms in the bees' 'golden city' have?,,D,four,five,eight,six,,1,1,1,"NAPLAN,Year 4,Mock 3",English_Comprehension_Questions_expanded.csv,4.1309.2,162,1,1,Easy
+NAPLAN-Y4-READING-M3-Q23,NAPLAN-Y4-READING-M3,NAPLAN_STYLE_READING,Text 5,4,English,Reading Comprehension,Theme,ReadingComprehension,"Nobody Held the Pen
+The bees build rooms with six straight sides
+and share each waxy wall,
+a golden city, packed so tight
+there's not a gap at all.
+And nobody held the pen.
+
+The snail's shell is a winding stair
+that circles round and in;
+it starts out wide, then turns and turns
+and tightens to a pin.
+And nobody held the pen.
+
+A pebble dropped into the pond
+sends rings that ripple out,
+each circle wider than the last,
+a whisper grown to a shout.
+And nobody held the pen.
+
+A snowflake lands upon my glove
+with six arms, lacy-white,
+each one a copy of the rest,
+then melts before my sight.
+And nobody held the pen.
+
+A spider spins a silver wheel
+of spokes and rings so fine,
+each gap the same from hub to edge,
+each thread a perfect line.
+And nobody held the pen.
+
+The sunflower packs its face with seeds
+in spirals, row on row,
+some curving left and some curving right,
+like whirlpools as they grow.
+And nobody held the pen.
+
+The gum leaf has a map of roads
+that branch from one thick vein,
+like creeks seen from an aeroplane
+across a dusty plain.
+And nobody held the pen.
+
+The wind combs ridges on the dunes
+in long and wavy bands,
+as even as the lines I trace
+with fingers through the sand.
+And nobody held the pen.
+
+I use a ruler for my lines,
+a compass for my rounds,
+and still I rub out half of them
+with grumbling, scratchy sounds.
+So who was holding the pen?",Which sentence best states the main message of the poem?,,A,Nature makes amazing patterns without anyone drawing them.,Drawing neat patterns takes a lot of practice.,Bees and snails are the cleverest builders of all.,Patterns in nature disappear almost as soon as they form.,,3,1,1,"NAPLAN,Year 4,Mock 3",English_Comprehension_Questions_expanded.csv,4.1309.3,162,1,5,Medium
+NAPLAN-Y4-READING-M3-Q24,NAPLAN-Y4-READING-M3,NAPLAN_STYLE_READING,Text 5,4,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Nobody Held the Pen
+The bees build rooms with six straight sides
+and share each waxy wall,
+a golden city, packed so tight
+there's not a gap at all.
+And nobody held the pen.
+
+The snail's shell is a winding stair
+that circles round and in;
+it starts out wide, then turns and turns
+and tightens to a pin.
+And nobody held the pen.
+
+A pebble dropped into the pond
+sends rings that ripple out,
+each circle wider than the last,
+a whisper grown to a shout.
+And nobody held the pen.
+
+A snowflake lands upon my glove
+with six arms, lacy-white,
+each one a copy of the rest,
+then melts before my sight.
+And nobody held the pen.
+
+A spider spins a silver wheel
+of spokes and rings so fine,
+each gap the same from hub to edge,
+each thread a perfect line.
+And nobody held the pen.
+
+The sunflower packs its face with seeds
+in spirals, row on row,
+some curving left and some curving right,
+like whirlpools as they grow.
+And nobody held the pen.
+
+The gum leaf has a map of roads
+that branch from one thick vein,
+like creeks seen from an aeroplane
+across a dusty plain.
+And nobody held the pen.
+
+The wind combs ridges on the dunes
+in long and wavy bands,
+as even as the lines I trace
+with fingers through the sand.
+And nobody held the pen.
+
+I use a ruler for my lines,
+a compass for my rounds,
+and still I rub out half of them
+with grumbling, scratchy sounds.
+So who was holding the pen?",Which two things in the poem both have six parts?,,C,the snail's shell and the snowflake,the pond's rings and the gum leaf,the bees' rooms and the snowflake,the gum leaf and the bees' rooms,,3,1,1,"NAPLAN,Year 4,Mock 3",English_Comprehension_Questions_expanded.csv,4.1309.4,162,1,5,Medium
+NAPLAN-Y4-READING-M3-Q25,NAPLAN-Y4-READING-M3,NAPLAN_STYLE_READING,Text 5,4,English,Reading Comprehension,Author Purpose,ReadingComprehension,"Nobody Held the Pen
+The bees build rooms with six straight sides
+and share each waxy wall,
+a golden city, packed so tight
+there's not a gap at all.
+And nobody held the pen.
+
+The snail's shell is a winding stair
+that circles round and in;
+it starts out wide, then turns and turns
+and tightens to a pin.
+And nobody held the pen.
+
+A pebble dropped into the pond
+sends rings that ripple out,
+each circle wider than the last,
+a whisper grown to a shout.
+And nobody held the pen.
+
+A snowflake lands upon my glove
+with six arms, lacy-white,
+each one a copy of the rest,
+then melts before my sight.
+And nobody held the pen.
+
+A spider spins a silver wheel
+of spokes and rings so fine,
+each gap the same from hub to edge,
+each thread a perfect line.
+And nobody held the pen.
+
+The sunflower packs its face with seeds
+in spirals, row on row,
+some curving left and some curving right,
+like whirlpools as they grow.
+And nobody held the pen.
+
+The gum leaf has a map of roads
+that branch from one thick vein,
+like creeks seen from an aeroplane
+across a dusty plain.
+And nobody held the pen.
+
+The wind combs ridges on the dunes
+in long and wavy bands,
+as even as the lines I trace
+with fingers through the sand.
+And nobody held the pen.
+
+I use a ruler for my lines,
+a compass for my rounds,
+and still I rub out half of them
+with grumbling, scratchy sounds.
+So who was holding the pen?",Why does the poet describe her own drawing in the last stanza?,,D,to explain how to draw circles and lines neatly,to show that people draw better patterns than nature,to reveal that she drew all the patterns herself,to contrast her effort and mistakes with nature's neat patterns,,4,1,1,"NAPLAN,Year 4,Mock 3",English_Comprehension_Questions_expanded.csv,4.1309.5,162,2,8,Hard
+NAPLAN-Y4-READING-M3-Q26,NAPLAN-Y4-READING-M3,NAPLAN_STYLE_READING,Text 5,4,English,Literary Techniques,Poetic Form,ReadingComprehension,"Nobody Held the Pen
+The bees build rooms with six straight sides
+and share each waxy wall,
+a golden city, packed so tight
+there's not a gap at all.
+And nobody held the pen.
+
+The snail's shell is a winding stair
+that circles round and in;
+it starts out wide, then turns and turns
+and tightens to a pin.
+And nobody held the pen.
+
+A pebble dropped into the pond
+sends rings that ripple out,
+each circle wider than the last,
+a whisper grown to a shout.
+And nobody held the pen.
+
+A snowflake lands upon my glove
+with six arms, lacy-white,
+each one a copy of the rest,
+then melts before my sight.
+And nobody held the pen.
+
+A spider spins a silver wheel
+of spokes and rings so fine,
+each gap the same from hub to edge,
+each thread a perfect line.
+And nobody held the pen.
+
+The sunflower packs its face with seeds
+in spirals, row on row,
+some curving left and some curving right,
+like whirlpools as they grow.
+And nobody held the pen.
+
+The gum leaf has a map of roads
+that branch from one thick vein,
+like creeks seen from an aeroplane
+across a dusty plain.
+And nobody held the pen.
+
+The wind combs ridges on the dunes
+in long and wavy bands,
+as even as the lines I trace
+with fingers through the sand.
+And nobody held the pen.
+
+I use a ruler for my lines,
+a compass for my rounds,
+and still I rub out half of them
+with grumbling, scratchy sounds.
+So who was holding the pen?",Which statement about the rhyme in this poem is correct?,,C,"In every stanza, the first and third lines rhyme.",The repeated fifth line rhymes with the line before it.,"In every stanza, the second and fourth lines rhyme.",The last stanza is the only one with no rhyme at all.,,4,1,1,"NAPLAN,Year 4,Mock 3",English_Comprehension_Questions_expanded.csv,4.1309.6,162,1,7,Hard
+NAPLAN-Y4-READING-M3-Q27,NAPLAN-Y4-READING-M3,NAPLAN_STYLE_READING,Text 6,4,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Bread on the Goldfields
+It was 1853, and the Ballarat goldfields were a sea of canvas tents and muddy holes. Every morning, Tom's father climbed down into their shaft with a pick and a bucket, hoping today would be the lucky day.
+Tom's job was to rock the cradle. He tipped buckets of dirt and water into the wooden box and rocked it back and forth, so that any heavy gold would sink to the bottom. Most days, all he found was mud and stones. His arms ached, and his boots were always soaked.
+Meanwhile, Tom's mother had an idea of her own. She built a clay oven behind their tent and began baking bread. The warm smell drifted across the diggings, and soon tired miners were lining up with coins in their hands. Some even paid with tiny flakes of gold.
+One evening, Father climbed out of the shaft, empty-handed again. He sank onto a log with his head in his hands. Mum said nothing. She simply fetched the old tin box where she kept the bread money and tipped it onto the table. Coins and gold flakes spilled across the wood, glittering in the lamplight.
+Father stared. Then he began to laugh.
+'All this time I've been digging for gold,' he said, 'and you've been baking it.'
+The next morning, Tom didn't rock the cradle. He chopped wood for the oven instead, whistling as he worked.",What was Tom's job at the start of the story?,,A,rocking the cradle,baking the bread,digging the shaft,chopping the wood,,1,1,1,"NAPLAN,Year 4,Mock 3",English_Comprehension_Questions_expanded.csv,4.1327.1,180,1,2,Easy
+NAPLAN-Y4-READING-M3-Q28,NAPLAN-Y4-READING-M3,NAPLAN_STYLE_READING,Text 6,4,English,Reading Comprehension,Locating Information,ReadingComprehension,"Bread on the Goldfields
+It was 1853, and the Ballarat goldfields were a sea of canvas tents and muddy holes. Every morning, Tom's father climbed down into their shaft with a pick and a bucket, hoping today would be the lucky day.
+Tom's job was to rock the cradle. He tipped buckets of dirt and water into the wooden box and rocked it back and forth, so that any heavy gold would sink to the bottom. Most days, all he found was mud and stones. His arms ached, and his boots were always soaked.
+Meanwhile, Tom's mother had an idea of her own. She built a clay oven behind their tent and began baking bread. The warm smell drifted across the diggings, and soon tired miners were lining up with coins in their hands. Some even paid with tiny flakes of gold.
+One evening, Father climbed out of the shaft, empty-handed again. He sank onto a log with his head in his hands. Mum said nothing. She simply fetched the old tin box where she kept the bread money and tipped it onto the table. Coins and gold flakes spilled across the wood, glittering in the lamplight.
+Father stared. Then he began to laugh.
+'All this time I've been digging for gold,' he said, 'and you've been baking it.'
+The next morning, Tom didn't rock the cradle. He chopped wood for the oven instead, whistling as he worked.",Which paragraph describes how a cradle was used?,,D,the first paragraph,the third paragraph,the fourth paragraph,the second paragraph,,1,1,1,"NAPLAN,Year 4,Mock 3",English_Comprehension_Questions_expanded.csv,4.1327.2,180,1,2,Easy
+NAPLAN-Y4-READING-M3-Q29,NAPLAN-Y4-READING-M3,NAPLAN_STYLE_READING,Text 6,4,English,Literary Techniques,Tone and Mood,ReadingComprehension,"Bread on the Goldfields
+It was 1853, and the Ballarat goldfields were a sea of canvas tents and muddy holes. Every morning, Tom's father climbed down into their shaft with a pick and a bucket, hoping today would be the lucky day.
+Tom's job was to rock the cradle. He tipped buckets of dirt and water into the wooden box and rocked it back and forth, so that any heavy gold would sink to the bottom. Most days, all he found was mud and stones. His arms ached, and his boots were always soaked.
+Meanwhile, Tom's mother had an idea of her own. She built a clay oven behind their tent and began baking bread. The warm smell drifted across the diggings, and soon tired miners were lining up with coins in their hands. Some even paid with tiny flakes of gold.
+One evening, Father climbed out of the shaft, empty-handed again. He sank onto a log with his head in his hands. Mum said nothing. She simply fetched the old tin box where she kept the bread money and tipped it onto the table. Coins and gold flakes spilled across the wood, glittering in the lamplight.
+Father stared. Then he began to laugh.
+'All this time I've been digging for gold,' he said, 'and you've been baking it.'
+The next morning, Tom didn't rock the cradle. He chopped wood for the oven instead, whistling as he worked.","When Father 'sank onto a log with his head in his hands', the mood is . . .",,B,excited,gloomy,peaceful,angry,,2,1,1,"NAPLAN,Year 4,Mock 3",English_Comprehension_Questions_expanded.csv,4.1327.3,180,1,4,Medium
+NAPLAN-Y4-READING-M3-Q30,NAPLAN-Y4-READING-M3,NAPLAN_STYLE_READING,Text 6,4,English,Reading Comprehension,Locating Information,ReadingComprehension,"Bread on the Goldfields
+It was 1853, and the Ballarat goldfields were a sea of canvas tents and muddy holes. Every morning, Tom's father climbed down into their shaft with a pick and a bucket, hoping today would be the lucky day.
+Tom's job was to rock the cradle. He tipped buckets of dirt and water into the wooden box and rocked it back and forth, so that any heavy gold would sink to the bottom. Most days, all he found was mud and stones. His arms ached, and his boots were always soaked.
+Meanwhile, Tom's mother had an idea of her own. She built a clay oven behind their tent and began baking bread. The warm smell drifted across the diggings, and soon tired miners were lining up with coins in their hands. Some even paid with tiny flakes of gold.
+One evening, Father climbed out of the shaft, empty-handed again. He sank onto a log with his head in his hands. Mum said nothing. She simply fetched the old tin box where she kept the bread money and tipped it onto the table. Coins and gold flakes spilled across the wood, glittering in the lamplight.
+Father stared. Then he began to laugh.
+'All this time I've been digging for gold,' he said, 'and you've been baking it.'
+The next morning, Tom didn't rock the cradle. He chopped wood for the oven instead, whistling as he worked.",Which sentence shows that the miners liked Mum's bread?,,B,She built a clay oven behind their tent.,Soon tired miners were lining up with coins in their hands.,The warm smell drifted across the diggings.,Coins and gold flakes spilled across the wood.,,3,1,1,"NAPLAN,Year 4,Mock 3",English_Comprehension_Questions_expanded.csv,4.1327.4,180,1,5,Medium
+NAPLAN-Y4-READING-M3-Q31,NAPLAN-Y4-READING-M3,NAPLAN_STYLE_READING,Text 6,4,English,Inference,Character Motivation,ReadingComprehension,"Bread on the Goldfields
+It was 1853, and the Ballarat goldfields were a sea of canvas tents and muddy holes. Every morning, Tom's father climbed down into their shaft with a pick and a bucket, hoping today would be the lucky day.
+Tom's job was to rock the cradle. He tipped buckets of dirt and water into the wooden box and rocked it back and forth, so that any heavy gold would sink to the bottom. Most days, all he found was mud and stones. His arms ached, and his boots were always soaked.
+Meanwhile, Tom's mother had an idea of her own. She built a clay oven behind their tent and began baking bread. The warm smell drifted across the diggings, and soon tired miners were lining up with coins in their hands. Some even paid with tiny flakes of gold.
+One evening, Father climbed out of the shaft, empty-handed again. He sank onto a log with his head in his hands. Mum said nothing. She simply fetched the old tin box where she kept the bread money and tipped it onto the table. Coins and gold flakes spilled across the wood, glittering in the lamplight.
+Father stared. Then he began to laugh.
+'All this time I've been digging for gold,' he said, 'and you've been baking it.'
+The next morning, Tom didn't rock the cradle. He chopped wood for the oven instead, whistling as he worked.",Why did Mum tip out the bread money instead of explaining it to Father?,,C,She was too upset with Father to speak to him that night.,She needed to count the coins before buying more flour.,She wanted him to see for himself how much the bread had earned.,She hoped the shining gold flakes would cheer Tom up.,,4,1,1,"NAPLAN,Year 4,Mock 3",English_Comprehension_Questions_expanded.csv,4.1327.5,180,1,7,Hard
+NAPLAN-Y4-READING-M3-Q32,NAPLAN-Y4-READING-M3,NAPLAN_STYLE_READING,Text 6,4,English,Inference,Inferential Reasoning,ReadingComprehension,"Bread on the Goldfields
+It was 1853, and the Ballarat goldfields were a sea of canvas tents and muddy holes. Every morning, Tom's father climbed down into their shaft with a pick and a bucket, hoping today would be the lucky day.
+Tom's job was to rock the cradle. He tipped buckets of dirt and water into the wooden box and rocked it back and forth, so that any heavy gold would sink to the bottom. Most days, all he found was mud and stones. His arms ached, and his boots were always soaked.
+Meanwhile, Tom's mother had an idea of her own. She built a clay oven behind their tent and began baking bread. The warm smell drifted across the diggings, and soon tired miners were lining up with coins in their hands. Some even paid with tiny flakes of gold.
+One evening, Father climbed out of the shaft, empty-handed again. He sank onto a log with his head in his hands. Mum said nothing. She simply fetched the old tin box where she kept the bread money and tipped it onto the table. Coins and gold flakes spilled across the wood, glittering in the lamplight.
+Father stared. Then he began to laugh.
+'All this time I've been digging for gold,' he said, 'and you've been baking it.'
+The next morning, Tom didn't rock the cradle. He chopped wood for the oven instead, whistling as he worked.",Why did Tom most likely chop wood the next morning instead of rocking the cradle?,,D,"Father had found gold at last, so the cradle wasn't needed.",Tom's arms were too sore from rocking the cradle every day.,The cradle had broken after so many buckets of dirt.,The family had decided baking was a better way to earn money.,,4,1,1,"NAPLAN,Year 4,Mock 3",English_Comprehension_Questions_expanded.csv,4.1327.6,180,2,8,Hard

@@ -251,8 +251,10 @@ export const doesNaplanScoreInfluencePrivateSchoolScholarship = {
   image:
     "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Academic success symbols representing academic achievement and scholarship opportunities",
-  date: "March 28, 2026",
+    "Academic success symbols representing academic achievement and scholarship opportunities",  date: "August 22, 2026",
+  updatedDate: "August 24, 2026",
+  readingTime: 12,
+  category: "naplan",
   tags: [
     "NAPLAN",
     "SCHOLARSHIPS",
@@ -278,6 +280,13 @@ export const doesNaplanScoreInfluencePrivateSchoolScholarship = {
     "private school scholarship exam Australia",
     "NAPLAN proficiency and scholarship readiness",
     "academic scholarship application process",
+  ],
+  keyTakeaways: [
+    "The short answer: for the vast majority of private schools, NAPLAN scores alone do not determine scholarship outcomes - the dedicated scholarship exam is the primary assessment tool.",
+    "Five reasons schools do not rely on NAPLAN: it was not designed for selection, it does not test reasoning, its proficiency levels are too broad, schools need consistent controlled conditions, and timing does not always align.",
+    "The typical award process runs scholarship exam, shortlisting, interview at some schools, supporting documentation, then final decision.",
+    "NAPLAN can still matter as a tiebreaker, as validation of exam performance, in needs-based or equity scholarships, as a pre-qualification threshold, or at schools without a formal scholarship exam.",
+    "Parents should prepare specifically for the scholarship exam, build reasoning, develop exceptional writing, maintain school performance, and not over-index on NAPLAN.",
   ],
   author: {
     name: "Ashish Jain",

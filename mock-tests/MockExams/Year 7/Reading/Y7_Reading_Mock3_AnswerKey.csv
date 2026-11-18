@@ -1,0 +1,43 @@
+﻿QuestionNumber,QuestionID,ExamSection,Correct,CorrectAnswerText,Topic,SubTopic,DifficultyLabel,DifficultyScore,SourceQuestionNumber
+1,NAPLAN-Y7-READING-M3-Q01,Text 1,B,The arrival of social media on the scene,Reading Comprehension,Literal Recall,Easy,3,7.788.1
+2,NAPLAN-Y7-READING-M3-Q02,Text 1,A,"Yes, researches have proven that friendship does lead to happiness",Reading Comprehension,Literal Recall,Easy,2,7.788.2
+3,NAPLAN-Y7-READING-M3-Q03,Text 1,D,Yes,Reading Comprehension,Literal Recall,Easy,2,7.788.3
+4,NAPLAN-Y7-READING-M3-Q04,Text 1,C,"Yes, it matter",Reading Comprehension,Literal Recall,Easy,2,7.788.4
+5,NAPLAN-Y7-READING-M3-Q05,Text 1,A,They are centred around whether our Facebook friends are helping us become more or less happy,Reading Comprehension,Literal Recall,Easy,2,7.788.5
+6,NAPLAN-Y7-READING-M3-Q06,Text 2,C,They were not very knowledgeable about their field.,Inference,Inferential Reasoning,Medium,4,7.794.1
+7,NAPLAN-Y7-READING-M3-Q07,Text 2,A,Marsh paid Cope's team foreman to send new fossils to him.,Inference,Cause and Effect,Easy,3,7.794.2
+8,NAPLAN-Y7-READING-M3-Q08,Text 2,B,The competition between Cope and Marsh pushed each man to make amazing discoveries.,Inference,Cause and Effect,Medium,5,7.794.3
+9,NAPLAN-Y7-READING-M3-Q09,Text 2,C,Cope wanted his brain size to be compared with Marsh's after death.,Inference,Inferential Reasoning,Medium,4,7.794.4
+10,NAPLAN-Y7-READING-M3-Q10,Text 2,C,"Because they published their findings as quickly as possible, they made many mistakes.",Reading Comprehension,Evaluating Evidence,Medium,5,7.794.5
+11,NAPLAN-Y7-READING-M3-Q11,Text 2,D,The men gained fame due to their letters in the New York Herald.,Reading Comprehension,Summarising,Medium,5,7.794.6
+12,NAPLAN-Y7-READING-M3-Q12,Text 2,D,A feud begins between Cope and Marsh. Cope and Marsh compete in both articles and fieldwork. The fight leads to both mistakes and damaged specimens. The feud goes public and ends only with Cope's death. The Bone Wars slowed scientific progress but provided valuable fossils.,Reading Comprehension,Text Structure,Medium,6,7.794.7
+13,NAPLAN-Y7-READING-M3-Q13,Text 3,D,support the goal of studying animal interactions,Inference,Drawing Conclusions,Medium,5,7.849.1
+14,NAPLAN-Y7-READING-M3-Q14,Text 3,B,to make readers feel a connection to the article,Literary Techniques,Figurative Language,Medium,5,7.849.2
+15,NAPLAN-Y7-READING-M3-Q15,Text 3,A,"""Robotic fish like her could be essential to understanding and protecting marine life in A danger of disappearing . . ."" (paragraph 5)",Persuasive Language,Bias and Perspective,Medium,4,7.849.3
+16,NAPLAN-Y7-READING-M3-Q16,Text 3,C,Engineers focus on design requirements to achieve their goal.,Reading Comprehension,Main Idea,Medium,5,7.849.4
+17,NAPLAN-Y7-READING-M3-Q17,Text 3,B,"""But without a line giving her away by connecting her to a boat . . . she doesn't seem to B bother or scare off real fish."" (paragraph 7)",Reading Comprehension,Main Idea,Medium,5,7.849.5
+18,NAPLAN-Y7-READING-M3-Q18,Text 3,C,SoFi is an important tool for understanding ocean life.,Reading Comprehension,Summarising,Medium,4,7.849.6
+19,NAPLAN-Y7-READING-M3-Q19,Text 4,B,"Sam, the young cellist",Reading Comprehension,Point of View,Easy,2,7.1505.1
+20,NAPLAN-Y7-READING-M3-Q20,Text 4,D,every day for two months,Reading Comprehension,Literal Recall,Easy,2,7.1505.2
+21,NAPLAN-Y7-READING-M3-Q21,Text 4,D,He placed his fingers a little higher on the string.,Reading Comprehension,Literal Recall,Medium,4,7.1505.3
+22,NAPLAN-Y7-READING-M3-Q22,Text 4,B,knew that heat could put the string out of tune,Inference,Inferential Reasoning,Medium,5,7.1505.4
+23,NAPLAN-Y7-READING-M3-Q23,Text 4,C,"The heater put a string out of tune, but Sam kept playing and adjusted his fingers until the notes sounded right.",Inference,Cause and Effect,Hard,8,7.1505.5
+24,NAPLAN-Y7-READING-M3-Q24,Text 4,A,'Then I heard Ms Varga's voice in my head: don't stop.',Reading Comprehension,Evaluating Evidence,Hard,8,7.1505.6
+25,NAPLAN-Y7-READING-M3-Q25,Text 5,D,a slip in which the first sounds of two words swap,Reading Comprehension,Literal Recall,Easy,2,7.1538.1
+26,NAPLAN-Y7-READING-M3-Q26,Text 5,B,Spooner's students,Reading Comprehension,Literal Recall,Easy,2,7.1538.2
+27,NAPLAN-Y7-READING-M3-Q27,Text 5,D,it casts doubt on the stories told in the second,Reading Comprehension,Text Structure,Medium,5,7.1538.3
+28,NAPLAN-Y7-READING-M3-Q28,Text 5,A,spoonerisms happen because the brain plans words ahead,Reading Comprehension,Main Idea,Medium,5,7.1538.4
+29,NAPLAN-Y7-READING-M3-Q29,Text 5,A,'nosy cook',Inference,Drawing Conclusions,Hard,8,7.1538.5
+30,NAPLAN-Y7-READING-M3-Q30,Text 5,B,its rhyme pattern builds to a final line that delivers the spoonerism as a punchline,Literary Techniques,Poetic Form,Hard,8,7.1538.6
+31,NAPLAN-Y7-READING-M3-Q31,Text 6,D,They believed it would attract more buyers.,Inference,Cause and Effect,Easy,2,7.1487.1
+32,NAPLAN-Y7-READING-M3-Q32,Text 6,B,horrible and disturbing.,Vocabulary,Word Meaning in Context,Easy,3,7.1487.2
+33,NAPLAN-Y7-READING-M3-Q33,Text 6,B,"It opens with a puzzle about credit, traces Leonora's role, then explains and reassesses her reputation.",Reading Comprehension,Text Structure,Medium,5,7.1487.3
+34,NAPLAN-Y7-READING-M3-Q34,Text 6,C,Leonora Lang did most of the work on famous books credited to her husband.,Reading Comprehension,Main Idea,Medium,5,7.1487.4
+35,NAPLAN-Y7-READING-M3-Q35,Text 6,D,"She reshaped tales, softened details and polished her team's work into one voice.",Reading Comprehension,Evaluating Evidence,Hard,8,7.1487.5
+36,NAPLAN-Y7-READING-M3-Q36,Text 6,C,"quietly decided which tales, and in what form, reached young readers.",Literary Techniques,Figurative Language,Hard,8,7.1487.6
+37,NAPLAN-Y7-READING-M3-Q37,Text 7,B,loud,Vocabulary,Antonyms,Easy,2,7.1542.1
+38,NAPLAN-Y7-READING-M3-Q38,Text 7,A,a girl and her grandfather building a radio during a blackout,Reading Comprehension,Main Idea,Easy,3,7.1542.2
+39,NAPLAN-Y7-READING-M3-Q39,Text 7,D,radio waves sent out by the station's tower,Reading Comprehension,Literal Recall,Medium,5,7.1542.3
+40,NAPLAN-Y7-READING-M3-Q40,Text 7,A,so it could catch more of the weak radio waves,Inference,Inferential Reasoning,Medium,5,7.1542.4
+41,NAPLAN-Y7-READING-M3-Q41,Text 7,D,She now valued the radio she had built with Pop.,Inference,Drawing Conclusions,Hard,8,7.1542.5
+42,NAPLAN-Y7-READING-M3-Q42,Text 7,B,to set up a contrast with a radio that needs no battery,Reading Comprehension,Author Purpose,Hard,8,7.1542.6

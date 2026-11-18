@@ -260,11 +260,34 @@ export const naplanYear3Syllabus2026 = {
     <p>We're here to support every step of this journey. Explore our free NAPLAN Year 3 practice tests, browse our resources by topic, and — most importantly — remind your child every day that their effort matters far more than any single result.</p>
 
     <p><strong>Together, we've absolutely got this.</strong></p>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>When is NAPLAN 2026 held for Year 3?</h3>
+    <p>NAPLAN moved from May to March in 2023, so the 2026 testing window falls in the second or third week of March depending on your state or territory. Your child's school will confirm the exact dates. Because testing now happens early in the year, preparation is best done in Term 4 and Term 1 rather than in the weeks immediately before.</p>
+
+    <h3>What are the four NAPLAN Year 3 tests?</h3>
+    <p>Year 3 students sit Writing, Reading, Language Conventions (spelling, grammar and punctuation), and Numeracy. All of them are drawn from the Australian Curriculum. Language Conventions covers word classes such as nouns, verbs, adjectives, pronouns and conjunctions, sentence construction, tense consistency, punctuation and text cohesion.</p>
+
+    <h3>Is NAPLAN Year 3 online or on paper?</h3>
+    <p>NAPLAN is delivered online through adaptive testing, which adjusts question difficulty to each student's ability. The Writing test is the exception and is completed on a separate platform. Adaptive delivery means two children may see different questions while still being measured on the same scale.</p>
+
+    <h3>Can my child use a calculator in Year 3 Numeracy?</h3>
+    <p>No calculators are permitted. Year 3 students do have access to a virtual ruler on screen during the assessment. Numeracy questions are organised around three Australian Curriculum strands: Number and Algebra, Measurement and Geometry, and Statistics and Probability.</p>
+
+    <h3>How are Year 3 NAPLAN results reported?</h3>
+    <p>Results are reported against four proficiency levels - Exceeding, Strong, Developing, and Needs Additional Support - which replaced the old numbered Bands 1 to 10. The report also shows a national average comparison and, importantly, is a diagnostic snapshot rather than a judgement of your child's ability or worth.</p>
+
+    <h3>How much preparation does a Year 3 child need?</h3>
+    <p>Enough to make the format familiar, not enough to create pressure. Year 3 is a child's first NAPLAN, so the biggest gain usually comes from knowing what the interface looks like, how questions are phrased and how timing works. Short, calm, regular practice and normal routines around sleep and breakfast matter more than intensive content drilling.</p>
+
   `,
   image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&q=80",
   imageAlt:
-    "A Year 3 student sitting at a desk with a pencil and open books, looking confident and focused while studying",
-  date: "March 30, 2026",
+    "A Year 3 student sitting at a desk with a pencil and open books, looking confident and focused while studying",  date: "November 11, 2026",
+  updatedDate: "November 13, 2026",
+  readingTime: 20,
+  category: "naplan",
   tags: ["NAPLAN", "YEAR 3", "NAPLAN PREPARATION", "LITERACY", "NUMERACY"],
   metaTitle: "NAPLAN Year 3 Syllabus 2026: Complete Guide for Parents",
   metaDescription:
@@ -284,6 +307,14 @@ export const naplanYear3Syllabus2026 = {
     "NAPLAN proficiency levels",
     "how to prepare for NAPLAN Year 3",
     "NAPLAN Year 3 Australia",
+  ],
+  keyTakeaways: [
+    "Year 3 is your child's first NAPLAN. They sit four tests: Writing, Reading, Language Conventions, and Numeracy.",
+    "NAPLAN moved to March in 2023. The 2026 testing window falls in the second or third week of the month.",
+    "Every test except Writing is delivered online and adapts in difficulty as your child answers.",
+    "Results now use four proficiency levels - Exceeding, Strong, Developing and Needs Additional Support - instead of the old Bands 1-10.",
+    "Year 3 Numeracy allows an on-screen ruler but no calculator, and covers Number and Algebra, Measurement and Geometry, and Statistics and Probability.",
+    "NAPLAN is not a pass-or-fail exam. It is a diagnostic check showing where your child is thriving and where extra support would help.",
   ],
   author: {
     name: "The Exam Success Team",

@@ -1,0 +1,543 @@
+﻿QuestionID,ExamID,ExamType,ExamSection,YearLevel,Subject,Topic,SubTopic,QuestionType,ComprehensionText,QuestionText,QuestionMedia,Correct,AnswerA,AnswerB,AnswerC,AnswerD,AnswerE,Difficulty,IsActive,CorrectAnswerScore,Tags,SourceBank,SourceQuestionNumber,SourceComprehensionID,NAPLANFlag,DifficultyScore,DifficultyLabel
+NAPLAN-Y5-READING-M3-Q01,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 1,5,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The ingenious crow
+On a hot day and after It sees a bottle with Then it has an idea. It
+flying a lot, the crow is some water and puts picks some stones
+very thirsty. in its beak in order to and puts them in the
+drink the water, but bottle one by one.
+can ́t reach it.
+Little by little the Until finally the crow
+stones start rising the is able to drink the
+water level in the water.
+bottle.",Why couldn ́t the crow drink the water of the bottle?,,A,Because its beak didn ́t reach the water.,Because the water had stones in it.,Because the bottle was too small.,Because it was contaminated.,,1,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.485.1,214,1,2,Easy
+NAPLAN-Y5-READING-M3-Q02,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 1,5,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The ingenious crow
+On a hot day and after It sees a bottle with Then it has an idea. It
+flying a lot, the crow is some water and puts picks some stones
+very thirsty. in its beak in order to and puts them in the
+drink the water, but bottle one by one.
+can ́t reach it.
+Little by little the Until finally the crow
+stones start rising the is able to drink the
+water level in the water.
+bottle.",What happened at the end of the story?,,D,The crow did not reach the water.,The crow was very thirsty.,The crow put in some stones.,The crow was able to drink the water.,,1,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.485.2,214,1,2,Easy
+NAPLAN-Y5-READING-M3-Q03,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 1,5,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"The ingenious crow
+On a hot day and after It sees a bottle with Then it has an idea. It
+flying a lot, the crow is some water and puts picks some stones
+very thirsty. in its beak in order to and puts them in the
+drink the water, but bottle one by one.
+can ́t reach it.
+Little by little the Until finally the crow
+stones start rising the is able to drink the
+water level in the water.
+bottle.","In the story, what does the word ""ingenious"" mean?",,B,Hard working.,Intelligent.,Funny.,thirsty.,,2,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.485.3,214,1,3,Easy
+NAPLAN-Y5-READING-M3-Q04,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 2,5,English,Inference,Inferential Reasoning,ReadingComprehension,"What she saw first was a moving shadow. In the trees that bordered the meadow, among their dark trunks, something moved. She heard nothing to alarm—not over the rush of water and the sweep of wind—but she saw a dark, crouched shape moving. The shadow, no more than a darker darkness in the night, crept out from the mass of trees, crept low across the long grass towards the docking place. No man of the village would move so. A man of the village, come out to check a hastily secured boat, would carry a light. He would come along the path that ran from the village through the Innyard, the path she stood on. No fisherman would be setting off, not at this hour, not on a moonless night when all the stars shining together couldn't penetrate the dark, windy air.
+
+Birle stood motionless, watching. She herself ought not to be out in the night. Da and Nan would not be pleased to know how she had left her small sisters asleep in the bed they shared, pulled on her skirt and overshirt, and latched the door stealthily behind her to tiptoe past the room where her brothers slept, past the room where Da and Nan slept, down the broad staircase and across the empty public room. In the kitchen, where the banked fire glowed in its ashes, she had put on her boots and taken her cloak from its hook. The dogs, if they heard anything, knew her steps and took no alarm. Da and Nan, if they knew, would be mightily displeased, and they would lay angry words across her shoulders. Aye, they were counting the days left to the spring fair, when they would have her married and gone from their care. Aye, and Birle was counting them too.
+
+The shadow was human, she had no doubt of that. Only a man or woman would move so, hunched over, gliding along the edge of the river like a beast on the hunt among the long grasses. Watching, Birle let the wind urge her down the path to the docking place. Whatever else, the shadow was up to nothing lawful.
+
+Soaking spring rains had turned the path to mud. Her boots made squishing sounds, so she stepped off the path into the grass. As soundlessly as the shadow before her, but more swiftly, she approached the river.
+
+She should return to the sleeping Inn, she knew that, and rouse her brothers. At the least, she should turn and call out an alarm, to set the dogs barking. But the mystery of the intruder, like the mystery of the night which had called her from sleep, kept her from doing what she ought.","Birle knew that if the shadow was a person from the village, he would",,D,not have been holding a light.,not have been out in the wind.,have been carrying fishing gear.,have walked through the Innyard.,,2,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.530.1,259,1,4,Medium
+NAPLAN-Y5-READING-M3-Q05,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 2,5,English,Inference,Inferential Reasoning,ReadingComprehension,"What she saw first was a moving shadow. In the trees that bordered the meadow, among their dark trunks, something moved. She heard nothing to alarm—not over the rush of water and the sweep of wind—but she saw a dark, crouched shape moving. The shadow, no more than a darker darkness in the night, crept out from the mass of trees, crept low across the long grass towards the docking place. No man of the village would move so. A man of the village, come out to check a hastily secured boat, would carry a light. He would come along the path that ran from the village through the Innyard, the path she stood on. No fisherman would be setting off, not at this hour, not on a moonless night when all the stars shining together couldn't penetrate the dark, windy air.
+
+Birle stood motionless, watching. She herself ought not to be out in the night. Da and Nan would not be pleased to know how she had left her small sisters asleep in the bed they shared, pulled on her skirt and overshirt, and latched the door stealthily behind her to tiptoe past the room where her brothers slept, past the room where Da and Nan slept, down the broad staircase and across the empty public room. In the kitchen, where the banked fire glowed in its ashes, she had put on her boots and taken her cloak from its hook. The dogs, if they heard anything, knew her steps and took no alarm. Da and Nan, if they knew, would be mightily displeased, and they would lay angry words across her shoulders. Aye, they were counting the days left to the spring fair, when they would have her married and gone from their care. Aye, and Birle was counting them too.
+
+The shadow was human, she had no doubt of that. Only a man or woman would move so, hunched over, gliding along the edge of the river like a beast on the hunt among the long grasses. Watching, Birle let the wind urge her down the path to the docking place. Whatever else, the shadow was up to nothing lawful.
+
+Soaking spring rains had turned the path to mud. Her boots made squishing sounds, so she stepped off the path into the grass. As soundlessly as the shadow before her, but more swiftly, she approached the river.
+
+She should return to the sleeping Inn, she knew that, and rouse her brothers. At the least, she should turn and call out an alarm, to set the dogs barking. But the mystery of the intruder, like the mystery of the night which had called her from sleep, kept her from doing what she ought.","As Birle got close to the river, she was",,A,moving faster than the shadow.,waiting for the shadow to reappear.,making a noise to alert the shadow.,hiding from the shadow in the long grass.,,1,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.530.2,259,1,2,Easy
+NAPLAN-Y5-READING-M3-Q06,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 2,5,English,Inference,Interpreting Feelings,ReadingComprehension,"What she saw first was a moving shadow. In the trees that bordered the meadow, among their dark trunks, something moved. She heard nothing to alarm—not over the rush of water and the sweep of wind—but she saw a dark, crouched shape moving. The shadow, no more than a darker darkness in the night, crept out from the mass of trees, crept low across the long grass towards the docking place. No man of the village would move so. A man of the village, come out to check a hastily secured boat, would carry a light. He would come along the path that ran from the village through the Innyard, the path she stood on. No fisherman would be setting off, not at this hour, not on a moonless night when all the stars shining together couldn't penetrate the dark, windy air.
+
+Birle stood motionless, watching. She herself ought not to be out in the night. Da and Nan would not be pleased to know how she had left her small sisters asleep in the bed they shared, pulled on her skirt and overshirt, and latched the door stealthily behind her to tiptoe past the room where her brothers slept, past the room where Da and Nan slept, down the broad staircase and across the empty public room. In the kitchen, where the banked fire glowed in its ashes, she had put on her boots and taken her cloak from its hook. The dogs, if they heard anything, knew her steps and took no alarm. Da and Nan, if they knew, would be mightily displeased, and they would lay angry words across her shoulders. Aye, they were counting the days left to the spring fair, when they would have her married and gone from their care. Aye, and Birle was counting them too.
+
+The shadow was human, she had no doubt of that. Only a man or woman would move so, hunched over, gliding along the edge of the river like a beast on the hunt among the long grasses. Watching, Birle let the wind urge her down the path to the docking place. Whatever else, the shadow was up to nothing lawful.
+
+Soaking spring rains had turned the path to mud. Her boots made squishing sounds, so she stepped off the path into the grass. As soundlessly as the shadow before her, but more swiftly, she approached the river.
+
+She should return to the sleeping Inn, she knew that, and rouse her brothers. At the least, she should turn and call out an alarm, to set the dogs barking. But the mystery of the intruder, like the mystery of the night which had called her from sleep, kept her from doing what she ought.","As she followed the shadow, Birle became more",,B,troubled.,curious.,frightened.,confused.,,2,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.530.3,259,1,3,Easy
+NAPLAN-Y5-READING-M3-Q07,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 2,5,English,Inference,Character Motivation,ReadingComprehension,"What she saw first was a moving shadow. In the trees that bordered the meadow, among their dark trunks, something moved. She heard nothing to alarm—not over the rush of water and the sweep of wind—but she saw a dark, crouched shape moving. The shadow, no more than a darker darkness in the night, crept out from the mass of trees, crept low across the long grass towards the docking place. No man of the village would move so. A man of the village, come out to check a hastily secured boat, would carry a light. He would come along the path that ran from the village through the Innyard, the path she stood on. No fisherman would be setting off, not at this hour, not on a moonless night when all the stars shining together couldn't penetrate the dark, windy air.
+
+Birle stood motionless, watching. She herself ought not to be out in the night. Da and Nan would not be pleased to know how she had left her small sisters asleep in the bed they shared, pulled on her skirt and overshirt, and latched the door stealthily behind her to tiptoe past the room where her brothers slept, past the room where Da and Nan slept, down the broad staircase and across the empty public room. In the kitchen, where the banked fire glowed in its ashes, she had put on her boots and taken her cloak from its hook. The dogs, if they heard anything, knew her steps and took no alarm. Da and Nan, if they knew, would be mightily displeased, and they would lay angry words across her shoulders. Aye, they were counting the days left to the spring fair, when they would have her married and gone from their care. Aye, and Birle was counting them too.
+
+The shadow was human, she had no doubt of that. Only a man or woman would move so, hunched over, gliding along the edge of the river like a beast on the hunt among the long grasses. Watching, Birle let the wind urge her down the path to the docking place. Whatever else, the shadow was up to nothing lawful.
+
+Soaking spring rains had turned the path to mud. Her boots made squishing sounds, so she stepped off the path into the grass. As soundlessly as the shadow before her, but more swiftly, she approached the river.
+
+She should return to the sleeping Inn, she knew that, and rouse her brothers. At the least, she should turn and call out an alarm, to set the dogs barking. But the mystery of the intruder, like the mystery of the night which had called her from sleep, kept her from doing what she ought.","Based on information in the text, which statement about Birle is correct?",,A,She is the oldest daughter in the family.,She does everything that her parents want her to.,She does not know the difference between right and wrong.,She likes to walk in the village at night to make sure everything is well.,,2,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.530.4,259,1,4,Medium
+NAPLAN-Y5-READING-M3-Q08,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 2,5,English,Literary Techniques,Sound Devices,ReadingComprehension,"What she saw first was a moving shadow. In the trees that bordered the meadow, among their dark trunks, something moved. She heard nothing to alarm—not over the rush of water and the sweep of wind—but she saw a dark, crouched shape moving. The shadow, no more than a darker darkness in the night, crept out from the mass of trees, crept low across the long grass towards the docking place. No man of the village would move so. A man of the village, come out to check a hastily secured boat, would carry a light. He would come along the path that ran from the village through the Innyard, the path she stood on. No fisherman would be setting off, not at this hour, not on a moonless night when all the stars shining together couldn't penetrate the dark, windy air.
+
+Birle stood motionless, watching. She herself ought not to be out in the night. Da and Nan would not be pleased to know how she had left her small sisters asleep in the bed they shared, pulled on her skirt and overshirt, and latched the door stealthily behind her to tiptoe past the room where her brothers slept, past the room where Da and Nan slept, down the broad staircase and across the empty public room. In the kitchen, where the banked fire glowed in its ashes, she had put on her boots and taken her cloak from its hook. The dogs, if they heard anything, knew her steps and took no alarm. Da and Nan, if they knew, would be mightily displeased, and they would lay angry words across her shoulders. Aye, they were counting the days left to the spring fair, when they would have her married and gone from their care. Aye, and Birle was counting them too.
+
+The shadow was human, she had no doubt of that. Only a man or woman would move so, hunched over, gliding along the edge of the river like a beast on the hunt among the long grasses. Watching, Birle let the wind urge her down the path to the docking place. Whatever else, the shadow was up to nothing lawful.
+
+Soaking spring rains had turned the path to mud. Her boots made squishing sounds, so she stepped off the path into the grass. As soundlessly as the shadow before her, but more swiftly, she approached the river.
+
+She should return to the sleeping Inn, she knew that, and rouse her brothers. At the least, she should turn and call out an alarm, to set the dogs barking. But the mystery of the intruder, like the mystery of the night which had called her from sleep, kept her from doing what she ought.","When a word sounds like what it is describing, it is called onomatopoeia. Which word is an example of onomatopoeia?",,D,'latched','tiptoe','glowed','squishing',,1,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.530.5,259,1,1,Easy
+NAPLAN-Y5-READING-M3-Q09,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 2,5,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"What she saw first was a moving shadow. In the trees that bordered the meadow, among their dark trunks, something moved. She heard nothing to alarm—not over the rush of water and the sweep of wind—but she saw a dark, crouched shape moving. The shadow, no more than a darker darkness in the night, crept out from the mass of trees, crept low across the long grass towards the docking place. No man of the village would move so. A man of the village, come out to check a hastily secured boat, would carry a light. He would come along the path that ran from the village through the Innyard, the path she stood on. No fisherman would be setting off, not at this hour, not on a moonless night when all the stars shining together couldn't penetrate the dark, windy air.
+
+Birle stood motionless, watching. She herself ought not to be out in the night. Da and Nan would not be pleased to know how she had left her small sisters asleep in the bed they shared, pulled on her skirt and overshirt, and latched the door stealthily behind her to tiptoe past the room where her brothers slept, past the room where Da and Nan slept, down the broad staircase and across the empty public room. In the kitchen, where the banked fire glowed in its ashes, she had put on her boots and taken her cloak from its hook. The dogs, if they heard anything, knew her steps and took no alarm. Da and Nan, if they knew, would be mightily displeased, and they would lay angry words across her shoulders. Aye, they were counting the days left to the spring fair, when they would have her married and gone from their care. Aye, and Birle was counting them too.
+
+The shadow was human, she had no doubt of that. Only a man or woman would move so, hunched over, gliding along the edge of the river like a beast on the hunt among the long grasses. Watching, Birle let the wind urge her down the path to the docking place. Whatever else, the shadow was up to nothing lawful.
+
+Soaking spring rains had turned the path to mud. Her boots made squishing sounds, so she stepped off the path into the grass. As soundlessly as the shadow before her, but more swiftly, she approached the river.
+
+She should return to the sleeping Inn, she knew that, and rouse her brothers. At the least, she should turn and call out an alarm, to set the dogs barking. But the mystery of the intruder, like the mystery of the night which had called her from sleep, kept her from doing what she ought.","What is the meaning of 'rouse', as it is used in the text?",,C,disturb,warm,wake,fetch,,1,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.530.6,259,1,1,Easy
+NAPLAN-Y5-READING-M3-Q10,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 3,5,English,Inference,Drawing Conclusions,ReadingComprehension,"The First Lighthouse
+
+It was in ancient Egypt, around 2300 years ago, that the great Pharaoh Ptolemy I Soter ordered plans to be drawn up for what was to be the world's first lighthouse. It was to be built on the island of Pharos, one-and-a-half kilometres off the coast of the city of Alexandria. The purpose of the Lighthouse of Pharos, as it became known, was to protect ships coming into the dangerous waters of the Alexandria harbour. Standing more than 110 metres high and built out of white marble, the Lighthouse of Pharos was so impressive that it became one of the Seven Wonders of the Ancient World.
+
+In those days, as nearly the tallest building around, it must have had the best views in the world! (The pyramids at Giza were taller, but it was forbidden to climb them—as it still is now.)
+
+The design of the lighthouse was very different to those we see today; it was built in three stages. The bottom level was over 60 metres high and more than 30 metres square. It looked like a huge box. On top of the box was an octagonal tower about 27 metres high with each of its eight sides more than 18 metres wide. And on top of the tower was a cylinder over seven metres high. During the day, the sun reflected off mirrors made of highly-polished bronze and at night, the lighthouse was lit by fires. It was said that the light from the Lighthouse of Pharos could be seen for more than 56 kilometres out to sea.
+
+Incredibly, almost 700 years after it collapsed in an earthquake, the fame of the Lighthouse of Pharos lives on. In October 1994, Frenchman Dr Jean-Yves Empereur was asked by the Egyptian Supreme Council of Antiquities to investigate an area beneath the sea, just outside Alexandria's eastern harbour. In 1995 he took a team of divers, topographers, Egyptologists and photographers with him and started to mark, chart and illustrate approximately 1000 archaeological artefacts found on the bottom of the sea.
+
+Apart from locating enormous blocks of stone and fragments from columns, the excavators also found sphinxes, parts of obelisks and inscribed blocks, all of which the excavators believed most likely belonged to the Lighthouse of Pharos. Even more exciting was the discovery that some of these building materials were much older than the Lighthouse of Pharos.
+
+The Egyptian authorities are planning to build a modern version of the lighthouse on the very same spot at Pharos. This lighthouse will be made of concrete with glass walls and will be 145 metres high. The walls will reflect the sun by day and a beacon will cast its light at night.",What can be assumed about the materials that went into building the Lighthouse of Pharos?,,D,The action of the sea had preserved the building materials.,The Lighthouse of Pharos consisted of 1000 pieces of building material.,The building materials from the Lighthouse of Pharos's octagonal tower were fully recovered.,Some of the building materials were recycled from older buildings.,,3,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.479.1,208,1,5,Medium
+NAPLAN-Y5-READING-M3-Q11,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 3,5,English,Inference,Drawing Conclusions,ReadingComprehension,"The First Lighthouse
+
+It was in ancient Egypt, around 2300 years ago, that the great Pharaoh Ptolemy I Soter ordered plans to be drawn up for what was to be the world's first lighthouse. It was to be built on the island of Pharos, one-and-a-half kilometres off the coast of the city of Alexandria. The purpose of the Lighthouse of Pharos, as it became known, was to protect ships coming into the dangerous waters of the Alexandria harbour. Standing more than 110 metres high and built out of white marble, the Lighthouse of Pharos was so impressive that it became one of the Seven Wonders of the Ancient World.
+
+In those days, as nearly the tallest building around, it must have had the best views in the world! (The pyramids at Giza were taller, but it was forbidden to climb them—as it still is now.)
+
+The design of the lighthouse was very different to those we see today; it was built in three stages. The bottom level was over 60 metres high and more than 30 metres square. It looked like a huge box. On top of the box was an octagonal tower about 27 metres high with each of its eight sides more than 18 metres wide. And on top of the tower was a cylinder over seven metres high. During the day, the sun reflected off mirrors made of highly-polished bronze and at night, the lighthouse was lit by fires. It was said that the light from the Lighthouse of Pharos could be seen for more than 56 kilometres out to sea.
+
+Incredibly, almost 700 years after it collapsed in an earthquake, the fame of the Lighthouse of Pharos lives on. In October 1994, Frenchman Dr Jean-Yves Empereur was asked by the Egyptian Supreme Council of Antiquities to investigate an area beneath the sea, just outside Alexandria's eastern harbour. In 1995 he took a team of divers, topographers, Egyptologists and photographers with him and started to mark, chart and illustrate approximately 1000 archaeological artefacts found on the bottom of the sea.
+
+Apart from locating enormous blocks of stone and fragments from columns, the excavators also found sphinxes, parts of obelisks and inscribed blocks, all of which the excavators believed most likely belonged to the Lighthouse of Pharos. Even more exciting was the discovery that some of these building materials were much older than the Lighthouse of Pharos.
+
+The Egyptian authorities are planning to build a modern version of the lighthouse on the very same spot at Pharos. This lighthouse will be made of concrete with glass walls and will be 145 metres high. The walls will reflect the sun by day and a beacon will cast its light at night.",The Lighthouse of Pharos was pictured on ancient coins. This best demonstrates the Lighthouse's,,C,size.,cost.,significance.,design.,,2,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.479.2,208,1,4,Medium
+NAPLAN-Y5-READING-M3-Q12,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 3,5,English,Inference,Character Motivation,ReadingComprehension,"The First Lighthouse
+
+It was in ancient Egypt, around 2300 years ago, that the great Pharaoh Ptolemy I Soter ordered plans to be drawn up for what was to be the world's first lighthouse. It was to be built on the island of Pharos, one-and-a-half kilometres off the coast of the city of Alexandria. The purpose of the Lighthouse of Pharos, as it became known, was to protect ships coming into the dangerous waters of the Alexandria harbour. Standing more than 110 metres high and built out of white marble, the Lighthouse of Pharos was so impressive that it became one of the Seven Wonders of the Ancient World.
+
+In those days, as nearly the tallest building around, it must have had the best views in the world! (The pyramids at Giza were taller, but it was forbidden to climb them—as it still is now.)
+
+The design of the lighthouse was very different to those we see today; it was built in three stages. The bottom level was over 60 metres high and more than 30 metres square. It looked like a huge box. On top of the box was an octagonal tower about 27 metres high with each of its eight sides more than 18 metres wide. And on top of the tower was a cylinder over seven metres high. During the day, the sun reflected off mirrors made of highly-polished bronze and at night, the lighthouse was lit by fires. It was said that the light from the Lighthouse of Pharos could be seen for more than 56 kilometres out to sea.
+
+Incredibly, almost 700 years after it collapsed in an earthquake, the fame of the Lighthouse of Pharos lives on. In October 1994, Frenchman Dr Jean-Yves Empereur was asked by the Egyptian Supreme Council of Antiquities to investigate an area beneath the sea, just outside Alexandria's eastern harbour. In 1995 he took a team of divers, topographers, Egyptologists and photographers with him and started to mark, chart and illustrate approximately 1000 archaeological artefacts found on the bottom of the sea.
+
+Apart from locating enormous blocks of stone and fragments from columns, the excavators also found sphinxes, parts of obelisks and inscribed blocks, all of which the excavators believed most likely belonged to the Lighthouse of Pharos. Even more exciting was the discovery that some of these building materials were much older than the Lighthouse of Pharos.
+
+The Egyptian authorities are planning to build a modern version of the lighthouse on the very same spot at Pharos. This lighthouse will be made of concrete with glass walls and will be 145 metres high. The walls will reflect the sun by day and a beacon will cast its light at night.","Jim was about to hang out the laundry, just as he had promised his mother he would, when he heard his friends playing. Without stopping to tell anyone, he decided to leave to join his friends. Which word best describes Jim?",,D,lazy,impolite,forgetful,irresponsible,,1,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.479.3,208,2,1,Easy
+NAPLAN-Y5-READING-M3-Q13,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 3,5,English,Persuasive Language,Fact and Opinion,ReadingComprehension,"The First Lighthouse
+
+It was in ancient Egypt, around 2300 years ago, that the great Pharaoh Ptolemy I Soter ordered plans to be drawn up for what was to be the world's first lighthouse. It was to be built on the island of Pharos, one-and-a-half kilometres off the coast of the city of Alexandria. The purpose of the Lighthouse of Pharos, as it became known, was to protect ships coming into the dangerous waters of the Alexandria harbour. Standing more than 110 metres high and built out of white marble, the Lighthouse of Pharos was so impressive that it became one of the Seven Wonders of the Ancient World.
+
+In those days, as nearly the tallest building around, it must have had the best views in the world! (The pyramids at Giza were taller, but it was forbidden to climb them—as it still is now.)
+
+The design of the lighthouse was very different to those we see today; it was built in three stages. The bottom level was over 60 metres high and more than 30 metres square. It looked like a huge box. On top of the box was an octagonal tower about 27 metres high with each of its eight sides more than 18 metres wide. And on top of the tower was a cylinder over seven metres high. During the day, the sun reflected off mirrors made of highly-polished bronze and at night, the lighthouse was lit by fires. It was said that the light from the Lighthouse of Pharos could be seen for more than 56 kilometres out to sea.
+
+Incredibly, almost 700 years after it collapsed in an earthquake, the fame of the Lighthouse of Pharos lives on. In October 1994, Frenchman Dr Jean-Yves Empereur was asked by the Egyptian Supreme Council of Antiquities to investigate an area beneath the sea, just outside Alexandria's eastern harbour. In 1995 he took a team of divers, topographers, Egyptologists and photographers with him and started to mark, chart and illustrate approximately 1000 archaeological artefacts found on the bottom of the sea.
+
+Apart from locating enormous blocks of stone and fragments from columns, the excavators also found sphinxes, parts of obelisks and inscribed blocks, all of which the excavators believed most likely belonged to the Lighthouse of Pharos. Even more exciting was the discovery that some of these building materials were much older than the Lighthouse of Pharos.
+
+The Egyptian authorities are planning to build a modern version of the lighthouse on the very same spot at Pharos. This lighthouse will be made of concrete with glass walls and will be 145 metres high. The walls will reflect the sun by day and a beacon will cast its light at night.",'It must have had the best views in the world!' The information in this quotation is,,D,a first-hand report.,a factual description.,a rumour.,an opinion.,,2,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.479.4,208,2,3,Easy
+NAPLAN-Y5-READING-M3-Q14,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 3,5,English,Reading Comprehension,Main Idea,ReadingComprehension,"The First Lighthouse
+
+It was in ancient Egypt, around 2300 years ago, that the great Pharaoh Ptolemy I Soter ordered plans to be drawn up for what was to be the world's first lighthouse. It was to be built on the island of Pharos, one-and-a-half kilometres off the coast of the city of Alexandria. The purpose of the Lighthouse of Pharos, as it became known, was to protect ships coming into the dangerous waters of the Alexandria harbour. Standing more than 110 metres high and built out of white marble, the Lighthouse of Pharos was so impressive that it became one of the Seven Wonders of the Ancient World.
+
+In those days, as nearly the tallest building around, it must have had the best views in the world! (The pyramids at Giza were taller, but it was forbidden to climb them—as it still is now.)
+
+The design of the lighthouse was very different to those we see today; it was built in three stages. The bottom level was over 60 metres high and more than 30 metres square. It looked like a huge box. On top of the box was an octagonal tower about 27 metres high with each of its eight sides more than 18 metres wide. And on top of the tower was a cylinder over seven metres high. During the day, the sun reflected off mirrors made of highly-polished bronze and at night, the lighthouse was lit by fires. It was said that the light from the Lighthouse of Pharos could be seen for more than 56 kilometres out to sea.
+
+Incredibly, almost 700 years after it collapsed in an earthquake, the fame of the Lighthouse of Pharos lives on. In October 1994, Frenchman Dr Jean-Yves Empereur was asked by the Egyptian Supreme Council of Antiquities to investigate an area beneath the sea, just outside Alexandria's eastern harbour. In 1995 he took a team of divers, topographers, Egyptologists and photographers with him and started to mark, chart and illustrate approximately 1000 archaeological artefacts found on the bottom of the sea.
+
+Apart from locating enormous blocks of stone and fragments from columns, the excavators also found sphinxes, parts of obelisks and inscribed blocks, all of which the excavators believed most likely belonged to the Lighthouse of Pharos. Even more exciting was the discovery that some of these building materials were much older than the Lighthouse of Pharos.
+
+The Egyptian authorities are planning to build a modern version of the lighthouse on the very same spot at Pharos. This lighthouse will be made of concrete with glass walls and will be 145 metres high. The walls will reflect the sun by day and a beacon will cast its light at night.",What is the main purpose of the second paragraph?,,A,to describe the features of the Lighthouse of Pharos,to explain the purpose of the Lighthouse of Pharos,to describe the type of light produced by the Lighthouse of Pharos,to describe the advantages of the Lighthouse of Pharos's design,,1,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.479.5,208,2,2,Easy
+NAPLAN-Y5-READING-M3-Q15,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 3,5,English,Reading Comprehension,Locating Information,ReadingComprehension,"The First Lighthouse
+
+It was in ancient Egypt, around 2300 years ago, that the great Pharaoh Ptolemy I Soter ordered plans to be drawn up for what was to be the world's first lighthouse. It was to be built on the island of Pharos, one-and-a-half kilometres off the coast of the city of Alexandria. The purpose of the Lighthouse of Pharos, as it became known, was to protect ships coming into the dangerous waters of the Alexandria harbour. Standing more than 110 metres high and built out of white marble, the Lighthouse of Pharos was so impressive that it became one of the Seven Wonders of the Ancient World.
+
+In those days, as nearly the tallest building around, it must have had the best views in the world! (The pyramids at Giza were taller, but it was forbidden to climb them—as it still is now.)
+
+The design of the lighthouse was very different to those we see today; it was built in three stages. The bottom level was over 60 metres high and more than 30 metres square. It looked like a huge box. On top of the box was an octagonal tower about 27 metres high with each of its eight sides more than 18 metres wide. And on top of the tower was a cylinder over seven metres high. During the day, the sun reflected off mirrors made of highly-polished bronze and at night, the lighthouse was lit by fires. It was said that the light from the Lighthouse of Pharos could be seen for more than 56 kilometres out to sea.
+
+Incredibly, almost 700 years after it collapsed in an earthquake, the fame of the Lighthouse of Pharos lives on. In October 1994, Frenchman Dr Jean-Yves Empereur was asked by the Egyptian Supreme Council of Antiquities to investigate an area beneath the sea, just outside Alexandria's eastern harbour. In 1995 he took a team of divers, topographers, Egyptologists and photographers with him and started to mark, chart and illustrate approximately 1000 archaeological artefacts found on the bottom of the sea.
+
+Apart from locating enormous blocks of stone and fragments from columns, the excavators also found sphinxes, parts of obelisks and inscribed blocks, all of which the excavators believed most likely belonged to the Lighthouse of Pharos. Even more exciting was the discovery that some of these building materials were much older than the Lighthouse of Pharos.
+
+The Egyptian authorities are planning to build a modern version of the lighthouse on the very same spot at Pharos. This lighthouse will be made of concrete with glass walls and will be 145 metres high. The walls will reflect the sun by day and a beacon will cast its light at night.",Which of the following is stated in the text?,,A,why the Lighthouse of Pharos was built near Alexandria,why the Egyptian authorities wanted to investigate the area just outside Alexandria's harbour,how the excavators concluded that the materials belonged to the Lighthouse of Pharos,which countries the excavators came from,,3,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.479.6,208,2,5,Medium
+NAPLAN-Y5-READING-M3-Q16,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 3,5,English,Reading Comprehension,Comparing Texts,ReadingComprehension,"The First Lighthouse
+
+It was in ancient Egypt, around 2300 years ago, that the great Pharaoh Ptolemy I Soter ordered plans to be drawn up for what was to be the world's first lighthouse. It was to be built on the island of Pharos, one-and-a-half kilometres off the coast of the city of Alexandria. The purpose of the Lighthouse of Pharos, as it became known, was to protect ships coming into the dangerous waters of the Alexandria harbour. Standing more than 110 metres high and built out of white marble, the Lighthouse of Pharos was so impressive that it became one of the Seven Wonders of the Ancient World.
+
+In those days, as nearly the tallest building around, it must have had the best views in the world! (The pyramids at Giza were taller, but it was forbidden to climb them—as it still is now.)
+
+The design of the lighthouse was very different to those we see today; it was built in three stages. The bottom level was over 60 metres high and more than 30 metres square. It looked like a huge box. On top of the box was an octagonal tower about 27 metres high with each of its eight sides more than 18 metres wide. And on top of the tower was a cylinder over seven metres high. During the day, the sun reflected off mirrors made of highly-polished bronze and at night, the lighthouse was lit by fires. It was said that the light from the Lighthouse of Pharos could be seen for more than 56 kilometres out to sea.
+
+Incredibly, almost 700 years after it collapsed in an earthquake, the fame of the Lighthouse of Pharos lives on. In October 1994, Frenchman Dr Jean-Yves Empereur was asked by the Egyptian Supreme Council of Antiquities to investigate an area beneath the sea, just outside Alexandria's eastern harbour. In 1995 he took a team of divers, topographers, Egyptologists and photographers with him and started to mark, chart and illustrate approximately 1000 archaeological artefacts found on the bottom of the sea.
+
+Apart from locating enormous blocks of stone and fragments from columns, the excavators also found sphinxes, parts of obelisks and inscribed blocks, all of which the excavators believed most likely belonged to the Lighthouse of Pharos. Even more exciting was the discovery that some of these building materials were much older than the Lighthouse of Pharos.
+
+The Egyptian authorities are planning to build a modern version of the lighthouse on the very same spot at Pharos. This lighthouse will be made of concrete with glass walls and will be 145 metres high. The walls will reflect the sun by day and a beacon will cast its light at night.",The planned lighthouse can be best described as,,B,a copy of the original using modern materials.,inspired by the original using modern materials.,identical to the original using original materials.,an improvement of the original using original materials.,,2,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.479.7,208,1,4,Medium
+NAPLAN-Y5-READING-M3-Q17,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 4,5,English,Inference,Predicting Outcomes,ReadingComprehension,"One Saturday
+My grandparents are both really great,
+But I've never stayed with them alone.
+And so I'm nervous as I leave the car,
+Keeping my voice a steady, even tone.
+5 My parents told me to be good,
+And I vowed to do my best:
+Be good, help out, obey the rules,
+And try not to get stressed.
+Grandma's kiss brushed my cheek
+10 Like the wings of a butterfly
+As Mom and Dad drove away,
+Waving their goodbye.
+""We're going to have some fun, you know,""
+My winking Grandpa said
+15 As his giant bear-paw hand
+Ruffled the hair upon my head.
+A woodland hike exposed a lake
+Ringed with massive trees;
+The deep blue water shimmered with
+20 The whisper of a breeze.
+Back at home, Gram drafted me
+To help her make our dinner,
+Which, compared to mac and cheese,
+Would be the proven winner.
+25 When dark of night draped the sky,
+The three of us lay down
+Outside on blankets spread upon
+The green grass-cushioned ground.
+""Black velvet studded with bright jewels,""
+30 Grandma uttered with a sigh.
+""That's the picture that I see
+When gazing at night's sky.""
+The gems that sparkle in MY life,
+I can touch as well as see;
+35 They're lying on their backs right now
+On either side of me.","Based on events in the poem, what is the speaker most likely to do next?",,C,Cook macaroni and cheese for Mom and Dad,Take another trip away from home to a farm or a zoo,Return home and describe the experience to Mom and Dad,Write a report for school about summer vacation,,2,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.421.1,150,1,4,Medium
+NAPLAN-Y5-READING-M3-Q18,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 4,5,English,Inference,Character Motivation,ReadingComprehension,"One Saturday
+My grandparents are both really great,
+But I've never stayed with them alone.
+And so I'm nervous as I leave the car,
+Keeping my voice a steady, even tone.
+5 My parents told me to be good,
+And I vowed to do my best:
+Be good, help out, obey the rules,
+And try not to get stressed.
+Grandma's kiss brushed my cheek
+10 Like the wings of a butterfly
+As Mom and Dad drove away,
+Waving their goodbye.
+""We're going to have some fun, you know,""
+My winking Grandpa said
+15 As his giant bear-paw hand
+Ruffled the hair upon my head.
+A woodland hike exposed a lake
+Ringed with massive trees;
+The deep blue water shimmered with
+20 The whisper of a breeze.
+Back at home, Gram drafted me
+To help her make our dinner,
+Which, compared to mac and cheese,
+Would be the proven winner.
+25 When dark of night draped the sky,
+The three of us lay down
+Outside on blankets spread upon
+The green grass-cushioned ground.
+""Black velvet studded with bright jewels,""
+30 Grandma uttered with a sigh.
+""That's the picture that I see
+When gazing at night's sky.""
+The gems that sparkle in MY life,
+I can touch as well as see;
+35 They're lying on their backs right now
+On either side of me.",What is the most likely reason for the grandparents to take the speaker outside at night?,,D,They want to teach the speaker facts about the solar system.,They want to teach the speaker to feel safe in the dark.,They want the speaker to appreciate how hard adults must work.,They want the speaker to appreciate the beauty of nature.,,2,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.421.2,150,1,4,Medium
+NAPLAN-Y5-READING-M3-Q19,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 4,5,English,Inference,Character Motivation,ReadingComprehension,"One Saturday
+My grandparents are both really great,
+But I've never stayed with them alone.
+And so I'm nervous as I leave the car,
+Keeping my voice a steady, even tone.
+5 My parents told me to be good,
+And I vowed to do my best:
+Be good, help out, obey the rules,
+And try not to get stressed.
+Grandma's kiss brushed my cheek
+10 Like the wings of a butterfly
+As Mom and Dad drove away,
+Waving their goodbye.
+""We're going to have some fun, you know,""
+My winking Grandpa said
+15 As his giant bear-paw hand
+Ruffled the hair upon my head.
+A woodland hike exposed a lake
+Ringed with massive trees;
+The deep blue water shimmered with
+20 The whisper of a breeze.
+Back at home, Gram drafted me
+To help her make our dinner,
+Which, compared to mac and cheese,
+Would be the proven winner.
+25 When dark of night draped the sky,
+The three of us lay down
+Outside on blankets spread upon
+The green grass-cushioned ground.
+""Black velvet studded with bright jewels,""
+30 Grandma uttered with a sigh.
+""That's the picture that I see
+When gazing at night's sky.""
+The gems that sparkle in MY life,
+I can touch as well as see;
+35 They're lying on their backs right now
+On either side of me.",This line shows that Grandpa wants the speaker to be more —,,A,comfortable,helpful,thoughtful,responsible,,2,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.421.3,150,1,4,Medium
+NAPLAN-Y5-READING-M3-Q20,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 4,5,English,Literary Techniques,Figurative Language,ReadingComprehension,"One Saturday
+My grandparents are both really great,
+But I've never stayed with them alone.
+And so I'm nervous as I leave the car,
+Keeping my voice a steady, even tone.
+5 My parents told me to be good,
+And I vowed to do my best:
+Be good, help out, obey the rules,
+And try not to get stressed.
+Grandma's kiss brushed my cheek
+10 Like the wings of a butterfly
+As Mom and Dad drove away,
+Waving their goodbye.
+""We're going to have some fun, you know,""
+My winking Grandpa said
+15 As his giant bear-paw hand
+Ruffled the hair upon my head.
+A woodland hike exposed a lake
+Ringed with massive trees;
+The deep blue water shimmered with
+20 The whisper of a breeze.
+Back at home, Gram drafted me
+To help her make our dinner,
+Which, compared to mac and cheese,
+Would be the proven winner.
+25 When dark of night draped the sky,
+The three of us lay down
+Outside on blankets spread upon
+The green grass-cushioned ground.
+""Black velvet studded with bright jewels,""
+30 Grandma uttered with a sigh.
+""That's the picture that I see
+When gazing at night's sky.""
+The gems that sparkle in MY life,
+I can touch as well as see;
+35 They're lying on their backs right now
+On either side of me.","The poet describes Gram's kiss ""Like the wings of a butterfly"" in line 10 to show that Gram —",,A,is gentle,is happy,loves insects,loves nature,,2,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.421.4,150,1,3,Easy
+NAPLAN-Y5-READING-M3-Q21,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 4,5,English,Literary Techniques,Figurative Language,ReadingComprehension,"One Saturday
+My grandparents are both really great,
+But I've never stayed with them alone.
+And so I'm nervous as I leave the car,
+Keeping my voice a steady, even tone.
+5 My parents told me to be good,
+And I vowed to do my best:
+Be good, help out, obey the rules,
+And try not to get stressed.
+Grandma's kiss brushed my cheek
+10 Like the wings of a butterfly
+As Mom and Dad drove away,
+Waving their goodbye.
+""We're going to have some fun, you know,""
+My winking Grandpa said
+15 As his giant bear-paw hand
+Ruffled the hair upon my head.
+A woodland hike exposed a lake
+Ringed with massive trees;
+The deep blue water shimmered with
+20 The whisper of a breeze.
+Back at home, Gram drafted me
+To help her make our dinner,
+Which, compared to mac and cheese,
+Would be the proven winner.
+25 When dark of night draped the sky,
+The three of us lay down
+Outside on blankets spread upon
+The green grass-cushioned ground.
+""Black velvet studded with bright jewels,""
+30 Grandma uttered with a sigh.
+""That's the picture that I see
+When gazing at night's sky.""
+The gems that sparkle in MY life,
+I can touch as well as see;
+35 They're lying on their backs right now
+On either side of me.",The poet uses figurative language in lines 15 and 16 of the poem to show that —,,D,the speaker feels annoyed,the speaker feels homesick,Grandpa is in a hurry,Grandpa is being playful,,2,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.421.5,150,1,4,Medium
+NAPLAN-Y5-READING-M3-Q22,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 4,5,English,Reading Comprehension,Author Purpose,ReadingComprehension,"One Saturday
+My grandparents are both really great,
+But I've never stayed with them alone.
+And so I'm nervous as I leave the car,
+Keeping my voice a steady, even tone.
+5 My parents told me to be good,
+And I vowed to do my best:
+Be good, help out, obey the rules,
+And try not to get stressed.
+Grandma's kiss brushed my cheek
+10 Like the wings of a butterfly
+As Mom and Dad drove away,
+Waving their goodbye.
+""We're going to have some fun, you know,""
+My winking Grandpa said
+15 As his giant bear-paw hand
+Ruffled the hair upon my head.
+A woodland hike exposed a lake
+Ringed with massive trees;
+The deep blue water shimmered with
+20 The whisper of a breeze.
+Back at home, Gram drafted me
+To help her make our dinner,
+Which, compared to mac and cheese,
+Would be the proven winner.
+25 When dark of night draped the sky,
+The three of us lay down
+Outside on blankets spread upon
+The green grass-cushioned ground.
+""Black velvet studded with bright jewels,""
+30 Grandma uttered with a sigh.
+""That's the picture that I see
+When gazing at night's sky.""
+The gems that sparkle in MY life,
+I can touch as well as see;
+35 They're lying on their backs right now
+On either side of me.",The most likely reason the poet includes lines 1 through 8 at the beginning of the poem is to —,,B,show the order in which events are taking place,identify a problem that will be solved later,discuss the topic of difficult family relationships,compare this visit to other times the speaker has visited,,2,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.421.6,150,1,4,Medium
+NAPLAN-Y5-READING-M3-Q23,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 4,5,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"One Saturday
+My grandparents are both really great,
+But I've never stayed with them alone.
+And so I'm nervous as I leave the car,
+Keeping my voice a steady, even tone.
+5 My parents told me to be good,
+And I vowed to do my best:
+Be good, help out, obey the rules,
+And try not to get stressed.
+Grandma's kiss brushed my cheek
+10 Like the wings of a butterfly
+As Mom and Dad drove away,
+Waving their goodbye.
+""We're going to have some fun, you know,""
+My winking Grandpa said
+15 As his giant bear-paw hand
+Ruffled the hair upon my head.
+A woodland hike exposed a lake
+Ringed with massive trees;
+The deep blue water shimmered with
+20 The whisper of a breeze.
+Back at home, Gram drafted me
+To help her make our dinner,
+Which, compared to mac and cheese,
+Would be the proven winner.
+25 When dark of night draped the sky,
+The three of us lay down
+Outside on blankets spread upon
+The green grass-cushioned ground.
+""Black velvet studded with bright jewels,""
+30 Grandma uttered with a sigh.
+""That's the picture that I see
+When gazing at night's sky.""
+The gems that sparkle in MY life,
+I can touch as well as see;
+35 They're lying on their backs right now
+On either side of me.",What does the word vowed mean in line 6?,,D,Explained,Argued,Allowed,Promised,,1,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.421.7,150,1,1,Easy
+NAPLAN-Y5-READING-M3-Q24,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 5,5,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Gap in the Arch
+All through the winter of 1930, Molly Fraser walked to the end of her street in North Sydney every afternoon to look at the bridge. For years it had been growing out from both sides of the harbour, two great steel arms reaching towards each other across the water. Each day the gap between them looked a little smaller.
+Molly's father was a rigger on the bridge. He left before dawn and came home with grease on his hands and stories in his head. He told her about the creeper cranes that crawled along the top of each half-arch, lifting steel into place. He told her about the riveting gangs, too: one worker heated the rivets in a little furnace until they glowed, then tossed them through the air to a catcher who snatched them in a metal cup.
+'What stops the two halves from falling into the harbour?' Molly asked one night.
+'Cables,' said Dad. 'Huge steel cables anchored in tunnels in the rock. They hold each half back, like a hand on a dog's collar.'
+In August, the workers began to let the cables out, slowly, a little each day. The two half-arches tilted forward, inch by careful inch. Half of Sydney seemed to be watching.
+Then, late on the night of the nineteenth, the two halves touched. Molly heard the news from a neighbour running down the street, shouting. The next morning she raced to the corner. The ragged gap had gone. Instead, one enormous arch curved across the sky, steel grey against the blue, as if it had always been there.
+That evening, Dad came home tired but smiling. Molly could hear the ships in the harbour hooting, and the clatter, clang and rattle of the riveters still working in the distance.
+'Is it finished?' she asked.
+'Not yet,' said Dad, ruffling her hair. 'But the hardest part is done. Now they can hang the road.'",What job did Molly's father do on the bridge?,,C,He was a crane driver.,He was a rivet catcher.,He was a rigger.,He was a ship's captain.,,1,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.1412.1,287,1,1,Easy
+NAPLAN-Y5-READING-M3-Q25,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 5,5,English,Literary Techniques,Imagery,ReadingComprehension,"The Gap in the Arch
+All through the winter of 1930, Molly Fraser walked to the end of her street in North Sydney every afternoon to look at the bridge. For years it had been growing out from both sides of the harbour, two great steel arms reaching towards each other across the water. Each day the gap between them looked a little smaller.
+Molly's father was a rigger on the bridge. He left before dawn and came home with grease on his hands and stories in his head. He told her about the creeper cranes that crawled along the top of each half-arch, lifting steel into place. He told her about the riveting gangs, too: one worker heated the rivets in a little furnace until they glowed, then tossed them through the air to a catcher who snatched them in a metal cup.
+'What stops the two halves from falling into the harbour?' Molly asked one night.
+'Cables,' said Dad. 'Huge steel cables anchored in tunnels in the rock. They hold each half back, like a hand on a dog's collar.'
+In August, the workers began to let the cables out, slowly, a little each day. The two half-arches tilted forward, inch by careful inch. Half of Sydney seemed to be watching.
+Then, late on the night of the nineteenth, the two halves touched. Molly heard the news from a neighbour running down the street, shouting. The next morning she raced to the corner. The ragged gap had gone. Instead, one enormous arch curved across the sky, steel grey against the blue, as if it had always been there.
+That evening, Dad came home tired but smiling. Molly could hear the ships in the harbour hooting, and the clatter, clang and rattle of the riveters still working in the distance.
+'Is it finished?' she asked.
+'Not yet,' said Dad, ruffling her hair. 'But the hardest part is done. Now they can hang the road.'","The words ""two great steel arms reaching towards each other"" make the bridge seem like . . .",,C,two cranes lifting heavy steel,two ships sailing into the harbour,two people trying to join hands,two dogs pulling on their collars,,2,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.1412.2,287,1,3,Easy
+NAPLAN-Y5-READING-M3-Q26,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 5,5,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Gap in the Arch
+All through the winter of 1930, Molly Fraser walked to the end of her street in North Sydney every afternoon to look at the bridge. For years it had been growing out from both sides of the harbour, two great steel arms reaching towards each other across the water. Each day the gap between them looked a little smaller.
+Molly's father was a rigger on the bridge. He left before dawn and came home with grease on his hands and stories in his head. He told her about the creeper cranes that crawled along the top of each half-arch, lifting steel into place. He told her about the riveting gangs, too: one worker heated the rivets in a little furnace until they glowed, then tossed them through the air to a catcher who snatched them in a metal cup.
+'What stops the two halves from falling into the harbour?' Molly asked one night.
+'Cables,' said Dad. 'Huge steel cables anchored in tunnels in the rock. They hold each half back, like a hand on a dog's collar.'
+In August, the workers began to let the cables out, slowly, a little each day. The two half-arches tilted forward, inch by careful inch. Half of Sydney seemed to be watching.
+Then, late on the night of the nineteenth, the two halves touched. Molly heard the news from a neighbour running down the street, shouting. The next morning she raced to the corner. The ragged gap had gone. Instead, one enormous arch curved across the sky, steel grey against the blue, as if it had always been there.
+That evening, Dad came home tired but smiling. Molly could hear the ships in the harbour hooting, and the clatter, clang and rattle of the riveters still working in the distance.
+'Is it finished?' she asked.
+'Not yet,' said Dad, ruffling her hair. 'But the hardest part is done. Now they can hang the road.'","According to Dad, what job did the creeper cranes do?",,B,They held each half-arch back with cables.,They lifted steel into place on each half-arch.,They heated the rivets until they glowed.,They hung the road beneath the finished arch.,,2,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.1412.3,287,1,4,Medium
+NAPLAN-Y5-READING-M3-Q27,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 5,5,English,Inference,Cause and Effect,ReadingComprehension,"The Gap in the Arch
+All through the winter of 1930, Molly Fraser walked to the end of her street in North Sydney every afternoon to look at the bridge. For years it had been growing out from both sides of the harbour, two great steel arms reaching towards each other across the water. Each day the gap between them looked a little smaller.
+Molly's father was a rigger on the bridge. He left before dawn and came home with grease on his hands and stories in his head. He told her about the creeper cranes that crawled along the top of each half-arch, lifting steel into place. He told her about the riveting gangs, too: one worker heated the rivets in a little furnace until they glowed, then tossed them through the air to a catcher who snatched them in a metal cup.
+'What stops the two halves from falling into the harbour?' Molly asked one night.
+'Cables,' said Dad. 'Huge steel cables anchored in tunnels in the rock. They hold each half back, like a hand on a dog's collar.'
+In August, the workers began to let the cables out, slowly, a little each day. The two half-arches tilted forward, inch by careful inch. Half of Sydney seemed to be watching.
+Then, late on the night of the nineteenth, the two halves touched. Molly heard the news from a neighbour running down the street, shouting. The next morning she raced to the corner. The ragged gap had gone. Instead, one enormous arch curved across the sky, steel grey against the blue, as if it had always been there.
+That evening, Dad came home tired but smiling. Molly could hear the ships in the harbour hooting, and the clatter, clang and rattle of the riveters still working in the distance.
+'Is it finished?' she asked.
+'Not yet,' said Dad, ruffling her hair. 'But the hardest part is done. Now they can hang the road.'",What caused the two half-arches to tilt forward and meet?,,B,The creeper cranes pushed them together.,The workers slowly let the cables out.,The riveters joined them with hot rivets.,The workers dug new tunnels in the rock.,,3,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.1412.4,287,1,5,Medium
+NAPLAN-Y5-READING-M3-Q28,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 5,5,English,Reading Comprehension,Main Idea,ReadingComprehension,"The Gap in the Arch
+All through the winter of 1930, Molly Fraser walked to the end of her street in North Sydney every afternoon to look at the bridge. For years it had been growing out from both sides of the harbour, two great steel arms reaching towards each other across the water. Each day the gap between them looked a little smaller.
+Molly's father was a rigger on the bridge. He left before dawn and came home with grease on his hands and stories in his head. He told her about the creeper cranes that crawled along the top of each half-arch, lifting steel into place. He told her about the riveting gangs, too: one worker heated the rivets in a little furnace until they glowed, then tossed them through the air to a catcher who snatched them in a metal cup.
+'What stops the two halves from falling into the harbour?' Molly asked one night.
+'Cables,' said Dad. 'Huge steel cables anchored in tunnels in the rock. They hold each half back, like a hand on a dog's collar.'
+In August, the workers began to let the cables out, slowly, a little each day. The two half-arches tilted forward, inch by careful inch. Half of Sydney seemed to be watching.
+Then, late on the night of the nineteenth, the two halves touched. Molly heard the news from a neighbour running down the street, shouting. The next morning she raced to the corner. The ragged gap had gone. Instead, one enormous arch curved across the sky, steel grey against the blue, as if it had always been there.
+That evening, Dad came home tired but smiling. Molly could hear the ships in the harbour hooting, and the clatter, clang and rattle of the riveters still working in the distance.
+'Is it finished?' she asked.
+'Not yet,' said Dad, ruffling her hair. 'But the hardest part is done. Now they can hang the road.'",Which title would best sum up the main idea of the story?,,A,Inch by Careful Inch,The Night the Bridge Was Finished,The Bravest Worker on the Harbour,Catching Red-Hot Rivets,,4,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.1412.5,287,2,7,Hard
+NAPLAN-Y5-READING-M3-Q29,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 5,5,English,Literary Techniques,Sound Devices,ReadingComprehension,"The Gap in the Arch
+All through the winter of 1930, Molly Fraser walked to the end of her street in North Sydney every afternoon to look at the bridge. For years it had been growing out from both sides of the harbour, two great steel arms reaching towards each other across the water. Each day the gap between them looked a little smaller.
+Molly's father was a rigger on the bridge. He left before dawn and came home with grease on his hands and stories in his head. He told her about the creeper cranes that crawled along the top of each half-arch, lifting steel into place. He told her about the riveting gangs, too: one worker heated the rivets in a little furnace until they glowed, then tossed them through the air to a catcher who snatched them in a metal cup.
+'What stops the two halves from falling into the harbour?' Molly asked one night.
+'Cables,' said Dad. 'Huge steel cables anchored in tunnels in the rock. They hold each half back, like a hand on a dog's collar.'
+In August, the workers began to let the cables out, slowly, a little each day. The two half-arches tilted forward, inch by careful inch. Half of Sydney seemed to be watching.
+Then, late on the night of the nineteenth, the two halves touched. Molly heard the news from a neighbour running down the street, shouting. The next morning she raced to the corner. The ragged gap had gone. Instead, one enormous arch curved across the sky, steel grey against the blue, as if it had always been there.
+That evening, Dad came home tired but smiling. Molly could hear the ships in the harbour hooting, and the clatter, clang and rattle of the riveters still working in the distance.
+'Is it finished?' she asked.
+'Not yet,' said Dad, ruffling her hair. 'But the hardest part is done. Now they can hang the road.'","What is the effect of the words ""the clatter, clang and rattle of the riveters"" near the end of the story?",,A,"The noisy, repeated sounds show work is still going on, as Dad then confirms.",The harsh sounds suggest that the new arch is starting to break apart.,The gentle sounds create a calm and sleepy mood at the end of the day.,The sounds show that the workers have stopped to celebrate the arch.,,4,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.1412.6,287,2,8,Hard
+NAPLAN-Y5-READING-M3-Q30,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 6,5,English,Literary Techniques,Tone and Mood,ReadingComprehension,"The Bird Behind the Mud Wall
+In the forests of Asia and Africa lives a bird with one of the strangest nesting habits on Earth. Hornbills are large birds with huge curved beaks, and many species have a hollow helmet called a casque on top. But it is what happens inside their nests that truly amazes scientists.
+When it is time to lay her eggs, a female hornbill chooses a hollow in a tall tree. She climbs inside, and then she does something remarkable: she seals herself in. Using mud, chewed fruit and her own droppings, she plasters the entrance until only a narrow slit remains. In some species, her mate brings mud to help.
+For the next few weeks, sometimes for several months, the female stays shut inside. In many species she sheds her flight feathers while she is there. She lays her eggs, keeps them warm and cares for the chicks when they hatch.
+The wall works like a fortress. Snakes, monkeys and other hungry animals cannot reach the eggs through such a tiny gap. But it also means the female depends completely on her partner.
+The male's task is exhausting. Day after day, he flies back and forth through the forest, collecting fruit, insects and small animals. He swallows the food, carries it to the nest, then brings it back up and passes it, piece by piece, through the slit to the female's waiting beak. A male may make dozens of trips in a single day. If something happened to him, his family would be in serious trouble.
+When the chicks are larger and the nest is crowded, the female breaks out through the wall. In some species, the chicks then rebuild the seal by themselves and stay safely inside until they are ready to fly.
+Sadly, many hornbills are now threatened because the giant trees they need are being cut down. Without old trees with big hollows, there is nowhere to build these remarkable mud-walled nurseries.",The writer's attitude towards hornbills is mostly one of . . .,,D,boredom and dislike,fear and suspicion,anger and disgust,amazement and admiration,,1,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.1407.1,282,1,2,Easy
+NAPLAN-Y5-READING-M3-Q31,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 6,5,English,Inference,Inferential Reasoning,ReadingComprehension,"The Bird Behind the Mud Wall
+In the forests of Asia and Africa lives a bird with one of the strangest nesting habits on Earth. Hornbills are large birds with huge curved beaks, and many species have a hollow helmet called a casque on top. But it is what happens inside their nests that truly amazes scientists.
+When it is time to lay her eggs, a female hornbill chooses a hollow in a tall tree. She climbs inside, and then she does something remarkable: she seals herself in. Using mud, chewed fruit and her own droppings, she plasters the entrance until only a narrow slit remains. In some species, her mate brings mud to help.
+For the next few weeks, sometimes for several months, the female stays shut inside. In many species she sheds her flight feathers while she is there. She lays her eggs, keeps them warm and cares for the chicks when they hatch.
+The wall works like a fortress. Snakes, monkeys and other hungry animals cannot reach the eggs through such a tiny gap. But it also means the female depends completely on her partner.
+The male's task is exhausting. Day after day, he flies back and forth through the forest, collecting fruit, insects and small animals. He swallows the food, carries it to the nest, then brings it back up and passes it, piece by piece, through the slit to the female's waiting beak. A male may make dozens of trips in a single day. If something happened to him, his family would be in serious trouble.
+When the chicks are larger and the nest is crowded, the female breaks out through the wall. In some species, the chicks then rebuild the seal by themselves and stay safely inside until they are ready to fly.
+Sadly, many hornbills are now threatened because the giant trees they need are being cut down. Without old trees with big hollows, there is nowhere to build these remarkable mud-walled nurseries.",Why does the female hornbill most likely leave a narrow slit in the wall?,,C,so the chicks can fly in and out,so rainwater can drain from the nest,so food can be passed in to her,so she can escape from snakes,,2,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.1407.2,282,1,3,Easy
+NAPLAN-Y5-READING-M3-Q32,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 6,5,English,Literary Techniques,Tone and Mood,ReadingComprehension,"The Bird Behind the Mud Wall
+In the forests of Asia and Africa lives a bird with one of the strangest nesting habits on Earth. Hornbills are large birds with huge curved beaks, and many species have a hollow helmet called a casque on top. But it is what happens inside their nests that truly amazes scientists.
+When it is time to lay her eggs, a female hornbill chooses a hollow in a tall tree. She climbs inside, and then she does something remarkable: she seals herself in. Using mud, chewed fruit and her own droppings, she plasters the entrance until only a narrow slit remains. In some species, her mate brings mud to help.
+For the next few weeks, sometimes for several months, the female stays shut inside. In many species she sheds her flight feathers while she is there. She lays her eggs, keeps them warm and cares for the chicks when they hatch.
+The wall works like a fortress. Snakes, monkeys and other hungry animals cannot reach the eggs through such a tiny gap. But it also means the female depends completely on her partner.
+The male's task is exhausting. Day after day, he flies back and forth through the forest, collecting fruit, insects and small animals. He swallows the food, carries it to the nest, then brings it back up and passes it, piece by piece, through the slit to the female's waiting beak. A male may make dozens of trips in a single day. If something happened to him, his family would be in serious trouble.
+When the chicks are larger and the nest is crowded, the female breaks out through the wall. In some species, the chicks then rebuild the seal by themselves and stay safely inside until they are ready to fly.
+Sadly, many hornbills are now threatened because the giant trees they need are being cut down. Without old trees with big hollows, there is nowhere to build these remarkable mud-walled nurseries.",How does the tone change in the final paragraph?,,D,It shifts from worry to relief.,It shifts from humour to anger.,It shifts from concern to excitement.,It shifts from wonder to concern.,,3,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.1407.3,282,1,5,Medium
+NAPLAN-Y5-READING-M3-Q33,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 6,5,English,Literary Techniques,Characterisation,ReadingComprehension,"The Bird Behind the Mud Wall
+In the forests of Asia and Africa lives a bird with one of the strangest nesting habits on Earth. Hornbills are large birds with huge curved beaks, and many species have a hollow helmet called a casque on top. But it is what happens inside their nests that truly amazes scientists.
+When it is time to lay her eggs, a female hornbill chooses a hollow in a tall tree. She climbs inside, and then she does something remarkable: she seals herself in. Using mud, chewed fruit and her own droppings, she plasters the entrance until only a narrow slit remains. In some species, her mate brings mud to help.
+For the next few weeks, sometimes for several months, the female stays shut inside. In many species she sheds her flight feathers while she is there. She lays her eggs, keeps them warm and cares for the chicks when they hatch.
+The wall works like a fortress. Snakes, monkeys and other hungry animals cannot reach the eggs through such a tiny gap. But it also means the female depends completely on her partner.
+The male's task is exhausting. Day after day, he flies back and forth through the forest, collecting fruit, insects and small animals. He swallows the food, carries it to the nest, then brings it back up and passes it, piece by piece, through the slit to the female's waiting beak. A male may make dozens of trips in a single day. If something happened to him, his family would be in serious trouble.
+When the chicks are larger and the nest is crowded, the female breaks out through the wall. In some species, the chicks then rebuild the seal by themselves and stay safely inside until they are ready to fly.
+Sadly, many hornbills are now threatened because the giant trees they need are being cut down. Without old trees with big hollows, there is nowhere to build these remarkable mud-walled nurseries.",How does the writer present the male hornbill?,,B,as a lazy partner who rarely helps,as a hardworking and devoted provider,as the builder of the whole nest,as a fierce guard who fights off snakes,,3,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.1407.4,282,1,5,Medium
+NAPLAN-Y5-READING-M3-Q34,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 6,5,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Bird Behind the Mud Wall
+In the forests of Asia and Africa lives a bird with one of the strangest nesting habits on Earth. Hornbills are large birds with huge curved beaks, and many species have a hollow helmet called a casque on top. But it is what happens inside their nests that truly amazes scientists.
+When it is time to lay her eggs, a female hornbill chooses a hollow in a tall tree. She climbs inside, and then she does something remarkable: she seals herself in. Using mud, chewed fruit and her own droppings, she plasters the entrance until only a narrow slit remains. In some species, her mate brings mud to help.
+For the next few weeks, sometimes for several months, the female stays shut inside. In many species she sheds her flight feathers while she is there. She lays her eggs, keeps them warm and cares for the chicks when they hatch.
+The wall works like a fortress. Snakes, monkeys and other hungry animals cannot reach the eggs through such a tiny gap. But it also means the female depends completely on her partner.
+The male's task is exhausting. Day after day, he flies back and forth through the forest, collecting fruit, insects and small animals. He swallows the food, carries it to the nest, then brings it back up and passes it, piece by piece, through the slit to the female's waiting beak. A male may make dozens of trips in a single day. If something happened to him, his family would be in serious trouble.
+When the chicks are larger and the nest is crowded, the female breaks out through the wall. In some species, the chicks then rebuild the seal by themselves and stay safely inside until they are ready to fly.
+Sadly, many hornbills are now threatened because the giant trees they need are being cut down. Without old trees with big hollows, there is nowhere to build these remarkable mud-walled nurseries.","According to the passage, which statement about the female hornbill is accurate?",,A,She usually leaves the nest before her chicks are ready to fly.,She stays sealed inside until all her chicks are ready to fly.,She always builds the mud wall entirely without help.,She slips out through the slit each evening to find food.,,4,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.1407.5,282,1,7,Hard
+NAPLAN-Y5-READING-M3-Q35,NAPLAN-Y5-READING-M3,NAPLAN_STYLE_READING,Text 6,5,English,Reading Comprehension,Evaluating Evidence,ReadingComprehension,"The Bird Behind the Mud Wall
+In the forests of Asia and Africa lives a bird with one of the strangest nesting habits on Earth. Hornbills are large birds with huge curved beaks, and many species have a hollow helmet called a casque on top. But it is what happens inside their nests that truly amazes scientists.
+When it is time to lay her eggs, a female hornbill chooses a hollow in a tall tree. She climbs inside, and then she does something remarkable: she seals herself in. Using mud, chewed fruit and her own droppings, she plasters the entrance until only a narrow slit remains. In some species, her mate brings mud to help.
+For the next few weeks, sometimes for several months, the female stays shut inside. In many species she sheds her flight feathers while she is there. She lays her eggs, keeps them warm and cares for the chicks when they hatch.
+The wall works like a fortress. Snakes, monkeys and other hungry animals cannot reach the eggs through such a tiny gap. But it also means the female depends completely on her partner.
+The male's task is exhausting. Day after day, he flies back and forth through the forest, collecting fruit, insects and small animals. He swallows the food, carries it to the nest, then brings it back up and passes it, piece by piece, through the slit to the female's waiting beak. A male may make dozens of trips in a single day. If something happened to him, his family would be in serious trouble.
+When the chicks are larger and the nest is crowded, the female breaks out through the wall. In some species, the chicks then rebuild the seal by themselves and stay safely inside until they are ready to fly.
+Sadly, many hornbills are now threatened because the giant trees they need are being cut down. Without old trees with big hollows, there is nowhere to build these remarkable mud-walled nurseries.",Which sentence BEST explains why the female cannot simply leave the nest to find her own food?,,A,In many species she sheds her flight feathers while she is there.,"For the next few weeks, sometimes for several months, the female stays shut inside.",A male may make dozens of trips to the nest in a single day.,"When the chicks are larger and the nest is crowded, the female breaks out through the wall.",,4,1,1,"NAPLAN,Year 5,Mock 3",English_Comprehension_Questions_expanded.csv,5.1407.6,282,2,7,Hard

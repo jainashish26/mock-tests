@@ -173,11 +173,34 @@ export const naplanYear9Syllabus2026 = {
     <p>Explore our NAPLAN Year 9 practice tests, dive into our topic-specific revision resources, and remind your teen that every effort they make — no matter how small — is building something meaningful.</p>
 
     <p><strong>Together, we've absolutely got this.</strong></p>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>When is NAPLAN 2026 held for Year 9?</h3>
+    <p>NAPLAN has run in March since 2023, so the 2026 window falls in the second or third week of March depending on your state or territory. Your child's school confirms the exact dates. Because Year 9 is the final NAPLAN, results arrive after the last opportunity to act on them within the program.</p>
+
+    <h3>What does Year 9 NAPLAN cover?</h3>
+    <p>Four tests: Writing, Reading, Language Conventions (spelling, grammar and punctuation), and Numeracy, all drawn from the Australian Curriculum. Year 9 is the most demanding of the four NAPLAN year levels, with dense texts, sophisticated inference, and numeracy that includes algebraic reasoning and multi-step problem solving.</p>
+
+    <h3>Is Year 9 NAPLAN online and adaptive?</h3>
+    <p>Yes. NAPLAN is delivered online with adaptive questioning that adjusts to your teen's responses. The Writing test is the exception and is completed on a separate platform.</p>
+
+    <h3>What numeracy topics are tested at Year 9?</h3>
+    <p>Three Australian Curriculum strands: Number and Algebra, Measurement and Geometry, and Statistics and Probability. At Year 9 this includes linear and non-linear relationships, index and algebraic manipulation, Pythagoras and trigonometry foundations, area and volume of composite shapes, and statistical inference from data.</p>
+
+    <h3>How are Year 9 results reported?</h3>
+    <p>Against four proficiency levels - Exceeding, Strong, Developing, and Needs Additional Support - replacing the old numbered bands. Read together with the Year 3, 5 and 7 results, the Year 9 report completes a longitudinal picture of literacy and numeracy growth across schooling.</p>
+
+    <h3>How much preparation does a Year 9 student need?</h3>
+    <p>Quality over quantity. Focused practice with feedback beats volume, and by Year 9 ownership of preparation should increasingly sit with the student rather than the parent. Because this is the last NAPLAN, the most useful outcome is an accurate final picture of literacy and numeracy against the national benchmark, not a maximised score.</p>
+
   `,
   image: "https://images.unsplash.com/photo-1523050854058-8df90110c476?w=1200&q=80",
   imageAlt:
-    "A Year 9 student studying at a desk with a laptop and notes, looking focused and determined during exam preparation",
-  date: "March 30, 2026",
+    "A Year 9 student studying at a desk with a laptop and notes, looking focused and determined during exam preparation",  date: "December 8, 2026",
+  updatedDate: "December 10, 2026",
+  readingTime: 12,
+  category: "naplan",
   tags: ["NAPLAN", "YEAR 9", "NAPLAN PREPARATION", "SECONDARY SCHOOL", "LITERACY", "NUMERACY"],
   metaTitle: "NAPLAN Year 9 Syllabus 2026: Complete Guide for Parents & Students",
   metaDescription:
@@ -197,6 +220,14 @@ export const naplanYear9Syllabus2026 = {
     "NAPLAN Year 9 trigonometry",
     "how to prepare for NAPLAN Year 9",
     "NAPLAN Year 9 Australia",
+  ],
+  keyTakeaways: [
+    "Year 9 is the final NAPLAN your child will sit, covering Writing, Reading, Language Conventions and Numeracy.",
+    "The assessment runs in the March testing window, following the 2023 move away from May.",
+    "All tests except Writing are delivered online and adapt to your teen's ability as they answer.",
+    "Results use four proficiency levels - Exceeding, Strong, Developing and Needs Additional Support - in place of the old Bands 1-10.",
+    "Numeracy covers three strands: Number and Algebra, Measurement and Geometry, and Statistics and Probability.",
+    "Quality beats quantity: focused practice with feedback matters more than volume, and ownership should increasingly sit with your teen.",
   ],
   author: {
     name: "The Exam Success Team",

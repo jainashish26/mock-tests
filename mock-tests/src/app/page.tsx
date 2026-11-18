@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { Floating3DElement } from "@/components/ui/Floating3DElement";
 import { PublicLayout } from "@/components/layout/PublicLayout";
+import { PageViewTracker } from "@/features/monetisation/PageViewTracker";
 
 function useCounter(end: number, duration = 2) {
   const [count, setCount] = useState(0);
@@ -70,6 +71,11 @@ export default function Home() {
 
   return (
     <PublicLayout>
+      {/* Acquire-stage event. LANDING_VIEWED was in the catalogue but nothing
+          fired it, so report A11 had no stage-1 denominator and every conversion
+          rate below it was null. Mounted inside PublicLayout so it records every
+          visit, once. */}
+      <PageViewTracker event="LANDING_VIEWED" props={{ surface: 'landing' }} />
       <div className={styles.pageContainer}>
 
         {/* --- HERO --- */}

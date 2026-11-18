@@ -1,0 +1,31 @@
+﻿QuestionNumber,QuestionID,ExamSection,Correct,CorrectAnswerText,Topic,SubTopic,DifficultyLabel,DifficultyScore,SourceQuestionNumber
+1,NAPLAN-Y3-READING-M2-Q01,Text 1,C,The waves were too strong.,Inference,Cause and Effect,Medium,4,3.87.1
+2,NAPLAN-Y3-READING-M2-Q02,Text 1,C,friends.,Reading Comprehension,Literal Recall,Easy,1,3.87.2
+3,NAPLAN-Y3-READING-M2-Q03,Text 1,B,first paragraph,Reading Comprehension,Locating Information,Easy,1,3.87.3
+4,NAPLAN-Y3-READING-M2-Q04,Text 2,D,"The sensible little girl knew what she should do. She should keep on walking to school. □ 2c However, she was very tempted by the idea of an adventure so she slowed down to hear more about",Reading Comprehension,Summarising,Medium,4,3.49.1
+5,NAPLAN-Y3-READING-M2-Q05,Text 2,B,There is a lot of dialogue (speaking).,Reading Comprehension,Text Structure,Easy,3,3.49.2
+6,NAPLAN-Y3-READING-M2-Q06,Text 2,C,extraordinary,Vocabulary,Word Meaning in Context,Easy,3,3.49.3
+7,NAPLAN-Y3-READING-M2-Q07,Text 3,A,She was afraid she would shrink.,Reading Comprehension,Literal Recall,Easy,2,3.1266.1
+8,NAPLAN-Y3-READING-M2-Q08,Text 3,B,It shrank to a muddy trickle.,Reading Comprehension,Literal Recall,Easy,1,3.1266.2
+9,NAPLAN-Y3-READING-M2-Q09,Text 3,C,dry and easily broken,Vocabulary,Word Meaning in Context,Medium,4,3.1266.3
+10,NAPLAN-Y3-READING-M2-Q10,Text 3,B,think they are wonderful,Vocabulary,Word Meaning in Context,Medium,4,3.1266.4
+11,NAPLAN-Y3-READING-M2-Q11,Text 3,D,felt happy and free after helping others,Literary Techniques,Figurative Language,Hard,8,3.1266.5
+12,NAPLAN-Y3-READING-M2-Q12,Text 3,A,"The rain is meant for the thirsty land, not for making Nimbus look grand.",Inference,Inferential Reasoning,Hard,7,3.1266.6
+13,NAPLAN-Y3-READING-M2-Q13,Text 4,C,Corrie,Reading Comprehension,Literal Recall,Easy,1,3.1176.1
+14,NAPLAN-Y3-READING-M2-Q14,Text 4,A,worms and yabbies,Reading Comprehension,Literal Recall,Easy,2,3.1176.2
+15,NAPLAN-Y3-READING-M2-Q15,Text 4,C,to explain why breeding them was so difficult,Reading Comprehension,Author Purpose,Medium,5,3.1176.3
+16,NAPLAN-Y3-READING-M2-Q16,Text 4,B,living in a place where people look after it,Vocabulary,Word Meaning in Context,Medium,5,3.1176.4
+17,NAPLAN-Y3-READING-M2-Q17,Text 4,D,to show that his love of animals started early and lasted all his life,Reading Comprehension,Author Purpose,Hard,7,3.1176.5
+18,NAPLAN-Y3-READING-M2-Q18,Text 4,D,People wanted to remember his lifelong work for animals.,Inference,Inferential Reasoning,Hard,7,3.1176.6
+19,NAPLAN-Y3-READING-M2-Q19,Text 5,D,under the school garden,Reading Comprehension,Literal Recall,Easy,2,3.1175.1
+20,NAPLAN-Y3-READING-M2-Q20,Text 5,D,a girl named Ruby,Reading Comprehension,Literal Recall,Easy,2,3.1175.2
+21,NAPLAN-Y3-READING-M2-Q21,Text 5,C,Clunk,Literary Techniques,Sound Devices,Medium,4,3.1175.3
+22,NAPLAN-Y3-READING-M2-Q22,Text 5,A,Doors in her time opened when they saw your face.,Inference,Cause and Effect,Medium,5,3.1175.4
+23,NAPLAN-Y3-READING-M2-Q23,Text 5,C,Children in 2125 had never needed to use a paper map.,Inference,Inferential Reasoning,Hard,7,3.1175.5
+24,NAPLAN-Y3-READING-M2-Q24,Text 5,B,to show that Ruby's wish about flying cars has come true,Reading Comprehension,Author Purpose,Hard,8,3.1175.6
+25,NAPLAN-Y3-READING-M2-Q25,Text 6,D,butter side down,Reading Comprehension,Literal Recall,Easy,2,3.1144.1
+26,NAPLAN-Y3-READING-M2-Q26,Text 6,C,about half a turn,Reading Comprehension,Literal Recall,Easy,2,3.1144.2
+27,NAPLAN-Y3-READING-M2-Q27,Text 6,C,It only has time to flip halfway over before landing.,Inference,Cause and Effect,Medium,5,3.1144.3
+28,NAPLAN-Y3-READING-M2-Q28,Text 6,A,to make the text fun and show the sound of the toast landing,Reading Comprehension,Author Purpose,Medium,5,3.1144.4
+29,NAPLAN-Y3-READING-M2-Q29,Text 6,B,"Many people think this is just bad luck, but scientists say there is a simple reason.",Reading Comprehension,Main Idea,Hard,7,3.1144.5
+30,NAPLAN-Y3-READING-M2-Q30,Text 6,D,It would flip over and land butter side up.,Inference,Inferential Reasoning,Hard,8,3.1144.6

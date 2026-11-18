@@ -160,11 +160,31 @@ export const narrativeWritingPrompts = {
     <p>Explore our writing resources, try our creative writing practice tools, and above all, celebrate the stories your child creates. Every word they write is building something real.</p>
 
     <p><strong>Now, pick a prompt and start writing. We can't wait to see where your imagination takes you.</strong></p>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>How should we use one prompt per week?</h3>
+    <p>The prompts are organised by school term - Term 1 new beginnings and discovery, Term 2 adventure and challenge, Term 3 mystery and imagination, Term 4 courage and growth - with bonus prompts for holidays. Working through one per week fits an existing routine. The guide opens with a section on how to use the prompts effectively rather than assuming you will simply write to each one once.</p>
+
+    <h3>What age or year level are these prompts suitable for?</h3>
+    <p>They are written for primary and lower secondary students and scale with the writer. A younger child can respond with a short paragraph; an older student can develop the same prompt into a full narrative with structured plot, character and description. The value is in regular practice rather than in a fixed output length.</p>
+
+    <h3>Will narrative writing practice help with NAPLAN?</h3>
+    <p>Yes. The NAPLAN writing task asks for a response to a prompt that may be narrative or persuasive, so students who have regularly written narratives to a prompt are practising the actual skill being assessed - responding to an unfamiliar stimulus under time limits with a developed, structured piece.</p>
+
+    <h3>My child says they have no ideas. What then?</h3>
+    <p>That is precisely what a prompt is for: it removes the blank-page problem by supplying the seed. Encourage your child to start with the most obvious idea and then ask one 'what if' question to make it less predictable. The guide also explains why regular creative writing matters, which helps when motivation dips.</p>
+
+    <h3>Should I correct spelling and grammar in these pieces?</h3>
+    <p>Lightly, and after the writing is finished. Heavily marking a creative piece discourages the fluency and willingness to take risks that regular practice is meant to build. Keep a separate time for conventions work so creativity and accuracy are not competing in the same session.</p>
+
   `,
   image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1200&q=80",
   imageAlt:
-    "A notebook and pen on a wooden desk with imaginative doodles and story ideas, representing the creative writing process",
-  date: "March 30, 2026",
+    "A notebook and pen on a wooden desk with imaginative doodles and story ideas, representing the creative writing process",  date: "August 4, 2026",
+  updatedDate: "August 6, 2026",
+  readingTime: 13,
+  category: "english-writing",
   tags: ["CREATIVE WRITING", "NARRATIVE WRITING", "WRITING PROMPTS", "LITERACY", "NAPLAN WRITING"],
   metaTitle: "52 Narrative Writing Prompts for Students | Weekly Ideas",
   metaDescription:
@@ -182,6 +202,13 @@ export const narrativeWritingPrompts = {
     "writing prompts Year 3 4 5 6",
     "fiction writing prompts kids",
     "weekly writing challenge students",
+  ],
+  keyTakeaways: [
+    "52 narrative prompts, one for each week of the year, organised by school term so they fit an existing routine.",
+    "Term 1 covers new beginnings and discovery, Term 2 adventure and challenge, Term 3 mystery and imagination, Term 4 courage and growth, plus bonus holiday prompts.",
+    "The guide explains how to use the prompts effectively, not just what they are.",
+    "Regular creative writing builds skill through repetition - one prompt a week is sustainable where daily writing is not.",
+    "Narrative practice directly supports the NAPLAN writing task, which may require a narrative response to a prompt.",
   ],
   author: {
     name: "The Exam Success Team",

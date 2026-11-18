@@ -1,0 +1,257 @@
+"""Validate the generated schema baseline against the live object inventory.
+
+Writing files is not the same as capturing the schema. This checks:
+
+  1. COMPLETENESS - object counts in the baseline match the live catalog counts
+     passed in as arguments. A missing materialised view or function would leave
+     a restored database subtly broken rather than obviously empty.
+  2. STRUCTURE - every file is non-trivial, every CREATE statement is terminated,
+     and no file was truncated mid-statement by a transport or length limit.
+  3. INVARIANTS - the specific properties this project has been burned by are
+     actually present in the text: the coverage threshold value, the two grant
+     revocations, search_path pins, SECURITY DEFINER, and the cron schedules.
+
+Usage:
+    python scripts/validate_baseline.py <tables> <matviews> <views> <functions> <indexes> <cron>
+
+The expected counts come from the live catalog; see the query in
+supabase/migrations/README.md.
+"""
+
+from __future__ import annotations
+
+import re
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+BASELINE = ROOT / "supabase" / "migrations" / "baseline"
+
+EXPECTED_FILES = [
+    "01_tables.sql", "02_functions.sql", "03_views.sql", "04_indexes.sql",
+    "05_rls.sql", "06_grants.sql", "07_config.sql", "08_public_wrappers.sql",
+    "09_public_grants.sql", "10_cron.sql",
+]
+
+passed = 0
+failed = 0
+
+
+def check(label: str, cond: bool, detail: str = "") -> None:
+    global passed, failed
+    if cond:
+        passed += 1
+        print(f"  PASS  {label}")
+    else:
+        failed += 1
+        print(f"  FAIL  {label}" + (f"\n          {detail}" if detail else ""))
+
+
+def main() -> int:
+    if len(sys.argv) != 7:
+        print(__doc__)
+        return 2
+
+    exp_tables, exp_mv, exp_views, exp_fns, exp_idx, exp_cron = (int(a) for a in sys.argv[1:7])
+
+    texts: dict[str, str] = {}
+    print("\n=== files present and non-trivial ===")
+    for name in EXPECTED_FILES:
+        path = BASELINE / name
+        exists = path.exists()
+        check(f"{name} exists", exists)
+        if exists:
+            text = path.read_text(encoding="utf-8")
+            texts[name] = text
+            check(f"{name} has content (>200 chars)", len(text) > 200, f"{len(text)} chars")
+
+    if len(texts) != len(EXPECTED_FILES):
+        print("\nAborting: missing files.")
+        return 1
+
+    print("\n=== object-count parity with the live catalog ===")
+    tables_sql = texts["01_tables.sql"]
+    views_sql = texts["03_views.sql"]
+    fns_sql = texts["02_functions.sql"]
+    idx_sql = texts["04_indexes.sql"]
+    cron_sql = texts["10_cron.sql"]
+
+    n_tables = len(re.findall(r"CREATE TABLE IF NOT EXISTS reporting\.", tables_sql))
+    n_mv = len(re.findall(r"CREATE MATERIALIZED VIEW reporting\.", views_sql))
+    n_views = len(re.findall(r"CREATE OR REPLACE VIEW reporting\.", views_sql))
+    n_fns = len(re.findall(r"CREATE OR REPLACE FUNCTION reporting\.", fns_sql))
+    n_idx = len(re.findall(r"CREATE (?:UNIQUE )?INDEX ", idx_sql))
+    n_cron = len(re.findall(r"SELECT cron\.schedule\(", cron_sql))
+
+    check(f"tables {n_tables} == {exp_tables}", n_tables == exp_tables)
+    check(f"materialised views {n_mv} == {exp_mv}", n_mv == exp_mv)
+    check(f"views {n_views} == {exp_views}", n_views == exp_views)
+    check(f"reporting functions {n_fns} == {exp_fns}", n_fns == exp_fns)
+    check(f"indexes {n_idx} == {exp_idx}", n_idx == exp_idx)
+    check(f"cron jobs {n_cron} == {exp_cron}", n_cron == exp_cron)
+
+    print("\n=== structure: nothing truncated mid-statement ===")
+    for name, text in texts.items():
+        body = text.strip()
+        # Every generated file must end with a statement terminator, not a
+        # half-written expression. A length-capped fetch would fail here.
+        check(f"{name} ends with ';'", body.endswith(";"), body[-60:])
+
+    print("\n=== invariants this project has been burned by ===")
+    check(
+        "coverage threshold value is captured (not NULL)",
+        '"min_items_per_subtopic": 10' in texts["07_config.sql"],
+    )
+    check(
+        "funnel_events SELECT revocation present",
+        "REVOKE SELECT ON TABLE public.funnel_events" in texts["09_public_grants.sql"],
+    )
+    check(
+        "email_log SELECT revocation present",
+        "REVOKE SELECT ON TABLE public.email_log" in texts["09_public_grants.sql"],
+    )
+    check(
+        "reporting_ro grants present",
+        "TO reporting_ro" in texts["06_grants.sql"],
+    )
+    check(
+        "public wrappers are SECURITY DEFINER",
+        texts["08_public_wrappers.sql"].count("SECURITY DEFINER") >= 10,
+    )
+    check(
+        "public wrappers pin search_path",
+        texts["08_public_wrappers.sql"].count("SET search_path") >= 10,
+    )
+    check(
+        "RLS force statements present (PR-07)",
+        texts["05_rls.sql"].count("FORCE ROW LEVEL SECURITY") >= exp_tables,
+    )
+    check(
+        "identity columns preserved",
+        "GENERATED BY DEFAULT AS IDENTITY" in tables_sql,
+    )
+    # P8 and T7 must share ONE definition of the recommendation metric. If the
+    # shared function were dropped from the baseline, a restored database would
+    # silently fall back to whatever the two wrappers happened to contain, and
+    # parent and tutor could give the same child different advice.
+    check(
+        "shared recommendation metric captured (P8/T7 single definition)",
+        "FUNCTION reporting.recommendations_scored" in texts["02_functions.sql"],
+    )
+    check(
+        "T5 assignment facts materialised view captured",
+        "mv_assignment_progress" in texts["03_views.sql"],
+    )
+    # A1 owns the item metrics and T4 is "the same metric restricted to tests the
+    # tutor assigned" (design doc X-6). Both must resolve to ONE function, so the
+    # baseline has to carry the shared definition, its materialisation and the
+    # calibration table the flag bands are read from. If any of these went missing
+    # a restored database would lose the single-definition guarantee that stops the
+    # admin's p-value and the tutor's from drifting apart.
+    check(
+        "shared item-statistics metric captured (A1/T4 single definition)",
+        "FUNCTION reporting.item_statistics" in texts["02_functions.sql"],
+    )
+    check(
+        "A1 item statistics materialised view captured",
+        "mv_item_statistics" in texts["03_views.sql"],
+    )
+    check(
+        "item calibration thresholds captured",
+        "item_thresholds" in texts["07_config.sql"],
+    )
+    # A15's marking audit and A1/T4's marking_reliable flag must read the SAME
+    # rule. If only one of them survived a restore, the dashboard and the reports
+    # could disagree about whether the accuracy data is trustworthy - which is the
+    # exact drift migration 088 removed by extracting the rule into one function.
+    check(
+        "shared marking-agreement rule captured (A15/A1 single definition)",
+        "FUNCTION reporting.marking_disagreement" in texts["02_functions.sql"],
+    )
+    for fn in (
+        "admin_item_statistics",
+        "tutor_item_analysis",
+        "admin_item_thresholds",
+        "tutor_assign_test",
+        "tutor_remind",
+        "tutor_assignable_tests",
+    ):
+        check(
+            f"public wrapper {fn} captured",
+            f"FUNCTION public.{fn}" in texts["08_public_wrappers.sql"],
+        )
+    check(
+        "A1 nightly refresh job captured",
+        "rpt-item-statistics" in texts["10_cron.sql"],
+    )
+
+    # P2 percentile (093): the mid-rank metric, the cohort MV, its config and
+    # the parent wrapper must survive a restore TOGETHER. A cohort MV restored
+    # without percentile_thresholds would silently rebuild on DEFAULT floors,
+    # and a wrapper without the metric would fail at refresh time.
+    check(
+        "P2 mid-rank metric captured (single definition)",
+        "FUNCTION reporting.percentile_from_scores" in texts["02_functions.sql"],
+    )
+    check(
+        "P2 percentile cohort materialised view captured",
+        "mv_percentile_cohort" in texts["03_views.sql"],
+    )
+    check(
+        "percentile_thresholds captured in config",
+        "percentile_thresholds" in texts["07_config.sql"],
+    )
+    check(
+        "P2 refresh chained after the attempt-fact load",
+        "mv_percentile_cohort" in texts["10_cron.sql"],
+    )
+
+    # The wrapper export used a hardcoded name list and silently omitted the two
+    # A11 wrappers added two migrations later (058). Assert both the count and the
+    # specific names so a stale list fails here rather than producing a baseline
+    # that restores a database missing the functions a report depends on.
+    wrappers_sql = texts["08_public_wrappers.sql"]
+    n_wrappers = len(re.findall(r"CREATE OR REPLACE FUNCTION public\.", wrappers_sql))
+    check(f"public wrappers captured ({n_wrappers} >= 48)", n_wrappers >= 48)
+    for fn in (
+        "admin_funnel_by_stage", "admin_funnel_outcomes", "parent_mastery", "creator_coverage_queue",
+        "admin_experiment_results", "experiment_assign", "experiment_expose",
+        # Tutor surface + its RLS predicates. The prefix convention missed these
+        # twice; 071 replaced it with "every public SECURITY DEFINER function".
+        "tutor_student_overview", "tutor_skill_gaps", "tutor_at_risk",
+        "tutor_assignments", "tutor_recommendations",
+        "is_tutor_of", "has_live_tutor_consent",
+        "parent_tutor_consents", "parent_grant_tutor_consent_by_email", "parent_revoke_tutor_consent",
+        "parent_percentile",
+    ):
+        check(f"wrapper {fn} present in baseline", f"FUNCTION public.{fn}" in wrappers_sql)
+
+    # A12 decision thresholds are config: without them a restored database has no
+    # min sample, alpha or worth-shipping lift, and every verdict is undefined.
+    check(
+        "experiment_thresholds captured in config",
+        "experiment_thresholds" in texts["07_config.sql"],
+    )
+    check(
+        "at_risk_thresholds captured in config",
+        "at_risk_thresholds" in texts["07_config.sql"],
+    )
+    check(
+        "experiment table revocations captured",
+        "public.experiment_assignments" in texts["09_public_grants.sql"],
+    )
+    # 065 hardened `experiments` itself; the grants export now derives from live
+    # ACLs (066) so this can no longer be forgotten.
+    check(
+        "experiments definition table revocation captured",
+        "REVOKE SELECT ON TABLE public.experiments " in texts["09_public_grants.sql"],
+    )
+
+    print(f"\n{'-' * 58}")
+    print(f"PASSED: {passed}   FAILED: {failed}")
+    print(f"{'-' * 58}\n")
+    return 1 if failed else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

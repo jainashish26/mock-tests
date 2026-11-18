@@ -51,6 +51,7 @@ export function Header() {
         </Link>
         <nav className="hidden lg:flex gap-12 absolute left-1/2 -translate-x-1/2 z-5">
           <Link href="/features" className="no-underline text-muted-foreground font-semibold text-[0.9375rem] transition-all duration-150 relative hover:text-primary">Features</Link>
+          <Link href="/pricing" className="no-underline text-muted-foreground font-semibold text-[0.9375rem] transition-all duration-150 relative hover:text-primary">Pricing</Link>
           <Link href="/tests" className="no-underline text-muted-foreground font-semibold text-[0.9375rem] transition-all duration-150 relative hover:text-primary">Paid Tests</Link>
           <Link href="/free" className="no-underline text-muted-foreground font-semibold text-[0.9375rem] transition-all duration-150 relative hover:text-primary">Free Tests</Link>
           <Link href="/about" className="no-underline text-muted-foreground font-semibold text-[0.9375rem] transition-all duration-150 relative hover:text-primary">About Us</Link>
@@ -87,6 +88,7 @@ export function Header() {
           >
             <nav className="flex flex-col gap-4">
               <Link href="/features" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-foreground no-underline py-2">Features</Link>
+              <Link href="/pricing" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-foreground no-underline py-2">Pricing</Link>
               <Link href="/tests" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-foreground no-underline py-2">Paid Tests</Link>
               <Link href="/free" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-foreground no-underline py-2">Free Tests</Link>
               <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-foreground no-underline py-2">About Us</Link>

@@ -1,0 +1,49 @@
+﻿QuestionNumber,QuestionID,ExamSection,Correct,CorrectAnswerText,Topic,SubTopic,DifficultyLabel,DifficultyScore,SourceQuestionNumber
+1,NAPLAN-Y7-NUMERACY-M3-Q01,Part A - Non-Calculator,C,28,Problem Solving,Age Problems,Easy,1,1699
+2,NAPLAN-Y7-NUMERACY-M3-Q02,Part A - Non-Calculator,B,6 L,Measurement,Volume and Capacity,Easy,1,898
+3,NAPLAN-Y7-NUMERACY-M3-Q03,Part A - Non-Calculator,A,The ratio of adults to children is 1 : 7,Number,Ratios and Rates,Easy,1,1214
+4,NAPLAN-Y7-NUMERACY-M3-Q04,Part A - Non-Calculator,E,obtuse angle,Geometry,Angles,Easy,1,654
+5,NAPLAN-Y7-NUMERACY-M3-Q05,Part A - Non-Calculator,E,$7.15,Financial Mathematics,Money and Change,Easy,2,356
+6,NAPLAN-Y7-NUMERACY-M3-Q06,Part A - Non-Calculator,B,68,Algebra,Number Sequences,Easy,2,6
+7,NAPLAN-Y7-NUMERACY-M3-Q07,Part A - Non-Calculator,B,−97,Number,Order of Operations,Easy,2,1182
+8,NAPLAN-Y7-NUMERACY-M3-Q08,Part A - Non-Calculator,C,314 cm2,Geometry,3D Objects,Easy,2,50
+9,NAPLAN-Y7-NUMERACY-M3-Q09,Part A - Non-Calculator,C,1 h 30 min,Measurement,Time,Easy,2,858
+10,NAPLAN-Y7-NUMERACY-M3-Q10,Part A - Non-Calculator,A,2.8,Number,Multiplication and Division,Easy,3,6
+11,NAPLAN-Y7-NUMERACY-M3-Q11,Part B - Calculator Allowed,C,31 more chose train than bike.,Statistics,Data Interpretation,Easy,3,1944
+12,NAPLAN-Y7-NUMERACY-M3-Q12,Part B - Calculator Allowed,B,4042020,Number,Order of Operations,Easy,3,1
+13,NAPLAN-Y7-NUMERACY-M3-Q13,Part B - Calculator Allowed,A,1/12,Probability,Combined Events,Easy,3,1599
+14,NAPLAN-Y7-NUMERACY-M3-Q14,Part B - Calculator Allowed,D,5 - 10x - 12x2,Algebra,Expressions and Substitution,Easy,3,28
+15,NAPLAN-Y7-NUMERACY-M3-Q15,Part B - Calculator Allowed,B,5.01,Algebra,Expressions and Substitution,Medium,4,10
+16,NAPLAN-Y7-NUMERACY-M3-Q16,Part B - Calculator Allowed,C,8900,Number,Rounding and Estimation,Medium,4,54
+17,NAPLAN-Y7-NUMERACY-M3-Q17,Part B - Calculator Allowed,B,$1.50,Financial Mathematics,Profit and Loss,Medium,4,451
+18,NAPLAN-Y7-NUMERACY-M3-Q18,Part B - Calculator Allowed,A,56.5 km,Measurement,"Speed, Distance and Time",Medium,4,1013
+19,NAPLAN-Y7-NUMERACY-M3-Q19,Part B - Calculator Allowed,D,14,Number,Factors and Multiples,Medium,4,18
+20,NAPLAN-Y7-NUMERACY-M3-Q20,Part B - Calculator Allowed,C,6,Algebra,Expressions and Substitution,Medium,4,3
+21,NAPLAN-Y7-NUMERACY-M3-Q21,Part B - Calculator Allowed,C,9,Probability,Expected Outcomes,Medium,4,1639
+22,NAPLAN-Y7-NUMERACY-M3-Q22,Part B - Calculator Allowed,D,6,Number,Factors and Multiples,Medium,4,1396
+23,NAPLAN-Y7-NUMERACY-M3-Q23,Part B - Calculator Allowed,A,1200,Geometry,Circles,Medium,4,9
+24,NAPLAN-Y7-NUMERACY-M3-Q24,Part B - Calculator Allowed,E,2184,Number,Digits and Number Properties,Medium,4,20
+25,NAPLAN-Y7-NUMERACY-M3-Q25,Part B - Calculator Allowed,A,"17° south, 148° east",Measurement,Length and Perimeter,Medium,4,23
+26,NAPLAN-Y7-NUMERACY-M3-Q26,Part B - Calculator Allowed,B,n^3 + 2n,Algebra,Expressions and Substitution,Medium,4,10
+27,NAPLAN-Y7-NUMERACY-M3-Q27,Part B - Calculator Allowed,B,$2.70,Number,Ratios and Rates,Medium,5,1227
+28,NAPLAN-Y7-NUMERACY-M3-Q28,Part B - Calculator Allowed,A,$11.00,Financial Mathematics,Best Buy and Budgeting,Medium,5,382
+29,NAPLAN-Y7-NUMERACY-M3-Q29,Part B - Calculator Allowed,A,one square left and three squares up,Geometry,Position and Location,Medium,5,492
+30,NAPLAN-Y7-NUMERACY-M3-Q30,Part B - Calculator Allowed,A,3.641 kL,Measurement,Volume and Capacity,Medium,5,915
+31,NAPLAN-Y7-NUMERACY-M3-Q31,Part B - Calculator Allowed,A,Rectangle A has the larger area.,Measurement,Area,Medium,5,938
+32,NAPLAN-Y7-NUMERACY-M3-Q32,Part B - Calculator Allowed,E,stem-and-leaf plot,Statistics,Tables and Graphs,Medium,5,2026
+33,NAPLAN-Y7-NUMERACY-M3-Q33,Part B - Calculator Allowed,B,3,Problem Solving,Logical Reasoning,Medium,5,25
+34,NAPLAN-Y7-NUMERACY-M3-Q34,Part B - Calculator Allowed,B,G,Number,Divisibility and Remainders,Medium,6,1298
+35,NAPLAN-Y7-NUMERACY-M3-Q35,Part B - Calculator Allowed,D,6,Geometry,Spatial Visualisation,Medium,6,772
+36,NAPLAN-Y7-NUMERACY-M3-Q36,Part B - Calculator Allowed,D,12a − 9,Algebra,Expressions and Substitution,Medium,6,167
+37,NAPLAN-Y7-NUMERACY-M3-Q37,Part B - Calculator Allowed,B,7 h 40 min,Measurement,Time,Hard,7,866
+38,NAPLAN-Y7-NUMERACY-M3-Q38,Part B - Calculator Allowed,B,1st,Geometry,Position and Location,Hard,7,496
+39,NAPLAN-Y7-NUMERACY-M3-Q39,Part B - Calculator Allowed,B,800,Number,Percentages,Hard,7,14
+40,NAPLAN-Y7-NUMERACY-M3-Q40,Part B - Calculator Allowed,D,north,Problem Solving,Direction Sense,Hard,7,1793
+41,NAPLAN-Y7-NUMERACY-M3-Q41,Part B - Calculator Allowed,D,5,Algebra,Inequalities,Hard,7,120
+42,NAPLAN-Y7-NUMERACY-M3-Q42,Part B - Calculator Allowed,A,silver,Geometry,Position and Location,Hard,8,497
+43,NAPLAN-Y7-NUMERACY-M3-Q43,Part B - Calculator Allowed,B,3,Number,Divisibility and Remainders,Hard,8,1307
+44,NAPLAN-Y7-NUMERACY-M3-Q44,Part B - Calculator Allowed,E,The median decreases.,Statistics,"Mean, Median, Mode and Range",Hard,8,1997
+45,NAPLAN-Y7-NUMERACY-M3-Q45,Part B - Calculator Allowed,A,8,Algebra,Linear Equations,Hard,8,276
+46,NAPLAN-Y7-NUMERACY-M3-Q46,Part B - Calculator Allowed,C,10:03 am,Measurement,Time,Hard,9,874
+47,NAPLAN-Y7-NUMERACY-M3-Q47,Part B - Calculator Allowed,D,63,Number,Ratios and Rates,Hard,9,1246
+48,NAPLAN-Y7-NUMERACY-M3-Q48,Part B - Calculator Allowed,D,$305.00,Financial Mathematics,Profit and Loss,Hard,9,472

@@ -1,0 +1,36 @@
+﻿QuestionNumber,QuestionID,ExamSection,Correct,CorrectAnswerText,Topic,SubTopic,DifficultyLabel,DifficultyScore,SourceQuestionNumber
+1,NAPLAN-Y3-NUMERACY-M1-Q01,Numeracy - No Calculator,A,50 g,Measurement,Mass,Easy,1,804
+2,NAPLAN-Y3-NUMERACY-M1-Q02,Numeracy - No Calculator,A,0,Geometry,Angles,Easy,1,557
+3,NAPLAN-Y3-NUMERACY-M1-Q03,Numeracy - No Calculator,C,17,Statistics,Data Collection,Easy,1,2255
+4,NAPLAN-Y3-NUMERACY-M1-Q04,Numeracy - No Calculator,C,6,Number,Multiplication and Division,Easy,1,1211
+5,NAPLAN-Y3-NUMERACY-M1-Q05,Numeracy - No Calculator,D,Vikram,Number,Fractions,Easy,2,1375
+6,NAPLAN-Y3-NUMERACY-M1-Q06,Numeracy - No Calculator,D,3,Problem Solving,Direction Sense,Easy,2,2048
+7,NAPLAN-Y3-NUMERACY-M1-Q07,Numeracy - No Calculator,C,50,Number,Place Value,Easy,2,1462
+8,NAPLAN-Y3-NUMERACY-M1-Q08,Numeracy - No Calculator,B,"banana, banana, melon",Algebra,Patterns,Easy,3,83
+9,NAPLAN-Y3-NUMERACY-M1-Q09,Numeracy - No Calculator,C,323 g,Measurement,Mass,Easy,3,821
+10,NAPLAN-Y3-NUMERACY-M1-Q10,Numeracy - No Calculator,C,32,Number,Multiplication and Division,Easy,3,1229
+11,NAPLAN-Y3-NUMERACY-M1-Q11,Numeracy - No Calculator,D,5:15,Measurement,Time,Medium,4,766
+12,NAPLAN-Y3-NUMERACY-M1-Q12,Numeracy - No Calculator,E,"1/3 is bigger, because the whole is cut into fewer, larger pieces",Number,Fractions,Medium,4,1398
+13,NAPLAN-Y3-NUMERACY-M1-Q13,Numeracy - No Calculator,D,10 green and 1 blue,Probability,Chance and Likelihood,Medium,4,1868
+14,NAPLAN-Y3-NUMERACY-M1-Q14,Numeracy - No Calculator,A,3,Problem Solving,Direction Sense,Medium,4,2056
+15,NAPLAN-Y3-NUMERACY-M1-Q15,Numeracy - No Calculator,C,56 m,Measurement,Length and Perimeter,Medium,4,702
+16,NAPLAN-Y3-NUMERACY-M1-Q16,Numeracy - No Calculator,C,19,Geometry,3D Objects,Medium,5,449
+17,NAPLAN-Y3-NUMERACY-M1-Q17,Numeracy - No Calculator,B,☐ ÷ 2 = 12,Algebra,Word Problems with Unknowns,Medium,5,204
+18,NAPLAN-Y3-NUMERACY-M1-Q18,Numeracy - No Calculator,B,1/4,Number,Fractions,Medium,5,1414
+19,NAPLAN-Y3-NUMERACY-M1-Q19,Numeracy - No Calculator,B,$7.60,Number,Mental Computation,Medium,5,1564
+20,NAPLAN-Y3-NUMERACY-M1-Q20,Numeracy - No Calculator,C,8,Number,Fractions,Medium,5,1416
+21,NAPLAN-Y3-NUMERACY-M1-Q21,Numeracy - No Calculator,B,600 cm,Measurement,Units and Conversion,Medium,6,991
+22,NAPLAN-Y3-NUMERACY-M1-Q22,Numeracy - No Calculator,D,$14,Financial Mathematics,Money and Change,Medium,6,285
+23,NAPLAN-Y3-NUMERACY-M1-Q23,Numeracy - No Calculator,B,1,Number,Digits and Number Properties,Medium,6,1695
+24,NAPLAN-Y3-NUMERACY-M1-Q24,Numeracy - No Calculator,D,parcel,Measurement,Mass,Medium,6,848
+25,NAPLAN-Y3-NUMERACY-M1-Q25,Numeracy - No Calculator,A,3,Number,Divisibility and Remainders,Medium,6,1765
+26,NAPLAN-Y3-NUMERACY-M1-Q26,Numeracy - No Calculator,A,hexagonal pyramid,Geometry,3D Objects,Medium,6,452
+27,NAPLAN-Y3-NUMERACY-M1-Q27,Numeracy - No Calculator,A,10 more chose capsicum than olive.,Statistics,Data Interpretation,Medium,6,2244
+28,NAPLAN-Y3-NUMERACY-M1-Q28,Numeracy - No Calculator,D,twenty,Number,Digits and Number Properties,Hard,7,28
+29,NAPLAN-Y3-NUMERACY-M1-Q29,Numeracy - No Calculator,A,10 kg,Measurement,Mass,Hard,7,853
+30,NAPLAN-Y3-NUMERACY-M1-Q30,Numeracy - No Calculator,B,4,Number,Mental Computation,Hard,7,1582
+31,NAPLAN-Y3-NUMERACY-M1-Q31,Numeracy - No Calculator,B,equilateral triangle,Geometry,2D Shapes,Hard,8,507
+32,NAPLAN-Y3-NUMERACY-M1-Q32,Numeracy - No Calculator,B,10,Number,Place Value,Hard,8,1516
+33,NAPLAN-Y3-NUMERACY-M1-Q33,Numeracy - No Calculator,C,16 kg,Measurement,Mass,Hard,8,857
+34,NAPLAN-Y3-NUMERACY-M1-Q34,Numeracy - No Calculator,C,25,Number,Digits and Number Properties,Hard,9,1715
+35,NAPLAN-Y3-NUMERACY-M1-Q35,Numeracy - No Calculator,A,70,Algebra,Number Sequences,Hard,9,62

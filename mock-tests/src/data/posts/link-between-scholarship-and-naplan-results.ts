@@ -144,10 +144,10 @@ export const linkBetweenScholarshipAndNaplanResults = {
         <h3>Step 2: Identify Domain-Specific Gaps</h3>
         <p>Use the breakdown of NAPLAN results to pinpoint where your child is strongest and where they need the most growth:</p>
         <ul>
-          <li><strong>Reading strong, writing weaker</strong> -†’ focus on timed writing practice, developing ideas with depth, and building vocabulary and sentence variety</li>
-          <li><strong>Numeracy strong, reading weaker</strong> -†’ increase reading volume and variety; practise inference and critical analysis of texts</li>
-          <li><strong>All domains strong but not yet "Exceeding"</strong> -†’ focus on stretching across all areas; introduce reasoning practice and more challenging, non-routine problems</li>
-          <li><strong>Writing is the weakest domain</strong> -†’ this is common and significant, because writing carries substantial weight in scholarship exams. Invest in regular, guided writing practice with feedback</li>
+          <li><strong>Reading strong, writing weaker</strong> → focus on timed writing practice, developing ideas with depth, and building vocabulary and sentence variety</li>
+          <li><strong>Numeracy strong, reading weaker</strong> → increase reading volume and variety; practise inference and critical analysis of texts</li>
+          <li><strong>All domains strong but not yet "Exceeding"</strong> → focus on stretching across all areas; introduce reasoning practice and more challenging, non-routine problems</li>
+          <li><strong>Writing is the weakest domain</strong> → this is common and significant, because writing carries substantial weight in scholarship exams. Invest in regular, guided writing practice with feedback</li>
         </ul>
 
         <h3>Step 3: Introduce Reasoning Preparation Early</h3>
@@ -277,8 +277,10 @@ export const linkBetweenScholarshipAndNaplanResults = {
   image:
     "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Student reviewing exam results and study materials at a tidy desk with a parent nearby",
-  date: "March 28, 2026",
+    "Student reviewing exam results and study materials at a tidy desk with a parent nearby",  date: "October 21, 2026",
+  updatedDate: "October 23, 2026",
+  readingTime: 13,
+  category: "selective-schools",
   tags: [
     "NAPLAN",
     "SCHOLARSHIPS",
@@ -304,6 +306,13 @@ export const linkBetweenScholarshipAndNaplanResults = {
     "NAPLAN proficiency levels and scholarships",
     "selective entry exam and NAPLAN",
     "scholarship exam tips parents Australia",
+  ],
+  keyTakeaways: [
+    "Strong NAPLAN results are a positive indicator of scholarship exam readiness, but NAPLAN alone is not sufficient.",
+    "Scholarship exams go further than NAPLAN in four ways: reasoning components, difficulty level, competitive context, and writing expectations.",
+    "Reasoning ability is the 'X factor' that separates strong NAPLAN performers who succeed from those who do not.",
+    "Four case-study profiles show what success and partial success actually look like across different NAPLAN and scholarship combinations.",
+    "A four-step approach uses NAPLAN results productively: assess current proficiency, identify domain-specific gaps, introduce reasoning preparation early, and set realistic expectations.",
   ],
   author: {
     name: "Ashish Jain",

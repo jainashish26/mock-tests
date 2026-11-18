@@ -1,0 +1,43 @@
+﻿QuestionNumber,QuestionID,ExamSection,Correct,CorrectAnswerText,Topic,SubTopic,DifficultyLabel,DifficultyScore,SourceQuestionNumber
+1,NAPLAN-Y6-NUMERACY-M3-Q01,Part A - Non-Calculator,B,43,Statistics,Data Collection,Easy,1,2079
+2,NAPLAN-Y6-NUMERACY-M3-Q02,Part A - Non-Calculator,B,12,Algebra,Word Problems with Unknowns,Easy,1,154
+3,NAPLAN-Y6-NUMERACY-M3-Q03,Part A - Non-Calculator,A,$4.00,Financial Mathematics,Best Buy and Budgeting,Easy,1,279
+4,NAPLAN-Y6-NUMERACY-M3-Q04,Part A - Non-Calculator,D,10 °C,Measurement,Temperature,Easy,2,974
+5,NAPLAN-Y6-NUMERACY-M3-Q05,Part A - Non-Calculator,E,south,Problem Solving,Direction Sense,Easy,2,1843
+6,NAPLAN-Y6-NUMERACY-M3-Q06,Part A - Non-Calculator,D,24,Number,Ratios and Rates,Easy,2,77
+7,NAPLAN-Y6-NUMERACY-M3-Q07,Part A - Non-Calculator,D,50 cm2,Measurement,Area,Easy,2,46
+8,NAPLAN-Y6-NUMERACY-M3-Q08,Part A - Non-Calculator,C,"$1,571.20",Number,Multiplication and Division,Easy,3,1101
+9,NAPLAN-Y6-NUMERACY-M3-Q09,Part B - Calculator Allowed,C,27,Number,Powers and Roots,Easy,3,2
+10,NAPLAN-Y6-NUMERACY-M3-Q10,Part B - Calculator Allowed,D,trapezium,Geometry,Triangles and Polygons,Easy,3,13
+11,NAPLAN-Y6-NUMERACY-M3-Q11,Part B - Calculator Allowed,B,"(2, −1)",Geometry,Transformations,Easy,3,541
+12,NAPLAN-Y6-NUMERACY-M3-Q12,Part B - Calculator Allowed,A,14,Number,Factors and Multiples,Easy,3,16
+13,NAPLAN-Y6-NUMERACY-M3-Q13,Part B - Calculator Allowed,E,13 is a prime number,Number,Prime Numbers,Medium,4,1561
+14,NAPLAN-Y6-NUMERACY-M3-Q14,Part B - Calculator Allowed,B,10,Number,Factors and Multiples,Medium,4,28
+15,NAPLAN-Y6-NUMERACY-M3-Q15,Part B - Calculator Allowed,E,2 °C,Measurement,Temperature,Medium,4,984
+16,NAPLAN-Y6-NUMERACY-M3-Q16,Part B - Calculator Allowed,C,524,Statistics,Data Interpretation,Medium,4,2021
+17,NAPLAN-Y6-NUMERACY-M3-Q17,Part B - Calculator Allowed,C,13 m,Measurement,Scale and Maps,Medium,4,1029
+18,NAPLAN-Y6-NUMERACY-M3-Q18,Part B - Calculator Allowed,C,7,Number,Negative Numbers,Medium,5,1605
+19,NAPLAN-Y6-NUMERACY-M3-Q19,Part B - Calculator Allowed,D,10 °C,Measurement,Temperature,Medium,5,990
+20,NAPLAN-Y6-NUMERACY-M3-Q20,Part B - Calculator Allowed,B,16,Geometry,3D Objects,Medium,5,476
+21,NAPLAN-Y6-NUMERACY-M3-Q21,Part B - Calculator Allowed,C,5 1/2,Algebra,Number Sequences,Medium,5,25
+22,NAPLAN-Y6-NUMERACY-M3-Q22,Part B - Calculator Allowed,D,4:00 pm,Problem Solving,Working Backwards,Medium,5,1961
+23,NAPLAN-Y6-NUMERACY-M3-Q23,Part B - Calculator Allowed,D,"(−8, 3)",Geometry,Transformations,Medium,5,549
+24,NAPLAN-Y6-NUMERACY-M3-Q24,Part B - Calculator Allowed,D,29,Algebra,Simultaneous Equations,Medium,5,21
+25,NAPLAN-Y6-NUMERACY-M3-Q25,Part B - Calculator Allowed,C,0.97,Probability,Simple Probability,Medium,5,1686
+26,NAPLAN-Y6-NUMERACY-M3-Q26,Part B - Calculator Allowed,E,83,Number,Prime Numbers,Medium,5,1566
+27,NAPLAN-Y6-NUMERACY-M3-Q27,Part B - Calculator Allowed,C,37 years,Problem Solving,Age Problems,Medium,5,12
+28,NAPLAN-Y6-NUMERACY-M3-Q28,Part B - Calculator Allowed,D,4.391 kg,Measurement,Mass,Medium,6,853
+29,NAPLAN-Y6-NUMERACY-M3-Q29,Part B - Calculator Allowed,E,186,Number,Divisibility and Remainders,Medium,6,1391
+30,NAPLAN-Y6-NUMERACY-M3-Q30,Part B - Calculator Allowed,B,$5.75,Financial Mathematics,Money and Change,Medium,6,266
+31,NAPLAN-Y6-NUMERACY-M3-Q31,Part B - Calculator Allowed,C,−9,Number,Negative Numbers,Medium,6,1609
+32,NAPLAN-Y6-NUMERACY-M3-Q32,Part B - Calculator Allowed,D,"8,810 L",Number,Addition and Subtraction,Medium,6,1072
+33,NAPLAN-Y6-NUMERACY-M3-Q33,Part B - Calculator Allowed,A,4,Geometry,Spatial Visualisation,Hard,7,687
+34,NAPLAN-Y6-NUMERACY-M3-Q34,Part B - Calculator Allowed,D,25,Number,Prime Numbers,Hard,7,1577
+35,NAPLAN-Y6-NUMERACY-M3-Q35,Part B - Calculator Allowed,C,238,Statistics,Data Interpretation,Hard,7,2035
+36,NAPLAN-Y6-NUMERACY-M3-Q36,Part B - Calculator Allowed,A,0,Geometry,Spatial Visualisation,Hard,8,688
+37,NAPLAN-Y6-NUMERACY-M3-Q37,Part B - Calculator Allowed,A,16 cm²,Measurement,Length and Perimeter,Hard,8,767
+38,NAPLAN-Y6-NUMERACY-M3-Q38,Part B - Calculator Allowed,B,"22,374",Number,Addition and Subtraction,Hard,9,1085
+39,NAPLAN-Y6-NUMERACY-M3-Q39,Part B - Calculator Allowed,B,9:00 am,Number,Negative Numbers,Hard,9,1619
+40,NAPLAN-Y6-NUMERACY-M3-Q40,Part B - Calculator Allowed,E,22,Algebra,Patterns,Hard,9,89
+41,NAPLAN-Y6-NUMERACY-M3-Q41,Part B - Calculator Allowed,C,30,Measurement,Area,Hard,9,935
+42,NAPLAN-Y6-NUMERACY-M3-Q42,Part B - Calculator Allowed,B,$2.95,Number,Multiplication and Division,Hard,9,1127

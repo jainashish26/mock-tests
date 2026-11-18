@@ -1,0 +1,41 @@
+﻿QuestionNumber,QuestionID,ExamSection,Correct,CorrectAnswerText,Topic,SubTopic,DifficultyLabel,DifficultyScore,SourceQuestionNumber
+1,NAPLAN-Y5-NUMERACY-M3-Q01,Part A - Non-Calculator,D,224,Algebra,Word Problems with Unknowns,Easy,1,158
+2,NAPLAN-Y5-NUMERACY-M3-Q02,Part A - Non-Calculator,D,9,Number,Divisibility and Remainders,Easy,1,1642
+3,NAPLAN-Y5-NUMERACY-M3-Q03,Part A - Non-Calculator,B,10,Problem Solving,Number Puzzles,Easy,1,2039
+4,NAPLAN-Y5-NUMERACY-M3-Q04,Part A - Non-Calculator,D,195,Number,Addition and Subtraction,Easy,1,3
+5,NAPLAN-Y5-NUMERACY-M3-Q05,Part A - Non-Calculator,C,3 + 0.6 + 0.02,Number,Decimals,Easy,2,25
+6,NAPLAN-Y5-NUMERACY-M3-Q06,Part A - Non-Calculator,B,$2.35,Financial Mathematics,Best Buy and Budgeting,Easy,2,304
+7,NAPLAN-Y5-NUMERACY-M3-Q07,Part A - Non-Calculator,B,6:10 pm,Measurement,Time,Easy,3,846
+8,NAPLAN-Y5-NUMERACY-M3-Q08,Part A - Non-Calculator,B,4,Measurement,Units and Conversion,Easy,3,1065
+9,NAPLAN-Y5-NUMERACY-M3-Q09,Part B - Calculator Allowed,C,west,Geometry,Position and Location,Easy,2,387
+10,NAPLAN-Y5-NUMERACY-M3-Q10,Part B - Calculator Allowed,B,$20,Statistics,"Mean, Median, Mode and Range",Easy,2,8
+11,NAPLAN-Y5-NUMERACY-M3-Q11,Part B - Calculator Allowed,C,16,Number,Factors and Multiples,Easy,2,1774
+12,NAPLAN-Y5-NUMERACY-M3-Q12,Part B - Calculator Allowed,D,300 cm2,Measurement,Area,Easy,2,72
+13,NAPLAN-Y5-NUMERACY-M3-Q13,Part B - Calculator Allowed,C,8,Problem Solving,Spatial Reasoning,Easy,3,2277
+14,NAPLAN-Y5-NUMERACY-M3-Q14,Part B - Calculator Allowed,D,Tuesday,Number,Divisibility and Remainders,Medium,4,1658
+15,NAPLAN-Y5-NUMERACY-M3-Q15,Part B - Calculator Allowed,C,12:20 pm,Measurement,Time,Medium,4,852
+16,NAPLAN-Y5-NUMERACY-M3-Q16,Part B - Calculator Allowed,C,"2,585 mL",Measurement,Volume and Capacity,Medium,4,976
+17,NAPLAN-Y5-NUMERACY-M3-Q17,Part B - Calculator Allowed,A,678,Number,Digits and Number Properties,Medium,4,1605
+18,NAPLAN-Y5-NUMERACY-M3-Q18,Part B - Calculator Allowed,D,21°,Geometry,Triangles and Polygons,Medium,5,673
+19,NAPLAN-Y5-NUMERACY-M3-Q19,Part B - Calculator Allowed,A,1/4,Number,Fractions,Medium,5,1409
+20,NAPLAN-Y5-NUMERACY-M3-Q20,Part B - Calculator Allowed,C,28,Problem Solving,Number Puzzles,Medium,5,2058
+21,NAPLAN-Y5-NUMERACY-M3-Q21,Part B - Calculator Allowed,C,4:55 pm,Measurement,Time,Medium,5,862
+22,NAPLAN-Y5-NUMERACY-M3-Q22,Part B - Calculator Allowed,D,45 m³,Measurement,Volume and Capacity,Medium,5,981
+23,NAPLAN-Y5-NUMERACY-M3-Q23,Part B - Calculator Allowed,E,even chance,Probability,Chance and Likelihood,Medium,6,1957
+24,NAPLAN-Y5-NUMERACY-M3-Q24,Part B - Calculator Allowed,B,2,Financial Mathematics,Money and Change,Medium,6,279
+25,NAPLAN-Y5-NUMERACY-M3-Q25,Part B - Calculator Allowed,B,635,Number,Digits and Number Properties,Medium,6,1623
+26,NAPLAN-Y5-NUMERACY-M3-Q26,Part B - Calculator Allowed,C,6,Number,Factors and Multiples,Medium,6,4
+27,NAPLAN-Y5-NUMERACY-M3-Q27,Part B - Calculator Allowed,B,6,Problem Solving,Counting and Combinatorics,Medium,6,2244
+28,NAPLAN-Y5-NUMERACY-M3-Q28,Part B - Calculator Allowed,A,"1,120",Number,Digits and Number Properties,Medium,6,1621
+29,NAPLAN-Y5-NUMERACY-M3-Q29,Part B - Calculator Allowed,B,south,Geometry,Position and Location,Medium,6,410
+30,NAPLAN-Y5-NUMERACY-M3-Q30,Part B - Calculator Allowed,D,92,Algebra,Number Sequences,Medium,6,39
+31,NAPLAN-Y5-NUMERACY-M3-Q31,Part B - Calculator Allowed,A,eye colour,Statistics,Data Collection,Medium,6,2478
+32,NAPLAN-Y5-NUMERACY-M3-Q32,Part B - Calculator Allowed,D,"11,336",Number,Place Value,Hard,7,1482
+33,NAPLAN-Y5-NUMERACY-M3-Q33,Part B - Calculator Allowed,C,"2,925",Number,Addition and Subtraction,Hard,7,1251
+34,NAPLAN-Y5-NUMERACY-M3-Q34,Part B - Calculator Allowed,B,119,Number,Digits and Number Properties,Hard,7,1627
+35,NAPLAN-Y5-NUMERACY-M3-Q35,Part B - Calculator Allowed,D,36,Problem Solving,Counting and Combinatorics,Hard,7,2254
+36,NAPLAN-Y5-NUMERACY-M3-Q36,Part B - Calculator Allowed,D,120 L,Measurement,Volume and Capacity,Hard,8,996
+37,NAPLAN-Y5-NUMERACY-M3-Q37,Part B - Calculator Allowed,C,3,Geometry,Triangles and Polygons,Hard,9,690
+38,NAPLAN-Y5-NUMERACY-M3-Q38,Part B - Calculator Allowed,C,73,Algebra,Patterns,Hard,9,116
+39,NAPLAN-Y5-NUMERACY-M3-Q39,Part B - Calculator Allowed,C,340,Number,Factors and Multiples,Hard,9,1815
+40,NAPLAN-Y5-NUMERACY-M3-Q40,Part B - Calculator Allowed,A,315 cm,Measurement,Length and Perimeter,Hard,9,828

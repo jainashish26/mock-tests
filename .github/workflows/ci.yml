@@ -1,0 +1,103 @@
+name: CI
+
+# WHY THIS FILE EXISTS
+#   Until now the repository had no CI at all. Four Node suites (173 assertions)
+#   existed but ran only when someone remembered to run them, and three
+#   privilege-escalation defects had already passed a green local build:
+#   inherited reporting_ro membership, column grants that cannot separate parent
+#   from student, and reporting RPCs left executable by `anon`.
+#
+#   A test that is not enforced is a test that will eventually not be run. This
+#   workflow makes the existing assurance mandatory on every PR.
+#
+#   The database-backed half of the assurance plan (pgtap: AC/DA/PR/PF, T3/T5/T7,
+#   P2) runs as the "Database assurance" step below, gated on the SUPABASE_DB_URL
+#   repository secret. The suite (supabase/tests/assurance.sql, 100 assertions)
+#   is wrapped in BEGIN/ROLLBACK and creates only TEMP tables and rolled-back
+#   fixtures, so it is safe against the hosted database. A dedicated CI database
+#   built from this repo is still blocked on application-schema reconciliation
+#   (see supabase/migrations/README.md); until then the hosted database is the
+#   only one that holds the full schema. Without the secret the step warns and
+#   skips rather than failing every PR.
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+# A force-push or a quick follow-up commit should not queue two full builds.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    # The git root holds the planning docs; the application lives one level down.
+    working-directory: mock-tests
+
+jobs:
+  verify:
+    name: Typecheck, gates, tests, build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: mock-tests/package-lock.json
+
+      - name: Install
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      # A ratchet, not a gate: the repo carries 76 pre-existing lint problems.
+      # Fails only when the count rises, so lint is enforceable today without a
+      # big-bang cleanup, and the recorded debt can only shrink.
+      - name: Lint (ratchet against recorded baseline)
+        run: npm run lint:ratchet
+
+      # Includes the static assurance gates: no .from() in the reporting layer,
+      # no fact_* access from a request path, no PII in reporting DTOs, no result
+      # keys in funnel event props, and an explicit reporting RPC allowlist.
+      - name: Tests
+        run: npm run test
+
+      # The pgtap half of the assurance plan. The runner (scripts/run-db-tests.mjs)
+      # fails on any "not ok" TAP line, not just on psql's exit code - pgtap
+      # assertion failures do not raise, so a green psql exit alone proves nothing.
+      - name: Database assurance (pgtap, transaction-rolled-back)
+        env:
+          SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+        run: |
+          if [ -z "$SUPABASE_DB_URL" ]; then
+            echo "::warning::SUPABASE_DB_URL secret not set - DB assurance skipped. Add it (Settings > Secrets and variables > Actions) to enforce supabase/tests/assurance.sql on every PR."
+            exit 0
+          fi
+          sudo apt-get update -qq && sudo apt-get install -y -qq postgresql-client
+          npm run test:db
+
+      - name: SEO and consent validators
+        run: npm run validate
+
+      - name: Build
+        run: npm run build
+        env:
+          # Placeholders, not secrets. Every reporting and dashboard route is
+          # force-dynamic, so the build compiles them without connecting. These
+          # exist only so `process.env.X!` reads do not resolve to undefined
+          # during compilation. Real values are supplied by the deploy target.
+          NEXT_PUBLIC_SUPABASE_URL: https://placeholder.supabase.co
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: placeholder-anon-key
+          SUPABASE_SERVICE_ROLE_KEY: placeholder-service-role-key
+          NEXT_PUBLIC_APP_URL: http://localhost:3000
+          APP_URL: http://localhost:3000
+          APP_ENV: ci
+          STRIPE_SECRET_KEY: sk_test_placeholder
+          NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: pk_test_placeholder
+          STRIPE_WEBHOOK_SECRET: whsec_placeholder

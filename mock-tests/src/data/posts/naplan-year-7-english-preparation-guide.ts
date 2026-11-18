@@ -90,7 +90,7 @@ export const naplanYear7EnglishPreparationGuide = {
         <p>Year 7 reading passages contain more sophisticated vocabulary, including subject-specific terminology, abstract concepts, and words with subtle connotations. Build vocabulary through:</p>
         <ul>
           <li><strong>Word consciousness</strong> - Develop a habit of noticing and investigating interesting or unfamiliar words</li>
-          <li><strong>Word roots, prefixes, and suffixes</strong> - Understanding common Latin and Greek roots unlocks thousands of words (e.g., "bene-" = good -†’ benefit, benevolent, beneficial; "chron-" = time -†’ chronological, chronic, synchronise)</li>
+          <li><strong>Word roots, prefixes, and suffixes</strong> - Understanding common Latin and Greek roots unlocks thousands of words (e.g., "bene-" = good → benefit, benevolent, beneficial; "chron-" = time → chronological, chronic, synchronise)</li>
           <li><strong>Context-based deduction</strong> - Practise working out word meanings from surrounding sentences rather than immediately reaching for a dictionary</li>
           <li><strong>A vocabulary journal</strong> - Record new words with their meaning, an example sentence, and a personal connection or illustration</li>
           <li><strong>Word-of-the-day discussions</strong> - A quick, low-pressure way to build vocabulary over time</li>
@@ -150,8 +150,8 @@ export const naplanYear7EnglishPreparationGuide = {
         <h4>2. Plan With Purpose</h4>
         <p>At Year 7, planning should be <strong>quick, strategic, and second nature</strong>. Teach your child to spend <strong>3 to 5 minutes</strong> creating a brief plan before writing:</p>
         <ul>
-          <li><strong>Narrative:</strong> Main character -†’ Setting -†’ Complication (what goes wrong) -†’ Rising action (how it escalates) -†’ Climax -†’ Resolution -†’ Theme or message</li>
-          <li><strong>Persuasive:</strong> Position -†’ Argument 1 + evidence -†’ Argument 2 + evidence -†’ Argument 3 + evidence -†’ Counter-argument + rebuttal -†’ Conclusion</li>
+          <li><strong>Narrative:</strong> Main character → Setting → Complication (what goes wrong) → Rising action (how it escalates) → Climax → Resolution → Theme or message</li>
+          <li><strong>Persuasive:</strong> Position → Argument 1 + evidence → Argument 2 + evidence → Argument 3 + evidence → Counter-argument + rebuttal → Conclusion</li>
         </ul>
         <p>A plan prevents two of the most common writing pitfalls: <strong>rambling without direction</strong> and <strong>running out of steam before the ending</strong>.</p>
 
@@ -193,7 +193,7 @@ export const naplanYear7EnglishPreparationGuide = {
         <p>Spelling expectations are significantly more demanding:</p>
         <ul>
           <li><strong>Complex multi-syllabic words</strong> - Words like environment, government, exaggerate, accommodate, conscience, privilege, prejudice</li>
-          <li><strong>Words with Latin and Greek roots</strong> - Understanding common roots to decode and spell unfamiliar words (e.g., "spec/spect" = to look -†’ spectacle, inspect, perspective, spectator)</li>
+          <li><strong>Words with Latin and Greek roots</strong> - Understanding common roots to decode and spell unfamiliar words (e.g., "spec/spect" = to look → spectacle, inspect, perspective, spectator)</li>
           <li><strong>Homophones and commonly confused words</strong> - affect/effect, complement/compliment, principal/principle, stationary/stationery, accept/except, advice/advise</li>
           <li><strong>Suffixing rules</strong> - When to double the final consonant (running, occurred, beginning), when to drop the silent 'e' (hoping vs hopeless), and when to change 'y' to 'i' (happiness, beautiful)</li>
           <li><strong>Subject-specific vocabulary</strong> - Words from across the secondary curriculum: analysis, hypothesis, democracy, civilisation, erosion, photosynthesis</li>
@@ -426,12 +426,35 @@ export const naplanYear7EnglishPreparationGuide = {
       </section>
 
     </article>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What does NAPLAN Year 7 English assess?</h3>
+    <p>Three tests: Reading, Writing, and Language Conventions. At Year 7 the writing task calls for analytical or creative work at a more sophisticated level than Year 5, and Language Conventions is divided into spelling, grammar and punctuation, each covered separately in this guide.</p>
+
+    <h3>How is Year 7 reading different from Year 5?</h3>
+    <p>The step up is analytical. Year 7 reading requires inference, evaluation of ideas, and attention to how an author constructs meaning - not only locating and recalling information. Texts are denser and more abstract, which is why the guide focuses on how to build reading skills at home through discussion of texts rather than volume of reading alone.</p>
+
+    <h3>Does the secondary school transition affect NAPLAN performance?</h3>
+    <p>It can, and this guide treats the transition as part of preparation rather than a side issue. Year 7 often involves new routines, new teachers and greater workload at the same time as NAPLAN. Acknowledging that explicitly, and sorting test-day logistics in advance, removes a source of avoidable stress.</p>
+
+    <h3>What should my child practise for the Year 7 writing test?</h3>
+    <p>Both analytical and creative forms, since the prompt determines what is required. Practise planning before writing, developing a clear position or narrative arc, and revising. The guide covers what the writing test looks like and how to build writing skills at home with specific approaches rather than general advice to write more.</p>
+
+    <h3>What mistakes do Year 7 students commonly make in English?</h3>
+    <p>They are listed separately for Reading, Writing and Language Conventions. Common patterns include answering the question asked rather than the question expected, writing responses that describe rather than analyse, and punctuation and grammar errors that appear under time pressure even when the rule is known.</p>
+
+    <h3>How should I support a Year 7 student who is overwhelmed?</h3>
+    <p>Acknowledge the transition rather than minimising it, reinforce a growth mindset about English so difficulty reads as a stage rather than a verdict, and watch for signs of overwhelm - avoidance, sleep disruption or a marked drop in confidence. Keep the weekly plan structured and short, and handle test-day logistics early so the morning is calm.</p>
+
   `,
   image:
     "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Secondary school student reading and writing at a desk in a well-lit classroom environment",
-  date: "March 28, 2026",
+    "Secondary school student reading and writing at a desk in a well-lit classroom environment",  date: "November 23, 2026",
+  updatedDate: "November 25, 2026",
+  readingTime: 24,
+  category: "naplan",
   tags: [
     "NAPLAN",
     "YEAR 7",
@@ -456,6 +479,13 @@ export const naplanYear7EnglishPreparationGuide = {
     "Year 7 literacy",
     "NAPLAN spelling grammar Year 7",
     "NAPLAN parent guide English secondary",
+  ],
+  keyTakeaways: [
+    "NAPLAN Year 7 English assesses Reading, Writing (analytical and creative), and Language Conventions across spelling, grammar and punctuation.",
+    "Year 7 reading demands inference, analysis of author technique and evaluation of ideas - not just locating information.",
+    "The secondary school transition is treated as part of the preparation problem, not a separate issue.",
+    "Common Year 7 mistakes are listed per test area so revision can be targeted rather than general.",
+    "Emotional support means acknowledging the transition, reinforcing a growth mindset about English, watching for overwhelm and sorting test-day logistics early.",
   ],
   author: {
     name: "Ashish Jain",

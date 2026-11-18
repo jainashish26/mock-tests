@@ -1,4 +1,5 @@
 import { requireRole } from '@/lib/rbac/require-role'
+import { TutorReportingPanels } from '@/features/report/components/TutorReportingPanels'
 import { ChildCreationForm } from '@/features/auth/components/ChildCreationForm'
 import { createClient } from '@/lib/supabase/server'
 import Link from 'next/link'
@@ -35,6 +36,21 @@ export default async function TutorDashboard() {
 
   return (
     <DashboardLayout role="TUTOR" userName="Tutor Account">
+      {/*
+        T1/T2/T3 - the consent-based surface, and the primary view.
+
+        The section below this one queries parent_student_links by
+        parent_user_id = tutor.id, i.e. it treats the tutor as a parent and shows
+        children the tutor created themselves. That was the only thing buildable
+        while TUTOR existed as an enum value with no link or consent table. It is
+        left in place for that self-create flow, but these panels are the real
+        tutor report: students a PARENT has granted access to, with the consent
+        state and expiry visible.
+      */}
+      <div className="mb-6">
+        <TutorReportingPanels />
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>

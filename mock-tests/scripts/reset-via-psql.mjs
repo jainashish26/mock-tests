@@ -1,0 +1,371 @@
+/**
+ * Reset a database from the versioned captures, using nothing but psql.
+ *
+ * WHAT THIS REPLACES
+ *   `supabase db reset` = fresh database + apply SQL in order + seed. The CLI
+ *   adds Docker orchestration and migration-history bookkeeping; the actual
+ *   work is ordered file application, which psql does directly. See
+ *   supabase/reset/README.md for the ordering rationale (including the
+ *   public <-> reporting dependency CYCLE and how the two-pass apply breaks it).
+ *
+ * HARD SAFETY RULE
+ *   The production project ref is refused as a target, unconditionally, with
+ *   no override flag. This script DESTROYS and rebuilds schemas; pointing it
+ *   at production is not a use case, it is an incident.
+ *
+ * USAGE
+ *   node scripts/reset-via-psql.mjs --target "postgresql://user:pass@host:5432/postgres"
+ *       [--local-stubs]        create Supabase role/auth stubs (bare Postgres only)
+ *       [--with-sample-data]   also apply seeds/001_sample_dataset.sql
+ *       [--skip-cron]          skip the cron step even where pg_cron exists
+ *
+ * Ends with parity checks (object counts vs the live-captured baseline) and
+ * exits non-zero on any failed step or failed check.
+ */
+import { spawnSync } from 'node:child_process';
+import { existsSync, readFileSync, writeFileSync, unlinkSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+const PROD_REF = 'ekdjrvjgrhpqolthbznr'; // MockExams Project - NEVER a target
+
+const args = process.argv.slice(2);
+const flag = (name) => args.includes(`--${name}`);
+const targetIdx = args.indexOf('--target');
+const target = targetIdx >= 0 ? args[targetIdx + 1] : null;
+
+if (!target || !/^postgresql:\/\//.test(target)) {
+  console.error('Usage: node scripts/reset-via-psql.mjs --target "postgresql://..." [--local-stubs] [--with-sample-data] [--skip-cron]');
+  process.exit(2);
+}
+if (target.includes(PROD_REF)) {
+  console.error('REFUSED: --target points at the production project. This script rebuilds schemas destructively.');
+  console.error('There is deliberately no override. Use a scratch project or branch.');
+  process.exit(2);
+}
+
+// The reporting baseline was captured with search_path = reporting, public
+// (the export functions pin it), so view definitions inside 03_views.sql omit
+// the `reporting.` qualifier. Every psql invocation must run with the same
+// search_path or those definitions cannot resolve. A schema in search_path
+// that does not exist yet is skipped silently, so this is safe from the first
+// statement (before the prelude creates `reporting`).
+const PSQL_ENV = { ...process.env, PGOPTIONS: '--search_path=reporting,public,extensions' };
+
+function psqlSql(sql) {
+  return spawnSync('psql', [target, '-q', '-At', '-c', sql], {
+    encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, stdio: ['ignore', 'pipe', 'pipe'], env: PSQL_ENV,
+  });
+}
+
+function psqlFile(path, { stop = true } = {}) {
+  const argv = [target];
+  if (stop) argv.push('-v', 'ON_ERROR_STOP=1');
+  return spawnSync('psql', [...argv, '-q', '-f', path], {
+    encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, stdio: ['ignore', 'pipe', 'pipe'], env: PSQL_ENV,
+  });
+}
+
+/**
+ * Apply a generated functions file whose statements are in CAPTURE order
+ * (pg_proc OID order), not dependency order. SQL-language functions are
+ * validated at CREATE, so a function calling one declared LATER in the same
+ * file fails on the first pass. Rather than hand-editing generated captures
+ * (which would drift on the next rebaseline), apply tolerantly, then re-apply
+ * only the still-missing functions until none are missing. Converges because
+ * the dependency graph is acyclic and shallow; bounded at 5 heal rounds.
+ */
+function applyFunctionsIteratively(path, label, { maxRounds = 5, allowIncomplete = false } = {}) {
+  const src = readFileSync(path, 'utf8');
+  const stmts = [...src.matchAll(/CREATE OR REPLACE FUNCTION ([\w.]+)\([\s\S]*?\)\s*RETURNS[\s\S]*?\$function\$[\s\S]*?\$function\$\s*;/g)];
+  const wantCount = new Map(); // proname -> declared overload count
+  for (const m of stmts) {
+    const name = m[1].split('.').pop();
+    wantCount.set(name, (wantCount.get(name) ?? 0) + 1);
+  }
+  if (wantCount.size === 0) {
+    console.log(`FAIL  ${label}: parsed no functions from ${path}`);
+    return false;
+  }
+
+  psqlFile(path, { stop: false }); // first pass, tolerant by design
+
+  for (let round = 1; round <= maxRounds + 1; round++) {
+    const names = [...wantCount.keys()].map((n) => `'${n}'`).join(',');
+    const r = psqlSql(
+      `SELECT p.proname || '=' || count(*) FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace WHERE n.nspname IN ('public','reporting') AND p.proname IN (${names}) GROUP BY p.proname`
+    );
+    if (r.status !== 0) { console.log(`FAIL  ${label}: existence probe failed`); return false; }
+
+    const have = new Map(
+      (r.stdout ?? '').split(/\r?\n/).filter(Boolean).map((line) => {
+        const i = line.lastIndexOf('=');
+        return [line.slice(0, i), Number(line.slice(i + 1))];
+      })
+    );
+    const short = [...wantCount.entries()].filter(([name, want]) => (have.get(name) ?? 0) < want);
+    if (short.length === 0) {
+      console.log(`ok    ${label} (${stmts.length} functions; ${round - 1} heal round(s))`);
+      return true;
+    }
+    if (round > maxRounds) {
+      const missingNames = short.map(([n]) => n).join(', ');
+      if (allowIncomplete) {
+        // Pass 1 of a file whose functions reference views/MVs created by a
+        // LATER file (funnel_by_stage -> mv_funnel_stage). Deferred, not lost:
+        // the strict heal pass re-runs this file after the views exist.
+        console.log(`ok    ${label} (deferred to heal pass: ${missingNames})`);
+        return true;
+      }
+      console.log(`FAIL  ${label}: still missing after ${maxRounds} rounds: ${missingNames}`);
+      return false;
+    }
+    const shortNames = new Set(short.map(([n]) => n));
+    const heal = stmts
+      .filter((m) => shortNames.has(m[1].split('.').pop()))
+      .map((m) => m[0])
+      .join('\n\n');
+    const tmp = join(ROOT, 'scripts', `_heal_round${round}.sql`);
+    writeFileSync(tmp, heal);
+    psqlFile(tmp, { stop: false });
+    unlinkSync(tmp);
+  }
+  return false;
+}
+
+/**
+ * Apply a generated views/MV file for the same reason as functions: capture
+ * order is OID order, and a plain VIEW is validated at CREATE against MVs that
+ * may appear later in the file (v_student_today reads mv_student_countdown).
+ * Strategy: tolerant full-file passes until every declared view/matview
+ * relation exists. Re-running the file is safe - already-created relations
+ * fail with "already exists" (tolerated), missing ones get created.
+ */
+function applyViewsIteratively(path, label, maxRounds = 6) {
+  const src = readFileSync(path, 'utf8');
+  const declared = [...src.matchAll(/CREATE (?:OR REPLACE )?(?:MATERIALIZED )?VIEW ([\w.]+)/g)].map((m) => m[1]);
+  if (declared.length === 0) {
+    console.log(`FAIL  ${label}: parsed no views from ${path}`);
+    return false;
+  }
+  for (let round = 1; round <= maxRounds; round++) {
+    psqlFile(path, { stop: false });
+    const probe = declared
+      .map((n) => `(SELECT to_regclass('${n}') IS NOT NULL)::int`)
+      .join(' + ');
+    const r = psqlSql(`SELECT ${probe}`);
+    const have = Number((r.stdout ?? '').trim());
+    if (r.status === 0 && have === declared.length) {
+      console.log(`ok    ${label} (${declared.length} relations; ${round} pass(es))`);
+      return true;
+    }
+    if (round === maxRounds) {
+      const missing = declared.filter((n) => {
+        const one = psqlSql(`SELECT to_regclass('${n}') IS NULL`);
+        return (one.stdout ?? '').trim() === 't';
+      });
+      console.log(`FAIL  ${label}: still missing after ${maxRounds} passes: ${missing.join(', ')}`);
+      return false;
+    }
+  }
+  return false;
+}
+
+/**
+ * Apply a file tolerating ONLY "already exists" errors.
+ *
+ * 04_indexes.sql was captured from pg_indexes, which also lists the indexes
+ * BACKING primary-key/unique constraints - those already exist after
+ * 01_tables.sql created the constraints. Every other error class (a missing
+ * relation, a bad definition) still fails the step.
+ */
+function applyToleratingExisting(path, label) {
+  const res = psqlFile(path, { stop: false });
+  const errors = (res.stderr ?? '').split(/\r?\n/).filter((l) => l.includes('ERROR:'));
+  const unexpected = errors.filter((l) => !l.includes('already exists'));
+  if (unexpected.length > 0) {
+    console.log(`FAIL  ${label}: ${unexpected.length} unexpected error(s)`);
+    for (const l of unexpected.slice(0, 5)) console.log(`        ${l.trim()}`);
+    return false;
+  }
+  console.log(`ok    ${label} (${errors.length} constraint-index duplicates skipped)`);
+  return true;
+}
+
+/**
+ * Tolerant-pass support for the public dump: the names baseline/08 recreates.
+ * A pass-A error is permitted ONLY when it mentions `reporting`, one of these
+ * wrapper names, or one of two known platform noises. Anything else is a real
+ * failure and stops the reset.
+ */
+const wrapperNames = new Set(
+  [...readFileSync(join(ROOT, 'supabase/migrations/baseline/08_public_wrappers.sql'), 'utf8')
+    .matchAll(/CREATE OR REPLACE FUNCTION public\.(\w+)\(/g)]
+    .map((m) => m[1])
+);
+
+function auditTolerantErrors(stderr) {
+  const errors = (stderr ?? '').split(/\r?\n/).filter((l) => l.includes('ERROR:'));
+  const allowed = [];
+  const unexpected = [];
+  for (const line of errors) {
+    const mentionsReporting = /reporting[."']/.test(line);
+    const mentionsWrapper = [...wrapperNames].some((n) => line.includes(n));
+    // Platform noises expected on a Supabase target, NOT lost objects:
+    //  - the dump emits `CREATE SCHEMA public`, which already exists on reset;
+    //  - `ALTER DEFAULT PRIVILEGES FOR ROLE supabase_admin` cannot be run by
+    //    postgres - fresh Supabase projects carry those defaults natively.
+    const platformNoise =
+      line.includes('schema "public" already exists') ||
+      line.includes('permission denied to change default privileges');
+    (mentionsReporting || mentionsWrapper || platformNoise ? allowed : unexpected).push(line.trim());
+  }
+  return { allowed, unexpected };
+}
+
+// THE CYCLE, AND HOW THIS ORDER BREAKS IT
+//   baseline/02_functions.sql contains SQL-language functions referencing
+//   public.experiment_exposures (validated at CREATE), while the public dump
+//   contains SQL-language wrappers referencing reporting MVs. Neither layer
+//   can be applied first with strict error-stop. Resolution: apply the public
+//   dump FIRST in tolerant mode (its only permitted failures are objects that
+//   reference `reporting` or are wrappers baseline/08 will recreate), then the
+//   reporting baseline, then baseline/08_public_wrappers.sql re-creates every
+//   wrapper via CREATE OR REPLACE and 09 restores their ACLs. The final parity
+//   checks are the real guarantee that pass A lost nothing it should not have.
+const STEPS = [
+  { file: 'supabase/reset/00_prelude.sql', label: 'prelude: schemas, reporting_ro, pg_cron, citext' },
+  { file: 'supabase/reset/local_stubs.sql', label: 'local Supabase stubs (roles + auth)', onlyIf: () => flag('local-stubs') },
+  { file: 'supabase/migrations/app_baseline/public_schema.sql', label: 'public schema, PASS A (tolerant)', tolerant: true },
+  { file: 'supabase/migrations/app_baseline/auth_triggers.sql', label: 'custom auth.users triggers' },
+  { file: 'supabase/migrations/baseline/01_tables.sql', label: 'reporting tables' },
+  // Functions run TWICE: pass 1 (tolerant) creates everything that does not
+  // depend on views/MVs; 03 needs those (e.g. percentile_from_scores for
+  // mv_percentile_cohort). The heal pass after 03 completes the rest
+  // (funnel_by_stage -> mv_funnel_stage, recommendations_scored -> mv_skill_gap).
+  { file: 'supabase/migrations/baseline/02_functions.sql', label: 'reporting functions PASS 1 (iterative, deferrals allowed)', functions: true, allowIncomplete: true },
+  { file: 'supabase/migrations/baseline/03_views.sql', label: 'reporting views + MVs (iterative)', views: true },
+  { file: 'supabase/migrations/baseline/02_functions.sql', label: 'reporting functions HEAL (strict convergence)', functions: true },
+  { file: 'supabase/migrations/baseline/04_indexes.sql', label: 'reporting indexes (constraint-index duplicates tolerated)', tolerateExisting: true },
+  { file: 'supabase/migrations/baseline/05_rls.sql', label: 'reporting RLS (PR-07)' },
+  { file: 'supabase/migrations/baseline/06_grants.sql', label: 'reporting grants' },
+  { file: 'supabase/migrations/baseline/07_config.sql', label: 'reporting config rows' },
+  { file: 'supabase/migrations/016_reporting_role_non_inherited.sql', label: 'non-inherited reporting_ro membership' },
+  { file: 'supabase/reset/08_dim_date_seed.sql', label: 'dim_date rows (2024-2030)' },
+  // PASS B: recreate every wrapper the tolerant pass could not validate.
+  { file: 'supabase/migrations/baseline/08_public_wrappers.sql', label: 'public wrappers PASS B (iterative heal)', functions: true },
+  { file: 'supabase/migrations/baseline/09_public_grants.sql', label: 'public grant revocations + wrapper ACLs' },
+  // pg_get_functiondef does NOT capture ACLs, so every reporting function would
+  // be PUBLIC-executable after a restore - a privilege-escalation gap found by
+  // the scratch reset proof. This file replicates the live lock-down.
+  { file: 'supabase/reset/10_reporting_function_acls.sql', label: 'reporting function ACLs (close PUBLIC EXECUTE gap)' },
+  { file: 'supabase/migrations/baseline/10_cron.sql', label: 'pg_cron schedules', needsCron: true, skipIf: () => flag('skip-cron') },
+  { file: 'supabase/reset/09_dim_test_family.sql', label: 'dim_test_family rows (needs public.exam_type)' },
+  // Content BEFORE expansion_catalog (its bundle derives from tests) and
+  // BEFORE the sample dataset (attempts reference tests). The prereq users
+  // are FK anchors for tests.created_by / approved_by.
+  { file: 'supabase/reset/12_content_prereq_users.sql', label: 'content FK anchor identities (placeholders)' },
+  { file: 'supabase/reset/13_content_data.sql', label: 'content data: tests, sections, questions, links (pg_dump --data-only)' },
+  { file: 'supabase/seed/funnel_offers.sql', label: 'offers catalogue' },
+  { file: 'supabase/seed/expansion_catalog.sql', label: 'product bundle + offer fulfilment mapping' },
+  { file: 'supabase/seeds/001_sample_dataset.sql', label: 'sample dataset (deterministic)', onlyIf: () => flag('with-sample-data') },
+  { file: 'supabase/seeds/002_tutor_fixtures.sql', label: 'tutor fixtures for the assurance suite', onlyIf: () => flag('with-sample-data') },
+  // Build-time refresh: on a fresh database no cron has run yet, and the
+  // assurance suite derives fixtures from the MVs. Plain REFRESH (not
+  // safe_refresh): this is construction, not live maintenance, so the
+  // blackout must not apply.
+  { file: 'supabase/reset/11_refresh_all_mvs.sql', label: 'refresh all reporting MVs (build-time)' },
+];
+
+console.log(`\nReset target: ${target.replace(/:[^:@/]+@/, ':***@')}\n`);
+
+const cronProbe = psqlSql("SELECT count(*) FROM pg_extension WHERE extname='pg_cron'");
+const hasCron = cronProbe.status === 0 && (cronProbe.stdout ?? '').trim() !== '0';
+
+let failures = 0;
+for (const step of STEPS) {
+  if (step.onlyIf && !step.onlyIf()) { console.log(`SKIP  ${step.label} (flag off)`); continue; }
+  if (step.skipIf && step.skipIf()) { console.log(`SKIP  ${step.label} (flag off)`); continue; }
+  if (step.needsCron && !hasCron) { console.log(`SKIP  ${step.label} (pg_cron absent)`); continue; }
+  const path = join(ROOT, step.file);
+  if (!existsSync(path)) { console.log(`FAIL  ${step.label}: missing ${step.file}`); failures++; break; }
+
+  if (step.tolerant) {
+    const res = psqlFile(path, { stop: false });
+    const { allowed, unexpected } = auditTolerantErrors(res.stderr);
+    if (unexpected.length > 0) {
+      console.log(`FAIL  ${step.label}: ${unexpected.length} unexpected error(s)`);
+      for (const l of unexpected.slice(0, 10)) console.log(`        ${l}`);
+      failures++;
+      break;
+    }
+    console.log(`ok    ${step.label} (${allowed.length} expected reporting-dependency errors, healed by pass B)`);
+    continue;
+  }
+
+  if (step.functions) {
+    if (!applyFunctionsIteratively(path, step.label, { allowIncomplete: Boolean(step.allowIncomplete) })) { failures++; break; }
+    continue;
+  }
+
+  if (step.views) {
+    if (!applyViewsIteratively(path, step.label)) { failures++; break; }
+    continue;
+  }
+
+  if (step.tolerateExisting) {
+    if (!applyToleratingExisting(path, step.label)) { failures++; break; }
+    continue;
+  }
+
+  const res = psqlFile(path, { stop: true });
+  if (res.status !== 0) {
+    console.log(`FAIL  ${step.label} (exit ${res.status})`);
+    console.log((res.stderr ?? '').split(/\r?\n/).filter((l) => l.includes('ERROR:')).slice(0, 5).map((l) => '        ' + l.trim()).join('\n'));
+    failures++;
+    break;
+  }
+  console.log(`ok    ${step.label}`);
+}
+
+if (failures === 0) {
+  console.log('\n=== parity checks (expected values = the live captured baseline) ===');
+  const checks = [
+    ['public tables', "SELECT count(*) FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname='public' AND c.relkind='r'", 36],
+    ['public functions', "SELECT count(*) FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace WHERE n.nspname='public'", 57],
+    ['public policies', "SELECT count(*) FROM pg_policies WHERE schemaname='public'", 96],
+    ['auth triggers', "SELECT count(*) FROM pg_trigger WHERE NOT tgisinternal AND tgrelid='auth.users'::regclass", 2],
+    ['reporting tables', "SELECT count(*) FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname='reporting' AND c.relkind='r'", 24],
+    ['reporting matviews', "SELECT count(*) FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname='reporting' AND c.relkind='m'", 12],
+    ['reporting functions', "SELECT count(*) FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace WHERE n.nspname='reporting' AND p.proname<>'export_baseline'", 26],
+    ['reporting indexes', "SELECT count(*) FROM pg_indexes WHERE schemaname='reporting'", 73],
+    ['dim_date populated', "SELECT (count(*) >= 2557)::int FROM reporting.dim_date", 1],
+    ['dim_test_family rows', 'SELECT count(*) FROM reporting.dim_test_family', 17],
+    ['offers seeded', 'SELECT count(*) FROM public.offers', 3],
+    ['content: tests', 'SELECT count(*) FROM public.tests', 54],
+    ['content: questions', 'SELECT count(*) FROM public.questions', 1900],
+  ];
+  if (flag('with-sample-data')) {
+    checks.push(
+      ['sample: students', 'SELECT count(*) FROM public.student_profiles', 200],
+      ['sample: attempts', "SELECT count(*) > 1000 FROM public.attempts", true],
+      ['sample: responses loaded', "SELECT count(*) > 10000 FROM reporting.fact_item_response", true]
+    );
+  }
+  if (hasCron && !flag('skip-cron')) {
+    checks.push(['rpt-* cron jobs', "SELECT count(*) FROM cron.job WHERE jobname LIKE 'rpt-%'", 14]);
+  }
+  for (const [label, sql, want] of checks) {
+    const r = psqlSql(sql);
+    const raw = (r.stdout ?? '').trim();
+    const pass =
+      r.status === 0 &&
+      (want === true ? raw === 't' : Number(raw) === want);
+    console.log(`${pass ? 'PASS' : 'FAIL'}  ${label}: ${raw || '?'} (expected ${want})`);
+    if (!pass) failures++;
+  }
+}
+
+console.log(`\n${failures === 0 ? 'RESET COMPLETE - all steps applied, all parity checks pass.' : `RESET FAILED - ${failures} problem(s).`}\n`);
+process.exit(failures === 0 ? 0 : 1);

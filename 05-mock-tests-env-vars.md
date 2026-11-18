@@ -66,6 +66,39 @@ Set these in **Supabase Dashboard → Auth → SMTP** (not necessarily as Vercel
 - **Redirect URLs allowlist**: include
   - `APP_URL/*`
   - Vercel preview pattern (as needed)
+  - `APP_URL/auth/callback` (required for social sign-in — see 2.6)
+
+### 2.6 Social sign-in — Google (Supabase-hosted OAuth)
+
+> **Key point:** Supabase is the OAuth client. The Google client ID and client
+> secret are stored in the **Supabase Dashboard**, never in this app's
+> environment. There are therefore no `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET`
+> variables to set in Vercel.
+
+**App-side variables**
+
+- `NEXT_PUBLIC_SOCIAL_AUTH_GOOGLE_ENABLED` (**PUBLIC**) — `"true"|"false"`. Controls
+  whether the "Continue with Google" buttons render. Keep it `"false"` in any
+  environment where the provider has not been enabled in that project's Supabase
+  dashboard, otherwise the button produces a "Provider is not enabled" error.
+- `NEXT_PUBLIC_SOCIAL_AUTH_FACEBOOK_ENABLED` (**PUBLIC**) — reserved; the Meta app
+  does not exist yet, so Facebook is not registered in `src/lib/auth/oauth.ts`.
+
+**Two distinct redirect URLs — the most common misconfiguration**
+
+| Where | Value |
+|---|---|
+| Google Cloud → OAuth client → *Authorized redirect URIs* | `https://<project-ref>.supabase.co/auth/v1/callback` |
+| Supabase → Authentication → URL Configuration → *Redirect URLs* | `APP_URL/auth/callback`, e.g. `http://localhost:3000/auth/callback` and `https://<prod-domain>/auth/callback` |
+
+Both are required. Exact match, no trailing slash, no wildcards.
+
+**Supabase Dashboard → Authentication → Sign In / Providers → Google**: enable,
+then paste the **Client ID** and **Client Secret** from the Google OAuth client
+and Save.
+
+Full console walkthrough, scopes and provider-specific quirks:
+`09-social-auth-google-setup.md`.
 
 ---
 
@@ -124,8 +157,9 @@ Set these in **Supabase Dashboard → Auth → SMTP** (not necessarily as Vercel
 ## 6) DeepSeek — Writing Marking API
 
 - `DEEPSEEK_API_KEY` (**SERVER ONLY**) — API key for writing rubric scoring.
-- `DEEPSEEK_MODEL` (**SERVER ONLY, optional**) — Model identifier (if configurable).
-- `DEEPSEEK_TIMEOUT_SECONDS` (**SERVER ONLY, optional**) — e.g., `30`.
+- `DEEPSEEK_MODEL` (**SERVER ONLY, optional**) — API model identifier. Verified live (2026-11): the API rejects marketing names — the supported ids are `deepseek-flash` and `deepseek-v4-pro`, and `deepseek-chat` is an alias that routes to `deepseek-flash`. The business-named "DeepSeek-V4.1-Flash" therefore maps to `DEEPSEEK_MODEL=deepseek-flash`. Unset falls back to `deepseek-chat`.
+- `DEEPSEEK_BASE_URL` (**SERVER ONLY, optional**) — unset → `https://api.deepseek.com`.
+- `DEEPSEEK_TIMEOUT_SECONDS` (**SERVER ONLY, optional**) — unset → 90. Full-rubric essay grades were measured at 18–58 s live, so the old 30 s suggestion times out; the graded routes also export `maxDuration` for Vercel.
 
 ### 6.1 Prompt / rubric configuration
 - `WRITING_RUBRIC_PROMPT_VERSION` (**SERVER ONLY**) — Version string for your rubric prompt (e.g., `v1.0`).

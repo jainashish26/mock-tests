@@ -1,0 +1,241 @@
+﻿QuestionID,ExamID,ExamType,ExamSection,YearLevel,Subject,Topic,SubTopic,QuestionType,ComprehensionText,QuestionText,QuestionMedia,Correct,AnswerA,AnswerB,AnswerC,AnswerD,AnswerE,Difficulty,IsActive,CorrectAnswerScore,Tags,SourceBank,SourceQuestionNumber,SourceComprehensionID,NAPLANFlag,DifficultyScore,DifficultyLabel
+NAPLAN-Y3-READING-M2-Q01,NAPLAN-Y3-READING-M2,NAPLAN_STYLE_READING,Text 1,3,English,Inference,Cause and Effect,ReadingComprehension,"Ironing Board surfing Charles had been looking forward to his summer vacation with his family. He was excited to go to the beach. His parents finally agreed to let his best friend Henry come along. Henry and Charles had been practicing their surfing on his mom's ironing board.
+
+Despite the broken hinges and the goose egg on Henry's head, practicing had gone well. The six-hour drive to the beach passed quickly, as Charles and Henry had video game competitions. They finally arrived at the beach and set up camp that night. Henry and Charles could hardly sleep. As the sun was peeking over the hills, the boys were trotting down the beach to catch some waves. As they paddled through the water and turned to catch a wave, they quickly learned that their ironing-board training was inadequate for the strength of the ocean.
+
+In their focus and concentration, the boys lost track of time. They decided to head in for lunch. Fighting the waves, they finally made it to shore. As they walked across the sand, they found themselves on strange beach they did not recognize. Charles' parents were nowhere in sight. There wasn't a single person on the beach.
+
+""Whoa!"" exclaimed Henry.
+
+""What are we going to do?"" moaned Charles.",Why was the ironing board not good for training?,,C,It is heavier than a surf board.,It is not the right shape of the surf board.,The waves were too strong.,The ironing board was broken.,,2,1,1,"NAPLAN,Year 3,Mock 2",English_Comprehension_Questions_expanded.csv,3.87.1,43,1,4,Medium
+NAPLAN-Y3-READING-M2-Q02,NAPLAN-Y3-READING-M2,NAPLAN_STYLE_READING,Text 1,3,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Ironing Board surfing Charles had been looking forward to his summer vacation with his family. He was excited to go to the beach. His parents finally agreed to let his best friend Henry come along. Henry and Charles had been practicing their surfing on his mom's ironing board.
+
+Despite the broken hinges and the goose egg on Henry's head, practicing had gone well. The six-hour drive to the beach passed quickly, as Charles and Henry had video game competitions. They finally arrived at the beach and set up camp that night. Henry and Charles could hardly sleep. As the sun was peeking over the hills, the boys were trotting down the beach to catch some waves. As they paddled through the water and turned to catch a wave, they quickly learned that their ironing-board training was inadequate for the strength of the ocean.
+
+In their focus and concentration, the boys lost track of time. They decided to head in for lunch. Fighting the waves, they finally made it to shore. As they walked across the sand, they found themselves on strange beach they did not recognize. Charles' parents were nowhere in sight. There wasn't a single person on the beach.
+
+""Whoa!"" exclaimed Henry.
+
+""What are we going to do?"" moaned Charles.","According to the story, Henry and Charles are . . .",,C,intelligent.,immature.,friends.,only children.,,1,1,1,"NAPLAN,Year 3,Mock 2",English_Comprehension_Questions_expanded.csv,3.87.2,43,1,1,Easy
+NAPLAN-Y3-READING-M2-Q03,NAPLAN-Y3-READING-M2,NAPLAN_STYLE_READING,Text 1,3,English,Reading Comprehension,Locating Information,ReadingComprehension,"Ironing Board surfing Charles had been looking forward to his summer vacation with his family. He was excited to go to the beach. His parents finally agreed to let his best friend Henry come along. Henry and Charles had been practicing their surfing on his mom's ironing board.
+
+Despite the broken hinges and the goose egg on Henry's head, practicing had gone well. The six-hour drive to the beach passed quickly, as Charles and Henry had video game competitions. They finally arrived at the beach and set up camp that night. Henry and Charles could hardly sleep. As the sun was peeking over the hills, the boys were trotting down the beach to catch some waves. As they paddled through the water and turned to catch a wave, they quickly learned that their ironing-board training was inadequate for the strength of the ocean.
+
+In their focus and concentration, the boys lost track of time. They decided to head in for lunch. Fighting the waves, they finally made it to shore. As they walked across the sand, they found themselves on strange beach they did not recognize. Charles' parents were nowhere in sight. There wasn't a single person on the beach.
+
+""Whoa!"" exclaimed Henry.
+
+""What are we going to do?"" moaned Charles.",Which paragraph helps you answer the previous question?,,B,second paragraph,first paragraph,fourth paragraph,third paragraph,,1,1,1,"NAPLAN,Year 3,Mock 2",English_Comprehension_Questions_expanded.csv,3.87.3,43,1,1,Easy
+NAPLAN-Y3-READING-M2-Q04,NAPLAN-Y3-READING-M2,NAPLAN_STYLE_READING,Text 2,3,English,Reading Comprehension,Summarising,ReadingComprehension,"1 Once upon a time, and not so very long ago, a little girl was walking to school. She was a sensible sort of girl, who could make her own packed lunch and do her mum's shopping without losing the change. She was also far too sensible to talk to strange men whom she met in the street, especially ones with peg-legs, scars on their faces, patches over their eyes and scruffy parrots on their shoulders. So when she saw four strange characters fitting this description, she quickly turned the other way and kept on walking.
+
+10 But the pirates had seen her. She was just what they were looking for.
+
+12 ""You look a sensible little girl,"" growled the biggest pirate, who was called Jake. ""We want a sensible little girl like you to join our gang, don't we, lads?""
+
+15 ""Yes, yes,"" agreed the rest of the gang, covering their mouths to hide their smiles.
+
+17 ""We're rough, tough pirates and we sail the sea in a mighty, fine pirate ship. We have rare adventures, don't we, lads?"" boasted Jake.
+
+20 ""Oh yeah, yeah,"" said the rest of the gang. They didn't seem quite so sure about this.
+
+22 ""All we need is for you to join us, then we can go off on raids. Isn't that right, lads?"" said Jake.
+
+24 ""Yes! Yes!"" they agreed, more strongly this time, again covering their mouths to hide their smiles.
+
+26 Now the little girl knew better than to listen to this kind of story from such wicked-looking villains. She knew they were up to no good. But the idea of having an adventure was far too tempting to miss. She didn't exactly stop, but she walked on more slowly.
+
+12 Cracking Comprehension Year 3 Teaching and Assessment Guide © Rising Stars UK Ltd 2019 You may photocopy this page",Tick the best summary of what we know about the little girl. Tick one.,,D,The little girl was going shopping for her mum to buy things for her packed lunch.,"She thought the pirates wanted to take the change away from her, so she kept on walking.",The sensible little girl wanted to go on an adventure with the pirates. She had her □ packed lunch already made so she asked the pirates if she could go with them.,"The sensible little girl knew what she should do. She should keep on walking to school. □ 2c However, she was very tempted by the idea of an adventure so she slowed down to hear more about",,2,1,1,"NAPLAN,Year 3,Mock 2",English_Comprehension_Questions_expanded.csv,3.49.1,5,1,4,Medium
+NAPLAN-Y3-READING-M2-Q05,NAPLAN-Y3-READING-M2,NAPLAN_STYLE_READING,Text 2,3,English,Reading Comprehension,Text Structure,ReadingComprehension,"1 Once upon a time, and not so very long ago, a little girl was walking to school. She was a sensible sort of girl, who could make her own packed lunch and do her mum's shopping without losing the change. She was also far too sensible to talk to strange men whom she met in the street, especially ones with peg-legs, scars on their faces, patches over their eyes and scruffy parrots on their shoulders. So when she saw four strange characters fitting this description, she quickly turned the other way and kept on walking.
+
+10 But the pirates had seen her. She was just what they were looking for.
+
+12 ""You look a sensible little girl,"" growled the biggest pirate, who was called Jake. ""We want a sensible little girl like you to join our gang, don't we, lads?""
+
+15 ""Yes, yes,"" agreed the rest of the gang, covering their mouths to hide their smiles.
+
+17 ""We're rough, tough pirates and we sail the sea in a mighty, fine pirate ship. We have rare adventures, don't we, lads?"" boasted Jake.
+
+20 ""Oh yeah, yeah,"" said the rest of the gang. They didn't seem quite so sure about this.
+
+22 ""All we need is for you to join us, then we can go off on raids. Isn't that right, lads?"" said Jake.
+
+24 ""Yes! Yes!"" they agreed, more strongly this time, again covering their mouths to hide their smiles.
+
+26 Now the little girl knew better than to listen to this kind of story from such wicked-looking villains. She knew they were up to no good. But the idea of having an adventure was far too tempting to miss. She didn't exactly stop, but she walked on more slowly.
+
+12 Cracking Comprehension Year 3 Teaching and Assessment Guide © Rising Stars UK Ltd 2019 You may photocopy this page",Why does this text have so many paragraphs? Tick one.,,B,There are lots of different events.,There is a lot of dialogue (speaking).,There are lots of different pirates.,The action happens in lots of different places.,,2,1,1,"NAPLAN,Year 3,Mock 2",English_Comprehension_Questions_expanded.csv,3.49.2,5,1,3,Easy
+NAPLAN-Y3-READING-M2-Q06,NAPLAN-Y3-READING-M2,NAPLAN_STYLE_READING,Text 2,3,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"1 Once upon a time, and not so very long ago, a little girl was walking to school. She was a sensible sort of girl, who could make her own packed lunch and do her mum's shopping without losing the change. She was also far too sensible to talk to strange men whom she met in the street, especially ones with peg-legs, scars on their faces, patches over their eyes and scruffy parrots on their shoulders. So when she saw four strange characters fitting this description, she quickly turned the other way and kept on walking.
+
+10 But the pirates had seen her. She was just what they were looking for.
+
+12 ""You look a sensible little girl,"" growled the biggest pirate, who was called Jake. ""We want a sensible little girl like you to join our gang, don't we, lads?""
+
+15 ""Yes, yes,"" agreed the rest of the gang, covering their mouths to hide their smiles.
+
+17 ""We're rough, tough pirates and we sail the sea in a mighty, fine pirate ship. We have rare adventures, don't we, lads?"" boasted Jake.
+
+20 ""Oh yeah, yeah,"" said the rest of the gang. They didn't seem quite so sure about this.
+
+22 ""All we need is for you to join us, then we can go off on raids. Isn't that right, lads?"" said Jake.
+
+24 ""Yes! Yes!"" they agreed, more strongly this time, again covering their mouths to hide their smiles.
+
+26 Now the little girl knew better than to listen to this kind of story from such wicked-looking villains. She knew they were up to no good. But the idea of having an adventure was far too tempting to miss. She didn't exactly stop, but she walked on more slowly.
+
+12 Cracking Comprehension Year 3 Teaching and Assessment Guide © Rising Stars UK Ltd 2019 You may photocopy this page","""We have rare adventures, don't we, lads?"" boasted Jake (paragraph 5). Tick the word that is",,C,valuable,not well cooked,extraordinary,few,,2,1,1,"NAPLAN,Year 3,Mock 2",English_Comprehension_Questions_expanded.csv,3.49.3,5,1,3,Easy
+NAPLAN-Y3-READING-M2-Q07,NAPLAN-Y3-READING-M2,NAPLAN_STYLE_READING,Text 3,3,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Cloud Who Kept Her Rain
+High above the plains floated a cloud named Nimbus. She was the biggest, fluffiest cloud in the sky, and she was very proud of it.
+'If I let my rain fall, I will shrink,' she thought. 'Then nobody will admire me.' So she held on to every drop.
+Down below, the grass turned brown and crisp. The creek shrank to a muddy trickle. The farmers looked up at Nimbus and sighed.
+A little wind tugged at her edge. 'The land is thirsty,' it whispered. 'Your rain is not yours to keep.'
+Nimbus puffed herself up even more. But her heavy load made her grumpy and grey, and soon nobody admired her at all.
+At last, with a great rumble, she let go. Rain poured onto the fields. The creek gurgled back to life, and the grass turned green.
+Nimbus was thin and pale now, but the farmers waved and children danced in the puddles. For the first time, Nimbus felt truly light.",Why did Nimbus hold on to her rain?,,A,She was afraid she would shrink.,She was waiting for the wind.,She wanted the creek to dry up.,She was too high above the plains.,,1,1,1,"NAPLAN,Year 3,Mock 2",English_Comprehension_Questions_expanded.csv,3.1266.1,233,1,2,Easy
+NAPLAN-Y3-READING-M2-Q08,NAPLAN-Y3-READING-M2,NAPLAN_STYLE_READING,Text 3,3,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Cloud Who Kept Her Rain
+High above the plains floated a cloud named Nimbus. She was the biggest, fluffiest cloud in the sky, and she was very proud of it.
+'If I let my rain fall, I will shrink,' she thought. 'Then nobody will admire me.' So she held on to every drop.
+Down below, the grass turned brown and crisp. The creek shrank to a muddy trickle. The farmers looked up at Nimbus and sighed.
+A little wind tugged at her edge. 'The land is thirsty,' it whispered. 'Your rain is not yours to keep.'
+Nimbus puffed herself up even more. But her heavy load made her grumpy and grey, and soon nobody admired her at all.
+At last, with a great rumble, she let go. Rain poured onto the fields. The creek gurgled back to life, and the grass turned green.
+Nimbus was thin and pale now, but the farmers waved and children danced in the puddles. For the first time, Nimbus felt truly light.",What happened to the creek while Nimbus kept her rain?,,B,It flooded the farmers' fields.,It shrank to a muddy trickle.,It turned bright green.,It froze into ice.,,1,1,1,"NAPLAN,Year 3,Mock 2",English_Comprehension_Questions_expanded.csv,3.1266.2,233,1,1,Easy
+NAPLAN-Y3-READING-M2-Q09,NAPLAN-Y3-READING-M2,NAPLAN_STYLE_READING,Text 3,3,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"The Cloud Who Kept Her Rain
+High above the plains floated a cloud named Nimbus. She was the biggest, fluffiest cloud in the sky, and she was very proud of it.
+'If I let my rain fall, I will shrink,' she thought. 'Then nobody will admire me.' So she held on to every drop.
+Down below, the grass turned brown and crisp. The creek shrank to a muddy trickle. The farmers looked up at Nimbus and sighed.
+A little wind tugged at her edge. 'The land is thirsty,' it whispered. 'Your rain is not yours to keep.'
+Nimbus puffed herself up even more. But her heavy load made her grumpy and grey, and soon nobody admired her at all.
+At last, with a great rumble, she let go. Rain poured onto the fields. The creek gurgled back to life, and the grass turned green.
+Nimbus was thin and pale now, but the farmers waved and children danced in the puddles. For the first time, Nimbus felt truly light.","In 'the grass turned brown and crisp', the word 'crisp' means . . .",,C,fresh and tasty,soft and wet,dry and easily broken,cold and frosty,,2,1,1,"NAPLAN,Year 3,Mock 2",English_Comprehension_Questions_expanded.csv,3.1266.3,233,1,4,Medium
+NAPLAN-Y3-READING-M2-Q10,NAPLAN-Y3-READING-M2,NAPLAN_STYLE_READING,Text 3,3,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"The Cloud Who Kept Her Rain
+High above the plains floated a cloud named Nimbus. She was the biggest, fluffiest cloud in the sky, and she was very proud of it.
+'If I let my rain fall, I will shrink,' she thought. 'Then nobody will admire me.' So she held on to every drop.
+Down below, the grass turned brown and crisp. The creek shrank to a muddy trickle. The farmers looked up at Nimbus and sighed.
+A little wind tugged at her edge. 'The land is thirsty,' it whispered. 'Your rain is not yours to keep.'
+Nimbus puffed herself up even more. But her heavy load made her grumpy and grey, and soon nobody admired her at all.
+At last, with a great rumble, she let go. Rain poured onto the fields. The creek gurgled back to life, and the grass turned green.
+Nimbus was thin and pale now, but the farmers waved and children danced in the puddles. For the first time, Nimbus felt truly light.","In the story, to 'admire' someone means to . . .",,B,feel sorry for them,think they are wonderful,be a little afraid of them,ask them for some help,,2,1,1,"NAPLAN,Year 3,Mock 2",English_Comprehension_Questions_expanded.csv,3.1266.4,233,1,4,Medium
+NAPLAN-Y3-READING-M2-Q11,NAPLAN-Y3-READING-M2,NAPLAN_STYLE_READING,Text 3,3,English,Literary Techniques,Figurative Language,ReadingComprehension,"The Cloud Who Kept Her Rain
+High above the plains floated a cloud named Nimbus. She was the biggest, fluffiest cloud in the sky, and she was very proud of it.
+'If I let my rain fall, I will shrink,' she thought. 'Then nobody will admire me.' So she held on to every drop.
+Down below, the grass turned brown and crisp. The creek shrank to a muddy trickle. The farmers looked up at Nimbus and sighed.
+A little wind tugged at her edge. 'The land is thirsty,' it whispered. 'Your rain is not yours to keep.'
+Nimbus puffed herself up even more. But her heavy load made her grumpy and grey, and soon nobody admired her at all.
+At last, with a great rumble, she let go. Rain poured onto the fields. The creek gurgled back to life, and the grass turned green.
+Nimbus was thin and pale now, but the farmers waved and children danced in the puddles. For the first time, Nimbus felt truly light.","At the end, 'Nimbus felt truly light'. This mainly means that she . . .",,D,weighed less now that her rain had gone,had turned a pale colour after the storm,was about to float away from the plains,felt happy and free after helping others,,4,1,1,"NAPLAN,Year 3,Mock 2",English_Comprehension_Questions_expanded.csv,3.1266.5,233,2,8,Hard
+NAPLAN-Y3-READING-M2-Q12,NAPLAN-Y3-READING-M2,NAPLAN_STYLE_READING,Text 3,3,English,Inference,Inferential Reasoning,ReadingComprehension,"The Cloud Who Kept Her Rain
+High above the plains floated a cloud named Nimbus. She was the biggest, fluffiest cloud in the sky, and she was very proud of it.
+'If I let my rain fall, I will shrink,' she thought. 'Then nobody will admire me.' So she held on to every drop.
+Down below, the grass turned brown and crisp. The creek shrank to a muddy trickle. The farmers looked up at Nimbus and sighed.
+A little wind tugged at her edge. 'The land is thirsty,' it whispered. 'Your rain is not yours to keep.'
+Nimbus puffed herself up even more. But her heavy load made her grumpy and grey, and soon nobody admired her at all.
+At last, with a great rumble, she let go. Rain poured onto the fields. The creek gurgled back to life, and the grass turned green.
+Nimbus was thin and pale now, but the farmers waved and children danced in the puddles. For the first time, Nimbus felt truly light.","What does the little wind mean when it says, 'Your rain is not yours to keep'?",,A,"The rain is meant for the thirsty land, not for making Nimbus look grand.",The rain is too heavy for Nimbus to carry any further.,The wind wants to take the rain away for itself.,Nimbus must give the rain back to the sea it came from.,,4,1,1,"NAPLAN,Year 3,Mock 2",English_Comprehension_Questions_expanded.csv,3.1266.6,233,2,7,Hard
+NAPLAN-Y3-READING-M2-Q13,NAPLAN-Y3-READING-M2,NAPLAN_STYLE_READING,Text 4,3,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Platypus Man
+David Fleay was born in Victoria in 1907. Even as a boy, he loved Australian animals. He kept lizards, possums and birds, and spent hours watching them.
+When he grew up, David became a teacher, and later a wildlife keeper. At Healesville Sanctuary, he set himself a very difficult goal. No one had ever bred a platypus in a zoo. Platypuses are shy, and they need clean water and lots of food each day.
+David built a special home for them, with a pond and a winding burrow. He fed his pair of platypuses, Jack and Jill, hundreds of worms and yabbies. Then, in 1943, something amazing happened. A baby platypus was born! It was named Corrie, and it was the first platypus ever bred in captivity.
+Later, David moved to Queensland and opened his own wildlife park. He worked hard to protect animals and to teach people about them. Today, the park still carries his name.",What was the name of the baby platypus?,,C,Jack,Jill,Corrie,Healesville,,1,1,1,"NAPLAN,Year 3,Mock 2",English_Comprehension_Questions_expanded.csv,3.1176.1,143,1,1,Easy
+NAPLAN-Y3-READING-M2-Q14,NAPLAN-Y3-READING-M2,NAPLAN_STYLE_READING,Text 4,3,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Platypus Man
+David Fleay was born in Victoria in 1907. Even as a boy, he loved Australian animals. He kept lizards, possums and birds, and spent hours watching them.
+When he grew up, David became a teacher, and later a wildlife keeper. At Healesville Sanctuary, he set himself a very difficult goal. No one had ever bred a platypus in a zoo. Platypuses are shy, and they need clean water and lots of food each day.
+David built a special home for them, with a pond and a winding burrow. He fed his pair of platypuses, Jack and Jill, hundreds of worms and yabbies. Then, in 1943, something amazing happened. A baby platypus was born! It was named Corrie, and it was the first platypus ever bred in captivity.
+Later, David moved to Queensland and opened his own wildlife park. He worked hard to protect animals and to teach people about them. Today, the park still carries his name.",What did David feed his platypuses?,,A,worms and yabbies,lizards and birds,fish and frogs,seeds and leaves,,1,1,1,"NAPLAN,Year 3,Mock 2",English_Comprehension_Questions_expanded.csv,3.1176.2,143,1,2,Easy
+NAPLAN-Y3-READING-M2-Q15,NAPLAN-Y3-READING-M2,NAPLAN_STYLE_READING,Text 4,3,English,Reading Comprehension,Author Purpose,ReadingComprehension,"The Platypus Man
+David Fleay was born in Victoria in 1907. Even as a boy, he loved Australian animals. He kept lizards, possums and birds, and spent hours watching them.
+When he grew up, David became a teacher, and later a wildlife keeper. At Healesville Sanctuary, he set himself a very difficult goal. No one had ever bred a platypus in a zoo. Platypuses are shy, and they need clean water and lots of food each day.
+David built a special home for them, with a pond and a winding burrow. He fed his pair of platypuses, Jack and Jill, hundreds of worms and yabbies. Then, in 1943, something amazing happened. A baby platypus was born! It was named Corrie, and it was the first platypus ever bred in captivity.
+Later, David moved to Queensland and opened his own wildlife park. He worked hard to protect animals and to teach people about them. Today, the park still carries his name.",Why does the author tell us that platypuses are shy and need clean water and lots of food?,,C,to warn people not to keep platypuses as pets,to describe where platypuses live in the wild,to explain why breeding them was so difficult,to show what David fed his pet lizards,,3,1,1,"NAPLAN,Year 3,Mock 2",English_Comprehension_Questions_expanded.csv,3.1176.3,143,1,5,Medium
+NAPLAN-Y3-READING-M2-Q16,NAPLAN-Y3-READING-M2,NAPLAN_STYLE_READING,Text 4,3,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"The Platypus Man
+David Fleay was born in Victoria in 1907. Even as a boy, he loved Australian animals. He kept lizards, possums and birds, and spent hours watching them.
+When he grew up, David became a teacher, and later a wildlife keeper. At Healesville Sanctuary, he set himself a very difficult goal. No one had ever bred a platypus in a zoo. Platypuses are shy, and they need clean water and lots of food each day.
+David built a special home for them, with a pond and a winding burrow. He fed his pair of platypuses, Jack and Jill, hundreds of worms and yabbies. Then, in 1943, something amazing happened. A baby platypus was born! It was named Corrie, and it was the first platypus ever bred in captivity.
+Later, David moved to Queensland and opened his own wildlife park. He worked hard to protect animals and to teach people about them. Today, the park still carries his name.",Corrie was 'the first platypus ever bred in captivity'. 'In captivity' means . . .,,B,living freely in the wild bush,living in a place where people look after it,living deep inside a burrow,living alone without its parents,,3,1,1,"NAPLAN,Year 3,Mock 2",English_Comprehension_Questions_expanded.csv,3.1176.4,143,1,5,Medium
+NAPLAN-Y3-READING-M2-Q17,NAPLAN-Y3-READING-M2,NAPLAN_STYLE_READING,Text 4,3,English,Reading Comprehension,Author Purpose,ReadingComprehension,"The Platypus Man
+David Fleay was born in Victoria in 1907. Even as a boy, he loved Australian animals. He kept lizards, possums and birds, and spent hours watching them.
+When he grew up, David became a teacher, and later a wildlife keeper. At Healesville Sanctuary, he set himself a very difficult goal. No one had ever bred a platypus in a zoo. Platypuses are shy, and they need clean water and lots of food each day.
+David built a special home for them, with a pond and a winding burrow. He fed his pair of platypuses, Jack and Jill, hundreds of worms and yabbies. Then, in 1943, something amazing happened. A baby platypus was born! It was named Corrie, and it was the first platypus ever bred in captivity.
+Later, David moved to Queensland and opened his own wildlife park. He worked hard to protect animals and to teach people about them. Today, the park still carries his name.","Why does the author begin the text by telling us that David kept lizards, possums and birds as a boy?",,D,to explain how he learned the way to breed a baby platypus,to show that he looked after animals before he became a teacher,to show that he lived in Victoria before he moved to Queensland,to show that his love of animals started early and lasted all his life,,4,1,1,"NAPLAN,Year 3,Mock 2",English_Comprehension_Questions_expanded.csv,3.1176.5,143,2,7,Hard
+NAPLAN-Y3-READING-M2-Q18,NAPLAN-Y3-READING-M2,NAPLAN_STYLE_READING,Text 4,3,English,Inference,Inferential Reasoning,ReadingComprehension,"The Platypus Man
+David Fleay was born in Victoria in 1907. Even as a boy, he loved Australian animals. He kept lizards, possums and birds, and spent hours watching them.
+When he grew up, David became a teacher, and later a wildlife keeper. At Healesville Sanctuary, he set himself a very difficult goal. No one had ever bred a platypus in a zoo. Platypuses are shy, and they need clean water and lots of food each day.
+David built a special home for them, with a pond and a winding burrow. He fed his pair of platypuses, Jack and Jill, hundreds of worms and yabbies. Then, in 1943, something amazing happened. A baby platypus was born! It was named Corrie, and it was the first platypus ever bred in captivity.
+Later, David moved to Queensland and opened his own wildlife park. He worked hard to protect animals and to teach people about them. Today, the park still carries his name.",Why does the wildlife park in Queensland most likely still carry David's name today?,,D,Corrie the baby platypus was born there in 1943.,He was the very first person to open a wildlife park.,He built a pond and a winding burrow for animals there.,People wanted to remember his lifelong work for animals.,,4,1,1,"NAPLAN,Year 3,Mock 2",English_Comprehension_Questions_expanded.csv,3.1176.6,143,2,7,Hard
+NAPLAN-Y3-READING-M2-Q19,NAPLAN-Y3-READING-M2,NAPLAN_STYLE_READING,Text 5,3,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Box from 2025
+In the year 2125, the students of Bayside School gathered in the hall. A rusty metal box sat on the stage. It had been buried under the school garden one hundred years before.
+Principal Ngo lifted the creaky lid. Clunk! Out came a pile of strange objects.
+First was a small metal key. 'What is it for?' asked Mia. In her time, every door simply opened when it saw your face.
+Next came a folded sheet of paper covered in coloured lines and the names of streets. Leo turned it around and around. 'Maybe it's a picture of spaghetti,' he said. Everyone giggled.
+At the bottom was a letter written in wobbly pencil by a girl named Ruby. 'Hello, future kids!' it began. 'I hope you still play outside and eat ice cream. Please tell me if there are flying cars!'
+Mia smiled. She looked out the window at the sky, where cars hummed past like bees. 'Let's write back,' she said. 'We'll put our letter in the box for 2225.'",Where had the box been buried?,,D,under the school hall,beneath the stage,beside the front gate,under the school garden,,1,1,1,"NAPLAN,Year 3,Mock 2",English_Comprehension_Questions_expanded.csv,3.1175.1,142,1,2,Easy
+NAPLAN-Y3-READING-M2-Q20,NAPLAN-Y3-READING-M2,NAPLAN_STYLE_READING,Text 5,3,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Box from 2025
+In the year 2125, the students of Bayside School gathered in the hall. A rusty metal box sat on the stage. It had been buried under the school garden one hundred years before.
+Principal Ngo lifted the creaky lid. Clunk! Out came a pile of strange objects.
+First was a small metal key. 'What is it for?' asked Mia. In her time, every door simply opened when it saw your face.
+Next came a folded sheet of paper covered in coloured lines and the names of streets. Leo turned it around and around. 'Maybe it's a picture of spaghetti,' he said. Everyone giggled.
+At the bottom was a letter written in wobbly pencil by a girl named Ruby. 'Hello, future kids!' it began. 'I hope you still play outside and eat ice cream. Please tell me if there are flying cars!'
+Mia smiled. She looked out the window at the sky, where cars hummed past like bees. 'Let's write back,' she said. 'We'll put our letter in the box for 2225.'",Who wrote the letter found at the bottom of the box?,,D,Principal Ngo,a girl named Mia,a boy named Leo,a girl named Ruby,,1,1,1,"NAPLAN,Year 3,Mock 2",English_Comprehension_Questions_expanded.csv,3.1175.2,142,1,2,Easy
+NAPLAN-Y3-READING-M2-Q21,NAPLAN-Y3-READING-M2,NAPLAN_STYLE_READING,Text 5,3,English,Literary Techniques,Sound Devices,ReadingComprehension,"The Box from 2025
+In the year 2125, the students of Bayside School gathered in the hall. A rusty metal box sat on the stage. It had been buried under the school garden one hundred years before.
+Principal Ngo lifted the creaky lid. Clunk! Out came a pile of strange objects.
+First was a small metal key. 'What is it for?' asked Mia. In her time, every door simply opened when it saw your face.
+Next came a folded sheet of paper covered in coloured lines and the names of streets. Leo turned it around and around. 'Maybe it's a picture of spaghetti,' he said. Everyone giggled.
+At the bottom was a letter written in wobbly pencil by a girl named Ruby. 'Hello, future kids!' it began. 'I hope you still play outside and eat ice cream. Please tell me if there are flying cars!'
+Mia smiled. She looked out the window at the sky, where cars hummed past like bees. 'Let's write back,' she said. 'We'll put our letter in the box for 2225.'",Onomatopoeia is a word that sounds like the noise it describes. Which word from the story is an example of onomatopoeia?,,C,rusty,wobbly,Clunk,strange,,2,1,1,"NAPLAN,Year 3,Mock 2",English_Comprehension_Questions_expanded.csv,3.1175.3,142,1,4,Medium
+NAPLAN-Y3-READING-M2-Q22,NAPLAN-Y3-READING-M2,NAPLAN_STYLE_READING,Text 5,3,English,Inference,Cause and Effect,ReadingComprehension,"The Box from 2025
+In the year 2125, the students of Bayside School gathered in the hall. A rusty metal box sat on the stage. It had been buried under the school garden one hundred years before.
+Principal Ngo lifted the creaky lid. Clunk! Out came a pile of strange objects.
+First was a small metal key. 'What is it for?' asked Mia. In her time, every door simply opened when it saw your face.
+Next came a folded sheet of paper covered in coloured lines and the names of streets. Leo turned it around and around. 'Maybe it's a picture of spaghetti,' he said. Everyone giggled.
+At the bottom was a letter written in wobbly pencil by a girl named Ruby. 'Hello, future kids!' it began. 'I hope you still play outside and eat ice cream. Please tell me if there are flying cars!'
+Mia smiled. She looked out the window at the sky, where cars hummed past like bees. 'Let's write back,' she said. 'We'll put our letter in the box for 2225.'",Why did Mia not know what the key was for?,,A,Doors in her time opened when they saw your face.,The key was too rusty for her to see clearly.,She had never been inside the school hall.,The key was hidden underneath Ruby's letter.,,3,1,1,"NAPLAN,Year 3,Mock 2",English_Comprehension_Questions_expanded.csv,3.1175.4,142,1,5,Medium
+NAPLAN-Y3-READING-M2-Q23,NAPLAN-Y3-READING-M2,NAPLAN_STYLE_READING,Text 5,3,English,Inference,Inferential Reasoning,ReadingComprehension,"The Box from 2025
+In the year 2125, the students of Bayside School gathered in the hall. A rusty metal box sat on the stage. It had been buried under the school garden one hundred years before.
+Principal Ngo lifted the creaky lid. Clunk! Out came a pile of strange objects.
+First was a small metal key. 'What is it for?' asked Mia. In her time, every door simply opened when it saw your face.
+Next came a folded sheet of paper covered in coloured lines and the names of streets. Leo turned it around and around. 'Maybe it's a picture of spaghetti,' he said. Everyone giggled.
+At the bottom was a letter written in wobbly pencil by a girl named Ruby. 'Hello, future kids!' it began. 'I hope you still play outside and eat ice cream. Please tell me if there are flying cars!'
+Mia smiled. She looked out the window at the sky, where cars hummed past like bees. 'Let's write back,' she said. 'We'll put our letter in the box for 2225.'",Leo turned the folded paper 'around and around' and guessed it was a picture of spaghetti. What does this suggest?,,C,Leo was only trying to make the other students laugh.,The paper had a drawing of a plate of food on it.,Children in 2125 had never needed to use a paper map.,The lines on the paper had faded after one hundred years.,,4,1,1,"NAPLAN,Year 3,Mock 2",English_Comprehension_Questions_expanded.csv,3.1175.5,142,2,7,Hard
+NAPLAN-Y3-READING-M2-Q24,NAPLAN-Y3-READING-M2,NAPLAN_STYLE_READING,Text 5,3,English,Reading Comprehension,Author Purpose,ReadingComprehension,"The Box from 2025
+In the year 2125, the students of Bayside School gathered in the hall. A rusty metal box sat on the stage. It had been buried under the school garden one hundred years before.
+Principal Ngo lifted the creaky lid. Clunk! Out came a pile of strange objects.
+First was a small metal key. 'What is it for?' asked Mia. In her time, every door simply opened when it saw your face.
+Next came a folded sheet of paper covered in coloured lines and the names of streets. Leo turned it around and around. 'Maybe it's a picture of spaghetti,' he said. Everyone giggled.
+At the bottom was a letter written in wobbly pencil by a girl named Ruby. 'Hello, future kids!' it began. 'I hope you still play outside and eat ice cream. Please tell me if there are flying cars!'
+Mia smiled. She looked out the window at the sky, where cars hummed past like bees. 'Let's write back,' she said. 'We'll put our letter in the box for 2225.'",Why does the author include the detail that cars 'hummed past like bees'?,,B,to show that Mia found the cars noisy and annoying,to show that Ruby's wish about flying cars has come true,to show that there are many bees near the school,to explain why the students wanted to play outside,,4,1,1,"NAPLAN,Year 3,Mock 2",English_Comprehension_Questions_expanded.csv,3.1175.6,142,2,8,Hard
+NAPLAN-Y3-READING-M2-Q25,NAPLAN-Y3-READING-M2,NAPLAN_STYLE_READING,Text 6,3,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Toast Mystery
+Have you ever dropped a piece of buttered toast? If you have, it probably landed butter side down, making a sticky mess on the floor. Many people think this is just bad luck, but scientists say there is a simple reason.
+When toast slides off a plate or the edge of a table, it starts to spin as it falls. A kitchen table is not very high, so the toast only has time to make about half a turn before it hits the floor. The toast started with the butter facing up, so half a turn flips it over and the butter faces down. Splat!
+Some people have tested this by dropping toast again and again. It landed butter side down much more often than butter side up.
+If tables were much taller, the toast would have time to spin all the way round. But nobody wants a table taller than a grown-up!
+So how can you save your snack? The best plan is to hold your plate carefully with both hands. Or you could just eat your toast quickly!","According to the text, which way does dropped buttered toast usually land?",,D,butter side up,on its edge,on the table,butter side down,,1,1,1,"NAPLAN,Year 3,Mock 2",English_Comprehension_Questions_expanded.csv,3.1144.1,111,1,2,Easy
+NAPLAN-Y3-READING-M2-Q26,NAPLAN-Y3-READING-M2,NAPLAN_STYLE_READING,Text 6,3,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Toast Mystery
+Have you ever dropped a piece of buttered toast? If you have, it probably landed butter side down, making a sticky mess on the floor. Many people think this is just bad luck, but scientists say there is a simple reason.
+When toast slides off a plate or the edge of a table, it starts to spin as it falls. A kitchen table is not very high, so the toast only has time to make about half a turn before it hits the floor. The toast started with the butter facing up, so half a turn flips it over and the butter faces down. Splat!
+Some people have tested this by dropping toast again and again. It landed butter side down much more often than butter side up.
+If tables were much taller, the toast would have time to spin all the way round. But nobody wants a table taller than a grown-up!
+So how can you save your snack? The best plan is to hold your plate carefully with both hands. Or you could just eat your toast quickly!",How far does toast usually turn before it hits the floor?,,C,about one full turn,about two full turns,about half a turn,it does not turn at all,,1,1,1,"NAPLAN,Year 3,Mock 2",English_Comprehension_Questions_expanded.csv,3.1144.2,111,1,2,Easy
+NAPLAN-Y3-READING-M2-Q27,NAPLAN-Y3-READING-M2,NAPLAN_STYLE_READING,Text 6,3,English,Inference,Cause and Effect,ReadingComprehension,"The Toast Mystery
+Have you ever dropped a piece of buttered toast? If you have, it probably landed butter side down, making a sticky mess on the floor. Many people think this is just bad luck, but scientists say there is a simple reason.
+When toast slides off a plate or the edge of a table, it starts to spin as it falls. A kitchen table is not very high, so the toast only has time to make about half a turn before it hits the floor. The toast started with the butter facing up, so half a turn flips it over and the butter faces down. Splat!
+Some people have tested this by dropping toast again and again. It landed butter side down much more often than butter side up.
+If tables were much taller, the toast would have time to spin all the way round. But nobody wants a table taller than a grown-up!
+So how can you save your snack? The best plan is to hold your plate carefully with both hands. Or you could just eat your toast quickly!",Why does falling toast usually land butter side down?,,C,The butter makes one side of the toast heavier.,People are unlucky when they drop their food.,It only has time to flip halfway over before landing.,Toast always spins all the way round as it falls.,,3,1,1,"NAPLAN,Year 3,Mock 2",English_Comprehension_Questions_expanded.csv,3.1144.3,111,1,5,Medium
+NAPLAN-Y3-READING-M2-Q28,NAPLAN-Y3-READING-M2,NAPLAN_STYLE_READING,Text 6,3,English,Reading Comprehension,Author Purpose,ReadingComprehension,"The Toast Mystery
+Have you ever dropped a piece of buttered toast? If you have, it probably landed butter side down, making a sticky mess on the floor. Many people think this is just bad luck, but scientists say there is a simple reason.
+When toast slides off a plate or the edge of a table, it starts to spin as it falls. A kitchen table is not very high, so the toast only has time to make about half a turn before it hits the floor. The toast started with the butter facing up, so half a turn flips it over and the butter faces down. Splat!
+Some people have tested this by dropping toast again and again. It landed butter side down much more often than butter side up.
+If tables were much taller, the toast would have time to spin all the way round. But nobody wants a table taller than a grown-up!
+So how can you save your snack? The best plan is to hold your plate carefully with both hands. Or you could just eat your toast quickly!",Why does the writer include the word 'Splat!'?,,A,to make the text fun and show the sound of the toast landing,to give the reader an instruction about holding their plate,to show that the toast was dry and had no butter on it,to show that the person who dropped the toast was angry,,3,1,1,"NAPLAN,Year 3,Mock 2",English_Comprehension_Questions_expanded.csv,3.1144.4,111,1,5,Medium
+NAPLAN-Y3-READING-M2-Q29,NAPLAN-Y3-READING-M2,NAPLAN_STYLE_READING,Text 6,3,English,Reading Comprehension,Main Idea,ReadingComprehension,"The Toast Mystery
+Have you ever dropped a piece of buttered toast? If you have, it probably landed butter side down, making a sticky mess on the floor. Many people think this is just bad luck, but scientists say there is a simple reason.
+When toast slides off a plate or the edge of a table, it starts to spin as it falls. A kitchen table is not very high, so the toast only has time to make about half a turn before it hits the floor. The toast started with the butter facing up, so half a turn flips it over and the butter faces down. Splat!
+Some people have tested this by dropping toast again and again. It landed butter side down much more often than butter side up.
+If tables were much taller, the toast would have time to spin all the way round. But nobody wants a table taller than a grown-up!
+So how can you save your snack? The best plan is to hold your plate carefully with both hands. Or you could just eat your toast quickly!",Which sentence from the text BEST states the main idea of the whole text?,,B,It landed butter side down much more often than butter side up.,"Many people think this is just bad luck, but scientists say there is a simple reason.","If tables were much taller, the toast would have time to spin all the way round.",The best plan is to hold your plate carefully with both hands.,,4,1,1,"NAPLAN,Year 3,Mock 2",English_Comprehension_Questions_expanded.csv,3.1144.5,111,2,7,Hard
+NAPLAN-Y3-READING-M2-Q30,NAPLAN-Y3-READING-M2,NAPLAN_STYLE_READING,Text 6,3,English,Inference,Inferential Reasoning,ReadingComprehension,"The Toast Mystery
+Have you ever dropped a piece of buttered toast? If you have, it probably landed butter side down, making a sticky mess on the floor. Many people think this is just bad luck, but scientists say there is a simple reason.
+When toast slides off a plate or the edge of a table, it starts to spin as it falls. A kitchen table is not very high, so the toast only has time to make about half a turn before it hits the floor. The toast started with the butter facing up, so half a turn flips it over and the butter faces down. Splat!
+Some people have tested this by dropping toast again and again. It landed butter side down much more often than butter side up.
+If tables were much taller, the toast would have time to spin all the way round. But nobody wants a table taller than a grown-up!
+So how can you save your snack? The best plan is to hold your plate carefully with both hands. Or you could just eat your toast quickly!","Using the ideas in the text, what would most likely happen if toast slid off a table with the butter facing down?",,D,It would still land butter side down.,It would spin all the way round twice.,It would fall straight down without turning.,It would flip over and land butter side up.,,4,1,1,"NAPLAN,Year 3,Mock 2",English_Comprehension_Questions_expanded.csv,3.1144.6,111,2,8,Hard

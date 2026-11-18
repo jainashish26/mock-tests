@@ -1,0 +1,126 @@
+﻿QuestionID,ExamID,ExamType,ExamSection,YearLevel,Subject,Topic,SubTopic,QuestionType,ComprehensionText,QuestionText,QuestionMedia,Correct,AnswerA,AnswerB,AnswerC,AnswerD,AnswerE,Difficulty,IsActive,CorrectAnswerScore,Tags,SourceBank,SourceQuestionNumber,SourceComprehensionID,NAPLANFlag,DifficultyScore,DifficultyLabel
+NAPLAN-Y2-READING-M1-Q01,NAPLAN-Y2-READING-M1,NAPLAN_STYLE_READING,Text 1,2,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Why Owl Hoots at Night
+Long ago, Owl was awake all day. He loved to talk, and his voice was very loud. Whenever Magpie began to sing, Owl hooted over the top of her song.
+The other birds grew cross. They flew up high to the Sun and asked for help.
+The Sun called Owl to the tallest tree. ""The day belongs to the singers,"" said the Sun. ""If you wish to hoot, you must wait until I sleep.""
+Owl grumbled, but he agreed. And that is why, even today, owls sleep in the daytime and hoot under the moon.",Who did the birds ask for help?,,C,the Moon,Magpie,the Sun,Owl,,1,1,1,"NAPLAN,Year 2,Mock 1",English_Comprehension_Questions_expanded.csv,2.955.1,81,1,2,Easy
+NAPLAN-Y2-READING-M1-Q02,NAPLAN-Y2-READING-M1,NAPLAN_STYLE_READING,Text 1,2,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Why Owl Hoots at Night
+Long ago, Owl was awake all day. He loved to talk, and his voice was very loud. Whenever Magpie began to sing, Owl hooted over the top of her song.
+The other birds grew cross. They flew up high to the Sun and asked for help.
+The Sun called Owl to the tallest tree. ""The day belongs to the singers,"" said the Sun. ""If you wish to hoot, you must wait until I sleep.""
+Owl grumbled, but he agreed. And that is why, even today, owls sleep in the daytime and hoot under the moon.",Where did the Sun call Owl to?,,B,Magpie's nest,the tallest tree,the dark cave,the top of a hill,,1,1,1,"NAPLAN,Year 2,Mock 1",English_Comprehension_Questions_expanded.csv,2.955.2,81,1,2,Easy
+NAPLAN-Y2-READING-M1-Q03,NAPLAN-Y2-READING-M1,NAPLAN_STYLE_READING,Text 1,2,English,Reading Comprehension,Locating Information,ReadingComprehension,"Why Owl Hoots at Night
+Long ago, Owl was awake all day. He loved to talk, and his voice was very loud. Whenever Magpie began to sing, Owl hooted over the top of her song.
+The other birds grew cross. They flew up high to the Sun and asked for help.
+The Sun called Owl to the tallest tree. ""The day belongs to the singers,"" said the Sun. ""If you wish to hoot, you must wait until I sleep.""
+Owl grumbled, but he agreed. And that is why, even today, owls sleep in the daytime and hoot under the moon.",Which words show that Owl was not happy with the Sun's rule?,,A,Owl grumbled,Owl was awake,he agreed,hoot under the moon,,3,1,1,"NAPLAN,Year 2,Mock 1",English_Comprehension_Questions_expanded.csv,2.955.3,81,1,5,Medium
+NAPLAN-Y2-READING-M1-Q04,NAPLAN-Y2-READING-M1,NAPLAN_STYLE_READING,Text 1,2,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"Why Owl Hoots at Night
+Long ago, Owl was awake all day. He loved to talk, and his voice was very loud. Whenever Magpie began to sing, Owl hooted over the top of her song.
+The other birds grew cross. They flew up high to the Sun and asked for help.
+The Sun called Owl to the tallest tree. ""The day belongs to the singers,"" said the Sun. ""If you wish to hoot, you must wait until I sleep.""
+Owl grumbled, but he agreed. And that is why, even today, owls sleep in the daytime and hoot under the moon.","In this story, the word cross means . . .",,C,tired.,lost.,annoyed.,frightened.,,2,1,1,"NAPLAN,Year 2,Mock 1",English_Comprehension_Questions_expanded.csv,2.955.4,81,1,4,Medium
+NAPLAN-Y2-READING-M1-Q05,NAPLAN-Y2-READING-M1,NAPLAN_STYLE_READING,Text 1,2,English,Inference,Cause and Effect,ReadingComprehension,"Why Owl Hoots at Night
+Long ago, Owl was awake all day. He loved to talk, and his voice was very loud. Whenever Magpie began to sing, Owl hooted over the top of her song.
+The other birds grew cross. They flew up high to the Sun and asked for help.
+The Sun called Owl to the tallest tree. ""The day belongs to the singers,"" said the Sun. ""If you wish to hoot, you must wait until I sleep.""
+Owl grumbled, but he agreed. And that is why, even today, owls sleep in the daytime and hoot under the moon.",What started the whole problem in the story?,,D,The Sun made Owl sleep in the daytime.,The birds flew up high to talk to the Sun.,Magpie sang over the top of Owl's hooting.,Owl's loud hooting drowned out Magpie's songs.,,4,1,1,"NAPLAN,Year 2,Mock 1",English_Comprehension_Questions_expanded.csv,2.955.5,81,1,7,Hard
+NAPLAN-Y2-READING-M1-Q06,NAPLAN-Y2-READING-M1,NAPLAN_STYLE_READING,Text 2,2,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"The Red Dot
+Ollie looked through his new telescope. A tiny red dot glowed in the night sky.
+'That's Mars,' said Dad. 'It looks red because its soil is full of rust.'
+Ollie wanted to know more. The next day, he borrowed a book from the library. He read that Mars has the biggest volcano in our solar system. He also read that robot rovers have been driving across its dusty ground for years.
+That night, Ollie peered through the telescope again. 'One day,' he whispered, 'I want to be an astronaut and visit you myself.'","In the story, the word 'peered' means . . .",,B,shouted loudly.,looked closely.,walked slowly.,laughed quietly.,,1,1,1,"NAPLAN,Year 2,Mock 1",English_Comprehension_Questions_expanded.csv,2.937.1,63,1,2,Easy
+NAPLAN-Y2-READING-M1-Q07,NAPLAN-Y2-READING-M1,NAPLAN_STYLE_READING,Text 2,2,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Red Dot
+Ollie looked through his new telescope. A tiny red dot glowed in the night sky.
+'That's Mars,' said Dad. 'It looks red because its soil is full of rust.'
+Ollie wanted to know more. The next day, he borrowed a book from the library. He read that Mars has the biggest volcano in our solar system. He also read that robot rovers have been driving across its dusty ground for years.
+That night, Ollie peered through the telescope again. 'One day,' he whispered, 'I want to be an astronaut and visit you myself.'",Why does Mars look red?,,C,It is very hot and fiery.,It is covered in red paint.,Its soil is full of rust.,Its volcano glows at night.,,1,1,1,"NAPLAN,Year 2,Mock 1",English_Comprehension_Questions_expanded.csv,2.937.2,63,1,2,Easy
+NAPLAN-Y2-READING-M1-Q08,NAPLAN-Y2-READING-M1,NAPLAN_STYLE_READING,Text 2,2,English,Vocabulary,Word Origins and Morphology,ReadingComprehension,"The Red Dot
+Ollie looked through his new telescope. A tiny red dot glowed in the night sky.
+'That's Mars,' said Dad. 'It looks red because its soil is full of rust.'
+Ollie wanted to know more. The next day, he borrowed a book from the library. He read that Mars has the biggest volcano in our solar system. He also read that robot rovers have been driving across its dusty ground for years.
+That night, Ollie peered through the telescope again. 'One day,' he whispered, 'I want to be an astronaut and visit you myself.'","In the word 'biggest', the ending '-est' means . . .",,D,more than one.,again.,not.,the most.,,2,1,1,"NAPLAN,Year 2,Mock 1",English_Comprehension_Questions_expanded.csv,2.937.3,63,1,4,Medium
+NAPLAN-Y2-READING-M1-Q09,NAPLAN-Y2-READING-M1,NAPLAN_STYLE_READING,Text 2,2,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Red Dot
+Ollie looked through his new telescope. A tiny red dot glowed in the night sky.
+'That's Mars,' said Dad. 'It looks red because its soil is full of rust.'
+Ollie wanted to know more. The next day, he borrowed a book from the library. He read that Mars has the biggest volcano in our solar system. He also read that robot rovers have been driving across its dusty ground for years.
+That night, Ollie peered through the telescope again. 'One day,' he whispered, 'I want to be an astronaut and visit you myself.'",What did Ollie learn from the library book?,,C,Mars has soil full of rust.,Mars looks like a red dot.,Mars has the biggest volcano.,Mars can be seen at night.,,3,1,1,"NAPLAN,Year 2,Mock 1",English_Comprehension_Questions_expanded.csv,2.937.4,63,1,5,Medium
+NAPLAN-Y2-READING-M1-Q10,NAPLAN-Y2-READING-M1,NAPLAN_STYLE_READING,Text 2,2,English,Reading Comprehension,Main Idea,ReadingComprehension,"The Red Dot
+Ollie looked through his new telescope. A tiny red dot glowed in the night sky.
+'That's Mars,' said Dad. 'It looks red because its soil is full of rust.'
+Ollie wanted to know more. The next day, he borrowed a book from the library. He read that Mars has the biggest volcano in our solar system. He also read that robot rovers have been driving across its dusty ground for years.
+That night, Ollie peered through the telescope again. 'One day,' he whispered, 'I want to be an astronaut and visit you myself.'",Which title would BEST suit the whole story?,,D,A Night with a New Telescope,Ollie's Trip to the Library,Rovers on the Red Planet,From a Red Dot to a Big Dream,,4,1,1,"NAPLAN,Year 2,Mock 1",English_Comprehension_Questions_expanded.csv,2.937.5,63,2,7,Hard
+NAPLAN-Y2-READING-M1-Q11,NAPLAN-Y2-READING-M1,NAPLAN_STYLE_READING,Text 3,2,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Gift of the River
+Long ago, the ancient Egyptians lived beside a mighty river called the Nile. All around them was dry, sandy desert.
+Each year, the Nile flooded. When the water went down, it left behind thick, black mud. This mud was perfect for growing wheat, onions and other food.
+Farmers dug ditches to carry river water to their fields. People also caught fish and used tall reeds called papyrus to make boats and paper.
+Without the Nile, Egypt would have been a land of sand and dust. The river was the beating heart of Egypt.",What did the Nile leave behind after it flooded?,,A,"thick, black mud","dry, yellow sand","big, smooth rocks","tall, green reeds",,1,1,1,"NAPLAN,Year 2,Mock 1",English_Comprehension_Questions_expanded.csv,2.934.1,60,1,2,Easy
+NAPLAN-Y2-READING-M1-Q12,NAPLAN-Y2-READING-M1,NAPLAN_STYLE_READING,Text 3,2,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Gift of the River
+Long ago, the ancient Egyptians lived beside a mighty river called the Nile. All around them was dry, sandy desert.
+Each year, the Nile flooded. When the water went down, it left behind thick, black mud. This mud was perfect for growing wheat, onions and other food.
+Farmers dug ditches to carry river water to their fields. People also caught fish and used tall reeds called papyrus to make boats and paper.
+Without the Nile, Egypt would have been a land of sand and dust. The river was the beating heart of Egypt.",What did the Egyptians make from papyrus reeds?,,A,boats and paper,bread and cakes,houses and walls,clothes and hats,,1,1,1,"NAPLAN,Year 2,Mock 1",English_Comprehension_Questions_expanded.csv,2.934.2,60,1,2,Easy
+NAPLAN-Y2-READING-M1-Q13,NAPLAN-Y2-READING-M1,NAPLAN_STYLE_READING,Text 3,2,English,Vocabulary,Synonyms,ReadingComprehension,"Gift of the River
+Long ago, the ancient Egyptians lived beside a mighty river called the Nile. All around them was dry, sandy desert.
+Each year, the Nile flooded. When the water went down, it left behind thick, black mud. This mud was perfect for growing wheat, onions and other food.
+Farmers dug ditches to carry river water to their fields. People also caught fish and used tall reeds called papyrus to make boats and paper.
+Without the Nile, Egypt would have been a land of sand and dust. The river was the beating heart of Egypt.",Which word means nearly the same as 'mighty'?,,D,muddy,narrow,quiet,powerful,,2,1,1,"NAPLAN,Year 2,Mock 1",English_Comprehension_Questions_expanded.csv,2.934.3,60,1,4,Medium
+NAPLAN-Y2-READING-M1-Q14,NAPLAN-Y2-READING-M1,NAPLAN_STYLE_READING,Text 3,2,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"Gift of the River
+Long ago, the ancient Egyptians lived beside a mighty river called the Nile. All around them was dry, sandy desert.
+Each year, the Nile flooded. When the water went down, it left behind thick, black mud. This mud was perfect for growing wheat, onions and other food.
+Farmers dug ditches to carry river water to their fields. People also caught fish and used tall reeds called papyrus to make boats and paper.
+Without the Nile, Egypt would have been a land of sand and dust. The river was the beating heart of Egypt.","In the text, 'the Nile flooded' means the river . . .",,B,dried up and left only sand.,spread its water over the land.,froze over in the cold weather.,rushed away into the desert.,,3,1,1,"NAPLAN,Year 2,Mock 1",English_Comprehension_Questions_expanded.csv,2.934.4,60,1,5,Medium
+NAPLAN-Y2-READING-M1-Q15,NAPLAN-Y2-READING-M1,NAPLAN_STYLE_READING,Text 3,2,English,Literary Techniques,Figurative Language,ReadingComprehension,"Gift of the River
+Long ago, the ancient Egyptians lived beside a mighty river called the Nile. All around them was dry, sandy desert.
+Each year, the Nile flooded. When the water went down, it left behind thick, black mud. This mud was perfect for growing wheat, onions and other food.
+Farmers dug ditches to carry river water to their fields. People also caught fish and used tall reeds called papyrus to make boats and paper.
+Without the Nile, Egypt would have been a land of sand and dust. The river was the beating heart of Egypt.",What does the author mean by 'The river was the beating heart of Egypt'?,,D,The river was in the middle of Egypt.,The Egyptians loved the river dearly.,The river was shaped like a big heart.,The river kept life in Egypt going.,,4,1,1,"NAPLAN,Year 2,Mock 1",English_Comprehension_Questions_expanded.csv,2.934.5,60,1,8,Hard
+NAPLAN-Y2-READING-M1-Q16,NAPLAN-Y2-READING-M1,NAPLAN_STYLE_READING,Text 4,2,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Sliding Down the Red Dune
+Kira woke while the stars were still out. 'Hurry,' said Uncle Ray. 'We must go before the sun gets high.'
+They drove to the biggest dune near town. Kira carried a flat plastic board up the soft red sand. Her feet sank with every step. At the top, she sat on the board and pushed off. Whoosh! She flew to the bottom.
+They slid again and again. By nine o'clock, the sand was burning Kira's toes. Uncle Ray packed up the boards. 'Time for a cold drink in the shade,' he said.",What did Kira carry up the dune?,,B,a cold drink,a flat plastic board,a wooden sled,a big umbrella,,1,1,1,"NAPLAN,Year 2,Mock 1",English_Comprehension_Questions_expanded.csv,2.1068.1,194,1,2,Easy
+NAPLAN-Y2-READING-M1-Q17,NAPLAN-Y2-READING-M1,NAPLAN_STYLE_READING,Text 4,2,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Sliding Down the Red Dune
+Kira woke while the stars were still out. 'Hurry,' said Uncle Ray. 'We must go before the sun gets high.'
+They drove to the biggest dune near town. Kira carried a flat plastic board up the soft red sand. Her feet sank with every step. At the top, she sat on the board and pushed off. Whoosh! She flew to the bottom.
+They slid again and again. By nine o'clock, the sand was burning Kira's toes. Uncle Ray packed up the boards. 'Time for a cold drink in the shade,' he said.",Why was it hard for Kira to climb the dune?,,A,Her feet sank into the soft sand.,The sand was burning her toes.,It was too dark to see the top.,The plastic board was too heavy.,,2,1,1,"NAPLAN,Year 2,Mock 1",English_Comprehension_Questions_expanded.csv,2.1068.2,194,1,4,Medium
+NAPLAN-Y2-READING-M1-Q18,NAPLAN-Y2-READING-M1,NAPLAN_STYLE_READING,Text 4,2,English,Inference,Drawing Conclusions,ReadingComprehension,"Sliding Down the Red Dune
+Kira woke while the stars were still out. 'Hurry,' said Uncle Ray. 'We must go before the sun gets high.'
+They drove to the biggest dune near town. Kira carried a flat plastic board up the soft red sand. Her feet sank with every step. At the top, she sat on the board and pushed off. Whoosh! She flew to the bottom.
+They slid again and again. By nine o'clock, the sand was burning Kira's toes. Uncle Ray packed up the boards. 'Time for a cold drink in the shade,' he said.",What did Kira most likely do after each slide?,,C,sat in the shade for a drink,drove back home with Uncle Ray,walked back up the dune,packed the boards into the car,,3,1,1,"NAPLAN,Year 2,Mock 1",English_Comprehension_Questions_expanded.csv,2.1068.3,194,1,5,Medium
+NAPLAN-Y2-READING-M1-Q19,NAPLAN-Y2-READING-M1,NAPLAN_STYLE_READING,Text 4,2,English,Reading Comprehension,Author Purpose,ReadingComprehension,"Sliding Down the Red Dune
+Kira woke while the stars were still out. 'Hurry,' said Uncle Ray. 'We must go before the sun gets high.'
+They drove to the biggest dune near town. Kira carried a flat plastic board up the soft red sand. Her feet sank with every step. At the top, she sat on the board and pushed off. Whoosh! She flew to the bottom.
+They slid again and again. By nine o'clock, the sand was burning Kira's toes. Uncle Ray packed up the boards. 'Time for a cold drink in the shade,' he said.",Why does the author mention the stars at the start and the burning sand near the end?,,B,to show how tired Kira felt after waking so early,to show how quickly the desert heats up in the morning,to show that the trip lasted all day and all night,to show how beautiful the desert looks at night,,4,1,1,"NAPLAN,Year 2,Mock 1",English_Comprehension_Questions_expanded.csv,2.1068.4,194,1,8,Hard
+NAPLAN-Y2-READING-M1-Q20,NAPLAN-Y2-READING-M1,NAPLAN_STYLE_READING,Text 4,2,English,Inference,Inferential Reasoning,ReadingComprehension,"Sliding Down the Red Dune
+Kira woke while the stars were still out. 'Hurry,' said Uncle Ray. 'We must go before the sun gets high.'
+They drove to the biggest dune near town. Kira carried a flat plastic board up the soft red sand. Her feet sank with every step. At the top, she sat on the board and pushed off. Whoosh! She flew to the bottom.
+They slid again and again. By nine o'clock, the sand was burning Kira's toes. Uncle Ray packed up the boards. 'Time for a cold drink in the shade,' he said.",What can you tell about the sand when Kira first climbed the dune?,,C,It was already too hot to touch with her toes.,It was wet and sticky from rain in the night.,It was cool enough to walk on with bare feet.,It was hard and easy to walk up quickly.,,4,1,1,"NAPLAN,Year 2,Mock 1",English_Comprehension_Questions_expanded.csv,2.1068.5,194,1,7,Hard
+NAPLAN-Y2-READING-M1-Q21,NAPLAN-Y2-READING-M1,NAPLAN_STYLE_READING,Text 5,2,English,Reading Comprehension,Sequencing,ReadingComprehension,"How a Scrape Heals
+Seeing blood on your knee can be scary. But your body knows just what to do.
+First, the blood at the top of the scrape gets thick and sticky. This is called a clot. It stops more blood from leaking out.
+Next, the clot dries and turns into a hard, brown scab. The scab is like a tiny shield. Under it, your body is busy making new skin.
+The scab may feel itchy, but try not to pick it. If you pull it off too early, the scrape can open again.
+After a week or two, the scab falls off by itself. Pink, new skin is waiting underneath.",What happens straight after the blood gets thick and sticky?,,D,the scab falls off,new pink skin shows,the scrape starts to itch,the clot dries into a scab,,1,1,1,"NAPLAN,Year 2,Mock 1",English_Comprehension_Questions_expanded.csv,2.924.1,50,1,2,Easy
+NAPLAN-Y2-READING-M1-Q22,NAPLAN-Y2-READING-M1,NAPLAN_STYLE_READING,Text 5,2,English,Inference,Inferential Reasoning,ReadingComprehension,"How a Scrape Heals
+Seeing blood on your knee can be scary. But your body knows just what to do.
+First, the blood at the top of the scrape gets thick and sticky. This is called a clot. It stops more blood from leaking out.
+Next, the clot dries and turns into a hard, brown scab. The scab is like a tiny shield. Under it, your body is busy making new skin.
+The scab may feel itchy, but try not to pick it. If you pull it off too early, the scrape can open again.
+After a week or two, the scab falls off by itself. Pink, new skin is waiting underneath.",The scab is called 'a tiny shield' because it . . .,,C,is hard and brown like metal.,makes the scrape feel itchy.,covers the scrape and keeps it safe.,is round and flat like a plate.,,3,1,1,"NAPLAN,Year 2,Mock 1",English_Comprehension_Questions_expanded.csv,2.924.2,50,1,5,Medium
+NAPLAN-Y2-READING-M1-Q23,NAPLAN-Y2-READING-M1,NAPLAN_STYLE_READING,Text 5,2,English,Inference,Inferential Reasoning,ReadingComprehension,"How a Scrape Heals
+Seeing blood on your knee can be scary. But your body knows just what to do.
+First, the blood at the top of the scrape gets thick and sticky. This is called a clot. It stops more blood from leaking out.
+Next, the clot dries and turns into a hard, brown scab. The scab is like a tiny shield. Under it, your body is busy making new skin.
+The scab may feel itchy, but try not to pick it. If you pull it off too early, the scrape can open again.
+After a week or two, the scab falls off by itself. Pink, new skin is waiting underneath.",Which child is helping their scrape to heal?,,C,"Tom, who pulls his scab off after a day","Ben, who picks at his scab when it itches","Mia, who leaves her itchy scab alone","Lily, who wipes away the sticky clot",,3,1,1,"NAPLAN,Year 2,Mock 1",English_Comprehension_Questions_expanded.csv,2.924.3,50,1,5,Medium
+NAPLAN-Y2-READING-M1-Q24,NAPLAN-Y2-READING-M1,NAPLAN_STYLE_READING,Text 5,2,English,Inference,Interpreting Feelings,ReadingComprehension,"How a Scrape Heals
+Seeing blood on your knee can be scary. But your body knows just what to do.
+First, the blood at the top of the scrape gets thick and sticky. This is called a clot. It stops more blood from leaking out.
+Next, the clot dries and turns into a hard, brown scab. The scab is like a tiny shield. Under it, your body is busy making new skin.
+The scab may feel itchy, but try not to pick it. If you pull it off too early, the scrape can open again.
+After a week or two, the scab falls off by itself. Pink, new skin is waiting underneath.",A child who has read the whole text notices that their scab is starting to itch. How would they most likely feel?,,D,"worried, because the itch means the scrape has opened","keen to pick it, because new skin is waiting underneath","scared, because more blood might leak out of the scab","patient, because new skin is growing under the scab",,4,1,1,"NAPLAN,Year 2,Mock 1",English_Comprehension_Questions_expanded.csv,2.924.4,50,2,7,Hard
+NAPLAN-Y2-READING-M1-Q25,NAPLAN-Y2-READING-M1,NAPLAN_STYLE_READING,Text 5,2,English,Reading Comprehension,Main Idea,ReadingComprehension,"How a Scrape Heals
+Seeing blood on your knee can be scary. But your body knows just what to do.
+First, the blood at the top of the scrape gets thick and sticky. This is called a clot. It stops more blood from leaking out.
+Next, the clot dries and turns into a hard, brown scab. The scab is like a tiny shield. Under it, your body is busy making new skin.
+The scab may feel itchy, but try not to pick it. If you pull it off too early, the scrape can open again.
+After a week or two, the scab falls off by itself. Pink, new skin is waiting underneath.",Which sentence from the text BEST sums up what the WHOLE text is about?,,B,"Under it, your body is busy making new skin.",But your body knows just what to do.,The scab is like a tiny shield.,Seeing blood on your knee can be scary.,,4,1,1,"NAPLAN,Year 2,Mock 1",English_Comprehension_Questions_expanded.csv,2.924.5,50,2,8,Hard

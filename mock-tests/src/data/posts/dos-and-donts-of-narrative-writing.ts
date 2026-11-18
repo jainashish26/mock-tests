@@ -166,13 +166,13 @@ She paused. "Not this time."
         </ul>
         <p>Depth always beats breadth in narrative writing. A story about a child finding a lost dog in the park is more compelling than a story about a child who travels through time, fights aliens, discovers a secret civilisation, and saves the world - all in 500 words.</p>
 
-        <h3>4. Don't Use ClichÃ©s</h3>
-        <p>ClichÃ©s are phrases that have been used so many times they've lost all impact. In narrative writing, they signal lazy thinking and prevent the reader from seeing the story freshly.</p>
+        <h3>4. Don't Use Clichés</h3>
+        <p>Clichés are phrases that have been used so many times they've lost all impact. In narrative writing, they signal lazy thinking and prevent the reader from seeing the story freshly.</p>
 
         <table>
           <thead>
             <tr>
-              <th>ClichÃ© (Avoid)</th>
+              <th>Cliché (Avoid)</th>
               <th>Fresh Alternative</th>
             </tr>
           </thead>
@@ -207,9 +207,9 @@ She paused. "Not this time."
         <p>This is cluttered, slow, and ironically <em>less</em> vivid than a cleaner version: <em>"The dog lunged at the gate, teeth bared. The girl stumbled backwards."</em></p>
         <p><strong>The principle:</strong> choose <strong>precise nouns and strong verbs</strong> over piles of adjectives and adverbs.</p>
         <ul>
-          <li>Instead of "walked slowly" -†’ <strong>"crept," "shuffled," "dawdled"</strong></li>
-          <li>Instead of "said loudly" -†’ <strong>"shouted," "bellowed," "snapped"</strong></li>
-          <li>Instead of "a big house" -†’ <strong>"a mansion," "a sprawling homestead," "a three-storey terrace"</strong></li>
+          <li>Instead of "walked slowly" → <strong>"crept," "shuffled," "dawdled"</strong></li>
+          <li>Instead of "said loudly" → <strong>"shouted," "bellowed," "snapped"</strong></li>
+          <li>Instead of "a big house" → <strong>"a mansion," "a sprawling homestead," "a three-storey terrace"</strong></li>
         </ul>
         <p>One precise word is almost always more effective than three vague ones.</p>
 
@@ -269,55 +269,55 @@ She paused. "Not this time."
           </thead>
           <tbody>
             <tr>
-              <td>-˜</td>
+              <td>☐</td>
               <td>Does my opening hook the reader immediately?</td>
             </tr>
             <tr>
-              <td>-˜</td>
+              <td>☐</td>
               <td>Is there a clear conflict or problem driving the story?</td>
             </tr>
             <tr>
-              <td>-˜</td>
+              <td>☐</td>
               <td>Does my main character want something and face obstacles?</td>
             </tr>
             <tr>
-              <td>-˜</td>
+              <td>☐</td>
               <td>Have I used "show, don't tell" for key emotional moments?</td>
             </tr>
             <tr>
-              <td>-˜</td>
+              <td>☐</td>
               <td>Have I included sensory details beyond just sight?</td>
             </tr>
             <tr>
-              <td>-˜</td>
+              <td>☐</td>
               <td>Is my sentence structure varied (short, long, fragments)?</td>
             </tr>
             <tr>
-              <td>-˜</td>
+              <td>☐</td>
               <td>Is my dialogue punctuated correctly and purposeful?</td>
             </tr>
             <tr>
-              <td>-˜</td>
-              <td>Have I avoided clichÃ©s and generic phrases?</td>
+              <td>☐</td>
+              <td>Have I avoided clichés and generic phrases?</td>
             </tr>
             <tr>
-              <td>-˜</td>
+              <td>☐</td>
               <td>Is my story appropriately scoped (not trying to tell too much)?</td>
             </tr>
             <tr>
-              <td>-˜</td>
+              <td>☐</td>
               <td>Does my ending resolve the conflict and feel earned?</td>
             </tr>
             <tr>
-              <td>-˜</td>
+              <td>☐</td>
               <td>Have I clearly connected to the prompt (if applicable)?</td>
             </tr>
             <tr>
-              <td>-˜</td>
+              <td>☐</td>
               <td>Have I used paragraphs to organise my writing?</td>
             </tr>
             <tr>
-              <td>-˜</td>
+              <td>☐</td>
               <td>Have I proofread for spelling, grammar, and punctuation?</td>
             </tr>
           </tbody>
@@ -339,12 +339,35 @@ She paused. "Not this time."
       </section>
 
     </article>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What makes a strong narrative opening?</h3>
+    <p>A hook that puts the reader into a specific moment rather than a general summary. The guide's first do is to start with a hook, and its first don't is to open with 'One day...' or 'Once upon a time...' - both of which delay the story and signal an unoriginal opening to a marker.</p>
+
+    <h3>What does 'show, don't tell' actually mean in practice?</h3>
+    <p>It means rendering an experience through concrete detail so the reader infers the feeling, rather than naming the feeling. Instead of 'walked slowly' use 'crept', 'shuffled' or 'dawdled'; instead of 'said loudly' use 'shouted', 'bellowed' or 'snapped'; instead of 'a big house' use 'a mansion' or 'a sprawling homestead'. Sensory detail and precise verbs do the work.</p>
+
+    <h3>How long should a narrative be in an exam?</h3>
+    <p>Long enough to develop one story properly, not several. The guide warns explicitly against trying to tell too much story and against retelling the entire plot of something else. One main character, one central problem and a resolved ending within the word limit will outscore an ambitious sprawl.</p>
+
+    <h3>Which narrative mistakes cost the most marks?</h3>
+    <p>Cliches, overused adjectives and adverbs, missing paragraphs, ignoring the prompt, and a rushed ending. Ending with 'it was all a dream' is called out specifically because it invalidates everything the reader has invested in. The quick-reference checklist in the guide covers each of these before submission.</p>
+
+    <h3>Should my child use dialogue?</h3>
+    <p>Yes, but purposefully. Dialogue is one of the eight do's, and the emphasis is on using it to reveal character or advance the story rather than to fill space. Correct punctuation of speech also contributes to language conventions marks.</p>
+
+    <h3>How do we practise this effectively?</h3>
+    <p>Write regularly to prompts, then check the piece against the quick-reference checklist rather than simply writing more. The guide's closing section is called 'Practice Makes Progress' for that reason - repetition with feedback against known criteria builds skill, while repetition alone does not.</p>
+
   `,
   image:
     "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Student writing in a notebook with a pen, focused on their creative writing task",
-  date: "March 28, 2026",
+    "Student writing in a notebook with a pen, focused on their creative writing task",  date: "August 25, 2026",
+  updatedDate: "August 27, 2026",
+  readingTime: 14,
+  category: "naplan",
   tags: [
     "ENGLISH",
     "WRITING TIPS",
@@ -357,7 +380,7 @@ She paused. "Not this time."
   metaTitle:
     "Narrative Writing Do's and Don'ts | English Writing Tips for Students",
   metaDescription:
-    "Practical do's and don'ts of narrative writing for students - hooks, show don't tell, sensory details, endings, clichÃ©s to avoid, and a quick-reference checklist.",
+    "Practical do's and don'ts of narrative writing for students - hooks, show don't tell, sensory details, endings, clichés to avoid, and a quick-reference checklist.",
   keywords: [
     "narrative writing tips",
     "dos and donts narrative writing",
@@ -371,6 +394,13 @@ She paused. "Not this time."
     "English writing tips secondary school",
     "narrative writing checklist",
     "story writing techniques for students",
+  ],
+  keyTakeaways: [
+    "Eight do's: open with a hook, plan before writing, focus on one main character, show rather than tell, use sensory detail, vary sentence structure, write a satisfying ending, and use dialogue purposefully.",
+    "Nine don'ts, including opening with 'One day' or 'Once upon a time', retelling an existing plot, trying to tell too much story, and ending with 'it was all a dream'.",
+    "Overusing adjectives and adverbs weakens prose - precise nouns and strong verbs do more work than piles of description.",
+    "Paragraphing and pacing are assessed: a rushed ending costs marks even when the rest of the piece is strong.",
+    "A quick-reference checklist and a reminder that practice, not theory, is what produces progress.",
   ],
   author: {
     name: "Ashish Jain",

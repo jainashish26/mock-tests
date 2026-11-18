@@ -321,12 +321,35 @@ export const mathsBooksSecondarySchoolGuide = {
       </section>
 
     </article>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What types of maths books does a secondary student need?</h3>
+    <p>All three that the guide distinguishes, because they serve different purposes: textbooks and workbooks for curriculum coverage and consolidation, problem-solving and enrichment books for reasoning beyond the syllabus, and popular maths and inspiration titles for motivation and context. Most students have only the first.</p>
+
+    <h3>How is the guide organised by year level?</h3>
+    <p>Years 7 and 8 focus on strengthening foundations and building confidence, with tips for parents at that stage. Years 9 and 10 focus on deepening understanding and preparing for senior maths, with their own parent tips. Each stage lists recommendations across the three book types.</p>
+
+    <h3>Which books help with NAPLAN and VCE?</h3>
+    <p>The guide has a dedicated section on preparing for NAPLAN and VCE through reading, with separate recommendations for NAPLAN (Years 7 and 9) and for VCE Mathematics. NAPLAN preparation emphasises reasoning and problem solving, while VCE preparation emphasises depth and technique.</p>
+
+    <h3>My child says they are not a maths person. Is that fixable?</h3>
+    <p>The guide treats that belief as the central obstacle and devotes a section to it. The closing argument is that maths is for everyone. Practically, popular maths and inspiration titles work well here because they show what mathematics is for, which is usually what makes the subject feel accessible again.</p>
+
+    <h3>Do apps and online resources replace books at secondary level?</h3>
+    <p>No - they are covered as digital companions that pair well with books. Online resources are strong for immediate feedback and repetition; books are better for sustained, sequential reasoning and for working through a problem without distraction.</p>
+
+    <h3>How do I keep maths positive at home through the secondary years?</h3>
+    <p>The 'Building a Maths-Positive Home' section gives practical steps, and a quick-reference book list by category makes it easy to act. The most important step is language: avoid endorsing the idea that some people simply cannot do maths, since that belief predicts disengagement more reliably than prior results do.</p>
+
   `,
   image:
     "https://images.unsplash.com/photo-1596495578065-6e0763fa1178?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Secondary school student working through a maths textbook at a desk with a calculator and notebook",
-  date: "March 28, 2026",
+    "Secondary school student working through a maths textbook at a desk with a calculator and notebook",  date: "October 27, 2026",
+  updatedDate: "October 29, 2026",
+  readingTime: 17,
+  category: "naplan",
   tags: [
     "MATHS",
     "BOOKS",
@@ -354,6 +377,13 @@ export const mathsBooksSecondarySchoolGuide = {
     "problem solving maths books",
     "maths books for reluctant learners",
     "secondary school maths resources Australia",
+  ],
+  keyTakeaways: [
+    "A year-by-year guide to maths books for Australian secondary students from Year 7 to Year 10.",
+    "Three types of maths book are needed together: textbooks and workbooks, problem-solving and enrichment, and popular maths and inspiration.",
+    "Years 7 and 8 focus on strengthening foundations and confidence; Years 9 and 10 on deepening understanding and preparing for senior maths.",
+    "There are separate recommendations for NAPLAN (Years 7 and 9) and for VCE Mathematics.",
+    "A dedicated section addresses students who say they are not a maths person, alongside digital companions and building a maths-positive home.",
   ],
   author: {
     name: "Ashish Jain",

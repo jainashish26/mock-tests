@@ -1,0 +1,33 @@
+﻿QuestionNumber,QuestionID,ExamSection,Correct,CorrectAnswerText,Topic,SubTopic,DifficultyLabel,DifficultyScore,SourceQuestionNumber
+1,NAPLAN-Y4-READING-M3-Q01,Text 1,C,gathered,Vocabulary,Synonyms,Easy,1,4.195.1
+2,NAPLAN-Y4-READING-M3-Q02,Text 1,C,scorching,Vocabulary,Synonyms,Easy,1,4.195.2
+3,NAPLAN-Y4-READING-M3-Q03,Text 1,D,magnificent,Vocabulary,Synonyms,Easy,1,4.195.3
+4,NAPLAN-Y4-READING-M3-Q04,Text 1,B,shabby,Vocabulary,Synonyms,Easy,1,4.195.4
+5,NAPLAN-Y4-READING-M3-Q05,Text 2,A,The sandhills are clescribed as if they are alive.,Literary Techniques,Figurative Language,Medium,4,4.244.1
+6,NAPLAN-Y4-READING-M3-Q06,Text 2,B,the day beginning.,Literary Techniques,Figurative Language,Easy,3,4.244.2
+7,NAPLAN-Y4-READING-M3-Q07,Text 2,B,the change in the angle of the sun,Reading Comprehension,Literal Recall,Medium,5,4.244.3
+8,NAPLAN-Y4-READING-M3-Q08,Text 2,C,setded for muesli bars instead of sandwiches.,Vocabulary,Word Meaning in Context,Easy,3,4.244.4
+9,NAPLAN-Y4-READING-M3-Q09,Text 3,A,a hundred years,Reading Comprehension,Literal Recall,Easy,1,4.1384.1
+10,NAPLAN-Y4-READING-M3-Q10,Text 3,A,Its ice starts to melt.,Reading Comprehension,Literal Recall,Easy,2,4.1384.2
+11,NAPLAN-Y4-READING-M3-Q11,Text 3,B,see for a moment,Vocabulary,Word Meaning in Context,Medium,4,4.1384.3
+12,NAPLAN-Y4-READING-M3-Q12,Text 3,B,It will not return until those grandchildren are alive.,Inference,Character Motivation,Medium,5,4.1384.4
+13,NAPLAN-Y4-READING-M3-Q13,Text 3,C,The Sun's pull draws it back.,Inference,Character Motivation,Hard,8,4.1384.5
+14,NAPLAN-Y4-READING-M3-Q14,Text 3,C,"From so far away, the Sun looks tiny but warm and inviting.",Literary Techniques,Figurative Language,Hard,7,4.1384.6
+15,NAPLAN-Y4-READING-M3-Q15,Text 4,C,Lifting a vehicle takes more power than rolling it.,Reading Comprehension,Evaluating Evidence,Easy,2,4.1333.1
+16,NAPLAN-Y4-READING-M3-Q16,Text 4,B,Flying cars would cause more problems than they solve.,Reading Comprehension,Main Idea,Easy,2,4.1333.2
+17,NAPLAN-Y4-READING-M3-Q17,Text 4,B,He is upset and overwhelmed by the noise.,Literary Techniques,Characterisation,Medium,4,4.1333.3
+18,NAPLAN-Y4-READING-M3-Q18,Text 4,C,linking the last point to the reasons still to come,Persuasive Language,Argument Structure,Medium,5,4.1333.4
+19,NAPLAN-Y4-READING-M3-Q19,Text 4,A,"They avoid the noise, danger and energy use of flying cars.",Inference,Inferential Reasoning,Hard,7,4.1333.5
+20,NAPLAN-Y4-READING-M3-Q20,Text 4,A,The future that looks exciting in the videos is one the writer hopes we will not choose.,Reading Comprehension,Point of View,Hard,7,4.1333.6
+21,NAPLAN-Y4-READING-M3-Q21,Text 5,A,a different pattern found in nature,Reading Comprehension,Text Structure,Easy,2,4.1309.1
+22,NAPLAN-Y4-READING-M3-Q22,Text 5,D,six,Reading Comprehension,Literal Recall,Easy,1,4.1309.2
+23,NAPLAN-Y4-READING-M3-Q23,Text 5,A,Nature makes amazing patterns without anyone drawing them.,Reading Comprehension,Theme,Medium,5,4.1309.3
+24,NAPLAN-Y4-READING-M3-Q24,Text 5,C,the bees' rooms and the snowflake,Reading Comprehension,Literal Recall,Medium,5,4.1309.4
+25,NAPLAN-Y4-READING-M3-Q25,Text 5,D,to contrast her effort and mistakes with nature's neat patterns,Reading Comprehension,Author Purpose,Hard,8,4.1309.5
+26,NAPLAN-Y4-READING-M3-Q26,Text 5,C,"In every stanza, the second and fourth lines rhyme.",Literary Techniques,Poetic Form,Hard,7,4.1309.6
+27,NAPLAN-Y4-READING-M3-Q27,Text 6,A,rocking the cradle,Reading Comprehension,Literal Recall,Easy,2,4.1327.1
+28,NAPLAN-Y4-READING-M3-Q28,Text 6,D,the second paragraph,Reading Comprehension,Locating Information,Easy,2,4.1327.2
+29,NAPLAN-Y4-READING-M3-Q29,Text 6,B,gloomy,Literary Techniques,Tone and Mood,Medium,4,4.1327.3
+30,NAPLAN-Y4-READING-M3-Q30,Text 6,B,Soon tired miners were lining up with coins in their hands.,Reading Comprehension,Locating Information,Medium,5,4.1327.4
+31,NAPLAN-Y4-READING-M3-Q31,Text 6,C,She wanted him to see for himself how much the bread had earned.,Inference,Character Motivation,Hard,7,4.1327.5
+32,NAPLAN-Y4-READING-M3-Q32,Text 6,D,The family had decided baking was a better way to earn money.,Inference,Inferential Reasoning,Hard,8,4.1327.6

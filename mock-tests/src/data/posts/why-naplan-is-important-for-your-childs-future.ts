@@ -223,12 +223,35 @@ export const whyNaplanIsImportantForYourChildsFuture = {
       </section>
 
     </article>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>Is NAPLAN a pass-or-fail exam?</h3>
+    <p>No. NAPLAN - the National Assessment Program - Literacy and Numeracy - is a standardised assessment sat by all Australian students in Years 3, 5, 7 and 9. It is designed to show where a student is tracking against national expectations rather than to rank or judge them, and no consequence attaches to a particular result.</p>
+
+    <h3>Does NAPLAN affect selective school or scholarship entry?</h3>
+    <p>NAPLAN is not itself a selection test. However, strong NAPLAN performance is often closely correlated with success in selective-entry exams and academic scholarships, and some schools ask for NAPLAN results as part of an application. Treat it as a foundation and a signal, not as a gate.</p>
+
+    <h3>Will NAPLAN just add stress for my child?</h3>
+    <p>This is one of the common concerns the guide addresses directly. Most of the stress comes from unfamiliarity and pressure rather than from the assessment itself. A child who already knows the format, the question types and the timing has far fewer surprises to manage, which is why calm, consistent practice is recommended over last-minute cramming.</p>
+
+    <h3>What is the most useful thing NAPLAN results tell me?</h3>
+    <p>Where the learning gaps are, and how your child is progressing over time. Because NAPLAN runs at four points across schooling it gives a longitudinal picture of growth that no single school report can provide. Use the results to ask your child's teacher specific questions rather than to compare your child with others.</p>
+
+    <h3>My child's school report is good - do we still need NAPLAN?</h3>
+    <p>School reports and NAPLAN measure different things. A report reflects work in one classroom against that school's expectations, while NAPLAN provides a national benchmark for literacy and numeracy. Reading the two together gives a fuller picture than either alone, and a good report does not rule out a specific gap that only a standardised comparison would reveal.</p>
+
+    <h3>Is NAPLAN just teaching to the test?</h3>
+    <p>This is another concern the guide addresses. NAPLAN assesses literacy and numeracy from the Australian Curriculum rather than a separate body of content, so preparation overlaps substantially with ordinary learning. The risk of narrowing arises from how preparation is run at home and school, not from the assessment itself.</p>
+
   `,
   image:
     "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Young student writing at a desk in a bright classroom with natural light",
-  date: "March 28, 2026",
+    "Young student writing at a desk in a bright classroom with natural light",  date: "December 26, 2026",
+  updatedDate: "December 28, 2026",
+  readingTime: 14,
+  category: "naplan",
   tags: [
     "NAPLAN",
     "PARENTS",
@@ -255,6 +278,13 @@ export const whyNaplanIsImportantForYourChildsFuture = {
     "how to use NAPLAN results",
     "NAPLAN parent guide Australia",
     "NAPLAN and child future",
+  ],
+  keyTakeaways: [
+    "NAPLAN is a diagnostic national assessment sat in Years 3, 5, 7 and 9 - not a pass-or-fail exam and not a ranking of a child's worth.",
+    "Its most valuable function is identifying learning gaps early, while there is still time to provide targeted support.",
+    "Four testing points across schooling give a longitudinal picture of growth that no single school report can provide.",
+    "NAPLAN is not a selection test, but strong performance correlates with success in selective-entry exams and academic scholarships.",
+    "Familiarity with the format, question types and timing reduces test anxiety far more than extra content cramming does.",
   ],
   author: {
     name: "Ashish Jain",

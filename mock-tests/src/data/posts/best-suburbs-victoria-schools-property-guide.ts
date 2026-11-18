@@ -812,12 +812,38 @@ export const topVictoriaSuburbsSchoolsPropertyGuide = {
       </section>
 
     </article>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>How were the suburbs ranked?</h3>
+    <p>Using school performance data (NAPLAN, VCE and school rankings) alongside median house prices. The guide sets out its methodology explicitly, including a note on data and limitations, and then groups suburbs into Tier 1 premier school suburbs, Tier 2 high-performing suburbs with strong value, and Tier 3 emerging and undervalued suburbs.</p>
+
+    <h3>Why do school zones affect property prices?</h3>
+    <p>Because of a feedback loop the guide describes in detail: families compete for addresses inside a high-performing zone, that demand lifts prices in the zone, rising prices then change the demographic buying there, and school results and reputation reinforce the cycle. The guide also quantifies Melbourne's school-zone premium with specific figures.</p>
+
+    <h3>Do select-entry schools change the calculation?</h3>
+    <p>Yes - they follow a different calculus entirely. Melbourne High School, Mac.Robertson Girls' High School, University High School and Prahran High School are discussed separately because entry is by examination rather than by residential address, so buying in a particular suburb does not secure a place.</p>
+
+    <h3>Is this guide useful for investors as well as families?</h3>
+    <p>It is written for both. There is a dedicated investment lens covering where school performance meets property growth, key investment metrics by suburb type, what the data suggests for investors, and a 'rising school' strategy that targets suburbs where school performance is improving before prices fully adjust.</p>
+
+    <h3>What should I check before buying in a school zone?</h3>
+    <p>Verify the zone boundary before you buy - it is the first of the guide's practical tips, because zone boundaries change and a street can sit outside a zone it appears to belong to. The practical tips section covers the rest of the process for families navigating school zones.</p>
+
+    <h3>How do I interpret the VCE and NAPLAN figures quoted?</h3>
+    <p>The guide includes quick-reference sections on understanding VCE scores and understanding NAPLAN scores, explaining what to look for in each. Read them before comparing suburbs, because raw figures are easy to misinterpret without knowing what they measure and what they omit.</p>
+
+    <h3>Does the guide cover regional Victoria?</h3>
+    <p>Yes. Alongside inner Melbourne, which is treated as a special case, there is a section on high-performing schools beyond Melbourne in regional Victoria, so the ranking is not limited to metropolitan suburbs.</p>
+
   `,
   image:
     "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Aerial view of a leafy Melbourne suburban streetscape with family homes and established trees",
-  date: "March 28, 2026",
+    "Aerial view of a leafy Melbourne suburban streetscape with family homes and established trees",  date: "August 10, 2026",
+  updatedDate: "August 12, 2026",
+  readingTime: 33,
+  category: "naplan",
   tags: [
     "PROPERTY",
     "SCHOOLS",
@@ -846,6 +872,13 @@ export const topVictoriaSuburbsSchoolsPropertyGuide = {
     "best suburbs for families Melbourne",
     "property investment school zones Victoria",
     "Better Education school rankings Victoria",
+  ],
+  keyTakeaways: [
+    "A data-driven ranking of Victorian suburbs by school performance and median house price, organised into three tiers plus inner Melbourne and regional Victoria.",
+    "School zones drive Victorian property prices through a feedback loop: demand for a zone lifts prices, which changes who can buy in.",
+    "Select-entry schools follow a different calculus from zoned schools, since they are not accessed by address.",
+    "The investment lens covers key metrics by suburb type and a 'rising school' strategy targeting improving performance before prices adjust.",
+    "Practical guidance includes verifying zone boundaries before buying, plus quick-reference explainers for VCE and NAPLAN scores.",
   ],
   author: {
     name: "Ashish Jain",

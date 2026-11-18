@@ -402,12 +402,35 @@ export const naplanYear3EnglishPreparationGuide = {
       </section>
 
     </article>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What does NAPLAN Year 3 English actually test?</h3>
+    <p>Three separate tests make up the English component: Reading, Writing, and Language Conventions (spelling, grammar and punctuation). Numeracy is assessed separately. This guide covers each part in turn - first what the test looks like, then how to build the underlying skill at home.</p>
+
+    <h3>What will my child be asked to write?</h3>
+    <p>NAPLAN Writing asks for a single written response to a prompt, which may be narrative or persuasive in form. The Writing test is completed on a separate platform from the other tests. What matters at Year 3 is a clear, developed response with correct basic punctuation and sentence structure rather than sophisticated technique.</p>
+
+    <h3>How do I build Year 3 reading skills at home?</h3>
+    <p>Through regular, low-pressure reading and talk about texts. Reading aloud together, discussing what happened and why characters acted as they did, and exposing your child to a variety of text types all build comprehension. The guide sets out specific activities rather than generic advice to read more.</p>
+
+    <h3>What mistakes do Year 3 students commonly make in English?</h3>
+    <p>The guide lists the common errors separately for Reading, Writing and Language Conventions, because they differ. Broadly they cluster around not reading questions carefully, under-developing a writing response, and inconsistent punctuation - particularly capital letters, full stops and apostrophes - rather than a lack of underlying ability.</p>
+
+    <h3>How much preparation is enough for a Year 3 child?</h3>
+    <p>Short, regular and positive. The sample weekly plan is built on consistency, variety and keeping sessions brief. For a child sitting NAPLAN for the first time, familiarity with the format and a calm attitude matter more than volume of practice.</p>
+
+    <h3>What if my child is finding English challenging?</h3>
+    <p>That is useful information rather than a cause for alarm. Identifying the specific area - reading comprehension, writing fluency, or conventions - lets you target it while there is still time. Keep the language casual, create a safe space for mistakes, celebrate effort and growth, and watch for signs of worry. Speak to your child's teacher and use the trusted resources listed in the guide.</p>
+
   `,
   image:
     "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Young child reading a colourful book with a parent in a bright, comfortable home setting",
-  date: "March 28, 2026",
+    "Young child reading a colourful book with a parent in a bright, comfortable home setting",  date: "November 5, 2026",
+  updatedDate: "November 7, 2026",
+  readingTime: 19,
+  category: "naplan",
   tags: [
     "NAPLAN",
     "YEAR 3",
@@ -432,6 +455,13 @@ export const naplanYear3EnglishPreparationGuide = {
     "Year 3 literacy",
     "NAPLAN spelling practice",
     "NAPLAN parent guide English",
+  ],
+  keyTakeaways: [
+    "NAPLAN Year 3 English covers three of the four tests: Reading, Writing, and Language Conventions (spelling, grammar and punctuation).",
+    "Each part is treated separately in this guide - what the test looks like, then how to build that skill at home.",
+    "The most common Year 3 mistakes are identified per test area, so preparation can target them directly.",
+    "A sample weekly plan built on consistency, variety and short positive sessions is more effective than cramming.",
+    "Emotional support is half the work: keep language casual, celebrate growth and effort, create a safe space for mistakes, and watch for signs of worry.",
   ],
   author: {
     name: "Ashish Jain",

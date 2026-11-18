@@ -171,11 +171,34 @@ export const naplanYear7Syllabus2026 = {
     <p>Explore our NAPLAN Year 7 practice tests, check out our topic-specific revision resources, and most importantly, remind your child every day that their effort, their curiosity, and their willingness to learn are what truly define success.</p>
 
     <p><strong>Together, we've absolutely got this.</strong></p>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>When is NAPLAN 2026 held for Year 7?</h3>
+    <p>NAPLAN has run in March since 2023, so the 2026 window falls in the second or third week of March depending on your state or territory. Your child's school confirms the exact dates. For Year 7 this often coincides with the secondary school transition, so settling in and testing can land close together.</p>
+
+    <h3>What does Year 7 NAPLAN cover?</h3>
+    <p>Four tests: Writing, Reading, Language Conventions (spelling, grammar and punctuation), and Numeracy, all drawn from the Australian Curriculum. Year 7 texts are longer and more complex than at Year 5, with more inference required in Reading and more multi-step problem solving in Numeracy.</p>
+
+    <h3>Is Year 7 NAPLAN online and adaptive?</h3>
+    <p>Yes. NAPLAN is delivered online with adaptive questioning, so difficulty adjusts to your child's responses. The Writing test is the exception and is completed on a separate platform. Adaptive delivery lets the assessment locate ability more precisely than a fixed paper would.</p>
+
+    <h3>What numeracy topics are tested at Year 7?</h3>
+    <p>Three Australian Curriculum strands: Number and Algebra, Measurement and Geometry, and Statistics and Probability. At Year 7 this includes integers, fractions decimals and percentages in combination, ratios and rates, simple algebraic expressions, angle and area relationships, and interpreting data displays.</p>
+
+    <h3>How are Year 7 results reported?</h3>
+    <p>Against four proficiency levels - Exceeding, Strong, Developing, and Needs Additional Support - rather than the old numbered bands. Year 7 is the third NAPLAN point, so the longitudinal trend across Years 3, 5 and 7 is usually more informative than the single result.</p>
+
+    <h3>How should preparation differ at Year 7?</h3>
+    <p>Respect growing independence. Structured practice with clear feedback works better than closely supervised drilling, and teenagers respond better to understanding why a technique works than to being told to repeat it. Familiarity with the online format and timed conditions still matters, but the balance should shift toward self-directed practice.</p>
+
   `,
   image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1200&q=80",
   imageAlt:
-    "A secondary school student working confidently at a desk with a laptop and textbooks, preparing for assessments",
-  date: "March 30, 2026",
+    "A secondary school student working confidently at a desk with a laptop and textbooks, preparing for assessments",  date: "November 29, 2026",
+  updatedDate: "December 1, 2026",
+  readingTime: 12,
+  category: "naplan",
   tags: ["NAPLAN", "YEAR 7", "NAPLAN PREPARATION", "SECONDARY SCHOOL", "LITERACY", "NUMERACY"],
   metaTitle: "NAPLAN Year 7 Syllabus 2026: Complete Guide for Parents",
   metaDescription:
@@ -195,6 +218,14 @@ export const naplanYear7Syllabus2026 = {
     "NAPLAN Year 7 secondary school",
     "how to prepare for NAPLAN Year 7",
     "NAPLAN Year 7 Australia",
+  ],
+  keyTakeaways: [
+    "Year 7 NAPLAN coincides with the secondary school transition and covers Writing, Reading, Language Conventions and Numeracy.",
+    "Testing takes place in the March window; NAPLAN moved from May in 2023.",
+    "Every test except Writing is online and adaptive, adjusting difficulty as your child answers.",
+    "Results are reported against four proficiency levels - Exceeding, Strong, Developing and Needs Additional Support - rather than the old Bands 1-10.",
+    "Numeracy spans three strands: Number and Algebra, Measurement and Geometry, and Statistics and Probability.",
+    "Preparation works best when it respects growing independence: structured practice with feedback beats supervision-heavy drilling.",
   ],
   author: {
     name: "The Exam Success Team",

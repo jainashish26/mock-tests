@@ -632,11 +632,34 @@ export const commonWritingMistakes = {
     <p>The goal is not perfection — it is <strong>awareness</strong>. When you know what to look for, you can catch it. When you can catch it, you can fix it. And when you can fix it, your writing speaks with the clarity, precision, and confidence that earns the marks your ideas deserve.</p>
 
     <p><strong>Write clearly. Edit ruthlessly. Improve constantly.</strong></p>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>Why do writing mistakes cost so many marks?</h3>
+    <p>Because most of them are avoidable errors rather than missing ability. The guide opens with why mistakes lead to easy loss of marks and why knowing what not to do matters: a student who writes a sound argument but fragments sentences, drifts in tense and buries the point loses marks across several criteria at once, without the underlying thinking being weak.</p>
+
+    <h3>Which grammar mistakes are most common in Years 7 and 8?</h3>
+    <p>Sentence fragments (incomplete sentences), subject-verb agreement errors, incorrect plural forms, confusing plurals with possessives through apostrophe misuse, incorrect comma usage, comma splices, and weak or missing compound sentences. Each has its own explanation and worked examples in the grammar section.</p>
+
+    <h3>Should essays be written in past or present tense?</h3>
+    <p>It depends on what you are writing about, and mixing the two is the error. The guide covers using past tense instead of literary present tense - when discussing a text, the literary present is generally expected - alongside inconsistent tense usage within a piece and incorrect perspective in non-fiction writing.</p>
+
+    <h3>Is passive voice always wrong?</h3>
+    <p>No. The guide separates what passive voice is, why overusing it is a problem in student writing, and when it is genuinely appropriate. The issue is that passive constructions often hide who is doing what - 'mistakes were made' leaves the agent unnamed - and they read as flat and distant compared with active sentences.</p>
+
+    <h3>What is indirect writing and why does it lose marks?</h3>
+    <p>It means burying the main point at the end of a paragraph, or writing around an idea instead of stating it. Markers reward a clear claim made early and then supported. The guide has a section on how to fix indirect writing, along with the related problem of failing to state ideas at the beginning of paragraphs.</p>
+
+    <h3>How should my child use the editing checklist?</h3>
+    <p>As a final pass before submission, not while drafting. The quick-reference checklist at the end of the guide condenses all eleven categories into a repeatable routine, and the section on editing and proofreading awareness explains why reviewing a finished draft catches errors that are invisible while writing.</p>
+
   `,
   image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1200&q=80",
   imageAlt:
-    "A student reviewing handwritten notes and draft essay with a red pen, representing the process of editing and correcting common writing mistakes",
-  date: "March 30, 2026",
+    "A student reviewing handwritten notes and draft essay with a red pen, representing the process of editing and correcting common writing mistakes",  date: "August 16, 2026",
+  updatedDate: "August 18, 2026",
+  readingTime: 29,
+  category: "english-writing",
   tags: ["WRITING SKILLS", "GRAMMAR", "ESSAY WRITING", "ENGLISH TIPS", "STUDY GUIDE"],
   metaTitle: "Common Writing Mistakes: Complete Guide for Students",
   metaDescription:
@@ -658,6 +681,13 @@ export const commonWritingMistakes = {
     "proofreading tips",
     "Years 7 8 English writing",
     "NAPLAN writing errors",
+  ],
+  keyTakeaways: [
+    "Eleven categories of mistake are covered, from grammar and tense errors to paragraph development, transitions and proofreading.",
+    "Knowing what not to do recovers marks faster than learning new techniques - most losses are avoidable errors, not missing skill.",
+    "The grammar section covers sentence fragments, subject-verb agreement, plural forms, apostrophe misuse, comma usage and comma splices.",
+    "Indirect writing - burying the point at the end of a paragraph or writing around an idea - is treated as a distinct and very common fault.",
+    "An editing checklist at the end turns the whole guide into a repeatable pre-submission routine.",
   ],
   author: {
     name: "Ashish Jain",

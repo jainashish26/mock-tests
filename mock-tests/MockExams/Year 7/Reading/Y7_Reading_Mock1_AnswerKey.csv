@@ -1,0 +1,43 @@
+﻿QuestionNumber,QuestionID,ExamSection,Correct,CorrectAnswerText,Topic,SubTopic,DifficultyLabel,DifficultyScore,SourceQuestionNumber
+1,NAPLAN-Y7-READING-M1-Q01,Text 1,B,purify the air.,Inference,Inferential Reasoning,Medium,4,7.821.1
+2,NAPLAN-Y7-READING-M1-Q02,Text 1,D,Certain plants can purify the home of many harmful chemicals.,Reading Comprehension,Main Idea,Medium,4,7.821.2
+3,NAPLAN-Y7-READING-M1-Q03,Text 1,C,contribute to a syndrome called Multiple Chemical Sensitivity.,Reading Comprehension,Literal Recall,Easy,3,7.821.3
+4,NAPLAN-Y7-READING-M1-Q04,Text 1,A,has only been conducted using specific plants.,Reading Comprehension,Locating Information,Medium,4,7.821.4
+5,NAPLAN-Y7-READING-M1-Q05,Text 1,C,Common Houseplants May Purify Your Home.,Reading Comprehension,Main Idea,Easy,2,7.821.5
+6,NAPLAN-Y7-READING-M1-Q06,Text 2,D,It shifts from annoyed to surprised.,Inference,Character Motivation,Easy,3,7.851.1
+7,NAPLAN-Y7-READING-M1-Q07,Text 2,A,"""After that . . . he would find a way out. There had to be one somewhere."" (paragraph 1)",Inference,Inferential Reasoning,Medium,4,7.851.2
+8,NAPLAN-Y7-READING-M1-Q08,Text 2,A,He is aware that dangers may still await him.,Inference,Character Motivation,Medium,5,7.851.3
+9,NAPLAN-Y7-READING-M1-Q09,Text 2,C,It creates suspense as the reader wonders if something will go wrong for Aleks.,Literary Techniques,Tone and Mood,Medium,4,7.851.4
+10,NAPLAN-Y7-READING-M1-Q10,Text 2,B,Aleks has a plan that is based on the army's routines.,Reading Comprehension,Main Idea,Easy,3,7.851.5
+11,NAPLAN-Y7-READING-M1-Q11,Text 2,A,Overconfidence can lead to carelessness.,Reading Comprehension,Theme,Medium,4,7.851.6
+12,NAPLAN-Y7-READING-M1-Q12,Text 2,B,Aleks finds an Anglyan journal in a secret compartment in Shulga's office.,Reading Comprehension,Summarising,Medium,6,7.851.7
+13,NAPLAN-Y7-READING-M1-Q13,Text 3,A,WAIT,Reading Comprehension,Literal Recall,Easy,1,7.1576.1
+14,NAPLAN-Y7-READING-M1-Q14,Text 3,A,nymphs,Reading Comprehension,Literal Recall,Easy,1,7.1576.2
+15,NAPLAN-Y7-READING-M1-Q15,Text 3,D,from dull waiting to excited wonder,Literary Techniques,Tone and Mood,Medium,4,7.1576.3
+16,NAPLAN-Y7-READING-M1-Q16,Text 3,C,to create a moment of surprise before the hatching is explained,Reading Comprehension,Text Structure,Medium,4,7.1576.4
+17,NAPLAN-Y7-READING-M1-Q17,Text 3,D,to suggest that the lesson about patience has stayed with the class,Reading Comprehension,Author Purpose,Hard,8,7.1576.5
+18,NAPLAN-Y7-READING-M1-Q18,Text 3,C,"The weather had warmed up, just as Mr Okafor had said it would need to.",Inference,Cause and Effect,Hard,7,7.1576.6
+19,NAPLAN-Y7-READING-M1-Q19,Text 4,C,nine balsa logs tied together with rope,Reading Comprehension,Literal Recall,Easy,1,7.1491.1
+20,NAPLAN-Y7-READING-M1-Q20,Text 4,D,on a coral reef near the island of Raroia,Reading Comprehension,Literal Recall,Easy,2,7.1491.2
+21,NAPLAN-Y7-READING-M1-Q21,Text 4,D,so that the voyage would be a fair test of his idea,Inference,Inferential Reasoning,Medium,4,7.1491.3
+22,NAPLAN-Y7-READING-M1-Q22,Text 4,A,confident and gloomy,Literary Techniques,Tone and Mood,Medium,5,7.1491.4
+23,NAPLAN-Y7-READING-M1-Q23,Text 4,A,The experts' warnings mostly proved wrong as the raft drifted steadily west.,Reading Comprehension,Summarising,Hard,7,7.1491.5
+24,NAPLAN-Y7-READING-M1-Q24,Text 4,C,to show the voyage's popular success before explaining its scientific limits,Reading Comprehension,Main Idea,Hard,8,7.1491.6
+25,NAPLAN-Y7-READING-M1-Q25,Text 5,D,Dad's jobs usually take much longer than he says,Inference,Inferential Reasoning,Easy,2,7.1492.1
+26,NAPLAN-Y7-READING-M1-Q26,Text 5,D,doubtfully,Vocabulary,Antonyms,Easy,2,7.1492.2
+27,NAPLAN-Y7-READING-M1-Q27,Text 5,A,two hours and ten minutes,Reading Comprehension,Literal Recall,Medium,5,7.1492.3
+28,NAPLAN-Y7-READING-M1-Q28,Text 5,C,The back panel was first put on upside down.,Reading Comprehension,Literal Recall,Medium,4,7.1492.4
+29,NAPLAN-Y7-READING-M1-Q29,Text 5,C,"It creates a thudding, step-by-step rhythm, like shelves falling one after another.",Literary Techniques,Sound Devices,Hard,8,7.1492.5
+30,NAPLAN-Y7-READING-M1-Q30,Text 5,B,The pegs Dad called spares were meant to hold the shelves up.,Inference,Drawing Conclusions,Hard,7,7.1492.6
+31,NAPLAN-Y7-READING-M1-Q31,Text 6,B,her bike helmet with cable ties,Reading Comprehension,Literal Recall,Easy,2,7.1532.1
+32,NAPLAN-Y7-READING-M1-Q32,Text 6,C,it was protecting its mate and eggs,Reading Comprehension,Literal Recall,Easy,2,7.1532.2
+33,NAPLAN-Y7-READING-M1-Q33,Text 6,A,irritated,Inference,Interpreting Feelings,Medium,4,7.1532.3
+34,NAPLAN-Y7-READING-M1-Q34,Text 6,B,not disturbed or worried,Vocabulary,Word Origins and Morphology,Medium,4,7.1532.4
+35,NAPLAN-Y7-READING-M1-Q35,Text 6,A,"with its chick now out of the nest, it no longer saw her as a threat",Inference,Inferential Reasoning,Hard,8,7.1532.5
+36,NAPLAN-Y7-READING-M1-Q36,Text 6,C,she has come to enjoy what the detour shows her,Inference,Character Motivation,Hard,8,7.1532.6
+37,NAPLAN-Y7-READING-M1-Q37,Text 7,A,the person's throw,Reading Comprehension,Literal Recall,Easy,2,7.1517.1
+38,NAPLAN-Y7-READING-M1-Q38,Text 7,C,fold the new slanted edges in to the centre crease,Reading Comprehension,Sequencing,Easy,2,7.1517.2
+39,NAPLAN-Y7-READING-M1-Q39,Text 7,D,making small adjustments to improve the flight,Vocabulary,Word Meaning in Context,Medium,4,7.1517.3
+40,NAPLAN-Y7-READING-M1-Q40,Text 7,C,it slowly loses height because nothing keeps pushing it forward,Inference,Inferential Reasoning,Medium,5,7.1517.4
+41,NAPLAN-Y7-READING-M1-Q41,Text 7,B,"remove the paper clip, as it has made the nose too heavy",Inference,Inferential Reasoning,Hard,8,7.1517.5
+42,NAPLAN-Y7-READING-M1-Q42,Text 7,B,Patient testing and careful changes lead to success over time.,Reading Comprehension,Theme,Hard,7,7.1517.6

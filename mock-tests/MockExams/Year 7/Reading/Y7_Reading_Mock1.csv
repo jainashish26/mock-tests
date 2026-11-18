@@ -1,0 +1,747 @@
+﻿QuestionID,ExamID,ExamType,ExamSection,YearLevel,Subject,Topic,SubTopic,QuestionType,ComprehensionText,QuestionText,QuestionMedia,Correct,AnswerA,AnswerB,AnswerC,AnswerD,AnswerE,Difficulty,IsActive,CorrectAnswerScore,Tags,SourceBank,SourceQuestionNumber,SourceComprehensionID,NAPLANFlag,DifficultyScore,DifficultyLabel
+NAPLAN-Y7-READING-M1-Q01,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 1,7,English,Inference,Inferential Reasoning,ReadingComprehension,"During those barren winter months, with windows overlooking longdead gardens, leafless trees, and lawns that seem to have an ashy look about them, nothing soothes the jangled nerves more than the vibrant green of plants surrounding the living spaces of one's home. People browse through garden stores just to get a whiff of chlorophyll and to choose a plant or two to bring spring back into their winter-gray lives.
+
+Now there is even more of a need for ""the green,"" in light of recent articles warning us of the hazards of chemicals that we, ourselves, introduce into our homes. Each time we bring clothes home from the cleaners, we release those chemicals into the closed-in air of our dwellings. Every cleanser releases its own assortment of fumes. Some of the chemicals are formaldehyde, chlorine, benzene, styrene, etc. Read the labels on many home products, the ingredients aren't even listed! During the winter, when those same windows are shut tight, we breathe in these chemicals—causing symptoms much like allergies. In fact, most people probably dismiss the effects of these chemicals simply as a flare up of some allergy or other. The truth is that we are experiencing a syndrome that is called Multiple Chemical Sensitivity. Now, what has this got to do with green plants? Everything healthy! Research has been conducted with two types of plants that have actually removed much of these harmful chemicals from the air.
+
+The two plants that seem to be the best bet for ridding one's home of such chemicals are ferns and palms. These plants release moisture as part of photosynthesis and, as they do, pull chemicals from the air into their leaves. Even NASA has conducted some greenhouse experiments for long-term space exploration. Within hours, their plants [palms] had removed almost all traces of formaldehyde in the room. Both species of plants are ancient, dating back more than a hundred million years. Another trait they share is that they both live long lives, 100 years or more. This we expect from trees, but ferns and palms are plants; plants that can grow to 65 feet in the proper setting! Even their individual leaves live for one to two years [ferns] and one to nine years [palms]. Perhaps it is their primal qualities that have contributed to their ability to purify their environment.",The passage infers a relationship between the antiquity of ferns and palms and their ability to,,B,live long.,purify the air.,grow leaves that live long.,react successfully in research experiments.,,2,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.821.1,34,1,4,Medium
+NAPLAN-Y7-READING-M1-Q02,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 1,7,English,Reading Comprehension,Main Idea,ReadingComprehension,"During those barren winter months, with windows overlooking longdead gardens, leafless trees, and lawns that seem to have an ashy look about them, nothing soothes the jangled nerves more than the vibrant green of plants surrounding the living spaces of one's home. People browse through garden stores just to get a whiff of chlorophyll and to choose a plant or two to bring spring back into their winter-gray lives.
+
+Now there is even more of a need for ""the green,"" in light of recent articles warning us of the hazards of chemicals that we, ourselves, introduce into our homes. Each time we bring clothes home from the cleaners, we release those chemicals into the closed-in air of our dwellings. Every cleanser releases its own assortment of fumes. Some of the chemicals are formaldehyde, chlorine, benzene, styrene, etc. Read the labels on many home products, the ingredients aren't even listed! During the winter, when those same windows are shut tight, we breathe in these chemicals—causing symptoms much like allergies. In fact, most people probably dismiss the effects of these chemicals simply as a flare up of some allergy or other. The truth is that we are experiencing a syndrome that is called Multiple Chemical Sensitivity. Now, what has this got to do with green plants? Everything healthy! Research has been conducted with two types of plants that have actually removed much of these harmful chemicals from the air.
+
+The two plants that seem to be the best bet for ridding one's home of such chemicals are ferns and palms. These plants release moisture as part of photosynthesis and, as they do, pull chemicals from the air into their leaves. Even NASA has conducted some greenhouse experiments for long-term space exploration. Within hours, their plants [palms] had removed almost all traces of formaldehyde in the room. Both species of plants are ancient, dating back more than a hundred million years. Another trait they share is that they both live long lives, 100 years or more. This we expect from trees, but ferns and palms are plants; plants that can grow to 65 feet in the proper setting! Even their individual leaves live for one to two years [ferns] and one to nine years [palms]. Perhaps it is their primal qualities that have contributed to their ability to purify their environment.",What is the main idea of the passage?,,D,Our homes are full of contaminants.,Our allergies are caused by chemicals found in the home.,All plants release moisture in the home.,Certain plants can purify the home of many harmful chemicals.,,2,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.821.2,34,1,4,Medium
+NAPLAN-Y7-READING-M1-Q03,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 1,7,English,Reading Comprehension,Literal Recall,ReadingComprehension,"During those barren winter months, with windows overlooking longdead gardens, leafless trees, and lawns that seem to have an ashy look about them, nothing soothes the jangled nerves more than the vibrant green of plants surrounding the living spaces of one's home. People browse through garden stores just to get a whiff of chlorophyll and to choose a plant or two to bring spring back into their winter-gray lives.
+
+Now there is even more of a need for ""the green,"" in light of recent articles warning us of the hazards of chemicals that we, ourselves, introduce into our homes. Each time we bring clothes home from the cleaners, we release those chemicals into the closed-in air of our dwellings. Every cleanser releases its own assortment of fumes. Some of the chemicals are formaldehyde, chlorine, benzene, styrene, etc. Read the labels on many home products, the ingredients aren't even listed! During the winter, when those same windows are shut tight, we breathe in these chemicals—causing symptoms much like allergies. In fact, most people probably dismiss the effects of these chemicals simply as a flare up of some allergy or other. The truth is that we are experiencing a syndrome that is called Multiple Chemical Sensitivity. Now, what has this got to do with green plants? Everything healthy! Research has been conducted with two types of plants that have actually removed much of these harmful chemicals from the air.
+
+The two plants that seem to be the best bet for ridding one's home of such chemicals are ferns and palms. These plants release moisture as part of photosynthesis and, as they do, pull chemicals from the air into their leaves. Even NASA has conducted some greenhouse experiments for long-term space exploration. Within hours, their plants [palms] had removed almost all traces of formaldehyde in the room. Both species of plants are ancient, dating back more than a hundred million years. Another trait they share is that they both live long lives, 100 years or more. This we expect from trees, but ferns and palms are plants; plants that can grow to 65 feet in the proper setting! Even their individual leaves live for one to two years [ferns] and one to nine years [palms]. Perhaps it is their primal qualities that have contributed to their ability to purify their environment.","According to the passage, when a few harmful chemicals combine, they can",,C,cause us to experience allergies.,cause a monumental task for homeowners.,contribute to a syndrome called Multiple Chemical Sensitivity.,contribute to photosynthesis in plants.,,2,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.821.3,34,1,3,Easy
+NAPLAN-Y7-READING-M1-Q04,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 1,7,English,Reading Comprehension,Locating Information,ReadingComprehension,"During those barren winter months, with windows overlooking longdead gardens, leafless trees, and lawns that seem to have an ashy look about them, nothing soothes the jangled nerves more than the vibrant green of plants surrounding the living spaces of one's home. People browse through garden stores just to get a whiff of chlorophyll and to choose a plant or two to bring spring back into their winter-gray lives.
+
+Now there is even more of a need for ""the green,"" in light of recent articles warning us of the hazards of chemicals that we, ourselves, introduce into our homes. Each time we bring clothes home from the cleaners, we release those chemicals into the closed-in air of our dwellings. Every cleanser releases its own assortment of fumes. Some of the chemicals are formaldehyde, chlorine, benzene, styrene, etc. Read the labels on many home products, the ingredients aren't even listed! During the winter, when those same windows are shut tight, we breathe in these chemicals—causing symptoms much like allergies. In fact, most people probably dismiss the effects of these chemicals simply as a flare up of some allergy or other. The truth is that we are experiencing a syndrome that is called Multiple Chemical Sensitivity. Now, what has this got to do with green plants? Everything healthy! Research has been conducted with two types of plants that have actually removed much of these harmful chemicals from the air.
+
+The two plants that seem to be the best bet for ridding one's home of such chemicals are ferns and palms. These plants release moisture as part of photosynthesis and, as they do, pull chemicals from the air into their leaves. Even NASA has conducted some greenhouse experiments for long-term space exploration. Within hours, their plants [palms] had removed almost all traces of formaldehyde in the room. Both species of plants are ancient, dating back more than a hundred million years. Another trait they share is that they both live long lives, 100 years or more. This we expect from trees, but ferns and palms are plants; plants that can grow to 65 feet in the proper setting! Even their individual leaves live for one to two years [ferns] and one to nine years [palms]. Perhaps it is their primal qualities that have contributed to their ability to purify their environment.",The passage indicates that research,,A,has only been conducted using specific plants.,has only been conducted by NASA.,has not identified the sources of these chemical impurities.,has only benefited long term space exploration.,,2,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.821.4,34,1,4,Medium
+NAPLAN-Y7-READING-M1-Q05,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 1,7,English,Reading Comprehension,Main Idea,ReadingComprehension,"During those barren winter months, with windows overlooking longdead gardens, leafless trees, and lawns that seem to have an ashy look about them, nothing soothes the jangled nerves more than the vibrant green of plants surrounding the living spaces of one's home. People browse through garden stores just to get a whiff of chlorophyll and to choose a plant or two to bring spring back into their winter-gray lives.
+
+Now there is even more of a need for ""the green,"" in light of recent articles warning us of the hazards of chemicals that we, ourselves, introduce into our homes. Each time we bring clothes home from the cleaners, we release those chemicals into the closed-in air of our dwellings. Every cleanser releases its own assortment of fumes. Some of the chemicals are formaldehyde, chlorine, benzene, styrene, etc. Read the labels on many home products, the ingredients aren't even listed! During the winter, when those same windows are shut tight, we breathe in these chemicals—causing symptoms much like allergies. In fact, most people probably dismiss the effects of these chemicals simply as a flare up of some allergy or other. The truth is that we are experiencing a syndrome that is called Multiple Chemical Sensitivity. Now, what has this got to do with green plants? Everything healthy! Research has been conducted with two types of plants that have actually removed much of these harmful chemicals from the air.
+
+The two plants that seem to be the best bet for ridding one's home of such chemicals are ferns and palms. These plants release moisture as part of photosynthesis and, as they do, pull chemicals from the air into their leaves. Even NASA has conducted some greenhouse experiments for long-term space exploration. Within hours, their plants [palms] had removed almost all traces of formaldehyde in the room. Both species of plants are ancient, dating back more than a hundred million years. Another trait they share is that they both live long lives, 100 years or more. This we expect from trees, but ferns and palms are plants; plants that can grow to 65 feet in the proper setting! Even their individual leaves live for one to two years [ferns] and one to nine years [palms]. Perhaps it is their primal qualities that have contributed to their ability to purify their environment.",A good title for this passage is,,C,Research in the New Millennium.,Home Dangers.,Common Houseplants May Purify Your Home.,NASA Experiment Finds the Cure.,,1,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.821.5,34,1,2,Easy
+NAPLAN-Y7-READING-M1-Q06,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 2,7,English,Inference,Character Motivation,ReadingComprehension,"Read this story. Then answer questions 29 through 35.
+
+In a faraway kingdom called Tellus, Aleks signs up for the army. Then he finds out what a dishonest and brutal place it is.
+
+Excerpt from The Almost King by Lucy Saxon
+
+1 Slinging his light saddlebag over his shoulders and swallowing his cry of pain at the movement, he pulled his hat low over his forehead and made for the door. He needed his enlistment forms from Shulga's office; if he could find and destroy them, the army would have no record of him enlisting. Even if he did get caught after escaping—provided he escaped in the first place—there would be no proof that he was a cadet.^1 Then all he had to do was reach the stables and get Quicksilver before anyone on the dinner shift noticed what he was doing. After that . . . he would find a way out. There had to be one somewhere. . . .
+
+2 There were no guards at the door; the barracks^2 was down to a skeleton guard for the dinner shift. Aleks silently retraced his steps from earlier in the day, making his way towards Antova's office. His eyes raced over every door's nameplate, frowning when none of them was the office he was looking for. He was incredibly short on time; he had to be on Quicksilver and heading for freedom before dinner ended.
+
+3 Finally, he saw it. Lt. Shulga was embossed on a nameplate three doors down from Antova's. Luckily, the door was unlocked and the room empty; Shulga had obviously gone straight from the time-out room to dinner. The office was decorated in the same way as Antova's, in blue and dark brown, with a large map of Tellus on the wall instead of the royal crest the commander displayed. Darting across to a metal filing cabinet that took up most of one wall, Aleks wrenched open a drawer at random, ignoring the searing ache in his arms. Again, unlocked. Clearly Shulga was too cocky to think anyone would dare snoop around his office.
+
+4 The drawer was full of neatly filed enlistment forms in alphabetical order; F–J. Aleks's form would come under V. Shutting the drawer, he reached for the next one, perplexed to find it containing M–P. The drawer after that didn't contain enlistment forms at all, but instead held a large stack of account books. Shulga didn't seem to have any sort of system whatsoever; how did he ever find anything he needed?
+
+Page 2 Session 2
+
+5 Growling in frustration, Aleks began to open multiple drawers at a time, rifling through stacks of papers and leather-bound books, his desperation growing with every unsuccessful attempt. Digging through a drawer of miscellaneous files and books closest to the desk, his fingers scrabbled at the bottom of the drawer and it tilted a fraction, sending three stacked files slumping against a small metal box. 'What the . . .' He trailed off, pressing harder on the base of the drawer, watching it dip under his fingers. The drawer had a false bottom!
+
+6 Aleks glanced at the clock; he knew he shouldn't, but he'd always been the curious type. Emptying the drawer, he dug his nails under one side of the fake bottom, prising it up. The secret compartment was fairly narrow, containing only a thin file of papers and a battered leather journal. It was the journal that caught Aleks's eye, for it had the Anglyan crest embossed in one corner of the cover. What on Tellus was Shulga doing with an Anglyan journal? . . .
+
+7 A door slamming somewhere in the building startled him out of his horrified trance, and a quick look at the clock nearly gave Aleks a heart attack. He barely had ten minutes until the end of dinner!
+
+8 Stuffing the journal in an inner pocket of his coat, he hastily replaced the drawer's false bottom and contents, shutting it as quietly as he could. Tugging on the two drawers he had yet to check, he swore under his breath. Neither of them contained a V section, and Aleks felt dread creep over him at the realization that his file was likely elsewhere. He didn't have the time to search any other rooms. Out of options, he straightened up, shoving all the cabinet drawers shut and sprinting for the door.
+
+9 A quick glance through the glass panel showed the corridor to be empty, so Aleks slipped from the room.
+
+10 Bursting through the door of the building, he turned for the stables, slowing his pace once he hit the cobblestone path, just in case anyone happened to look his way. There was nothing more suspicious than a lone cadet running.
+
+11 While there was supposed to be at least one stablehand in the building at all times, Aleks couldn't see a single soul in the stables. Perfect. Hurrying to the tack^3 room, he easily found Quicksilver's saddle and bridle, though carrying the heavy items in his current state nearly sent him crumpling to the floor. Still, he forced himself to ignore the pain, hefting the tack across the room towards Quicksilver's stall. Session 2 Page 3
+
+12 The horse whinnied when he saw the tack, knowing what it meant. Aleks shushed him, slinging the saddle on the door and slipping inside, easing the bridle on to the horse's head. Tossing the saddle on Quicksilver's back, he fastened it tightly and slung the saddlebag over the horse's rear, buckling it swiftly. He grabbed the reins, running to press Quicksilver's nose to his chest for a brief moment. 'We need to be quiet, boy. No getting excited.' ____ cadet: new member of the armed services 1 barracks: place where soldiers sleep 2 tack: stable gear such as saddles and bridles 3",How does Aleks's attitude change in paragraph 5?,,D,It shifts from exhausted to curious.,It shifts from panicked to confident.,It shifts from distracted to focused.,It shifts from annoyed to surprised.,,2,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.851.1,64,1,3,Easy
+NAPLAN-Y7-READING-M1-Q07,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 2,7,English,Inference,Inferential Reasoning,ReadingComprehension,"Read this story. Then answer questions 29 through 35.
+
+In a faraway kingdom called Tellus, Aleks signs up for the army. Then he finds out what a dishonest and brutal place it is.
+
+Excerpt from The Almost King by Lucy Saxon
+
+1 Slinging his light saddlebag over his shoulders and swallowing his cry of pain at the movement, he pulled his hat low over his forehead and made for the door. He needed his enlistment forms from Shulga's office; if he could find and destroy them, the army would have no record of him enlisting. Even if he did get caught after escaping—provided he escaped in the first place—there would be no proof that he was a cadet.^1 Then all he had to do was reach the stables and get Quicksilver before anyone on the dinner shift noticed what he was doing. After that . . . he would find a way out. There had to be one somewhere. . . .
+
+2 There were no guards at the door; the barracks^2 was down to a skeleton guard for the dinner shift. Aleks silently retraced his steps from earlier in the day, making his way towards Antova's office. His eyes raced over every door's nameplate, frowning when none of them was the office he was looking for. He was incredibly short on time; he had to be on Quicksilver and heading for freedom before dinner ended.
+
+3 Finally, he saw it. Lt. Shulga was embossed on a nameplate three doors down from Antova's. Luckily, the door was unlocked and the room empty; Shulga had obviously gone straight from the time-out room to dinner. The office was decorated in the same way as Antova's, in blue and dark brown, with a large map of Tellus on the wall instead of the royal crest the commander displayed. Darting across to a metal filing cabinet that took up most of one wall, Aleks wrenched open a drawer at random, ignoring the searing ache in his arms. Again, unlocked. Clearly Shulga was too cocky to think anyone would dare snoop around his office.
+
+4 The drawer was full of neatly filed enlistment forms in alphabetical order; F–J. Aleks's form would come under V. Shutting the drawer, he reached for the next one, perplexed to find it containing M–P. The drawer after that didn't contain enlistment forms at all, but instead held a large stack of account books. Shulga didn't seem to have any sort of system whatsoever; how did he ever find anything he needed?
+
+Page 2 Session 2
+
+5 Growling in frustration, Aleks began to open multiple drawers at a time, rifling through stacks of papers and leather-bound books, his desperation growing with every unsuccessful attempt. Digging through a drawer of miscellaneous files and books closest to the desk, his fingers scrabbled at the bottom of the drawer and it tilted a fraction, sending three stacked files slumping against a small metal box. 'What the . . .' He trailed off, pressing harder on the base of the drawer, watching it dip under his fingers. The drawer had a false bottom!
+
+6 Aleks glanced at the clock; he knew he shouldn't, but he'd always been the curious type. Emptying the drawer, he dug his nails under one side of the fake bottom, prising it up. The secret compartment was fairly narrow, containing only a thin file of papers and a battered leather journal. It was the journal that caught Aleks's eye, for it had the Anglyan crest embossed in one corner of the cover. What on Tellus was Shulga doing with an Anglyan journal? . . .
+
+7 A door slamming somewhere in the building startled him out of his horrified trance, and a quick look at the clock nearly gave Aleks a heart attack. He barely had ten minutes until the end of dinner!
+
+8 Stuffing the journal in an inner pocket of his coat, he hastily replaced the drawer's false bottom and contents, shutting it as quietly as he could. Tugging on the two drawers he had yet to check, he swore under his breath. Neither of them contained a V section, and Aleks felt dread creep over him at the realization that his file was likely elsewhere. He didn't have the time to search any other rooms. Out of options, he straightened up, shoving all the cabinet drawers shut and sprinting for the door.
+
+9 A quick glance through the glass panel showed the corridor to be empty, so Aleks slipped from the room.
+
+10 Bursting through the door of the building, he turned for the stables, slowing his pace once he hit the cobblestone path, just in case anyone happened to look his way. There was nothing more suspicious than a lone cadet running.
+
+11 While there was supposed to be at least one stablehand in the building at all times, Aleks couldn't see a single soul in the stables. Perfect. Hurrying to the tack^3 room, he easily found Quicksilver's saddle and bridle, though carrying the heavy items in his current state nearly sent him crumpling to the floor. Still, he forced himself to ignore the pain, hefting the tack across the room towards Quicksilver's stall. Session 2 Page 3
+
+12 The horse whinnied when he saw the tack, knowing what it meant. Aleks shushed him, slinging the saddle on the door and slipping inside, easing the bridle on to the horse's head. Tossing the saddle on Quicksilver's back, he fastened it tightly and slung the saddlebag over the horse's rear, buckling it swiftly. He grabbed the reins, running to press Quicksilver's nose to his chest for a brief moment. 'We need to be quiet, boy. No getting excited.' ____ cadet: new member of the armed services 1 barracks: place where soldiers sleep 2 tack: stable gear such as saddles and bridles 3","The saying ""Don't let anything stop you"" is an encouragement to pursue and achieve a goal despite 33 obstacles. Which quotation from the story best reflects this idea?",,A,"""After that . . . he would find a way out. There had to be one somewhere."" (paragraph 1)","""Luckily, the door was unlocked and the room empty; Shulga had obviously gone straight B from the time-out room to dinner."" (paragraph 3)","""Aleks glanced at the clock; he knew he shouldn't, but he'd always been the curious type."" C (paragraph 6)","""A quick glance through the glass panel showed the corridor to be empty, so Aleks D slipped from the room."" (paragraph 9)",,2,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.851.2,64,2,4,Medium
+NAPLAN-Y7-READING-M1-Q08,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 2,7,English,Inference,Character Motivation,ReadingComprehension,"Read this story. Then answer questions 29 through 35.
+
+In a faraway kingdom called Tellus, Aleks signs up for the army. Then he finds out what a dishonest and brutal place it is.
+
+Excerpt from The Almost King by Lucy Saxon
+
+1 Slinging his light saddlebag over his shoulders and swallowing his cry of pain at the movement, he pulled his hat low over his forehead and made for the door. He needed his enlistment forms from Shulga's office; if he could find and destroy them, the army would have no record of him enlisting. Even if he did get caught after escaping—provided he escaped in the first place—there would be no proof that he was a cadet.^1 Then all he had to do was reach the stables and get Quicksilver before anyone on the dinner shift noticed what he was doing. After that . . . he would find a way out. There had to be one somewhere. . . .
+
+2 There were no guards at the door; the barracks^2 was down to a skeleton guard for the dinner shift. Aleks silently retraced his steps from earlier in the day, making his way towards Antova's office. His eyes raced over every door's nameplate, frowning when none of them was the office he was looking for. He was incredibly short on time; he had to be on Quicksilver and heading for freedom before dinner ended.
+
+3 Finally, he saw it. Lt. Shulga was embossed on a nameplate three doors down from Antova's. Luckily, the door was unlocked and the room empty; Shulga had obviously gone straight from the time-out room to dinner. The office was decorated in the same way as Antova's, in blue and dark brown, with a large map of Tellus on the wall instead of the royal crest the commander displayed. Darting across to a metal filing cabinet that took up most of one wall, Aleks wrenched open a drawer at random, ignoring the searing ache in his arms. Again, unlocked. Clearly Shulga was too cocky to think anyone would dare snoop around his office.
+
+4 The drawer was full of neatly filed enlistment forms in alphabetical order; F–J. Aleks's form would come under V. Shutting the drawer, he reached for the next one, perplexed to find it containing M–P. The drawer after that didn't contain enlistment forms at all, but instead held a large stack of account books. Shulga didn't seem to have any sort of system whatsoever; how did he ever find anything he needed?
+
+Page 2 Session 2
+
+5 Growling in frustration, Aleks began to open multiple drawers at a time, rifling through stacks of papers and leather-bound books, his desperation growing with every unsuccessful attempt. Digging through a drawer of miscellaneous files and books closest to the desk, his fingers scrabbled at the bottom of the drawer and it tilted a fraction, sending three stacked files slumping against a small metal box. 'What the . . .' He trailed off, pressing harder on the base of the drawer, watching it dip under his fingers. The drawer had a false bottom!
+
+6 Aleks glanced at the clock; he knew he shouldn't, but he'd always been the curious type. Emptying the drawer, he dug his nails under one side of the fake bottom, prising it up. The secret compartment was fairly narrow, containing only a thin file of papers and a battered leather journal. It was the journal that caught Aleks's eye, for it had the Anglyan crest embossed in one corner of the cover. What on Tellus was Shulga doing with an Anglyan journal? . . .
+
+7 A door slamming somewhere in the building startled him out of his horrified trance, and a quick look at the clock nearly gave Aleks a heart attack. He barely had ten minutes until the end of dinner!
+
+8 Stuffing the journal in an inner pocket of his coat, he hastily replaced the drawer's false bottom and contents, shutting it as quietly as he could. Tugging on the two drawers he had yet to check, he swore under his breath. Neither of them contained a V section, and Aleks felt dread creep over him at the realization that his file was likely elsewhere. He didn't have the time to search any other rooms. Out of options, he straightened up, shoving all the cabinet drawers shut and sprinting for the door.
+
+9 A quick glance through the glass panel showed the corridor to be empty, so Aleks slipped from the room.
+
+10 Bursting through the door of the building, he turned for the stables, slowing his pace once he hit the cobblestone path, just in case anyone happened to look his way. There was nothing more suspicious than a lone cadet running.
+
+11 While there was supposed to be at least one stablehand in the building at all times, Aleks couldn't see a single soul in the stables. Perfect. Hurrying to the tack^3 room, he easily found Quicksilver's saddle and bridle, though carrying the heavy items in his current state nearly sent him crumpling to the floor. Still, he forced himself to ignore the pain, hefting the tack across the room towards Quicksilver's stall. Session 2 Page 3
+
+12 The horse whinnied when he saw the tack, knowing what it meant. Aleks shushed him, slinging the saddle on the door and slipping inside, easing the bridle on to the horse's head. Tossing the saddle on Quicksilver's back, he fastened it tightly and slung the saddlebag over the horse's rear, buckling it swiftly. He grabbed the reins, running to press Quicksilver's nose to his chest for a brief moment. 'We need to be quiet, boy. No getting excited.' ____ cadet: new member of the armed services 1 barracks: place where soldiers sleep 2 tack: stable gear such as saddles and bridles 3","Read these sentences from paragraph 12. 34 'We need to be quiet, boy. No getting excited.' What do these sentences reveal about Aleks?",,A,He is aware that dangers may still await him.,He is questioning his decision to leave the army.,He is unfamiliar with how this horse will react.,He is reconsidering his plan of escape.,,3,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.851.3,64,1,5,Medium
+NAPLAN-Y7-READING-M1-Q09,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 2,7,English,Literary Techniques,Tone and Mood,ReadingComprehension,"Read this story. Then answer questions 29 through 35.
+
+In a faraway kingdom called Tellus, Aleks signs up for the army. Then he finds out what a dishonest and brutal place it is.
+
+Excerpt from The Almost King by Lucy Saxon
+
+1 Slinging his light saddlebag over his shoulders and swallowing his cry of pain at the movement, he pulled his hat low over his forehead and made for the door. He needed his enlistment forms from Shulga's office; if he could find and destroy them, the army would have no record of him enlisting. Even if he did get caught after escaping—provided he escaped in the first place—there would be no proof that he was a cadet.^1 Then all he had to do was reach the stables and get Quicksilver before anyone on the dinner shift noticed what he was doing. After that . . . he would find a way out. There had to be one somewhere. . . .
+
+2 There were no guards at the door; the barracks^2 was down to a skeleton guard for the dinner shift. Aleks silently retraced his steps from earlier in the day, making his way towards Antova's office. His eyes raced over every door's nameplate, frowning when none of them was the office he was looking for. He was incredibly short on time; he had to be on Quicksilver and heading for freedom before dinner ended.
+
+3 Finally, he saw it. Lt. Shulga was embossed on a nameplate three doors down from Antova's. Luckily, the door was unlocked and the room empty; Shulga had obviously gone straight from the time-out room to dinner. The office was decorated in the same way as Antova's, in blue and dark brown, with a large map of Tellus on the wall instead of the royal crest the commander displayed. Darting across to a metal filing cabinet that took up most of one wall, Aleks wrenched open a drawer at random, ignoring the searing ache in his arms. Again, unlocked. Clearly Shulga was too cocky to think anyone would dare snoop around his office.
+
+4 The drawer was full of neatly filed enlistment forms in alphabetical order; F–J. Aleks's form would come under V. Shutting the drawer, he reached for the next one, perplexed to find it containing M–P. The drawer after that didn't contain enlistment forms at all, but instead held a large stack of account books. Shulga didn't seem to have any sort of system whatsoever; how did he ever find anything he needed?
+
+Page 2 Session 2
+
+5 Growling in frustration, Aleks began to open multiple drawers at a time, rifling through stacks of papers and leather-bound books, his desperation growing with every unsuccessful attempt. Digging through a drawer of miscellaneous files and books closest to the desk, his fingers scrabbled at the bottom of the drawer and it tilted a fraction, sending three stacked files slumping against a small metal box. 'What the . . .' He trailed off, pressing harder on the base of the drawer, watching it dip under his fingers. The drawer had a false bottom!
+
+6 Aleks glanced at the clock; he knew he shouldn't, but he'd always been the curious type. Emptying the drawer, he dug his nails under one side of the fake bottom, prising it up. The secret compartment was fairly narrow, containing only a thin file of papers and a battered leather journal. It was the journal that caught Aleks's eye, for it had the Anglyan crest embossed in one corner of the cover. What on Tellus was Shulga doing with an Anglyan journal? . . .
+
+7 A door slamming somewhere in the building startled him out of his horrified trance, and a quick look at the clock nearly gave Aleks a heart attack. He barely had ten minutes until the end of dinner!
+
+8 Stuffing the journal in an inner pocket of his coat, he hastily replaced the drawer's false bottom and contents, shutting it as quietly as he could. Tugging on the two drawers he had yet to check, he swore under his breath. Neither of them contained a V section, and Aleks felt dread creep over him at the realization that his file was likely elsewhere. He didn't have the time to search any other rooms. Out of options, he straightened up, shoving all the cabinet drawers shut and sprinting for the door.
+
+9 A quick glance through the glass panel showed the corridor to be empty, so Aleks slipped from the room.
+
+10 Bursting through the door of the building, he turned for the stables, slowing his pace once he hit the cobblestone path, just in case anyone happened to look his way. There was nothing more suspicious than a lone cadet running.
+
+11 While there was supposed to be at least one stablehand in the building at all times, Aleks couldn't see a single soul in the stables. Perfect. Hurrying to the tack^3 room, he easily found Quicksilver's saddle and bridle, though carrying the heavy items in his current state nearly sent him crumpling to the floor. Still, he forced himself to ignore the pain, hefting the tack across the room towards Quicksilver's stall. Session 2 Page 3
+
+12 The horse whinnied when he saw the tack, knowing what it meant. Aleks shushed him, slinging the saddle on the door and slipping inside, easing the bridle on to the horse's head. Tossing the saddle on Quicksilver's back, he fastened it tightly and slung the saddlebag over the horse's rear, buckling it swiftly. He grabbed the reins, running to press Quicksilver's nose to his chest for a brief moment. 'We need to be quiet, boy. No getting excited.' ____ cadet: new member of the armed services 1 barracks: place where soldiers sleep 2 tack: stable gear such as saddles and bridles 3",How does the author's description of Aleks's plan in paragraph 1 impact the tone of the story?,,C,It creates irony because everything happens the way Aleks thinks it will.,It creates confidence that Aleks will succeed because he knows what he must do.,It creates suspense as the reader wonders if something will go wrong for Aleks.,It creates confusion because not everything happens the way Aleks wants it to.,,2,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.851.4,64,1,4,Medium
+NAPLAN-Y7-READING-M1-Q10,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 2,7,English,Reading Comprehension,Main Idea,ReadingComprehension,"Read this story. Then answer questions 29 through 35.
+
+In a faraway kingdom called Tellus, Aleks signs up for the army. Then he finds out what a dishonest and brutal place it is.
+
+Excerpt from The Almost King by Lucy Saxon
+
+1 Slinging his light saddlebag over his shoulders and swallowing his cry of pain at the movement, he pulled his hat low over his forehead and made for the door. He needed his enlistment forms from Shulga's office; if he could find and destroy them, the army would have no record of him enlisting. Even if he did get caught after escaping—provided he escaped in the first place—there would be no proof that he was a cadet.^1 Then all he had to do was reach the stables and get Quicksilver before anyone on the dinner shift noticed what he was doing. After that . . . he would find a way out. There had to be one somewhere. . . .
+
+2 There were no guards at the door; the barracks^2 was down to a skeleton guard for the dinner shift. Aleks silently retraced his steps from earlier in the day, making his way towards Antova's office. His eyes raced over every door's nameplate, frowning when none of them was the office he was looking for. He was incredibly short on time; he had to be on Quicksilver and heading for freedom before dinner ended.
+
+3 Finally, he saw it. Lt. Shulga was embossed on a nameplate three doors down from Antova's. Luckily, the door was unlocked and the room empty; Shulga had obviously gone straight from the time-out room to dinner. The office was decorated in the same way as Antova's, in blue and dark brown, with a large map of Tellus on the wall instead of the royal crest the commander displayed. Darting across to a metal filing cabinet that took up most of one wall, Aleks wrenched open a drawer at random, ignoring the searing ache in his arms. Again, unlocked. Clearly Shulga was too cocky to think anyone would dare snoop around his office.
+
+4 The drawer was full of neatly filed enlistment forms in alphabetical order; F–J. Aleks's form would come under V. Shutting the drawer, he reached for the next one, perplexed to find it containing M–P. The drawer after that didn't contain enlistment forms at all, but instead held a large stack of account books. Shulga didn't seem to have any sort of system whatsoever; how did he ever find anything he needed?
+
+Page 2 Session 2
+
+5 Growling in frustration, Aleks began to open multiple drawers at a time, rifling through stacks of papers and leather-bound books, his desperation growing with every unsuccessful attempt. Digging through a drawer of miscellaneous files and books closest to the desk, his fingers scrabbled at the bottom of the drawer and it tilted a fraction, sending three stacked files slumping against a small metal box. 'What the . . .' He trailed off, pressing harder on the base of the drawer, watching it dip under his fingers. The drawer had a false bottom!
+
+6 Aleks glanced at the clock; he knew he shouldn't, but he'd always been the curious type. Emptying the drawer, he dug his nails under one side of the fake bottom, prising it up. The secret compartment was fairly narrow, containing only a thin file of papers and a battered leather journal. It was the journal that caught Aleks's eye, for it had the Anglyan crest embossed in one corner of the cover. What on Tellus was Shulga doing with an Anglyan journal? . . .
+
+7 A door slamming somewhere in the building startled him out of his horrified trance, and a quick look at the clock nearly gave Aleks a heart attack. He barely had ten minutes until the end of dinner!
+
+8 Stuffing the journal in an inner pocket of his coat, he hastily replaced the drawer's false bottom and contents, shutting it as quietly as he could. Tugging on the two drawers he had yet to check, he swore under his breath. Neither of them contained a V section, and Aleks felt dread creep over him at the realization that his file was likely elsewhere. He didn't have the time to search any other rooms. Out of options, he straightened up, shoving all the cabinet drawers shut and sprinting for the door.
+
+9 A quick glance through the glass panel showed the corridor to be empty, so Aleks slipped from the room.
+
+10 Bursting through the door of the building, he turned for the stables, slowing his pace once he hit the cobblestone path, just in case anyone happened to look his way. There was nothing more suspicious than a lone cadet running.
+
+11 While there was supposed to be at least one stablehand in the building at all times, Aleks couldn't see a single soul in the stables. Perfect. Hurrying to the tack^3 room, he easily found Quicksilver's saddle and bridle, though carrying the heavy items in his current state nearly sent him crumpling to the floor. Still, he forced himself to ignore the pain, hefting the tack across the room towards Quicksilver's stall. Session 2 Page 3
+
+12 The horse whinnied when he saw the tack, knowing what it meant. Aleks shushed him, slinging the saddle on the door and slipping inside, easing the bridle on to the horse's head. Tossing the saddle on Quicksilver's back, he fastened it tightly and slung the saddlebag over the horse's rear, buckling it swiftly. He grabbed the reins, running to press Quicksilver's nose to his chest for a brief moment. 'We need to be quiet, boy. No getting excited.' ____ cadet: new member of the armed services 1 barracks: place where soldiers sleep 2 tack: stable gear such as saddles and bridles 3",What important idea does the author develop in paragraphs 1 and 2?,,B,The Tellus army is poorly prepared for action.,Aleks has a plan that is based on the army's routines.,Aleks is unsure about which office has his army enlistment papers.,The Tellus army guards will soon return to the barracks from dinner.,,2,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.851.5,64,1,3,Easy
+NAPLAN-Y7-READING-M1-Q11,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 2,7,English,Reading Comprehension,Theme,ReadingComprehension,"Read this story. Then answer questions 29 through 35.
+
+In a faraway kingdom called Tellus, Aleks signs up for the army. Then he finds out what a dishonest and brutal place it is.
+
+Excerpt from The Almost King by Lucy Saxon
+
+1 Slinging his light saddlebag over his shoulders and swallowing his cry of pain at the movement, he pulled his hat low over his forehead and made for the door. He needed his enlistment forms from Shulga's office; if he could find and destroy them, the army would have no record of him enlisting. Even if he did get caught after escaping—provided he escaped in the first place—there would be no proof that he was a cadet.^1 Then all he had to do was reach the stables and get Quicksilver before anyone on the dinner shift noticed what he was doing. After that . . . he would find a way out. There had to be one somewhere. . . .
+
+2 There were no guards at the door; the barracks^2 was down to a skeleton guard for the dinner shift. Aleks silently retraced his steps from earlier in the day, making his way towards Antova's office. His eyes raced over every door's nameplate, frowning when none of them was the office he was looking for. He was incredibly short on time; he had to be on Quicksilver and heading for freedom before dinner ended.
+
+3 Finally, he saw it. Lt. Shulga was embossed on a nameplate three doors down from Antova's. Luckily, the door was unlocked and the room empty; Shulga had obviously gone straight from the time-out room to dinner. The office was decorated in the same way as Antova's, in blue and dark brown, with a large map of Tellus on the wall instead of the royal crest the commander displayed. Darting across to a metal filing cabinet that took up most of one wall, Aleks wrenched open a drawer at random, ignoring the searing ache in his arms. Again, unlocked. Clearly Shulga was too cocky to think anyone would dare snoop around his office.
+
+4 The drawer was full of neatly filed enlistment forms in alphabetical order; F–J. Aleks's form would come under V. Shutting the drawer, he reached for the next one, perplexed to find it containing M–P. The drawer after that didn't contain enlistment forms at all, but instead held a large stack of account books. Shulga didn't seem to have any sort of system whatsoever; how did he ever find anything he needed?
+
+Page 2 Session 2
+
+5 Growling in frustration, Aleks began to open multiple drawers at a time, rifling through stacks of papers and leather-bound books, his desperation growing with every unsuccessful attempt. Digging through a drawer of miscellaneous files and books closest to the desk, his fingers scrabbled at the bottom of the drawer and it tilted a fraction, sending three stacked files slumping against a small metal box. 'What the . . .' He trailed off, pressing harder on the base of the drawer, watching it dip under his fingers. The drawer had a false bottom!
+
+6 Aleks glanced at the clock; he knew he shouldn't, but he'd always been the curious type. Emptying the drawer, he dug his nails under one side of the fake bottom, prising it up. The secret compartment was fairly narrow, containing only a thin file of papers and a battered leather journal. It was the journal that caught Aleks's eye, for it had the Anglyan crest embossed in one corner of the cover. What on Tellus was Shulga doing with an Anglyan journal? . . .
+
+7 A door slamming somewhere in the building startled him out of his horrified trance, and a quick look at the clock nearly gave Aleks a heart attack. He barely had ten minutes until the end of dinner!
+
+8 Stuffing the journal in an inner pocket of his coat, he hastily replaced the drawer's false bottom and contents, shutting it as quietly as he could. Tugging on the two drawers he had yet to check, he swore under his breath. Neither of them contained a V section, and Aleks felt dread creep over him at the realization that his file was likely elsewhere. He didn't have the time to search any other rooms. Out of options, he straightened up, shoving all the cabinet drawers shut and sprinting for the door.
+
+9 A quick glance through the glass panel showed the corridor to be empty, so Aleks slipped from the room.
+
+10 Bursting through the door of the building, he turned for the stables, slowing his pace once he hit the cobblestone path, just in case anyone happened to look his way. There was nothing more suspicious than a lone cadet running.
+
+11 While there was supposed to be at least one stablehand in the building at all times, Aleks couldn't see a single soul in the stables. Perfect. Hurrying to the tack^3 room, he easily found Quicksilver's saddle and bridle, though carrying the heavy items in his current state nearly sent him crumpling to the floor. Still, he forced himself to ignore the pain, hefting the tack across the room towards Quicksilver's stall. Session 2 Page 3
+
+12 The horse whinnied when he saw the tack, knowing what it meant. Aleks shushed him, slinging the saddle on the door and slipping inside, easing the bridle on to the horse's head. Tossing the saddle on Quicksilver's back, he fastened it tightly and slung the saddlebag over the horse's rear, buckling it swiftly. He grabbed the reins, running to press Quicksilver's nose to his chest for a brief moment. 'We need to be quiet, boy. No getting excited.' ____ cadet: new member of the armed services 1 barracks: place where soldiers sleep 2 tack: stable gear such as saddles and bridles 3",Which sentence states a theme of paragraph 3?,,A,Overconfidence can lead to carelessness.,Pride in one's kingdom is essential to military success.,Pain can prevent a person from reaching one's goal.,Trust is difficult to establish and maintain.,,2,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.851.6,64,1,4,Medium
+NAPLAN-Y7-READING-M1-Q12,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 2,7,English,Reading Comprehension,Summarising,ReadingComprehension,"Read this story. Then answer questions 29 through 35.
+
+In a faraway kingdom called Tellus, Aleks signs up for the army. Then he finds out what a dishonest and brutal place it is.
+
+Excerpt from The Almost King by Lucy Saxon
+
+1 Slinging his light saddlebag over his shoulders and swallowing his cry of pain at the movement, he pulled his hat low over his forehead and made for the door. He needed his enlistment forms from Shulga's office; if he could find and destroy them, the army would have no record of him enlisting. Even if he did get caught after escaping—provided he escaped in the first place—there would be no proof that he was a cadet.^1 Then all he had to do was reach the stables and get Quicksilver before anyone on the dinner shift noticed what he was doing. After that . . . he would find a way out. There had to be one somewhere. . . .
+
+2 There were no guards at the door; the barracks^2 was down to a skeleton guard for the dinner shift. Aleks silently retraced his steps from earlier in the day, making his way towards Antova's office. His eyes raced over every door's nameplate, frowning when none of them was the office he was looking for. He was incredibly short on time; he had to be on Quicksilver and heading for freedom before dinner ended.
+
+3 Finally, he saw it. Lt. Shulga was embossed on a nameplate three doors down from Antova's. Luckily, the door was unlocked and the room empty; Shulga had obviously gone straight from the time-out room to dinner. The office was decorated in the same way as Antova's, in blue and dark brown, with a large map of Tellus on the wall instead of the royal crest the commander displayed. Darting across to a metal filing cabinet that took up most of one wall, Aleks wrenched open a drawer at random, ignoring the searing ache in his arms. Again, unlocked. Clearly Shulga was too cocky to think anyone would dare snoop around his office.
+
+4 The drawer was full of neatly filed enlistment forms in alphabetical order; F–J. Aleks's form would come under V. Shutting the drawer, he reached for the next one, perplexed to find it containing M–P. The drawer after that didn't contain enlistment forms at all, but instead held a large stack of account books. Shulga didn't seem to have any sort of system whatsoever; how did he ever find anything he needed?
+
+Page 2 Session 2
+
+5 Growling in frustration, Aleks began to open multiple drawers at a time, rifling through stacks of papers and leather-bound books, his desperation growing with every unsuccessful attempt. Digging through a drawer of miscellaneous files and books closest to the desk, his fingers scrabbled at the bottom of the drawer and it tilted a fraction, sending three stacked files slumping against a small metal box. 'What the . . .' He trailed off, pressing harder on the base of the drawer, watching it dip under his fingers. The drawer had a false bottom!
+
+6 Aleks glanced at the clock; he knew he shouldn't, but he'd always been the curious type. Emptying the drawer, he dug his nails under one side of the fake bottom, prising it up. The secret compartment was fairly narrow, containing only a thin file of papers and a battered leather journal. It was the journal that caught Aleks's eye, for it had the Anglyan crest embossed in one corner of the cover. What on Tellus was Shulga doing with an Anglyan journal? . . .
+
+7 A door slamming somewhere in the building startled him out of his horrified trance, and a quick look at the clock nearly gave Aleks a heart attack. He barely had ten minutes until the end of dinner!
+
+8 Stuffing the journal in an inner pocket of his coat, he hastily replaced the drawer's false bottom and contents, shutting it as quietly as he could. Tugging on the two drawers he had yet to check, he swore under his breath. Neither of them contained a V section, and Aleks felt dread creep over him at the realization that his file was likely elsewhere. He didn't have the time to search any other rooms. Out of options, he straightened up, shoving all the cabinet drawers shut and sprinting for the door.
+
+9 A quick glance through the glass panel showed the corridor to be empty, so Aleks slipped from the room.
+
+10 Bursting through the door of the building, he turned for the stables, slowing his pace once he hit the cobblestone path, just in case anyone happened to look his way. There was nothing more suspicious than a lone cadet running.
+
+11 While there was supposed to be at least one stablehand in the building at all times, Aleks couldn't see a single soul in the stables. Perfect. Hurrying to the tack^3 room, he easily found Quicksilver's saddle and bridle, though carrying the heavy items in his current state nearly sent him crumpling to the floor. Still, he forced himself to ignore the pain, hefting the tack across the room towards Quicksilver's stall. Session 2 Page 3
+
+12 The horse whinnied when he saw the tack, knowing what it meant. Aleks shushed him, slinging the saddle on the door and slipping inside, easing the bridle on to the horse's head. Tossing the saddle on Quicksilver's back, he fastened it tightly and slung the saddlebag over the horse's rear, buckling it swiftly. He grabbed the reins, running to press Quicksilver's nose to his chest for a brief moment. 'We need to be quiet, boy. No getting excited.' ____ cadet: new member of the armed services 1 barracks: place where soldiers sleep 2 tack: stable gear such as saddles and bridles 3",Which sentence would be most important to include in a summary of the story?,,B,Aleks notices that Shulga's office is decorated the same as Antova's office.,Aleks finds an Anglyan journal in a secret compartment in Shulga's office.,Aleks fears someone is coming when he hears a door slam in the building.,Aleks slows his pace to avoid suspicion as he approaches the stables.,,3,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.851.7,64,1,6,Medium
+NAPLAN-Y7-READING-M1-Q13,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 3,7,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Brown Lump on the Window
+The brown lump had been stuck to the classroom window frame since the end of autumn. It was about the size of a walnut, papery and ridged, and most of Class 7B assumed it was an old wasp nest or a blob of dried glue. Only Mr Okafor seemed interested in it. He had stuck a strip of masking tape beside it with a single word written in marker: WAIT.
+'It's an ootheca,' he told Noor when she finally asked in July. 'A praying mantis egg case. The mother made it from a foam that hardened, and there could be a hundred eggs inside. They'll hatch when the weather warms up.'
+Noor didn't believe him, but she began checking it every morning anyway.
+Weeks passed. Nothing happened. The lump just sat there, brown and boring, while winter rain streamed down the glass. Some of the boys drew two columns on the whiteboard, ALIVE and DEAD, and the class voted. Noor wrote her name under ALIVE, mostly because nobody else had.
+Then, on a warm Tuesday in October, she walked into the classroom early and stopped dead.
+The window was moving.
+Tiny pale shapes were wriggling out from the bottom of the ootheca, dangling on fine silky threads like acrobats on ropes. Each one was no bigger than a grain of rice. As she watched, they shook themselves loose and began to climb, their long front legs folded in front of their faces as though they were already praying. Within minutes there were dozens of them, scattered across the glass like spilled punctuation.
+'Mr Okafor!' she called, not taking her eyes off the window.
+He came in with his coffee, saw the window and smiled so widely that he forgot to drink it.
+By the time the bell rang, the whole class was crowded around, whispering as if the hatchlings might hear them. Mr Okafor explained that the babies were called nymphs and looked like tiny adults, with no caterpillar stage, and that they would shed their skins several times as they grew. Then he said they would need to carry the nymphs out to the school garden straight away.
+'Why can't we keep them?' asked Jacob, whose name was under DEAD.
+'Because they'll eat each other,' said Mr Okafor.
+There was a horrified silence.
+'Mantises eat whatever is small enough to catch,' he said, 'and right now the smallest things around are their brothers and sisters. Out in the garden they'll spread out and find aphids and tiny flies. In here, crowded together, they'd soon start on each other.'
+So 7B spent the first lesson of the day kneeling in the garden, gently tipping nymphs off pieces of card onto leaves. And the masking tape stayed on the window frame until the end of the year, still saying WAIT.",What word did Mr Okafor write on the masking tape?,,A,WAIT,ALIVE,OOTHECA,HATCH,,1,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.1576.1,193,1,1,Easy
+NAPLAN-Y7-READING-M1-Q14,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 3,7,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Brown Lump on the Window
+The brown lump had been stuck to the classroom window frame since the end of autumn. It was about the size of a walnut, papery and ridged, and most of Class 7B assumed it was an old wasp nest or a blob of dried glue. Only Mr Okafor seemed interested in it. He had stuck a strip of masking tape beside it with a single word written in marker: WAIT.
+'It's an ootheca,' he told Noor when she finally asked in July. 'A praying mantis egg case. The mother made it from a foam that hardened, and there could be a hundred eggs inside. They'll hatch when the weather warms up.'
+Noor didn't believe him, but she began checking it every morning anyway.
+Weeks passed. Nothing happened. The lump just sat there, brown and boring, while winter rain streamed down the glass. Some of the boys drew two columns on the whiteboard, ALIVE and DEAD, and the class voted. Noor wrote her name under ALIVE, mostly because nobody else had.
+Then, on a warm Tuesday in October, she walked into the classroom early and stopped dead.
+The window was moving.
+Tiny pale shapes were wriggling out from the bottom of the ootheca, dangling on fine silky threads like acrobats on ropes. Each one was no bigger than a grain of rice. As she watched, they shook themselves loose and began to climb, their long front legs folded in front of their faces as though they were already praying. Within minutes there were dozens of them, scattered across the glass like spilled punctuation.
+'Mr Okafor!' she called, not taking her eyes off the window.
+He came in with his coffee, saw the window and smiled so widely that he forgot to drink it.
+By the time the bell rang, the whole class was crowded around, whispering as if the hatchlings might hear them. Mr Okafor explained that the babies were called nymphs and looked like tiny adults, with no caterpillar stage, and that they would shed their skins several times as they grew. Then he said they would need to carry the nymphs out to the school garden straight away.
+'Why can't we keep them?' asked Jacob, whose name was under DEAD.
+'Because they'll eat each other,' said Mr Okafor.
+There was a horrified silence.
+'Mantises eat whatever is small enough to catch,' he said, 'and right now the smallest things around are their brothers and sisters. Out in the garden they'll spread out and find aphids and tiny flies. In here, crowded together, they'd soon start on each other.'
+So 7B spent the first lesson of the day kneeling in the garden, gently tipping nymphs off pieces of card onto leaves. And the masking tape stayed on the window frame until the end of the year, still saying WAIT.",What are baby praying mantises called?,,A,nymphs,caterpillars,larvae,oothecas,,1,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.1576.2,193,1,1,Easy
+NAPLAN-Y7-READING-M1-Q15,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 3,7,English,Literary Techniques,Tone and Mood,ReadingComprehension,"The Brown Lump on the Window
+The brown lump had been stuck to the classroom window frame since the end of autumn. It was about the size of a walnut, papery and ridged, and most of Class 7B assumed it was an old wasp nest or a blob of dried glue. Only Mr Okafor seemed interested in it. He had stuck a strip of masking tape beside it with a single word written in marker: WAIT.
+'It's an ootheca,' he told Noor when she finally asked in July. 'A praying mantis egg case. The mother made it from a foam that hardened, and there could be a hundred eggs inside. They'll hatch when the weather warms up.'
+Noor didn't believe him, but she began checking it every morning anyway.
+Weeks passed. Nothing happened. The lump just sat there, brown and boring, while winter rain streamed down the glass. Some of the boys drew two columns on the whiteboard, ALIVE and DEAD, and the class voted. Noor wrote her name under ALIVE, mostly because nobody else had.
+Then, on a warm Tuesday in October, she walked into the classroom early and stopped dead.
+The window was moving.
+Tiny pale shapes were wriggling out from the bottom of the ootheca, dangling on fine silky threads like acrobats on ropes. Each one was no bigger than a grain of rice. As she watched, they shook themselves loose and began to climb, their long front legs folded in front of their faces as though they were already praying. Within minutes there were dozens of them, scattered across the glass like spilled punctuation.
+'Mr Okafor!' she called, not taking her eyes off the window.
+He came in with his coffee, saw the window and smiled so widely that he forgot to drink it.
+By the time the bell rang, the whole class was crowded around, whispering as if the hatchlings might hear them. Mr Okafor explained that the babies were called nymphs and looked like tiny adults, with no caterpillar stage, and that they would shed their skins several times as they grew. Then he said they would need to carry the nymphs out to the school garden straight away.
+'Why can't we keep them?' asked Jacob, whose name was under DEAD.
+'Because they'll eat each other,' said Mr Okafor.
+There was a horrified silence.
+'Mantises eat whatever is small enough to catch,' he said, 'and right now the smallest things around are their brothers and sisters. Out in the garden they'll spread out and find aphids and tiny flies. In here, crowded together, they'd soon start on each other.'
+So 7B spent the first lesson of the day kneeling in the garden, gently tipping nymphs off pieces of card onto leaves. And the masking tape stayed on the window frame until the end of the year, still saying WAIT.",How does the mood of the story change when the egg case hatches?,,D,from fear to relief,from cheerfulness to gloom,from curiosity to boredom,from dull waiting to excited wonder,,2,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.1576.3,193,1,4,Medium
+NAPLAN-Y7-READING-M1-Q16,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 3,7,English,Reading Comprehension,Text Structure,ReadingComprehension,"The Brown Lump on the Window
+The brown lump had been stuck to the classroom window frame since the end of autumn. It was about the size of a walnut, papery and ridged, and most of Class 7B assumed it was an old wasp nest or a blob of dried glue. Only Mr Okafor seemed interested in it. He had stuck a strip of masking tape beside it with a single word written in marker: WAIT.
+'It's an ootheca,' he told Noor when she finally asked in July. 'A praying mantis egg case. The mother made it from a foam that hardened, and there could be a hundred eggs inside. They'll hatch when the weather warms up.'
+Noor didn't believe him, but she began checking it every morning anyway.
+Weeks passed. Nothing happened. The lump just sat there, brown and boring, while winter rain streamed down the glass. Some of the boys drew two columns on the whiteboard, ALIVE and DEAD, and the class voted. Noor wrote her name under ALIVE, mostly because nobody else had.
+Then, on a warm Tuesday in October, she walked into the classroom early and stopped dead.
+The window was moving.
+Tiny pale shapes were wriggling out from the bottom of the ootheca, dangling on fine silky threads like acrobats on ropes. Each one was no bigger than a grain of rice. As she watched, they shook themselves loose and began to climb, their long front legs folded in front of their faces as though they were already praying. Within minutes there were dozens of them, scattered across the glass like spilled punctuation.
+'Mr Okafor!' she called, not taking her eyes off the window.
+He came in with his coffee, saw the window and smiled so widely that he forgot to drink it.
+By the time the bell rang, the whole class was crowded around, whispering as if the hatchlings might hear them. Mr Okafor explained that the babies were called nymphs and looked like tiny adults, with no caterpillar stage, and that they would shed their skins several times as they grew. Then he said they would need to carry the nymphs out to the school garden straight away.
+'Why can't we keep them?' asked Jacob, whose name was under DEAD.
+'Because they'll eat each other,' said Mr Okafor.
+There was a horrified silence.
+'Mantises eat whatever is small enough to catch,' he said, 'and right now the smallest things around are their brothers and sisters. Out in the garden they'll spread out and find aphids and tiny flies. In here, crowded together, they'd soon start on each other.'
+So 7B spent the first lesson of the day kneeling in the garden, gently tipping nymphs off pieces of card onto leaves. And the masking tape stayed on the window frame until the end of the year, still saying WAIT.",Why is 'The window was moving.' written as a short paragraph on its own?,,C,to show that several weeks have passed since the vote,to introduce Mr Okafor's explanation about the nymphs,to create a moment of surprise before the hatching is explained,to show that a different character is now telling the story,,2,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.1576.4,193,1,4,Medium
+NAPLAN-Y7-READING-M1-Q17,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 3,7,English,Reading Comprehension,Author Purpose,ReadingComprehension,"The Brown Lump on the Window
+The brown lump had been stuck to the classroom window frame since the end of autumn. It was about the size of a walnut, papery and ridged, and most of Class 7B assumed it was an old wasp nest or a blob of dried glue. Only Mr Okafor seemed interested in it. He had stuck a strip of masking tape beside it with a single word written in marker: WAIT.
+'It's an ootheca,' he told Noor when she finally asked in July. 'A praying mantis egg case. The mother made it from a foam that hardened, and there could be a hundred eggs inside. They'll hatch when the weather warms up.'
+Noor didn't believe him, but she began checking it every morning anyway.
+Weeks passed. Nothing happened. The lump just sat there, brown and boring, while winter rain streamed down the glass. Some of the boys drew two columns on the whiteboard, ALIVE and DEAD, and the class voted. Noor wrote her name under ALIVE, mostly because nobody else had.
+Then, on a warm Tuesday in October, she walked into the classroom early and stopped dead.
+The window was moving.
+Tiny pale shapes were wriggling out from the bottom of the ootheca, dangling on fine silky threads like acrobats on ropes. Each one was no bigger than a grain of rice. As she watched, they shook themselves loose and began to climb, their long front legs folded in front of their faces as though they were already praying. Within minutes there were dozens of them, scattered across the glass like spilled punctuation.
+'Mr Okafor!' she called, not taking her eyes off the window.
+He came in with his coffee, saw the window and smiled so widely that he forgot to drink it.
+By the time the bell rang, the whole class was crowded around, whispering as if the hatchlings might hear them. Mr Okafor explained that the babies were called nymphs and looked like tiny adults, with no caterpillar stage, and that they would shed their skins several times as they grew. Then he said they would need to carry the nymphs out to the school garden straight away.
+'Why can't we keep them?' asked Jacob, whose name was under DEAD.
+'Because they'll eat each other,' said Mr Okafor.
+There was a horrified silence.
+'Mantises eat whatever is small enough to catch,' he said, 'and right now the smallest things around are their brothers and sisters. Out in the garden they'll spread out and find aphids and tiny flies. In here, crowded together, they'd soon start on each other.'
+So 7B spent the first lesson of the day kneeling in the garden, gently tipping nymphs off pieces of card onto leaves. And the masking tape stayed on the window frame until the end of the year, still saying WAIT.",Why does the writer end the story with the masking tape still saying WAIT?,,D,to show that Mr Okafor forgot to clean the window frame,to hint that a second egg case is about to hatch soon,to remind readers that Noor was right to vote for ALIVE,to suggest that the lesson about patience has stayed with the class,,4,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.1576.5,193,2,8,Hard
+NAPLAN-Y7-READING-M1-Q18,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 3,7,English,Inference,Cause and Effect,ReadingComprehension,"The Brown Lump on the Window
+The brown lump had been stuck to the classroom window frame since the end of autumn. It was about the size of a walnut, papery and ridged, and most of Class 7B assumed it was an old wasp nest or a blob of dried glue. Only Mr Okafor seemed interested in it. He had stuck a strip of masking tape beside it with a single word written in marker: WAIT.
+'It's an ootheca,' he told Noor when she finally asked in July. 'A praying mantis egg case. The mother made it from a foam that hardened, and there could be a hundred eggs inside. They'll hatch when the weather warms up.'
+Noor didn't believe him, but she began checking it every morning anyway.
+Weeks passed. Nothing happened. The lump just sat there, brown and boring, while winter rain streamed down the glass. Some of the boys drew two columns on the whiteboard, ALIVE and DEAD, and the class voted. Noor wrote her name under ALIVE, mostly because nobody else had.
+Then, on a warm Tuesday in October, she walked into the classroom early and stopped dead.
+The window was moving.
+Tiny pale shapes were wriggling out from the bottom of the ootheca, dangling on fine silky threads like acrobats on ropes. Each one was no bigger than a grain of rice. As she watched, they shook themselves loose and began to climb, their long front legs folded in front of their faces as though they were already praying. Within minutes there were dozens of them, scattered across the glass like spilled punctuation.
+'Mr Okafor!' she called, not taking her eyes off the window.
+He came in with his coffee, saw the window and smiled so widely that he forgot to drink it.
+By the time the bell rang, the whole class was crowded around, whispering as if the hatchlings might hear them. Mr Okafor explained that the babies were called nymphs and looked like tiny adults, with no caterpillar stage, and that they would shed their skins several times as they grew. Then he said they would need to carry the nymphs out to the school garden straight away.
+'Why can't we keep them?' asked Jacob, whose name was under DEAD.
+'Because they'll eat each other,' said Mr Okafor.
+There was a horrified silence.
+'Mantises eat whatever is small enough to catch,' he said, 'and right now the smallest things around are their brothers and sisters. Out in the garden they'll spread out and find aphids and tiny flies. In here, crowded together, they'd soon start on each other.'
+So 7B spent the first lesson of the day kneeling in the garden, gently tipping nymphs off pieces of card onto leaves. And the masking tape stayed on the window frame until the end of the year, still saying WAIT.","What most likely caused the egg case to hatch in October, after nothing had happened for months?",,C,Noor had started checking on it every morning before class.,The winter rain had softened the hardened foam of the case.,"The weather had warmed up, just as Mr Okafor had said it would need to.",The class had finally voted on whether the eggs were alive.,,4,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.1576.6,193,2,7,Hard
+NAPLAN-Y7-READING-M1-Q19,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 4,7,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Nine Logs and an Ocean
+In April 1947, six men pushed off from the coast of Peru on a raft that many experts were sure would sink. It had no engine and no modern hull, just nine logs of balsa wood lashed together with rope, a small bamboo cabin and a square sail. Its name was Kon-Tiki, and its leader was a Norwegian explorer named Thor Heyerdahl.
+Heyerdahl had a bold idea. He believed that people from South America might have sailed west across the Pacific long ago and settled the islands of Polynesia. Most scientists disagreed. They argued that ancient South Americans had no boats capable of such a journey. Heyerdahl decided there was only one way to answer them: build a raft from materials those people could have used, and sail it himself.
+Before they left, the doubters were loud. Balsa, they warned, would soak up water and become too heavy to float. The ropes would rub through. The crew would be lucky to last a fortnight.
+The ocean had other plans. Carried by the trade winds and a strong current, the raft drifted steadily westward. The logs did absorb some water, but they stayed afloat. The ropes sank into the soft balsa instead of fraying against it. The men fished, collected rainwater and woke most mornings to find flying fish that had landed on the deck overnight. One day a whale shark, the largest fish in the sea, circled the raft, its spotted back sliding beneath the logs while the crew watched nervously.
+After 101 days and nearly 7,000 kilometres, the voyage ended with a crash. Waves drove the raft onto a coral reef near the island of Raroia, and the crew scrambled through the surf to the shore. Battered but unhurt, they had crossed a large part of the Pacific Ocean.
+Heyerdahl's book about the expedition was translated into dozens of languages, and a film of the journey won an Academy Award. Around the world, readers were thrilled by the story of a few determined people taking on the ocean with an ancient design.
+Yet the voyage did not settle the scientific question. It proved that such a trip was possible, not that it had actually happened. Later studies of language, objects and DNA suggest that Polynesians came mainly from the west, from islands closer to Asia, although some evidence hints at contact with South Americans many centuries ago.
+Even so, Kon-Tiki showed something valuable. Sometimes the best way to test an idea is to step off the shore and try it.",What was the Kon-Tiki raft mainly made from?,,C,wooden planks nailed onto a modern hull,bundles of reeds tied with vines,nine balsa logs tied together with rope,bamboo poles joined with metal bolts,,1,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.1491.1,108,1,1,Easy
+NAPLAN-Y7-READING-M1-Q20,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 4,7,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Nine Logs and an Ocean
+In April 1947, six men pushed off from the coast of Peru on a raft that many experts were sure would sink. It had no engine and no modern hull, just nine logs of balsa wood lashed together with rope, a small bamboo cabin and a square sail. Its name was Kon-Tiki, and its leader was a Norwegian explorer named Thor Heyerdahl.
+Heyerdahl had a bold idea. He believed that people from South America might have sailed west across the Pacific long ago and settled the islands of Polynesia. Most scientists disagreed. They argued that ancient South Americans had no boats capable of such a journey. Heyerdahl decided there was only one way to answer them: build a raft from materials those people could have used, and sail it himself.
+Before they left, the doubters were loud. Balsa, they warned, would soak up water and become too heavy to float. The ropes would rub through. The crew would be lucky to last a fortnight.
+The ocean had other plans. Carried by the trade winds and a strong current, the raft drifted steadily westward. The logs did absorb some water, but they stayed afloat. The ropes sank into the soft balsa instead of fraying against it. The men fished, collected rainwater and woke most mornings to find flying fish that had landed on the deck overnight. One day a whale shark, the largest fish in the sea, circled the raft, its spotted back sliding beneath the logs while the crew watched nervously.
+After 101 days and nearly 7,000 kilometres, the voyage ended with a crash. Waves drove the raft onto a coral reef near the island of Raroia, and the crew scrambled through the surf to the shore. Battered but unhurt, they had crossed a large part of the Pacific Ocean.
+Heyerdahl's book about the expedition was translated into dozens of languages, and a film of the journey won an Academy Award. Around the world, readers were thrilled by the story of a few determined people taking on the ocean with an ancient design.
+Yet the voyage did not settle the scientific question. It proved that such a trip was possible, not that it had actually happened. Later studies of language, objects and DNA suggest that Polynesians came mainly from the west, from islands closer to Asia, although some evidence hints at contact with South Americans many centuries ago.
+Even so, Kon-Tiki showed something valuable. Sometimes the best way to test an idea is to step off the shore and try it.",Where did the Kon-Tiki voyage end?,,D,back on the coast of Peru,at a harbour in Norway,on an island close to Asia,on a coral reef near the island of Raroia,,1,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.1491.2,108,1,2,Easy
+NAPLAN-Y7-READING-M1-Q21,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 4,7,English,Inference,Inferential Reasoning,ReadingComprehension,"Nine Logs and an Ocean
+In April 1947, six men pushed off from the coast of Peru on a raft that many experts were sure would sink. It had no engine and no modern hull, just nine logs of balsa wood lashed together with rope, a small bamboo cabin and a square sail. Its name was Kon-Tiki, and its leader was a Norwegian explorer named Thor Heyerdahl.
+Heyerdahl had a bold idea. He believed that people from South America might have sailed west across the Pacific long ago and settled the islands of Polynesia. Most scientists disagreed. They argued that ancient South Americans had no boats capable of such a journey. Heyerdahl decided there was only one way to answer them: build a raft from materials those people could have used, and sail it himself.
+Before they left, the doubters were loud. Balsa, they warned, would soak up water and become too heavy to float. The ropes would rub through. The crew would be lucky to last a fortnight.
+The ocean had other plans. Carried by the trade winds and a strong current, the raft drifted steadily westward. The logs did absorb some water, but they stayed afloat. The ropes sank into the soft balsa instead of fraying against it. The men fished, collected rainwater and woke most mornings to find flying fish that had landed on the deck overnight. One day a whale shark, the largest fish in the sea, circled the raft, its spotted back sliding beneath the logs while the crew watched nervously.
+After 101 days and nearly 7,000 kilometres, the voyage ended with a crash. Waves drove the raft onto a coral reef near the island of Raroia, and the crew scrambled through the surf to the shore. Battered but unhurt, they had crossed a large part of the Pacific Ocean.
+Heyerdahl's book about the expedition was translated into dozens of languages, and a film of the journey won an Academy Award. Around the world, readers were thrilled by the story of a few determined people taking on the ocean with an ancient design.
+Yet the voyage did not settle the scientific question. It proved that such a trip was possible, not that it had actually happened. Later studies of language, objects and DNA suggest that Polynesians came mainly from the west, from islands closer to Asia, although some evidence hints at contact with South Americans many centuries ago.
+Even so, Kon-Tiki showed something valuable. Sometimes the best way to test an idea is to step off the shore and try it.",Why did Heyerdahl build his raft only from materials ancient South Americans could have used?,,D,because modern materials were too expensive for him,because balsa was the fastest wood he could find,because the scientists who disagreed asked him to,so that the voyage would be a fair test of his idea,,2,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.1491.3,108,1,4,Medium
+NAPLAN-Y7-READING-M1-Q22,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 4,7,English,Literary Techniques,Tone and Mood,ReadingComprehension,"Nine Logs and an Ocean
+In April 1947, six men pushed off from the coast of Peru on a raft that many experts were sure would sink. It had no engine and no modern hull, just nine logs of balsa wood lashed together with rope, a small bamboo cabin and a square sail. Its name was Kon-Tiki, and its leader was a Norwegian explorer named Thor Heyerdahl.
+Heyerdahl had a bold idea. He believed that people from South America might have sailed west across the Pacific long ago and settled the islands of Polynesia. Most scientists disagreed. They argued that ancient South Americans had no boats capable of such a journey. Heyerdahl decided there was only one way to answer them: build a raft from materials those people could have used, and sail it himself.
+Before they left, the doubters were loud. Balsa, they warned, would soak up water and become too heavy to float. The ropes would rub through. The crew would be lucky to last a fortnight.
+The ocean had other plans. Carried by the trade winds and a strong current, the raft drifted steadily westward. The logs did absorb some water, but they stayed afloat. The ropes sank into the soft balsa instead of fraying against it. The men fished, collected rainwater and woke most mornings to find flying fish that had landed on the deck overnight. One day a whale shark, the largest fish in the sea, circled the raft, its spotted back sliding beneath the logs while the crew watched nervously.
+After 101 days and nearly 7,000 kilometres, the voyage ended with a crash. Waves drove the raft onto a coral reef near the island of Raroia, and the crew scrambled through the surf to the shore. Battered but unhurt, they had crossed a large part of the Pacific Ocean.
+Heyerdahl's book about the expedition was translated into dozens of languages, and a film of the journey won an Academy Award. Around the world, readers were thrilled by the story of a few determined people taking on the ocean with an ancient design.
+Yet the voyage did not settle the scientific question. It proved that such a trip was possible, not that it had actually happened. Later studies of language, objects and DNA suggest that Polynesians came mainly from the west, from islands closer to Asia, although some evidence hints at contact with South Americans many centuries ago.
+Even so, Kon-Tiki showed something valuable. Sometimes the best way to test an idea is to step off the shore and try it.",The doubters' warnings in the third paragraph have a tone that is . . .,,A,confident and gloomy,hopeful and encouraging,unsure and puzzled,playful and joking,,3,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.1491.4,108,1,5,Medium
+NAPLAN-Y7-READING-M1-Q23,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 4,7,English,Reading Comprehension,Summarising,ReadingComprehension,"Nine Logs and an Ocean
+In April 1947, six men pushed off from the coast of Peru on a raft that many experts were sure would sink. It had no engine and no modern hull, just nine logs of balsa wood lashed together with rope, a small bamboo cabin and a square sail. Its name was Kon-Tiki, and its leader was a Norwegian explorer named Thor Heyerdahl.
+Heyerdahl had a bold idea. He believed that people from South America might have sailed west across the Pacific long ago and settled the islands of Polynesia. Most scientists disagreed. They argued that ancient South Americans had no boats capable of such a journey. Heyerdahl decided there was only one way to answer them: build a raft from materials those people could have used, and sail it himself.
+Before they left, the doubters were loud. Balsa, they warned, would soak up water and become too heavy to float. The ropes would rub through. The crew would be lucky to last a fortnight.
+The ocean had other plans. Carried by the trade winds and a strong current, the raft drifted steadily westward. The logs did absorb some water, but they stayed afloat. The ropes sank into the soft balsa instead of fraying against it. The men fished, collected rainwater and woke most mornings to find flying fish that had landed on the deck overnight. One day a whale shark, the largest fish in the sea, circled the raft, its spotted back sliding beneath the logs while the crew watched nervously.
+After 101 days and nearly 7,000 kilometres, the voyage ended with a crash. Waves drove the raft onto a coral reef near the island of Raroia, and the crew scrambled through the surf to the shore. Battered but unhurt, they had crossed a large part of the Pacific Ocean.
+Heyerdahl's book about the expedition was translated into dozens of languages, and a film of the journey won an Academy Award. Around the world, readers were thrilled by the story of a few determined people taking on the ocean with an ancient design.
+Yet the voyage did not settle the scientific question. It proved that such a trip was possible, not that it had actually happened. Later studies of language, objects and DNA suggest that Polynesians came mainly from the west, from islands closer to Asia, although some evidence hints at contact with South Americans many centuries ago.
+Even so, Kon-Tiki showed something valuable. Sometimes the best way to test an idea is to step off the shore and try it.","Which is the best summary of the third and fourth paragraphs, read together?",,A,The experts' warnings mostly proved wrong as the raft drifted steadily west.,The raft soaked up so much water that the crew feared it would sink.,The crew survived by fishing while a whale shark circled the raft.,"The ropes frayed and the logs sank, just as the experts had warned.",,4,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.1491.5,108,2,7,Hard
+NAPLAN-Y7-READING-M1-Q24,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 4,7,English,Reading Comprehension,Main Idea,ReadingComprehension,"Nine Logs and an Ocean
+In April 1947, six men pushed off from the coast of Peru on a raft that many experts were sure would sink. It had no engine and no modern hull, just nine logs of balsa wood lashed together with rope, a small bamboo cabin and a square sail. Its name was Kon-Tiki, and its leader was a Norwegian explorer named Thor Heyerdahl.
+Heyerdahl had a bold idea. He believed that people from South America might have sailed west across the Pacific long ago and settled the islands of Polynesia. Most scientists disagreed. They argued that ancient South Americans had no boats capable of such a journey. Heyerdahl decided there was only one way to answer them: build a raft from materials those people could have used, and sail it himself.
+Before they left, the doubters were loud. Balsa, they warned, would soak up water and become too heavy to float. The ropes would rub through. The crew would be lucky to last a fortnight.
+The ocean had other plans. Carried by the trade winds and a strong current, the raft drifted steadily westward. The logs did absorb some water, but they stayed afloat. The ropes sank into the soft balsa instead of fraying against it. The men fished, collected rainwater and woke most mornings to find flying fish that had landed on the deck overnight. One day a whale shark, the largest fish in the sea, circled the raft, its spotted back sliding beneath the logs while the crew watched nervously.
+After 101 days and nearly 7,000 kilometres, the voyage ended with a crash. Waves drove the raft onto a coral reef near the island of Raroia, and the crew scrambled through the surf to the shore. Battered but unhurt, they had crossed a large part of the Pacific Ocean.
+Heyerdahl's book about the expedition was translated into dozens of languages, and a film of the journey won an Academy Award. Around the world, readers were thrilled by the story of a few determined people taking on the ocean with an ancient design.
+Yet the voyage did not settle the scientific question. It proved that such a trip was possible, not that it had actually happened. Later studies of language, objects and DNA suggest that Polynesians came mainly from the west, from islands closer to Asia, although some evidence hints at contact with South Americans many centuries ago.
+Even so, Kon-Tiki showed something valuable. Sometimes the best way to test an idea is to step off the shore and try it.",Why does the writer place the paragraph about Heyerdahl's book and film just before the paragraph beginning 'Yet'?,,C,to show the book and film proved where Polynesians came from,to suggest the voyage mattered only as a piece of entertainment,to show the voyage's popular success before explaining its scientific limits,to explain how Heyerdahl earned money to build the raft,,4,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.1491.6,108,2,8,Hard
+NAPLAN-Y7-READING-M1-Q25,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 5,7,English,Inference,Inferential Reasoning,ReadingComprehension,"Some Assembly Required
+The box said SOME ASSEMBLY REQUIRED in cheerful red letters. Dad said it the same way, rubbing his hands together.
+“Forty minutes, tops,” he announced confidently, slicing open the cardboard with a butter knife because he couldn't find the scissors.
+I'm Lachie, I'm twelve, and I have learnt that when Dad says forty minutes, you should pack a lunch.
+Inside the box were six long panels, a heap of screws, a tiny metal tool shaped like an L, and a booklet of instructions with no words at all, just drawings of a smiling cartoon man. Dad flicked through it once and tossed it onto the couch.
+“Instructions are for people who don't understand furniture,” he said.
+The first hour went quite well. The sides went on. The top went on. The back panel went on upside down, came off, and went on again the right way up, but we agreed not to mention that to Mum.
+Then Dad found a little plastic bag marked C. Inside were sixteen small wooden pegs, each about the size of a fat matchstick.
+“Spares,” he said, dropping the bag into the box with the cardboard. “They always give you spares.”
+I wasn't so sure. Running my finger along the inside of the bookcase, I could feel rows of small round holes beneath where each shelf would sit. I picked up the booklet. On page six, the smiling cartoon man was pushing tiny pegs into tiny holes. He looked very pleased with himself.
+“Dad –”
+“Not now, mate. Pass me the shelves.”
+He slid the four shelves into place. They balanced there, resting on almost nothing, looking proud and level. Dad stood back, spread his arms wide and declared it a masterpiece. Two hours and fifty minutes, but who was counting? (Me. I was counting.)
+Mum came in to admire it. Dad, beaming, began loading my entire collection of encyclopaedias onto the top shelf.
+“Dad,” I said again. “Page six.”
+“Lachie, trust me.”
+Creak.
+We all looked at the top shelf.
+Creeeeak.
+Mum quietly stepped back. I quietly stepped back. Dad, still holding the last encyclopaedia, did not.
+CRASH.
+The top shelf dropped onto the second, which dropped onto the third, which dropped onto the fourth, and the whole lot ended in a heap of books and boards at the bottom, like a very tidy avalanche.
+For a long moment, nobody spoke. Then Mum reached into the cardboard box, pulled out the little bag marked C and held it up to the light.
+Dad looked at the bag. He looked at the booklet on the couch. He looked at me.
+“Right,” he said slowly. “Page six, you said?”","'When Dad says forty minutes, you should pack a lunch.' This suggests that . . .",,D,Dad often forgets to stop and eat lunch,Lachie gets hungry whenever he helps Dad,the family always eats lunch at the same time,Dad's jobs usually take much longer than he says,,1,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.1492.1,109,1,2,Easy
+NAPLAN-Y7-READING-M1-Q26,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 5,7,English,Vocabulary,Antonyms,ReadingComprehension,"Some Assembly Required
+The box said SOME ASSEMBLY REQUIRED in cheerful red letters. Dad said it the same way, rubbing his hands together.
+“Forty minutes, tops,” he announced confidently, slicing open the cardboard with a butter knife because he couldn't find the scissors.
+I'm Lachie, I'm twelve, and I have learnt that when Dad says forty minutes, you should pack a lunch.
+Inside the box were six long panels, a heap of screws, a tiny metal tool shaped like an L, and a booklet of instructions with no words at all, just drawings of a smiling cartoon man. Dad flicked through it once and tossed it onto the couch.
+“Instructions are for people who don't understand furniture,” he said.
+The first hour went quite well. The sides went on. The top went on. The back panel went on upside down, came off, and went on again the right way up, but we agreed not to mention that to Mum.
+Then Dad found a little plastic bag marked C. Inside were sixteen small wooden pegs, each about the size of a fat matchstick.
+“Spares,” he said, dropping the bag into the box with the cardboard. “They always give you spares.”
+I wasn't so sure. Running my finger along the inside of the bookcase, I could feel rows of small round holes beneath where each shelf would sit. I picked up the booklet. On page six, the smiling cartoon man was pushing tiny pegs into tiny holes. He looked very pleased with himself.
+“Dad –”
+“Not now, mate. Pass me the shelves.”
+He slid the four shelves into place. They balanced there, resting on almost nothing, looking proud and level. Dad stood back, spread his arms wide and declared it a masterpiece. Two hours and fifty minutes, but who was counting? (Me. I was counting.)
+Mum came in to admire it. Dad, beaming, began loading my entire collection of encyclopaedias onto the top shelf.
+“Dad,” I said again. “Page six.”
+“Lachie, trust me.”
+Creak.
+We all looked at the top shelf.
+Creeeeak.
+Mum quietly stepped back. I quietly stepped back. Dad, still holding the last encyclopaedia, did not.
+CRASH.
+The top shelf dropped onto the second, which dropped onto the third, which dropped onto the fourth, and the whole lot ended in a heap of books and boards at the bottom, like a very tidy avalanche.
+For a long moment, nobody spoke. Then Mum reached into the cardboard box, pulled out the little bag marked C and held it up to the light.
+Dad looked at the bag. He looked at the booklet on the couch. He looked at me.
+“Right,” he said slowly. “Page six, you said?”",Which word is most nearly opposite in meaning to 'confidently'?,,D,cheerfully,loudly,proudly,doubtfully,,1,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.1492.2,109,1,2,Easy
+NAPLAN-Y7-READING-M1-Q27,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 5,7,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Some Assembly Required
+The box said SOME ASSEMBLY REQUIRED in cheerful red letters. Dad said it the same way, rubbing his hands together.
+“Forty minutes, tops,” he announced confidently, slicing open the cardboard with a butter knife because he couldn't find the scissors.
+I'm Lachie, I'm twelve, and I have learnt that when Dad says forty minutes, you should pack a lunch.
+Inside the box were six long panels, a heap of screws, a tiny metal tool shaped like an L, and a booklet of instructions with no words at all, just drawings of a smiling cartoon man. Dad flicked through it once and tossed it onto the couch.
+“Instructions are for people who don't understand furniture,” he said.
+The first hour went quite well. The sides went on. The top went on. The back panel went on upside down, came off, and went on again the right way up, but we agreed not to mention that to Mum.
+Then Dad found a little plastic bag marked C. Inside were sixteen small wooden pegs, each about the size of a fat matchstick.
+“Spares,” he said, dropping the bag into the box with the cardboard. “They always give you spares.”
+I wasn't so sure. Running my finger along the inside of the bookcase, I could feel rows of small round holes beneath where each shelf would sit. I picked up the booklet. On page six, the smiling cartoon man was pushing tiny pegs into tiny holes. He looked very pleased with himself.
+“Dad –”
+“Not now, mate. Pass me the shelves.”
+He slid the four shelves into place. They balanced there, resting on almost nothing, looking proud and level. Dad stood back, spread his arms wide and declared it a masterpiece. Two hours and fifty minutes, but who was counting? (Me. I was counting.)
+Mum came in to admire it. Dad, beaming, began loading my entire collection of encyclopaedias onto the top shelf.
+“Dad,” I said again. “Page six.”
+“Lachie, trust me.”
+Creak.
+We all looked at the top shelf.
+Creeeeak.
+Mum quietly stepped back. I quietly stepped back. Dad, still holding the last encyclopaedia, did not.
+CRASH.
+The top shelf dropped onto the second, which dropped onto the third, which dropped onto the fourth, and the whole lot ended in a heap of books and boards at the bottom, like a very tidy avalanche.
+For a long moment, nobody spoke. Then Mum reached into the cardboard box, pulled out the little bag marked C and held it up to the light.
+Dad looked at the bag. He looked at the booklet on the couch. He looked at me.
+“Right,” he said slowly. “Page six, you said?”",How much longer than Dad's prediction did the bookcase take to put together?,,A,two hours and ten minutes,two hours and fifty minutes,one hour and fifty minutes,forty minutes,,3,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.1492.3,109,1,5,Medium
+NAPLAN-Y7-READING-M1-Q28,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 5,7,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Some Assembly Required
+The box said SOME ASSEMBLY REQUIRED in cheerful red letters. Dad said it the same way, rubbing his hands together.
+“Forty minutes, tops,” he announced confidently, slicing open the cardboard with a butter knife because he couldn't find the scissors.
+I'm Lachie, I'm twelve, and I have learnt that when Dad says forty minutes, you should pack a lunch.
+Inside the box were six long panels, a heap of screws, a tiny metal tool shaped like an L, and a booklet of instructions with no words at all, just drawings of a smiling cartoon man. Dad flicked through it once and tossed it onto the couch.
+“Instructions are for people who don't understand furniture,” he said.
+The first hour went quite well. The sides went on. The top went on. The back panel went on upside down, came off, and went on again the right way up, but we agreed not to mention that to Mum.
+Then Dad found a little plastic bag marked C. Inside were sixteen small wooden pegs, each about the size of a fat matchstick.
+“Spares,” he said, dropping the bag into the box with the cardboard. “They always give you spares.”
+I wasn't so sure. Running my finger along the inside of the bookcase, I could feel rows of small round holes beneath where each shelf would sit. I picked up the booklet. On page six, the smiling cartoon man was pushing tiny pegs into tiny holes. He looked very pleased with himself.
+“Dad –”
+“Not now, mate. Pass me the shelves.”
+He slid the four shelves into place. They balanced there, resting on almost nothing, looking proud and level. Dad stood back, spread his arms wide and declared it a masterpiece. Two hours and fifty minutes, but who was counting? (Me. I was counting.)
+Mum came in to admire it. Dad, beaming, began loading my entire collection of encyclopaedias onto the top shelf.
+“Dad,” I said again. “Page six.”
+“Lachie, trust me.”
+Creak.
+We all looked at the top shelf.
+Creeeeak.
+Mum quietly stepped back. I quietly stepped back. Dad, still holding the last encyclopaedia, did not.
+CRASH.
+The top shelf dropped onto the second, which dropped onto the third, which dropped onto the fourth, and the whole lot ended in a heap of books and boards at the bottom, like a very tidy avalanche.
+For a long moment, nobody spoke. Then Mum reached into the cardboard box, pulled out the little bag marked C and held it up to the light.
+Dad looked at the bag. He looked at the booklet on the couch. He looked at me.
+“Right,” he said slowly. “Page six, you said?”",What mistake did Lachie and Dad agree to keep from Mum?,,C,Dad opened the box with a butter knife.,Dad threw the instruction booklet on the couch.,The back panel was first put on upside down.,The bag of wooden pegs went into the box.,,2,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.1492.4,109,1,4,Medium
+NAPLAN-Y7-READING-M1-Q29,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 5,7,English,Literary Techniques,Sound Devices,ReadingComprehension,"Some Assembly Required
+The box said SOME ASSEMBLY REQUIRED in cheerful red letters. Dad said it the same way, rubbing his hands together.
+“Forty minutes, tops,” he announced confidently, slicing open the cardboard with a butter knife because he couldn't find the scissors.
+I'm Lachie, I'm twelve, and I have learnt that when Dad says forty minutes, you should pack a lunch.
+Inside the box were six long panels, a heap of screws, a tiny metal tool shaped like an L, and a booklet of instructions with no words at all, just drawings of a smiling cartoon man. Dad flicked through it once and tossed it onto the couch.
+“Instructions are for people who don't understand furniture,” he said.
+The first hour went quite well. The sides went on. The top went on. The back panel went on upside down, came off, and went on again the right way up, but we agreed not to mention that to Mum.
+Then Dad found a little plastic bag marked C. Inside were sixteen small wooden pegs, each about the size of a fat matchstick.
+“Spares,” he said, dropping the bag into the box with the cardboard. “They always give you spares.”
+I wasn't so sure. Running my finger along the inside of the bookcase, I could feel rows of small round holes beneath where each shelf would sit. I picked up the booklet. On page six, the smiling cartoon man was pushing tiny pegs into tiny holes. He looked very pleased with himself.
+“Dad –”
+“Not now, mate. Pass me the shelves.”
+He slid the four shelves into place. They balanced there, resting on almost nothing, looking proud and level. Dad stood back, spread his arms wide and declared it a masterpiece. Two hours and fifty minutes, but who was counting? (Me. I was counting.)
+Mum came in to admire it. Dad, beaming, began loading my entire collection of encyclopaedias onto the top shelf.
+“Dad,” I said again. “Page six.”
+“Lachie, trust me.”
+Creak.
+We all looked at the top shelf.
+Creeeeak.
+Mum quietly stepped back. I quietly stepped back. Dad, still holding the last encyclopaedia, did not.
+CRASH.
+The top shelf dropped onto the second, which dropped onto the third, which dropped onto the fourth, and the whole lot ended in a heap of books and boards at the bottom, like a very tidy avalanche.
+For a long moment, nobody spoke. Then Mum reached into the cardboard box, pulled out the little bag marked C and held it up to the light.
+Dad looked at the bag. He looked at the booklet on the couch. He looked at me.
+“Right,” he said slowly. “Page six, you said?”","'The top shelf dropped onto the second, which dropped onto the third, which dropped onto the fourth...' What is the effect of repeating 'dropped onto' in this sentence?",,C,It slows the sentence to show the shelves fell gently and quietly.,It makes the collapse sound as if everything fell at the same instant.,"It creates a thudding, step-by-step rhythm, like shelves falling one after another.",It copies the creaking sound heard just before the crash.,,4,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.1492.5,109,2,8,Hard
+NAPLAN-Y7-READING-M1-Q30,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 5,7,English,Inference,Drawing Conclusions,ReadingComprehension,"Some Assembly Required
+The box said SOME ASSEMBLY REQUIRED in cheerful red letters. Dad said it the same way, rubbing his hands together.
+“Forty minutes, tops,” he announced confidently, slicing open the cardboard with a butter knife because he couldn't find the scissors.
+I'm Lachie, I'm twelve, and I have learnt that when Dad says forty minutes, you should pack a lunch.
+Inside the box were six long panels, a heap of screws, a tiny metal tool shaped like an L, and a booklet of instructions with no words at all, just drawings of a smiling cartoon man. Dad flicked through it once and tossed it onto the couch.
+“Instructions are for people who don't understand furniture,” he said.
+The first hour went quite well. The sides went on. The top went on. The back panel went on upside down, came off, and went on again the right way up, but we agreed not to mention that to Mum.
+Then Dad found a little plastic bag marked C. Inside were sixteen small wooden pegs, each about the size of a fat matchstick.
+“Spares,” he said, dropping the bag into the box with the cardboard. “They always give you spares.”
+I wasn't so sure. Running my finger along the inside of the bookcase, I could feel rows of small round holes beneath where each shelf would sit. I picked up the booklet. On page six, the smiling cartoon man was pushing tiny pegs into tiny holes. He looked very pleased with himself.
+“Dad –”
+“Not now, mate. Pass me the shelves.”
+He slid the four shelves into place. They balanced there, resting on almost nothing, looking proud and level. Dad stood back, spread his arms wide and declared it a masterpiece. Two hours and fifty minutes, but who was counting? (Me. I was counting.)
+Mum came in to admire it. Dad, beaming, began loading my entire collection of encyclopaedias onto the top shelf.
+“Dad,” I said again. “Page six.”
+“Lachie, trust me.”
+Creak.
+We all looked at the top shelf.
+Creeeeak.
+Mum quietly stepped back. I quietly stepped back. Dad, still holding the last encyclopaedia, did not.
+CRASH.
+The top shelf dropped onto the second, which dropped onto the third, which dropped onto the fourth, and the whole lot ended in a heap of books and boards at the bottom, like a very tidy avalanche.
+For a long moment, nobody spoke. Then Mum reached into the cardboard box, pulled out the little bag marked C and held it up to the light.
+Dad looked at the bag. He looked at the booklet on the couch. He looked at me.
+“Right,” he said slowly. “Page six, you said?”",What can be concluded about why the shelves collapsed?,,B,The encyclopaedias were too heavy for any bookcase to hold.,The pegs Dad called spares were meant to hold the shelves up.,The back panel had been left on upside down after all.,Dad had used the wrong tool to tighten the screws.,,4,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.1492.6,109,2,7,Hard
+NAPLAN-Y7-READING-M1-Q31,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 6,7,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Long Way Round Wattle Street
+Every September, Nell's walk to school became a battle. Halfway down Wattle Street, a magpie would launch from the old gum outside number fourteen, and Nell would hear the whoosh of wings a split second before a beak clacked beside her ear.
+For two weeks she tried everything. She wore her bike helmet with cable ties poking out like the spines of an echidna. She waved a stick above her head. She sprinted. Nothing worked. Her friends laughed at the video someone took of her running. If anything, the magpie grew bolder, and Nell began to dread the sound of her front door closing behind her.
+One afternoon, red-faced and furious, she stormed past number fourteen just as old Mr Kostas was watering his roses.
+""He got you again?"" he asked.
+""He's a monster,"" Nell said. ""Someone should cut that tree down.""
+Mr Kostas turned off the hose. ""Come and look,"" he said, pointing up into the gum. High in a fork, Nell could just make out a messy bowl of sticks and the tip of a black-and-white tail.
+""His mate is sitting on eggs,"" Mr Kostas said quietly. ""He's not a monster. He's a father. Every person who walks under that tree looks to him like something that might eat his chicks. The stick, the running, the shouting - to him, that just proves he's right.""
+""So what am I supposed to do?""
+""Go around. Six weeks, maybe less, and the babies will be flying.""
+The detour added ten minutes and one extra hill to Nell's walk. The first morning she grumbled the whole way. By the second week, she had noticed things she'd never seen before: a blue-tongue lizard sunning itself on a letterbox, a lemon tree heavy with fruit, a kelpie that wagged at her through a fence. She started leaving home a little earlier, just so she could stop and look. Some mornings she waved to the kelpie's owner, an old woman in a straw hat, who soon began waving back.
+In late October, Mr Kostas waved her over. On his lawn, a fluffy grey bird with a stubby tail was squawking for food, and the magpie was stuffing a beetle down its throat.
+Nell kept very still. The magpie looked at her, head tilted, eyes bright, quite unbothered. Then it went back to its work.
+The next morning, Nell walked down Wattle Street for the first time in six weeks. As she reached number fourteen, she heard the familiar rush of wings and froze. But the magpie only landed on the fence beside her, threw back its head and poured out a long, warbling song.
+Nell laughed. Then, to her own surprise, she turned at the corner and took the long way anyway.",What did Nell wear to protect herself from the magpie?,,B,a hat with an echidna's spines,her bike helmet with cable ties,a raincoat with the hood pulled up,her school hat with a stick on top,,1,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.1532.1,149,1,2,Easy
+NAPLAN-Y7-READING-M1-Q32,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 6,7,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Long Way Round Wattle Street
+Every September, Nell's walk to school became a battle. Halfway down Wattle Street, a magpie would launch from the old gum outside number fourteen, and Nell would hear the whoosh of wings a split second before a beak clacked beside her ear.
+For two weeks she tried everything. She wore her bike helmet with cable ties poking out like the spines of an echidna. She waved a stick above her head. She sprinted. Nothing worked. Her friends laughed at the video someone took of her running. If anything, the magpie grew bolder, and Nell began to dread the sound of her front door closing behind her.
+One afternoon, red-faced and furious, she stormed past number fourteen just as old Mr Kostas was watering his roses.
+""He got you again?"" he asked.
+""He's a monster,"" Nell said. ""Someone should cut that tree down.""
+Mr Kostas turned off the hose. ""Come and look,"" he said, pointing up into the gum. High in a fork, Nell could just make out a messy bowl of sticks and the tip of a black-and-white tail.
+""His mate is sitting on eggs,"" Mr Kostas said quietly. ""He's not a monster. He's a father. Every person who walks under that tree looks to him like something that might eat his chicks. The stick, the running, the shouting - to him, that just proves he's right.""
+""So what am I supposed to do?""
+""Go around. Six weeks, maybe less, and the babies will be flying.""
+The detour added ten minutes and one extra hill to Nell's walk. The first morning she grumbled the whole way. By the second week, she had noticed things she'd never seen before: a blue-tongue lizard sunning itself on a letterbox, a lemon tree heavy with fruit, a kelpie that wagged at her through a fence. She started leaving home a little earlier, just so she could stop and look. Some mornings she waved to the kelpie's owner, an old woman in a straw hat, who soon began waving back.
+In late October, Mr Kostas waved her over. On his lawn, a fluffy grey bird with a stubby tail was squawking for food, and the magpie was stuffing a beetle down its throat.
+Nell kept very still. The magpie looked at her, head tilted, eyes bright, quite unbothered. Then it went back to its work.
+The next morning, Nell walked down Wattle Street for the first time in six weeks. As she reached number fourteen, she heard the familiar rush of wings and froze. But the magpie only landed on the fence beside her, threw back its head and poured out a long, warbling song.
+Nell laughed. Then, to her own surprise, she turned at the corner and took the long way anyway.","According to Mr Kostas, why was the magpie swooping?",,C,it was hungry and looking for food,it wanted Nell to cut the tree down,it was protecting its mate and eggs,it was angry with Mr Kostas's roses,,1,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.1532.2,149,1,2,Easy
+NAPLAN-Y7-READING-M1-Q33,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 6,7,English,Inference,Interpreting Feelings,ReadingComprehension,"The Long Way Round Wattle Street
+Every September, Nell's walk to school became a battle. Halfway down Wattle Street, a magpie would launch from the old gum outside number fourteen, and Nell would hear the whoosh of wings a split second before a beak clacked beside her ear.
+For two weeks she tried everything. She wore her bike helmet with cable ties poking out like the spines of an echidna. She waved a stick above her head. She sprinted. Nothing worked. Her friends laughed at the video someone took of her running. If anything, the magpie grew bolder, and Nell began to dread the sound of her front door closing behind her.
+One afternoon, red-faced and furious, she stormed past number fourteen just as old Mr Kostas was watering his roses.
+""He got you again?"" he asked.
+""He's a monster,"" Nell said. ""Someone should cut that tree down.""
+Mr Kostas turned off the hose. ""Come and look,"" he said, pointing up into the gum. High in a fork, Nell could just make out a messy bowl of sticks and the tip of a black-and-white tail.
+""His mate is sitting on eggs,"" Mr Kostas said quietly. ""He's not a monster. He's a father. Every person who walks under that tree looks to him like something that might eat his chicks. The stick, the running, the shouting - to him, that just proves he's right.""
+""So what am I supposed to do?""
+""Go around. Six weeks, maybe less, and the babies will be flying.""
+The detour added ten minutes and one extra hill to Nell's walk. The first morning she grumbled the whole way. By the second week, she had noticed things she'd never seen before: a blue-tongue lizard sunning itself on a letterbox, a lemon tree heavy with fruit, a kelpie that wagged at her through a fence. She started leaving home a little earlier, just so she could stop and look. Some mornings she waved to the kelpie's owner, an old woman in a straw hat, who soon began waving back.
+In late October, Mr Kostas waved her over. On his lawn, a fluffy grey bird with a stubby tail was squawking for food, and the magpie was stuffing a beetle down its throat.
+Nell kept very still. The magpie looked at her, head tilted, eyes bright, quite unbothered. Then it went back to its work.
+The next morning, Nell walked down Wattle Street for the first time in six weeks. As she reached number fourteen, she heard the familiar rush of wings and froze. But the magpie only landed on the fence beside her, threw back its head and poured out a long, warbling song.
+Nell laughed. Then, to her own surprise, she turned at the corner and took the long way anyway.",How did Nell feel on the first morning of the detour?,,A,irritated,terrified,relieved,curious,,2,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.1532.3,149,1,4,Medium
+NAPLAN-Y7-READING-M1-Q34,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 6,7,English,Vocabulary,Word Origins and Morphology,ReadingComprehension,"The Long Way Round Wattle Street
+Every September, Nell's walk to school became a battle. Halfway down Wattle Street, a magpie would launch from the old gum outside number fourteen, and Nell would hear the whoosh of wings a split second before a beak clacked beside her ear.
+For two weeks she tried everything. She wore her bike helmet with cable ties poking out like the spines of an echidna. She waved a stick above her head. She sprinted. Nothing worked. Her friends laughed at the video someone took of her running. If anything, the magpie grew bolder, and Nell began to dread the sound of her front door closing behind her.
+One afternoon, red-faced and furious, she stormed past number fourteen just as old Mr Kostas was watering his roses.
+""He got you again?"" he asked.
+""He's a monster,"" Nell said. ""Someone should cut that tree down.""
+Mr Kostas turned off the hose. ""Come and look,"" he said, pointing up into the gum. High in a fork, Nell could just make out a messy bowl of sticks and the tip of a black-and-white tail.
+""His mate is sitting on eggs,"" Mr Kostas said quietly. ""He's not a monster. He's a father. Every person who walks under that tree looks to him like something that might eat his chicks. The stick, the running, the shouting - to him, that just proves he's right.""
+""So what am I supposed to do?""
+""Go around. Six weeks, maybe less, and the babies will be flying.""
+The detour added ten minutes and one extra hill to Nell's walk. The first morning she grumbled the whole way. By the second week, she had noticed things she'd never seen before: a blue-tongue lizard sunning itself on a letterbox, a lemon tree heavy with fruit, a kelpie that wagged at her through a fence. She started leaving home a little earlier, just so she could stop and look. Some mornings she waved to the kelpie's owner, an old woman in a straw hat, who soon began waving back.
+In late October, Mr Kostas waved her over. On his lawn, a fluffy grey bird with a stubby tail was squawking for food, and the magpie was stuffing a beetle down its throat.
+Nell kept very still. The magpie looked at her, head tilted, eyes bright, quite unbothered. Then it went back to its work.
+The next morning, Nell walked down Wattle Street for the first time in six weeks. As she reached number fourteen, she heard the familiar rush of wings and froze. But the magpie only landed on the fence beside her, threw back its head and poured out a long, warbling song.
+Nell laughed. Then, to her own surprise, she turned at the corner and took the long way anyway.",The word 'unbothered' is built from 'un-' + 'bothered'. What does it mean?,,B,bothered over and over again,not disturbed or worried,about to become worried,bothering someone else,,2,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.1532.4,149,1,4,Medium
+NAPLAN-Y7-READING-M1-Q35,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 6,7,English,Inference,Inferential Reasoning,ReadingComprehension,"The Long Way Round Wattle Street
+Every September, Nell's walk to school became a battle. Halfway down Wattle Street, a magpie would launch from the old gum outside number fourteen, and Nell would hear the whoosh of wings a split second before a beak clacked beside her ear.
+For two weeks she tried everything. She wore her bike helmet with cable ties poking out like the spines of an echidna. She waved a stick above her head. She sprinted. Nothing worked. Her friends laughed at the video someone took of her running. If anything, the magpie grew bolder, and Nell began to dread the sound of her front door closing behind her.
+One afternoon, red-faced and furious, she stormed past number fourteen just as old Mr Kostas was watering his roses.
+""He got you again?"" he asked.
+""He's a monster,"" Nell said. ""Someone should cut that tree down.""
+Mr Kostas turned off the hose. ""Come and look,"" he said, pointing up into the gum. High in a fork, Nell could just make out a messy bowl of sticks and the tip of a black-and-white tail.
+""His mate is sitting on eggs,"" Mr Kostas said quietly. ""He's not a monster. He's a father. Every person who walks under that tree looks to him like something that might eat his chicks. The stick, the running, the shouting - to him, that just proves he's right.""
+""So what am I supposed to do?""
+""Go around. Six weeks, maybe less, and the babies will be flying.""
+The detour added ten minutes and one extra hill to Nell's walk. The first morning she grumbled the whole way. By the second week, she had noticed things she'd never seen before: a blue-tongue lizard sunning itself on a letterbox, a lemon tree heavy with fruit, a kelpie that wagged at her through a fence. She started leaving home a little earlier, just so she could stop and look. Some mornings she waved to the kelpie's owner, an old woman in a straw hat, who soon began waving back.
+In late October, Mr Kostas waved her over. On his lawn, a fluffy grey bird with a stubby tail was squawking for food, and the magpie was stuffing a beetle down its throat.
+Nell kept very still. The magpie looked at her, head tilted, eyes bright, quite unbothered. Then it went back to its work.
+The next morning, Nell walked down Wattle Street for the first time in six weeks. As she reached number fourteen, she heard the familiar rush of wings and froze. But the magpie only landed on the fence beside her, threw back its head and poured out a long, warbling song.
+Nell laughed. Then, to her own surprise, she turned at the corner and took the long way anyway.",What can be inferred from the magpie landing beside Nell and singing instead of swooping?,,A,"with its chick now out of the nest, it no longer saw her as a threat",it had come to think of Nell as a friend because she fed its chick,it was warning Nell to keep well away from its nest in the gum tree,it was too tired after weeks of swooping to chase anyone any more,,4,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.1532.5,149,2,8,Hard
+NAPLAN-Y7-READING-M1-Q36,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 6,7,English,Inference,Character Motivation,ReadingComprehension,"The Long Way Round Wattle Street
+Every September, Nell's walk to school became a battle. Halfway down Wattle Street, a magpie would launch from the old gum outside number fourteen, and Nell would hear the whoosh of wings a split second before a beak clacked beside her ear.
+For two weeks she tried everything. She wore her bike helmet with cable ties poking out like the spines of an echidna. She waved a stick above her head. She sprinted. Nothing worked. Her friends laughed at the video someone took of her running. If anything, the magpie grew bolder, and Nell began to dread the sound of her front door closing behind her.
+One afternoon, red-faced and furious, she stormed past number fourteen just as old Mr Kostas was watering his roses.
+""He got you again?"" he asked.
+""He's a monster,"" Nell said. ""Someone should cut that tree down.""
+Mr Kostas turned off the hose. ""Come and look,"" he said, pointing up into the gum. High in a fork, Nell could just make out a messy bowl of sticks and the tip of a black-and-white tail.
+""His mate is sitting on eggs,"" Mr Kostas said quietly. ""He's not a monster. He's a father. Every person who walks under that tree looks to him like something that might eat his chicks. The stick, the running, the shouting - to him, that just proves he's right.""
+""So what am I supposed to do?""
+""Go around. Six weeks, maybe less, and the babies will be flying.""
+The detour added ten minutes and one extra hill to Nell's walk. The first morning she grumbled the whole way. By the second week, she had noticed things she'd never seen before: a blue-tongue lizard sunning itself on a letterbox, a lemon tree heavy with fruit, a kelpie that wagged at her through a fence. She started leaving home a little earlier, just so she could stop and look. Some mornings she waved to the kelpie's owner, an old woman in a straw hat, who soon began waving back.
+In late October, Mr Kostas waved her over. On his lawn, a fluffy grey bird with a stubby tail was squawking for food, and the magpie was stuffing a beetle down its throat.
+Nell kept very still. The magpie looked at her, head tilted, eyes bright, quite unbothered. Then it went back to its work.
+The next morning, Nell walked down Wattle Street for the first time in six weeks. As she reached number fourteen, she heard the familiar rush of wings and froze. But the magpie only landed on the fence beside her, threw back its head and poured out a long, warbling song.
+Nell laughed. Then, to her own surprise, she turned at the corner and took the long way anyway.",Why does Nell take the long way at the end of the story?,,C,she still expects the magpie to swoop her again,she wants to see the young magpie on the lawn,she has come to enjoy what the detour shows her,Mr Kostas has asked her to keep away for longer,,4,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.1532.6,149,2,8,Hard
+NAPLAN-Y7-READING-M1-Q37,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 7,7,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Building and Trimming a Paper Glider
+A paper glider is more than a toy. Every time it floats across a room, it relies on the same four forces that keep a passenger jet in the air. This report explains those forces and then shows you how to build and test a glider of your own.
+The four forces
+Any aircraft in flight is affected by four forces. Weight is the pull of gravity, dragging the aircraft down. Lift is the upward push created as air flows over and under the wings. Thrust moves the aircraft forward, and drag is the resistance of the air pushing back against it. A jet's engines provide thrust, but a glider has no engine. Its only thrust comes from your throw. After that, it trades height for distance, sliding gently downwards through the air.
+Making the glider
+You will need a sheet of A4 paper and a paper clip.
+1. Fold the paper in half lengthways, crease it firmly, and open it out again.
+2. Fold the two top corners in to meet the centre crease, forming a point.
+3. Fold the new slanted edges in to the centre crease again, making the point narrower.
+4. Fold the whole plane in half along the centre crease, with the folds on the outside.
+5. Fold each side down to make the wings, so that the top edge of each wing lines up with the bottom of the body.
+6. Open the wings so that they form a slight V shape when viewed from the front.
+Testing and trimming
+Find a large indoor space, so that wind will not affect your results. Hold the glider under the wings and launch it gently forward and level. Do not throw it hard; a glider flies best at a smooth, steady speed.
+Watch carefully how it flies. Pilots and engineers call the small adjustments that follow 'trimming'.
+If the glider climbs steeply, slows, then drops suddenly, it is stalling. Its nose is pointing too high, so the wings can no longer produce enough lift. Slide a paper clip onto the nose. The extra weight at the front will help keep the nose down.
+If the glider dives straight into the floor, its nose is pointing too low. Bend the back edges of both wings up very slightly, by about two millimetres. Air hitting these raised edges will push the tail down and lift the nose.
+If the glider turns sharply to one side, check that both wings are the same shape. Small differences can make a big difference.
+Change only one thing at a time, and test it several times before making another change. That way, you will know exactly which adjustment made the difference. Real aircraft designers work in much the same way: testing, adjusting and testing again. Very few planes, paper or otherwise, fly perfectly on the first try.",Where does a paper glider's thrust come from?,,A,the person's throw,the air under the wings,the paper clip on the nose,the pull of gravity,,1,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.1517.1,134,1,2,Easy
+NAPLAN-Y7-READING-M1-Q38,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 7,7,English,Reading Comprehension,Sequencing,ReadingComprehension,"Building and Trimming a Paper Glider
+A paper glider is more than a toy. Every time it floats across a room, it relies on the same four forces that keep a passenger jet in the air. This report explains those forces and then shows you how to build and test a glider of your own.
+The four forces
+Any aircraft in flight is affected by four forces. Weight is the pull of gravity, dragging the aircraft down. Lift is the upward push created as air flows over and under the wings. Thrust moves the aircraft forward, and drag is the resistance of the air pushing back against it. A jet's engines provide thrust, but a glider has no engine. Its only thrust comes from your throw. After that, it trades height for distance, sliding gently downwards through the air.
+Making the glider
+You will need a sheet of A4 paper and a paper clip.
+1. Fold the paper in half lengthways, crease it firmly, and open it out again.
+2. Fold the two top corners in to meet the centre crease, forming a point.
+3. Fold the new slanted edges in to the centre crease again, making the point narrower.
+4. Fold the whole plane in half along the centre crease, with the folds on the outside.
+5. Fold each side down to make the wings, so that the top edge of each wing lines up with the bottom of the body.
+6. Open the wings so that they form a slight V shape when viewed from the front.
+Testing and trimming
+Find a large indoor space, so that wind will not affect your results. Hold the glider under the wings and launch it gently forward and level. Do not throw it hard; a glider flies best at a smooth, steady speed.
+Watch carefully how it flies. Pilots and engineers call the small adjustments that follow 'trimming'.
+If the glider climbs steeply, slows, then drops suddenly, it is stalling. Its nose is pointing too high, so the wings can no longer produce enough lift. Slide a paper clip onto the nose. The extra weight at the front will help keep the nose down.
+If the glider dives straight into the floor, its nose is pointing too low. Bend the back edges of both wings up very slightly, by about two millimetres. Air hitting these raised edges will push the tail down and lift the nose.
+If the glider turns sharply to one side, check that both wings are the same shape. Small differences can make a big difference.
+Change only one thing at a time, and test it several times before making another change. That way, you will know exactly which adjustment made the difference. Real aircraft designers work in much the same way: testing, adjusting and testing again. Very few planes, paper or otherwise, fly perfectly on the first try.",What should you do straight after folding the two top corners in to meet the centre crease?,,C,fold the paper in half lengthways and open it out,fold the whole plane in half along the centre crease,fold the new slanted edges in to the centre crease,fold each side down to make the wings,,1,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.1517.2,134,1,2,Easy
+NAPLAN-Y7-READING-M1-Q39,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 7,7,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"Building and Trimming a Paper Glider
+A paper glider is more than a toy. Every time it floats across a room, it relies on the same four forces that keep a passenger jet in the air. This report explains those forces and then shows you how to build and test a glider of your own.
+The four forces
+Any aircraft in flight is affected by four forces. Weight is the pull of gravity, dragging the aircraft down. Lift is the upward push created as air flows over and under the wings. Thrust moves the aircraft forward, and drag is the resistance of the air pushing back against it. A jet's engines provide thrust, but a glider has no engine. Its only thrust comes from your throw. After that, it trades height for distance, sliding gently downwards through the air.
+Making the glider
+You will need a sheet of A4 paper and a paper clip.
+1. Fold the paper in half lengthways, crease it firmly, and open it out again.
+2. Fold the two top corners in to meet the centre crease, forming a point.
+3. Fold the new slanted edges in to the centre crease again, making the point narrower.
+4. Fold the whole plane in half along the centre crease, with the folds on the outside.
+5. Fold each side down to make the wings, so that the top edge of each wing lines up with the bottom of the body.
+6. Open the wings so that they form a slight V shape when viewed from the front.
+Testing and trimming
+Find a large indoor space, so that wind will not affect your results. Hold the glider under the wings and launch it gently forward and level. Do not throw it hard; a glider flies best at a smooth, steady speed.
+Watch carefully how it flies. Pilots and engineers call the small adjustments that follow 'trimming'.
+If the glider climbs steeply, slows, then drops suddenly, it is stalling. Its nose is pointing too high, so the wings can no longer produce enough lift. Slide a paper clip onto the nose. The extra weight at the front will help keep the nose down.
+If the glider dives straight into the floor, its nose is pointing too low. Bend the back edges of both wings up very slightly, by about two millimetres. Air hitting these raised edges will push the tail down and lift the nose.
+If the glider turns sharply to one side, check that both wings are the same shape. Small differences can make a big difference.
+Change only one thing at a time, and test it several times before making another change. That way, you will know exactly which adjustment made the difference. Real aircraft designers work in much the same way: testing, adjusting and testing again. Very few planes, paper or otherwise, fly perfectly on the first try.","In this report, the word 'trimming' means . . .",,D,cutting the edges of the paper with scissors,decorating the glider before it is tested,folding the wings so that they lie flat,making small adjustments to improve the flight,,2,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.1517.3,134,1,4,Medium
+NAPLAN-Y7-READING-M1-Q40,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 7,7,English,Inference,Inferential Reasoning,ReadingComprehension,"Building and Trimming a Paper Glider
+A paper glider is more than a toy. Every time it floats across a room, it relies on the same four forces that keep a passenger jet in the air. This report explains those forces and then shows you how to build and test a glider of your own.
+The four forces
+Any aircraft in flight is affected by four forces. Weight is the pull of gravity, dragging the aircraft down. Lift is the upward push created as air flows over and under the wings. Thrust moves the aircraft forward, and drag is the resistance of the air pushing back against it. A jet's engines provide thrust, but a glider has no engine. Its only thrust comes from your throw. After that, it trades height for distance, sliding gently downwards through the air.
+Making the glider
+You will need a sheet of A4 paper and a paper clip.
+1. Fold the paper in half lengthways, crease it firmly, and open it out again.
+2. Fold the two top corners in to meet the centre crease, forming a point.
+3. Fold the new slanted edges in to the centre crease again, making the point narrower.
+4. Fold the whole plane in half along the centre crease, with the folds on the outside.
+5. Fold each side down to make the wings, so that the top edge of each wing lines up with the bottom of the body.
+6. Open the wings so that they form a slight V shape when viewed from the front.
+Testing and trimming
+Find a large indoor space, so that wind will not affect your results. Hold the glider under the wings and launch it gently forward and level. Do not throw it hard; a glider flies best at a smooth, steady speed.
+Watch carefully how it flies. Pilots and engineers call the small adjustments that follow 'trimming'.
+If the glider climbs steeply, slows, then drops suddenly, it is stalling. Its nose is pointing too high, so the wings can no longer produce enough lift. Slide a paper clip onto the nose. The extra weight at the front will help keep the nose down.
+If the glider dives straight into the floor, its nose is pointing too low. Bend the back edges of both wings up very slightly, by about two millimetres. Air hitting these raised edges will push the tail down and lift the nose.
+If the glider turns sharply to one side, check that both wings are the same shape. Small differences can make a big difference.
+Change only one thing at a time, and test it several times before making another change. That way, you will know exactly which adjustment made the difference. Real aircraft designers work in much the same way: testing, adjusting and testing again. Very few planes, paper or otherwise, fly perfectly on the first try.",What can be inferred about a glider once it has left your hand?,,C,it slowly gains height because air flows under its wings,it keeps the same height until its thrust is used up,it slowly loses height because nothing keeps pushing it forward,it drops straight down because it has no engine,,3,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.1517.4,134,1,5,Medium
+NAPLAN-Y7-READING-M1-Q41,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 7,7,English,Inference,Inferential Reasoning,ReadingComprehension,"Building and Trimming a Paper Glider
+A paper glider is more than a toy. Every time it floats across a room, it relies on the same four forces that keep a passenger jet in the air. This report explains those forces and then shows you how to build and test a glider of your own.
+The four forces
+Any aircraft in flight is affected by four forces. Weight is the pull of gravity, dragging the aircraft down. Lift is the upward push created as air flows over and under the wings. Thrust moves the aircraft forward, and drag is the resistance of the air pushing back against it. A jet's engines provide thrust, but a glider has no engine. Its only thrust comes from your throw. After that, it trades height for distance, sliding gently downwards through the air.
+Making the glider
+You will need a sheet of A4 paper and a paper clip.
+1. Fold the paper in half lengthways, crease it firmly, and open it out again.
+2. Fold the two top corners in to meet the centre crease, forming a point.
+3. Fold the new slanted edges in to the centre crease again, making the point narrower.
+4. Fold the whole plane in half along the centre crease, with the folds on the outside.
+5. Fold each side down to make the wings, so that the top edge of each wing lines up with the bottom of the body.
+6. Open the wings so that they form a slight V shape when viewed from the front.
+Testing and trimming
+Find a large indoor space, so that wind will not affect your results. Hold the glider under the wings and launch it gently forward and level. Do not throw it hard; a glider flies best at a smooth, steady speed.
+Watch carefully how it flies. Pilots and engineers call the small adjustments that follow 'trimming'.
+If the glider climbs steeply, slows, then drops suddenly, it is stalling. Its nose is pointing too high, so the wings can no longer produce enough lift. Slide a paper clip onto the nose. The extra weight at the front will help keep the nose down.
+If the glider dives straight into the floor, its nose is pointing too low. Bend the back edges of both wings up very slightly, by about two millimetres. Air hitting these raised edges will push the tail down and lift the nose.
+If the glider turns sharply to one side, check that both wings are the same shape. Small differences can make a big difference.
+Change only one thing at a time, and test it several times before making another change. That way, you will know exactly which adjustment made the difference. Real aircraft designers work in much the same way: testing, adjusting and testing again. Very few planes, paper or otherwise, fly perfectly on the first try.","A glider was stalling, so a student added a paper clip to its nose. Now it dives straight into the floor. What should the student most likely do next?",,B,"add a second paper clip, as the nose needs more weight","remove the paper clip, as it has made the nose too heavy","bend the back edges of the wings down, to lift the nose","throw the glider harder, so that it has time to climb",,4,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.1517.5,134,2,8,Hard
+NAPLAN-Y7-READING-M1-Q42,NAPLAN-Y7-READING-M1,NAPLAN_STYLE_READING,Text 7,7,English,Reading Comprehension,Theme,ReadingComprehension,"Building and Trimming a Paper Glider
+A paper glider is more than a toy. Every time it floats across a room, it relies on the same four forces that keep a passenger jet in the air. This report explains those forces and then shows you how to build and test a glider of your own.
+The four forces
+Any aircraft in flight is affected by four forces. Weight is the pull of gravity, dragging the aircraft down. Lift is the upward push created as air flows over and under the wings. Thrust moves the aircraft forward, and drag is the resistance of the air pushing back against it. A jet's engines provide thrust, but a glider has no engine. Its only thrust comes from your throw. After that, it trades height for distance, sliding gently downwards through the air.
+Making the glider
+You will need a sheet of A4 paper and a paper clip.
+1. Fold the paper in half lengthways, crease it firmly, and open it out again.
+2. Fold the two top corners in to meet the centre crease, forming a point.
+3. Fold the new slanted edges in to the centre crease again, making the point narrower.
+4. Fold the whole plane in half along the centre crease, with the folds on the outside.
+5. Fold each side down to make the wings, so that the top edge of each wing lines up with the bottom of the body.
+6. Open the wings so that they form a slight V shape when viewed from the front.
+Testing and trimming
+Find a large indoor space, so that wind will not affect your results. Hold the glider under the wings and launch it gently forward and level. Do not throw it hard; a glider flies best at a smooth, steady speed.
+Watch carefully how it flies. Pilots and engineers call the small adjustments that follow 'trimming'.
+If the glider climbs steeply, slows, then drops suddenly, it is stalling. Its nose is pointing too high, so the wings can no longer produce enough lift. Slide a paper clip onto the nose. The extra weight at the front will help keep the nose down.
+If the glider dives straight into the floor, its nose is pointing too low. Bend the back edges of both wings up very slightly, by about two millimetres. Air hitting these raised edges will push the tail down and lift the nose.
+If the glider turns sharply to one side, check that both wings are the same shape. Small differences can make a big difference.
+Change only one thing at a time, and test it several times before making another change. That way, you will know exactly which adjustment made the difference. Real aircraft designers work in much the same way: testing, adjusting and testing again. Very few planes, paper or otherwise, fly perfectly on the first try.",Which idea best expresses the underlying message of the 'Testing and trimming' section?,,B,Paper gliders are built in the same way as real aircraft.,Patient testing and careful changes lead to success over time.,A small mistake in the folding will ruin a glider completely.,The best gliders are those that are launched hard and fast.,,4,1,1,"NAPLAN,Year 7,Mock 1",English_Comprehension_Questions_expanded.csv,7.1517.6,134,2,7,Hard

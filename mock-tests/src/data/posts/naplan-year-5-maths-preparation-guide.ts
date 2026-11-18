@@ -52,7 +52,7 @@ export const naplanYear5MathsPreparationGuide = {
         <ul>
           <li><strong>Place value</strong> - Understanding numbers into the tens of thousands and beyond; recognising the value of each digit in multi-digit numbers (e.g., in 42,658, the '4' represents 40,000)</li>
           <li><strong>Addition and subtraction</strong> - Fluent computation with numbers up to five digits using efficient mental and written strategies</li>
-          <li><strong>Multiplication and division</strong> - Recall of times tables up to 10 Ã- 10; using written strategies for multi-digit multiplication (e.g., 34 Ã- 7) and division with remainders</li>
+          <li><strong>Multiplication and division</strong> - Recall of times tables up to 10 × 10; using written strategies for multi-digit multiplication (e.g., 34 × 7) and division with remainders</li>
           <li><strong>Fractions and decimals</strong> - Comparing, ordering, and operating with fractions (including unlike denominators in simple cases); understanding decimals to hundredths; connecting fractions, decimals, and percentages</li>
           <li><strong>Patterns and algebra</strong> - Describing and continuing number patterns; using the concept of equivalence to find unknown values (e.g., ___ + 15 = 40)</li>
           <li><strong>Financial mathematics</strong> - Calculating change, understanding simple budgets, and solving multi-step money problems</li>
@@ -143,9 +143,9 @@ export const naplanYear5MathsPreparationGuide = {
         <h3>6. Strengthen Core Fluency Skills</h3>
         <p>The non-calculator session demands quick, accurate mental computation. Key fluency skills for Year 5 include:</p>
         <ul>
-          <li><strong>Times tables mastery</strong> - Instant recall of all facts up to 10 Ã- 10 (and ideally 12 Ã- 12). Use apps, flashcards, or verbal quizzes to build speed</li>
-          <li><strong>Division facts</strong> - The inverse of multiplication tables (e.g., 56 Ã· 8 = 7)</li>
-          <li><strong>Fraction-decimal equivalents</strong> - Know common conversions by heart: Â½ = 0.5, Â¼ = 0.25, Â¾ = 0.75, 1/10 = 0.1, 1/5 = 0.2</li>
+          <li><strong>Times tables mastery</strong> - Instant recall of all facts up to 10 × 10 (and ideally 12 × 12). Use apps, flashcards, or verbal quizzes to build speed</li>
+          <li><strong>Division facts</strong> - The inverse of multiplication tables (e.g., 56 ÷ 8 = 7)</li>
+          <li><strong>Fraction-decimal equivalents</strong> - Know common conversions by heart: ½ = 0.5, ¼ = 0.25, ¾ = 0.75, 1/10 = 0.1, 1/5 = 0.2</li>
           <li><strong>Rounding</strong> - Rounding to the nearest 10, 100, and 1,000; using rounding to estimate answers</li>
           <li><strong>Compensation strategies</strong> - For example, calculating 298 + 47 by thinking "300 + 47 = 347, then subtract 2 = 345"</li>
         </ul>
@@ -169,8 +169,8 @@ export const naplanYear5MathsPreparationGuide = {
         <ul>
           <li><strong>Misreading multi-step problems</strong> - Answering the first step but forgetting to complete the final calculation (e.g., finding the cost of items but not calculating the change)</li>
           <li><strong>Place value errors with decimals</strong> - Believing 0.45 is greater than 0.5 because 45 is greater than 5</li>
-          <li><strong>Confusing perimeter and area</strong> - Adding all sides when asked for area, or multiplying length Ã- width when asked for perimeter</li>
-          <li><strong>Incorrect fraction operations</strong> - Adding numerators and denominators separately (e.g., thinking Â½ + -… = 2/5)</li>
+          <li><strong>Confusing perimeter and area</strong> - Adding all sides when asked for area, or multiplying length × width when asked for perimeter</li>
+          <li><strong>Incorrect fraction operations</strong> - Adding numerators and denominators separately (e.g., thinking ½ + ⅓ = 2/5)</li>
           <li><strong>Elapsed time errors</strong> - Miscounting when crossing the hour (e.g., from 10:45 to 11:15 is 30 minutes, not 70)</li>
           <li><strong>Misinterpreting graph scales</strong> - Assuming each grid line represents 1 unit when it actually represents 2, 5, or 10</li>
           <li><strong>Not checking units</strong> - Giving an answer in centimetres when the question asks for metres</li>
@@ -310,12 +310,35 @@ export const naplanYear5MathsPreparationGuide = {
       </section>
 
     </article>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What topics does Year 5 NAPLAN Maths cover?</h3>
+    <p>Three content strands from the Australian Curriculum - Number and Algebra, Measurement and Space (Geometry), and Statistics and Probability - plus mathematical reasoning and problem solving applied across all three. The guide breaks each strand down in detail.</p>
+
+    <h3>How does adaptive testing work in Year 5 NAPLAN?</h3>
+    <p>NAPLAN Online uses a multi-stage adaptive design. After an initial set of common questions, the test routes your child toward easier or harder questions based on how they answered. This lets the assessment locate ability precisely, and it means two students may see different questions while being measured on the same scale.</p>
+
+    <h3>What are the proven preparation strategies for Year 5?</h3>
+    <p>The guide sets out seven: build a consistent practice routine, use official NAPLAN practice resources, target weak areas without neglecting strengths, develop strong problem-solving habits, integrate maths into daily life, strengthen core fluency skills, and practise interpreting visual information such as tables and graphs.</p>
+
+    <h3>What mistakes do Year 5 students commonly make in maths?</h3>
+    <p>The guide lists them explicitly. They tend to involve misreading what a question asks, arithmetic slips rather than conceptual gaps, not checking whether an answer is reasonable, and difficulty interpreting visual data - all of which targeted practice reduces.</p>
+
+    <h3>How much time should Year 5 preparation take each week?</h3>
+    <p>The sample weekly plan is built on short, regular sessions rather than long weekend blocks. Consistency matters more than total hours, and the plan is designed to fit around school without displacing sleep or downtime.</p>
+
+    <h3>What if my child is finding Year 5 maths genuinely hard?</h3>
+    <p>There is a dedicated section for this. The first step is identifying the specific concept rather than treating it as a general maths problem, then talking to your child's teacher and using trusted resources. The guide also covers supporting emotional wellbeing - keeping the conversation open and honest, fostering a growth mindset, and recognising signs of anxiety.</p>
+
   `,
   image:
     "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Primary school student confidently solving maths problems with a pencil and notebook",
-  date: "March 28, 2026",
+    "Primary school student confidently solving maths problems with a pencil and notebook",  date: "November 17, 2026",
+  updatedDate: "November 19, 2026",
+  readingTime: 15,
+  category: "naplan",
   tags: ["NAPLAN", "YEAR 5", "MATHS", "EXAM PREPARATION", "PRIMARY SCHOOL"],
   metaTitle: "NAPLAN Year 5 Maths - Preparation Guide & Tips (2026)",
   metaDescription:
@@ -331,6 +354,13 @@ export const naplanYear5MathsPreparationGuide = {
     "primary school maths Australia",
     "NAPLAN test format Year 5",
     "NAPLAN parent guide",
+  ],
+  keyTakeaways: [
+    "Year 5 NAPLAN Maths covers Number and Algebra, Measurement and Space (Geometry), Statistics and Probability, plus mathematical reasoning and problem solving across all three.",
+    "The test is online and adaptive, so question difficulty adjusts to your child's responses.",
+    "Seven proven strategies structure the plan: consistent routine, official NAPLAN resources, targeting weak areas without neglecting strengths, problem-solving habits, maths in daily life, core fluency, and interpreting visual information.",
+    "Common Year 5 mistakes are listed explicitly, and a sample weekly plan shows how to fit preparation around school.",
+    "Emotional wellbeing is covered directly - keeping the conversation open, fostering a growth mindset, recognising signs of anxiety, and preparing practically for test day.",
   ],
   author: {
     name: "Ashish Jain",

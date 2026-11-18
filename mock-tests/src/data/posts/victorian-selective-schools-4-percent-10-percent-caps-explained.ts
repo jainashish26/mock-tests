@@ -387,8 +387,10 @@ export const victorianSelectiveSchools4Percent10PercentCapsExplained = {
   image:
     "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Modern Australian school building exterior representing Victoria's selective-entry high school system",
-  date: "March 28, 2026",
+    "Modern Australian school building exterior representing Victoria's selective-entry high school system",  date: "December 23, 2026",
+  updatedDate: "December 25, 2026",
+  readingTime: 19,
+  category: "selective-schools",
   tags: [
     "SELECTIVE ENTRY",
     "VICTORIA",
@@ -413,6 +415,13 @@ export const victorianSelectiveSchools4Percent10PercentCapsExplained = {
     "selective school diversity caps Australia",
     "selective entry exam Victoria 2026",
     "Nossal Suzanne Cory admission cap",
+  ],
+  keyTakeaways: [
+    "Victoria's selective-entry selection applies two caps that are widely misunderstood: a 4% primary school cap and a 10% feeder school cap.",
+    "The guide first recaps how selection normally works, then explains the specific problem the caps were designed to address.",
+    "Each cap is explained separately, followed by how the two interact in practice.",
+    "Who is most affected is identified explicitly, along with the common misconceptions that lead families to misjudge their chances.",
+    "Strategic implications for your child's application and the broader fairness debate are both covered, ending with what to do now.",
   ],
   author: {
     name: "Ashish Jain",

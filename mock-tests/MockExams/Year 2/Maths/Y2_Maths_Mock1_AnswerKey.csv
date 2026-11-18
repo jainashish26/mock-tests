@@ -1,0 +1,26 @@
+﻿QuestionNumber,QuestionID,ExamSection,Correct,CorrectAnswerText,Topic,SubTopic,DifficultyLabel,DifficultyScore,SourceQuestionNumber
+1,NAPLAN-Y2-NUMERACY-M1-Q01,Numeracy - No Calculator,C,18 L,Measurement,Volume and Capacity,Easy,1,487
+2,NAPLAN-Y2-NUMERACY-M1-Q02,Numeracy - No Calculator,C,6,Geometry,2D Shapes,Easy,1,256
+3,NAPLAN-Y2-NUMERACY-M1-Q03,Numeracy - No Calculator,D,6,Number,Fractions,Easy,2,688
+4,NAPLAN-Y2-NUMERACY-M1-Q04,Numeracy - No Calculator,D,grams,Measurement,Mass,Easy,2,452
+5,NAPLAN-Y2-NUMERACY-M1-Q05,Numeracy - No Calculator,C,25,Number,Multiplication and Division,Easy,3,629
+6,NAPLAN-Y2-NUMERACY-M1-Q06,Numeracy - No Calculator,B,12,Statistics,Data Interpretation,Easy,3,1084
+7,NAPLAN-Y2-NUMERACY-M1-Q07,Numeracy - No Calculator,D,30,Number,Multiplication and Division,Easy,3,627
+8,NAPLAN-Y2-NUMERACY-M1-Q08,Numeracy - No Calculator,A,14,Algebra,Number Sequences,Easy,3,16
+9,NAPLAN-Y2-NUMERACY-M1-Q09,Numeracy - No Calculator,A,16,Statistics,Data Interpretation,Medium,4,1088
+10,NAPLAN-Y2-NUMERACY-M1-Q10,Numeracy - No Calculator,B,200,Number,Place Value,Medium,4,752
+11,NAPLAN-Y2-NUMERACY-M1-Q11,Numeracy - No Calculator,B,north,Geometry,Transformations,Medium,4,305
+12,NAPLAN-Y2-NUMERACY-M1-Q12,Numeracy - No Calculator,C,130 g,Measurement,Mass,Medium,5,465
+13,NAPLAN-Y2-NUMERACY-M1-Q13,Numeracy - No Calculator,A,15 cm,Measurement,Length and Perimeter,Medium,5,381
+14,NAPLAN-Y2-NUMERACY-M1-Q14,Numeracy - No Calculator,A,$4.00,Financial Mathematics,Money and Change,Medium,5,142
+15,NAPLAN-Y2-NUMERACY-M1-Q15,Numeracy - No Calculator,C,unlikely,Probability,Chance and Likelihood,Medium,5,903
+16,NAPLAN-Y2-NUMERACY-M1-Q16,Numeracy - No Calculator,D,30,Number,Multiplication and Division,Medium,5,642
+17,NAPLAN-Y2-NUMERACY-M1-Q17,Numeracy - No Calculator,B,2,Problem Solving,Number Puzzles,Medium,5,934
+18,NAPLAN-Y2-NUMERACY-M1-Q18,Numeracy - No Calculator,D,71,Number,Addition and Subtraction,Medium,6,599
+19,NAPLAN-Y2-NUMERACY-M1-Q19,Numeracy - No Calculator,B,30,Number,Multiplication and Division,Medium,6,650
+20,NAPLAN-Y2-NUMERACY-M1-Q20,Numeracy - No Calculator,E,54,Number,Mental Computation,Medium,6,804
+21,NAPLAN-Y2-NUMERACY-M1-Q21,Numeracy - No Calculator,A,108,Algebra,Number Sequences,Medium,6,31
+22,NAPLAN-Y2-NUMERACY-M1-Q22,Numeracy - No Calculator,A,7,Geometry,Transformations,Hard,7,317
+23,NAPLAN-Y2-NUMERACY-M1-Q23,Numeracy - No Calculator,B,10 cups,Measurement,Volume and Capacity,Hard,8,518
+24,NAPLAN-Y2-NUMERACY-M1-Q24,Numeracy - No Calculator,D,5,Number,Multiplication and Division,Hard,8,655
+25,NAPLAN-Y2-NUMERACY-M1-Q25,Numeracy - No Calculator,E,706,Number,Place Value,Hard,9,773

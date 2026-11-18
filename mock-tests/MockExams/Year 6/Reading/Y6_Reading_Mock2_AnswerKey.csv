@@ -1,0 +1,39 @@
+﻿QuestionNumber,QuestionID,ExamSection,Correct,CorrectAnswerText,Topic,SubTopic,DifficultyLabel,DifficultyScore,SourceQuestionNumber
+1,NAPLAN-Y6-READING-M2-Q01,Text 1,D,It contains something important.,Inference,Inferential Reasoning,Easy,2,6.638.1
+2,NAPLAN-Y6-READING-M2-Q02,Text 1,A,Characters with whom readers can relate,Literary Techniques,Characterisation,Easy,3,6.638.2
+3,NAPLAN-Y6-READING-M2-Q03,Text 1,B,The mayor gives India a plastic zucchini as an award.,Literary Techniques,Tone and Mood,Medium,4,6.638.3
+4,NAPLAN-Y6-READING-M2-Q04,Text 1,A,To help the reader understand what India is thinking,Reading Comprehension,Point of View,Easy,3,6.638.4
+5,NAPLAN-Y6-READING-M2-Q05,Text 1,C,"Before she can continue her speech, an invitation to an international spelling bee arrives.",Reading Comprehension,Summarising,Medium,4,6.638.5
+6,NAPLAN-Y6-READING-M2-Q06,Text 1,D,India's accomplishment is important to the community.,Reading Comprehension,Main Idea,Medium,4,6.638.6
+7,NAPLAN-Y6-READING-M2-Q07,Text 1,A,To show what India is thinking,Reading Comprehension,Author Purpose,Medium,4,6.638.7
+8,NAPLAN-Y6-READING-M2-Q08,Text 1,B,"Animals are part of peoples' daily life, leading to the conflict in the story.",Reading Comprehension,Main Idea,Medium,5,6.638.8
+9,NAPLAN-Y6-READING-M2-Q09,Text 1,B,copy,Vocabulary,Word Origins and Morphology,Easy,1,6.638.9
+10,NAPLAN-Y6-READING-M2-Q10,Text 2,D,a manual cart to an automated cart.,Inference,Inferential Reasoning,Medium,4,6.548.1
+11,NAPLAN-Y6-READING-M2-Q11,Text 2,D,does not reduce the weight of solid waste material.,Reading Comprehension,Literal Recall,Easy,3,6.548.2
+12,NAPLAN-Y6-READING-M2-Q12,Text 2,B,sterilized waste,Reading Comprehension,Literal Recall,Medium,4,6.548.3
+13,NAPLAN-Y6-READING-M2-Q13,Text 2,C,hydropulping and sterilization.,Reading Comprehension,Locating Information,Medium,4,6.548.4
+14,NAPLAN-Y6-READING-M2-Q14,Text 2,A,steam sterilization and incineration.,Reading Comprehension,Literal Recall,Easy,2,6.548.5
+15,NAPLAN-Y6-READING-M2-Q15,Text 2,B,hydropulping.,Reading Comprehension,Literal Recall,Medium,5,6.548.6
+16,NAPLAN-Y6-READING-M2-Q16,Text 2,B,rotary kilns.,Reading Comprehension,Locating Information,Easy,2,6.548.7
+17,NAPLAN-Y6-READING-M2-Q17,Text 2,C,contaminants that escape the disposal process.,Vocabulary,Word Meaning in Context,Easy,3,6.548.8
+18,NAPLAN-Y6-READING-M2-Q18,Text 3,C,grumpy and unwilling,Literary Techniques,Tone and Mood,Easy,2,6.1469.1
+19,NAPLAN-Y6-READING-M2-Q19,Text 3,C,about every ninety minutes,Reading Comprehension,Literal Recall,Easy,1,6.1469.2
+20,NAPLAN-Y6-READING-M2-Q20,Text 3,B,Sunlight was shining on the station high above them.,Inference,Cause and Effect,Medium,4,6.1469.3
+21,NAPLAN-Y6-READING-M2-Q21,Text 3,B,was so amazed that he forgot to be quiet,Inference,Inferential Reasoning,Medium,5,6.1469.4
+22,NAPLAN-Y6-READING-M2-Q22,Text 3,A,The station had moved to where the sun could no longer light it.,Inference,Drawing Conclusions,Hard,8,6.1469.5
+23,NAPLAN-Y6-READING-M2-Q23,Text 3,A,His feelings about Tess's interest in space have changed.,Inference,Inferential Reasoning,Hard,7,6.1469.6
+24,NAPLAN-Y6-READING-M2-Q24,Text 4,B,the frozen Songhua River,Reading Comprehension,Literal Recall,Easy,2,6.1439.1
+25,NAPLAN-Y6-READING-M2-Q25,Text 4,A,A festival that began small has grown very large.,Reading Comprehension,Main Idea,Easy,3,6.1439.2
+26,NAPLAN-Y6-READING-M2-Q26,Text 4,D,"put up with, even though it is unpleasant.",Vocabulary,Word Meaning in Context,Medium,4,6.1439.3
+27,NAPLAN-Y6-READING-M2-Q27,Text 4,A,the lit-up ice sparkles with many bright colours.,Literary Techniques,Figurative Language,Medium,5,6.1439.4
+28,NAPLAN-Y6-READING-M2-Q28,Text 4,D,"It stresses that they create knowing their work will melt, simply for the joy of it.",Vocabulary,Word Choice,Hard,7,6.1439.5
+29,NAPLAN-Y6-READING-M2-Q29,Text 4,B,People can choose to turn a hard season into a time of joy and creativity.,Reading Comprehension,Main Idea,Hard,7,6.1439.6
+30,NAPLAN-Y6-READING-M2-Q30,Text 5,A,The purpose of the dragon dance has changed over time.,Inference,Drawing Conclusions,Medium,5,6.600.1
+31,NAPLAN-Y6-READING-M2-Q31,Text 5,A,what the dancing dragons look like,Literary Techniques,Imagery,Medium,4,6.600.2
+32,NAPLAN-Y6-READING-M2-Q32,Text 5,B,Chinese communities around the world still celebrate spring with dancing dragons.,Reading Comprehension,Summarising,Medium,5,6.600.3
+33,NAPLAN-Y6-READING-M2-Q33,Text 6,C,They catch prey in more than nine out of ten attempts.,Reading Comprehension,Evaluating Evidence,Easy,2,6.1465.1
+34,NAPLAN-Y6-READING-M2-Q34,Text 6,A,enthusiastic and admiring.,Literary Techniques,Tone and Mood,Easy,2,6.1465.2
+35,NAPLAN-Y6-READING-M2-Q35,Text 6,B,in a surprising or amazing way.,Vocabulary,Word Meaning in Context,Medium,4,6.1465.3
+36,NAPLAN-Y6-READING-M2-Q36,Text 6,A,Dragonflies fly with great speed and power.,Literary Techniques,Figurative Language,Medium,5,6.1465.4
+37,NAPLAN-Y6-READING-M2-Q37,Text 6,B,"It begins with a scene the reader may know, then makes a surprising claim the text goes on to prove.",Literary Techniques,Narrative Voice,Hard,8,6.1465.5
+38,NAPLAN-Y6-READING-M2-Q38,Text 6,C,"separate control of each wing, together with eyes that see almost all around",Inference,Cause and Effect,Hard,8,6.1465.6

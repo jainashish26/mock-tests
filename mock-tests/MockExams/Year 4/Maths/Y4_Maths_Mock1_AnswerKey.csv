@@ -1,0 +1,37 @@
+﻿QuestionNumber,QuestionID,ExamSection,Correct,CorrectAnswerText,Topic,SubTopic,DifficultyLabel,DifficultyScore,SourceQuestionNumber
+1,NAPLAN-Y4-NUMERACY-M1-Q01,Numeracy - No Calculator,A,10 010 and 10 011,Number,Place Value,Easy,1,4
+2,NAPLAN-Y4-NUMERACY-M1-Q02,Numeracy - No Calculator,C,20,Measurement,Area,Easy,1,7
+3,NAPLAN-Y4-NUMERACY-M1-Q03,Numeracy - No Calculator,B,24,Problem Solving,Spatial Reasoning,Easy,1,1645
+4,NAPLAN-Y4-NUMERACY-M1-Q04,Numeracy - No Calculator,D,583,Number,Addition and Subtraction,Easy,1,913
+5,NAPLAN-Y4-NUMERACY-M1-Q05,Numeracy - No Calculator,B,5.99,Number,Decimals,Easy,2,1
+6,NAPLAN-Y4-NUMERACY-M1-Q06,Numeracy - No Calculator,D,"8,632",Number,Digits and Number Properties,Easy,2,1207
+7,NAPLAN-Y4-NUMERACY-M1-Q07,Numeracy - No Calculator,D,millilitres,Measurement,Volume and Capacity,Easy,2,710
+8,NAPLAN-Y4-NUMERACY-M1-Q08,Numeracy - No Calculator,A,E2,Geometry,Position and Location,Easy,3,269
+9,NAPLAN-Y4-NUMERACY-M1-Q09,Numeracy - No Calculator,C,2040,Algebra,Patterns,Easy,3,15
+10,NAPLAN-Y4-NUMERACY-M1-Q10,Numeracy - No Calculator,E,tennis,Statistics,Data Interpretation,Easy,3,1740
+11,NAPLAN-Y4-NUMERACY-M1-Q11,Numeracy - No Calculator,D,30,Number,Factors and Multiples,Medium,4,1354
+12,NAPLAN-Y4-NUMERACY-M1-Q12,Numeracy - No Calculator,C,"2,515 mL",Measurement,Volume and Capacity,Medium,4,715
+13,NAPLAN-Y4-NUMERACY-M1-Q13,Numeracy - No Calculator,C,8,Problem Solving,Counting and Combinatorics,Medium,4,36
+14,NAPLAN-Y4-NUMERACY-M1-Q14,Numeracy - No Calculator,B,How do you usually travel to school?,Statistics,Data Collection,Medium,4,1792
+15,NAPLAN-Y4-NUMERACY-M1-Q15,Numeracy - No Calculator,B,$2.15,Financial Mathematics,Money and Change,Medium,4,193
+16,NAPLAN-Y4-NUMERACY-M1-Q16,Numeracy - No Calculator,C,473 cm,Measurement,Length and Perimeter,Medium,4,584
+17,NAPLAN-Y4-NUMERACY-M1-Q17,Numeracy - No Calculator,A,6:35 am,Measurement,Time,Medium,4,631
+18,NAPLAN-Y4-NUMERACY-M1-Q18,Numeracy - No Calculator,D,17,Algebra,Word Problems with Unknowns,Medium,4,12
+19,NAPLAN-Y4-NUMERACY-M1-Q19,Numeracy - No Calculator,A,1,Number,Divisibility and Remainders,Medium,5,1262
+20,NAPLAN-Y4-NUMERACY-M1-Q20,Numeracy - No Calculator,A,38,Number,Addition and Subtraction,Medium,5,929
+21,NAPLAN-Y4-NUMERACY-M1-Q21,Numeracy - No Calculator,C,360,Number,Multiplication and Division,Medium,5,976
+22,NAPLAN-Y4-NUMERACY-M1-Q22,Numeracy - No Calculator,E,green bottle,Measurement,Units and Conversion,Medium,6,812
+23,NAPLAN-Y4-NUMERACY-M1-Q23,Numeracy - No Calculator,A,"(7, 8)",Geometry,Transformations,Medium,6,431
+24,NAPLAN-Y4-NUMERACY-M1-Q24,Numeracy - No Calculator,D,35th,Algebra,Number Sequences,Medium,6,27
+25,NAPLAN-Y4-NUMERACY-M1-Q25,Numeracy - No Calculator,B,"1,457",Number,Addition and Subtraction,Medium,6,937
+26,NAPLAN-Y4-NUMERACY-M1-Q26,Numeracy - No Calculator,E,168,Number,Factors and Multiples,Medium,6,1363
+27,NAPLAN-Y4-NUMERACY-M1-Q27,Numeracy - No Calculator,B,"white, red, yellow",Probability,Chance and Likelihood,Medium,6,1449
+28,NAPLAN-Y4-NUMERACY-M1-Q28,Numeracy - No Calculator,C,8,Geometry,3D Objects,Medium,6,360
+29,NAPLAN-Y4-NUMERACY-M1-Q29,Numeracy - No Calculator,C,6:30 pm,Measurement,Time,Hard,7,647
+30,NAPLAN-Y4-NUMERACY-M1-Q30,Numeracy - No Calculator,A,7,Algebra,Word Problems with Unknowns,Hard,7,153
+31,NAPLAN-Y4-NUMERACY-M1-Q31,Numeracy - No Calculator,C,"3,960",Number,Place Value,Hard,8,1127
+32,NAPLAN-Y4-NUMERACY-M1-Q32,Numeracy - No Calculator,A,"1,104",Number,Mental Computation,Hard,8,1167
+33,NAPLAN-Y4-NUMERACY-M1-Q33,Numeracy - No Calculator,A,5,Problem Solving,Number Puzzles,Hard,8,1504
+34,NAPLAN-Y4-NUMERACY-M1-Q34,Numeracy - No Calculator,D,14 °C,Measurement,Temperature,Hard,8,851
+35,NAPLAN-Y4-NUMERACY-M1-Q35,Numeracy - No Calculator,B,4/9,Number,Fractions,Hard,9,1087
+36,NAPLAN-Y4-NUMERACY-M1-Q36,Numeracy - No Calculator,E,60°,Geometry,Triangles and Polygons,Hard,9,517

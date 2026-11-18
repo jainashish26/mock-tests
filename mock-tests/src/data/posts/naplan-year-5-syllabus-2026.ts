@@ -206,11 +206,34 @@ export const naplanYear5Syllabus2026 = {
     <p>Explore our NAPLAN Year 5 practice resources, try a free mock test, and — above all — remind your child that their effort, their curiosity, and their willingness to keep learning are what truly matter.</p>
 
     <p><strong>Together, we've absolutely got this.</strong></p>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>When is NAPLAN 2026 held for Year 5?</h3>
+    <p>NAPLAN has been held in March since 2023, so the 2026 window falls in the second or third week of March depending on your state or territory. Your child's school confirms the exact dates. Testing early in the year means effective preparation happens across Term 4 and Term 1 rather than in a final cram.</p>
+
+    <h3>What does Year 5 NAPLAN cover?</h3>
+    <p>Four tests: Writing, Reading, Language Conventions (spelling, grammar and punctuation), and Numeracy. All content is drawn from the Australian Curriculum. Year 5 expectations are meaningfully higher than Year 3 - texts are longer and less heavily illustrated, and reasoning demands increase across every test.</p>
+
+    <h3>Is Year 5 NAPLAN adaptive?</h3>
+    <p>Yes. NAPLAN is delivered online using adaptive testing, so question difficulty adjusts to your child's responses and the assessment can pinpoint ability more precisely. The Writing test is the exception and is completed on a separate platform.</p>
+
+    <h3>What are the three numeracy strands at Year 5?</h3>
+    <p>Number and Algebra, Measurement and Geometry, and Statistics and Probability. At Year 5 this includes multi-digit operations, fractions, decimals and percentages, and more demanding problem solving in real-world contexts than at Year 3.</p>
+
+    <h3>How are Year 5 results reported?</h3>
+    <p>Against four proficiency levels - Exceeding, Strong, Developing, and Needs Additional Support - which replaced the numbered Bands 1 to 10. Because Year 5 is the second NAPLAN point, the report is most useful when read alongside the Year 3 result to show growth rather than as an isolated score.</p>
+
+    <h3>How should we prepare without creating anxiety?</h3>
+    <p>Build routine rather than pressure. Short, regular practice sessions, familiarity with the online interface and question phrasing, and attention to sleep and breakfast on test mornings do more than intensive drilling. Mock exams under realistic conditions are valuable mainly because they remove format surprises.</p>
+
   `,
   image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=1200&q=80",
   imageAlt:
-    "A Year 5 student working at a desk with books and a laptop, looking engaged and confident during study time",
-  date: "March 30, 2026",
+    "A Year 5 student working at a desk with books and a laptop, looking engaged and confident during study time",  date: "November 20, 2026",
+  updatedDate: "November 22, 2026",
+  readingTime: 16,
+  category: "naplan",
   tags: ["NAPLAN", "YEAR 5", "NAPLAN PREPARATION", "LITERACY", "NUMERACY"],
   metaTitle: "NAPLAN Year 5 Syllabus 2026: Complete Guide for Parents",
   metaDescription:
@@ -230,6 +253,14 @@ export const naplanYear5Syllabus2026 = {
     "NAPLAN proficiency levels",
     "how to prepare for NAPLAN Year 5",
     "NAPLAN Year 5 Australia",
+  ],
+  keyTakeaways: [
+    "Year 5 students sit four NAPLAN tests: Writing, Reading, Language Conventions, and Numeracy.",
+    "NAPLAN 2026 runs in the March testing window, not in May as it did before 2023.",
+    "All tests except Writing are completed online and adapt in difficulty to your child's responses.",
+    "Reporting uses four proficiency levels - Exceeding, Strong, Developing and Needs Additional Support - replacing the old Bands 1-10.",
+    "Numeracy is organised into three strands: Number and Algebra, Measurement and Geometry, and Statistics and Probability.",
+    "Build a steady practice routine rather than cramming; familiarity with the test format reduces anxiety more than extra content does.",
   ],
   author: {
     name: "The Exam Success Team",

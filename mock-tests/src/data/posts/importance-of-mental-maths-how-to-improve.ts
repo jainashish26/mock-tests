@@ -11,7 +11,7 @@ export const importanceOfMentalMathsHowToImprove = {
       <section>
         <p>Ask most adults what "mental maths" means and they'll say something like: "Doing sums in your head quickly." It's not a wrong answer - but it's an incomplete one, and that incomplete understanding is part of the reason many children develop a complicated relationship with mathematics.</p>
         <p>Mental maths is not a party trick. It's not about speed for speed's sake, and it's certainly not about making children feel pressured to shout out answers before their classmates. At its core, <strong>mental mathematics is the ability to work with numbers flexibly, confidently, and efficiently - without relying on a calculator, written algorithms, or rote-learned procedures</strong>.</p>
-        <p>It is, quite simply, <strong>the foundation on which all higher mathematics is built</strong>. A child who can manipulate numbers mentally - who can see that 25 Ã- 8 is the same as 25 Ã- 4 Ã- 2, or that 998 + 347 is easier to calculate as 1000 + 345 - has a fundamentally different relationship with mathematics than a child who reaches for a calculator at the first sign of a number.</p>
+        <p>It is, quite simply, <strong>the foundation on which all higher mathematics is built</strong>. A child who can manipulate numbers mentally - who can see that 25 × 8 is the same as 25 × 4 × 2, or that 998 + 347 is easier to calculate as 1000 + 345 - has a fundamentally different relationship with mathematics than a child who reaches for a calculator at the first sign of a number.</p>
         <p>This guide explores why mental maths matters far more than most parents realise, how it develops through childhood and adolescence, and - most importantly - the specific strategies, activities, and habits that help children progress from basic number facts to genuine numerical fluency. Whether your child is in Year 1 or Year 10, there is always room to strengthen this critical skill.</p>
       </section>
 
@@ -21,13 +21,13 @@ export const importanceOfMentalMathsHowToImprove = {
 
         <h3>1. It Builds Mathematical Confidence</h3>
         <p>There is a direct, well-documented relationship between a child's fluency with basic number facts and their <strong>confidence in mathematics as a whole</strong>. Research published in the <em>Journal of Experimental Child Psychology</em> consistently shows that children who have automatic recall of addition, subtraction, multiplication, and division facts experience less maths anxiety, engage more willingly with challenging problems, and persist longer when they encounter difficulty.</p>
-        <p>The reason is straightforward: when basic operations are effortful, every maths task feels hard. The child is so busy trying to work out 7 Ã- 8 that they can't focus on the actual problem they're supposed to be solving. But when basic facts are automatic - as fluent as reading common words - the child's <strong>cognitive resources are freed up for reasoning, problem-solving, and understanding</strong>.</p>
+        <p>The reason is straightforward: when basic operations are effortful, every maths task feels hard. The child is so busy trying to work out 7 × 8 that they can't focus on the actual problem they're supposed to be solving. But when basic facts are automatic - as fluent as reading common words - the child's <strong>cognitive resources are freed up for reasoning, problem-solving, and understanding</strong>.</p>
 
         <h3>2. It's Essential for Higher Mathematics</h3>
         <p>Mental maths is not a separate skill that becomes irrelevant as mathematics becomes more advanced. It becomes <em>more</em> important.</p>
         <ul>
-          <li><strong>Algebra</strong> requires comfortable manipulation of numbers and expressions. A student who can't simplify 3 Ã- 4 + 2 Ã- 5 mentally will struggle with algebraic expressions like 3<em>a</em> + 2<em>b</em></li>
-          <li><strong>Fractions, decimals, and percentages</strong> demand intuitive understanding of number relationships - recognising that Â¾ is the same as 0.75 and 75%, and moving between them fluidly</li>
+          <li><strong>Algebra</strong> requires comfortable manipulation of numbers and expressions. A student who can't simplify 3 × 4 + 2 × 5 mentally will struggle with algebraic expressions like 3<em>a</em> + 2<em>b</em></li>
+          <li><strong>Fractions, decimals, and percentages</strong> demand intuitive understanding of number relationships - recognising that ¾ is the same as 0.75 and 75%, and moving between them fluidly</li>
           <li><strong>Estimation and checking</strong> - perhaps the most practically important mental maths skill - relies on the ability to quickly approximate answers to judge whether a calculated result is reasonable</li>
           <li><strong>Problem-solving</strong> at every level requires the solver to hold numbers in working memory, manipulate them, and evaluate partial results - all of which depend on mental maths fluency</li>
         </ul>
@@ -37,10 +37,10 @@ export const importanceOfMentalMathsHowToImprove = {
         <p><strong>Number sense</strong> is the intuitive understanding of how numbers work - their size, their relationships, and how operations affect them. It's the difference between a child who mechanically follows a procedure and a child who <em>understands</em> what the numbers are doing.</p>
         <p>A child with strong number sense:</p>
         <ul>
-          <li>Knows that 49 Ã- 5 is close to 50 Ã- 5 = 250, so the answer must be around 245</li>
+          <li>Knows that 49 × 5 is close to 50 × 5 = 250, so the answer must be around 245</li>
           <li>Recognises that dividing by 5 is the same as multiplying by 2 and dividing by 10</li>
           <li>Understands that subtracting 9 is the same as subtracting 10 and adding 1</li>
-          <li>Can look at the answer "4,572" for the problem 23 Ã- 18 and immediately sense that something is wrong, because 20 Ã- 20 = 400, so the answer should be in the hundreds, not thousands</li>
+          <li>Can look at the answer "4,572" for the problem 23 × 18 and immediately sense that something is wrong, because 20 × 20 = 400, so the answer should be in the hundreds, not thousands</li>
         </ul>
         <p>Number sense is developed almost entirely through mental maths practice. Written algorithms and calculators bypass the very thinking processes that build it.</p>
 
@@ -88,7 +88,7 @@ export const importanceOfMentalMathsHowToImprove = {
             <tr>
               <td><strong>Fact fluency</strong></td>
               <td>Years 2-4 (ages 7-9)</td>
-              <td>Automatic recall of addition and subtraction facts; learning multiplication tables (to 10 Ã- 10 or 12 Ã- 12); related division facts; mental addition and subtraction of two-digit numbers; doubling and halving; simple estimation</td>
+              <td>Automatic recall of addition and subtraction facts; learning multiplication tables (to 10 × 10 or 12 × 12); related division facts; mental addition and subtraction of two-digit numbers; doubling and halving; simple estimation</td>
             </tr>
             <tr>
               <td><strong>Strategic thinking</strong></td>
@@ -118,11 +118,11 @@ export const importanceOfMentalMathsHowToImprove = {
         <p>These facts should be retrievable without any conscious calculation - as automatic as knowing that "c-a-t" spells "cat":</p>
         <ul>
           <li><strong>Addition facts to 20</strong> - 7 + 8 = 15 should be instant, not counted on fingers</li>
-          <li><strong>Subtraction facts to 20</strong> - 15 -ˆ’ 7 = 8, retrieved as the inverse of the addition fact</li>
-          <li><strong>Multiplication tables to 12 Ã- 12</strong> - every fact, in any order, recalled within 2-3 seconds</li>
-          <li><strong>Related division facts</strong> - if 7 Ã- 8 = 56, then 56 Ã· 7 = 8 and 56 Ã· 8 = 7</li>
+          <li><strong>Subtraction facts to 20</strong> - 15 − 7 = 8, retrieved as the inverse of the addition fact</li>
+          <li><strong>Multiplication tables to 12 × 12</strong> - every fact, in any order, recalled within 2-3 seconds</li>
+          <li><strong>Related division facts</strong> - if 7 × 8 = 56, then 56 ÷ 7 = 8 and 56 ÷ 8 = 7</li>
           <li><strong>Doubles and halves</strong> - doubles of all numbers to 100; halves of even numbers to 200</li>
-          <li><strong>Key fraction-decimal-percentage equivalences</strong> - Â½ = 0.5 = 50%, Â¼ = 0.25 = 25%, -… -‰ˆ 0.333 -‰ˆ 33.3%, -…• = 0.2 = 20%, and so on</li>
+          <li><strong>Key fraction-decimal-percentage equivalences</strong> - ½ = 0.5 = 50%, ¼ = 0.25 = 25%, ⅓ ≈ 0.333 ≈ 33.3%, ⅕ = 0.2 = 20%, and so on</li>
           <li><strong>Powers and square roots</strong> - squares of numbers 1-15 (at minimum); square roots of perfect squares to 225</li>
         </ul>
 
@@ -141,47 +141,47 @@ export const importanceOfMentalMathsHowToImprove = {
             <tr>
               <td><strong>Bridging through 10 (or 100)</strong></td>
               <td>Add or subtract in two steps, using 10 or 100 as a bridge</td>
-              <td>8 + 7 -†’ 8 + 2 = 10, then 10 + 5 = 15; or 67 + 28 -†’ 67 + 30 = 97, then 97 -ˆ’ 2 = 95</td>
+              <td>8 + 7 → 8 + 2 = 10, then 10 + 5 = 15; or 67 + 28 → 67 + 30 = 97, then 97 − 2 = 95</td>
             </tr>
             <tr>
               <td><strong>Compensation</strong></td>
               <td>Round one number to make the calculation easier, then adjust</td>
-              <td>48 + 35 -†’ 50 + 35 = 85, then 85 -ˆ’ 2 = 83; or 99 Ã- 7 -†’ 100 Ã- 7 = 700, then 700 -ˆ’ 7 = 693</td>
+              <td>48 + 35 → 50 + 35 = 85, then 85 − 2 = 83; or 99 × 7 → 100 × 7 = 700, then 700 − 7 = 693</td>
             </tr>
             <tr>
               <td><strong>Partitioning (splitting)</strong></td>
               <td>Break one or both numbers into parts (usually tens and ones)</td>
-              <td>34 Ã- 6 -†’ 30 Ã- 6 = 180, plus 4 Ã- 6 = 24, so 180 + 24 = 204</td>
+              <td>34 × 6 → 30 × 6 = 180, plus 4 × 6 = 24, so 180 + 24 = 204</td>
             </tr>
             <tr>
               <td><strong>Doubling and halving</strong></td>
               <td>Halve one factor and double the other to simplify multiplication</td>
-              <td>25 Ã- 16 -†’ 50 Ã- 8 = 400 (halved 16, doubled 25)</td>
+              <td>25 × 16 → 50 × 8 = 400 (halved 16, doubled 25)</td>
             </tr>
             <tr>
               <td><strong>Using factors</strong></td>
               <td>Break a multiplication into smaller multiplications using factors</td>
-              <td>15 Ã- 12 -†’ 15 Ã- 4 Ã- 3 = 60 Ã- 3 = 180; or 36 Ã- 25 -†’ 9 Ã- 4 Ã- 25 = 9 Ã- 100 = 900</td>
+              <td>15 × 12 → 15 × 4 × 3 = 60 × 3 = 180; or 36 × 25 → 9 × 4 × 25 = 9 × 100 = 900</td>
             </tr>
             <tr>
               <td><strong>Near doubles</strong></td>
               <td>When two numbers are close, calculate the double and adjust</td>
-              <td>7 + 8 -†’ double 7 = 14, plus 1 = 15; or 35 + 36 -†’ double 35 = 70, plus 1 = 71</td>
+              <td>7 + 8 → double 7 = 14, plus 1 = 15; or 35 + 36 → double 35 = 70, plus 1 = 71</td>
             </tr>
             <tr>
               <td><strong>Subtracting by adding on</strong></td>
               <td>Find the difference by counting up from the smaller to the larger number</td>
-              <td>83 -ˆ’ 47 -†’ from 47, add 3 to get 50, add 30 to get 80, add 3 to get 83 -†’ difference is 3 + 30 + 3 = 36</td>
+              <td>83 − 47 → from 47, add 3 to get 50, add 30 to get 80, add 3 to get 83 → difference is 3 + 30 + 3 = 36</td>
             </tr>
             <tr>
               <td><strong>Multiplying by 5</strong></td>
               <td>Multiply by 10 and halve</td>
-              <td>46 Ã- 5 -†’ 46 Ã- 10 = 460, then 460 Ã· 2 = 230</td>
+              <td>46 × 5 → 46 × 10 = 460, then 460 ÷ 2 = 230</td>
             </tr>
             <tr>
               <td><strong>Percentage shortcuts</strong></td>
               <td>Find 10% first, then build the desired percentage</td>
-              <td>15% of 240 -†’ 10% = 24, 5% = 12, so 15% = 24 + 12 = 36</td>
+              <td>15% of 240 → 10% = 24, 5% = 12, so 15% = 24 + 12 = 36</td>
             </tr>
           </tbody>
         </table>
@@ -209,21 +209,21 @@ export const importanceOfMentalMathsHowToImprove = {
         <ul>
           <li><strong>Teach in a strategic order</strong> - not 1, 2, 3, 4-¦ but in an order that builds confidence and leverages known facts:
             <ol>
-              <li>Ã-2 (doubling - most children find this natural)</li>
-              <li>Ã-10 (place value - straightforward)</li>
-              <li>Ã-5 (half of Ã-10, or the counting-by-fives pattern)</li>
-              <li>Ã-4 (double the Ã-2 result)</li>
-              <li>Ã-3 (the first table that requires genuine memorisation for most children)</li>
-              <li>Ã-6 (double the Ã-3 result, or one more group added to the Ã-5 result)</li>
-              <li>Ã-8 (double the Ã-4 result)</li>
-              <li>Ã-9 (the finger trick, or Ã-10 minus one group)</li>
-              <li>Ã-7 (the hardest - by this stage, most Ã-7 facts are already known from other tables)</li>
-              <li>Ã-11 and Ã-12 (build on known facts)</li>
+              <li>×2 (doubling - most children find this natural)</li>
+              <li>×10 (place value - straightforward)</li>
+              <li>×5 (half of ×10, or the counting-by-fives pattern)</li>
+              <li>×4 (double the ×2 result)</li>
+              <li>×3 (the first table that requires genuine memorisation for most children)</li>
+              <li>×6 (double the ×3 result, or one more group added to the ×5 result)</li>
+              <li>×8 (double the ×4 result)</li>
+              <li>×9 (the finger trick, or ×10 minus one group)</li>
+              <li>×7 (the hardest - by this stage, most ×7 facts are already known from other tables)</li>
+              <li>×11 and ×12 (build on known facts)</li>
             </ol>
           </li>
-          <li><strong>Focus on the "hard" facts</strong> - research shows that a small number of facts account for most errors. The most commonly difficult facts are: 6 Ã- 7, 6 Ã- 8, 7 Ã- 8, 7 Ã- 9, 8 Ã- 9, and 12 Ã- 7. Give these extra attention</li>
-          <li><strong>Practise in random order</strong> - reciting "3, 6, 9, 12, 15-¦" in sequence is a useful first step, but it's not the same as knowing that 3 Ã- 7 = 21 instantly, out of context. Practise individual facts in random order</li>
-          <li><strong>Connect multiplication and division</strong> - every time your child learns that 6 Ã- 8 = 48, they should also know that 48 Ã· 6 = 8 and 48 Ã· 8 = 6. These are not three separate facts - they are one relationship</li>
+          <li><strong>Focus on the "hard" facts</strong> - research shows that a small number of facts account for most errors. The most commonly difficult facts are: 6 × 7, 6 × 8, 7 × 8, 7 × 9, 8 × 9, and 12 × 7. Give these extra attention</li>
+          <li><strong>Practise in random order</strong> - reciting "3, 6, 9, 12, 15-¦" in sequence is a useful first step, but it's not the same as knowing that 3 × 7 = 21 instantly, out of context. Practise individual facts in random order</li>
+          <li><strong>Connect multiplication and division</strong> - every time your child learns that 6 × 8 = 48, they should also know that 48 ÷ 6 = 8 and 48 ÷ 8 = 6. These are not three separate facts - they are one relationship</li>
         </ul>
 
         <h3>Step 2: Build Strategic Thinking</h3>
@@ -248,23 +248,23 @@ export const importanceOfMentalMathsHowToImprove = {
           <tbody>
             <tr>
               <td>Single-digit operations</td>
-              <td>7 + 8, 6 Ã- 9, 15 -ˆ’ 7</td>
+              <td>7 + 8, 6 × 9, 15 − 7</td>
             </tr>
             <tr>
-              <td>Two-digit Â± one-digit</td>
-              <td>45 + 7, 63 -ˆ’ 8, 23 Ã- 4</td>
+              <td>Two-digit ± one-digit</td>
+              <td>45 + 7, 63 − 8, 23 × 4</td>
             </tr>
             <tr>
-              <td>Two-digit Â± two-digit</td>
-              <td>47 + 35, 82 -ˆ’ 47, 25 Ã- 12</td>
+              <td>Two-digit ± two-digit</td>
+              <td>47 + 35, 82 − 47, 25 × 12</td>
             </tr>
             <tr>
-              <td>Three-digit Â± two-digit</td>
-              <td>345 + 68, 500 -ˆ’ 137</td>
+              <td>Three-digit ± two-digit</td>
+              <td>345 + 68, 500 − 137</td>
             </tr>
             <tr>
               <td>Fractions and decimals</td>
-              <td>Â½ + Â¾, 0.6 Ã- 50, 25% of 240</td>
+              <td>½ + ¾, 0.6 × 50, 25% of 240</td>
             </tr>
             <tr>
               <td>Multi-step problems</td>
@@ -272,7 +272,7 @@ export const importanceOfMentalMathsHowToImprove = {
             </tr>
             <tr>
               <td>Estimation of complex operations</td>
-              <td>"Roughly how much is 389 Ã- 21?" (-‰ˆ 400 Ã- 20 = 8,000)</td>
+              <td>"Roughly how much is 389 × 21?" (≈ 400 × 20 = 8,000)</td>
             </tr>
           </tbody>
         </table>
@@ -297,7 +297,7 @@ export const importanceOfMentalMathsHowToImprove = {
 
         <h3>Card Games</h3>
         <ul>
-          <li><strong>Make 24</strong> - deal four cards; players must use all four numbers (using +, -ˆ’, Ã-, Ã·) to make exactly 24. Superb for flexible thinking and number manipulation. Can be played competitively or cooperatively</li>
+          <li><strong>Make 24</strong> - deal four cards; players must use all four numbers (using +, −, ×, ÷) to make exactly 24. Superb for flexible thinking and number manipulation. Can be played competitively or cooperatively</li>
           <li><strong>Addition/Multiplication War</strong> - each player flips two cards; the player with the highest sum (or product) takes the round. Simple but effective for rapid fact recall</li>
           <li><strong>Close to 100</strong> - deal six cards; use any four to make two two-digit numbers whose sum is as close to 100 as possible. Develops strategic addition and number sense</li>
         </ul>
@@ -343,7 +343,7 @@ export const importanceOfMentalMathsHowToImprove = {
         <ul>
           <li><strong>Reduce the stakes</strong> - practice mental maths in low-pressure contexts (games, conversations, everyday situations) rather than timed drills that create stress</li>
           <li><strong>Build automaticity gradually</strong> - the more automatic a fact becomes, the more resistant it is to anxiety-related interference. Keep practising in calm contexts until recall is truly effortless</li>
-          <li><strong>Teach self-regulation</strong> - deep breaths, positive self-talk ("I know this - I just need a moment"), and systematic strategies ("If I can't remember 7 Ã- 8, I'll do 7 Ã- 4 = 28 and double it") give the child a safety net</li>
+          <li><strong>Teach self-regulation</strong> - deep breaths, positive self-talk ("I know this - I just need a moment"), and systematic strategies ("If I can't remember 7 × 8, I'll do 7 × 4 = 28 and double it") give the child a safety net</li>
         </ul>
 
         <h3>"My Child Relies Entirely on Written Methods or a Calculator"</h3>
@@ -351,7 +351,7 @@ export const importanceOfMentalMathsHowToImprove = {
         <ul>
           <li><strong>Reintroduce mental methods alongside written ones</strong> - for every calculation your child does with a written method, ask: "Could you estimate the answer first?" or "Could you do this one in your head?"</li>
           <li><strong>Create calculator-free zones</strong> - homework sessions, practice tests, and daily-life calculations should be done without a calculator wherever possible. Frame it positively: "Let's see how much your brain can do on its own"</li>
-          <li><strong>Teach estimation as a checking tool</strong> - "You used the calculator and got 3,456. Does that seem right for 23 Ã- 15? What's 20 Ã- 15?" This makes mental maths the <em>quality control</em> for technology, which gives it a clear and valued purpose</li>
+          <li><strong>Teach estimation as a checking tool</strong> - "You used the calculator and got 3,456. Does that seem right for 23 × 15? What's 20 × 15?" This makes mental maths the <em>quality control</em> for technology, which gives it a clear and valued purpose</li>
         </ul>
 
         <h3>"My Child Says They Hate Maths"</h3>
@@ -410,7 +410,7 @@ export const importanceOfMentalMathsHowToImprove = {
         <p>If your child is in secondary school and their mental maths is weaker than it should be, the single most important message is: <strong>it is absolutely not too late</strong>.</p>
         <p>Yes, it's easier to build these skills in primary school. But the brain remains highly capable of developing numerical fluency well into adolescence and adulthood. The strategies are the same - the difference is that older students can understand <em>why</em> the strategies work, which often accelerates their learning.</p>
         <ul>
-          <li><strong>Be honest about the gap</strong> - a Year 9 student who can't quickly recall 7 Ã- 8 isn't stupid. They simply missed a step earlier and no one went back to fill it. Name the gap without shame and commit to filling it</li>
+          <li><strong>Be honest about the gap</strong> - a Year 9 student who can't quickly recall 7 × 8 isn't stupid. They simply missed a step earlier and no one went back to fill it. Name the gap without shame and commit to filling it</li>
           <li><strong>Use their interests</strong> - a teenager who is uninterested in flashcards may be very interested in calculating sports statistics, budgeting for a purchase, working out travel plans, or understanding how interest rates affect their future finances</li>
           <li><strong>Connect mental maths to their academic goals</strong> - "If you want to do well in your maths exam, being able to compute quickly and accurately without a calculator will save you time on every single question. That's free marks"</li>
           <li><strong>Private practice</strong> - older students may feel embarrassed about practising "basic" facts. Apps and online tools allow private practice without social exposure. TTRS, for example, is used by students up to Year 10</li>
@@ -424,13 +424,13 @@ export const importanceOfMentalMathsHowToImprove = {
         <p>It depends on the child. Some children are motivated by trying to beat their own time - the element of challenge energises them. Others find timed practice stressful, which impairs recall and creates negative associations. <strong>Know your child.</strong> If timing helps, use it - but always compete against their own previous time, never against another child. If timing causes anxiety, focus on accuracy and fluency first, and introduce gentle timing only when confidence is established.</p>
 
         <h3>When should children learn their times tables?</h3>
-        <p>The <strong>Australian Curriculum</strong> expects students to have recall of multiplication facts to 10 Ã- 10 by the end of <strong>Year 4</strong>, with extension to 12 Ã- 12 in Years 5-6. However, many students take longer, and that's not a cause for alarm - what matters is sustained, consistent practice. If your child is in Year 5 or beyond and still doesn't have fluent recall, make it a priority now. It's the single most impactful skill gap to close.</p>
+        <p>The <strong>Australian Curriculum</strong> expects students to have recall of multiplication facts to 10 × 10 by the end of <strong>Year 4</strong>, with extension to 12 × 12 in Years 5-6. However, many students take longer, and that's not a cause for alarm - what matters is sustained, consistent practice. If your child is in Year 5 or beyond and still doesn't have fluent recall, make it a priority now. It's the single most impactful skill gap to close.</p>
 
         <h3>Are calculators bad for children?</h3>
         <p>Calculators are <strong>excellent tools when used at the right time</strong>. The problem arises when they replace mental computation rather than complementing it. A child should be able to do basic calculations mentally <em>before</em> being given regular access to a calculator. Once mental fluency is established, the calculator frees cognitive resources for more complex problem-solving. The analogy is spelling: we expect children to learn to spell before giving them a spell-checker. The spell-checker is useful, but it shouldn't replace the underlying skill.</p>
 
         <h3>My child has dyscalculia. Can they still develop mental maths?</h3>
-        <p>Yes - but the approach needs to be adapted. Dyscalculia is a specific learning difficulty that affects the brain's processing of numerical information, and it means that building fact fluency may take longer and require more repetition, more visual and concrete support, and more patience. Working with a specialist who understands dyscalculia is highly recommended. The goal may shift from instant recall to <strong>reliable strategies</strong> - a child who can't instantly recall 7 Ã- 8 but knows to calculate 7 Ã- 4 = 28 and double it has a workable and valid mental maths strategy.</p>
+        <p>Yes - but the approach needs to be adapted. Dyscalculia is a specific learning difficulty that affects the brain's processing of numerical information, and it means that building fact fluency may take longer and require more repetition, more visual and concrete support, and more patience. Working with a specialist who understands dyscalculia is highly recommended. The goal may shift from instant recall to <strong>reliable strategies</strong> - a child who can't instantly recall 7 × 8 but knows to calculate 7 × 4 = 28 and double it has a workable and valid mental maths strategy.</p>
 
         <h3>How much time should we spend on mental maths each day?</h3>
         <p><strong>10-15 minutes of focused, daily practice</strong> is the sweet spot for most children. This is enough to build and maintain fluency without causing fatigue or resentment. The emphasis should be on <em>daily</em> - short sessions every day produce dramatically better results than longer sessions once or twice a week. Consistency is the single most important variable.</p>
@@ -459,8 +459,10 @@ export const importanceOfMentalMathsHowToImprove = {
   image:
     "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Young student confidently solving mathematics problems with pencil and paper at a bright desk",
-  date: "March 28, 2026",
+    "Young student confidently solving mathematics problems with pencil and paper at a bright desk",  date: "October 6, 2026",
+  updatedDate: "October 8, 2026",
+  readingTime: 24,
+  category: "naplan",
   tags: [
     "MENTAL MATHS",
     "NUMERACY",
@@ -488,6 +490,13 @@ export const importanceOfMentalMathsHowToImprove = {
     "building number fluency",
     "mental maths activities primary school",
     "calculator free maths practice",
+  ],
+  keyTakeaways: [
+    "Mental maths is not about speed - it is the foundation of mathematical confidence, reasoning and real-world problem solving.",
+    "The guide explains how mental maths develops and what to expect at each stage, so expectations stay realistic.",
+    "Specific building blocks are listed, followed by a practical progression guide for parents.",
+    "Activities and games build fluency more sustainably than drills alone, and common obstacles have specific remedies.",
+    "A daily routine is set out in concrete terms, and there is a dedicated section for older students because it is never too late to build fluency.",
   ],
   author: {
     name: "Ashish Jain",

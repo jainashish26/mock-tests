@@ -55,7 +55,7 @@ export const naplanYear7MathsPreparationGuide = {
           <li><strong>Integers</strong> - Understanding negative numbers in context (temperature, elevation, financial loss); positioning integers on a number line; performing simple operations with negative numbers</li>
           <li><strong>Fractions, decimals, and percentages</strong> - Converting fluently between all three forms; performing operations with fractions (including unlike denominators); calculating percentages of quantities (e.g., "What is 35% of 240?"); solving problems involving discounts, mark-ups, and proportional reasoning</li>
           <li><strong>Ratios and rates</strong> - Understanding and applying simple ratios (e.g., mixing paint in a 2:3 ratio); interpreting rates in context (e.g., speed as km/h, cost per kilogram)</li>
-          <li><strong>Indices</strong> - Understanding square numbers and basic index notation (e.g., 3Â² = 9, 2Â³ = 8)</li>
+          <li><strong>Indices</strong> - Understanding square numbers and basic index notation (e.g., 3² = 9, 2³ = 8)</li>
           <li><strong>Algebraic thinking</strong> - Using pronumerals (variables) to represent unknown quantities; writing and solving simple linear equations (e.g., 3x + 5 = 20); substituting values into formulas; interpreting and plotting points on the Cartesian plane</li>
           <li><strong>Number patterns and sequences</strong> - Identifying, describing, and extending more complex patterns; writing rules for sequences in words and algebraic form</li>
         </ul>
@@ -63,9 +63,9 @@ export const naplanYear7MathsPreparationGuide = {
         <h3>2. Measurement and Space (Geometry)</h3>
         <p>Year 7 measurement and geometry questions require precision, formal vocabulary, and the ability to apply formulas:</p>
         <ul>
-          <li><strong>Perimeter and area</strong> - Calculating the perimeter and area of rectangles, triangles, parallelograms, and composite shapes; understanding the relationship between units (e.g., cmÂ² vs mÂ²)</li>
-          <li><strong>Volume and capacity</strong> - Calculating the volume of rectangular prisms (length Ã- width Ã- height); understanding the relationship between cubic centimetres and millilitres</li>
-          <li><strong>Angles</strong> - Measuring and classifying angles (acute, right, obtuse, straight, reflex); calculating unknown angles using properties of supplementary, complementary, and vertically opposite angles; angles in triangles (sum = 180Â°)</li>
+          <li><strong>Perimeter and area</strong> - Calculating the perimeter and area of rectangles, triangles, parallelograms, and composite shapes; understanding the relationship between units (e.g., cm² vs m²)</li>
+          <li><strong>Volume and capacity</strong> - Calculating the volume of rectangular prisms (length × width × height); understanding the relationship between cubic centimetres and millilitres</li>
+          <li><strong>Angles</strong> - Measuring and classifying angles (acute, right, obtuse, straight, reflex); calculating unknown angles using properties of supplementary, complementary, and vertically opposite angles; angles in triangles (sum = 180°)</li>
           <li><strong>Time</strong> - Calculating elapsed time across zones, interpreting 24-hour timetables, and solving duration problems</li>
           <li><strong>Length and unit conversion</strong> - Converting confidently between millimetres, centimetres, metres, and kilometres; between grams and kilograms; between millilitres and litres</li>
           <li><strong>2D shapes and 3D objects</strong> - Classifying triangles (by sides and angles) and quadrilaterals; understanding properties of prisms, pyramids, cylinders, and cones; interpreting nets and cross-sections</li>
@@ -125,12 +125,12 @@ export const naplanYear7MathsPreparationGuide = {
         <h3>3. Master the Non-Calculator Essentials</h3>
         <p>The non-calculator session is where strong mental maths skills really matter. Year 7 students should aim for fluency in:</p>
         <ul>
-          <li><strong>Times tables up to 12 Ã- 12</strong> - Instant recall, not counting on fingers. This underpins fraction work, division, and algebraic thinking</li>
-          <li><strong>Division facts</strong> - Rapid recall of related division facts (e.g., 72 Ã· 9 = 8)</li>
-          <li><strong>Fraction-decimal-percentage conversions</strong> - Know them by heart: Â½ = 0.5 = 50%, Â¼ = 0.25 = 25%, -… -‰ˆ 0.333 = 33-…%, -…• = 0.2 = 20%, -…› = 0.125 = 12.5%</li>
+          <li><strong>Times tables up to 12 × 12</strong> - Instant recall, not counting on fingers. This underpins fraction work, division, and algebraic thinking</li>
+          <li><strong>Division facts</strong> - Rapid recall of related division facts (e.g., 72 ÷ 9 = 8)</li>
+          <li><strong>Fraction-decimal-percentage conversions</strong> - Know them by heart: ½ = 0.5 = 50%, ¼ = 0.25 = 25%, ⅓ ≈ 0.333 = 33⅓%, ⅕ = 0.2 = 20%, ⅛ = 0.125 = 12.5%</li>
           <li><strong>Order of operations</strong> - Confidently applying BODMAS/BIDMAS without prompting</li>
           <li><strong>Estimation and rounding</strong> - Using rounding to quickly check whether an answer is in the right ballpark</li>
-          <li><strong>Percentage calculations</strong> - Finding 10%, 1%, and 5% mentally, then combining (e.g., 35% = 3 Ã- 10% + 5%)</li>
+          <li><strong>Percentage calculations</strong> - Finding 10%, 1%, and 5% mentally, then combining (e.g., 35% = 3 × 10% + 5%)</li>
         </ul>
         <p>Daily fluency practice of just <strong>5 to 10 minutes</strong> - over breakfast, in the car, or before homework - compounds into substantial gains over weeks.</p>
 
@@ -180,13 +180,13 @@ export const naplanYear7MathsPreparationGuide = {
         <h2>Common Mistakes Year 7 Students Make</h2>
         <p>Awareness of typical errors allows targeted intervention. Here are the most frequently observed mistakes at Year 7:</p>
         <ul>
-          <li><strong>Order of operations errors</strong> - Performing operations left to right without applying BODMAS (e.g., calculating 3 + 4 Ã- 2 as 14 instead of 11)</li>
-          <li><strong>Integer sign errors</strong> - Making mistakes when adding, subtracting, or multiplying negative numbers (e.g., -3 Ã- -2 -‰  -6; it equals 6)</li>
+          <li><strong>Order of operations errors</strong> - Performing operations left to right without applying BODMAS (e.g., calculating 3 + 4 × 2 as 14 instead of 11)</li>
+          <li><strong>Integer sign errors</strong> - Making mistakes when adding, subtracting, or multiplying negative numbers (e.g., -3 × -2 ≠ -6; it equals 6)</li>
           <li><strong>Fraction operation mistakes</strong> - Forgetting to find a common denominator before adding fractions, or not simplifying final answers</li>
           <li><strong>Percentage misconceptions</strong> - Confusing "percentage of" with "percentage increase" (e.g., 20% of 150 is 30, but a 20% increase on 150 is 180)</li>
           <li><strong>Confusing perimeter, area, and volume</strong> - Mixing up the formulas or applying the wrong one to a given problem</li>
           <li><strong>Misreading scales on graphs</strong> - Not checking the axis increments carefully (each line might represent 5, 10, 50, etc.)</li>
-          <li><strong>Algebraic substitution errors</strong> - Forgetting to apply correct order of operations when substituting values (e.g., if x = 3, then 2xÂ² = 2 Ã- 9 = 18, not 6Â² = 36)</li>
+          <li><strong>Algebraic substitution errors</strong> - Forgetting to apply correct order of operations when substituting values (e.g., if x = 3, then 2x² = 2 × 9 = 18, not 6² = 36)</li>
           <li><strong>Unit conversion mistakes</strong> - Multiplying when they should divide, or vice versa (e.g., converting 3,500 metres to kilometres: divide by 1,000, not multiply)</li>
           <li><strong>Incomplete answers in multi-step problems</strong> - Solving part of the problem but not the final step the question asks for</li>
         </ul>
@@ -335,12 +335,35 @@ export const naplanYear7MathsPreparationGuide = {
       </section>
 
     </article>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What topics does Year 7 NAPLAN Maths cover?</h3>
+    <p>Three content strands from the Australian Curriculum - Number and Algebra, Measurement and Space (Geometry), and Statistics and Probability - plus mathematical reasoning and problem solving applied across all three. At Year 7 the algebraic and reasoning demands are noticeably higher than at Year 5.</p>
+
+    <h3>Can my child use a calculator in Year 7 NAPLAN Maths?</h3>
+    <p>Preparation should not assume one. This guide lists mastering the non-calculator essentials as a specific strategy, because fluency with mental computation and written methods is what allows a student to spend their working memory on reasoning rather than arithmetic.</p>
+
+    <h3>Is the Year 7 maths test the same for every student?</h3>
+    <p>No. NAPLAN uses an adaptive model online, so question difficulty adjusts in response to how your child answers. Two students may see different questions while being measured on the same scale. Explaining this in advance stops a child from interpreting an unexpectedly easy or hard question as a sign they are failing.</p>
+
+    <h3>How should Year 7 revision be structured?</h3>
+    <p>The guide sets out seven strategies: establish a structured revision plan, use official practice tests, master non-calculator essentials, develop a systematic problem-solving approach, strengthen algebraic thinking, build data literacy, and apply maths to the real world. A sample weekly plan shows how to fit them together.</p>
+
+    <h3>What mistakes do Year 7 students commonly make in maths?</h3>
+    <p>The guide lists them explicitly. They tend to involve misreading the question, algebraic slips rather than conceptual failure, not checking whether an answer is reasonable, and running out of time on multi-step problems - all of which a systematic approach and timed practice reduce.</p>
+
+    <h3>My child is stressed about Year 7 NAPLAN maths. What helps?</h3>
+    <p>Put NAPLAN in perspective - it is a diagnostic snapshot, not a gate. Validate their feelings rather than dismissing them, encourage a growth mindset so difficulty reads as a stage, and watch for signs of excessive stress such as avoidance or sleep disruption. Sort test-day logistics early so the morning itself is uneventful.</p>
+
   `,
   image:
     "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Secondary school student focused on solving maths problems in a classroom setting",
-  date: "March 28, 2026",
+    "Secondary school student focused on solving maths problems in a classroom setting",  date: "November 26, 2026",
+  updatedDate: "November 28, 2026",
+  readingTime: 19,
+  category: "naplan",
   tags: [
     "NAPLAN",
     "YEAR 7",
@@ -362,6 +385,13 @@ export const naplanYear7MathsPreparationGuide = {
     "secondary school maths Australia",
     "NAPLAN test format Year 7",
     "NAPLAN parent guide",
+  ],
+  keyTakeaways: [
+    "Year 7 NAPLAN Maths covers Number and Algebra, Measurement and Space (Geometry), and Statistics and Probability, plus mathematical reasoning across all three.",
+    "The test is online and adaptive, so difficulty adjusts to your child's answers.",
+    "Calculators are not relied upon - mastering non-calculator essentials is called out as a specific preparation priority.",
+    "Seven strategies structure the plan: structured revision, official practice tests, non-calculator essentials, a systematic problem-solving approach, algebraic thinking, data literacy, and real-world application.",
+    "Emotional support means putting NAPLAN in perspective, validating feelings, encouraging a growth mindset, watching for excessive stress and sorting test-day logistics.",
   ],
   author: {
     name: "Ashish Jain",

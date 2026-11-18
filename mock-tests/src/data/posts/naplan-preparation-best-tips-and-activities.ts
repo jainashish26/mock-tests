@@ -301,12 +301,35 @@ export const naplanPreparationBestTipsAndActivities = {
       </section>
 
     </article>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>When should we start preparing for NAPLAN?</h3>
+    <p>Early enough to build familiarity, but not so early that it becomes pressure. The guide has a dedicated section on when and how to start, and because NAPLAN now runs in March rather than May, preparation is best spread across Term 4 and Term 1 rather than concentrated in the weeks before the test.</p>
+
+    <h3>What does NAPLAN actually test?</h3>
+    <p>Four areas drawn from the Australian Curriculum: Reading, Writing, Language Conventions (spelling, grammar and punctuation), and Numeracy. The opening section explains what each test covers and why the assessment matters, which is the foundation for deciding where preparation effort should go.</p>
+
+    <h3>How do I prepare my child without it feeling like extra school?</h3>
+    <p>Use the activities section. The guide specifically lists activities that build NAPLAN skills without feeling like study, which is what makes sustained preparation realistic for families. Short, varied and positive sessions outperform long formal ones, and the sample weekly plan shows how to fit them around school.</p>
+
+    <h3>Do mock exams and practice papers actually help?</h3>
+    <p>Yes, and the guide explains why in a dedicated section. The main benefit is familiarity: when the format, question types, navigation and timing are already known, the real assessment holds far fewer surprises. Practice papers also reveal which areas need work before there is anything at stake.</p>
+
+    <h3>How do I help with test anxiety?</h3>
+    <p>The guide treats emotional preparation as equal to academic preparation, with a section on managing test anxiety and another on test-day tips. In practice this means normalising the assessment, keeping your own anxiety out of the conversation, celebrating effort, and handling sleep and breakfast logistics in advance.</p>
+
+    <h3>What are the most common NAPLAN preparation mistakes?</h3>
+    <p>The guide lists them with how to avoid each. They typically involve cramming late, over-practising to the point of burnout, neglecting one test area, and treating the result as a verdict on the child rather than as diagnostic information.</p>
+
   `,
   image:
     "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Child studying at a desk with colourful stationery and an open notebook, preparing for school assessments",
-  date: "March 28, 2026",
+    "Child studying at a desk with colourful stationery and an open notebook, preparing for school assessments",  date: "November 2, 2026",
+  updatedDate: "November 4, 2026",
+  readingTime: 17,
+  category: "naplan",
   tags: [
     "NAPLAN",
     "PREPARATION",
@@ -334,6 +357,13 @@ export const naplanPreparationBestTipsAndActivities = {
     "NAPLAN practice papers",
     "NAPLAN tips for parents",
     "best NAPLAN preparation strategies",
+  ],
+  keyTakeaways: [
+    "Preparation is organised by test area - reading, writing, language conventions and numeracy - with the best tips for each.",
+    "Activities that build NAPLAN skills without feeling like study are given their own section, which is what makes sustained preparation realistic.",
+    "Emotional preparation is treated as equal to academic: managing test anxiety has a dedicated section alongside a sample weekly plan.",
+    "Common NAPLAN mistakes are listed with how to avoid them, and mock exams and practice papers are explained in terms of what they actually add.",
+    "Test-day tips and a closing section on perspective and partnership round out the practical guidance.",
   ],
   author: {
     name: "Ashish Jain",

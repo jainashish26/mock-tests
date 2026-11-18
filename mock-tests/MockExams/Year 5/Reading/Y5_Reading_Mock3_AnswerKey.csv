@@ -1,0 +1,36 @@
+﻿QuestionNumber,QuestionID,ExamSection,Correct,CorrectAnswerText,Topic,SubTopic,DifficultyLabel,DifficultyScore,SourceQuestionNumber
+1,NAPLAN-Y5-READING-M3-Q01,Text 1,A,Because its beak didn ́t reach the water.,Reading Comprehension,Literal Recall,Easy,2,5.485.1
+2,NAPLAN-Y5-READING-M3-Q02,Text 1,D,The crow was able to drink the water.,Reading Comprehension,Literal Recall,Easy,2,5.485.2
+3,NAPLAN-Y5-READING-M3-Q03,Text 1,B,Intelligent.,Vocabulary,Word Meaning in Context,Easy,3,5.485.3
+4,NAPLAN-Y5-READING-M3-Q04,Text 2,D,have walked through the Innyard.,Inference,Inferential Reasoning,Medium,4,5.530.1
+5,NAPLAN-Y5-READING-M3-Q05,Text 2,A,moving faster than the shadow.,Inference,Inferential Reasoning,Easy,2,5.530.2
+6,NAPLAN-Y5-READING-M3-Q06,Text 2,B,curious.,Inference,Interpreting Feelings,Easy,3,5.530.3
+7,NAPLAN-Y5-READING-M3-Q07,Text 2,A,She is the oldest daughter in the family.,Inference,Character Motivation,Medium,4,5.530.4
+8,NAPLAN-Y5-READING-M3-Q08,Text 2,D,'squishing',Literary Techniques,Sound Devices,Easy,1,5.530.5
+9,NAPLAN-Y5-READING-M3-Q09,Text 2,C,wake,Vocabulary,Word Meaning in Context,Easy,1,5.530.6
+10,NAPLAN-Y5-READING-M3-Q10,Text 3,D,Some of the building materials were recycled from older buildings.,Inference,Drawing Conclusions,Medium,5,5.479.1
+11,NAPLAN-Y5-READING-M3-Q11,Text 3,C,significance.,Inference,Drawing Conclusions,Medium,4,5.479.2
+12,NAPLAN-Y5-READING-M3-Q12,Text 3,D,irresponsible,Inference,Character Motivation,Easy,1,5.479.3
+13,NAPLAN-Y5-READING-M3-Q13,Text 3,D,an opinion.,Persuasive Language,Fact and Opinion,Easy,3,5.479.4
+14,NAPLAN-Y5-READING-M3-Q14,Text 3,A,to describe the features of the Lighthouse of Pharos,Reading Comprehension,Main Idea,Easy,2,5.479.5
+15,NAPLAN-Y5-READING-M3-Q15,Text 3,A,why the Lighthouse of Pharos was built near Alexandria,Reading Comprehension,Locating Information,Medium,5,5.479.6
+16,NAPLAN-Y5-READING-M3-Q16,Text 3,B,inspired by the original using modern materials.,Reading Comprehension,Comparing Texts,Medium,4,5.479.7
+17,NAPLAN-Y5-READING-M3-Q17,Text 4,C,Return home and describe the experience to Mom and Dad,Inference,Predicting Outcomes,Medium,4,5.421.1
+18,NAPLAN-Y5-READING-M3-Q18,Text 4,D,They want the speaker to appreciate the beauty of nature.,Inference,Character Motivation,Medium,4,5.421.2
+19,NAPLAN-Y5-READING-M3-Q19,Text 4,A,comfortable,Inference,Character Motivation,Medium,4,5.421.3
+20,NAPLAN-Y5-READING-M3-Q20,Text 4,A,is gentle,Literary Techniques,Figurative Language,Easy,3,5.421.4
+21,NAPLAN-Y5-READING-M3-Q21,Text 4,D,Grandpa is being playful,Literary Techniques,Figurative Language,Medium,4,5.421.5
+22,NAPLAN-Y5-READING-M3-Q22,Text 4,B,identify a problem that will be solved later,Reading Comprehension,Author Purpose,Medium,4,5.421.6
+23,NAPLAN-Y5-READING-M3-Q23,Text 4,D,Promised,Vocabulary,Word Meaning in Context,Easy,1,5.421.7
+24,NAPLAN-Y5-READING-M3-Q24,Text 5,C,He was a rigger.,Reading Comprehension,Literal Recall,Easy,1,5.1412.1
+25,NAPLAN-Y5-READING-M3-Q25,Text 5,C,two people trying to join hands,Literary Techniques,Imagery,Easy,3,5.1412.2
+26,NAPLAN-Y5-READING-M3-Q26,Text 5,B,They lifted steel into place on each half-arch.,Reading Comprehension,Literal Recall,Medium,4,5.1412.3
+27,NAPLAN-Y5-READING-M3-Q27,Text 5,B,The workers slowly let the cables out.,Inference,Cause and Effect,Medium,5,5.1412.4
+28,NAPLAN-Y5-READING-M3-Q28,Text 5,A,Inch by Careful Inch,Reading Comprehension,Main Idea,Hard,7,5.1412.5
+29,NAPLAN-Y5-READING-M3-Q29,Text 5,A,"The noisy, repeated sounds show work is still going on, as Dad then confirms.",Literary Techniques,Sound Devices,Hard,8,5.1412.6
+30,NAPLAN-Y5-READING-M3-Q30,Text 6,D,amazement and admiration,Literary Techniques,Tone and Mood,Easy,2,5.1407.1
+31,NAPLAN-Y5-READING-M3-Q31,Text 6,C,so food can be passed in to her,Inference,Inferential Reasoning,Easy,3,5.1407.2
+32,NAPLAN-Y5-READING-M3-Q32,Text 6,D,It shifts from wonder to concern.,Literary Techniques,Tone and Mood,Medium,5,5.1407.3
+33,NAPLAN-Y5-READING-M3-Q33,Text 6,B,as a hardworking and devoted provider,Literary Techniques,Characterisation,Medium,5,5.1407.4
+34,NAPLAN-Y5-READING-M3-Q34,Text 6,A,She usually leaves the nest before her chicks are ready to fly.,Reading Comprehension,Literal Recall,Hard,7,5.1407.5
+35,NAPLAN-Y5-READING-M3-Q35,Text 6,A,In many species she sheds her flight feathers while she is there.,Reading Comprehension,Evaluating Evidence,Hard,7,5.1407.6

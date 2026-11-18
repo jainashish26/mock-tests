@@ -797,11 +797,34 @@ export const englishLiteraryTechniques = {
     <p>Whether you are preparing for NAPLAN, a scholarship exam, a high school English assessment, or simply want to become a more powerful reader and writer, this guide is your reference. Return to it, practise with it, and build your confidence one technique at a time.</p>
 
     <p><strong>Your words have power. These techniques help you wield it.</strong></p>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What are literary techniques and why do they matter?</h3>
+    <p>They are the deliberate choices a composer makes to create meaning. The guide opens with definition and purpose because analysis marks depend on explaining the effect of a technique, not just naming it. Being able to say what a technique does is what separates a strong analytical response from a list of devices.</p>
+
+    <h3>What is the difference between metaphor, simile and analogy?</h3>
+    <p>A simile compares using 'like' or 'as'; a metaphor asserts that one thing is another; an analogy extends a comparison in order to explain or argue a point. All three sit in the figurative language and comparative devices section alongside personification, anthropomorphism, hyperbole, euphemism, metonymy and symbolism.</p>
+
+    <h3>How do I tell juxtaposition, antithesis, paradox and oxymoron apart?</h3>
+    <p>They are grouped together in the contrast-based techniques section precisely because they are confused so often. Broadly: juxtaposition places two things side by side for effect, antithesis sets opposing ideas in parallel structure, a paradox is a statement that seems contradictory yet holds a truth, and an oxymoron combines two contradictory terms.</p>
+
+    <h3>Which techniques are most useful for creative writing?</h3>
+    <p>Imagery, sensory and figurative language, characterisation through dialogue, narrative structure choices such as flashback and foreshadowing, and sentence-level effects including fragmented and truncated sentences. The guide gives usage tips for creative writing alongside analysis for each technique.</p>
+
+    <h3>What are the four types of ambiguity covered?</h3>
+    <p>Syntactic ambiguity, semantic ambiguity, narrative ambiguity and conceptual ambiguity, each with its own treatment in the ambiguity and complexity section. Related devices - gaps and silences, and deixis - are covered alongside them, because deliberate uncertainty is a technique composers use rather than an error.</p>
+
+    <h3>How should a student revise from this guide?</h3>
+    <p>Work one section at a time and, for each technique, write a definition in your own words plus one example from a text you are studying. The closing toolkit section supports that approach. Naming techniques without examples is the most common reason analysis stays at a superficial level.</p>
+
   `,
   image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=1200&q=80",
   imageAlt:
-    "An open book with highlighted text and study notes, representing the study of English literary techniques and textual analysis",
-  date: "March 30, 2026",
+    "An open book with highlighted text and study notes, representing the study of English literary techniques and textual analysis",  date: "September 9, 2026",
+  updatedDate: "September 11, 2026",
+  readingTime: 40,
+  category: "english-writing",
   tags: ["ENGLISH LITERARY TECHNIQUES", "FIGURATIVE LANGUAGE", "TEXTUAL ANALYSIS", "CREATIVE WRITING", "STUDY GUIDE"],
   metaTitle: "English Literary Techniques: Complete Student Guide",
   metaDescription:
@@ -823,6 +846,13 @@ export const englishLiteraryTechniques = {
     "scholarship exam English",
     "rhetorical devices students",
     "allusion intertextuality",
+  ],
+  keyTakeaways: [
+    "An eleven-section reference covering narrative and structural techniques, figurative language, sound and poetic devices, stylistic techniques, ambiguity, character construction, contrast, intertextuality, imagery, and rhetorical devices.",
+    "Figurative language is broken down beyond metaphor and simile to analogy, personification, anthropomorphism, hyperbole, euphemism, metonymy and symbolism.",
+    "Sound devices include alliteration, assonance, consonance, onomatopoeia, enjambment, rejet and rhyme.",
+    "Contrast-based techniques - juxtaposition, antithesis, paradox and oxymoron - are treated as a distinct group because students frequently confuse them.",
+    "Each technique is defined with examples and tips for both textual analysis and creative writing.",
   ],
   author: {
     name: "Ashish Jain",

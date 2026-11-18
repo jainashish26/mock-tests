@@ -1,7 +1,28 @@
+import type { Metadata } from "next";
 import { PublicLayout } from "@/components/layout/PublicLayout";
 import { Badge } from "@/components/ui/Badge";
 import { Users, Trophy, Target } from "lucide-react";
 import { SpatialCard } from "@/components/ui/SpatialCard";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { aboutPageGraph } from "@/lib/seo/schema";
+import { absoluteUrl } from "@/lib/seo/site-config";
+
+const PAGE_TITLE = "About Us: Our Mission, Methodology & Editorial Standards";
+const PAGE_DESCRIPTION =
+  "Meet the MockTests Pro team of educators, data scientists and engineers, and see how every guide is fact-checked against ACARA and state sources.";
+
+export const metadata: Metadata = {
+  title: { absolute: PAGE_TITLE },
+  description: PAGE_DESCRIPTION,
+  alternates: { canonical: "/about" },
+  openGraph: {
+    type: "website",
+    url: absoluteUrl("/about"),
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+  },
+  twitter: { card: "summary_large_image", title: PAGE_TITLE, description: PAGE_DESCRIPTION },
+};
 
 export default function AboutPage() {
   const values = [
@@ -30,6 +51,7 @@ export default function AboutPage() {
 
   return (
     <PublicLayout>
+      <JsonLd data={aboutPageGraph(absoluteUrl("/about"), PAGE_DESCRIPTION)} />
       <section className="py-24 px-6" style={{ paddingTop: '10rem' }}>
         <div className="max-w-3xl mx-auto text-center mb-16">
           <Badge variant="secondary">About Us</Badge>

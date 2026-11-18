@@ -1,0 +1,26 @@
+﻿QuestionNumber,QuestionID,ExamSection,Correct,CorrectAnswerText,Topic,SubTopic,DifficultyLabel,DifficultyScore,SourceQuestionNumber
+1,NAPLAN-Y2-NUMERACY-M3-Q01,Numeracy - No Calculator,A,602,Number,Addition and Subtraction,Easy,1,11
+2,NAPLAN-Y2-NUMERACY-M3-Q02,Numeracy - No Calculator,D,9,Geometry,Position and Location,Easy,1,172
+3,NAPLAN-Y2-NUMERACY-M3-Q03,Numeracy - No Calculator,B,22,Algebra,Patterns,Easy,1,44
+4,NAPLAN-Y2-NUMERACY-M3-Q04,Numeracy - No Calculator,C,30,Statistics,Tables and Graphs,Easy,1,1138
+5,NAPLAN-Y2-NUMERACY-M3-Q05,Numeracy - No Calculator,A,9:15 AM,Measurement,Time,Easy,1,9
+6,NAPLAN-Y2-NUMERACY-M3-Q06,Numeracy - No Calculator,C,8,Number,Place Value,Easy,2,738
+7,NAPLAN-Y2-NUMERACY-M3-Q07,Numeracy - No Calculator,B,180 minutes,Measurement,Time,Easy,2,406
+8,NAPLAN-Y2-NUMERACY-M3-Q08,Numeracy - No Calculator,D,117,Number,Place Value,Easy,3,746
+9,NAPLAN-Y2-NUMERACY-M3-Q09,Numeracy - No Calculator,D,743,Number,Place Value,Medium,4,753
+10,NAPLAN-Y2-NUMERACY-M3-Q10,Numeracy - No Calculator,D,20 kg,Measurement,Mass,Medium,4,461
+11,NAPLAN-Y2-NUMERACY-M3-Q11,Numeracy - No Calculator,B,impossible,Probability,Chance and Likelihood,Medium,4,897
+12,NAPLAN-Y2-NUMERACY-M3-Q12,Numeracy - No Calculator,C,19,Number,Mental Computation,Medium,4,798
+13,NAPLAN-Y2-NUMERACY-M3-Q13,Numeracy - No Calculator,D,641,Number,Place Value,Medium,4,749
+14,NAPLAN-Y2-NUMERACY-M3-Q14,Numeracy - No Calculator,A,140 mL,Measurement,Volume and Capacity,Medium,5,505
+15,NAPLAN-Y2-NUMERACY-M3-Q15,Numeracy - No Calculator,B,56,Geometry,3D Objects,Medium,5,238
+16,NAPLAN-Y2-NUMERACY-M3-Q16,Numeracy - No Calculator,D,57,Number,Addition and Subtraction,Medium,6,597
+17,NAPLAN-Y2-NUMERACY-M3-Q17,Numeracy - No Calculator,B,118,Algebra,Number Sequences,Medium,6,29
+18,NAPLAN-Y2-NUMERACY-M3-Q18,Numeracy - No Calculator,B,18,Number,Digits and Number Properties,Medium,6,849
+19,NAPLAN-Y2-NUMERACY-M3-Q19,Numeracy - No Calculator,B,9,Problem Solving,Number Puzzles,Medium,6,939
+20,NAPLAN-Y2-NUMERACY-M3-Q20,Numeracy - No Calculator,D,8,Financial Mathematics,Money and Change,Medium,6,149
+21,NAPLAN-Y2-NUMERACY-M3-Q21,Numeracy - No Calculator,B,13,Statistics,Tables and Graphs,Medium,6,1163
+22,NAPLAN-Y2-NUMERACY-M3-Q22,Numeracy - No Calculator,B,30 cm,Measurement,Length and Perimeter,Hard,7,391
+23,NAPLAN-Y2-NUMERACY-M3-Q23,Numeracy - No Calculator,D,4,Number,Multiplication and Division,Hard,7,652
+24,NAPLAN-Y2-NUMERACY-M3-Q24,Numeracy - No Calculator,B,23,Number,Digits and Number Properties,Hard,8,857
+25,NAPLAN-Y2-NUMERACY-M3-Q25,Numeracy - No Calculator,B,10,Geometry,Position and Location,Hard,9,205

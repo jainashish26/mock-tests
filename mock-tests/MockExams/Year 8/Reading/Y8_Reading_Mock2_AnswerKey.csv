@@ -1,0 +1,47 @@
+﻿QuestionNumber,QuestionID,ExamSection,Correct,CorrectAnswerText,Topic,SubTopic,DifficultyLabel,DifficultyScore,SourceQuestionNumber
+1,NAPLAN-Y8-READING-M2-Q01,Text 1,D,wanted students to work things out for themselves.,Inference,Character Motivation,Medium,5,8.910.1
+2,NAPLAN-Y8-READING-M2-Q02,Text 1,C,Both can be considered difficult or dull by students.,Inference,Inferential Reasoning,Medium,6,8.910.2
+3,NAPLAN-Y8-READING-M2-Q03,Text 1,A,concentration,Reading Comprehension,Literal Recall,Easy,2,8.910.3
+4,NAPLAN-Y8-READING-M2-Q04,Text 1,B,with understanding,Reading Comprehension,Literal Recall,Medium,4,8.910.4
+5,NAPLAN-Y8-READING-M2-Q05,Text 1,D,learning how it improved expression,Reading Comprehension,Literal Recall,Easy,3,8.910.5
+6,NAPLAN-Y8-READING-M2-Q06,Text 1,B,clear meaning,Reading Comprehension,Literal Recall,Easy,3,8.910.6
+7,NAPLAN-Y8-READING-M2-Q07,Text 2,B,Step 1,Reading Comprehension,Locating Information,Easy,1,8.1728.1
+8,NAPLAN-Y8-READING-M2-Q08,Text 2,D,how to design an alien that suits the world it lives on,Reading Comprehension,Main Idea,Easy,2,8.1728.2
+9,NAPLAN-Y8-READING-M2-Q09,Text 2,B,rows of teeth on a creature that eats only moss,Reading Comprehension,Locating Information,Easy,2,8.1728.3
+10,NAPLAN-Y8-READING-M2-Q10,Text 2,A,to reveal weaknesses in the design so it can be improved,Reading Comprehension,Literal Recall,Medium,4,8.1728.4
+11,NAPLAN-Y8-READING-M2-Q11,Text 2,C,Designers of films and games often go through dozens of versions before they settle on one.,Reading Comprehension,Evaluating Evidence,Medium,4,8.1728.5
+12,NAPLAN-Y8-READING-M2-Q12,Text 2,C,encouraging and practical,Literary Techniques,Tone and Mood,Medium,5,8.1728.6
+13,NAPLAN-Y8-READING-M2-Q13,Text 2,D,to frame the guide around the mistake it aims to help readers avoid,Reading Comprehension,Author Purpose,Hard,8,8.1728.7
+14,NAPLAN-Y8-READING-M2-Q14,Text 2,C,its features should solve the challenges its environment creates,Literary Techniques,Figurative Language,Hard,8,8.1728.8
+15,NAPLAN-Y8-READING-M2-Q15,Text 3,C,so they can be spotted easily among wreckage,Reading Comprehension,Literal Recall,Easy,1,8.1644.1
+16,NAPLAN-Y8-READING-M2-Q16,Text 3,D,an early working model of an invention,Vocabulary,Word Meaning in Context,Easy,2,8.1644.2
+17,NAPLAN-Y8-READING-M2-Q17,Text 3,C,a reel of steel wire,Reading Comprehension,Literal Recall,Easy,2,8.1644.3
+18,NAPLAN-Y8-READING-M2-Q18,Text 3,A,Learning from accidents helps make future flights safer.,Reading Comprehension,Theme,Medium,5,8.1644.4
+19,NAPLAN-Y8-READING-M2-Q19,Text 3,B,""". . . His superiors were unconvinced.""",Reading Comprehension,Evaluating Evidence,Medium,4,8.1644.5
+20,NAPLAN-Y8-READING-M2-Q20,Text 3,B,admiring,Literary Techniques,Tone and Mood,Medium,5,8.1644.6
+21,NAPLAN-Y8-READING-M2-Q21,Text 3,C,"an unexplained local crash, after the device had already won interest overseas",Inference,Cause and Effect,Hard,8,8.1644.7
+22,NAPLAN-Y8-READING-M2-Q22,Text 3,B,Warren's own loss gave lasting meaning to an invention that now helps others,Reading Comprehension,Theme,Hard,8,8.1644.8
+23,NAPLAN-Y8-READING-M2-Q23,Text 4,A,more comfortable than she expected,Vocabulary,Word Meaning in Context,Easy,2,8.1683.1
+24,NAPLAN-Y8-READING-M2-Q24,Text 4,D,so rangers know who is on the track,Reading Comprehension,Literal Recall,Easy,1,8.1683.2
+25,NAPLAN-Y8-READING-M2-Q25,Text 4,D,Saturday,Reading Comprehension,Locating Information,Easy,2,8.1683.3
+26,NAPLAN-Y8-READING-M2-Q26,Text 4,B,the writer relaxing and learning from Jo,Reading Comprehension,Main Idea,Medium,5,8.1683.4
+27,NAPLAN-Y8-READING-M2-Q27,Text 4,C,uncomfortable,Vocabulary,Synonyms,Medium,5,8.1683.5
+28,NAPLAN-Y8-READING-M2-Q28,Text 4,A,small problems should be fixed early,Reading Comprehension,Literal Recall,Medium,4,8.1683.6
+29,NAPLAN-Y8-READING-M2-Q29,Text 4,B,'I told her I'd think about it.' and 'I've already thought about it.',Reading Comprehension,Evaluating Evidence,Hard,8,8.1683.7
+30,NAPLAN-Y8-READING-M2-Q30,Text 4,B,sensed the writer was stressed and needed time away,Inference,Character Motivation,Hard,8,8.1683.8
+31,NAPLAN-Y8-READING-M2-Q31,Text 5,D,packed in a large wooden box,Vocabulary,Word Meaning in Context,Easy,2,8.1727.1
+32,NAPLAN-Y8-READING-M2-Q32,Text 5,B,eleven years,Reading Comprehension,Literal Recall,Easy,1,8.1727.2
+33,NAPLAN-Y8-READING-M2-Q33,Text 5,A,one that can help old people walk,Reading Comprehension,Literal Recall,Medium,4,8.1727.3
+34,NAPLAN-Y8-READING-M2-Q34,Text 5,D,the way a signature is never quite repeated,Reading Comprehension,Evaluating Evidence,Medium,5,8.1727.4
+35,NAPLAN-Y8-READING-M2-Q35,Text 5,C,a woman's changing feelings about the machine that replaced her,Reading Comprehension,Main Idea,Medium,5,8.1727.5
+36,NAPLAN-Y8-READING-M2-Q36,Text 5,A,the workers sensed that its speed could cost them their jobs,Inference,Inferential Reasoning,Hard,7,8.1727.6
+37,NAPLAN-Y8-READING-M2-Q37,Text 5,D,from uneasy memories to calm acceptance shaped by her granddaughter,Reading Comprehension,Point of View,Hard,8,8.1727.7
+38,NAPLAN-Y8-READING-M2-Q38,Text 5,A,"She sees people's decisions, not the technology, as what really matters.",Persuasive Language,Bias and Perspective,Hard,8,8.1727.8
+39,NAPLAN-Y8-READING-M2-Q39,Text 6,A,the Bogong moth's migration and why it matters,Reading Comprehension,Main Idea,Easy,2,8.1592.1
+40,NAPLAN-Y8-READING-M2-Q40,Text 6,D,rest closely together in great numbers,Inference,Inferential Reasoning,Easy,3,8.1592.2
+41,NAPLAN-Y8-READING-M2-Q41,Text 6,B,They would be more likely to drift towards the city.,Inference,Predicting Outcomes,Medium,5,8.1592.3
+42,NAPLAN-Y8-READING-M2-Q42,Text 6,D,have a far bigger effect than their size suggests,Vocabulary,Idioms and Expressions,Medium,4,8.1592.4
+43,NAPLAN-Y8-READING-M2-Q43,Text 6,B,The moths are an important food for many animals and people.,Reading Comprehension,Main Idea,Medium,5,8.1592.5
+44,NAPLAN-Y8-READING-M2-Q44,Text 6,A,"It describes a natural event, explains its importance, then reveals a threat to it.",Reading Comprehension,Text Structure,Hard,7,8.1592.6
+45,NAPLAN-Y8-READING-M2-Q45,Text 6,D,A drought far from the Alps can harm animals living in the mountains.,Inference,Drawing Conclusions,Hard,8,8.1592.7
+46,NAPLAN-Y8-READING-M2-Q46,Text 6,A,"'a new generation of moths, none of which has ever seen the mountains, makes the same journey'",Reading Comprehension,Evaluating Evidence,Hard,7,8.1592.8

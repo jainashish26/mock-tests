@@ -1,0 +1,443 @@
+﻿QuestionID,ExamID,ExamType,ExamSection,YearLevel,Subject,Topic,SubTopic,QuestionType,ComprehensionText,QuestionText,QuestionMedia,Correct,AnswerA,AnswerB,AnswerC,AnswerD,AnswerE,Difficulty,IsActive,CorrectAnswerScore,Tags,SourceBank,SourceQuestionNumber,SourceComprehensionID,NAPLANFlag,DifficultyScore,DifficultyLabel
+NAPLAN-Y4-READING-M2-Q01,NAPLAN-Y4-READING-M2,NAPLAN_STYLE_READING,Text 1,4,English,Vocabulary,Synonyms,ReadingComprehension,"Clara was looking out her window one day when she saw a huge black shadow pass over her house. Startled, she opened the door and looked outside. Suddenly the shadow swept down over her head and she saw that it was a flock of birds! She ran back inside to tell her grandfather. 'The whole sky, Grandpa!' she said, smiling. 'The whole sky is filled with birds!' It was exhilarating.","'Startled' in the sentence 'Startled, she opened the door and looked outside' means",,D,Impressed,Nervous,Brave,Shocked,,1,1,1,"NAPLAN,Year 4,Mock 2",English_Comprehension_Questions_expanded.csv,4.158.1,23,1,2,Easy
+NAPLAN-Y4-READING-M2-Q02,NAPLAN-Y4-READING-M2,NAPLAN_STYLE_READING,Text 1,4,English,Vocabulary,Synonyms,ReadingComprehension,"Clara was looking out her window one day when she saw a huge black shadow pass over her house. Startled, she opened the door and looked outside. Suddenly the shadow swept down over her head and she saw that it was a flock of birds! She ran back inside to tell her grandfather. 'The whole sky, Grandpa!' she said, smiling. 'The whole sky is filled with birds!' It was exhilarating.",'swept' in the sentence 'the shadow swept down over her head' means,,A,glided,jumped,dropped,floated,,1,1,1,"NAPLAN,Year 4,Mock 2",English_Comprehension_Questions_expanded.csv,4.158.2,23,1,2,Easy
+NAPLAN-Y4-READING-M2-Q03,NAPLAN-Y4-READING-M2,NAPLAN_STYLE_READING,Text 1,4,English,Vocabulary,Synonyms,ReadingComprehension,"Clara was looking out her window one day when she saw a huge black shadow pass over her house. Startled, she opened the door and looked outside. Suddenly the shadow swept down over her head and she saw that it was a flock of birds! She ran back inside to tell her grandfather. 'The whole sky, Grandpa!' she said, smiling. 'The whole sky is filled with birds!' It was exhilarating.",'exhilarating' in the sentence 'It was exhilarating' means,,B,lively,thrilling,educational,interesting,,2,1,1,"NAPLAN,Year 4,Mock 2",English_Comprehension_Questions_expanded.csv,4.158.3,23,1,3,Easy
+NAPLAN-Y4-READING-M2-Q04,NAPLAN-Y4-READING-M2,NAPLAN_STYLE_READING,Text 2,4,English,Inference,Character Motivation,ReadingComprehension,"2 ""What is that in the grass?"" he wondered. Was it a gigantic rock, or maybe a big, brown, sleeping turtle? He bent down to investigate!
+
+3 ""A wallet!"" he exclaimed as he picked it up and peeked inside. It was full of all kinds of stuff! And a tiny photo of twin boys.
+
+4 ""Somebody lost this, I'll bet! Mom will know what to do!"" Off Dustin ran to their apartment.
+
+5 ""Well, let's just look inside and see who owns this wallet,"" Dustin's mom, Marisa, said cheerfully. They emptied it onto their kitchen table and searched for a clue. There it was, a note written in crayon!
+
+6 ""We love you, Dad!—Carlos and Hugo.""
+
+7 ""This must be a wonderful man. His boys love him very much,"" remarked Dustin's mom.
+
+8 ""Look, mom, this picture must be of them and they look like they are my age. I wonder if they live around here,"" Dustin said aloud as his excitement grew. Then they saw another clue, a driver's license and now they knew the owner of that old, brown wallet was named Salvador!
+
+9 ""This card says their address is far away in a different city,"" said his mom sadly. Now what would they do?
+
+Page 20 Session 1
+
+10 Finally they found the best clue of all; a phone number on the back of Salvador's shiny, silver credit card.
+
+11 ""I will contact Salvador for you with the good news,"" said the kind lady who answered the phone.
+
+12 The very next day Dustin's doorbell rang and when Dustin and Marisa answered the door, there stood a smiling man who introduced himself as Salvador!
+
+13 ""Thank you, Dustin. You are a fine young man,"" he said as he shook Dustin's hand, ""I rode the train to my job here in your city and my wallet fell out of my pocket. I thought I would never see it again! My sons will be happy to meet you. We are coming here to spend the day at Rocket Land tomorrow, and I would like you and your mom to come with us if you can.""
+
+14 ""That will be just fine,"" smiled Dustin's proud mother.
+
+15 ""Yeah, that sounds great! I can't wait to meet Carlos and Hugo,"" grinned Dustin as he said good-bye to Salvador.
+
+16 ""You did the right thing, sweetheart,"" his mom said softly as he ran into the kitchen just in time to see her putting the last bit of his favorite vanilla frosting on a big, chocolate cake and reaching out to give him a ""proud mom"" hug.
+
+17 ""Thanks mom! This has been the best adventure ever!""
+
+18 The very next day Dustin and his mom heard their doorbell chiming loudly.
+
+19 Dustin peeked through his living room window and there stood four smiling people and one tiny, excited Chihuahua dog.
+
+20 ""I'll get it,"" exclaimed Dustin as he ran and opened their front door.
+
+21 ""Hello, my friend,"" Salvador said to Dustin, ""I would like you to meet my wife, Emerita, and my sons, Carlos and Hugo, and our dog, Chica. She's also excited to go to Rocket Land. We take her with us every year."" Chica yipped loudly and jumped into the air when she heard her name. Session 1 Page 21
+
+22 ""Please come in,"" said Dustin's mom. ""We are ready to leave and I have packed us all snacks to eat on the way there. Now, what should I put in for Chica?""
+
+23 ""Don't worry, we have plenty of doggie snacks for her in our van,"" laughed Salvador.
+
+24 ""I baked cochinos and churros, and biscochitos for us too,"" said Emerita. ""They are delicious cookies and they are loved by everyone in our country.""
+
+25 ""I want to sit in the back seat with Hugo and Carlos,"" said Dustin as he grabbed his jacket. Emerita and Marisa nodded their approval and the group climbed into the blue van headed for Rocket Land.
+
+26 ""Salvador's wallet sure seems to be a magic friend maker,"" smiled Marisa as they happily drove away.
+
+Page 22 Session 1",What do the details in paragraph 13 reveal about Salvador?,,C,His belongings often get lost on the train.,He enjoys visiting the city where Dustin lives.,He is grateful for Dustin's act of kindness.,His family is very important to him.,,2,1,1,"NAPLAN,Year 4,Mock 2",English_Comprehension_Questions_expanded.csv,4.138.1,3,1,3,Easy
+NAPLAN-Y4-READING-M2-Q05,NAPLAN-Y4-READING-M2,NAPLAN_STYLE_READING,Text 2,4,English,Inference,Drawing Conclusions,ReadingComprehension,"2 ""What is that in the grass?"" he wondered. Was it a gigantic rock, or maybe a big, brown, sleeping turtle? He bent down to investigate!
+
+3 ""A wallet!"" he exclaimed as he picked it up and peeked inside. It was full of all kinds of stuff! And a tiny photo of twin boys.
+
+4 ""Somebody lost this, I'll bet! Mom will know what to do!"" Off Dustin ran to their apartment.
+
+5 ""Well, let's just look inside and see who owns this wallet,"" Dustin's mom, Marisa, said cheerfully. They emptied it onto their kitchen table and searched for a clue. There it was, a note written in crayon!
+
+6 ""We love you, Dad!—Carlos and Hugo.""
+
+7 ""This must be a wonderful man. His boys love him very much,"" remarked Dustin's mom.
+
+8 ""Look, mom, this picture must be of them and they look like they are my age. I wonder if they live around here,"" Dustin said aloud as his excitement grew. Then they saw another clue, a driver's license and now they knew the owner of that old, brown wallet was named Salvador!
+
+9 ""This card says their address is far away in a different city,"" said his mom sadly. Now what would they do?
+
+Page 20 Session 1
+
+10 Finally they found the best clue of all; a phone number on the back of Salvador's shiny, silver credit card.
+
+11 ""I will contact Salvador for you with the good news,"" said the kind lady who answered the phone.
+
+12 The very next day Dustin's doorbell rang and when Dustin and Marisa answered the door, there stood a smiling man who introduced himself as Salvador!
+
+13 ""Thank you, Dustin. You are a fine young man,"" he said as he shook Dustin's hand, ""I rode the train to my job here in your city and my wallet fell out of my pocket. I thought I would never see it again! My sons will be happy to meet you. We are coming here to spend the day at Rocket Land tomorrow, and I would like you and your mom to come with us if you can.""
+
+14 ""That will be just fine,"" smiled Dustin's proud mother.
+
+15 ""Yeah, that sounds great! I can't wait to meet Carlos and Hugo,"" grinned Dustin as he said good-bye to Salvador.
+
+16 ""You did the right thing, sweetheart,"" his mom said softly as he ran into the kitchen just in time to see her putting the last bit of his favorite vanilla frosting on a big, chocolate cake and reaching out to give him a ""proud mom"" hug.
+
+17 ""Thanks mom! This has been the best adventure ever!""
+
+18 The very next day Dustin and his mom heard their doorbell chiming loudly.
+
+19 Dustin peeked through his living room window and there stood four smiling people and one tiny, excited Chihuahua dog.
+
+20 ""I'll get it,"" exclaimed Dustin as he ran and opened their front door.
+
+21 ""Hello, my friend,"" Salvador said to Dustin, ""I would like you to meet my wife, Emerita, and my sons, Carlos and Hugo, and our dog, Chica. She's also excited to go to Rocket Land. We take her with us every year."" Chica yipped loudly and jumped into the air when she heard her name. Session 1 Page 21
+
+22 ""Please come in,"" said Dustin's mom. ""We are ready to leave and I have packed us all snacks to eat on the way there. Now, what should I put in for Chica?""
+
+23 ""Don't worry, we have plenty of doggie snacks for her in our van,"" laughed Salvador.
+
+24 ""I baked cochinos and churros, and biscochitos for us too,"" said Emerita. ""They are delicious cookies and they are loved by everyone in our country.""
+
+25 ""I want to sit in the back seat with Hugo and Carlos,"" said Dustin as he grabbed his jacket. Emerita and Marisa nodded their approval and the group climbed into the blue van headed for Rocket Land.
+
+26 ""Salvador's wallet sure seems to be a magic friend maker,"" smiled Marisa as they happily drove away.
+
+Page 22 Session 1","Which statement best explains why Dustin claims, ""This has been the best adventure ever!"" in paragraph 17?",,A,Dustin's actions lead to an invitation to Rocket Land with Salvador's family.,Marisa is proud and makes Dustin's favorite cake to celebrate.,Dustin has made the day pass quickly by searching for the owner of the wallet.,Salvador's wallet has many clues to help Dustin solve the mystery.,,2,1,1,"NAPLAN,Year 4,Mock 2",English_Comprehension_Questions_expanded.csv,4.138.2,3,1,4,Medium
+NAPLAN-Y4-READING-M2-Q06,NAPLAN-Y4-READING-M2,NAPLAN_STYLE_READING,Text 2,4,English,Reading Comprehension,Text Structure,ReadingComprehension,"2 ""What is that in the grass?"" he wondered. Was it a gigantic rock, or maybe a big, brown, sleeping turtle? He bent down to investigate!
+
+3 ""A wallet!"" he exclaimed as he picked it up and peeked inside. It was full of all kinds of stuff! And a tiny photo of twin boys.
+
+4 ""Somebody lost this, I'll bet! Mom will know what to do!"" Off Dustin ran to their apartment.
+
+5 ""Well, let's just look inside and see who owns this wallet,"" Dustin's mom, Marisa, said cheerfully. They emptied it onto their kitchen table and searched for a clue. There it was, a note written in crayon!
+
+6 ""We love you, Dad!—Carlos and Hugo.""
+
+7 ""This must be a wonderful man. His boys love him very much,"" remarked Dustin's mom.
+
+8 ""Look, mom, this picture must be of them and they look like they are my age. I wonder if they live around here,"" Dustin said aloud as his excitement grew. Then they saw another clue, a driver's license and now they knew the owner of that old, brown wallet was named Salvador!
+
+9 ""This card says their address is far away in a different city,"" said his mom sadly. Now what would they do?
+
+Page 20 Session 1
+
+10 Finally they found the best clue of all; a phone number on the back of Salvador's shiny, silver credit card.
+
+11 ""I will contact Salvador for you with the good news,"" said the kind lady who answered the phone.
+
+12 The very next day Dustin's doorbell rang and when Dustin and Marisa answered the door, there stood a smiling man who introduced himself as Salvador!
+
+13 ""Thank you, Dustin. You are a fine young man,"" he said as he shook Dustin's hand, ""I rode the train to my job here in your city and my wallet fell out of my pocket. I thought I would never see it again! My sons will be happy to meet you. We are coming here to spend the day at Rocket Land tomorrow, and I would like you and your mom to come with us if you can.""
+
+14 ""That will be just fine,"" smiled Dustin's proud mother.
+
+15 ""Yeah, that sounds great! I can't wait to meet Carlos and Hugo,"" grinned Dustin as he said good-bye to Salvador.
+
+16 ""You did the right thing, sweetheart,"" his mom said softly as he ran into the kitchen just in time to see her putting the last bit of his favorite vanilla frosting on a big, chocolate cake and reaching out to give him a ""proud mom"" hug.
+
+17 ""Thanks mom! This has been the best adventure ever!""
+
+18 The very next day Dustin and his mom heard their doorbell chiming loudly.
+
+19 Dustin peeked through his living room window and there stood four smiling people and one tiny, excited Chihuahua dog.
+
+20 ""I'll get it,"" exclaimed Dustin as he ran and opened their front door.
+
+21 ""Hello, my friend,"" Salvador said to Dustin, ""I would like you to meet my wife, Emerita, and my sons, Carlos and Hugo, and our dog, Chica. She's also excited to go to Rocket Land. We take her with us every year."" Chica yipped loudly and jumped into the air when she heard her name. Session 1 Page 21
+
+22 ""Please come in,"" said Dustin's mom. ""We are ready to leave and I have packed us all snacks to eat on the way there. Now, what should I put in for Chica?""
+
+23 ""Don't worry, we have plenty of doggie snacks for her in our van,"" laughed Salvador.
+
+24 ""I baked cochinos and churros, and biscochitos for us too,"" said Emerita. ""They are delicious cookies and they are loved by everyone in our country.""
+
+25 ""I want to sit in the back seat with Hugo and Carlos,"" said Dustin as he grabbed his jacket. Emerita and Marisa nodded their approval and the group climbed into the blue van headed for Rocket Land.
+
+26 ""Salvador's wallet sure seems to be a magic friend maker,"" smiled Marisa as they happily drove away.
+
+Page 22 Session 1",How does the author organize the information in paragraphs 5 through 10?,,D,by comparing each item that Dustin pulls out of the wallet,by giving the reasons why Dustin must search for the wallet's owner,by listing the order of events that lead to Dustin finding the wallet,by showing how the clues cause Dustin to find the wallet's owner,,2,1,1,"NAPLAN,Year 4,Mock 2",English_Comprehension_Questions_expanded.csv,4.138.3,3,1,4,Medium
+NAPLAN-Y4-READING-M2-Q07,NAPLAN-Y4-READING-M2,NAPLAN_STYLE_READING,Text 2,4,English,Reading Comprehension,Theme,ReadingComprehension,"2 ""What is that in the grass?"" he wondered. Was it a gigantic rock, or maybe a big, brown, sleeping turtle? He bent down to investigate!
+
+3 ""A wallet!"" he exclaimed as he picked it up and peeked inside. It was full of all kinds of stuff! And a tiny photo of twin boys.
+
+4 ""Somebody lost this, I'll bet! Mom will know what to do!"" Off Dustin ran to their apartment.
+
+5 ""Well, let's just look inside and see who owns this wallet,"" Dustin's mom, Marisa, said cheerfully. They emptied it onto their kitchen table and searched for a clue. There it was, a note written in crayon!
+
+6 ""We love you, Dad!—Carlos and Hugo.""
+
+7 ""This must be a wonderful man. His boys love him very much,"" remarked Dustin's mom.
+
+8 ""Look, mom, this picture must be of them and they look like they are my age. I wonder if they live around here,"" Dustin said aloud as his excitement grew. Then they saw another clue, a driver's license and now they knew the owner of that old, brown wallet was named Salvador!
+
+9 ""This card says their address is far away in a different city,"" said his mom sadly. Now what would they do?
+
+Page 20 Session 1
+
+10 Finally they found the best clue of all; a phone number on the back of Salvador's shiny, silver credit card.
+
+11 ""I will contact Salvador for you with the good news,"" said the kind lady who answered the phone.
+
+12 The very next day Dustin's doorbell rang and when Dustin and Marisa answered the door, there stood a smiling man who introduced himself as Salvador!
+
+13 ""Thank you, Dustin. You are a fine young man,"" he said as he shook Dustin's hand, ""I rode the train to my job here in your city and my wallet fell out of my pocket. I thought I would never see it again! My sons will be happy to meet you. We are coming here to spend the day at Rocket Land tomorrow, and I would like you and your mom to come with us if you can.""
+
+14 ""That will be just fine,"" smiled Dustin's proud mother.
+
+15 ""Yeah, that sounds great! I can't wait to meet Carlos and Hugo,"" grinned Dustin as he said good-bye to Salvador.
+
+16 ""You did the right thing, sweetheart,"" his mom said softly as he ran into the kitchen just in time to see her putting the last bit of his favorite vanilla frosting on a big, chocolate cake and reaching out to give him a ""proud mom"" hug.
+
+17 ""Thanks mom! This has been the best adventure ever!""
+
+18 The very next day Dustin and his mom heard their doorbell chiming loudly.
+
+19 Dustin peeked through his living room window and there stood four smiling people and one tiny, excited Chihuahua dog.
+
+20 ""I'll get it,"" exclaimed Dustin as he ran and opened their front door.
+
+21 ""Hello, my friend,"" Salvador said to Dustin, ""I would like you to meet my wife, Emerita, and my sons, Carlos and Hugo, and our dog, Chica. She's also excited to go to Rocket Land. We take her with us every year."" Chica yipped loudly and jumped into the air when she heard her name. Session 1 Page 21
+
+22 ""Please come in,"" said Dustin's mom. ""We are ready to leave and I have packed us all snacks to eat on the way there. Now, what should I put in for Chica?""
+
+23 ""Don't worry, we have plenty of doggie snacks for her in our van,"" laughed Salvador.
+
+24 ""I baked cochinos and churros, and biscochitos for us too,"" said Emerita. ""They are delicious cookies and they are loved by everyone in our country.""
+
+25 ""I want to sit in the back seat with Hugo and Carlos,"" said Dustin as he grabbed his jacket. Emerita and Marisa nodded their approval and the group climbed into the blue van headed for Rocket Land.
+
+26 ""Salvador's wallet sure seems to be a magic friend maker,"" smiled Marisa as they happily drove away.
+
+Page 22 Session 1",Which sentence best states a theme of the story?,,C,The best mysteries are solved using teamwork.,People in different cities can have a lot in common.,Helping others can bring surprising rewards.,Pets are important for bringing families together.,,2,1,1,"NAPLAN,Year 4,Mock 2",English_Comprehension_Questions_expanded.csv,4.138.4,3,1,4,Medium
+NAPLAN-Y4-READING-M2-Q08,NAPLAN-Y4-READING-M2,NAPLAN_STYLE_READING,Text 2,4,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"2 ""What is that in the grass?"" he wondered. Was it a gigantic rock, or maybe a big, brown, sleeping turtle? He bent down to investigate!
+
+3 ""A wallet!"" he exclaimed as he picked it up and peeked inside. It was full of all kinds of stuff! And a tiny photo of twin boys.
+
+4 ""Somebody lost this, I'll bet! Mom will know what to do!"" Off Dustin ran to their apartment.
+
+5 ""Well, let's just look inside and see who owns this wallet,"" Dustin's mom, Marisa, said cheerfully. They emptied it onto their kitchen table and searched for a clue. There it was, a note written in crayon!
+
+6 ""We love you, Dad!—Carlos and Hugo.""
+
+7 ""This must be a wonderful man. His boys love him very much,"" remarked Dustin's mom.
+
+8 ""Look, mom, this picture must be of them and they look like they are my age. I wonder if they live around here,"" Dustin said aloud as his excitement grew. Then they saw another clue, a driver's license and now they knew the owner of that old, brown wallet was named Salvador!
+
+9 ""This card says their address is far away in a different city,"" said his mom sadly. Now what would they do?
+
+Page 20 Session 1
+
+10 Finally they found the best clue of all; a phone number on the back of Salvador's shiny, silver credit card.
+
+11 ""I will contact Salvador for you with the good news,"" said the kind lady who answered the phone.
+
+12 The very next day Dustin's doorbell rang and when Dustin and Marisa answered the door, there stood a smiling man who introduced himself as Salvador!
+
+13 ""Thank you, Dustin. You are a fine young man,"" he said as he shook Dustin's hand, ""I rode the train to my job here in your city and my wallet fell out of my pocket. I thought I would never see it again! My sons will be happy to meet you. We are coming here to spend the day at Rocket Land tomorrow, and I would like you and your mom to come with us if you can.""
+
+14 ""That will be just fine,"" smiled Dustin's proud mother.
+
+15 ""Yeah, that sounds great! I can't wait to meet Carlos and Hugo,"" grinned Dustin as he said good-bye to Salvador.
+
+16 ""You did the right thing, sweetheart,"" his mom said softly as he ran into the kitchen just in time to see her putting the last bit of his favorite vanilla frosting on a big, chocolate cake and reaching out to give him a ""proud mom"" hug.
+
+17 ""Thanks mom! This has been the best adventure ever!""
+
+18 The very next day Dustin and his mom heard their doorbell chiming loudly.
+
+19 Dustin peeked through his living room window and there stood four smiling people and one tiny, excited Chihuahua dog.
+
+20 ""I'll get it,"" exclaimed Dustin as he ran and opened their front door.
+
+21 ""Hello, my friend,"" Salvador said to Dustin, ""I would like you to meet my wife, Emerita, and my sons, Carlos and Hugo, and our dog, Chica. She's also excited to go to Rocket Land. We take her with us every year."" Chica yipped loudly and jumped into the air when she heard her name. Session 1 Page 21
+
+22 ""Please come in,"" said Dustin's mom. ""We are ready to leave and I have packed us all snacks to eat on the way there. Now, what should I put in for Chica?""
+
+23 ""Don't worry, we have plenty of doggie snacks for her in our van,"" laughed Salvador.
+
+24 ""I baked cochinos and churros, and biscochitos for us too,"" said Emerita. ""They are delicious cookies and they are loved by everyone in our country.""
+
+25 ""I want to sit in the back seat with Hugo and Carlos,"" said Dustin as he grabbed his jacket. Emerita and Marisa nodded their approval and the group climbed into the blue van headed for Rocket Land.
+
+26 ""Salvador's wallet sure seems to be a magic friend maker,"" smiled Marisa as they happily drove away.
+
+Page 22 Session 1","What does the word ""approval"" suggest as used in paragraph 25?",,B,Everyone is ready to leave for Rocket Land.,Dustin is allowed to sit with Hugo and Carlos.,The boys may eat the snacks Emerita has baked.,The blue van will take everyone to Rocket Land.,,1,1,1,"NAPLAN,Year 4,Mock 2",English_Comprehension_Questions_expanded.csv,4.138.5,3,1,2,Easy
+NAPLAN-Y4-READING-M2-Q09,NAPLAN-Y4-READING-M2,NAPLAN_STYLE_READING,Text 3,4,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"Three Knots Worth Knowing
+A good camper carries a torch, a water bottle and a length of rope. But a rope is only as useful as the knots you can tie in it. Learn these three, and you will be ready for almost anything the bush throws at you.
+The reef knot
+The reef knot joins two ends of rope together. It is perfect for tying up a bundle of firewood or closing the top of a bag. To tie it, remember 'right over left, then left over right'. A reef knot lies flat and neat, but be careful: it can slip loose if it is pulled very hard, so never use it to hold anything heavy.
+The bowline
+The bowline (say 'BOH-lin') makes a loop at the end of a rope that will not shrink or slip, no matter how much weight hangs from it. Sailors have trusted it for hundreds of years. Best of all, even after holding a heavy load, a bowline is easy to undo.
+The taut-line hitch
+This clever knot is a tent's best friend. Tie it where a guy rope loops around a tent peg. It can slide along the rope to tighten or loosen it, yet it grips firmly when the rope is pulled. Ropes often stretch when they get wet, and a sagging tent can collect puddles on its roof overnight. With a taut-line hitch, you simply slide the knot to make the rope tight again.
+Why not grab a piece of string tonight and start practising?","In the passage, a 'sagging' tent is one that is . . .",,B,standing very tall,drooping loosely,torn into pieces,packed away neatly,,1,1,1,"NAPLAN,Year 4,Mock 2",English_Comprehension_Questions_expanded.csv,4.1376.1,229,1,2,Easy
+NAPLAN-Y4-READING-M2-Q10,NAPLAN-Y4-READING-M2,NAPLAN_STYLE_READING,Text 3,4,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Three Knots Worth Knowing
+A good camper carries a torch, a water bottle and a length of rope. But a rope is only as useful as the knots you can tie in it. Learn these three, and you will be ready for almost anything the bush throws at you.
+The reef knot
+The reef knot joins two ends of rope together. It is perfect for tying up a bundle of firewood or closing the top of a bag. To tie it, remember 'right over left, then left over right'. A reef knot lies flat and neat, but be careful: it can slip loose if it is pulled very hard, so never use it to hold anything heavy.
+The bowline
+The bowline (say 'BOH-lin') makes a loop at the end of a rope that will not shrink or slip, no matter how much weight hangs from it. Sailors have trusted it for hundreds of years. Best of all, even after holding a heavy load, a bowline is easy to undo.
+The taut-line hitch
+This clever knot is a tent's best friend. Tie it where a guy rope loops around a tent peg. It can slide along the rope to tighten or loosen it, yet it grips firmly when the rope is pulled. Ropes often stretch when they get wet, and a sagging tent can collect puddles on its roof overnight. With a taut-line hitch, you simply slide the knot to make the rope tight again.
+Why not grab a piece of string tonight and start practising?",Which knot is used to join two ends of rope together?,,B,the bowline,the reef knot,the taut-line hitch,the guy rope knot,,1,1,1,"NAPLAN,Year 4,Mock 2",English_Comprehension_Questions_expanded.csv,4.1376.2,229,1,1,Easy
+NAPLAN-Y4-READING-M2-Q11,NAPLAN-Y4-READING-M2,NAPLAN_STYLE_READING,Text 3,4,English,Reading Comprehension,Author Purpose,ReadingComprehension,"Three Knots Worth Knowing
+A good camper carries a torch, a water bottle and a length of rope. But a rope is only as useful as the knots you can tie in it. Learn these three, and you will be ready for almost anything the bush throws at you.
+The reef knot
+The reef knot joins two ends of rope together. It is perfect for tying up a bundle of firewood or closing the top of a bag. To tie it, remember 'right over left, then left over right'. A reef knot lies flat and neat, but be careful: it can slip loose if it is pulled very hard, so never use it to hold anything heavy.
+The bowline
+The bowline (say 'BOH-lin') makes a loop at the end of a rope that will not shrink or slip, no matter how much weight hangs from it. Sailors have trusted it for hundreds of years. Best of all, even after holding a heavy load, a bowline is easy to undo.
+The taut-line hitch
+This clever knot is a tent's best friend. Tie it where a guy rope loops around a tent peg. It can slide along the rope to tighten or loosen it, yet it grips firmly when the rope is pulled. Ropes often stretch when they get wet, and a sagging tent can collect puddles on its roof overnight. With a taut-line hitch, you simply slide the knot to make the rope tight again.
+Why not grab a piece of string tonight and start practising?",Why has the writer included the words 'say BOH-lin' in brackets?,,A,because the word is not said the way it looks,to give readers another name for the knot,to show which country the knot comes from,to tell readers how loudly to say the word,,2,1,1,"NAPLAN,Year 4,Mock 2",English_Comprehension_Questions_expanded.csv,4.1376.3,229,1,4,Medium
+NAPLAN-Y4-READING-M2-Q12,NAPLAN-Y4-READING-M2,NAPLAN_STYLE_READING,Text 3,4,English,Persuasive Language,Persuasive Devices,ReadingComprehension,"Three Knots Worth Knowing
+A good camper carries a torch, a water bottle and a length of rope. But a rope is only as useful as the knots you can tie in it. Learn these three, and you will be ready for almost anything the bush throws at you.
+The reef knot
+The reef knot joins two ends of rope together. It is perfect for tying up a bundle of firewood or closing the top of a bag. To tie it, remember 'right over left, then left over right'. A reef knot lies flat and neat, but be careful: it can slip loose if it is pulled very hard, so never use it to hold anything heavy.
+The bowline
+The bowline (say 'BOH-lin') makes a loop at the end of a rope that will not shrink or slip, no matter how much weight hangs from it. Sailors have trusted it for hundreds of years. Best of all, even after holding a heavy load, a bowline is easy to undo.
+The taut-line hitch
+This clever knot is a tent's best friend. Tie it where a guy rope loops around a tent peg. It can slide along the rope to tighten or loosen it, yet it grips firmly when the rope is pulled. Ropes often stretch when they get wet, and a sagging tent can collect puddles on its roof overnight. With a taut-line hitch, you simply slide the knot to make the rope tight again.
+Why not grab a piece of string tonight and start practising?",'Why not grab a piece of string tonight and start practising?' This sentence is . . .,,A,a question used to encourage readers to act,a question readers must answer in writing,a warning about a danger when camping,a fact explaining how knots are tied,,3,1,1,"NAPLAN,Year 4,Mock 2",English_Comprehension_Questions_expanded.csv,4.1376.4,229,1,5,Medium
+NAPLAN-Y4-READING-M2-Q13,NAPLAN-Y4-READING-M2,NAPLAN_STYLE_READING,Text 3,4,English,Inference,Inferential Reasoning,ReadingComprehension,"Three Knots Worth Knowing
+A good camper carries a torch, a water bottle and a length of rope. But a rope is only as useful as the knots you can tie in it. Learn these three, and you will be ready for almost anything the bush throws at you.
+The reef knot
+The reef knot joins two ends of rope together. It is perfect for tying up a bundle of firewood or closing the top of a bag. To tie it, remember 'right over left, then left over right'. A reef knot lies flat and neat, but be careful: it can slip loose if it is pulled very hard, so never use it to hold anything heavy.
+The bowline
+The bowline (say 'BOH-lin') makes a loop at the end of a rope that will not shrink or slip, no matter how much weight hangs from it. Sailors have trusted it for hundreds of years. Best of all, even after holding a heavy load, a bowline is easy to undo.
+The taut-line hitch
+This clever knot is a tent's best friend. Tie it where a guy rope loops around a tent peg. It can slide along the rope to tighten or loosen it, yet it grips firmly when the rope is pulled. Ropes often stretch when they get wet, and a sagging tent can collect puddles on its roof overnight. With a taut-line hitch, you simply slide the knot to make the rope tight again.
+Why not grab a piece of string tonight and start practising?","Ella's guy rope was tight when she went to bed, but it rained all night. Why would she be glad she tied a taut-line hitch rather than a bowline?",,D,A bowline would have slipped loose once the rope became wet in the rain.,A bowline could not be undone after holding the tent rope all night long.,A taut-line hitch stops the rope from stretching when it gets wet.,"She can slide the hitch to tighten the stretched rope, but a bowline's loop stays the same size.",,4,1,1,"NAPLAN,Year 4,Mock 2",English_Comprehension_Questions_expanded.csv,4.1376.5,229,2,8,Hard
+NAPLAN-Y4-READING-M2-Q14,NAPLAN-Y4-READING-M2,NAPLAN_STYLE_READING,Text 3,4,English,Inference,Cause and Effect,ReadingComprehension,"Three Knots Worth Knowing
+A good camper carries a torch, a water bottle and a length of rope. But a rope is only as useful as the knots you can tie in it. Learn these three, and you will be ready for almost anything the bush throws at you.
+The reef knot
+The reef knot joins two ends of rope together. It is perfect for tying up a bundle of firewood or closing the top of a bag. To tie it, remember 'right over left, then left over right'. A reef knot lies flat and neat, but be careful: it can slip loose if it is pulled very hard, so never use it to hold anything heavy.
+The bowline
+The bowline (say 'BOH-lin') makes a loop at the end of a rope that will not shrink or slip, no matter how much weight hangs from it. Sailors have trusted it for hundreds of years. Best of all, even after holding a heavy load, a bowline is easy to undo.
+The taut-line hitch
+This clever knot is a tent's best friend. Tie it where a guy rope loops around a tent peg. It can slide along the rope to tighten or loosen it, yet it grips firmly when the rope is pulled. Ropes often stretch when they get wet, and a sagging tent can collect puddles on its roof overnight. With a taut-line hitch, you simply slide the knot to make the rope tight again.
+Why not grab a piece of string tonight and start practising?","Why does the writer warn readers never to hold anything heavy with a reef knot, but gives no such warning about the bowline?",,D,"A reef knot is hard to undo after a heavy load, but a bowline is easy to undo.","A reef knot lies flat and neat, so it cannot grip a load the way a bowline can.","A reef knot is only for firewood, while a bowline is only for use on boats.","A reef knot can slip when pulled hard, but a bowline's loop holds whatever the weight.",,4,1,1,"NAPLAN,Year 4,Mock 2",English_Comprehension_Questions_expanded.csv,4.1376.6,229,2,7,Hard
+NAPLAN-Y4-READING-M2-Q15,NAPLAN-Y4-READING-M2,NAPLAN_STYLE_READING,Text 4,4,English,Reading Comprehension,Sequencing,ReadingComprehension,"Before the Sun Comes Up
+On a dairy farm, the working day starts long before most people wake. Many dairy farmers in Australia are out of bed by four o'clock in the morning, because cows need to be milked twice a day, at roughly the same times.
+First, the farmer rounds up the herd from the paddock and walks the cows slowly to the milking shed. Cows that are rushed or frightened give less milk.
+Inside the shed, where some farmers play soft music on a radio, each cow steps into her own bay. The farmer cleans the cow's teats, then attaches the milking cups, which gently draw out the milk through soft rubber linings.The milk flows through pipes into a large steel vat, where it is quickly chilled.
+After milking, the cows head out to fresh pasture. Farmers move the herd to a different paddock every day or two. This gives the grass in the old paddock time to regrow, so the cows always have plenty of good food to eat.
+Once a day, a tanker truck arrives to collect the milk from the vat and take it to a factory. There it is tested, packaged and sent to shops.
+Dairy farming is hard work in every kind of weather, but it is the most rewarding job in the country. The next time you pour milk on your cereal, remember the early start that brought it to your table.",What does the farmer do straight after cleaning the cow's teats?,,D,walks the cows to the shed,chills the milk in the vat,moves the herd to new pasture,attaches the milking cups,,1,1,1,"NAPLAN,Year 4,Mock 2",English_Comprehension_Questions_expanded.csv,4.1297.1,150,1,2,Easy
+NAPLAN-Y4-READING-M2-Q16,NAPLAN-Y4-READING-M2,NAPLAN_STYLE_READING,Text 4,4,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Before the Sun Comes Up
+On a dairy farm, the working day starts long before most people wake. Many dairy farmers in Australia are out of bed by four o'clock in the morning, because cows need to be milked twice a day, at roughly the same times.
+First, the farmer rounds up the herd from the paddock and walks the cows slowly to the milking shed. Cows that are rushed or frightened give less milk.
+Inside the shed, where some farmers play soft music on a radio, each cow steps into her own bay. The farmer cleans the cow's teats, then attaches the milking cups, which gently draw out the milk through soft rubber linings.The milk flows through pipes into a large steel vat, where it is quickly chilled.
+After milking, the cows head out to fresh pasture. Farmers move the herd to a different paddock every day or two. This gives the grass in the old paddock time to regrow, so the cows always have plenty of good food to eat.
+Once a day, a tanker truck arrives to collect the milk from the vat and take it to a factory. There it is tested, packaged and sent to shops.
+Dairy farming is hard work in every kind of weather, but it is the most rewarding job in the country. The next time you pour milk on your cereal, remember the early start that brought it to your table.",How often does the tanker truck collect the milk?,,C,twice a day,every second day,once a day,once a week,,1,1,1,"NAPLAN,Year 4,Mock 2",English_Comprehension_Questions_expanded.csv,4.1297.2,150,1,2,Easy
+NAPLAN-Y4-READING-M2-Q17,NAPLAN-Y4-READING-M2,NAPLAN_STYLE_READING,Text 4,4,English,Inference,Character Motivation,ReadingComprehension,"Before the Sun Comes Up
+On a dairy farm, the working day starts long before most people wake. Many dairy farmers in Australia are out of bed by four o'clock in the morning, because cows need to be milked twice a day, at roughly the same times.
+First, the farmer rounds up the herd from the paddock and walks the cows slowly to the milking shed. Cows that are rushed or frightened give less milk.
+Inside the shed, where some farmers play soft music on a radio, each cow steps into her own bay. The farmer cleans the cow's teats, then attaches the milking cups, which gently draw out the milk through soft rubber linings.The milk flows through pipes into a large steel vat, where it is quickly chilled.
+After milking, the cows head out to fresh pasture. Farmers move the herd to a different paddock every day or two. This gives the grass in the old paddock time to regrow, so the cows always have plenty of good food to eat.
+Once a day, a tanker truck arrives to collect the milk from the vat and take it to a factory. There it is tested, packaged and sent to shops.
+Dairy farming is hard work in every kind of weather, but it is the most rewarding job in the country. The next time you pour milk on your cereal, remember the early start that brought it to your table.",Why does the farmer chill the milk as soon as it reaches the vat?,,D,cold milk flows more easily through the pipes,the factory only accepts milk that is frozen,warm milk is too heavy for the tanker to carry,it must stay fresh until the tanker collects it,,3,1,1,"NAPLAN,Year 4,Mock 2",English_Comprehension_Questions_expanded.csv,4.1297.3,150,1,5,Medium
+NAPLAN-Y4-READING-M2-Q18,NAPLAN-Y4-READING-M2,NAPLAN_STYLE_READING,Text 4,4,English,Persuasive Language,Fact and Opinion,ReadingComprehension,"Before the Sun Comes Up
+On a dairy farm, the working day starts long before most people wake. Many dairy farmers in Australia are out of bed by four o'clock in the morning, because cows need to be milked twice a day, at roughly the same times.
+First, the farmer rounds up the herd from the paddock and walks the cows slowly to the milking shed. Cows that are rushed or frightened give less milk.
+Inside the shed, where some farmers play soft music on a radio, each cow steps into her own bay. The farmer cleans the cow's teats, then attaches the milking cups, which gently draw out the milk through soft rubber linings.The milk flows through pipes into a large steel vat, where it is quickly chilled.
+After milking, the cows head out to fresh pasture. Farmers move the herd to a different paddock every day or two. This gives the grass in the old paddock time to regrow, so the cows always have plenty of good food to eat.
+Once a day, a tanker truck arrives to collect the milk from the vat and take it to a factory. There it is tested, packaged and sent to shops.
+Dairy farming is hard work in every kind of weather, but it is the most rewarding job in the country. The next time you pour milk on your cereal, remember the early start that brought it to your table.",Which of these is an opinion?,,B,cows need to be milked twice a day,it is the most rewarding job in the country,a tanker truck arrives to collect the milk,the milk flows through pipes into a vat,,2,1,1,"NAPLAN,Year 4,Mock 2",English_Comprehension_Questions_expanded.csv,4.1297.4,150,1,4,Medium
+NAPLAN-Y4-READING-M2-Q19,NAPLAN-Y4-READING-M2,NAPLAN_STYLE_READING,Text 4,4,English,Inference,Character Motivation,ReadingComprehension,"Before the Sun Comes Up
+On a dairy farm, the working day starts long before most people wake. Many dairy farmers in Australia are out of bed by four o'clock in the morning, because cows need to be milked twice a day, at roughly the same times.
+First, the farmer rounds up the herd from the paddock and walks the cows slowly to the milking shed. Cows that are rushed or frightened give less milk.
+Inside the shed, where some farmers play soft music on a radio, each cow steps into her own bay. The farmer cleans the cow's teats, then attaches the milking cups, which gently draw out the milk through soft rubber linings.The milk flows through pipes into a large steel vat, where it is quickly chilled.
+After milking, the cows head out to fresh pasture. Farmers move the herd to a different paddock every day or two. This gives the grass in the old paddock time to regrow, so the cows always have plenty of good food to eat.
+Once a day, a tanker truck arrives to collect the milk from the vat and take it to a factory. There it is tested, packaged and sent to shops.
+Dairy farming is hard work in every kind of weather, but it is the most rewarding job in the country. The next time you pour milk on your cereal, remember the early start that brought it to your table.","The tanker collects the milk only once a day. Why, then, are many dairy farmers out of bed by four o'clock in the morning?",,B,The tanker arrives at dawn and will not wait for any farmer who is late.,"The cows must be milked twice a day at regular times, whenever the tanker comes.",The milk must be chilled before the morning sun warms up the steel vat.,The cows are much easier to round up from the paddock in the dark.,,4,1,1,"NAPLAN,Year 4,Mock 2",English_Comprehension_Questions_expanded.csv,4.1297.5,150,2,7,Hard
+NAPLAN-Y4-READING-M2-Q20,NAPLAN-Y4-READING-M2,NAPLAN_STYLE_READING,Text 4,4,English,Reading Comprehension,Author Purpose,ReadingComprehension,"Before the Sun Comes Up
+On a dairy farm, the working day starts long before most people wake. Many dairy farmers in Australia are out of bed by four o'clock in the morning, because cows need to be milked twice a day, at roughly the same times.
+First, the farmer rounds up the herd from the paddock and walks the cows slowly to the milking shed. Cows that are rushed or frightened give less milk.
+Inside the shed, where some farmers play soft music on a radio, each cow steps into her own bay. The farmer cleans the cow's teats, then attaches the milking cups, which gently draw out the milk through soft rubber linings.The milk flows through pipes into a large steel vat, where it is quickly chilled.
+After milking, the cows head out to fresh pasture. Farmers move the herd to a different paddock every day or two. This gives the grass in the old paddock time to regrow, so the cows always have plenty of good food to eat.
+Once a day, a tanker truck arrives to collect the milk from the vat and take it to a factory. There it is tested, packaged and sent to shops.
+Dairy farming is hard work in every kind of weather, but it is the most rewarding job in the country. The next time you pour milk on your cereal, remember the early start that brought it to your table.",What is the main purpose of the whole text?,,C,to persuade readers to become dairy farmers when they grow up,to explain how milk is tested and packaged at the factory,to inform readers about a dairy farmer's work and help them value it,to describe the different kinds of cows found on Australian farms,,4,1,1,"NAPLAN,Year 4,Mock 2",English_Comprehension_Questions_expanded.csv,4.1297.6,150,2,7,Hard
+NAPLAN-Y4-READING-M2-Q21,NAPLAN-Y4-READING-M2,NAPLAN_STYLE_READING,Text 5,4,English,Persuasive Language,Fact and Opinion,ReadingComprehension,"When Stories Come True
+Science fiction writers imagine what the future might look like. Sometimes, their wild ideas turn out to be surprisingly close to the truth.
+More than 150 years ago, the French writer Jules Verne described a trip to the Moon. In his story, the travellers launched from Florida, felt weightless in space and splashed down in the ocean on their return. About a hundred years later, real astronauts did almost exactly that.
+In 1945, a young British writer named Arthur C. Clarke suggested placing machines high above Earth to send radio signals around the world. People thought it sounded far-fetched. Today, communication satellites carry television, phone calls and internet signals across the planet every second.
+Even the word 'robot' came from fiction. It first appeared in a play written in 1920 by a Czech writer.
+Some inventors say these stories inspired them. As a boy, Igor Sikorsky read a different Jules Verne novel, featuring a flying machine that could rise straight up into the air. He never forgot it. Decades later, he designed one of the first successful helicopters.
+Of course, many predictions have not come true. We are still waiting for flying cars to fill our skies! But science fiction does something important. It encourages us to ask 'What if?' In my opinion, that question is the most exciting one there is.",Which of these words from the text is an opinion?,,C,"'communication satellites carry television, phone calls and internet signals'",'the word 'robot' came from fiction','that question is the most exciting one there is','he designed one of the first successful helicopters',,1,1,1,"NAPLAN,Year 4,Mock 2",English_Comprehension_Questions_expanded.csv,4.1287.1,140,1,2,Easy
+NAPLAN-Y4-READING-M2-Q22,NAPLAN-Y4-READING-M2,NAPLAN_STYLE_READING,Text 5,4,English,Reading Comprehension,Literal Recall,ReadingComprehension,"When Stories Come True
+Science fiction writers imagine what the future might look like. Sometimes, their wild ideas turn out to be surprisingly close to the truth.
+More than 150 years ago, the French writer Jules Verne described a trip to the Moon. In his story, the travellers launched from Florida, felt weightless in space and splashed down in the ocean on their return. About a hundred years later, real astronauts did almost exactly that.
+In 1945, a young British writer named Arthur C. Clarke suggested placing machines high above Earth to send radio signals around the world. People thought it sounded far-fetched. Today, communication satellites carry television, phone calls and internet signals across the planet every second.
+Even the word 'robot' came from fiction. It first appeared in a play written in 1920 by a Czech writer.
+Some inventors say these stories inspired them. As a boy, Igor Sikorsky read a different Jules Verne novel, featuring a flying machine that could rise straight up into the air. He never forgot it. Decades later, he designed one of the first successful helicopters.
+Of course, many predictions have not come true. We are still waiting for flying cars to fill our skies! But science fiction does something important. It encourages us to ask 'What if?' In my opinion, that question is the most exciting one there is.",In what year did Arthur C. Clarke suggest his idea?,,C,1920,1950,1945,1965,,1,1,1,"NAPLAN,Year 4,Mock 2",English_Comprehension_Questions_expanded.csv,4.1287.2,140,1,1,Easy
+NAPLAN-Y4-READING-M2-Q23,NAPLAN-Y4-READING-M2,NAPLAN_STYLE_READING,Text 5,4,English,Reading Comprehension,Literal Recall,ReadingComprehension,"When Stories Come True
+Science fiction writers imagine what the future might look like. Sometimes, their wild ideas turn out to be surprisingly close to the truth.
+More than 150 years ago, the French writer Jules Verne described a trip to the Moon. In his story, the travellers launched from Florida, felt weightless in space and splashed down in the ocean on their return. About a hundred years later, real astronauts did almost exactly that.
+In 1945, a young British writer named Arthur C. Clarke suggested placing machines high above Earth to send radio signals around the world. People thought it sounded far-fetched. Today, communication satellites carry television, phone calls and internet signals across the planet every second.
+Even the word 'robot' came from fiction. It first appeared in a play written in 1920 by a Czech writer.
+Some inventors say these stories inspired them. As a boy, Igor Sikorsky read a different Jules Verne novel, featuring a flying machine that could rise straight up into the air. He never forgot it. Decades later, he designed one of the first successful helicopters.
+Of course, many predictions have not come true. We are still waiting for flying cars to fill our skies! But science fiction does something important. It encourages us to ask 'What if?' In my opinion, that question is the most exciting one there is.",Which parts of Verne's Moon story matched what real astronauts later did?,,B,launching from France and landing in the ocean,launching from Florida and landing in the ocean,launching from Florida and landing in a field,rising straight up and landing in the ocean,,2,1,1,"NAPLAN,Year 4,Mock 2",English_Comprehension_Questions_expanded.csv,4.1287.3,140,1,4,Medium
+NAPLAN-Y4-READING-M2-Q24,NAPLAN-Y4-READING-M2,NAPLAN_STYLE_READING,Text 5,4,English,Reading Comprehension,Text Structure,ReadingComprehension,"When Stories Come True
+Science fiction writers imagine what the future might look like. Sometimes, their wild ideas turn out to be surprisingly close to the truth.
+More than 150 years ago, the French writer Jules Verne described a trip to the Moon. In his story, the travellers launched from Florida, felt weightless in space and splashed down in the ocean on their return. About a hundred years later, real astronauts did almost exactly that.
+In 1945, a young British writer named Arthur C. Clarke suggested placing machines high above Earth to send radio signals around the world. People thought it sounded far-fetched. Today, communication satellites carry television, phone calls and internet signals across the planet every second.
+Even the word 'robot' came from fiction. It first appeared in a play written in 1920 by a Czech writer.
+Some inventors say these stories inspired them. As a boy, Igor Sikorsky read a different Jules Verne novel, featuring a flying machine that could rise straight up into the air. He never forgot it. Decades later, he designed one of the first successful helicopters.
+Of course, many predictions have not come true. We are still waiting for flying cars to fill our skies! But science fiction does something important. It encourages us to ask 'What if?' In my opinion, that question is the most exciting one there is.",How is the text mainly organised?,,D,a problem followed by its solution,one inventor's life told in time order,a comparison of two different inventions,a series of examples followed by a conclusion,,3,1,1,"NAPLAN,Year 4,Mock 2",English_Comprehension_Questions_expanded.csv,4.1287.4,140,1,5,Medium
+NAPLAN-Y4-READING-M2-Q25,NAPLAN-Y4-READING-M2,NAPLAN_STYLE_READING,Text 5,4,English,Reading Comprehension,Main Idea,ReadingComprehension,"When Stories Come True
+Science fiction writers imagine what the future might look like. Sometimes, their wild ideas turn out to be surprisingly close to the truth.
+More than 150 years ago, the French writer Jules Verne described a trip to the Moon. In his story, the travellers launched from Florida, felt weightless in space and splashed down in the ocean on their return. About a hundred years later, real astronauts did almost exactly that.
+In 1945, a young British writer named Arthur C. Clarke suggested placing machines high above Earth to send radio signals around the world. People thought it sounded far-fetched. Today, communication satellites carry television, phone calls and internet signals across the planet every second.
+Even the word 'robot' came from fiction. It first appeared in a play written in 1920 by a Czech writer.
+Some inventors say these stories inspired them. As a boy, Igor Sikorsky read a different Jules Verne novel, featuring a flying machine that could rise straight up into the air. He never forgot it. Decades later, he designed one of the first successful helicopters.
+Of course, many predictions have not come true. We are still waiting for flying cars to fill our skies! But science fiction does something important. It encourages us to ask 'What if?' In my opinion, that question is the most exciting one there is.",How does the short paragraph about the word 'robot' connect to the main idea of the text?,,D,It gives another example of a writer predicting a real machine.,It shows that a Czech writer built the very first robot.,It gives an example of a prediction that has not come true.,"It shows that fiction can change the real world in another way, through a word.",,4,1,1,"NAPLAN,Year 4,Mock 2",English_Comprehension_Questions_expanded.csv,4.1287.5,140,2,8,Hard
+NAPLAN-Y4-READING-M2-Q26,NAPLAN-Y4-READING-M2,NAPLAN_STYLE_READING,Text 5,4,English,Inference,Character Motivation,ReadingComprehension,"When Stories Come True
+Science fiction writers imagine what the future might look like. Sometimes, their wild ideas turn out to be surprisingly close to the truth.
+More than 150 years ago, the French writer Jules Verne described a trip to the Moon. In his story, the travellers launched from Florida, felt weightless in space and splashed down in the ocean on their return. About a hundred years later, real astronauts did almost exactly that.
+In 1945, a young British writer named Arthur C. Clarke suggested placing machines high above Earth to send radio signals around the world. People thought it sounded far-fetched. Today, communication satellites carry television, phone calls and internet signals across the planet every second.
+Even the word 'robot' came from fiction. It first appeared in a play written in 1920 by a Czech writer.
+Some inventors say these stories inspired them. As a boy, Igor Sikorsky read a different Jules Verne novel, featuring a flying machine that could rise straight up into the air. He never forgot it. Decades later, he designed one of the first successful helicopters.
+Of course, many predictions have not come true. We are still waiting for flying cars to fill our skies! But science fiction does something important. It encourages us to ask 'What if?' In my opinion, that question is the most exciting one there is.",How is Sikorsky's story different from the stories about Verne's Moon trip and Clarke's satellites?,,B,It shows a writer's idea matching a real event almost exactly.,"It shows a story pushing someone to build an invention, not just predicting it.",It shows an idea that people first thought sounded far-fetched.,It shows a prediction about flying that has never come true.,,4,1,1,"NAPLAN,Year 4,Mock 2",English_Comprehension_Questions_expanded.csv,4.1287.6,140,2,8,Hard
+NAPLAN-Y4-READING-M2-Q27,NAPLAN-Y4-READING-M2,NAPLAN_STYLE_READING,Text 6,4,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"Maria Montessori's Small Chairs
+Maria Montessori was born in Italy in 1870. At a time when most girls were expected to stay at home, Maria wanted to study science. Some people made fun of her, but she refused to give up. In 1896, she became one of the first women in Italy to qualify as a doctor.
+As a doctor, Maria worked with children who were struggling to learn. She watched them closely and noticed that they learned best when they could touch and move things with their hands, rather than sitting still and listening.
+In 1907, Maria opened a school for young children in a poor part of Rome. She called it the Casa dei Bambini, which means 'Children's House'. Most classrooms then had heavy desks bolted to the floor in rows. Maria's classroom was different. She had small, light tables and chairs made that children could carry themselves. Shelves were low, so children could reach things without asking an adult.
+Children chose their own activities, such as pouring water, building towers of blocks or tracing letters cut from sandpaper. Visitors were amazed to see three- and four-year-olds working quietly for long periods.
+Maria spent the rest of her life travelling the world to share her ideas. Today, there are thousands of Montessori schools, and many other classrooms have child-sized furniture too.","'heavy desks bolted to the floor'. In this sentence, 'bolted' means . . .",,B,painted brightly,fixed firmly,ran away quickly,pushed together,,1,1,1,"NAPLAN,Year 4,Mock 2",English_Comprehension_Questions_expanded.csv,4.1351.1,204,1,2,Easy
+NAPLAN-Y4-READING-M2-Q28,NAPLAN-Y4-READING-M2,NAPLAN_STYLE_READING,Text 6,4,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Maria Montessori's Small Chairs
+Maria Montessori was born in Italy in 1870. At a time when most girls were expected to stay at home, Maria wanted to study science. Some people made fun of her, but she refused to give up. In 1896, she became one of the first women in Italy to qualify as a doctor.
+As a doctor, Maria worked with children who were struggling to learn. She watched them closely and noticed that they learned best when they could touch and move things with their hands, rather than sitting still and listening.
+In 1907, Maria opened a school for young children in a poor part of Rome. She called it the Casa dei Bambini, which means 'Children's House'. Most classrooms then had heavy desks bolted to the floor in rows. Maria's classroom was different. She had small, light tables and chairs made that children could carry themselves. Shelves were low, so children could reach things without asking an adult.
+Children chose their own activities, such as pouring water, building towers of blocks or tracing letters cut from sandpaper. Visitors were amazed to see three- and four-year-olds working quietly for long periods.
+Maria spent the rest of her life travelling the world to share her ideas. Today, there are thousands of Montessori schools, and many other classrooms have child-sized furniture too.",What does 'Casa dei Bambini' mean?,,C,Small Chairs,Rome School,Children's House,Doctor's House,,1,1,1,"NAPLAN,Year 4,Mock 2",English_Comprehension_Questions_expanded.csv,4.1351.2,204,1,2,Easy
+NAPLAN-Y4-READING-M2-Q29,NAPLAN-Y4-READING-M2,NAPLAN_STYLE_READING,Text 6,4,English,Reading Comprehension,Locating Information,ReadingComprehension,"Maria Montessori's Small Chairs
+Maria Montessori was born in Italy in 1870. At a time when most girls were expected to stay at home, Maria wanted to study science. Some people made fun of her, but she refused to give up. In 1896, she became one of the first women in Italy to qualify as a doctor.
+As a doctor, Maria worked with children who were struggling to learn. She watched them closely and noticed that they learned best when they could touch and move things with their hands, rather than sitting still and listening.
+In 1907, Maria opened a school for young children in a poor part of Rome. She called it the Casa dei Bambini, which means 'Children's House'. Most classrooms then had heavy desks bolted to the floor in rows. Maria's classroom was different. She had small, light tables and chairs made that children could carry themselves. Shelves were low, so children could reach things without asking an adult.
+Children chose their own activities, such as pouring water, building towers of blocks or tracing letters cut from sandpaper. Visitors were amazed to see three- and four-year-olds working quietly for long periods.
+Maria spent the rest of her life travelling the world to share her ideas. Today, there are thousands of Montessori schools, and many other classrooms have child-sized furniture too.",Which paragraph describes how the furniture in Maria's classroom was different?,,D,the second paragraph,the fourth paragraph,the fifth paragraph,the third paragraph,,2,1,1,"NAPLAN,Year 4,Mock 2",English_Comprehension_Questions_expanded.csv,4.1351.3,204,1,4,Medium
+NAPLAN-Y4-READING-M2-Q30,NAPLAN-Y4-READING-M2,NAPLAN_STYLE_READING,Text 6,4,English,Inference,Character Motivation,ReadingComprehension,"Maria Montessori's Small Chairs
+Maria Montessori was born in Italy in 1870. At a time when most girls were expected to stay at home, Maria wanted to study science. Some people made fun of her, but she refused to give up. In 1896, she became one of the first women in Italy to qualify as a doctor.
+As a doctor, Maria worked with children who were struggling to learn. She watched them closely and noticed that they learned best when they could touch and move things with their hands, rather than sitting still and listening.
+In 1907, Maria opened a school for young children in a poor part of Rome. She called it the Casa dei Bambini, which means 'Children's House'. Most classrooms then had heavy desks bolted to the floor in rows. Maria's classroom was different. She had small, light tables and chairs made that children could carry themselves. Shelves were low, so children could reach things without asking an adult.
+Children chose their own activities, such as pouring water, building towers of blocks or tracing letters cut from sandpaper. Visitors were amazed to see three- and four-year-olds working quietly for long periods.
+Maria spent the rest of her life travelling the world to share her ideas. Today, there are thousands of Montessori schools, and many other classrooms have child-sized furniture too.",Why did Maria most likely let the children choose their own activities?,,D,There were not enough teachers to plan lessons for every child.,She wanted the classroom to be as quiet as possible for visitors.,The children in her school refused to listen to their teachers.,She had seen that children learn best when they are busy with their hands.,,3,1,1,"NAPLAN,Year 4,Mock 2",English_Comprehension_Questions_expanded.csv,4.1351.4,204,1,5,Medium
+NAPLAN-Y4-READING-M2-Q31,NAPLAN-Y4-READING-M2,NAPLAN_STYLE_READING,Text 6,4,English,Inference,Inferential Reasoning,ReadingComprehension,"Maria Montessori's Small Chairs
+Maria Montessori was born in Italy in 1870. At a time when most girls were expected to stay at home, Maria wanted to study science. Some people made fun of her, but she refused to give up. In 1896, she became one of the first women in Italy to qualify as a doctor.
+As a doctor, Maria worked with children who were struggling to learn. She watched them closely and noticed that they learned best when they could touch and move things with their hands, rather than sitting still and listening.
+In 1907, Maria opened a school for young children in a poor part of Rome. She called it the Casa dei Bambini, which means 'Children's House'. Most classrooms then had heavy desks bolted to the floor in rows. Maria's classroom was different. She had small, light tables and chairs made that children could carry themselves. Shelves were low, so children could reach things without asking an adult.
+Children chose their own activities, such as pouring water, building towers of blocks or tracing letters cut from sandpaper. Visitors were amazed to see three- and four-year-olds working quietly for long periods.
+Maria spent the rest of her life travelling the world to share her ideas. Today, there are thousands of Montessori schools, and many other classrooms have child-sized furniture too.",What can the reader infer about how children in most classrooms of that time were expected to learn?,,C,by moving about and choosing their own work,by reading quietly for long periods on their own,by sitting still in one place and listening,by carrying their chairs to wherever they liked,,4,1,1,"NAPLAN,Year 4,Mock 2",English_Comprehension_Questions_expanded.csv,4.1351.5,204,2,7,Hard
+NAPLAN-Y4-READING-M2-Q32,NAPLAN-Y4-READING-M2,NAPLAN_STYLE_READING,Text 6,4,English,Literary Techniques,Characterisation,ReadingComprehension,"Maria Montessori's Small Chairs
+Maria Montessori was born in Italy in 1870. At a time when most girls were expected to stay at home, Maria wanted to study science. Some people made fun of her, but she refused to give up. In 1896, she became one of the first women in Italy to qualify as a doctor.
+As a doctor, Maria worked with children who were struggling to learn. She watched them closely and noticed that they learned best when they could touch and move things with their hands, rather than sitting still and listening.
+In 1907, Maria opened a school for young children in a poor part of Rome. She called it the Casa dei Bambini, which means 'Children's House'. Most classrooms then had heavy desks bolted to the floor in rows. Maria's classroom was different. She had small, light tables and chairs made that children could carry themselves. Shelves were low, so children could reach things without asking an adult.
+Children chose their own activities, such as pouring water, building towers of blocks or tracing letters cut from sandpaper. Visitors were amazed to see three- and four-year-olds working quietly for long periods.
+Maria spent the rest of her life travelling the world to share her ideas. Today, there are thousands of Montessori schools, and many other classrooms have child-sized furniture too.",Which quality does Maria show BOTH when she studies to be a doctor and when she sets up her school?,,A,a willingness to do things differently from others,great patience with children who learn slowly,a strong wish to help poor families in Rome,a love of travelling and meeting new people,,4,1,1,"NAPLAN,Year 4,Mock 2",English_Comprehension_Questions_expanded.csv,4.1351.6,204,2,8,Hard

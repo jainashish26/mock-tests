@@ -262,14 +262,21 @@ export async function POST(req: Request) {
           }
           results.inserted++
         }
-      } catch (rowErr: any) {
-        results.errors.push({ row: rowNum, message: rowErr.message })
+      } catch (rowErr) {
+        results.errors.push({
+          row: rowNum,
+          message: rowErr instanceof Error ? rowErr.message : 'Unexpected error while importing this row',
+        })
       }
     }
 
     return NextResponse.json(results)
 
-  } catch (err: any) {
-    return NextResponse.json({ error: err.message }, { status: 500 })
+  } catch (err) {
+    console.error('[creator-upload]', err)
+    return NextResponse.json(
+      { error: err instanceof Error ? err.message : 'The import failed unexpectedly.' },
+      { status: 500 }
+    )
   }
 }

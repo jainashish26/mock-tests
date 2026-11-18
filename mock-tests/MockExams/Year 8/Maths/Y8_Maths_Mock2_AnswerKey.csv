@@ -1,0 +1,49 @@
+﻿QuestionNumber,QuestionID,ExamSection,Correct,CorrectAnswerText,Topic,SubTopic,DifficultyLabel,DifficultyScore,SourceQuestionNumber
+1,NAPLAN-Y8-NUMERACY-M2-Q01,Part A - Non-Calculator,D,10,Number,Order of Operations,Easy,1,1130
+2,NAPLAN-Y8-NUMERACY-M2-Q02,Part A - Non-Calculator,E,54,Problem Solving,Counting and Combinatorics,Easy,1,1729
+3,NAPLAN-Y8-NUMERACY-M2-Q03,Part A - Non-Calculator,E,She added the indices instead of multiplying them,Algebra,Index Laws,Easy,1,316
+4,NAPLAN-Y8-NUMERACY-M2-Q04,Part A - Non-Calculator,B,first quadrant,Geometry,Coordinates,Easy,1,771
+5,NAPLAN-Y8-NUMERACY-M2-Q05,Part A - Non-Calculator,B,64,Number,Powers and Roots,Easy,2,1293
+6,NAPLAN-Y8-NUMERACY-M2-Q06,Part A - Non-Calculator,D,13,Number,Multiplication and Division,Easy,2,1039
+7,NAPLAN-Y8-NUMERACY-M2-Q07,Part A - Non-Calculator,B,4 m,Geometry,Circles,Easy,2,740
+8,NAPLAN-Y8-NUMERACY-M2-Q08,Part A - Non-Calculator,A,3 °C,Measurement,Temperature,Easy,2,964
+9,NAPLAN-Y8-NUMERACY-M2-Q09,Part A - Non-Calculator,D,"8,505 L",Measurement,Units and Conversion,Easy,2,938
+10,NAPLAN-Y8-NUMERACY-M2-Q10,Part A - Non-Calculator,A,52 < x < 77,Algebra,Inequalities,Easy,3,42
+11,NAPLAN-Y8-NUMERACY-M2-Q11,Part B - Calculator Allowed,A,9 and 10,Number,Powers and Roots,Easy,3,8
+12,NAPLAN-Y8-NUMERACY-M2-Q12,Part B - Calculator Allowed,A,36 cm,Geometry,Similarity and Congruence,Easy,3,691
+13,NAPLAN-Y8-NUMERACY-M2-Q13,Part B - Calculator Allowed,A,$618,Financial Mathematics,Interest,Easy,3,23
+14,NAPLAN-Y8-NUMERACY-M2-Q14,Part B - Calculator Allowed,B,256,Algebra,Patterns,Easy,3,9
+15,NAPLAN-Y8-NUMERACY-M2-Q15,Part B - Calculator Allowed,D,"green, purple, orange",Probability,Chance and Likelihood,Easy,3,1489
+16,NAPLAN-Y8-NUMERACY-M2-Q16,Part B - Calculator Allowed,A,1/3,Statistics,Data Interpretation,Easy,3,1854
+17,NAPLAN-Y8-NUMERACY-M2-Q17,Part B - Calculator Allowed,B,sqrt(40) units,Geometry,Coordinates,Medium,4,785
+18,NAPLAN-Y8-NUMERACY-M2-Q18,Part B - Calculator Allowed,D,4/9,Probability,Combined Events,Medium,4,1541
+19,NAPLAN-Y8-NUMERACY-M2-Q19,Part B - Calculator Allowed,D,50 more chose banana than apple.,Statistics,Data Interpretation,Medium,4,1858
+20,NAPLAN-Y8-NUMERACY-M2-Q20,Part B - Calculator Allowed,A,−2,Algebra,Linear Equations,Medium,4,218
+21,NAPLAN-Y8-NUMERACY-M2-Q21,Part B - Calculator Allowed,E,60%,Probability,Simple Probability,Medium,4,1506
+22,NAPLAN-Y8-NUMERACY-M2-Q22,Part B - Calculator Allowed,C,10 km/h,Algebra,Linear Equations,Medium,4,11
+23,NAPLAN-Y8-NUMERACY-M2-Q23,Part B - Calculator Allowed,D,3:01,Measurement,Area,Medium,4,41
+24,NAPLAN-Y8-NUMERACY-M2-Q24,Part B - Calculator Allowed,C,706.5 cm²,Geometry,Circles,Medium,4,750
+25,NAPLAN-Y8-NUMERACY-M2-Q25,Part B - Calculator Allowed,B,$8.40,Financial Mathematics,Profit and Loss,Medium,4,440
+26,NAPLAN-Y8-NUMERACY-M2-Q26,Part B - Calculator Allowed,C,3,Geometry,Coordinates,Medium,4,786
+27,NAPLAN-Y8-NUMERACY-M2-Q27,Part B - Calculator Allowed,B,1/p > √p,Algebra,Inequalities,Medium,5,15
+28,NAPLAN-Y8-NUMERACY-M2-Q28,Part B - Calculator Allowed,E,Step 1: she added 8 instead of subtracting it,Algebra,Linear Equations,Medium,5,222
+29,NAPLAN-Y8-NUMERACY-M2-Q29,Part B - Calculator Allowed,D,46,Number,Negative Numbers,Medium,5,1458
+30,NAPLAN-Y8-NUMERACY-M2-Q30,Part B - Calculator Allowed,A,2019,Number,Decimals,Medium,5,1
+31,NAPLAN-Y8-NUMERACY-M2-Q31,Part B - Calculator Allowed,A,13:05,Geometry,2D Shapes,Medium,5,11
+32,NAPLAN-Y8-NUMERACY-M2-Q32,Part B - Calculator Allowed,D,$51,Number,Percentages,Medium,5,1384
+33,NAPLAN-Y8-NUMERACY-M2-Q33,Part B - Calculator Allowed,A,8,Number,Order of Operations,Medium,5,1145
+34,NAPLAN-Y8-NUMERACY-M2-Q34,Part B - Calculator Allowed,A,Thursday to Friday,Statistics,Data Interpretation,Medium,5,1864
+35,NAPLAN-Y8-NUMERACY-M2-Q35,Part B - Calculator Allowed,D,84 km/h,Measurement,"Speed, Distance and Time",Medium,6,991
+36,NAPLAN-Y8-NUMERACY-M2-Q36,Part B - Calculator Allowed,D,green,Problem Solving,Spatial Reasoning,Medium,6,1777
+37,NAPLAN-Y8-NUMERACY-M2-Q37,Part B - Calculator Allowed,A,5%,Financial Mathematics,Discounts and GST,Medium,6,417
+38,NAPLAN-Y8-NUMERACY-M2-Q38,Part B - Calculator Allowed,B,5,Statistics,Tables and Graphs,Medium,6,1938
+39,NAPLAN-Y8-NUMERACY-M2-Q39,Part B - Calculator Allowed,D,He flipped both fractions before multiplying,Number,Fractions,Medium,6,1089
+40,NAPLAN-Y8-NUMERACY-M2-Q40,Part B - Calculator Allowed,A,2,Number,Prime Numbers,Hard,7,1433
+41,NAPLAN-Y8-NUMERACY-M2-Q41,Part B - Calculator Allowed,C,31 days,Measurement,Time,Hard,7,864
+42,NAPLAN-Y8-NUMERACY-M2-Q42,Part B - Calculator Allowed,B,993,Number,Order of Operations,Hard,7,1150
+43,NAPLAN-Y8-NUMERACY-M2-Q43,Part B - Calculator Allowed,E,90 km/h,Measurement,"Speed, Distance and Time",Hard,7,995
+44,NAPLAN-Y8-NUMERACY-M2-Q44,Part B - Calculator Allowed,D,22,Geometry,3D Objects,Hard,8,518
+45,NAPLAN-Y8-NUMERACY-M2-Q45,Part B - Calculator Allowed,D,$138,Algebra,Word Problems with Unknowns,Hard,8,196
+46,NAPLAN-Y8-NUMERACY-M2-Q46,Part B - Calculator Allowed,C,"(−5, 1)",Geometry,Transformations,Hard,8,610
+47,NAPLAN-Y8-NUMERACY-M2-Q47,Part B - Calculator Allowed,E,10,Number,Negative Numbers,Hard,8,1468
+48,NAPLAN-Y8-NUMERACY-M2-Q48,Part B - Calculator Allowed,C,29,Algebra,Expressions and Substitution,Hard,9,160

@@ -1,0 +1,26 @@
+﻿QuestionNumber,QuestionID,ExamSection,Correct,CorrectAnswerText,Topic,SubTopic,DifficultyLabel,DifficultyScore,SourceQuestionNumber
+1,NAPLAN-Y2-READING-M3-Q01,Text 1,D,farms where plants grow on tall shelves indoors,Reading Comprehension,Summarising,Easy,2,2.1033.1
+2,NAPLAN-Y2-READING-M3-Q02,Text 1,D,special lights,Reading Comprehension,Literal Recall,Easy,1,2.1033.2
+3,NAPLAN-Y2-READING-M3-Q03,Text 1,A,It is grown close to where people live.,Reading Comprehension,Literal Recall,Medium,4,2.1033.3
+4,NAPLAN-Y2-READING-M3-Q04,Text 1,B,going straight up.,Vocabulary,Word Meaning in Context,Medium,5,2.1033.4
+5,NAPLAN-Y2-READING-M3-Q05,Text 1,A,"not much space near cities, and food that is not fresh",Inference,Character Motivation,Hard,7,2.1033.5
+6,NAPLAN-Y2-READING-M3-Q06,Text 2,D,a tin lid,Reading Comprehension,Literal Recall,Easy,2,2.925.1
+7,NAPLAN-Y2-READING-M3-Q07,Text 2,D,moved the wires closer together,Reading Comprehension,Literal Recall,Easy,2,2.925.2
+8,NAPLAN-Y2-READING-M3-Q08,Text 2,C,pleased and thankful,Inference,Interpreting Feelings,Medium,4,2.925.3
+9,NAPLAN-Y2-READING-M3-Q09,Text 2,B,The wires were too far apart.,Inference,Inferential Reasoning,Medium,5,2.925.4
+10,NAPLAN-Y2-READING-M3-Q10,Text 2,C,"Mia's paper boat sinks, so she folds a new one a different way.",Vocabulary,Idioms and Expressions,Hard,7,2.925.5
+11,NAPLAN-Y2-READING-M3-Q11,Text 3,A,Light colours are easier to spot in the dark.,Reading Comprehension,Sequencing,Easy,2,2.1096.1
+12,NAPLAN-Y2-READING-M3-Q12,Text 3,C,bounce light back to the driver,Reading Comprehension,Literal Recall,Easy,2,2.1096.2
+13,NAPLAN-Y2-READING-M3-Q13,Text 3,B,the time when it starts to get dark.,Vocabulary,Word Meaning in Context,Medium,5,2.1096.3
+14,NAPLAN-Y2-READING-M3-Q14,Text 3,A,'light colours like white and yellow are much easier to spot in the dark than black or navy',Reading Comprehension,Evaluating Evidence,Medium,5,2.1096.4
+15,NAPLAN-Y2-READING-M3-Q15,Text 3,B,"The first gives the writer's idea, and the last tells readers to act on it.",Reading Comprehension,Text Structure,Hard,7,2.1096.5
+16,NAPLAN-Y2-READING-M3-Q16,Text 4,A,how to wash their hands,Reading Comprehension,Literal Recall,Easy,2,2.1110.1
+17,NAPLAN-Y2-READING-M3-Q17,Text 4,B,teachers could keep teaching the class,Inference,Inferential Reasoning,Medium,4,2.1110.2
+18,NAPLAN-Y2-READING-M3-Q18,Text 4,C,painful,Vocabulary,Word Meaning in Context,Medium,5,2.1110.3
+19,NAPLAN-Y2-READING-M3-Q19,Text 4,C,the second and last reasons,Inference,Drawing Conclusions,Hard,8,2.1110.4
+20,NAPLAN-Y2-READING-M3-Q20,Text 4,A,it makes a nurse sound good for the whole school,Persuasive Language,Persuasive Devices,Hard,7,2.1110.5
+21,NAPLAN-Y2-READING-M3-Q21,Text 5,C,like sweet food.,Inference,Inferential Reasoning,Easy,3,2.1020.1
+22,NAPLAN-Y2-READING-M3-Q22,Text 5,D,in tree hollows during the day,Reading Comprehension,Literal Recall,Medium,4,2.1020.2
+23,NAPLAN-Y2-READING-M3-Q23,Text 5,A,Its flap of skin opens like a kite.,Reading Comprehension,Literal Recall,Medium,4,2.1020.3
+24,NAPLAN-Y2-READING-M3-Q24,Text 5,B,"They leap from trees, sleep in tree hollows and lick sap from trees.",Reading Comprehension,Evaluating Evidence,Hard,8,2.1020.4
+25,NAPLAN-Y2-READING-M3-Q25,Text 5,D,"It is daytime, and its group is probably sleeping with it.",Inference,Inferential Reasoning,Hard,8,2.1020.5

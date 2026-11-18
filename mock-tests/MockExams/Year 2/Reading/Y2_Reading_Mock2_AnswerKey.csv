@@ -1,0 +1,26 @@
+﻿QuestionNumber,QuestionID,ExamSection,Correct,CorrectAnswerText,Topic,SubTopic,DifficultyLabel,DifficultyScore,SourceQuestionNumber
+1,NAPLAN-Y2-READING-M2-Q01,Text 1,D,three,Reading Comprehension,Literal Recall,Easy,1,2.1039.1
+2,NAPLAN-Y2-READING-M2-Q02,Text 1,C,plait the wool,Reading Comprehension,Literal Recall,Easy,2,2.1039.2
+3,NAPLAN-Y2-READING-M2-Q03,Text 1,D,friendly and cheerful,Literary Techniques,Tone and Mood,Medium,4,2.1039.3
+4,NAPLAN-Y2-READING-M2-Q04,Text 1,A,to weave pieces together by crossing them over.,Vocabulary,Word Meaning in Context,Medium,5,2.1039.4
+5,NAPLAN-Y2-READING-M2-Q05,Text 1,B,the first sentence and the Tip,Reading Comprehension,Main Idea,Hard,7,2.1039.5
+6,NAPLAN-Y2-READING-M2-Q06,Text 2,D,German,Inference,Inferential Reasoning,Easy,2,2.1051.1
+7,NAPLAN-Y2-READING-M2-Q07,Text 2,A,Froebel explored the forest near his home.,Reading Comprehension,Sequencing,Easy,2,2.1051.2
+8,NAPLAN-Y2-READING-M2-Q08,Text 2,B,painting pictures,Reading Comprehension,Literal Recall,Medium,4,2.1051.3
+9,NAPLAN-Y2-READING-M2-Q09,Text 2,B,saw and realised,Vocabulary,Word Meaning in Context,Medium,4,2.1051.4
+10,NAPLAN-Y2-READING-M2-Q10,Text 2,D,'They also grew flowers in a garden.',Reading Comprehension,Evaluating Evidence,Hard,8,2.1051.5
+11,NAPLAN-Y2-READING-M2-Q11,Text 3,A,in the last part,Reading Comprehension,Locating Information,Easy,2,2.997.1
+12,NAPLAN-Y2-READING-M2-Q12,Text 3,B,sea cows,Reading Comprehension,Literal Recall,Easy,2,2.997.2
+13,NAPLAN-Y2-READING-M2-Q13,Text 3,A,It hides them from hungry hunters.,Reading Comprehension,Literal Recall,Medium,4,2.997.3
+14,NAPLAN-Y2-READING-M2-Q14,Text 3,C,large areas covered with grass.,Vocabulary,Word Meaning in Context,Medium,5,2.997.4
+15,NAPLAN-Y2-READING-M2-Q15,Text 3,C,Sea animals could lose their food and homes for a long time.,Inference,Inferential Reasoning,Hard,7,2.997.5
+16,NAPLAN-Y2-READING-M2-Q16,Text 4,B,albums,Reading Comprehension,Literal Recall,Easy,2,2.1002.1
+17,NAPLAN-Y2-READING-M2-Q17,Text 4,C,to pay for sending a letter,Reading Comprehension,Literal Recall,Medium,4,2.1002.2
+18,NAPLAN-Y2-READING-M2-Q18,Text 4,C,things about different places,Inference,Inferential Reasoning,Medium,5,2.1002.3
+19,NAPLAN-Y2-READING-M2-Q19,Text 4,A,"Only a few were made, so it could not easily be replaced.",Inference,Character Motivation,Hard,7,2.1002.4
+20,NAPLAN-Y2-READING-M2-Q20,Text 4,B,smudges or spots left on the stamp.,Vocabulary,Word Meaning in Context,Hard,7,2.1002.5
+21,NAPLAN-Y2-READING-M2-Q21,Text 5,C,a guinea pig getting used to its new home,Reading Comprehension,Main Idea,Easy,3,2.927.1
+22,NAPLAN-Y2-READING-M2-Q22,Text 5,D,She knew food was coming.,Inference,Drawing Conclusions,Medium,5,2.927.2
+23,NAPLAN-Y2-READING-M2-Q23,Text 5,A,"'Biscuit sniffed it, then ran away.'",Reading Comprehension,Evaluating Evidence,Medium,5,2.927.3
+24,NAPLAN-Y2-READING-M2-Q24,Text 5,C,Biscuit ran to the front of her cage to say hello to me.,Reading Comprehension,Text Structure,Hard,8,2.927.4
+25,NAPLAN-Y2-READING-M2-Q25,Text 5,D,Waiting quietly helped Biscuit learn to trust.,Inference,Inferential Reasoning,Hard,8,2.927.5

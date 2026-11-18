@@ -118,7 +118,7 @@ export const mathsBooksPrimarySchoolGuide = {
 
         <h3>Tips for Parents</h3>
         <ul>
-          <li><strong>Prioritise times tables</strong> - fluent recall of multiplication facts (up to 10 Ã- 10 by the end of Year 4) underpins almost everything that follows: division, fractions, area, algebra. Make it daily, make it fun - songs, games, apps, and challenges all work</li>
+          <li><strong>Prioritise times tables</strong> - fluent recall of multiplication facts (up to 10 × 10 by the end of Year 4) underpins almost everything that follows: division, fractions, area, algebra. Make it daily, make it fun - songs, games, apps, and challenges all work</li>
           <li><strong>Cook together</strong> - measuring ingredients involves fractions, multiplication, and volume. Doubling or halving a recipe is practical maths at its best</li>
           <li><strong>Involve your child in shopping</strong> - estimating totals, calculating change, comparing prices per unit, and identifying discounts are all authentic mathematical tasks</li>
           <li><strong>Ask "how did you work that out?"</strong> - when your child solves a problem, asking them to explain their thinking builds mathematical reasoning and communication skills</li>
@@ -147,7 +147,7 @@ export const mathsBooksPrimarySchoolGuide = {
 
         <h3>Picture Books and Story-Based Maths</h3>
         <ul>
-          <li><strong><em>The Boy Who Loved Math: The Improbable Life of Paul ErdÅ‘s</em></strong> by Deborah Heiligman - The true story of one of history's most prolific mathematicians, told as a picture book. ErdÅ‘s loved numbers from childhood and spent his life travelling the world solving problems. An inspiring story about mathematical passion and the joy of discovery</li>
+          <li><strong><em>The Boy Who Loved Math: The Improbable Life of Paul Erdős</em></strong> by Deborah Heiligman - The true story of one of history's most prolific mathematicians, told as a picture book. Erdős loved numbers from childhood and spent his life travelling the world solving problems. An inspiring story about mathematical passion and the joy of discovery</li>
           <li><strong><em>Infinity and Me</em></strong> by Kate Hosford - A beautifully illustrated exploration of the concept of infinity, as a young girl tries to grasp how big it really is. Sparks mathematical wonder and deep thinking about concepts that extend far beyond the primary curriculum</li>
           <li><strong><em>The Lion's Share</em></strong> by Matthew McElligott - A dinner party where animals keep halving a cake, introducing fractions, halving, and doubling through a cumulative narrative with a satisfying conclusion. Visually illustrates fraction concepts that many students find abstract</li>
           <li><strong><em>Anno's Mysterious Multiplying Jar</em></strong> by Masaichiro and Mitsumasa Anno - An exquisitely illustrated book that introduces factorials (1! 2! 3! ...) through a beautifully layered story. While factorials are beyond the primary curriculum, the book develops multiplicative thinking and awe at how quickly numbers grow</li>
@@ -387,12 +387,35 @@ export const mathsBooksPrimarySchoolGuide = {
       </section>
 
     </article>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What kinds of maths books should a primary student have?</h3>
+    <p>All three types the guide distinguishes, because they do different jobs: workbooks and practice books build fluency and consolidation, picture books and story-based maths build conceptual understanding in context, and puzzle books and fun maths build persistence and enjoyment. Relying on only one type leaves gaps.</p>
+
+    <h3>How is the guide organised by year level?</h3>
+    <p>Foundation (Prep) and Year 1 focus on discovering numbers; Years 2 and 3 on building fluency and understanding; Years 4 and 5 on developing reasoning and problem solving; and Year 6 on consolidating and preparing for secondary school. Each stage lists what to look for, recommended titles across the three book types, and tips for parents.</p>
+
+    <h3>My child says they are bad at maths. Which books help?</h3>
+    <p>The guide has a section on books for children who find maths hard, with recommended titles for struggling learners, plus a section on maths books that make children laugh. Both aim at the same problem from different directions: reducing fear and rebuilding the sense that maths is something they can do.</p>
+
+    <h3>Do apps replace maths books?</h3>
+    <p>No - the guide treats them as digital companions that pair well with books rather than substitutes. Apps are useful for repetition and immediate feedback, while books support slower, deeper conceptual work and shared reading with a parent.</p>
+
+    <h3>Will these books help with NAPLAN numeracy?</h3>
+    <p>They support the reasoning and problem-solving strands that NAPLAN numeracy assesses, particularly at Years 3 and 5. The guide explains what the research says about why maths books matter at primary level, and includes a quick-reference book list by category for parents who want to act quickly.</p>
+
+    <h3>How do I make maths feel normal at home?</h3>
+    <p>The 'Building a Maths-Positive Home' section gives practical steps. The closing point of the guide is that maths is for every child - which means avoiding language such as 'I was bad at maths too', and using everyday situations such as cooking, shopping and travel as incidental practice.</p>
+
   `,
   image:
     "https://images.unsplash.com/photo-1588075592446-265fd1e6e76f?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Young child sitting cross-legged on the floor surrounded by colourful maths workbooks and counting blocks",
-  date: "March 28, 2026",
+    "Young child sitting cross-legged on the floor surrounded by colourful maths workbooks and counting blocks",  date: "October 24, 2026",
+  updatedDate: "October 26, 2026",
+  readingTime: 22,
+  category: "naplan",
   tags: [
     "MATHS",
     "BOOKS",
@@ -419,6 +442,13 @@ export const mathsBooksPrimarySchoolGuide = {
     "primary school maths resources",
     "maths books for reluctant learners",
     "building maths confidence primary school",
+  ],
+  keyTakeaways: [
+    "An age-by-age guide to maths books for Australian primary students, from Foundation (Prep) to Year 6.",
+    "Three kinds of maths books each serve a different purpose: workbooks and practice books, picture books and story-based maths, and puzzle books and fun maths.",
+    "Progression runs from discovering numbers, to building fluency and understanding, to developing reasoning and problem solving, to consolidating before secondary school.",
+    "There are dedicated sections for children who find maths hard and for books that make children laugh.",
+    "Digital companions, a maths-positive home environment and a quick-reference book list round out the practical guidance.",
   ],
   author: {
     name: "Ashish Jain",

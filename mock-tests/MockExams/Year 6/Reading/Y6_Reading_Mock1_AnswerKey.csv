@@ -1,0 +1,39 @@
+﻿QuestionNumber,QuestionID,ExamSection,Correct,CorrectAnswerText,Topic,SubTopic,DifficultyLabel,DifficultyScore,SourceQuestionNumber
+1,NAPLAN-Y6-READING-M1-Q01,Text 1,D,never appropriate.,Inference,Inferential Reasoning,Medium,6,6.581.1
+2,NAPLAN-Y6-READING-M1-Q02,Text 1,A,informative,Literary Techniques,Tone and Mood,Easy,2,6.581.2
+3,NAPLAN-Y6-READING-M1-Q03,Text 1,C,Employees must always appear professional.,Reading Comprehension,Main Idea,Easy,2,6.581.3
+4,NAPLAN-Y6-READING-M1-Q04,Text 1,D,to make something a requirement.,Vocabulary,Word Meaning in Context,Easy,2,6.581.4
+5,NAPLAN-Y6-READING-M1-Q05,Text 2,B,She grows more comfortable with the idea of moving.,Inference,Cause and Effect,Medium,5,6.614.1
+6,NAPLAN-Y6-READING-M1-Q06,Text 2,A,"""With a sigh, she took the milk from Edwin, eyeing the familiar dust that she would try to skim off before serving the milk to her family.""",Reading Comprehension,Evaluating Evidence,Medium,4,6.614.2
+7,NAPLAN-Y6-READING-M1-Q07,Text 2,C,Try to find the good in every situation.,Reading Comprehension,Theme,Medium,5,6.614.3
+8,NAPLAN-Y6-READING-M1-Q08,Text 2,C,"""Most farmers knew their animals could not survive another winter, so they accepted the offer in exchange for some much-needed cash.""",Reading Comprehension,Evaluating Evidence,Medium,4,6.614.4
+9,NAPLAN-Y6-READING-M1-Q09,Text 3,B,The work of uncovering the bone could not be rushed.,Inference,Character Motivation,Easy,2,6.1458.1
+10,NAPLAN-Y6-READING-M1-Q10,Text 3,C,at a dig site on a sheep station,Reading Comprehension,Literal Recall,Easy,2,6.1458.2
+11,NAPLAN-Y6-READING-M1-Q11,Text 3,C,They would crack it open and quickly remove a skeleton.,Reading Comprehension,Literal Recall,Medium,4,6.1458.3
+12,NAPLAN-Y6-READING-M1-Q12,Text 3,B,realised the find might be important.,Inference,Drawing Conclusions,Medium,5,6.1458.4
+13,NAPLAN-Y6-READING-M1-Q13,Text 3,A,"It begins in the laboratory, goes back to the discovery, then returns to the laboratory.",Reading Comprehension,Text Structure,Hard,7,6.1458.5
+14,NAPLAN-Y6-READING-M1-Q14,Text 3,A,"It reflects Mia's early view of the work, which changes by the end.",Reading Comprehension,Author Purpose,Hard,8,6.1458.6
+15,NAPLAN-Y6-READING-M1-Q15,Text 4,D,Campgrounds are crowded and booked out early.,Reading Comprehension,Literal Recall,Easy,2,6.1459.1
+16,NAPLAN-Y6-READING-M1-Q16,Text 4,B,warm and comfortable.,Vocabulary,Word Meaning in Context,Easy,2,6.1459.2
+17,NAPLAN-Y6-READING-M1-Q17,Text 4,A,"from a personal point of view, directly to the reader.",Literary Techniques,Narrative Voice,Medium,4,6.1459.3
+18,NAPLAN-Y6-READING-M1-Q18,Text 4,D,"Winter nights are long, so it gets dark early.",Reading Comprehension,Literal Recall,Medium,5,6.1459.4
+19,NAPLAN-Y6-READING-M1-Q19,Text 4,C,"It turns the main complaint about winter into a reason to go, by contrasting cold with happy memories.",Literary Techniques,Figurative Language,Hard,8,6.1459.5
+20,NAPLAN-Y6-READING-M1-Q20,Text 4,C,families who camp in summer but store their gear when it gets cold,Inference,Inferential Reasoning,Hard,8,6.1459.6
+21,NAPLAN-Y6-READING-M1-Q21,Text 5,B,in Paris in 1628,Reading Comprehension,Literal Recall,Easy,1,6.1443.1
+22,NAPLAN-Y6-READING-M1-Q22,Text 5,B,with a short rhyming moral,Reading Comprehension,Literal Recall,Easy,2,6.1443.2
+23,NAPLAN-Y6-READING-M1-Q23,Text 5,C,He was independent and willing to disagree with people in charge.,Inference,Inferential Reasoning,Medium,5,6.1443.3
+24,NAPLAN-Y6-READING-M1-Q24,Text 5,A,He strongly believed modern writers deserved as much respect as ancient ones.,Inference,Character Motivation,Medium,5,6.1443.4
+25,NAPLAN-Y6-READING-M1-Q25,Text 5,A,"A modern writer had produced work that lasted, just as he claimed modern writers could.",Inference,Cause and Effect,Hard,8,6.1443.5
+26,NAPLAN-Y6-READING-M1-Q26,Text 5,D,by using words such as 'Perhaps' and 'still argue' for the parts no one is sure of,Literary Techniques,Narrative Voice,Hard,8,6.1443.6
+27,NAPLAN-Y6-READING-M1-Q27,Text 6,C,a father explaining why he is working on the telegraph line,Reading Comprehension,Main Idea,Easy,2,6.1435.1
+28,NAPLAN-Y6-READING-M1-Q28,Text 6,D,how the workers solved the problem of insects eating poles,Reading Comprehension,Main Idea,Easy,3,6.1435.2
+29,NAPLAN-Y6-READING-M1-Q29,Text 6,D,"He gives three numbered reasons, then shares his feelings and a promise.",Persuasive Language,Argument Structure,Medium,5,6.1435.3
+30,NAPLAN-Y6-READING-M1-Q30,Text 6,A,He can find humour in the problems of his work.,Inference,Inferential Reasoning,Medium,5,6.1435.4
+31,NAPLAN-Y6-READING-M1-Q31,Text 6,C,He is proud of the work but misses his daughter deeply.,Inference,Interpreting Feelings,Hard,8,6.1435.5
+32,NAPLAN-Y6-READING-M1-Q32,Text 6,B,"Each pole we raise, I count as one",Reading Comprehension,Evaluating Evidence,Hard,7,6.1435.6
+33,NAPLAN-Y6-READING-M1-Q33,Text 7,C,about 800 000 years,Reading Comprehension,Locating Information,Easy,2,6.1454.1
+34,NAPLAN-Y6-READING-M1-Q34,Text 7,B,new layers of snow press down on the older layers.,Inference,Cause and Effect,Easy,3,6.1454.2
+35,NAPLAN-Y6-READING-M1-Q35,Text 7,C,what past temperatures were like,Reading Comprehension,Locating Information,Medium,5,6.1454.3
+36,NAPLAN-Y6-READING-M1-Q36,Text 7,A,Material trapped in ice cores holds information about Earth's past.,Reading Comprehension,Main Idea,Medium,5,6.1454.4
+37,NAPLAN-Y6-READING-M1-Q37,Text 7,D,"to present the ice as a record that can be read through careful, patient work",Reading Comprehension,Author Purpose,Hard,8,6.1454.5
+38,NAPLAN-Y6-READING-M1-Q38,Text 7,D,"The oldest layers, which lie at the bottom, would have been lost.",Inference,Inferential Reasoning,Hard,8,6.1454.6

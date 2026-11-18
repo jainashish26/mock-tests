@@ -1,0 +1,38 @@
+﻿QuestionNumber,QuestionID,ExamSection,Correct,CorrectAnswerText,Topic,SubTopic,DifficultyLabel,DifficultyScore,SourceQuestionNumber
+1,NAPLAN-Y6-READING-M3-Q01,Text 1,B,"They were peaceful fishermen, hunters, and farmers.",Reading Comprehension,Literal Recall,Easy,3,6.746.1
+2,NAPLAN-Y6-READING-M3-Q02,Text 1,A,sickness and forced labor.,Reading Comprehension,Literal Recall,Easy,3,6.746.2
+3,NAPLAN-Y6-READING-M3-Q03,Text 1,C,is shared by the French and the Dutch.,Reading Comprehension,Literal Recall,Easy,1,6.746.3
+4,NAPLAN-Y6-READING-M3-Q04,Text 1,B,war.,Vocabulary,Word Meaning in Context,Easy,2,6.746.4
+5,NAPLAN-Y6-READING-M3-Q05,Text 2,C,the weather in early spring can still be cold.,Inference,Inferential Reasoning,Easy,3,6.665.1
+6,NAPLAN-Y6-READING-M3-Q06,Text 2,B,inventiveness and the results it produces,Inference,Inferential Reasoning,Medium,5,6.665.2
+7,NAPLAN-Y6-READING-M3-Q07,Text 2,B,by describing how he goes about his actions,Literary Techniques,Characterisation,Medium,5,6.665.3
+8,NAPLAN-Y6-READING-M3-Q08,Text 2,D,He considered a previous design and thought how to apply it for a different purpose.,Reading Comprehension,Literal Recall,Medium,4,6.665.4
+9,NAPLAN-Y6-READING-M3-Q09,Text 2,A,the variation in the villagers' accounts of the noise made by the falling fish.,Reading Comprehension,Literal Recall,Easy,3,6.665.5
+10,NAPLAN-Y6-READING-M3-Q10,Text 2,B,significant.,Vocabulary,Word Meaning in Context,Easy,2,6.665.6
+11,NAPLAN-Y6-READING-M3-Q11,Text 3,B,exposed to strong winds,Vocabulary,Word Meaning in Context,Easy,2,6.1481.1
+12,NAPLAN-Y6-READING-M3-Q12,Text 3,D,Italy,Reading Comprehension,Literal Recall,Easy,1,6.1481.2
+13,NAPLAN-Y6-READING-M3-Q13,Text 3,A,to show friendship when she lacked the words to say it,Inference,Inferential Reasoning,Medium,5,6.1481.3
+14,NAPLAN-Y6-READING-M3-Q14,Text 3,D,to show how many nationalities had come to work on the Scheme,Reading Comprehension,Author Purpose,Medium,4,6.1481.4
+15,NAPLAN-Y6-READING-M3-Q15,Text 3,A,to echo how the girls from different countries also came together,Reading Comprehension,Author Purpose,Hard,8,6.1481.5
+16,NAPLAN-Y6-READING-M3-Q16,Text 3,C,Anna had slipped into Norwegian without noticing.,Inference,Cause and Effect,Hard,7,6.1481.6
+17,NAPLAN-Y6-READING-M3-Q17,Text 4,D,bored and grumpy,Literary Techniques,Tone and Mood,Easy,2,6.1431.1
+18,NAPLAN-Y6-READING-M3-Q18,Text 4,D,pleased and proud,Inference,Interpreting Feelings,Easy,2,6.1431.2
+19,NAPLAN-Y6-READING-M3-Q19,Text 4,B,Its seeds could grow a grove inside the new dome.,Reading Comprehension,Literal Recall,Medium,4,6.1431.3
+20,NAPLAN-Y6-READING-M3-Q20,Text 4,A,in a big pot in the middle of the Green Bay,Reading Comprehension,Locating Information,Medium,4,6.1431.4
+21,NAPLAN-Y6-READING-M3-Q21,Text 4,C,"quietly moved, even though the smell brings back no memories for him",Literary Techniques,Tone and Mood,Hard,7,6.1431.5
+22,NAPLAN-Y6-READING-M3-Q22,Text 4,A,to show the tree matters to Leo even without any memories,Reading Comprehension,Author Purpose,Hard,8,6.1431.6
+23,NAPLAN-Y6-READING-M3-Q23,Text 5,C,stay for longer,Vocabulary,Word Meaning in Context,Easy,2,6.1444.1
+24,NAPLAN-Y6-READING-M3-Q24,Text 5,B,The busking rules should be relaxed so performers return to the mall.,Reading Comprehension,Main Idea,Easy,2,6.1444.2
+25,NAPLAN-Y6-READING-M3-Q25,Text 5,A,"The permit is costly, yet the allowed spots are where few people pass.",Reading Comprehension,Literal Recall,Medium,5,6.1444.3
+26,NAPLAN-Y6-READING-M3-Q26,Text 5,A,Complaints about buskers are fair but can be fixed with sensible limits.,Reading Comprehension,Main Idea,Medium,5,6.1444.4
+27,NAPLAN-Y6-READING-M3-Q27,Text 5,B,It becomes more understanding of others' views while still holding firm.,Literary Techniques,Tone and Mood,Hard,8,6.1444.5
+28,NAPLAN-Y6-READING-M3-Q28,Text 5,D,"It suggests a silent street seems uninterested, giving shoppers no reason to stay.",Vocabulary,Word Choice,Hard,7,6.1444.6
+29,NAPLAN-Y6-READING-M3-Q29,Text 6,B,Dancing can bring people together.,Reading Comprehension,Comparing Texts,Medium,5,6.748.1
+30,NAPLAN-Y6-READING-M3-Q30,Text 6,C,Both dances began as a way to make life better.,Reading Comprehension,Comparing Texts,Medium,5,6.748.2
+31,NAPLAN-Y6-READING-M3-Q31,Text 6,B,is important to different groups of people,Reading Comprehension,Comparing Texts,Medium,5,6.748.3
+32,NAPLAN-Y6-READING-M3-Q32,Text 7,A,He had the loudest voice.,Inference,Drawing Conclusions,Medium,6,6.764.1
+33,NAPLAN-Y6-READING-M3-Q33,Text 7,D,Point 5 because it suggests that the leader was the first to leave.,Inference,Drawing Conclusions,Medium,6,6.764.2
+34,NAPLAN-Y6-READING-M3-Q34,Text 7,C,He had predicted correctly that Stonehenge would fall.,Inference,Drawing Conclusions,Medium,6,6.764.3
+35,NAPLAN-Y6-READING-M3-Q35,Text 7,D,sarcastic,Literary Techniques,Tone and Mood,Medium,4,6.764.4
+36,NAPLAN-Y6-READING-M3-Q36,Text 7,C,make the recount of the events that occurred seem very objective.,Reading Comprehension,Author Purpose,Medium,6,6.764.5
+37,NAPLAN-Y6-READING-M3-Q37,Text 7,B,messy.,Vocabulary,Word Meaning in Context,Medium,4,6.764.6

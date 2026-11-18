@@ -1,0 +1,807 @@
+﻿QuestionID,ExamID,ExamType,ExamSection,YearLevel,Subject,Topic,SubTopic,QuestionType,ComprehensionText,QuestionText,QuestionMedia,Correct,AnswerA,AnswerB,AnswerC,AnswerD,AnswerE,Difficulty,IsActive,CorrectAnswerScore,Tags,SourceBank,SourceQuestionNumber,SourceComprehensionID,NAPLANFlag,DifficultyScore,DifficultyLabel
+NAPLAN-Y6-READING-M1-Q01,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 1,6,English,Inference,Inferential Reasoning,ReadingComprehension,"Beginning March 1, the company will be instituting a new dress code. Employees are to be professional in their appearance at all times. ""Professional attire"" is a flexible term to some degree, but the final judgment shall be left to management in all areas. Some guidelines include the following:
+
+Men:
+
+n Neckties are recommended for all salaried and exempt employees. Non-exempt and hourly employees may or may not be required to wear neckties, depending upon job duties and the discretion of management.
+
+n Sweaters or sports jackets are not required, but may still be considered appropriate for certain situations, such as meetings with clients. Management retains the option to mandate such in certain circumstances.
+
+n Blue jeans are never appropriate, except on certain specified days—such as ""casual Fridays"" or ""dress-down days,"" at the discretion of management.
+
+n Sneakers and running shoes are not appropriate unless the employee's duties require excessive walking or stand-up work, or when required by medical or health issues. Management shall retain the right to make specific exceptions as necessary. Women:
+
+n Pant-suits are acceptable, provided that they retain a professional appearance.
+
+n Shorts, ""hot pants,"" ""culottes,"" and similar attire is never appropriate. This includes ""dress-down days"" and other times of casual attire.
+
+n Skirts and dresses should be of at least moderate length, reaching the knees. Dresses and skirts above the knees are considered inappropriate at all times, including ""dress-down days"" and other times of casual attire.
+
+n Blue jeans are never appropriate, except on certain specified days—such as ""casual Fridays"" or ""dress-down days,"" at the discretion of management.
+
+n Sneakers and running shoes are not appropriate unless the employee's duties require excessive walking or stand-up work, or when required by medical or health issues. Management shall retain the right to make specific exceptions as necessary.","From this dress code, you could infer that T-shirts are",,D,walways appropriate.,acceptable if they have no writing or advertising.,left up to the discretion of the employee.,never appropriate.,,3,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.581.1,38,1,6,Medium
+NAPLAN-Y6-READING-M1-Q02,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 1,6,English,Literary Techniques,Tone and Mood,ReadingComprehension,"Beginning March 1, the company will be instituting a new dress code. Employees are to be professional in their appearance at all times. ""Professional attire"" is a flexible term to some degree, but the final judgment shall be left to management in all areas. Some guidelines include the following:
+
+Men:
+
+n Neckties are recommended for all salaried and exempt employees. Non-exempt and hourly employees may or may not be required to wear neckties, depending upon job duties and the discretion of management.
+
+n Sweaters or sports jackets are not required, but may still be considered appropriate for certain situations, such as meetings with clients. Management retains the option to mandate such in certain circumstances.
+
+n Blue jeans are never appropriate, except on certain specified days—such as ""casual Fridays"" or ""dress-down days,"" at the discretion of management.
+
+n Sneakers and running shoes are not appropriate unless the employee's duties require excessive walking or stand-up work, or when required by medical or health issues. Management shall retain the right to make specific exceptions as necessary. Women:
+
+n Pant-suits are acceptable, provided that they retain a professional appearance.
+
+n Shorts, ""hot pants,"" ""culottes,"" and similar attire is never appropriate. This includes ""dress-down days"" and other times of casual attire.
+
+n Skirts and dresses should be of at least moderate length, reaching the knees. Dresses and skirts above the knees are considered inappropriate at all times, including ""dress-down days"" and other times of casual attire.
+
+n Blue jeans are never appropriate, except on certain specified days—such as ""casual Fridays"" or ""dress-down days,"" at the discretion of management.
+
+n Sneakers and running shoes are not appropriate unless the employee's duties require excessive walking or stand-up work, or when required by medical or health issues. Management shall retain the right to make specific exceptions as necessary.",What is the tone of this memo?,,A,informative,angry,sad,humorous,,1,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.581.2,38,1,2,Easy
+NAPLAN-Y6-READING-M1-Q03,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 1,6,English,Reading Comprehension,Main Idea,ReadingComprehension,"Beginning March 1, the company will be instituting a new dress code. Employees are to be professional in their appearance at all times. ""Professional attire"" is a flexible term to some degree, but the final judgment shall be left to management in all areas. Some guidelines include the following:
+
+Men:
+
+n Neckties are recommended for all salaried and exempt employees. Non-exempt and hourly employees may or may not be required to wear neckties, depending upon job duties and the discretion of management.
+
+n Sweaters or sports jackets are not required, but may still be considered appropriate for certain situations, such as meetings with clients. Management retains the option to mandate such in certain circumstances.
+
+n Blue jeans are never appropriate, except on certain specified days—such as ""casual Fridays"" or ""dress-down days,"" at the discretion of management.
+
+n Sneakers and running shoes are not appropriate unless the employee's duties require excessive walking or stand-up work, or when required by medical or health issues. Management shall retain the right to make specific exceptions as necessary. Women:
+
+n Pant-suits are acceptable, provided that they retain a professional appearance.
+
+n Shorts, ""hot pants,"" ""culottes,"" and similar attire is never appropriate. This includes ""dress-down days"" and other times of casual attire.
+
+n Skirts and dresses should be of at least moderate length, reaching the knees. Dresses and skirts above the knees are considered inappropriate at all times, including ""dress-down days"" and other times of casual attire.
+
+n Blue jeans are never appropriate, except on certain specified days—such as ""casual Fridays"" or ""dress-down days,"" at the discretion of management.
+
+n Sneakers and running shoes are not appropriate unless the employee's duties require excessive walking or stand-up work, or when required by medical or health issues. Management shall retain the right to make specific exceptions as necessary.",What is the main idea of this passage?,,C,Employees must follow orders.,Management has the final say.,Employees must always appear professional.,Blue jeans are unacceptable in the work place.,,1,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.581.3,38,1,2,Easy
+NAPLAN-Y6-READING-M1-Q04,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 1,6,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"Beginning March 1, the company will be instituting a new dress code. Employees are to be professional in their appearance at all times. ""Professional attire"" is a flexible term to some degree, but the final judgment shall be left to management in all areas. Some guidelines include the following:
+
+Men:
+
+n Neckties are recommended for all salaried and exempt employees. Non-exempt and hourly employees may or may not be required to wear neckties, depending upon job duties and the discretion of management.
+
+n Sweaters or sports jackets are not required, but may still be considered appropriate for certain situations, such as meetings with clients. Management retains the option to mandate such in certain circumstances.
+
+n Blue jeans are never appropriate, except on certain specified days—such as ""casual Fridays"" or ""dress-down days,"" at the discretion of management.
+
+n Sneakers and running shoes are not appropriate unless the employee's duties require excessive walking or stand-up work, or when required by medical or health issues. Management shall retain the right to make specific exceptions as necessary. Women:
+
+n Pant-suits are acceptable, provided that they retain a professional appearance.
+
+n Shorts, ""hot pants,"" ""culottes,"" and similar attire is never appropriate. This includes ""dress-down days"" and other times of casual attire.
+
+n Skirts and dresses should be of at least moderate length, reaching the knees. Dresses and skirts above the knees are considered inappropriate at all times, including ""dress-down days"" and other times of casual attire.
+
+n Blue jeans are never appropriate, except on certain specified days—such as ""casual Fridays"" or ""dress-down days,"" at the discretion of management.
+
+n Sneakers and running shoes are not appropriate unless the employee's duties require excessive walking or stand-up work, or when required by medical or health issues. Management shall retain the right to make specific exceptions as necessary.","The underlined word mandate, as used in the passage, most nearly means",,D,to make something optional.,a common form of office communication.,to enjoy a social outing with friends.,to make something a requirement.,,1,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.581.4,38,1,2,Easy
+NAPLAN-Y6-READING-M1-Q05,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 2,6,English,Inference,Cause and Effect,ReadingComprehension,"Dust by Charles Grayson
+
+1 As Edwin rested his cheek against the side of his cow, Nelly, he could hear the wind whistling through the barn walls and see the air begin to darken with dust. Annie and Jewel were giggling as they played in the hayloft above him when one of the girls began to wheeze. Edwin quickly finished milking the cow and called to his sisters. ""Hurry up, girls,"" he said, ""another black blizzard is coming.""
+
+2 The wind suddenly picked up strength, and before Edwin's eyes, the farmhouse—only 50 feet away—became nearly invisible. Without hesitation, Edwin grabbed two pieces of heavy twine, tied one around each girl's waist, and then tied the two girls together. He took Annie's hand and instructed her to hold tightly to Jewel. Leaning into the blinding wind, Edwin slowly navigated them back to the house.
+
+3 Inside, Ma was relieved to see the children. With a sigh, she took the milk from Edwin, eyeing the familiar dust that she would try to skim off before serving the milk to her family. Although it was early morning, the dust storm outside made the small farmhouse dark and dismal. Edwin slapped the dirt from his jacket with his hands. He was weary of the dust, too, but he was smiling inside because tomorrow his father was coming home.
+
+4 The next morning dawned clear and calm. Edwin swept the house while his mother worked in the yard, rescuing her daffodils from the dust that had drifted against the foundation of the house like gritty snow. The clatter of a rundown automobile heralded the arrival of Edwin's father, and the boy raced outside.
+
+5 The family gathered around Pa, who hugged each one of them tightly. He had been in Arizona for three weeks picking cotton. This spring the ground was hard and barren, and the constant dust storms made it impossible to cultivate crops. Pa had to find some way to earn money—his children were wearing tattered hand-me-downs, and his small herd of cattle was slowly starving.
+
+Interim Assessment Unit 2
+
+6 When Ma asked about the work, Pa said that the wages he earned were far less than what had been promised. Still, he'd brought home enough money to see them through another month. Eventually, the joy of being reunited with his family faded, and the careworn expression returned to Pa's face.
+
+7 After Pa had been home a few days, Edwin overheard his parents having a serious discussion. ""I just don't know if I can leave our home,"" Ma said, a note of grief in her voice. Pa had heard there was work on commercial farms in California, where cotton, oranges, and other crops grew nearly year round.
+
+8 ""I know it's not like owning our own farm, but what choice do we have?"" Pa pleaded. Afterward, Ma went into the yard and stood for a long time by her beloved lilac bush, staring out at the desolate fields.
+
+9 Later, Pa asked Edwin to ride the horse into town to purchase provisions. Edwin rode at a slow pace, thinking. He didn't like it when his parents argued, and he didn't like it when his father had to leave home to work. Most of all, Edwin wished there was something he could do to assist his family. At the store, he walked past the half-empty shelves to the back counter and asked Mr. Harburger for beans and flour.
+
+10 As Edwin waited, something bright and orange caught his eye. It was an old advertisement on the shelf in front of him—a photograph of a glistening orange grove with the words ""Sunny California"" splashed across the top. Edwin had never seen an orange grove before. Studying the picture, Edwin's face brightened. ""Take it,"" Mr. Harburger said with a wink. At home, Edwin tacked the picture up next to his bed. One day, Edwin even caught his mother examining the photograph of the orange grove, smiling for the first time in a long time.
+
+11 When autumn arrived, Edwin's parents learned the government was offering to buy starving livestock for slaughter. Most farmers knew their animals could not survive another winter, so they accepted the offer in exchange for some much-needed cash. After a long discussion, Edwin's parents did the same. Edwin sensed a change was coming.
+
+12 The cow Nelly remained, but Edwin could see that she was becoming desperately thin. The next day, Edwin sold Nelly at the Baileys' farm. The Baileys were doing better than most folks, though Edwin couldn't say why. He returned home with 16 dollars in his pocket and a little relief knowing that Nelly would be cared for.
+
+13 Later that evening, Edwin's parents made an important announcement: they would be packing whatever would fit into their old automobile and moving to California. Then Edwin made his own announcement. ""Here,"" he said, handing his father the 16 dollars. ""We can buy fuel with this!"" Interim Assessment Unit 2","Based on the passage, how do Ma's feelings about moving change over time?",,B,She becomes more and more resistant to the idea of moving.,She grows more comfortable with the idea of moving.,"She likes the idea of moving initially, then comes to dislike it.",She becomes more confident that the family should not move.,,3,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.614.1,71,2,5,Medium
+NAPLAN-Y6-READING-M1-Q06,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 2,6,English,Reading Comprehension,Evaluating Evidence,ReadingComprehension,"Dust by Charles Grayson
+
+1 As Edwin rested his cheek against the side of his cow, Nelly, he could hear the wind whistling through the barn walls and see the air begin to darken with dust. Annie and Jewel were giggling as they played in the hayloft above him when one of the girls began to wheeze. Edwin quickly finished milking the cow and called to his sisters. ""Hurry up, girls,"" he said, ""another black blizzard is coming.""
+
+2 The wind suddenly picked up strength, and before Edwin's eyes, the farmhouse—only 50 feet away—became nearly invisible. Without hesitation, Edwin grabbed two pieces of heavy twine, tied one around each girl's waist, and then tied the two girls together. He took Annie's hand and instructed her to hold tightly to Jewel. Leaning into the blinding wind, Edwin slowly navigated them back to the house.
+
+3 Inside, Ma was relieved to see the children. With a sigh, she took the milk from Edwin, eyeing the familiar dust that she would try to skim off before serving the milk to her family. Although it was early morning, the dust storm outside made the small farmhouse dark and dismal. Edwin slapped the dirt from his jacket with his hands. He was weary of the dust, too, but he was smiling inside because tomorrow his father was coming home.
+
+4 The next morning dawned clear and calm. Edwin swept the house while his mother worked in the yard, rescuing her daffodils from the dust that had drifted against the foundation of the house like gritty snow. The clatter of a rundown automobile heralded the arrival of Edwin's father, and the boy raced outside.
+
+5 The family gathered around Pa, who hugged each one of them tightly. He had been in Arizona for three weeks picking cotton. This spring the ground was hard and barren, and the constant dust storms made it impossible to cultivate crops. Pa had to find some way to earn money—his children were wearing tattered hand-me-downs, and his small herd of cattle was slowly starving.
+
+Interim Assessment Unit 2
+
+6 When Ma asked about the work, Pa said that the wages he earned were far less than what had been promised. Still, he'd brought home enough money to see them through another month. Eventually, the joy of being reunited with his family faded, and the careworn expression returned to Pa's face.
+
+7 After Pa had been home a few days, Edwin overheard his parents having a serious discussion. ""I just don't know if I can leave our home,"" Ma said, a note of grief in her voice. Pa had heard there was work on commercial farms in California, where cotton, oranges, and other crops grew nearly year round.
+
+8 ""I know it's not like owning our own farm, but what choice do we have?"" Pa pleaded. Afterward, Ma went into the yard and stood for a long time by her beloved lilac bush, staring out at the desolate fields.
+
+9 Later, Pa asked Edwin to ride the horse into town to purchase provisions. Edwin rode at a slow pace, thinking. He didn't like it when his parents argued, and he didn't like it when his father had to leave home to work. Most of all, Edwin wished there was something he could do to assist his family. At the store, he walked past the half-empty shelves to the back counter and asked Mr. Harburger for beans and flour.
+
+10 As Edwin waited, something bright and orange caught his eye. It was an old advertisement on the shelf in front of him—a photograph of a glistening orange grove with the words ""Sunny California"" splashed across the top. Edwin had never seen an orange grove before. Studying the picture, Edwin's face brightened. ""Take it,"" Mr. Harburger said with a wink. At home, Edwin tacked the picture up next to his bed. One day, Edwin even caught his mother examining the photograph of the orange grove, smiling for the first time in a long time.
+
+11 When autumn arrived, Edwin's parents learned the government was offering to buy starving livestock for slaughter. Most farmers knew their animals could not survive another winter, so they accepted the offer in exchange for some much-needed cash. After a long discussion, Edwin's parents did the same. Edwin sensed a change was coming.
+
+12 The cow Nelly remained, but Edwin could see that she was becoming desperately thin. The next day, Edwin sold Nelly at the Baileys' farm. The Baileys were doing better than most folks, though Edwin couldn't say why. He returned home with 16 dollars in his pocket and a little relief knowing that Nelly would be cared for.
+
+13 Later that evening, Edwin's parents made an important announcement: they would be packing whatever would fit into their old automobile and moving to California. Then Edwin made his own announcement. ""Here,"" he said, handing his father the 16 dollars. ""We can buy fuel with this!"" Interim Assessment Unit 2",Which statement best supports the idea that the Dust Bowl made it difficult for families to survive?,,A,"""With a sigh, she took the milk from Edwin, eyeing the familiar dust that she would try to skim off before serving the milk to her family.""","""Although it was early morning, the dust storm outside made the small farmhouse dark and dismal.""","""He was weary of the dust, too, but he was smiling inside because tomorrow his father was coming home.""","""Edwin swept the house while his mother worked in the yard, rescuing her daffodils from the dust that had drifted against the foundation of the house like gritty snow.""",,2,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.614.2,71,2,4,Medium
+NAPLAN-Y6-READING-M1-Q07,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 2,6,English,Reading Comprehension,Theme,ReadingComprehension,"Dust by Charles Grayson
+
+1 As Edwin rested his cheek against the side of his cow, Nelly, he could hear the wind whistling through the barn walls and see the air begin to darken with dust. Annie and Jewel were giggling as they played in the hayloft above him when one of the girls began to wheeze. Edwin quickly finished milking the cow and called to his sisters. ""Hurry up, girls,"" he said, ""another black blizzard is coming.""
+
+2 The wind suddenly picked up strength, and before Edwin's eyes, the farmhouse—only 50 feet away—became nearly invisible. Without hesitation, Edwin grabbed two pieces of heavy twine, tied one around each girl's waist, and then tied the two girls together. He took Annie's hand and instructed her to hold tightly to Jewel. Leaning into the blinding wind, Edwin slowly navigated them back to the house.
+
+3 Inside, Ma was relieved to see the children. With a sigh, she took the milk from Edwin, eyeing the familiar dust that she would try to skim off before serving the milk to her family. Although it was early morning, the dust storm outside made the small farmhouse dark and dismal. Edwin slapped the dirt from his jacket with his hands. He was weary of the dust, too, but he was smiling inside because tomorrow his father was coming home.
+
+4 The next morning dawned clear and calm. Edwin swept the house while his mother worked in the yard, rescuing her daffodils from the dust that had drifted against the foundation of the house like gritty snow. The clatter of a rundown automobile heralded the arrival of Edwin's father, and the boy raced outside.
+
+5 The family gathered around Pa, who hugged each one of them tightly. He had been in Arizona for three weeks picking cotton. This spring the ground was hard and barren, and the constant dust storms made it impossible to cultivate crops. Pa had to find some way to earn money—his children were wearing tattered hand-me-downs, and his small herd of cattle was slowly starving.
+
+Interim Assessment Unit 2
+
+6 When Ma asked about the work, Pa said that the wages he earned were far less than what had been promised. Still, he'd brought home enough money to see them through another month. Eventually, the joy of being reunited with his family faded, and the careworn expression returned to Pa's face.
+
+7 After Pa had been home a few days, Edwin overheard his parents having a serious discussion. ""I just don't know if I can leave our home,"" Ma said, a note of grief in her voice. Pa had heard there was work on commercial farms in California, where cotton, oranges, and other crops grew nearly year round.
+
+8 ""I know it's not like owning our own farm, but what choice do we have?"" Pa pleaded. Afterward, Ma went into the yard and stood for a long time by her beloved lilac bush, staring out at the desolate fields.
+
+9 Later, Pa asked Edwin to ride the horse into town to purchase provisions. Edwin rode at a slow pace, thinking. He didn't like it when his parents argued, and he didn't like it when his father had to leave home to work. Most of all, Edwin wished there was something he could do to assist his family. At the store, he walked past the half-empty shelves to the back counter and asked Mr. Harburger for beans and flour.
+
+10 As Edwin waited, something bright and orange caught his eye. It was an old advertisement on the shelf in front of him—a photograph of a glistening orange grove with the words ""Sunny California"" splashed across the top. Edwin had never seen an orange grove before. Studying the picture, Edwin's face brightened. ""Take it,"" Mr. Harburger said with a wink. At home, Edwin tacked the picture up next to his bed. One day, Edwin even caught his mother examining the photograph of the orange grove, smiling for the first time in a long time.
+
+11 When autumn arrived, Edwin's parents learned the government was offering to buy starving livestock for slaughter. Most farmers knew their animals could not survive another winter, so they accepted the offer in exchange for some much-needed cash. After a long discussion, Edwin's parents did the same. Edwin sensed a change was coming.
+
+12 The cow Nelly remained, but Edwin could see that she was becoming desperately thin. The next day, Edwin sold Nelly at the Baileys' farm. The Baileys were doing better than most folks, though Edwin couldn't say why. He returned home with 16 dollars in his pocket and a little relief knowing that Nelly would be cared for.
+
+13 Later that evening, Edwin's parents made an important announcement: they would be packing whatever would fit into their old automobile and moving to California. Then Edwin made his own announcement. ""Here,"" he said, handing his father the 16 dollars. ""We can buy fuel with this!"" Interim Assessment Unit 2",Which statement best expresses the theme of this story?,,C,Don't rely on others for help.,You can't make a person change.,Try to find the good in every situation.,Be content with what you have.,,3,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.614.3,71,2,5,Medium
+NAPLAN-Y6-READING-M1-Q08,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 2,6,English,Reading Comprehension,Evaluating Evidence,ReadingComprehension,"Dust by Charles Grayson
+
+1 As Edwin rested his cheek against the side of his cow, Nelly, he could hear the wind whistling through the barn walls and see the air begin to darken with dust. Annie and Jewel were giggling as they played in the hayloft above him when one of the girls began to wheeze. Edwin quickly finished milking the cow and called to his sisters. ""Hurry up, girls,"" he said, ""another black blizzard is coming.""
+
+2 The wind suddenly picked up strength, and before Edwin's eyes, the farmhouse—only 50 feet away—became nearly invisible. Without hesitation, Edwin grabbed two pieces of heavy twine, tied one around each girl's waist, and then tied the two girls together. He took Annie's hand and instructed her to hold tightly to Jewel. Leaning into the blinding wind, Edwin slowly navigated them back to the house.
+
+3 Inside, Ma was relieved to see the children. With a sigh, she took the milk from Edwin, eyeing the familiar dust that she would try to skim off before serving the milk to her family. Although it was early morning, the dust storm outside made the small farmhouse dark and dismal. Edwin slapped the dirt from his jacket with his hands. He was weary of the dust, too, but he was smiling inside because tomorrow his father was coming home.
+
+4 The next morning dawned clear and calm. Edwin swept the house while his mother worked in the yard, rescuing her daffodils from the dust that had drifted against the foundation of the house like gritty snow. The clatter of a rundown automobile heralded the arrival of Edwin's father, and the boy raced outside.
+
+5 The family gathered around Pa, who hugged each one of them tightly. He had been in Arizona for three weeks picking cotton. This spring the ground was hard and barren, and the constant dust storms made it impossible to cultivate crops. Pa had to find some way to earn money—his children were wearing tattered hand-me-downs, and his small herd of cattle was slowly starving.
+
+Interim Assessment Unit 2
+
+6 When Ma asked about the work, Pa said that the wages he earned were far less than what had been promised. Still, he'd brought home enough money to see them through another month. Eventually, the joy of being reunited with his family faded, and the careworn expression returned to Pa's face.
+
+7 After Pa had been home a few days, Edwin overheard his parents having a serious discussion. ""I just don't know if I can leave our home,"" Ma said, a note of grief in her voice. Pa had heard there was work on commercial farms in California, where cotton, oranges, and other crops grew nearly year round.
+
+8 ""I know it's not like owning our own farm, but what choice do we have?"" Pa pleaded. Afterward, Ma went into the yard and stood for a long time by her beloved lilac bush, staring out at the desolate fields.
+
+9 Later, Pa asked Edwin to ride the horse into town to purchase provisions. Edwin rode at a slow pace, thinking. He didn't like it when his parents argued, and he didn't like it when his father had to leave home to work. Most of all, Edwin wished there was something he could do to assist his family. At the store, he walked past the half-empty shelves to the back counter and asked Mr. Harburger for beans and flour.
+
+10 As Edwin waited, something bright and orange caught his eye. It was an old advertisement on the shelf in front of him—a photograph of a glistening orange grove with the words ""Sunny California"" splashed across the top. Edwin had never seen an orange grove before. Studying the picture, Edwin's face brightened. ""Take it,"" Mr. Harburger said with a wink. At home, Edwin tacked the picture up next to his bed. One day, Edwin even caught his mother examining the photograph of the orange grove, smiling for the first time in a long time.
+
+11 When autumn arrived, Edwin's parents learned the government was offering to buy starving livestock for slaughter. Most farmers knew their animals could not survive another winter, so they accepted the offer in exchange for some much-needed cash. After a long discussion, Edwin's parents did the same. Edwin sensed a change was coming.
+
+12 The cow Nelly remained, but Edwin could see that she was becoming desperately thin. The next day, Edwin sold Nelly at the Baileys' farm. The Baileys were doing better than most folks, though Edwin couldn't say why. He returned home with 16 dollars in his pocket and a little relief knowing that Nelly would be cared for.
+
+13 Later that evening, Edwin's parents made an important announcement: they would be packing whatever would fit into their old automobile and moving to California. Then Edwin made his own announcement. ""Here,"" he said, handing his father the 16 dollars. ""We can buy fuel with this!"" Interim Assessment Unit 2","The family in the story demonstrates the idea that people are adaptable, or willing to change when needed. Which sentence from the passage best shows this idea?",,C,"""Annie and Jewel were giggling as they played in the hayloft above him when one of the girls began to wheeze.""","""Although it was early morning, the dust storm outside made the small farmhouse dark and dismal.""","""Most farmers knew their animals could not survive another winter, so they accepted the offer in exchange for some much-needed cash.""","""He returned home with 16 dollars in his pocket and a little relief knowing that Nelly would be cared for.""",,2,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.614.4,71,1,4,Medium
+NAPLAN-Y6-READING-M1-Q09,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 3,6,English,Inference,Character Motivation,ReadingComprehension,"The Slowest Job in the World
+The bone was smaller than my hand, and I had been working on it for three days.
+'Patience, Mia,' said Aunt Leonie, without looking up from her own workbench. 'That rock has been sitting there for a hundred million years. It can wait another afternoon.'
+I adjusted my magnifying lamp and went back to scraping. The tool I was using looked like a dentist's pick. Each stroke removed a crumb of grey stone no bigger than a grain of sugar. Around me, the fossil laboratory hummed with the sound of fans and the quiet tapping of volunteers bent over their own blocks of rock.
+It had all started two weeks earlier, at the dig site on a sheep station west of town. The ground there was cracked and bare, and heat shimmered off it in waves. We had spent most of the morning finding nothing but pebbles. Then, just before lunch, I noticed a dark, glossy edge poking out of the dirt near my boot. I almost walked past it. When Aunt Leonie saw it, she went very still, then knelt and brushed away the soil with her fingers.
+'Well done,' she said softly. 'That's bone.'
+The block of rock was wrapped in plaster, like a broken arm, and carried back to the laboratory on the back of a truck. I had imagined that we would simply crack it open and pull out a skeleton. Instead, Aunt Leonie handed me the pick and showed me how to remove the rock one tiny flake at a time.
+Now, on the third afternoon, something changed. As I brushed away the dust, a smooth curve appeared, then a ridge, then a row of tiny pits along the surface. I held my breath.
+'Aunt Leonie,' I whispered. 'I think it's a joint.'
+She came over and leaned in close to the lamp. For a long moment she said nothing. Then she smiled, wider than I had ever seen her smile.
+'It's the end of a toe bone,' she said. 'Do you know what that means? Where there's one toe, there might be a foot. And where there's a foot . . .'
+She didn't need to finish. I looked down at the little grey bone, and suddenly three days didn't seem slow at all. It seemed like the beginning of something.
+I picked up my tool and leaned closer to the lamp.",Why did Aunt Leonie tell Mia to be patient?,,B,The laboratory was about to close for the day.,The work of uncovering the bone could not be rushed.,Mia was making too much noise with her tool.,The bone was likely to crack in half at any moment.,,1,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.1458.1,277,1,2,Easy
+NAPLAN-Y6-READING-M1-Q10,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 3,6,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Slowest Job in the World
+The bone was smaller than my hand, and I had been working on it for three days.
+'Patience, Mia,' said Aunt Leonie, without looking up from her own workbench. 'That rock has been sitting there for a hundred million years. It can wait another afternoon.'
+I adjusted my magnifying lamp and went back to scraping. The tool I was using looked like a dentist's pick. Each stroke removed a crumb of grey stone no bigger than a grain of sugar. Around me, the fossil laboratory hummed with the sound of fans and the quiet tapping of volunteers bent over their own blocks of rock.
+It had all started two weeks earlier, at the dig site on a sheep station west of town. The ground there was cracked and bare, and heat shimmered off it in waves. We had spent most of the morning finding nothing but pebbles. Then, just before lunch, I noticed a dark, glossy edge poking out of the dirt near my boot. I almost walked past it. When Aunt Leonie saw it, she went very still, then knelt and brushed away the soil with her fingers.
+'Well done,' she said softly. 'That's bone.'
+The block of rock was wrapped in plaster, like a broken arm, and carried back to the laboratory on the back of a truck. I had imagined that we would simply crack it open and pull out a skeleton. Instead, Aunt Leonie handed me the pick and showed me how to remove the rock one tiny flake at a time.
+Now, on the third afternoon, something changed. As I brushed away the dust, a smooth curve appeared, then a ridge, then a row of tiny pits along the surface. I held my breath.
+'Aunt Leonie,' I whispered. 'I think it's a joint.'
+She came over and leaned in close to the lamp. For a long moment she said nothing. Then she smiled, wider than I had ever seen her smile.
+'It's the end of a toe bone,' she said. 'Do you know what that means? Where there's one toe, there might be a foot. And where there's a foot . . .'
+She didn't need to finish. I looked down at the little grey bone, and suddenly three days didn't seem slow at all. It seemed like the beginning of something.
+I picked up my tool and leaned closer to the lamp.",Where did Mia first find the bone?,,C,inside the fossil laboratory,on a rocky beach near town,at a dig site on a sheep station,in her aunt's backyard,,1,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.1458.2,277,1,2,Easy
+NAPLAN-Y6-READING-M1-Q11,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 3,6,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Slowest Job in the World
+The bone was smaller than my hand, and I had been working on it for three days.
+'Patience, Mia,' said Aunt Leonie, without looking up from her own workbench. 'That rock has been sitting there for a hundred million years. It can wait another afternoon.'
+I adjusted my magnifying lamp and went back to scraping. The tool I was using looked like a dentist's pick. Each stroke removed a crumb of grey stone no bigger than a grain of sugar. Around me, the fossil laboratory hummed with the sound of fans and the quiet tapping of volunteers bent over their own blocks of rock.
+It had all started two weeks earlier, at the dig site on a sheep station west of town. The ground there was cracked and bare, and heat shimmered off it in waves. We had spent most of the morning finding nothing but pebbles. Then, just before lunch, I noticed a dark, glossy edge poking out of the dirt near my boot. I almost walked past it. When Aunt Leonie saw it, she went very still, then knelt and brushed away the soil with her fingers.
+'Well done,' she said softly. 'That's bone.'
+The block of rock was wrapped in plaster, like a broken arm, and carried back to the laboratory on the back of a truck. I had imagined that we would simply crack it open and pull out a skeleton. Instead, Aunt Leonie handed me the pick and showed me how to remove the rock one tiny flake at a time.
+Now, on the third afternoon, something changed. As I brushed away the dust, a smooth curve appeared, then a ridge, then a row of tiny pits along the surface. I held my breath.
+'Aunt Leonie,' I whispered. 'I think it's a joint.'
+She came over and leaned in close to the lamp. For a long moment she said nothing. Then she smiled, wider than I had ever seen her smile.
+'It's the end of a toe bone,' she said. 'Do you know what that means? Where there's one toe, there might be a foot. And where there's a foot . . .'
+She didn't need to finish. I looked down at the little grey bone, and suddenly three days didn't seem slow at all. It seemed like the beginning of something.
+I picked up my tool and leaned closer to the lamp.",What had Mia expected would happen once the rock reached the laboratory?,,C,She would be given the job of washing the plaster off.,The rock would be sent straight on to a museum.,They would crack it open and quickly remove a skeleton.,Aunt Leonie would do all of the careful work herself.,,2,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.1458.3,277,1,4,Medium
+NAPLAN-Y6-READING-M1-Q12,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 3,6,English,Inference,Drawing Conclusions,ReadingComprehension,"The Slowest Job in the World
+The bone was smaller than my hand, and I had been working on it for three days.
+'Patience, Mia,' said Aunt Leonie, without looking up from her own workbench. 'That rock has been sitting there for a hundred million years. It can wait another afternoon.'
+I adjusted my magnifying lamp and went back to scraping. The tool I was using looked like a dentist's pick. Each stroke removed a crumb of grey stone no bigger than a grain of sugar. Around me, the fossil laboratory hummed with the sound of fans and the quiet tapping of volunteers bent over their own blocks of rock.
+It had all started two weeks earlier, at the dig site on a sheep station west of town. The ground there was cracked and bare, and heat shimmered off it in waves. We had spent most of the morning finding nothing but pebbles. Then, just before lunch, I noticed a dark, glossy edge poking out of the dirt near my boot. I almost walked past it. When Aunt Leonie saw it, she went very still, then knelt and brushed away the soil with her fingers.
+'Well done,' she said softly. 'That's bone.'
+The block of rock was wrapped in plaster, like a broken arm, and carried back to the laboratory on the back of a truck. I had imagined that we would simply crack it open and pull out a skeleton. Instead, Aunt Leonie handed me the pick and showed me how to remove the rock one tiny flake at a time.
+Now, on the third afternoon, something changed. As I brushed away the dust, a smooth curve appeared, then a ridge, then a row of tiny pits along the surface. I held my breath.
+'Aunt Leonie,' I whispered. 'I think it's a joint.'
+She came over and leaned in close to the lamp. For a long moment she said nothing. Then she smiled, wider than I had ever seen her smile.
+'It's the end of a toe bone,' she said. 'Do you know what that means? Where there's one toe, there might be a foot. And where there's a foot . . .'
+She didn't need to finish. I looked down at the little grey bone, and suddenly three days didn't seem slow at all. It seemed like the beginning of something.
+I picked up my tool and leaned closer to the lamp.","When Aunt Leonie first saw the glossy edge, she 'went very still'. This suggests that she . . .",,B,was cross that Mia had nearly missed it.,realised the find might be important.,was too hot and tired to keep moving.,thought it was just another pebble.,,3,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.1458.4,277,1,5,Medium
+NAPLAN-Y6-READING-M1-Q13,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 3,6,English,Reading Comprehension,Text Structure,ReadingComprehension,"The Slowest Job in the World
+The bone was smaller than my hand, and I had been working on it for three days.
+'Patience, Mia,' said Aunt Leonie, without looking up from her own workbench. 'That rock has been sitting there for a hundred million years. It can wait another afternoon.'
+I adjusted my magnifying lamp and went back to scraping. The tool I was using looked like a dentist's pick. Each stroke removed a crumb of grey stone no bigger than a grain of sugar. Around me, the fossil laboratory hummed with the sound of fans and the quiet tapping of volunteers bent over their own blocks of rock.
+It had all started two weeks earlier, at the dig site on a sheep station west of town. The ground there was cracked and bare, and heat shimmered off it in waves. We had spent most of the morning finding nothing but pebbles. Then, just before lunch, I noticed a dark, glossy edge poking out of the dirt near my boot. I almost walked past it. When Aunt Leonie saw it, she went very still, then knelt and brushed away the soil with her fingers.
+'Well done,' she said softly. 'That's bone.'
+The block of rock was wrapped in plaster, like a broken arm, and carried back to the laboratory on the back of a truck. I had imagined that we would simply crack it open and pull out a skeleton. Instead, Aunt Leonie handed me the pick and showed me how to remove the rock one tiny flake at a time.
+Now, on the third afternoon, something changed. As I brushed away the dust, a smooth curve appeared, then a ridge, then a row of tiny pits along the surface. I held my breath.
+'Aunt Leonie,' I whispered. 'I think it's a joint.'
+She came over and leaned in close to the lamp. For a long moment she said nothing. Then she smiled, wider than I had ever seen her smile.
+'It's the end of a toe bone,' she said. 'Do you know what that means? Where there's one toe, there might be a foot. And where there's a foot . . .'
+She didn't need to finish. I looked down at the little grey bone, and suddenly three days didn't seem slow at all. It seemed like the beginning of something.
+I picked up my tool and leaned closer to the lamp.",How is the story organised?,,A,"It begins in the laboratory, goes back to the discovery, then returns to the laboratory.",It follows events in time order from the dig site through to the laboratory.,It begins at the dig site and ends with the finished fossil on display.,It switches back and forth between Mia's and Aunt Leonie's points of view.,,4,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.1458.5,277,2,7,Hard
+NAPLAN-Y6-READING-M1-Q14,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 3,6,English,Reading Comprehension,Author Purpose,ReadingComprehension,"The Slowest Job in the World
+The bone was smaller than my hand, and I had been working on it for three days.
+'Patience, Mia,' said Aunt Leonie, without looking up from her own workbench. 'That rock has been sitting there for a hundred million years. It can wait another afternoon.'
+I adjusted my magnifying lamp and went back to scraping. The tool I was using looked like a dentist's pick. Each stroke removed a crumb of grey stone no bigger than a grain of sugar. Around me, the fossil laboratory hummed with the sound of fans and the quiet tapping of volunteers bent over their own blocks of rock.
+It had all started two weeks earlier, at the dig site on a sheep station west of town. The ground there was cracked and bare, and heat shimmered off it in waves. We had spent most of the morning finding nothing but pebbles. Then, just before lunch, I noticed a dark, glossy edge poking out of the dirt near my boot. I almost walked past it. When Aunt Leonie saw it, she went very still, then knelt and brushed away the soil with her fingers.
+'Well done,' she said softly. 'That's bone.'
+The block of rock was wrapped in plaster, like a broken arm, and carried back to the laboratory on the back of a truck. I had imagined that we would simply crack it open and pull out a skeleton. Instead, Aunt Leonie handed me the pick and showed me how to remove the rock one tiny flake at a time.
+Now, on the third afternoon, something changed. As I brushed away the dust, a smooth curve appeared, then a ridge, then a row of tiny pits along the surface. I held my breath.
+'Aunt Leonie,' I whispered. 'I think it's a joint.'
+She came over and leaned in close to the lamp. For a long moment she said nothing. Then she smiled, wider than I had ever seen her smile.
+'It's the end of a toe bone,' she said. 'Do you know what that means? Where there's one toe, there might be a foot. And where there's a foot . . .'
+She didn't need to finish. I looked down at the little grey bone, and suddenly three days didn't seem slow at all. It seemed like the beginning of something.
+I picked up my tool and leaned closer to the lamp.",Why has the author most likely given the story the title 'The Slowest Job in the World'?,,A,"It reflects Mia's early view of the work, which changes by the end.",It tells readers that fossil cleaning is the slowest job anyone can do.,It shows that Mia is still frustrated by the slow work at the end.,It shows that Aunt Leonie thinks Mia works far too slowly.,,4,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.1458.6,277,2,8,Hard
+NAPLAN-Y6-READING-M1-Q15,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 4,6,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Pack a Beanie: The Case for Winter Camping
+Ask most Australian families when they go camping, and they will say the summer holidays. It makes sense. The days are long, the weather is warm and school is out. But I believe that families who pack away their tents when the weather cools are missing out on the best camping of the year. It is time to give winter camping a chance.
+First, consider the crowds, or rather the lack of them. In January, popular campgrounds are booked out months ahead. Tents are squeezed together so tightly that you can hear your neighbours snoring. In June or July, many of those same campgrounds are almost empty. You can choose the best site, wander along quiet tracks and hear nothing at night but the wind in the trees.
+Second, winter is often more comfortable than summer. Anyone who has tried to sleep in a tent on a 35-degree night knows how miserable it can be. In many parts of Australia, winter days are mild and sunny, perfect for long walks without the risk of heatstroke. There are fewer flies and mosquitoes to battle, too. When the temperature drops after dark, a good sleeping bag and a woolly beanie will keep you snug.
+Third, winter brings experiences that summer simply cannot offer. With fire restrictions often eased in the cooler months, many campgrounds allow campfires, where families can gather to talk, cook and toast marshmallows. Long, dark nights mean you can see the stars well before bedtime. On a clear winter night, away from city lights, the Milky Way spills across the sky like a river of sugar.
+Some people will argue that winter camping is too cold and too wet. It is true that you need to be prepared. Pack warm layers, a waterproof jacket and a tent that can handle rain, and always check the weather forecast before you leave. But a little preparation is a small price to pay. After all, as the saying goes, there is no such thing as bad weather, only the wrong clothes.
+So this winter, don't let your tent gather dust in the garage. Pack your beanie, grab your thermos and head outdoors. You may find that the coldest season gives you the warmest memories.","According to the writer, what is one problem with camping in summer?",,D,The days are too short for long walks.,Most walking tracks are closed to visitors.,Tents often leak during summer storms.,Campgrounds are crowded and booked out early.,,1,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.1459.1,278,1,2,Easy
+NAPLAN-Y6-READING-M1-Q16,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 4,6,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"Pack a Beanie: The Case for Winter Camping
+Ask most Australian families when they go camping, and they will say the summer holidays. It makes sense. The days are long, the weather is warm and school is out. But I believe that families who pack away their tents when the weather cools are missing out on the best camping of the year. It is time to give winter camping a chance.
+First, consider the crowds, or rather the lack of them. In January, popular campgrounds are booked out months ahead. Tents are squeezed together so tightly that you can hear your neighbours snoring. In June or July, many of those same campgrounds are almost empty. You can choose the best site, wander along quiet tracks and hear nothing at night but the wind in the trees.
+Second, winter is often more comfortable than summer. Anyone who has tried to sleep in a tent on a 35-degree night knows how miserable it can be. In many parts of Australia, winter days are mild and sunny, perfect for long walks without the risk of heatstroke. There are fewer flies and mosquitoes to battle, too. When the temperature drops after dark, a good sleeping bag and a woolly beanie will keep you snug.
+Third, winter brings experiences that summer simply cannot offer. With fire restrictions often eased in the cooler months, many campgrounds allow campfires, where families can gather to talk, cook and toast marshmallows. Long, dark nights mean you can see the stars well before bedtime. On a clear winter night, away from city lights, the Milky Way spills across the sky like a river of sugar.
+Some people will argue that winter camping is too cold and too wet. It is true that you need to be prepared. Pack warm layers, a waterproof jacket and a tent that can handle rain, and always check the weather forecast before you leave. But a little preparation is a small price to pay. After all, as the saying goes, there is no such thing as bad weather, only the wrong clothes.
+So this winter, don't let your tent gather dust in the garage. Pack your beanie, grab your thermos and head outdoors. You may find that the coldest season gives you the warmest memories.","'A good sleeping bag and a woolly beanie will keep you snug.' In this sentence, 'snug' means . . .",,B,tightly squeezed in.,warm and comfortable.,wide awake.,slightly damp.,,1,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.1459.2,278,1,2,Easy
+NAPLAN-Y6-READING-M1-Q17,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 4,6,English,Literary Techniques,Narrative Voice,ReadingComprehension,"Pack a Beanie: The Case for Winter Camping
+Ask most Australian families when they go camping, and they will say the summer holidays. It makes sense. The days are long, the weather is warm and school is out. But I believe that families who pack away their tents when the weather cools are missing out on the best camping of the year. It is time to give winter camping a chance.
+First, consider the crowds, or rather the lack of them. In January, popular campgrounds are booked out months ahead. Tents are squeezed together so tightly that you can hear your neighbours snoring. In June or July, many of those same campgrounds are almost empty. You can choose the best site, wander along quiet tracks and hear nothing at night but the wind in the trees.
+Second, winter is often more comfortable than summer. Anyone who has tried to sleep in a tent on a 35-degree night knows how miserable it can be. In many parts of Australia, winter days are mild and sunny, perfect for long walks without the risk of heatstroke. There are fewer flies and mosquitoes to battle, too. When the temperature drops after dark, a good sleeping bag and a woolly beanie will keep you snug.
+Third, winter brings experiences that summer simply cannot offer. With fire restrictions often eased in the cooler months, many campgrounds allow campfires, where families can gather to talk, cook and toast marshmallows. Long, dark nights mean you can see the stars well before bedtime. On a clear winter night, away from city lights, the Milky Way spills across the sky like a river of sugar.
+Some people will argue that winter camping is too cold and too wet. It is true that you need to be prepared. Pack warm layers, a waterproof jacket and a tent that can handle rain, and always check the weather forecast before you leave. But a little preparation is a small price to pay. After all, as the saying goes, there is no such thing as bad weather, only the wrong clothes.
+So this winter, don't let your tent gather dust in the garage. Pack your beanie, grab your thermos and head outdoors. You may find that the coldest season gives you the warmest memories.",The writer uses phrases such as 'I believe' and speaks to the reader as 'you'. This shows that the text is written . . .,,A,"from a personal point of view, directly to the reader.",as a neutral report that gives only facts.,from the point of view of a campground ranger.,as a story told by a family on a camping trip.,,2,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.1459.3,278,1,4,Medium
+NAPLAN-Y6-READING-M1-Q18,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 4,6,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Pack a Beanie: The Case for Winter Camping
+Ask most Australian families when they go camping, and they will say the summer holidays. It makes sense. The days are long, the weather is warm and school is out. But I believe that families who pack away their tents when the weather cools are missing out on the best camping of the year. It is time to give winter camping a chance.
+First, consider the crowds, or rather the lack of them. In January, popular campgrounds are booked out months ahead. Tents are squeezed together so tightly that you can hear your neighbours snoring. In June or July, many of those same campgrounds are almost empty. You can choose the best site, wander along quiet tracks and hear nothing at night but the wind in the trees.
+Second, winter is often more comfortable than summer. Anyone who has tried to sleep in a tent on a 35-degree night knows how miserable it can be. In many parts of Australia, winter days are mild and sunny, perfect for long walks without the risk of heatstroke. There are fewer flies and mosquitoes to battle, too. When the temperature drops after dark, a good sleeping bag and a woolly beanie will keep you snug.
+Third, winter brings experiences that summer simply cannot offer. With fire restrictions often eased in the cooler months, many campgrounds allow campfires, where families can gather to talk, cook and toast marshmallows. Long, dark nights mean you can see the stars well before bedtime. On a clear winter night, away from city lights, the Milky Way spills across the sky like a river of sugar.
+Some people will argue that winter camping is too cold and too wet. It is true that you need to be prepared. Pack warm layers, a waterproof jacket and a tent that can handle rain, and always check the weather forecast before you leave. But a little preparation is a small price to pay. After all, as the saying goes, there is no such thing as bad weather, only the wrong clothes.
+So this winter, don't let your tent gather dust in the garage. Pack your beanie, grab your thermos and head outdoors. You may find that the coldest season gives you the warmest memories.",Why does the writer say campers can see the stars 'well before bedtime' in winter?,,D,The air is much clearer after winter rain.,Campfires light up the sky in the evening.,There are fewer clouds in winter than summer.,"Winter nights are long, so it gets dark early.",,3,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.1459.4,278,1,5,Medium
+NAPLAN-Y6-READING-M1-Q19,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 4,6,English,Literary Techniques,Figurative Language,ReadingComprehension,"Pack a Beanie: The Case for Winter Camping
+Ask most Australian families when they go camping, and they will say the summer holidays. It makes sense. The days are long, the weather is warm and school is out. But I believe that families who pack away their tents when the weather cools are missing out on the best camping of the year. It is time to give winter camping a chance.
+First, consider the crowds, or rather the lack of them. In January, popular campgrounds are booked out months ahead. Tents are squeezed together so tightly that you can hear your neighbours snoring. In June or July, many of those same campgrounds are almost empty. You can choose the best site, wander along quiet tracks and hear nothing at night but the wind in the trees.
+Second, winter is often more comfortable than summer. Anyone who has tried to sleep in a tent on a 35-degree night knows how miserable it can be. In many parts of Australia, winter days are mild and sunny, perfect for long walks without the risk of heatstroke. There are fewer flies and mosquitoes to battle, too. When the temperature drops after dark, a good sleeping bag and a woolly beanie will keep you snug.
+Third, winter brings experiences that summer simply cannot offer. With fire restrictions often eased in the cooler months, many campgrounds allow campfires, where families can gather to talk, cook and toast marshmallows. Long, dark nights mean you can see the stars well before bedtime. On a clear winter night, away from city lights, the Milky Way spills across the sky like a river of sugar.
+Some people will argue that winter camping is too cold and too wet. It is true that you need to be prepared. Pack warm layers, a waterproof jacket and a tent that can handle rain, and always check the weather forecast before you leave. But a little preparation is a small price to pay. After all, as the saying goes, there is no such thing as bad weather, only the wrong clothes.
+So this winter, don't let your tent gather dust in the garage. Pack your beanie, grab your thermos and head outdoors. You may find that the coldest season gives you the warmest memories.",The writer ends with 'the coldest season gives you the warmest memories'. How does this wording support the argument?,,C,It promises readers that they will stay physically warm for the whole of their camping trip.,It reminds readers to pack enough warm clothing so that they will not feel the cold at night.,"It turns the main complaint about winter into a reason to go, by contrasting cold with happy memories.",It suggests that memories of summer camping trips will soon fade and be forgotten by families.,,4,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.1459.5,278,2,8,Hard
+NAPLAN-Y6-READING-M1-Q20,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 4,6,English,Inference,Inferential Reasoning,ReadingComprehension,"Pack a Beanie: The Case for Winter Camping
+Ask most Australian families when they go camping, and they will say the summer holidays. It makes sense. The days are long, the weather is warm and school is out. But I believe that families who pack away their tents when the weather cools are missing out on the best camping of the year. It is time to give winter camping a chance.
+First, consider the crowds, or rather the lack of them. In January, popular campgrounds are booked out months ahead. Tents are squeezed together so tightly that you can hear your neighbours snoring. In June or July, many of those same campgrounds are almost empty. You can choose the best site, wander along quiet tracks and hear nothing at night but the wind in the trees.
+Second, winter is often more comfortable than summer. Anyone who has tried to sleep in a tent on a 35-degree night knows how miserable it can be. In many parts of Australia, winter days are mild and sunny, perfect for long walks without the risk of heatstroke. There are fewer flies and mosquitoes to battle, too. When the temperature drops after dark, a good sleeping bag and a woolly beanie will keep you snug.
+Third, winter brings experiences that summer simply cannot offer. With fire restrictions often eased in the cooler months, many campgrounds allow campfires, where families can gather to talk, cook and toast marshmallows. Long, dark nights mean you can see the stars well before bedtime. On a clear winter night, away from city lights, the Milky Way spills across the sky like a river of sugar.
+Some people will argue that winter camping is too cold and too wet. It is true that you need to be prepared. Pack warm layers, a waterproof jacket and a tent that can handle rain, and always check the weather forecast before you leave. But a little preparation is a small price to pay. After all, as the saying goes, there is no such thing as bad weather, only the wrong clothes.
+So this winter, don't let your tent gather dust in the garage. Pack your beanie, grab your thermos and head outdoors. You may find that the coldest season gives you the warmest memories.","Based on the whole text, which readers is the writer mainly trying to persuade?",,C,families who have never been camping and own no equipment,experienced winter campers who want tips on staying warm,families who camp in summer but store their gear when it gets cold,campground owners who want more visitors in the cooler months,,4,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.1459.6,278,2,8,Hard
+NAPLAN-Y6-READING-M1-Q21,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 5,6,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Man Behind Mother Goose
+Most people know the stories of Cinderella, Puss in Boots and Sleeping Beauty. Far fewer know the name of the man who first wrote them down in the form we recognise today. His name was Charles Perrault, and for most of his long life, fairy tales were the last thing anyone expected from him.
+Perrault was born in Paris in 1628, the youngest son of a well-off family. He was a clever, confident student who once walked out of school after arguing with his teacher, and then taught himself by reading at home with a friend. Later he trained as a lawyer, although he did not stay in that work for long.
+In his thirties, Perrault became an assistant to Jean-Baptiste Colbert, one of the most powerful ministers serving King Louis XIV of France. For twenty years he helped to organise the king's building projects and the arts. He even suggested a maze for the gardens of the Palace of Versailles, filled with fountains showing scenes from Aesop's fables.
+Perrault also held an opinion that annoyed many scholars of his time. Most of them believed that the writers of ancient Greece and Rome could never be equalled. Perrault disagreed. He argued that modern writers could be just as good, and he was not afraid to say so in public.
+When Colbert died, Perrault lost his position. His wife had died some years earlier, and he now had more time to spend with his children. Perhaps it was during those years, sitting by the fire, that he began to think seriously about the old stories told to children by nurses and servants.
+In 1697, when he was almost seventy, a small book appeared called Stories or Tales from Times Past. It contained eight tales, including Little Red Riding Hood and Cinderella, and each one ended with a short rhyming moral. Curiously, the book was published under the name of his teenage son, Pierre. Historians still argue about why.
+Perrault did not invent these tales. Versions of them had been passed down by word of mouth for centuries. But he gave them a lively, polished style that delighted readers, and he showed that simple folk stories were worthy of a printed book. In a way, it was the perfect proof of his old argument: a modern storyteller had created something that would outlast almost everything else he wrote.",When and where was Charles Perrault born?,,B,in Versailles in 1697,in Paris in 1628,in Rome in 1628,in Paris in 1697,,1,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.1443.1,262,1,1,Easy
+NAPLAN-Y6-READING-M1-Q22,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 5,6,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Man Behind Mother Goose
+Most people know the stories of Cinderella, Puss in Boots and Sleeping Beauty. Far fewer know the name of the man who first wrote them down in the form we recognise today. His name was Charles Perrault, and for most of his long life, fairy tales were the last thing anyone expected from him.
+Perrault was born in Paris in 1628, the youngest son of a well-off family. He was a clever, confident student who once walked out of school after arguing with his teacher, and then taught himself by reading at home with a friend. Later he trained as a lawyer, although he did not stay in that work for long.
+In his thirties, Perrault became an assistant to Jean-Baptiste Colbert, one of the most powerful ministers serving King Louis XIV of France. For twenty years he helped to organise the king's building projects and the arts. He even suggested a maze for the gardens of the Palace of Versailles, filled with fountains showing scenes from Aesop's fables.
+Perrault also held an opinion that annoyed many scholars of his time. Most of them believed that the writers of ancient Greece and Rome could never be equalled. Perrault disagreed. He argued that modern writers could be just as good, and he was not afraid to say so in public.
+When Colbert died, Perrault lost his position. His wife had died some years earlier, and he now had more time to spend with his children. Perhaps it was during those years, sitting by the fire, that he began to think seriously about the old stories told to children by nurses and servants.
+In 1697, when he was almost seventy, a small book appeared called Stories or Tales from Times Past. It contained eight tales, including Little Red Riding Hood and Cinderella, and each one ended with a short rhyming moral. Curiously, the book was published under the name of his teenage son, Pierre. Historians still argue about why.
+Perrault did not invent these tales. Versions of them had been passed down by word of mouth for centuries. But he gave them a lively, polished style that delighted readers, and he showed that simple folk stories were worthy of a printed book. In a way, it was the perfect proof of his old argument: a modern storyteller had created something that would outlast almost everything else he wrote.",How did each tale in Perrault's 1697 book end?,,B,with a picture of the hero,with a short rhyming moral,with a question for the reader,with a fable by Aesop,,1,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.1443.2,262,1,2,Easy
+NAPLAN-Y6-READING-M1-Q23,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 5,6,English,Inference,Inferential Reasoning,ReadingComprehension,"The Man Behind Mother Goose
+Most people know the stories of Cinderella, Puss in Boots and Sleeping Beauty. Far fewer know the name of the man who first wrote them down in the form we recognise today. His name was Charles Perrault, and for most of his long life, fairy tales were the last thing anyone expected from him.
+Perrault was born in Paris in 1628, the youngest son of a well-off family. He was a clever, confident student who once walked out of school after arguing with his teacher, and then taught himself by reading at home with a friend. Later he trained as a lawyer, although he did not stay in that work for long.
+In his thirties, Perrault became an assistant to Jean-Baptiste Colbert, one of the most powerful ministers serving King Louis XIV of France. For twenty years he helped to organise the king's building projects and the arts. He even suggested a maze for the gardens of the Palace of Versailles, filled with fountains showing scenes from Aesop's fables.
+Perrault also held an opinion that annoyed many scholars of his time. Most of them believed that the writers of ancient Greece and Rome could never be equalled. Perrault disagreed. He argued that modern writers could be just as good, and he was not afraid to say so in public.
+When Colbert died, Perrault lost his position. His wife had died some years earlier, and he now had more time to spend with his children. Perhaps it was during those years, sitting by the fire, that he began to think seriously about the old stories told to children by nurses and servants.
+In 1697, when he was almost seventy, a small book appeared called Stories or Tales from Times Past. It contained eight tales, including Little Red Riding Hood and Cinderella, and each one ended with a short rhyming moral. Curiously, the book was published under the name of his teenage son, Pierre. Historians still argue about why.
+Perrault did not invent these tales. Versions of them had been passed down by word of mouth for centuries. But he gave them a lively, polished style that delighted readers, and he showed that simple folk stories were worthy of a printed book. In a way, it was the perfect proof of his old argument: a modern storyteller had created something that would outlast almost everything else he wrote.",What does the story of Perrault walking out of school suggest about him?,,C,He found his lessons too difficult and wanted an easier school.,He did not enjoy reading and preferred to spend time with friends.,He was independent and willing to disagree with people in charge.,He was shy and found it hard to speak up in front of a class.,,3,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.1443.3,262,1,5,Medium
+NAPLAN-Y6-READING-M1-Q24,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 5,6,English,Inference,Character Motivation,ReadingComprehension,"The Man Behind Mother Goose
+Most people know the stories of Cinderella, Puss in Boots and Sleeping Beauty. Far fewer know the name of the man who first wrote them down in the form we recognise today. His name was Charles Perrault, and for most of his long life, fairy tales were the last thing anyone expected from him.
+Perrault was born in Paris in 1628, the youngest son of a well-off family. He was a clever, confident student who once walked out of school after arguing with his teacher, and then taught himself by reading at home with a friend. Later he trained as a lawyer, although he did not stay in that work for long.
+In his thirties, Perrault became an assistant to Jean-Baptiste Colbert, one of the most powerful ministers serving King Louis XIV of France. For twenty years he helped to organise the king's building projects and the arts. He even suggested a maze for the gardens of the Palace of Versailles, filled with fountains showing scenes from Aesop's fables.
+Perrault also held an opinion that annoyed many scholars of his time. Most of them believed that the writers of ancient Greece and Rome could never be equalled. Perrault disagreed. He argued that modern writers could be just as good, and he was not afraid to say so in public.
+When Colbert died, Perrault lost his position. His wife had died some years earlier, and he now had more time to spend with his children. Perhaps it was during those years, sitting by the fire, that he began to think seriously about the old stories told to children by nurses and servants.
+In 1697, when he was almost seventy, a small book appeared called Stories or Tales from Times Past. It contained eight tales, including Little Red Riding Hood and Cinderella, and each one ended with a short rhyming moral. Curiously, the book was published under the name of his teenage son, Pierre. Historians still argue about why.
+Perrault did not invent these tales. Versions of them had been passed down by word of mouth for centuries. But he gave them a lively, polished style that delighted readers, and he showed that simple folk stories were worthy of a printed book. In a way, it was the perfect proof of his old argument: a modern storyteller had created something that would outlast almost everything else he wrote.",Why did Perrault speak out in public even though his opinion annoyed many scholars?,,A,He strongly believed modern writers deserved as much respect as ancient ones.,He wanted the king to give him a more important job at the palace.,He hoped to sell more copies of his book of fairy tales.,He had been asked by Colbert to argue against the scholars.,,3,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.1443.4,262,1,5,Medium
+NAPLAN-Y6-READING-M1-Q25,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 5,6,English,Inference,Cause and Effect,ReadingComprehension,"The Man Behind Mother Goose
+Most people know the stories of Cinderella, Puss in Boots and Sleeping Beauty. Far fewer know the name of the man who first wrote them down in the form we recognise today. His name was Charles Perrault, and for most of his long life, fairy tales were the last thing anyone expected from him.
+Perrault was born in Paris in 1628, the youngest son of a well-off family. He was a clever, confident student who once walked out of school after arguing with his teacher, and then taught himself by reading at home with a friend. Later he trained as a lawyer, although he did not stay in that work for long.
+In his thirties, Perrault became an assistant to Jean-Baptiste Colbert, one of the most powerful ministers serving King Louis XIV of France. For twenty years he helped to organise the king's building projects and the arts. He even suggested a maze for the gardens of the Palace of Versailles, filled with fountains showing scenes from Aesop's fables.
+Perrault also held an opinion that annoyed many scholars of his time. Most of them believed that the writers of ancient Greece and Rome could never be equalled. Perrault disagreed. He argued that modern writers could be just as good, and he was not afraid to say so in public.
+When Colbert died, Perrault lost his position. His wife had died some years earlier, and he now had more time to spend with his children. Perhaps it was during those years, sitting by the fire, that he began to think seriously about the old stories told to children by nurses and servants.
+In 1697, when he was almost seventy, a small book appeared called Stories or Tales from Times Past. It contained eight tales, including Little Red Riding Hood and Cinderella, and each one ended with a short rhyming moral. Curiously, the book was published under the name of his teenage son, Pierre. Historians still argue about why.
+Perrault did not invent these tales. Versions of them had been passed down by word of mouth for centuries. But he gave them a lively, polished style that delighted readers, and he showed that simple folk stories were worthy of a printed book. In a way, it was the perfect proof of his old argument: a modern storyteller had created something that would outlast almost everything else he wrote.",The writer says Perrault's fairy tales were 'the perfect proof of his old argument'. Why did the tales prove his argument?,,A,"A modern writer had produced work that lasted, just as he claimed modern writers could.",They showed that old folk tales were better than anything modern writers produced.,They were brand-new stories that no ancient Greek or Roman writer had ever told.,They finally won over the scholars who had disagreed with him in public.,,4,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.1443.5,262,2,8,Hard
+NAPLAN-Y6-READING-M1-Q26,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 5,6,English,Literary Techniques,Narrative Voice,ReadingComprehension,"The Man Behind Mother Goose
+Most people know the stories of Cinderella, Puss in Boots and Sleeping Beauty. Far fewer know the name of the man who first wrote them down in the form we recognise today. His name was Charles Perrault, and for most of his long life, fairy tales were the last thing anyone expected from him.
+Perrault was born in Paris in 1628, the youngest son of a well-off family. He was a clever, confident student who once walked out of school after arguing with his teacher, and then taught himself by reading at home with a friend. Later he trained as a lawyer, although he did not stay in that work for long.
+In his thirties, Perrault became an assistant to Jean-Baptiste Colbert, one of the most powerful ministers serving King Louis XIV of France. For twenty years he helped to organise the king's building projects and the arts. He even suggested a maze for the gardens of the Palace of Versailles, filled with fountains showing scenes from Aesop's fables.
+Perrault also held an opinion that annoyed many scholars of his time. Most of them believed that the writers of ancient Greece and Rome could never be equalled. Perrault disagreed. He argued that modern writers could be just as good, and he was not afraid to say so in public.
+When Colbert died, Perrault lost his position. His wife had died some years earlier, and he now had more time to spend with his children. Perhaps it was during those years, sitting by the fire, that he began to think seriously about the old stories told to children by nurses and servants.
+In 1697, when he was almost seventy, a small book appeared called Stories or Tales from Times Past. It contained eight tales, including Little Red Riding Hood and Cinderella, and each one ended with a short rhyming moral. Curiously, the book was published under the name of his teenage son, Pierre. Historians still argue about why.
+Perrault did not invent these tales. Versions of them had been passed down by word of mouth for centuries. But he gave them a lively, polished style that delighted readers, and he showed that simple folk stories were worthy of a printed book. In a way, it was the perfect proof of his old argument: a modern storyteller had created something that would outlast almost everything else he wrote.",How does the writer show the difference between known facts and guesses about Perrault's life?,,D,"by telling the uncertain parts in Perrault's own words, as if he were speaking",by using 'I' to describe the writer's own research whenever a fact is unclear,by asking the reader questions about the parts of his life that are uncertain,by using words such as 'Perhaps' and 'still argue' for the parts no one is sure of,,4,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.1443.6,262,2,8,Hard
+NAPLAN-Y6-READING-M1-Q27,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 6,6,English,Reading Comprehension,Main Idea,ReadingComprehension,"Wire Across the Red
+(A linesman writes home, 1872)
+You ask me, Kate, in every letter
+why I won't come home this year,
+and why a desk in town's not better
+than the flies and heat out here.
+So here's my answer, plain and true,
+by lamplight, short and clear:
+the thing we're building's something new,
+and that is why I'm here.
+First, think how long a letter takes
+from here to London town:
+two months by ship, for goodness' sake,
+with storms to slow it down.
+But once this line is joined up north
+to cables on the ocean floor,
+our words will flash out, back and forth,
+in hours, not months, from shore to shore.
+At every station, built of stone,
+a man will sit all day
+and tap the clicks out, on his own,
+to send them on their way.
+Second, the work is hard but good.
+We dig each hole by hand
+and stand the poles of sawn hardwood
+across the red, flat land.
+The summer sun beats like a drum
+upon my battered hat,
+and flies, a thousand, buzz and hum
+and laugh at every swat.
+The white ants chewed the timber through
+(they think we've brought them lunch!),
+so now we're hauling iron, too,
+that no white ant can munch.
+We haul the wire by bullock dray
+and camels, nose to tail,
+and string it on, from day to day,
+mile after dusty mile.
+We've crossed the ranges, red and steep,
+and plains as bare as bone;
+the stars hang low above our sleep
+like lamps we've never known.
+And third, I've mates who share my tent,
+my damper and my tea,
+and when one man is sick or spent,
+the rest pitch in, you see.
+On Sundays, when the work is still,
+we wash our shirts and sing,
+and Paddy plays his fiddle till
+the gum trees seem to ring.
+But since you've asked me, Kate, I'll say
+the rest, and tell it true:
+the nights are long, and far away
+is very far from you.
+I keep your letters in my coat
+and read them by the fire;
+I've learnt by heart the last you wrote.
+It travels with the wire.
+Each pole we raise, I count as one
+more day gone by, and then
+I think: when all these poles are done,
+I'll see your face again.
+So wait for me one season more.
+When this long line is done,
+a telegram will reach your door:
+'Your Dad is coming home.'",What is the poem mainly about?,,C,a daughter's long journey to visit her father in the outback,the trouble caused by white ants in the Australian bush,a father explaining why he is working on the telegraph line,the invention of the telegraph by engineers in England,,1,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.1435.1,254,1,2,Easy
+NAPLAN-Y6-READING-M1-Q28,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 6,6,English,Reading Comprehension,Main Idea,ReadingComprehension,"Wire Across the Red
+(A linesman writes home, 1872)
+You ask me, Kate, in every letter
+why I won't come home this year,
+and why a desk in town's not better
+than the flies and heat out here.
+So here's my answer, plain and true,
+by lamplight, short and clear:
+the thing we're building's something new,
+and that is why I'm here.
+First, think how long a letter takes
+from here to London town:
+two months by ship, for goodness' sake,
+with storms to slow it down.
+But once this line is joined up north
+to cables on the ocean floor,
+our words will flash out, back and forth,
+in hours, not months, from shore to shore.
+At every station, built of stone,
+a man will sit all day
+and tap the clicks out, on his own,
+to send them on their way.
+Second, the work is hard but good.
+We dig each hole by hand
+and stand the poles of sawn hardwood
+across the red, flat land.
+The summer sun beats like a drum
+upon my battered hat,
+and flies, a thousand, buzz and hum
+and laugh at every swat.
+The white ants chewed the timber through
+(they think we've brought them lunch!),
+so now we're hauling iron, too,
+that no white ant can munch.
+We haul the wire by bullock dray
+and camels, nose to tail,
+and string it on, from day to day,
+mile after dusty mile.
+We've crossed the ranges, red and steep,
+and plains as bare as bone;
+the stars hang low above our sleep
+like lamps we've never known.
+And third, I've mates who share my tent,
+my damper and my tea,
+and when one man is sick or spent,
+the rest pitch in, you see.
+On Sundays, when the work is still,
+we wash our shirts and sing,
+and Paddy plays his fiddle till
+the gum trees seem to ring.
+But since you've asked me, Kate, I'll say
+the rest, and tell it true:
+the nights are long, and far away
+is very far from you.
+I keep your letters in my coat
+and read them by the fire;
+I've learnt by heart the last you wrote.
+It travels with the wire.
+Each pole we raise, I count as one
+more day gone by, and then
+I think: when all these poles are done,
+I'll see your face again.
+So wait for me one season more.
+When this long line is done,
+a telegram will reach your door:
+'Your Dad is coming home.'",What is the main idea of the stanza beginning 'The white ants chewed the timber through'?,,D,why the workers stopped work for lunch every day,how the white ants helped the workers clear the land,why iron poles were cheaper to buy than wooden poles,how the workers solved the problem of insects eating poles,,2,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.1435.2,254,1,3,Easy
+NAPLAN-Y6-READING-M1-Q29,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 6,6,English,Persuasive Language,Argument Structure,ReadingComprehension,"Wire Across the Red
+(A linesman writes home, 1872)
+You ask me, Kate, in every letter
+why I won't come home this year,
+and why a desk in town's not better
+than the flies and heat out here.
+So here's my answer, plain and true,
+by lamplight, short and clear:
+the thing we're building's something new,
+and that is why I'm here.
+First, think how long a letter takes
+from here to London town:
+two months by ship, for goodness' sake,
+with storms to slow it down.
+But once this line is joined up north
+to cables on the ocean floor,
+our words will flash out, back and forth,
+in hours, not months, from shore to shore.
+At every station, built of stone,
+a man will sit all day
+and tap the clicks out, on his own,
+to send them on their way.
+Second, the work is hard but good.
+We dig each hole by hand
+and stand the poles of sawn hardwood
+across the red, flat land.
+The summer sun beats like a drum
+upon my battered hat,
+and flies, a thousand, buzz and hum
+and laugh at every swat.
+The white ants chewed the timber through
+(they think we've brought them lunch!),
+so now we're hauling iron, too,
+that no white ant can munch.
+We haul the wire by bullock dray
+and camels, nose to tail,
+and string it on, from day to day,
+mile after dusty mile.
+We've crossed the ranges, red and steep,
+and plains as bare as bone;
+the stars hang low above our sleep
+like lamps we've never known.
+And third, I've mates who share my tent,
+my damper and my tea,
+and when one man is sick or spent,
+the rest pitch in, you see.
+On Sundays, when the work is still,
+we wash our shirts and sing,
+and Paddy plays his fiddle till
+the gum trees seem to ring.
+But since you've asked me, Kate, I'll say
+the rest, and tell it true:
+the nights are long, and far away
+is very far from you.
+I keep your letters in my coat
+and read them by the fire;
+I've learnt by heart the last you wrote.
+It travels with the wire.
+Each pole we raise, I count as one
+more day gone by, and then
+I think: when all these poles are done,
+I'll see your face again.
+So wait for me one season more.
+When this long line is done,
+a telegram will reach your door:
+'Your Dad is coming home.'",How does the speaker organise his answer to Kate's question?,,D,He tells the story of the line in time order from start to finish.,"He lists the problems of the job, then refuses to answer her.","He compares life in town and in the bush, stanza by stanza.","He gives three numbered reasons, then shares his feelings and a promise.",,3,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.1435.3,254,1,5,Medium
+NAPLAN-Y6-READING-M1-Q30,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 6,6,English,Inference,Inferential Reasoning,ReadingComprehension,"Wire Across the Red
+(A linesman writes home, 1872)
+You ask me, Kate, in every letter
+why I won't come home this year,
+and why a desk in town's not better
+than the flies and heat out here.
+So here's my answer, plain and true,
+by lamplight, short and clear:
+the thing we're building's something new,
+and that is why I'm here.
+First, think how long a letter takes
+from here to London town:
+two months by ship, for goodness' sake,
+with storms to slow it down.
+But once this line is joined up north
+to cables on the ocean floor,
+our words will flash out, back and forth,
+in hours, not months, from shore to shore.
+At every station, built of stone,
+a man will sit all day
+and tap the clicks out, on his own,
+to send them on their way.
+Second, the work is hard but good.
+We dig each hole by hand
+and stand the poles of sawn hardwood
+across the red, flat land.
+The summer sun beats like a drum
+upon my battered hat,
+and flies, a thousand, buzz and hum
+and laugh at every swat.
+The white ants chewed the timber through
+(they think we've brought them lunch!),
+so now we're hauling iron, too,
+that no white ant can munch.
+We haul the wire by bullock dray
+and camels, nose to tail,
+and string it on, from day to day,
+mile after dusty mile.
+We've crossed the ranges, red and steep,
+and plains as bare as bone;
+the stars hang low above our sleep
+like lamps we've never known.
+And third, I've mates who share my tent,
+my damper and my tea,
+and when one man is sick or spent,
+the rest pitch in, you see.
+On Sundays, when the work is still,
+we wash our shirts and sing,
+and Paddy plays his fiddle till
+the gum trees seem to ring.
+But since you've asked me, Kate, I'll say
+the rest, and tell it true:
+the nights are long, and far away
+is very far from you.
+I keep your letters in my coat
+and read them by the fire;
+I've learnt by heart the last you wrote.
+It travels with the wire.
+Each pole we raise, I count as one
+more day gone by, and then
+I think: when all these poles are done,
+I'll see your face again.
+So wait for me one season more.
+When this long line is done,
+a telegram will reach your door:
+'Your Dad is coming home.'",The speaker says the white ants 'think we've brought them lunch'. What does this show about him?,,A,He can find humour in the problems of his work.,He feeds the white ants on purpose each day.,He is frightened of the insects in the bush.,He thinks that the iron poles are a mistake.,,3,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.1435.4,254,1,5,Medium
+NAPLAN-Y6-READING-M1-Q31,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 6,6,English,Inference,Interpreting Feelings,ReadingComprehension,"Wire Across the Red
+(A linesman writes home, 1872)
+You ask me, Kate, in every letter
+why I won't come home this year,
+and why a desk in town's not better
+than the flies and heat out here.
+So here's my answer, plain and true,
+by lamplight, short and clear:
+the thing we're building's something new,
+and that is why I'm here.
+First, think how long a letter takes
+from here to London town:
+two months by ship, for goodness' sake,
+with storms to slow it down.
+But once this line is joined up north
+to cables on the ocean floor,
+our words will flash out, back and forth,
+in hours, not months, from shore to shore.
+At every station, built of stone,
+a man will sit all day
+and tap the clicks out, on his own,
+to send them on their way.
+Second, the work is hard but good.
+We dig each hole by hand
+and stand the poles of sawn hardwood
+across the red, flat land.
+The summer sun beats like a drum
+upon my battered hat,
+and flies, a thousand, buzz and hum
+and laugh at every swat.
+The white ants chewed the timber through
+(they think we've brought them lunch!),
+so now we're hauling iron, too,
+that no white ant can munch.
+We haul the wire by bullock dray
+and camels, nose to tail,
+and string it on, from day to day,
+mile after dusty mile.
+We've crossed the ranges, red and steep,
+and plains as bare as bone;
+the stars hang low above our sleep
+like lamps we've never known.
+And third, I've mates who share my tent,
+my damper and my tea,
+and when one man is sick or spent,
+the rest pitch in, you see.
+On Sundays, when the work is still,
+we wash our shirts and sing,
+and Paddy plays his fiddle till
+the gum trees seem to ring.
+But since you've asked me, Kate, I'll say
+the rest, and tell it true:
+the nights are long, and far away
+is very far from you.
+I keep your letters in my coat
+and read them by the fire;
+I've learnt by heart the last you wrote.
+It travels with the wire.
+Each pole we raise, I count as one
+more day gone by, and then
+I think: when all these poles are done,
+I'll see your face again.
+So wait for me one season more.
+When this long line is done,
+a telegram will reach your door:
+'Your Dad is coming home.'",Which BEST describes the speaker's feelings about being away from home?,,C,He is happy with his mates and does not miss home at all.,He is miserable and wishes he had never left the town.,He is proud of the work but misses his daughter deeply.,He is excited mostly by the new iron poles they are using.,,4,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.1435.5,254,2,8,Hard
+NAPLAN-Y6-READING-M1-Q32,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 6,6,English,Reading Comprehension,Evaluating Evidence,ReadingComprehension,"Wire Across the Red
+(A linesman writes home, 1872)
+You ask me, Kate, in every letter
+why I won't come home this year,
+and why a desk in town's not better
+than the flies and heat out here.
+So here's my answer, plain and true,
+by lamplight, short and clear:
+the thing we're building's something new,
+and that is why I'm here.
+First, think how long a letter takes
+from here to London town:
+two months by ship, for goodness' sake,
+with storms to slow it down.
+But once this line is joined up north
+to cables on the ocean floor,
+our words will flash out, back and forth,
+in hours, not months, from shore to shore.
+At every station, built of stone,
+a man will sit all day
+and tap the clicks out, on his own,
+to send them on their way.
+Second, the work is hard but good.
+We dig each hole by hand
+and stand the poles of sawn hardwood
+across the red, flat land.
+The summer sun beats like a drum
+upon my battered hat,
+and flies, a thousand, buzz and hum
+and laugh at every swat.
+The white ants chewed the timber through
+(they think we've brought them lunch!),
+so now we're hauling iron, too,
+that no white ant can munch.
+We haul the wire by bullock dray
+and camels, nose to tail,
+and string it on, from day to day,
+mile after dusty mile.
+We've crossed the ranges, red and steep,
+and plains as bare as bone;
+the stars hang low above our sleep
+like lamps we've never known.
+And third, I've mates who share my tent,
+my damper and my tea,
+and when one man is sick or spent,
+the rest pitch in, you see.
+On Sundays, when the work is still,
+we wash our shirts and sing,
+and Paddy plays his fiddle till
+the gum trees seem to ring.
+But since you've asked me, Kate, I'll say
+the rest, and tell it true:
+the nights are long, and far away
+is very far from you.
+I keep your letters in my coat
+and read them by the fire;
+I've learnt by heart the last you wrote.
+It travels with the wire.
+Each pole we raise, I count as one
+more day gone by, and then
+I think: when all these poles are done,
+I'll see your face again.
+So wait for me one season more.
+When this long line is done,
+a telegram will reach your door:
+'Your Dad is coming home.'",Which line BEST supports the idea that the speaker measures his time away from home by the progress of the work?,,B,"and string it on, from day to day,","Each pole we raise, I count as one",It travels with the wire.,We dig each hole by hand,,4,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.1435.6,254,2,7,Hard
+NAPLAN-Y6-READING-M1-Q33,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 7,6,English,Reading Comprehension,Locating Information,ReadingComprehension,"Time Capsules Made of Ice
+Every winter, snow falls on the vast ice sheet that covers Antarctica. In the coldest parts of the continent, that snow almost never melts. Instead, each new layer presses down on the layers beneath it, squeezing them slowly into solid ice. Over hundreds of thousands of years, this process has built ice more than three kilometres thick. To scientists, this ice is far more than frozen water. It is a record of Earth's past, stacked layer upon layer like the pages of a book.
+To read this record, scientists drill an ice core. A hollow drill bores down into the ice and brings up a long cylinder, usually about ten centimetres across. The core is cut into sections about a metre long, labelled carefully and kept frozen at all times, both on the ice and on the long journey back to laboratories. A single deep drilling project can take several summers to complete.
+What makes ice cores so valuable is what is trapped inside them. As snow turns to ice, tiny bubbles of air are sealed in. These bubbles are samples of the atmosphere as it was when the ice formed. By measuring the gases in them, scientists can find out how much carbon dioxide was in the air thousands of years ago, long before anyone was able to measure it directly. The ice itself also holds clues about past temperatures, while thin bands of ash reveal when distant volcanoes erupted.
+The oldest continuous ice core yet drilled, from a site called Dome C, reaches back about 800 000 years. It shows that Earth's climate has swung between long ice ages and warmer periods many times. It also shows that carbon dioxide levels rose and fell along with temperature. Today's carbon dioxide levels are higher than at any point in that entire record.
+Scientists are not finished yet. Teams are now searching for ice that is more than a million years old, hoping to understand why the rhythm of the ice ages changed long ago. Finding the right spot is difficult. The ice must be very old, undisturbed and not melted at its base by heat from the rock below.
+It may seem strange that some of the most important clues about our climate are hidden in the emptiest place on Earth. Yet in Antarctica, the past has been waiting quietly, frozen in place, for anyone patient enough to dig it up.","According to the text, how far back in time does the Dome C ice core reach?",,C,more than a million years,about 80 000 years,about 800 000 years,about 8000 years,,1,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.1454.1,273,1,2,Easy
+NAPLAN-Y6-READING-M1-Q34,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 7,6,English,Inference,Cause and Effect,ReadingComprehension,"Time Capsules Made of Ice
+Every winter, snow falls on the vast ice sheet that covers Antarctica. In the coldest parts of the continent, that snow almost never melts. Instead, each new layer presses down on the layers beneath it, squeezing them slowly into solid ice. Over hundreds of thousands of years, this process has built ice more than three kilometres thick. To scientists, this ice is far more than frozen water. It is a record of Earth's past, stacked layer upon layer like the pages of a book.
+To read this record, scientists drill an ice core. A hollow drill bores down into the ice and brings up a long cylinder, usually about ten centimetres across. The core is cut into sections about a metre long, labelled carefully and kept frozen at all times, both on the ice and on the long journey back to laboratories. A single deep drilling project can take several summers to complete.
+What makes ice cores so valuable is what is trapped inside them. As snow turns to ice, tiny bubbles of air are sealed in. These bubbles are samples of the atmosphere as it was when the ice formed. By measuring the gases in them, scientists can find out how much carbon dioxide was in the air thousands of years ago, long before anyone was able to measure it directly. The ice itself also holds clues about past temperatures, while thin bands of ash reveal when distant volcanoes erupted.
+The oldest continuous ice core yet drilled, from a site called Dome C, reaches back about 800 000 years. It shows that Earth's climate has swung between long ice ages and warmer periods many times. It also shows that carbon dioxide levels rose and fell along with temperature. Today's carbon dioxide levels are higher than at any point in that entire record.
+Scientists are not finished yet. Teams are now searching for ice that is more than a million years old, hoping to understand why the rhythm of the ice ages changed long ago. Finding the right spot is difficult. The ice must be very old, undisturbed and not melted at its base by heat from the rock below.
+It may seem strange that some of the most important clues about our climate are hidden in the emptiest place on Earth. Yet in Antarctica, the past has been waiting quietly, frozen in place, for anyone patient enough to dig it up.","In the coldest parts of Antarctica, snow slowly turns into solid ice because . . .",,B,the snow melts and refreezes every summer.,new layers of snow press down on the older layers.,heat from the rock below hardens the snow.,scientists pack the snow down when they drill.,,2,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.1454.2,273,1,3,Easy
+NAPLAN-Y6-READING-M1-Q35,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 7,6,English,Reading Comprehension,Locating Information,ReadingComprehension,"Time Capsules Made of Ice
+Every winter, snow falls on the vast ice sheet that covers Antarctica. In the coldest parts of the continent, that snow almost never melts. Instead, each new layer presses down on the layers beneath it, squeezing them slowly into solid ice. Over hundreds of thousands of years, this process has built ice more than three kilometres thick. To scientists, this ice is far more than frozen water. It is a record of Earth's past, stacked layer upon layer like the pages of a book.
+To read this record, scientists drill an ice core. A hollow drill bores down into the ice and brings up a long cylinder, usually about ten centimetres across. The core is cut into sections about a metre long, labelled carefully and kept frozen at all times, both on the ice and on the long journey back to laboratories. A single deep drilling project can take several summers to complete.
+What makes ice cores so valuable is what is trapped inside them. As snow turns to ice, tiny bubbles of air are sealed in. These bubbles are samples of the atmosphere as it was when the ice formed. By measuring the gases in them, scientists can find out how much carbon dioxide was in the air thousands of years ago, long before anyone was able to measure it directly. The ice itself also holds clues about past temperatures, while thin bands of ash reveal when distant volcanoes erupted.
+The oldest continuous ice core yet drilled, from a site called Dome C, reaches back about 800 000 years. It shows that Earth's climate has swung between long ice ages and warmer periods many times. It also shows that carbon dioxide levels rose and fell along with temperature. Today's carbon dioxide levels are higher than at any point in that entire record.
+Scientists are not finished yet. Teams are now searching for ice that is more than a million years old, hoping to understand why the rhythm of the ice ages changed long ago. Finding the right spot is difficult. The ice must be very old, undisturbed and not melted at its base by heat from the rock below.
+It may seem strange that some of the most important clues about our climate are hidden in the emptiest place on Earth. Yet in Antarctica, the past has been waiting quietly, frozen in place, for anyone patient enough to dig it up.","According to the text, which of these can scientists learn from the ice itself, rather than from the air bubbles?",,C,how much carbon dioxide was in the air,which gases made up the ancient atmosphere,what past temperatures were like,when the ice sheet first began to form,,3,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.1454.3,273,1,5,Medium
+NAPLAN-Y6-READING-M1-Q36,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 7,6,English,Reading Comprehension,Main Idea,ReadingComprehension,"Time Capsules Made of Ice
+Every winter, snow falls on the vast ice sheet that covers Antarctica. In the coldest parts of the continent, that snow almost never melts. Instead, each new layer presses down on the layers beneath it, squeezing them slowly into solid ice. Over hundreds of thousands of years, this process has built ice more than three kilometres thick. To scientists, this ice is far more than frozen water. It is a record of Earth's past, stacked layer upon layer like the pages of a book.
+To read this record, scientists drill an ice core. A hollow drill bores down into the ice and brings up a long cylinder, usually about ten centimetres across. The core is cut into sections about a metre long, labelled carefully and kept frozen at all times, both on the ice and on the long journey back to laboratories. A single deep drilling project can take several summers to complete.
+What makes ice cores so valuable is what is trapped inside them. As snow turns to ice, tiny bubbles of air are sealed in. These bubbles are samples of the atmosphere as it was when the ice formed. By measuring the gases in them, scientists can find out how much carbon dioxide was in the air thousands of years ago, long before anyone was able to measure it directly. The ice itself also holds clues about past temperatures, while thin bands of ash reveal when distant volcanoes erupted.
+The oldest continuous ice core yet drilled, from a site called Dome C, reaches back about 800 000 years. It shows that Earth's climate has swung between long ice ages and warmer periods many times. It also shows that carbon dioxide levels rose and fell along with temperature. Today's carbon dioxide levels are higher than at any point in that entire record.
+Scientists are not finished yet. Teams are now searching for ice that is more than a million years old, hoping to understand why the rhythm of the ice ages changed long ago. Finding the right spot is difficult. The ice must be very old, undisturbed and not melted at its base by heat from the rock below.
+It may seem strange that some of the most important clues about our climate are hidden in the emptiest place on Earth. Yet in Antarctica, the past has been waiting quietly, frozen in place, for anyone patient enough to dig it up.",What is the main idea of the third paragraph?,,A,Material trapped in ice cores holds information about Earth's past.,Air bubbles form whenever snow is pressed into ice.,Carbon dioxide has always been measured directly.,Volcanoes in Antarctica have erupted many times.,,3,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.1454.4,273,1,5,Medium
+NAPLAN-Y6-READING-M1-Q37,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 7,6,English,Reading Comprehension,Author Purpose,ReadingComprehension,"Time Capsules Made of Ice
+Every winter, snow falls on the vast ice sheet that covers Antarctica. In the coldest parts of the continent, that snow almost never melts. Instead, each new layer presses down on the layers beneath it, squeezing them slowly into solid ice. Over hundreds of thousands of years, this process has built ice more than three kilometres thick. To scientists, this ice is far more than frozen water. It is a record of Earth's past, stacked layer upon layer like the pages of a book.
+To read this record, scientists drill an ice core. A hollow drill bores down into the ice and brings up a long cylinder, usually about ten centimetres across. The core is cut into sections about a metre long, labelled carefully and kept frozen at all times, both on the ice and on the long journey back to laboratories. A single deep drilling project can take several summers to complete.
+What makes ice cores so valuable is what is trapped inside them. As snow turns to ice, tiny bubbles of air are sealed in. These bubbles are samples of the atmosphere as it was when the ice formed. By measuring the gases in them, scientists can find out how much carbon dioxide was in the air thousands of years ago, long before anyone was able to measure it directly. The ice itself also holds clues about past temperatures, while thin bands of ash reveal when distant volcanoes erupted.
+The oldest continuous ice core yet drilled, from a site called Dome C, reaches back about 800 000 years. It shows that Earth's climate has swung between long ice ages and warmer periods many times. It also shows that carbon dioxide levels rose and fell along with temperature. Today's carbon dioxide levels are higher than at any point in that entire record.
+Scientists are not finished yet. Teams are now searching for ice that is more than a million years old, hoping to understand why the rhythm of the ice ages changed long ago. Finding the right spot is difficult. The ice must be very old, undisturbed and not melted at its base by heat from the rock below.
+It may seem strange that some of the most important clues about our climate are hidden in the emptiest place on Earth. Yet in Antarctica, the past has been waiting quietly, frozen in place, for anyone patient enough to dig it up.",Why does the author compare the ice to 'the pages of a book' and later describe the past as 'waiting quietly . . . for anyone patient enough to dig it up'?,,D,to suggest that ice cores are as easy to understand as a story book,to show that scientists have now read the whole history stored in the ice,to stress that Antarctica is too empty and remote for useful research,"to present the ice as a record that can be read through careful, patient work",,4,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.1454.5,273,2,8,Hard
+NAPLAN-Y6-READING-M1-Q38,NAPLAN-Y6-READING-M1,NAPLAN_STYLE_READING,Text 7,6,English,Inference,Inferential Reasoning,ReadingComprehension,"Time Capsules Made of Ice
+Every winter, snow falls on the vast ice sheet that covers Antarctica. In the coldest parts of the continent, that snow almost never melts. Instead, each new layer presses down on the layers beneath it, squeezing them slowly into solid ice. Over hundreds of thousands of years, this process has built ice more than three kilometres thick. To scientists, this ice is far more than frozen water. It is a record of Earth's past, stacked layer upon layer like the pages of a book.
+To read this record, scientists drill an ice core. A hollow drill bores down into the ice and brings up a long cylinder, usually about ten centimetres across. The core is cut into sections about a metre long, labelled carefully and kept frozen at all times, both on the ice and on the long journey back to laboratories. A single deep drilling project can take several summers to complete.
+What makes ice cores so valuable is what is trapped inside them. As snow turns to ice, tiny bubbles of air are sealed in. These bubbles are samples of the atmosphere as it was when the ice formed. By measuring the gases in them, scientists can find out how much carbon dioxide was in the air thousands of years ago, long before anyone was able to measure it directly. The ice itself also holds clues about past temperatures, while thin bands of ash reveal when distant volcanoes erupted.
+The oldest continuous ice core yet drilled, from a site called Dome C, reaches back about 800 000 years. It shows that Earth's climate has swung between long ice ages and warmer periods many times. It also shows that carbon dioxide levels rose and fell along with temperature. Today's carbon dioxide levels are higher than at any point in that entire record.
+Scientists are not finished yet. Teams are now searching for ice that is more than a million years old, hoping to understand why the rhythm of the ice ages changed long ago. Finding the right spot is difficult. The ice must be very old, undisturbed and not melted at its base by heat from the rock below.
+It may seem strange that some of the most important clues about our climate are hidden in the emptiest place on Earth. Yet in Antarctica, the past has been waiting quietly, frozen in place, for anyone patient enough to dig it up.",Why would ice that has melted at its base be no good for the search for million-year-old ice?,,D,The meltwater would make the drilling far too dangerous.,The air bubbles near the top would escape into the air.,The cores could not be kept frozen on the trip to laboratories.,"The oldest layers, which lie at the bottom, would have been lost.",,4,1,1,"NAPLAN,Year 6,Mock 1",English_Comprehension_Questions_expanded.csv,6.1454.6,273,2,8,Hard

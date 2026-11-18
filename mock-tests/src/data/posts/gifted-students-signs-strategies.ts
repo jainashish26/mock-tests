@@ -166,11 +166,31 @@ export const giftedStudents = {
     <p>Explore our resources, connect with the gifted education community, and remember: your child's intensity, curiosity, and sensitivity are not problems to be managed — they are gifts to be nurtured.</p>
 
     <p><strong>Together, we've absolutely got this.</strong></p>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>How is giftedness defined in Australia?</h3>
+    <p>The most widely accepted definition comes from Professor Francoys Gagne's Differentiated Model of Giftedness and Talent (DMGT), which is widely used in Australian education. It distinguishes natural abilities (giftedness) from the systematically developed skills and expertise that become talent, which is why potential and performance are not the same thing.</p>
+
+    <h3>Is my child gifted if they get good marks?</h3>
+    <p>Not necessarily. Giftedness and high achievement are related but distinct, and treating them as identical is one of the most common myths. A gifted child may achieve well below their potential, particularly without appropriate challenge, while a hard-working high achiever may not be gifted. This guide treats that distinction directly.</p>
+
+    <h3>How is giftedness formally identified?</h3>
+    <p>There is no single definitive test for giftedness. Identification is best approached as a multi-faceted process that considers multiple sources of evidence rather than one score. This matters because giftedness shows up differently across intellectual, creative, and social-emotional domains, and a single instrument will miss some of it.</p>
+
+    <h3>Do gifted children need support, or will they succeed on their own?</h3>
+    <p>They need support. The belief that gifted children will be fine unaided is described in this guide as perhaps the most damaging myth of all. Without appropriate challenge and support, gifted children can experience boredom, disengagement, underachievement, and social or emotional difficulties.</p>
+
+    <h3>What is a twice-exceptional child?</h3>
+    <p>A twice-exceptional (2e) child is gifted and also has a learning difficulty, developmental condition or disability - such as dyslexia, ADHD, an autism spectrum condition, or an anxiety disorder. Their strengths can mask their difficulties and their difficulties can mask their strengths, so both need to be identified and supported rather than one being treated as evidence the other is absent.</p>
+
   `,
   image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&q=80",
   imageAlt:
-    "A curious child reading a book intently with a look of deep concentration and wonder, surrounded by a stack of books",
-  date: "March 30, 2026",
+    "A curious child reading a book intently with a look of deep concentration and wonder, surrounded by a stack of books",  date: "September 15, 2026",
+  updatedDate: "September 17, 2026",
+  readingTime: 12,
+  category: "parenting-wellbeing",
   tags: ["GIFTED EDUCATION", "PARENTING", "CHILD DEVELOPMENT", "WELLBEING", "TWICE-EXCEPTIONAL"],
   metaTitle: "Who Are Gifted Students? Signs & Strategies for Parents",
   metaDescription:
@@ -188,6 +208,13 @@ export const giftedStudents = {
     "AAEGT gifted Australia",
     "Gagné giftedness model",
     "perfectionism gifted children",
+  ],
+  keyTakeaways: [
+    "Australia's most widely used definition is Francoys Gagné's Differentiated Model of Giftedness and Talent, which separates natural ability from developed talent.",
+    "Giftedness is not the same as high achievement - gifted children can underachieve, particularly without appropriate challenge.",
+    "There is no single definitive test; identification works best as a multi-faceted process drawing on several sources of evidence.",
+    "Signs appear across intellectual, creative, and social-emotional domains, and no gifted child displays all of them.",
+    "Twice-exceptional children are gifted and also have a learning difficulty or disability, where each can mask the other.",
   ],
   author: {
     name: "The Exam Success Team",

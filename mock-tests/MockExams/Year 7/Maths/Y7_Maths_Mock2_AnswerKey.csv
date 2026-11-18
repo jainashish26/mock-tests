@@ -1,0 +1,49 @@
+﻿QuestionNumber,QuestionID,ExamSection,Correct,CorrectAnswerText,Topic,SubTopic,DifficultyLabel,DifficultyScore,SourceQuestionNumber
+1,NAPLAN-Y7-NUMERACY-M2-Q01,Part A - Non-Calculator,A,1/4,Probability,Combined Events,Easy,1,1593
+2,NAPLAN-Y7-NUMERACY-M2-Q02,Part A - Non-Calculator,D,"star, triangle",Algebra,Patterns,Easy,1,50
+3,NAPLAN-Y7-NUMERACY-M2-Q03,Part A - Non-Calculator,B,"99,275",Number,Addition and Subtraction,Easy,1,1071
+4,NAPLAN-Y7-NUMERACY-M2-Q04,Part A - Non-Calculator,B,"1 cup of sugar, 1.5 cups of fruit",Number,Ratios and Rates,Easy,2,21
+5,NAPLAN-Y7-NUMERACY-M2-Q05,Part A - Non-Calculator,E,27,Number,Powers and Roots,Easy,2,1353
+6,NAPLAN-Y7-NUMERACY-M2-Q06,Part A - Non-Calculator,A,0.01,Number,Decimals,Easy,3,1320
+7,NAPLAN-Y7-NUMERACY-M2-Q07,Part A - Non-Calculator,B,58%,Financial Mathematics,Discounts and GST,Easy,3,33
+8,NAPLAN-Y7-NUMERACY-M2-Q08,Part A - Non-Calculator,B,475,Measurement,Units and Conversion,Easy,3,959
+9,NAPLAN-Y7-NUMERACY-M2-Q09,Part A - Non-Calculator,B,"(3, −5)",Geometry,Transformations,Easy,3,606
+10,NAPLAN-Y7-NUMERACY-M2-Q10,Part A - Non-Calculator,A,y = 2x,Algebra,Patterns,Easy,3,56
+11,NAPLAN-Y7-NUMERACY-M2-Q11,Part B - Calculator Allowed,A,"$5,600",Measurement,Area,Easy,3,39
+12,NAPLAN-Y7-NUMERACY-M2-Q12,Part B - Calculator Allowed,C,10 min,Statistics,Tables and Graphs,Easy,3,2021
+13,NAPLAN-Y7-NUMERACY-M2-Q13,Part B - Calculator Allowed,E,24,Problem Solving,Counting and Combinatorics,Easy,3,1813
+14,NAPLAN-Y7-NUMERACY-M2-Q14,Part B - Calculator Allowed,C,377 cm2,Geometry,3D Objects,Easy,3,49
+15,NAPLAN-Y7-NUMERACY-M2-Q15,Part B - Calculator Allowed,C,1.5 m,Measurement,Length and Perimeter,Medium,4,828
+16,NAPLAN-Y7-NUMERACY-M2-Q16,Part B - Calculator Allowed,E,39,Problem Solving,Counting and Combinatorics,Medium,4,23
+17,NAPLAN-Y7-NUMERACY-M2-Q17,Part B - Calculator Allowed,B,20,Algebra,Number Sequences,Medium,4,16
+18,NAPLAN-Y7-NUMERACY-M2-Q18,Part B - Calculator Allowed,B,"(−2, 2)",Geometry,Coordinates,Medium,4,798
+19,NAPLAN-Y7-NUMERACY-M2-Q19,Part B - Calculator Allowed,B,693 cm2,Geometry,Circles,Medium,4,10
+20,NAPLAN-Y7-NUMERACY-M2-Q20,Part B - Calculator Allowed,C,9:24 pm,Measurement,Time,Medium,5,862
+21,NAPLAN-Y7-NUMERACY-M2-Q21,Part B - Calculator Allowed,B,"(0, −2)",Geometry,Coordinates,Medium,5,803
+22,NAPLAN-Y7-NUMERACY-M2-Q22,Part B - Calculator Allowed,D,125,Number,Percentages,Medium,5,18
+23,NAPLAN-Y7-NUMERACY-M2-Q23,Part B - Calculator Allowed,E,$56.50,Financial Mathematics,Best Buy and Budgeting,Medium,5,384
+24,NAPLAN-Y7-NUMERACY-M2-Q24,Part B - Calculator Allowed,A,7,Algebra,Word Problems with Unknowns,Medium,5,207
+25,NAPLAN-Y7-NUMERACY-M2-Q25,Part B - Calculator Allowed,D,60,Number,Ratios and Rates,Medium,5,1230
+26,NAPLAN-Y7-NUMERACY-M2-Q26,Part B - Calculator Allowed,B,24 km,Measurement,Scale and Maps,Medium,5,1057
+27,NAPLAN-Y7-NUMERACY-M2-Q27,Part B - Calculator Allowed,D,asking a survey question,Statistics,Data Collection,Medium,6,2010
+28,NAPLAN-Y7-NUMERACY-M2-Q28,Part B - Calculator Allowed,A,1,Number,Digits and Number Properties,Medium,6,13
+29,NAPLAN-Y7-NUMERACY-M2-Q29,Part B - Calculator Allowed,C,40,Algebra,Number Sequences,Medium,6,25
+30,NAPLAN-Y7-NUMERACY-M2-Q30,Part B - Calculator Allowed,D,152,Algebra,Functions and Graphs,Medium,6,326
+31,NAPLAN-Y7-NUMERACY-M2-Q31,Part B - Calculator Allowed,A,$180,Financial Mathematics,Best Buy and Budgeting,Medium,6,387
+32,NAPLAN-Y7-NUMERACY-M2-Q32,Part B - Calculator Allowed,E,likely,Probability,Chance and Likelihood,Medium,6,1554
+33,NAPLAN-Y7-NUMERACY-M2-Q33,Part B - Calculator Allowed,B,8,Problem Solving,Spatial Reasoning,Medium,6,1861
+34,NAPLAN-Y7-NUMERACY-M2-Q34,Part B - Calculator Allowed,B,"1,479,478",Number,Place Value,Medium,6,1162
+35,NAPLAN-Y7-NUMERACY-M2-Q35,Part B - Calculator Allowed,A,She used four widths and no lengths,Measurement,Length and Perimeter,Medium,6,839
+36,NAPLAN-Y7-NUMERACY-M2-Q36,Part B - Calculator Allowed,E,430,Number,Mental Computation,Medium,6,1173
+37,NAPLAN-Y7-NUMERACY-M2-Q37,Part B - Calculator Allowed,D,$48,Number,Negative Numbers,Medium,6,1519
+38,NAPLAN-Y7-NUMERACY-M2-Q38,Part B - Calculator Allowed,C,"$1,100.00",Number,Percentages,Hard,7,1448
+39,NAPLAN-Y7-NUMERACY-M2-Q39,Part B - Calculator Allowed,B,4 cm,Measurement,Scale and Maps,Hard,7,1067
+40,NAPLAN-Y7-NUMERACY-M2-Q40,Part B - Calculator Allowed,A,5,Problem Solving,Direction Sense,Hard,8,1798
+41,NAPLAN-Y7-NUMERACY-M2-Q41,Part B - Calculator Allowed,C,15/56,Number,Fractions,Hard,8,1144
+42,NAPLAN-Y7-NUMERACY-M2-Q42,Part B - Calculator Allowed,B,6:00 pm,Measurement,Time,Hard,8,868
+43,NAPLAN-Y7-NUMERACY-M2-Q43,Part B - Calculator Allowed,D,34 km,Number,Decimals,Hard,9,1345
+44,NAPLAN-Y7-NUMERACY-M2-Q44,Part B - Calculator Allowed,A,172°,Geometry,Angles,Hard,9,704
+45,NAPLAN-Y7-NUMERACY-M2-Q45,Part B - Calculator Allowed,C,24,Algebra,Linear Equations,Hard,9,288
+46,NAPLAN-Y7-NUMERACY-M2-Q46,Part B - Calculator Allowed,C,5,Financial Mathematics,Best Buy and Budgeting,Hard,9,402
+47,NAPLAN-Y7-NUMERACY-M2-Q47,Part B - Calculator Allowed,A,50,Algebra,Word Problems with Unknowns,Hard,9,226
+48,NAPLAN-Y7-NUMERACY-M2-Q48,Part B - Calculator Allowed,A,14,Geometry,3D Objects,Hard,9,577

@@ -173,11 +173,34 @@ export const numericalReasoningScholarship = {
     <p>Explore our numerical reasoning practice resources, try a free mock test, and remember: every problem your child works through is strengthening something real and lasting.</p>
 
     <p><strong>Together, we've absolutely got this.</strong></p>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What is the difference between numerical reasoning and arithmetic?</h3>
+    <p>Arithmetic is calculation; numerical reasoning is the ability to interpret, analyse and solve problems using numbers, data and mathematical concepts. Scholarship exams reward the second far more than the first, which is why a fast calculator of sums is not automatically a strong numerical reasoner.</p>
+
+    <h3>Which numerical reasoning question types are tested?</h3>
+    <p>Number patterns and sequences, data interpretation from tables graphs and charts, word problems requiring mathematical reasoning, fractions decimals and percentages, spatial and measurement reasoning, and ratio proportion and rate problems. Each type has a recognisable structure worth learning explicitly.</p>
+
+    <h3>Does my child need to be fast at times tables?</h3>
+    <p>Fluency helps considerably. Number fluency is the foundation everything else is built on, because a student who must spend time and mental energy on basic calculation has little working memory left for the reasoning the question actually demands. Fluency is worth building, but it is a means to reasoning rather than the goal.</p>
+
+    <h3>How often and how long should we practise?</h3>
+    <p>Spreading practice across multiple shorter sessions of around 20 to 30 minutes, four to five times per week, is significantly more effective than occasional long sessions. Combine distributed practice with interleaved practice (mixing question types), gradually introduced timing, and deliberate review and reflection on errors.</p>
+
+    <h3>My child is anxious about maths. Will that affect the exam?</h3>
+    <p>It can. Maths anxiety is real, well documented and more common than many families realise - research published in the International Journal of STEM Education indicates it affects a substantial proportion of students. Anxiety consumes working memory, so managing it through low-stakes practice, normalising mistakes and avoiding pressure language is part of preparation, not a distraction from it.</p>
+
+    <h3>Are mock exams worth doing for numerical reasoning?</h3>
+    <p>Yes. Practice under realistic conditions is one of the most consistently effective preparation strategies identified by educational research. Familiarity with format, question types and timing means the exam itself holds fewer surprises, and confidence is built rather than assumed.</p>
+
   `,
   image: "https://images.unsplash.com/photo-1596495578065-6e0763fa1178?w=1200&q=80",
   imageAlt:
-    "A student working through mathematical problems at a desk with a pencil and notebook, looking focused and confident",
-  date: "March 30, 2026",
+    "A student working through mathematical problems at a desk with a pencil and notebook, looking focused and confident",  date: "October 12, 2026",
+  updatedDate: "October 14, 2026",
+  readingTime: 12,
+  category: "scholarship-exams",
   tags: ["SCHOLARSHIP EXAMS", "NUMERICAL REASONING", "EXAM PREPARATION", "MATHEMATICS"],
   metaTitle: "How to Improve Numerical Reasoning for Scholarship Exams",
   metaDescription:
@@ -195,6 +218,13 @@ export const numericalReasoningScholarship = {
     "word problems scholarship exam",
     "maths scholarship preparation Australia",
     "numerical reasoning strategies",
+  ],
+  keyTakeaways: [
+    "Numerical reasoning is interpreting, analysing and solving problems with numbers and data - it goes well beyond arithmetic speed.",
+    "Core question types are number patterns and sequences, data interpretation from tables and graphs, word problems, fractions decimals and percentages, spatial and measurement reasoning, and ratio proportion and rate problems.",
+    "Number fluency is the foundation: a student who spends working memory on basic calculation has little left for reasoning.",
+    "Short sessions of 20 to 30 minutes, four to five times a week, beat occasional long sessions - distributed and interleaved practice.",
+    "Maths anxiety is real and well documented, so confidence-building matters as much as content.",
   ],
   author: {
     name: "The Exam Success Team",

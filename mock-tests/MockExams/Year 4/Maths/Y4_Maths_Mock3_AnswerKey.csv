@@ -1,0 +1,37 @@
+﻿QuestionNumber,QuestionID,ExamSection,Correct,CorrectAnswerText,Topic,SubTopic,DifficultyLabel,DifficultyScore,SourceQuestionNumber
+1,NAPLAN-Y4-NUMERACY-M3-Q01,Numeracy - No Calculator,E,orange,Statistics,Data Interpretation,Easy,1,1734
+2,NAPLAN-Y4-NUMERACY-M3-Q02,Numeracy - No Calculator,A,0.31,Number,Decimals,Easy,1,1285
+3,NAPLAN-Y4-NUMERACY-M3-Q03,Numeracy - No Calculator,A,3,Algebra,Patterns,Easy,1,48
+4,NAPLAN-Y4-NUMERACY-M3-Q04,Numeracy - No Calculator,E,7.2,Number,Decimals,Easy,1,1
+5,NAPLAN-Y4-NUMERACY-M3-Q05,Numeracy - No Calculator,B,100 mL,Measurement,Volume and Capacity,Easy,1,704
+6,NAPLAN-Y4-NUMERACY-M3-Q06,Numeracy - No Calculator,C,$104.50,Number,Multiplication and Division,Easy,1,958
+7,NAPLAN-Y4-NUMERACY-M3-Q07,Numeracy - No Calculator,A,7,Problem Solving,Logical Reasoning,Easy,3,3
+8,NAPLAN-Y4-NUMERACY-M3-Q08,Numeracy - No Calculator,C,36,Number,Multiplication and Division,Easy,3,966
+9,NAPLAN-Y4-NUMERACY-M3-Q09,Numeracy - No Calculator,B,b,Geometry,Transformations,Easy,3,417
+10,NAPLAN-Y4-NUMERACY-M3-Q10,Numeracy - No Calculator,B,"4,000 g",Measurement,Mass,Easy,3,674
+11,NAPLAN-Y4-NUMERACY-M3-Q11,Numeracy - No Calculator,D,$60,Financial Mathematics,Money and Change,Medium,4,38
+12,NAPLAN-Y4-NUMERACY-M3-Q12,Numeracy - No Calculator,A,Thursday was 9 °C warmer than Tuesday.,Measurement,Temperature,Medium,4,836
+13,NAPLAN-Y4-NUMERACY-M3-Q13,Numeracy - No Calculator,A,"multiply the number of pentagons by 4, then add 1",Algebra,Patterns,Medium,4,60
+14,NAPLAN-Y4-NUMERACY-M3-Q14,Numeracy - No Calculator,C,200,Number,Mental Computation,Medium,4,1146
+15,NAPLAN-Y4-NUMERACY-M3-Q15,Numeracy - No Calculator,B,31,Algebra,Patterns,Medium,4,61
+16,NAPLAN-Y4-NUMERACY-M3-Q16,Numeracy - No Calculator,E,"1,137",Number,Digits and Number Properties,Medium,4,1219
+17,NAPLAN-Y4-NUMERACY-M3-Q17,Numeracy - No Calculator,D,20 cm²,Measurement,Area,Medium,4,759
+18,NAPLAN-Y4-NUMERACY-M3-Q18,Numeracy - No Calculator,A,9,Statistics,Data Interpretation,Medium,5,1748
+19,NAPLAN-Y4-NUMERACY-M3-Q19,Numeracy - No Calculator,B,"2,715 g",Measurement,Mass,Medium,5,684
+20,NAPLAN-Y4-NUMERACY-M3-Q20,Numeracy - No Calculator,D,31,Problem Solving,Number Puzzles,Medium,5,1492
+21,NAPLAN-Y4-NUMERACY-M3-Q21,Numeracy - No Calculator,D,30°,Geometry,Angles,Medium,5,462
+22,NAPLAN-Y4-NUMERACY-M3-Q22,Numeracy - No Calculator,D,80,Number,Mental Computation,Medium,5,1151
+23,NAPLAN-Y4-NUMERACY-M3-Q23,Numeracy - No Calculator,C,"2,500",Number,Mental Computation,Medium,5,1156
+24,NAPLAN-Y4-NUMERACY-M3-Q24,Numeracy - No Calculator,C,36,Number,Fractions,Medium,5,1068
+25,NAPLAN-Y4-NUMERACY-M3-Q25,Numeracy - No Calculator,D,12 orange and 1 black,Probability,Chance and Likelihood,Medium,6,1448
+26,NAPLAN-Y4-NUMERACY-M3-Q26,Numeracy - No Calculator,C,4,Geometry,Position and Location,Medium,6,283
+27,NAPLAN-Y4-NUMERACY-M3-Q27,Numeracy - No Calculator,A,3.03 m,Number,Decimals,Medium,6,1310
+28,NAPLAN-Y4-NUMERACY-M3-Q28,Numeracy - No Calculator,D,620 cm,Measurement,Units and Conversion,Medium,6,808
+29,NAPLAN-Y4-NUMERACY-M3-Q29,Numeracy - No Calculator,A,10 cm,Measurement,Area,Hard,7,774
+30,NAPLAN-Y4-NUMERACY-M3-Q30,Numeracy - No Calculator,B,7,Geometry,Spatial Visualisation,Hard,7,546
+31,NAPLAN-Y4-NUMERACY-M3-Q31,Numeracy - No Calculator,B,72,Number,Fractions,Hard,7,1077
+32,NAPLAN-Y4-NUMERACY-M3-Q32,Numeracy - No Calculator,E,None of the above,Algebra,Number Sequences,Hard,7,13
+33,NAPLAN-Y4-NUMERACY-M3-Q33,Numeracy - No Calculator,B,175,Number,Addition and Subtraction,Hard,8,950
+34,NAPLAN-Y4-NUMERACY-M3-Q34,Numeracy - No Calculator,B,34 m²,Measurement,Area,Hard,8,778
+35,NAPLAN-Y4-NUMERACY-M3-Q35,Numeracy - No Calculator,B,4,Problem Solving,Spatial Reasoning,Hard,8,1675
+36,NAPLAN-Y4-NUMERACY-M3-Q36,Numeracy - No Calculator,D,7,Number,Digits and Number Properties,Hard,9,1242

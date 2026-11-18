@@ -1,0 +1,775 @@
+﻿QuestionID,ExamID,ExamType,ExamSection,YearLevel,Subject,Topic,SubTopic,QuestionType,ComprehensionText,QuestionText,QuestionMedia,Correct,AnswerA,AnswerB,AnswerC,AnswerD,AnswerE,Difficulty,IsActive,CorrectAnswerScore,Tags,SourceBank,SourceQuestionNumber,SourceComprehensionID,NAPLANFlag,DifficultyScore,DifficultyLabel
+NAPLAN-Y7-READING-M3-Q01,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 1,7,English,Reading Comprehension,Literal Recall,ReadingComprehension,"""A principal fruit of friendship,"" Francis Bacon wrote in his timeless meditation on the subject, ""is the ease and discharge of the fulness and swellings of the heart, which passions of all kinds do cause and induce."" For Thoreau, friendship was one of life's great rewards. But in today's cultural landscape of muddled relationships scattered across various platforms for connecting, amidst constant debates about whether our Facebook ""friendships"" are making us more or less happy, it pays to consider what friendship actually is. That's precisely what CUNY philosophy professor Massimo Pigliucci explores in Answers for Aristotle: How Science and Philosophy Can Lead Us to A More Meaningful Life (public library), which also gave us this provocative read on the science of what we call ""intuition.""
+
+Philosophers and cognitive scientists agree that friendship is an essential ingredient of human happiness. But beyond the dry academic definitions — like, say, ""voluntary interdependence between two persons over time, which is intended to facilitate socio-emotional goals of the participants, and may involve varying types and degrees of companionship, intimacy, affection and mutual assistance"" — lies a body of compelling research that sheds light on how, precisely, friendship augments happiness.
+
+The way friendship enhances well-being, it turns out, has nothing to do with quantity and everything to do with quality — researchers confirm that it isn't the number of friends (or, in the case of Facebook, ""friends"")",Q1. Name one change effected in the present situation which hassled to a re-thinking of the concept of friendship,,B,Bacon and Thoreau's theories are no longer available to read,The arrival of social media on the scene,There is more interest in the sciences,"Friendships are not possible in the real world anymore, due to over- competition",,2,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.788.1,1,1,3,Easy
+NAPLAN-Y7-READING-M3-Q02,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 1,7,English,Reading Comprehension,Literal Recall,ReadingComprehension,"""A principal fruit of friendship,"" Francis Bacon wrote in his timeless meditation on the subject, ""is the ease and discharge of the fulness and swellings of the heart, which passions of all kinds do cause and induce."" For Thoreau, friendship was one of life's great rewards. But in today's cultural landscape of muddled relationships scattered across various platforms for connecting, amidst constant debates about whether our Facebook ""friendships"" are making us more or less happy, it pays to consider what friendship actually is. That's precisely what CUNY philosophy professor Massimo Pigliucci explores in Answers for Aristotle: How Science and Philosophy Can Lead Us to A More Meaningful Life (public library), which also gave us this provocative read on the science of what we call ""intuition.""
+
+Philosophers and cognitive scientists agree that friendship is an essential ingredient of human happiness. But beyond the dry academic definitions — like, say, ""voluntary interdependence between two persons over time, which is intended to facilitate socio-emotional goals of the participants, and may involve varying types and degrees of companionship, intimacy, affection and mutual assistance"" — lies a body of compelling research that sheds light on how, precisely, friendship augments happiness.
+
+The way friendship enhances well-being, it turns out, has nothing to do with quantity and everything to do with quality — researchers confirm that it isn't the number of friends (or, in the case of Facebook, ""friends"")",Q2. Friendship leads to happiness. Is it true?,,A,"Yes, researches have proven that friendship does lead to happiness","No, there is no relationship between friendship and happiness",Friends cannot make each other happy,"One needs to find one's happiness alone, with peace of mind",,1,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.788.2,1,1,2,Easy
+NAPLAN-Y7-READING-M3-Q03,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 1,7,English,Reading Comprehension,Literal Recall,ReadingComprehension,"""A principal fruit of friendship,"" Francis Bacon wrote in his timeless meditation on the subject, ""is the ease and discharge of the fulness and swellings of the heart, which passions of all kinds do cause and induce."" For Thoreau, friendship was one of life's great rewards. But in today's cultural landscape of muddled relationships scattered across various platforms for connecting, amidst constant debates about whether our Facebook ""friendships"" are making us more or less happy, it pays to consider what friendship actually is. That's precisely what CUNY philosophy professor Massimo Pigliucci explores in Answers for Aristotle: How Science and Philosophy Can Lead Us to A More Meaningful Life (public library), which also gave us this provocative read on the science of what we call ""intuition.""
+
+Philosophers and cognitive scientists agree that friendship is an essential ingredient of human happiness. But beyond the dry academic definitions — like, say, ""voluntary interdependence between two persons over time, which is intended to facilitate socio-emotional goals of the participants, and may involve varying types and degrees of companionship, intimacy, affection and mutual assistance"" — lies a body of compelling research that sheds light on how, precisely, friendship augments happiness.
+
+The way friendship enhances well-being, it turns out, has nothing to do with quantity and everything to do with quality — researchers confirm that it isn't the number of friends (or, in the case of Facebook, ""friends"")",Q3. Did Pigluicci's book discuss intuition too?,,D,"No, it only discussed friendship",It explained science and philosophy,It discusses Aristotle's theories,Yes,,1,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.788.3,1,1,2,Easy
+NAPLAN-Y7-READING-M3-Q04,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 1,7,English,Reading Comprehension,Literal Recall,ReadingComprehension,"""A principal fruit of friendship,"" Francis Bacon wrote in his timeless meditation on the subject, ""is the ease and discharge of the fulness and swellings of the heart, which passions of all kinds do cause and induce."" For Thoreau, friendship was one of life's great rewards. But in today's cultural landscape of muddled relationships scattered across various platforms for connecting, amidst constant debates about whether our Facebook ""friendships"" are making us more or less happy, it pays to consider what friendship actually is. That's precisely what CUNY philosophy professor Massimo Pigliucci explores in Answers for Aristotle: How Science and Philosophy Can Lead Us to A More Meaningful Life (public library), which also gave us this provocative read on the science of what we call ""intuition.""
+
+Philosophers and cognitive scientists agree that friendship is an essential ingredient of human happiness. But beyond the dry academic definitions — like, say, ""voluntary interdependence between two persons over time, which is intended to facilitate socio-emotional goals of the participants, and may involve varying types and degrees of companionship, intimacy, affection and mutual assistance"" — lies a body of compelling research that sheds light on how, precisely, friendship augments happiness.
+
+The way friendship enhances well-being, it turns out, has nothing to do with quantity and everything to do with quality — researchers confirm that it isn't the number of friends (or, in the case of Facebook, ""friends"")",Q4. Is the quality of friends important?,,C,"No, it is important to have more number of friends, quality does not matter","No, number of comments on social networking sites is important, not the quality of friends","Yes, it matter","No, quality comes automatically with quantity",,1,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.788.4,1,1,2,Easy
+NAPLAN-Y7-READING-M3-Q05,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 1,7,English,Reading Comprehension,Literal Recall,ReadingComprehension,"""A principal fruit of friendship,"" Francis Bacon wrote in his timeless meditation on the subject, ""is the ease and discharge of the fulness and swellings of the heart, which passions of all kinds do cause and induce."" For Thoreau, friendship was one of life's great rewards. But in today's cultural landscape of muddled relationships scattered across various platforms for connecting, amidst constant debates about whether our Facebook ""friendships"" are making us more or less happy, it pays to consider what friendship actually is. That's precisely what CUNY philosophy professor Massimo Pigliucci explores in Answers for Aristotle: How Science and Philosophy Can Lead Us to A More Meaningful Life (public library), which also gave us this provocative read on the science of what we call ""intuition.""
+
+Philosophers and cognitive scientists agree that friendship is an essential ingredient of human happiness. But beyond the dry academic definitions — like, say, ""voluntary interdependence between two persons over time, which is intended to facilitate socio-emotional goals of the participants, and may involve varying types and degrees of companionship, intimacy, affection and mutual assistance"" — lies a body of compelling research that sheds light on how, precisely, friendship augments happiness.
+
+The way friendship enhances well-being, it turns out, has nothing to do with quantity and everything to do with quality — researchers confirm that it isn't the number of friends (or, in the case of Facebook, ""friends"")","Q5. As per the first, paragraph what are the debates about?",,A,They are centred around whether our Facebook friends are helping us become more or less happy,There are no debates around friendship,The quality of comments of social media is debatable,Thoreau and Aristotle's thinking is at loggerheads,,1,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.788.5,1,1,2,Easy
+NAPLAN-Y7-READING-M3-Q06,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 2,7,English,Inference,Inferential Reasoning,ReadingComprehension,"1 If you've spent any time in grocery checkout lines, you've probably seen magazines with pictures of celebrities behaving badly toward each other. You might believe that scientists would be above that sort of thing, but you'd be wrong. About 150 years ago, two scientists started a nasty feud that lasted for decades— and brought to light some of the most spectacular creatures that ever walked the earth.
+
+2 Edward Cope and Othniel Marsh were paleontologists—scientists who study extinct life-forms, including dinosaurs. They met in 1864, when their careers were starting. Paleontology was a young science in the United States, and only a few dinosaurs had been discovered in North America. Othniel Marsh Edward Cope
+
+3 Cope and Marsh were friendly at first, but their relationship quickly soured. In 1868, Cope and a team of hired men were digging up dinosaurs in New Jersey. Marsh journeyed there and stayed with Cope for a few weeks. Things seemed to go well, but after Marsh left, Cope learned that his guest and the team foreman had made a deal. In exchange for money, the foreman would send new fossils to Marsh instead of Cope. Marsh had fired the first shot in what scientists would come to call the ""Bone Wars.""
+
+4 The war heated up fast. In 1869, Cope wrote an article describing a newly found extinct sea reptile he named Elasmosaurus. Cope included a drawing of the creature's skeleton. Another scientist soon pointed out that Cope had mistakenly stuck the beast's skull on its tail. Cope was humiliated, and Marsh crowed about the blunder to anyone who would listen. Shortly after, each man began publishing a string of scientific articles viciously attacking the other's ideas.
+
+Interim Assessment Unit 1
+
+5 Cope and Marsh's thirst to outdo each other spilled into their fieldwork. Throughout the 1870s and 1880s, they led and sent teams into lawless regions of the western United States to hunt for dinosaur bones. The teams were told to slow and disrupt each other's work through bribery, stealing, and rock-throwing. The teams even used dynamite to blow up cliffs and bury fossils to keep discoveries from falling into each other's hands. To this day, scientists wonder what fantastic discoveries lay beneath tons of rubble.
+
+6 In addition to sabotage, Cope and Marsh forced their teams to dig up and transport bones quickly. Such speed damaged many specimens, but each man wanted the credit of making the first discoveries of new species. Because they published their findings as quickly as possible, they made many mistakes. Marsh, for example, accidentally stuck the head of one dinosaur (Camarasaurus) on to the neck of another dinosaur (Apatosaurus) and thought he had discovered a new dinosaur—Brontosaurus. Unlike Cope's mistake with Elasmosaurus, paleontologists didn't discover and undo Marsh's Brontosaurus blunder for nearly 100 years.
+
+7 Until the mid-1880s, only scientists knew about Cope and Marsh's fight. But when Cope ratted out Marsh to the New York Herald, their battle spilled out into the world at large. Cope and Marsh assaulted each other through letters published in the newspaper. For a time, they were as famous as any celebrities of today. And even when the public eventually stopped caring, the feud didn't cease. The two men of science took swipes at each other until Cope's death in 1897. Even in death, Cope kept up the attack. He donated his skull to science and asked that his brain size be compared with Marsh's. (Scientists of that time believed that a person with a large brain was smarter than a person with a small one.) For whatever reason, Marsh did not accept Cope's challenge.
+
+8 The Bone Wars have a mixed legacy.
+
+On the one hand, American paleontology got a bad reputation from Cope and Marsh's cutthroat behavior. And the mistakes they made in their rush for glory slowed the progress of paleontology for many years. But the Bone Wars also produced a mountain of raw material.
+
+Cope and Marsh discovered more than
+
+130 dinosaur species. Their teams dug up so many bones that scientists are still learning new things about them. And many of their most famous discoveries, including Stegosaurus, Allosaurus, Diplodocus, and Triceratops, fire the imaginations of children (and more than a few adults) worldwide. Perhaps paleontology would have been worse off had the two men actually gotten along.",The article says that paleontology was a young science in the United States in the mid-1800s. How knowledgeable about the field were paleontologists of the time?,,C,They were more informed than those in other nations.,They were the greatest experts of the field at the time.,They were not very knowledgeable about their field.,They were just as knowledgeable as any other scientists.,,2,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.794.1,7,2,4,Medium
+NAPLAN-Y7-READING-M3-Q07,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 2,7,English,Inference,Cause and Effect,ReadingComprehension,"1 If you've spent any time in grocery checkout lines, you've probably seen magazines with pictures of celebrities behaving badly toward each other. You might believe that scientists would be above that sort of thing, but you'd be wrong. About 150 years ago, two scientists started a nasty feud that lasted for decades— and brought to light some of the most spectacular creatures that ever walked the earth.
+
+2 Edward Cope and Othniel Marsh were paleontologists—scientists who study extinct life-forms, including dinosaurs. They met in 1864, when their careers were starting. Paleontology was a young science in the United States, and only a few dinosaurs had been discovered in North America. Othniel Marsh Edward Cope
+
+3 Cope and Marsh were friendly at first, but their relationship quickly soured. In 1868, Cope and a team of hired men were digging up dinosaurs in New Jersey. Marsh journeyed there and stayed with Cope for a few weeks. Things seemed to go well, but after Marsh left, Cope learned that his guest and the team foreman had made a deal. In exchange for money, the foreman would send new fossils to Marsh instead of Cope. Marsh had fired the first shot in what scientists would come to call the ""Bone Wars.""
+
+4 The war heated up fast. In 1869, Cope wrote an article describing a newly found extinct sea reptile he named Elasmosaurus. Cope included a drawing of the creature's skeleton. Another scientist soon pointed out that Cope had mistakenly stuck the beast's skull on its tail. Cope was humiliated, and Marsh crowed about the blunder to anyone who would listen. Shortly after, each man began publishing a string of scientific articles viciously attacking the other's ideas.
+
+Interim Assessment Unit 1
+
+5 Cope and Marsh's thirst to outdo each other spilled into their fieldwork. Throughout the 1870s and 1880s, they led and sent teams into lawless regions of the western United States to hunt for dinosaur bones. The teams were told to slow and disrupt each other's work through bribery, stealing, and rock-throwing. The teams even used dynamite to blow up cliffs and bury fossils to keep discoveries from falling into each other's hands. To this day, scientists wonder what fantastic discoveries lay beneath tons of rubble.
+
+6 In addition to sabotage, Cope and Marsh forced their teams to dig up and transport bones quickly. Such speed damaged many specimens, but each man wanted the credit of making the first discoveries of new species. Because they published their findings as quickly as possible, they made many mistakes. Marsh, for example, accidentally stuck the head of one dinosaur (Camarasaurus) on to the neck of another dinosaur (Apatosaurus) and thought he had discovered a new dinosaur—Brontosaurus. Unlike Cope's mistake with Elasmosaurus, paleontologists didn't discover and undo Marsh's Brontosaurus blunder for nearly 100 years.
+
+7 Until the mid-1880s, only scientists knew about Cope and Marsh's fight. But when Cope ratted out Marsh to the New York Herald, their battle spilled out into the world at large. Cope and Marsh assaulted each other through letters published in the newspaper. For a time, they were as famous as any celebrities of today. And even when the public eventually stopped caring, the feud didn't cease. The two men of science took swipes at each other until Cope's death in 1897. Even in death, Cope kept up the attack. He donated his skull to science and asked that his brain size be compared with Marsh's. (Scientists of that time believed that a person with a large brain was smarter than a person with a small one.) For whatever reason, Marsh did not accept Cope's challenge.
+
+8 The Bone Wars have a mixed legacy.
+
+On the one hand, American paleontology got a bad reputation from Cope and Marsh's cutthroat behavior. And the mistakes they made in their rush for glory slowed the progress of paleontology for many years. But the Bone Wars also produced a mountain of raw material.
+
+Cope and Marsh discovered more than
+
+130 dinosaur species. Their teams dug up so many bones that scientists are still learning new things about them. And many of their most famous discoveries, including Stegosaurus, Allosaurus, Diplodocus, and Triceratops, fire the imaginations of children (and more than a few adults) worldwide. Perhaps paleontology would have been worse off had the two men actually gotten along.",Marsh and Cope had a stormy relationship. Which event was the most important influence on this relationship?,,A,Marsh paid Cope's team foreman to send new fossils to him.,Marsh claimed he was the first to discover a mistake by Cope.,Groups of their workers threw rocks at each other.,Cope and Marsh attacked each other in the newspapers.,,2,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.794.2,7,1,3,Easy
+NAPLAN-Y7-READING-M3-Q08,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 2,7,English,Inference,Cause and Effect,ReadingComprehension,"1 If you've spent any time in grocery checkout lines, you've probably seen magazines with pictures of celebrities behaving badly toward each other. You might believe that scientists would be above that sort of thing, but you'd be wrong. About 150 years ago, two scientists started a nasty feud that lasted for decades— and brought to light some of the most spectacular creatures that ever walked the earth.
+
+2 Edward Cope and Othniel Marsh were paleontologists—scientists who study extinct life-forms, including dinosaurs. They met in 1864, when their careers were starting. Paleontology was a young science in the United States, and only a few dinosaurs had been discovered in North America. Othniel Marsh Edward Cope
+
+3 Cope and Marsh were friendly at first, but their relationship quickly soured. In 1868, Cope and a team of hired men were digging up dinosaurs in New Jersey. Marsh journeyed there and stayed with Cope for a few weeks. Things seemed to go well, but after Marsh left, Cope learned that his guest and the team foreman had made a deal. In exchange for money, the foreman would send new fossils to Marsh instead of Cope. Marsh had fired the first shot in what scientists would come to call the ""Bone Wars.""
+
+4 The war heated up fast. In 1869, Cope wrote an article describing a newly found extinct sea reptile he named Elasmosaurus. Cope included a drawing of the creature's skeleton. Another scientist soon pointed out that Cope had mistakenly stuck the beast's skull on its tail. Cope was humiliated, and Marsh crowed about the blunder to anyone who would listen. Shortly after, each man began publishing a string of scientific articles viciously attacking the other's ideas.
+
+Interim Assessment Unit 1
+
+5 Cope and Marsh's thirst to outdo each other spilled into their fieldwork. Throughout the 1870s and 1880s, they led and sent teams into lawless regions of the western United States to hunt for dinosaur bones. The teams were told to slow and disrupt each other's work through bribery, stealing, and rock-throwing. The teams even used dynamite to blow up cliffs and bury fossils to keep discoveries from falling into each other's hands. To this day, scientists wonder what fantastic discoveries lay beneath tons of rubble.
+
+6 In addition to sabotage, Cope and Marsh forced their teams to dig up and transport bones quickly. Such speed damaged many specimens, but each man wanted the credit of making the first discoveries of new species. Because they published their findings as quickly as possible, they made many mistakes. Marsh, for example, accidentally stuck the head of one dinosaur (Camarasaurus) on to the neck of another dinosaur (Apatosaurus) and thought he had discovered a new dinosaur—Brontosaurus. Unlike Cope's mistake with Elasmosaurus, paleontologists didn't discover and undo Marsh's Brontosaurus blunder for nearly 100 years.
+
+7 Until the mid-1880s, only scientists knew about Cope and Marsh's fight. But when Cope ratted out Marsh to the New York Herald, their battle spilled out into the world at large. Cope and Marsh assaulted each other through letters published in the newspaper. For a time, they were as famous as any celebrities of today. And even when the public eventually stopped caring, the feud didn't cease. The two men of science took swipes at each other until Cope's death in 1897. Even in death, Cope kept up the attack. He donated his skull to science and asked that his brain size be compared with Marsh's. (Scientists of that time believed that a person with a large brain was smarter than a person with a small one.) For whatever reason, Marsh did not accept Cope's challenge.
+
+8 The Bone Wars have a mixed legacy.
+
+On the one hand, American paleontology got a bad reputation from Cope and Marsh's cutthroat behavior. And the mistakes they made in their rush for glory slowed the progress of paleontology for many years. But the Bone Wars also produced a mountain of raw material.
+
+Cope and Marsh discovered more than
+
+130 dinosaur species. Their teams dug up so many bones that scientists are still learning new things about them. And many of their most famous discoveries, including Stegosaurus, Allosaurus, Diplodocus, and Triceratops, fire the imaginations of children (and more than a few adults) worldwide. Perhaps paleontology would have been worse off had the two men actually gotten along.",Which sentence best describes how the two paleontologists influenced each other?,,B,Cope and Marsh would do almost anything to become public celebrities.,The competition between Cope and Marsh pushed each man to make amazing discoveries.,Cope and Marsh's mistakes destroyed their credibility as paleontologists.,Cope and Marsh would have discovered even more dinosaur bones if they had worked together.,,3,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.794.3,7,1,5,Medium
+NAPLAN-Y7-READING-M3-Q09,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 2,7,English,Inference,Inferential Reasoning,ReadingComprehension,"1 If you've spent any time in grocery checkout lines, you've probably seen magazines with pictures of celebrities behaving badly toward each other. You might believe that scientists would be above that sort of thing, but you'd be wrong. About 150 years ago, two scientists started a nasty feud that lasted for decades— and brought to light some of the most spectacular creatures that ever walked the earth.
+
+2 Edward Cope and Othniel Marsh were paleontologists—scientists who study extinct life-forms, including dinosaurs. They met in 1864, when their careers were starting. Paleontology was a young science in the United States, and only a few dinosaurs had been discovered in North America. Othniel Marsh Edward Cope
+
+3 Cope and Marsh were friendly at first, but their relationship quickly soured. In 1868, Cope and a team of hired men were digging up dinosaurs in New Jersey. Marsh journeyed there and stayed with Cope for a few weeks. Things seemed to go well, but after Marsh left, Cope learned that his guest and the team foreman had made a deal. In exchange for money, the foreman would send new fossils to Marsh instead of Cope. Marsh had fired the first shot in what scientists would come to call the ""Bone Wars.""
+
+4 The war heated up fast. In 1869, Cope wrote an article describing a newly found extinct sea reptile he named Elasmosaurus. Cope included a drawing of the creature's skeleton. Another scientist soon pointed out that Cope had mistakenly stuck the beast's skull on its tail. Cope was humiliated, and Marsh crowed about the blunder to anyone who would listen. Shortly after, each man began publishing a string of scientific articles viciously attacking the other's ideas.
+
+Interim Assessment Unit 1
+
+5 Cope and Marsh's thirst to outdo each other spilled into their fieldwork. Throughout the 1870s and 1880s, they led and sent teams into lawless regions of the western United States to hunt for dinosaur bones. The teams were told to slow and disrupt each other's work through bribery, stealing, and rock-throwing. The teams even used dynamite to blow up cliffs and bury fossils to keep discoveries from falling into each other's hands. To this day, scientists wonder what fantastic discoveries lay beneath tons of rubble.
+
+6 In addition to sabotage, Cope and Marsh forced their teams to dig up and transport bones quickly. Such speed damaged many specimens, but each man wanted the credit of making the first discoveries of new species. Because they published their findings as quickly as possible, they made many mistakes. Marsh, for example, accidentally stuck the head of one dinosaur (Camarasaurus) on to the neck of another dinosaur (Apatosaurus) and thought he had discovered a new dinosaur—Brontosaurus. Unlike Cope's mistake with Elasmosaurus, paleontologists didn't discover and undo Marsh's Brontosaurus blunder for nearly 100 years.
+
+7 Until the mid-1880s, only scientists knew about Cope and Marsh's fight. But when Cope ratted out Marsh to the New York Herald, their battle spilled out into the world at large. Cope and Marsh assaulted each other through letters published in the newspaper. For a time, they were as famous as any celebrities of today. And even when the public eventually stopped caring, the feud didn't cease. The two men of science took swipes at each other until Cope's death in 1897. Even in death, Cope kept up the attack. He donated his skull to science and asked that his brain size be compared with Marsh's. (Scientists of that time believed that a person with a large brain was smarter than a person with a small one.) For whatever reason, Marsh did not accept Cope's challenge.
+
+8 The Bone Wars have a mixed legacy.
+
+On the one hand, American paleontology got a bad reputation from Cope and Marsh's cutthroat behavior. And the mistakes they made in their rush for glory slowed the progress of paleontology for many years. But the Bone Wars also produced a mountain of raw material.
+
+Cope and Marsh discovered more than
+
+130 dinosaur species. Their teams dug up so many bones that scientists are still learning new things about them. And many of their most famous discoveries, including Stegosaurus, Allosaurus, Diplodocus, and Triceratops, fire the imaginations of children (and more than a few adults) worldwide. Perhaps paleontology would have been worse off had the two men actually gotten along.",Each man thought he was better in his field than the other. Which evidence from the text best supports the inference that Cope also thought he was smarter than Marsh?,,C,Cope told the New York Herald about Marsh's actions.,Cope described a newly found extinct sea reptile he named Elasmosaurus.,Cope wanted his brain size to be compared with Marsh's after death.,Cope published scientific articles viciously attacking Marsh's ideas.,,2,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.794.4,7,1,4,Medium
+NAPLAN-Y7-READING-M3-Q10,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 2,7,English,Reading Comprehension,Evaluating Evidence,ReadingComprehension,"1 If you've spent any time in grocery checkout lines, you've probably seen magazines with pictures of celebrities behaving badly toward each other. You might believe that scientists would be above that sort of thing, but you'd be wrong. About 150 years ago, two scientists started a nasty feud that lasted for decades— and brought to light some of the most spectacular creatures that ever walked the earth.
+
+2 Edward Cope and Othniel Marsh were paleontologists—scientists who study extinct life-forms, including dinosaurs. They met in 1864, when their careers were starting. Paleontology was a young science in the United States, and only a few dinosaurs had been discovered in North America. Othniel Marsh Edward Cope
+
+3 Cope and Marsh were friendly at first, but their relationship quickly soured. In 1868, Cope and a team of hired men were digging up dinosaurs in New Jersey. Marsh journeyed there and stayed with Cope for a few weeks. Things seemed to go well, but after Marsh left, Cope learned that his guest and the team foreman had made a deal. In exchange for money, the foreman would send new fossils to Marsh instead of Cope. Marsh had fired the first shot in what scientists would come to call the ""Bone Wars.""
+
+4 The war heated up fast. In 1869, Cope wrote an article describing a newly found extinct sea reptile he named Elasmosaurus. Cope included a drawing of the creature's skeleton. Another scientist soon pointed out that Cope had mistakenly stuck the beast's skull on its tail. Cope was humiliated, and Marsh crowed about the blunder to anyone who would listen. Shortly after, each man began publishing a string of scientific articles viciously attacking the other's ideas.
+
+Interim Assessment Unit 1
+
+5 Cope and Marsh's thirst to outdo each other spilled into their fieldwork. Throughout the 1870s and 1880s, they led and sent teams into lawless regions of the western United States to hunt for dinosaur bones. The teams were told to slow and disrupt each other's work through bribery, stealing, and rock-throwing. The teams even used dynamite to blow up cliffs and bury fossils to keep discoveries from falling into each other's hands. To this day, scientists wonder what fantastic discoveries lay beneath tons of rubble.
+
+6 In addition to sabotage, Cope and Marsh forced their teams to dig up and transport bones quickly. Such speed damaged many specimens, but each man wanted the credit of making the first discoveries of new species. Because they published their findings as quickly as possible, they made many mistakes. Marsh, for example, accidentally stuck the head of one dinosaur (Camarasaurus) on to the neck of another dinosaur (Apatosaurus) and thought he had discovered a new dinosaur—Brontosaurus. Unlike Cope's mistake with Elasmosaurus, paleontologists didn't discover and undo Marsh's Brontosaurus blunder for nearly 100 years.
+
+7 Until the mid-1880s, only scientists knew about Cope and Marsh's fight. But when Cope ratted out Marsh to the New York Herald, their battle spilled out into the world at large. Cope and Marsh assaulted each other through letters published in the newspaper. For a time, they were as famous as any celebrities of today. And even when the public eventually stopped caring, the feud didn't cease. The two men of science took swipes at each other until Cope's death in 1897. Even in death, Cope kept up the attack. He donated his skull to science and asked that his brain size be compared with Marsh's. (Scientists of that time believed that a person with a large brain was smarter than a person with a small one.) For whatever reason, Marsh did not accept Cope's challenge.
+
+8 The Bone Wars have a mixed legacy.
+
+On the one hand, American paleontology got a bad reputation from Cope and Marsh's cutthroat behavior. And the mistakes they made in their rush for glory slowed the progress of paleontology for many years. But the Bone Wars also produced a mountain of raw material.
+
+Cope and Marsh discovered more than
+
+130 dinosaur species. Their teams dug up so many bones that scientists are still learning new things about them. And many of their most famous discoveries, including Stegosaurus, Allosaurus, Diplodocus, and Triceratops, fire the imaginations of children (and more than a few adults) worldwide. Perhaps paleontology would have been worse off had the two men actually gotten along.",Which detail from the article best supports the answer to Part A?,,C,Another scientist soon pointed out that Cope had mistakenly stuck the beast's skull on its tail.,"Cope was humiliated, and Marsh crowed about the blunder to anyone who would listen.","Because they published their findings as quickly as possible, they made many mistakes.","Unlike Cope's mistake with Elasmosaurus, paleontologists didn't discover and undo Marsh's Brontosaurus blunder for nearly 100 years.",,3,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.794.5,7,2,5,Medium
+NAPLAN-Y7-READING-M3-Q11,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 2,7,English,Reading Comprehension,Summarising,ReadingComprehension,"1 If you've spent any time in grocery checkout lines, you've probably seen magazines with pictures of celebrities behaving badly toward each other. You might believe that scientists would be above that sort of thing, but you'd be wrong. About 150 years ago, two scientists started a nasty feud that lasted for decades— and brought to light some of the most spectacular creatures that ever walked the earth.
+
+2 Edward Cope and Othniel Marsh were paleontologists—scientists who study extinct life-forms, including dinosaurs. They met in 1864, when their careers were starting. Paleontology was a young science in the United States, and only a few dinosaurs had been discovered in North America. Othniel Marsh Edward Cope
+
+3 Cope and Marsh were friendly at first, but their relationship quickly soured. In 1868, Cope and a team of hired men were digging up dinosaurs in New Jersey. Marsh journeyed there and stayed with Cope for a few weeks. Things seemed to go well, but after Marsh left, Cope learned that his guest and the team foreman had made a deal. In exchange for money, the foreman would send new fossils to Marsh instead of Cope. Marsh had fired the first shot in what scientists would come to call the ""Bone Wars.""
+
+4 The war heated up fast. In 1869, Cope wrote an article describing a newly found extinct sea reptile he named Elasmosaurus. Cope included a drawing of the creature's skeleton. Another scientist soon pointed out that Cope had mistakenly stuck the beast's skull on its tail. Cope was humiliated, and Marsh crowed about the blunder to anyone who would listen. Shortly after, each man began publishing a string of scientific articles viciously attacking the other's ideas.
+
+Interim Assessment Unit 1
+
+5 Cope and Marsh's thirst to outdo each other spilled into their fieldwork. Throughout the 1870s and 1880s, they led and sent teams into lawless regions of the western United States to hunt for dinosaur bones. The teams were told to slow and disrupt each other's work through bribery, stealing, and rock-throwing. The teams even used dynamite to blow up cliffs and bury fossils to keep discoveries from falling into each other's hands. To this day, scientists wonder what fantastic discoveries lay beneath tons of rubble.
+
+6 In addition to sabotage, Cope and Marsh forced their teams to dig up and transport bones quickly. Such speed damaged many specimens, but each man wanted the credit of making the first discoveries of new species. Because they published their findings as quickly as possible, they made many mistakes. Marsh, for example, accidentally stuck the head of one dinosaur (Camarasaurus) on to the neck of another dinosaur (Apatosaurus) and thought he had discovered a new dinosaur—Brontosaurus. Unlike Cope's mistake with Elasmosaurus, paleontologists didn't discover and undo Marsh's Brontosaurus blunder for nearly 100 years.
+
+7 Until the mid-1880s, only scientists knew about Cope and Marsh's fight. But when Cope ratted out Marsh to the New York Herald, their battle spilled out into the world at large. Cope and Marsh assaulted each other through letters published in the newspaper. For a time, they were as famous as any celebrities of today. And even when the public eventually stopped caring, the feud didn't cease. The two men of science took swipes at each other until Cope's death in 1897. Even in death, Cope kept up the attack. He donated his skull to science and asked that his brain size be compared with Marsh's. (Scientists of that time believed that a person with a large brain was smarter than a person with a small one.) For whatever reason, Marsh did not accept Cope's challenge.
+
+8 The Bone Wars have a mixed legacy.
+
+On the one hand, American paleontology got a bad reputation from Cope and Marsh's cutthroat behavior. And the mistakes they made in their rush for glory slowed the progress of paleontology for many years. But the Bone Wars also produced a mountain of raw material.
+
+Cope and Marsh discovered more than
+
+130 dinosaur species. Their teams dug up so many bones that scientists are still learning new things about them. And many of their most famous discoveries, including Stegosaurus, Allosaurus, Diplodocus, and Triceratops, fire the imaginations of children (and more than a few adults) worldwide. Perhaps paleontology would have been worse off had the two men actually gotten along.",A good summary includes only important details. Which of the following details is not important enough to include in a summary of the article?,,D,The rivalry between Cope and Marsh affected their fieldwork.,Cope and Marsh brought to light some amazing discoveries.,Each man's rush to claim glory caused mistakes to be made.,The men gained fame due to their letters in the New York Herald.,,3,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.794.6,7,2,5,Medium
+NAPLAN-Y7-READING-M3-Q12,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 2,7,English,Reading Comprehension,Text Structure,ReadingComprehension,"1 If you've spent any time in grocery checkout lines, you've probably seen magazines with pictures of celebrities behaving badly toward each other. You might believe that scientists would be above that sort of thing, but you'd be wrong. About 150 years ago, two scientists started a nasty feud that lasted for decades— and brought to light some of the most spectacular creatures that ever walked the earth.
+
+2 Edward Cope and Othniel Marsh were paleontologists—scientists who study extinct life-forms, including dinosaurs. They met in 1864, when their careers were starting. Paleontology was a young science in the United States, and only a few dinosaurs had been discovered in North America. Othniel Marsh Edward Cope
+
+3 Cope and Marsh were friendly at first, but their relationship quickly soured. In 1868, Cope and a team of hired men were digging up dinosaurs in New Jersey. Marsh journeyed there and stayed with Cope for a few weeks. Things seemed to go well, but after Marsh left, Cope learned that his guest and the team foreman had made a deal. In exchange for money, the foreman would send new fossils to Marsh instead of Cope. Marsh had fired the first shot in what scientists would come to call the ""Bone Wars.""
+
+4 The war heated up fast. In 1869, Cope wrote an article describing a newly found extinct sea reptile he named Elasmosaurus. Cope included a drawing of the creature's skeleton. Another scientist soon pointed out that Cope had mistakenly stuck the beast's skull on its tail. Cope was humiliated, and Marsh crowed about the blunder to anyone who would listen. Shortly after, each man began publishing a string of scientific articles viciously attacking the other's ideas.
+
+Interim Assessment Unit 1
+
+5 Cope and Marsh's thirst to outdo each other spilled into their fieldwork. Throughout the 1870s and 1880s, they led and sent teams into lawless regions of the western United States to hunt for dinosaur bones. The teams were told to slow and disrupt each other's work through bribery, stealing, and rock-throwing. The teams even used dynamite to blow up cliffs and bury fossils to keep discoveries from falling into each other's hands. To this day, scientists wonder what fantastic discoveries lay beneath tons of rubble.
+
+6 In addition to sabotage, Cope and Marsh forced their teams to dig up and transport bones quickly. Such speed damaged many specimens, but each man wanted the credit of making the first discoveries of new species. Because they published their findings as quickly as possible, they made many mistakes. Marsh, for example, accidentally stuck the head of one dinosaur (Camarasaurus) on to the neck of another dinosaur (Apatosaurus) and thought he had discovered a new dinosaur—Brontosaurus. Unlike Cope's mistake with Elasmosaurus, paleontologists didn't discover and undo Marsh's Brontosaurus blunder for nearly 100 years.
+
+7 Until the mid-1880s, only scientists knew about Cope and Marsh's fight. But when Cope ratted out Marsh to the New York Herald, their battle spilled out into the world at large. Cope and Marsh assaulted each other through letters published in the newspaper. For a time, they were as famous as any celebrities of today. And even when the public eventually stopped caring, the feud didn't cease. The two men of science took swipes at each other until Cope's death in 1897. Even in death, Cope kept up the attack. He donated his skull to science and asked that his brain size be compared with Marsh's. (Scientists of that time believed that a person with a large brain was smarter than a person with a small one.) For whatever reason, Marsh did not accept Cope's challenge.
+
+8 The Bone Wars have a mixed legacy.
+
+On the one hand, American paleontology got a bad reputation from Cope and Marsh's cutthroat behavior. And the mistakes they made in their rush for glory slowed the progress of paleontology for many years. But the Bone Wars also produced a mountain of raw material.
+
+Cope and Marsh discovered more than
+
+130 dinosaur species. Their teams dug up so many bones that scientists are still learning new things about them. And many of their most famous discoveries, including Stegosaurus, Allosaurus, Diplodocus, and Triceratops, fire the imaginations of children (and more than a few adults) worldwide. Perhaps paleontology would have been worse off had the two men actually gotten along.","Which of the following lists only the main topics of ""The Bone Wars"" in the correct order?",,D,"Cope and Marsh meet in 1864. Their feud begins in 1868. Cope publishes a mistake in 1869. The feud moves into fieldwork during the 1870s and 1880s. Cope dies in 1897, leaving Marsh the winner of the Bone Wars.",Marsh begins the feud. The feud is fought through scientific articles. The fighting turns violent in fieldwork out West. Cope dies and wants his brain compared with Marsh's. The Bone Wars both helps and hurts the reputation of paleontology.,"The feud turns Cope and Marsh into celebrities. Marsh secretly tries to hire Cope's foreman. Cope publishes a mistake in a scientific journal. Cope and Marsh begin fighting the Bone Wars. Cope dies, so Marsh wins the Bone Wars.",A feud begins between Cope and Marsh. Cope and Marsh compete in both articles and fieldwork. The fight leads to both mistakes and damaged specimens. The feud goes public and ends only with Cope's death. The Bone Wars slowed scientific progress but provided valuable fossils.,,3,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.794.7,7,2,6,Medium
+NAPLAN-Y7-READING-M3-Q13,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 3,7,English,Inference,Drawing Conclusions,ReadingComprehension,"Read this article. Then answer questions 36 through 42.
+
+Robotic Fish to Keep a Fishy Eye on the Health of the Oceans by JoAnna Klein
+
+1 You're a fish in the ocean.
+
+2 It's 2023 and humans have begun deploying swarms of sentinel robot fish along the reef where you live that will monitor your environment, track pollution and collect intelligence on your behavior. Welcome to the future, my finned fishy friends.
+
+3 O.K., so you're not a fish. And this sci-fi fishland doesn't exist. But it could—not long from now.
+
+4 Allow me to introduce SoFi—like ""Sophie,"" but short for ""Soft Robotic Fish,"" revealed in Science Robotics, by scientists at the Massachusetts Institute of Technology Computer Science and Artificial Intelligence Lab.
+
+5 They explained how their finned robot was created, and how her first ocean swim on a coral reef outside of Fiji went. Robotic fish like her could be essential to understanding and protecting marine life in danger of disappearing in a fragile ocean environment, threatened by human activity and climate change.
+
+6 This foot-and-a-half long robot mimics a real fish. She can swim in the ocean at speeds up to half-its-body-length a second and at depths up to 60 feet below the surface. SoFi has a battery that will last 45 minutes before she shuts down.
+
+7 She's not quite fish flesh, but she's not a typical marine robot either. Although critical for studying the ocean, remote operated vehicles and submersibles^1 can be expensive to build and operate. They also can startle the sea creatures they're supposed to study. But without a line giving her away by connecting her to a boat, a noisy propeller or the big, rigid, awkward or angular body of a metallic land-alien, she doesn't seem to bother or scare off real fish. Some even swim along with her. Sleek, untethered, relatively inexpensive and well-tolerated, SoFi may provide biologists a fish's-eye view of animal interactions in changing marine ecosystems.
+
+8 For this group of MIT roboticists, SoFi was a dream, combining their love of diving with their work on soft robots. She was also an engineering challenge.
+
+9 SoFi started as a nine-inch silicon tail that wiggled with the assistance of a hydraulic pump.
+
+Page 8 Session 2
+
+10 ""I was amazed at how well it was working, how well I was able to get this tail to beat back and forth or swim left and right, like a shark or some other fish,"" said Robert Katzschmann, a graduate student at MIT who led the team. ""But we wanted to show this wasn't just working on a test bench or table top.""
+
+11 SoFi had to swim in the ocean—at multiple depths.
+
+12 This meant waterproofing, buoyancy control, tweaking weight distributions and figuring out an unobtrusive^2 way to share information underwater. It also meant compact equipment.
+
+13 ""We wanted to build a fish,"" said Mr. Katzschmann. ""And the fish can't be as big as a submarine—unless we wanted to build a whale.""
+
+14 A couple years later SoFi had a finned body and head equipped with a camera, twoway hydrophone, battery, environmental sensors, operating system and communication system that allowed a diver to issue commands using a souped-up Super Nintendo controller.
+
+15 The communication system was the biggest challenge, said Mr. Katzschmann, because normally it requires a cable. Common remote signals used for piloting aerial drones don't travel below water.
+
+16 But sound waves do.
+
+17 They built their own language, sending coded messages on high-pitched sound waves between SoFi and the diver. Different bits of information were assigned their own tones, kind of like how numbers are represented by dial tones when you make a phone call. A processing system decoded and relayed the messages to tell the diver things like ""SoFi is currently swimming forward"" or command her to ""turn left, 20 degrees.""
+
+18 The high-pitched signals only travel about 65 feet and are inaudible to fish, although it's possible some whales or dolphins could hear them, which may require future research.
+
+19 ""Our primary goal was to make something for biologists,"" said Mr. Katzschmann. He envisions a future network of sensor-clad SoFis for studying schooling dynamics^3 or monitoring pollution over time. Currently he's working on primitive A.I. so SoFi can use her footage to identify and track real fish.
+
+20 But what if a real fish—or a shark—tracks SoFi instead?
+
+21 ""If a shark would have come and ate our fish, that would have been the most amazing footage,"" Mr. Katzschmann said.
+
+____ submersibles: boats designed to do underwater research 1 unobtrusive: barely noticeable 2 schooling dynamics: forces that influence change as fish travel together in 3 schools","In paragraph 21, Mr. Katzschmann reacts positively to the idea that a shark might eat SoFi 41 because that would",,D,lead to further funding and research,test the strength of the underwater system,help biologists understand how to protect marine life,support the goal of studying animal interactions,,3,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.849.1,62,1,5,Medium
+NAPLAN-Y7-READING-M3-Q14,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 3,7,English,Literary Techniques,Figurative Language,ReadingComprehension,"Read this article. Then answer questions 36 through 42.
+
+Robotic Fish to Keep a Fishy Eye on the Health of the Oceans by JoAnna Klein
+
+1 You're a fish in the ocean.
+
+2 It's 2023 and humans have begun deploying swarms of sentinel robot fish along the reef where you live that will monitor your environment, track pollution and collect intelligence on your behavior. Welcome to the future, my finned fishy friends.
+
+3 O.K., so you're not a fish. And this sci-fi fishland doesn't exist. But it could—not long from now.
+
+4 Allow me to introduce SoFi—like ""Sophie,"" but short for ""Soft Robotic Fish,"" revealed in Science Robotics, by scientists at the Massachusetts Institute of Technology Computer Science and Artificial Intelligence Lab.
+
+5 They explained how their finned robot was created, and how her first ocean swim on a coral reef outside of Fiji went. Robotic fish like her could be essential to understanding and protecting marine life in danger of disappearing in a fragile ocean environment, threatened by human activity and climate change.
+
+6 This foot-and-a-half long robot mimics a real fish. She can swim in the ocean at speeds up to half-its-body-length a second and at depths up to 60 feet below the surface. SoFi has a battery that will last 45 minutes before she shuts down.
+
+7 She's not quite fish flesh, but she's not a typical marine robot either. Although critical for studying the ocean, remote operated vehicles and submersibles^1 can be expensive to build and operate. They also can startle the sea creatures they're supposed to study. But without a line giving her away by connecting her to a boat, a noisy propeller or the big, rigid, awkward or angular body of a metallic land-alien, she doesn't seem to bother or scare off real fish. Some even swim along with her. Sleek, untethered, relatively inexpensive and well-tolerated, SoFi may provide biologists a fish's-eye view of animal interactions in changing marine ecosystems.
+
+8 For this group of MIT roboticists, SoFi was a dream, combining their love of diving with their work on soft robots. She was also an engineering challenge.
+
+9 SoFi started as a nine-inch silicon tail that wiggled with the assistance of a hydraulic pump.
+
+Page 8 Session 2
+
+10 ""I was amazed at how well it was working, how well I was able to get this tail to beat back and forth or swim left and right, like a shark or some other fish,"" said Robert Katzschmann, a graduate student at MIT who led the team. ""But we wanted to show this wasn't just working on a test bench or table top.""
+
+11 SoFi had to swim in the ocean—at multiple depths.
+
+12 This meant waterproofing, buoyancy control, tweaking weight distributions and figuring out an unobtrusive^2 way to share information underwater. It also meant compact equipment.
+
+13 ""We wanted to build a fish,"" said Mr. Katzschmann. ""And the fish can't be as big as a submarine—unless we wanted to build a whale.""
+
+14 A couple years later SoFi had a finned body and head equipped with a camera, twoway hydrophone, battery, environmental sensors, operating system and communication system that allowed a diver to issue commands using a souped-up Super Nintendo controller.
+
+15 The communication system was the biggest challenge, said Mr. Katzschmann, because normally it requires a cable. Common remote signals used for piloting aerial drones don't travel below water.
+
+16 But sound waves do.
+
+17 They built their own language, sending coded messages on high-pitched sound waves between SoFi and the diver. Different bits of information were assigned their own tones, kind of like how numbers are represented by dial tones when you make a phone call. A processing system decoded and relayed the messages to tell the diver things like ""SoFi is currently swimming forward"" or command her to ""turn left, 20 degrees.""
+
+18 The high-pitched signals only travel about 65 feet and are inaudible to fish, although it's possible some whales or dolphins could hear them, which may require future research.
+
+19 ""Our primary goal was to make something for biologists,"" said Mr. Katzschmann. He envisions a future network of sensor-clad SoFis for studying schooling dynamics^3 or monitoring pollution over time. Currently he's working on primitive A.I. so SoFi can use her footage to identify and track real fish.
+
+20 But what if a real fish—or a shark—tracks SoFi instead?
+
+21 ""If a shark would have come and ate our fish, that would have been the most amazing footage,"" Mr. Katzschmann said.
+
+____ submersibles: boats designed to do underwater research 1 unobtrusive: barely noticeable 2 schooling dynamics: forces that influence change as fish travel together in 3 schools","Why does the author use the phrase ""my finned fishy friends"" in paragraph 2?",,B,to highlight the serious issues facing ocean life,to make readers feel a connection to the article,to establish the importance of SoFi's fin technology,to help readers understand the ocean environment,,3,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.849.2,62,1,5,Medium
+NAPLAN-Y7-READING-M3-Q15,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 3,7,English,Persuasive Language,Bias and Perspective,ReadingComprehension,"Read this article. Then answer questions 36 through 42.
+
+Robotic Fish to Keep a Fishy Eye on the Health of the Oceans by JoAnna Klein
+
+1 You're a fish in the ocean.
+
+2 It's 2023 and humans have begun deploying swarms of sentinel robot fish along the reef where you live that will monitor your environment, track pollution and collect intelligence on your behavior. Welcome to the future, my finned fishy friends.
+
+3 O.K., so you're not a fish. And this sci-fi fishland doesn't exist. But it could—not long from now.
+
+4 Allow me to introduce SoFi—like ""Sophie,"" but short for ""Soft Robotic Fish,"" revealed in Science Robotics, by scientists at the Massachusetts Institute of Technology Computer Science and Artificial Intelligence Lab.
+
+5 They explained how their finned robot was created, and how her first ocean swim on a coral reef outside of Fiji went. Robotic fish like her could be essential to understanding and protecting marine life in danger of disappearing in a fragile ocean environment, threatened by human activity and climate change.
+
+6 This foot-and-a-half long robot mimics a real fish. She can swim in the ocean at speeds up to half-its-body-length a second and at depths up to 60 feet below the surface. SoFi has a battery that will last 45 minutes before she shuts down.
+
+7 She's not quite fish flesh, but she's not a typical marine robot either. Although critical for studying the ocean, remote operated vehicles and submersibles^1 can be expensive to build and operate. They also can startle the sea creatures they're supposed to study. But without a line giving her away by connecting her to a boat, a noisy propeller or the big, rigid, awkward or angular body of a metallic land-alien, she doesn't seem to bother or scare off real fish. Some even swim along with her. Sleek, untethered, relatively inexpensive and well-tolerated, SoFi may provide biologists a fish's-eye view of animal interactions in changing marine ecosystems.
+
+8 For this group of MIT roboticists, SoFi was a dream, combining their love of diving with their work on soft robots. She was also an engineering challenge.
+
+9 SoFi started as a nine-inch silicon tail that wiggled with the assistance of a hydraulic pump.
+
+Page 8 Session 2
+
+10 ""I was amazed at how well it was working, how well I was able to get this tail to beat back and forth or swim left and right, like a shark or some other fish,"" said Robert Katzschmann, a graduate student at MIT who led the team. ""But we wanted to show this wasn't just working on a test bench or table top.""
+
+11 SoFi had to swim in the ocean—at multiple depths.
+
+12 This meant waterproofing, buoyancy control, tweaking weight distributions and figuring out an unobtrusive^2 way to share information underwater. It also meant compact equipment.
+
+13 ""We wanted to build a fish,"" said Mr. Katzschmann. ""And the fish can't be as big as a submarine—unless we wanted to build a whale.""
+
+14 A couple years later SoFi had a finned body and head equipped with a camera, twoway hydrophone, battery, environmental sensors, operating system and communication system that allowed a diver to issue commands using a souped-up Super Nintendo controller.
+
+15 The communication system was the biggest challenge, said Mr. Katzschmann, because normally it requires a cable. Common remote signals used for piloting aerial drones don't travel below water.
+
+16 But sound waves do.
+
+17 They built their own language, sending coded messages on high-pitched sound waves between SoFi and the diver. Different bits of information were assigned their own tones, kind of like how numbers are represented by dial tones when you make a phone call. A processing system decoded and relayed the messages to tell the diver things like ""SoFi is currently swimming forward"" or command her to ""turn left, 20 degrees.""
+
+18 The high-pitched signals only travel about 65 feet and are inaudible to fish, although it's possible some whales or dolphins could hear them, which may require future research.
+
+19 ""Our primary goal was to make something for biologists,"" said Mr. Katzschmann. He envisions a future network of sensor-clad SoFis for studying schooling dynamics^3 or monitoring pollution over time. Currently he's working on primitive A.I. so SoFi can use her footage to identify and track real fish.
+
+20 But what if a real fish—or a shark—tracks SoFi instead?
+
+21 ""If a shark would have come and ate our fish, that would have been the most amazing footage,"" Mr. Katzschmann said.
+
+____ submersibles: boats designed to do underwater research 1 unobtrusive: barely noticeable 2 schooling dynamics: forces that influence change as fish travel together in 3 schools",Which detail from the article best shows the author's point of view about SoFi?,,A,"""Robotic fish like her could be essential to understanding and protecting marine life in A danger of disappearing . . ."" (paragraph 5)","""This foot-and-a-half long robot mimics a real fish."" (paragraph 6)","""I was amazed at how well it was working, how well I was able to get this tail to beat back C and forth or swim left and right . . ."" (paragraph 10)","""And the fish can't be as big as a submarine—unless we wanted to build a whale."" D (paragraph 13)",,2,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.849.3,62,1,4,Medium
+NAPLAN-Y7-READING-M3-Q16,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 3,7,English,Reading Comprehension,Main Idea,ReadingComprehension,"Read this article. Then answer questions 36 through 42.
+
+Robotic Fish to Keep a Fishy Eye on the Health of the Oceans by JoAnna Klein
+
+1 You're a fish in the ocean.
+
+2 It's 2023 and humans have begun deploying swarms of sentinel robot fish along the reef where you live that will monitor your environment, track pollution and collect intelligence on your behavior. Welcome to the future, my finned fishy friends.
+
+3 O.K., so you're not a fish. And this sci-fi fishland doesn't exist. But it could—not long from now.
+
+4 Allow me to introduce SoFi—like ""Sophie,"" but short for ""Soft Robotic Fish,"" revealed in Science Robotics, by scientists at the Massachusetts Institute of Technology Computer Science and Artificial Intelligence Lab.
+
+5 They explained how their finned robot was created, and how her first ocean swim on a coral reef outside of Fiji went. Robotic fish like her could be essential to understanding and protecting marine life in danger of disappearing in a fragile ocean environment, threatened by human activity and climate change.
+
+6 This foot-and-a-half long robot mimics a real fish. She can swim in the ocean at speeds up to half-its-body-length a second and at depths up to 60 feet below the surface. SoFi has a battery that will last 45 minutes before she shuts down.
+
+7 She's not quite fish flesh, but she's not a typical marine robot either. Although critical for studying the ocean, remote operated vehicles and submersibles^1 can be expensive to build and operate. They also can startle the sea creatures they're supposed to study. But without a line giving her away by connecting her to a boat, a noisy propeller or the big, rigid, awkward or angular body of a metallic land-alien, she doesn't seem to bother or scare off real fish. Some even swim along with her. Sleek, untethered, relatively inexpensive and well-tolerated, SoFi may provide biologists a fish's-eye view of animal interactions in changing marine ecosystems.
+
+8 For this group of MIT roboticists, SoFi was a dream, combining their love of diving with their work on soft robots. She was also an engineering challenge.
+
+9 SoFi started as a nine-inch silicon tail that wiggled with the assistance of a hydraulic pump.
+
+Page 8 Session 2
+
+10 ""I was amazed at how well it was working, how well I was able to get this tail to beat back and forth or swim left and right, like a shark or some other fish,"" said Robert Katzschmann, a graduate student at MIT who led the team. ""But we wanted to show this wasn't just working on a test bench or table top.""
+
+11 SoFi had to swim in the ocean—at multiple depths.
+
+12 This meant waterproofing, buoyancy control, tweaking weight distributions and figuring out an unobtrusive^2 way to share information underwater. It also meant compact equipment.
+
+13 ""We wanted to build a fish,"" said Mr. Katzschmann. ""And the fish can't be as big as a submarine—unless we wanted to build a whale.""
+
+14 A couple years later SoFi had a finned body and head equipped with a camera, twoway hydrophone, battery, environmental sensors, operating system and communication system that allowed a diver to issue commands using a souped-up Super Nintendo controller.
+
+15 The communication system was the biggest challenge, said Mr. Katzschmann, because normally it requires a cable. Common remote signals used for piloting aerial drones don't travel below water.
+
+16 But sound waves do.
+
+17 They built their own language, sending coded messages on high-pitched sound waves between SoFi and the diver. Different bits of information were assigned their own tones, kind of like how numbers are represented by dial tones when you make a phone call. A processing system decoded and relayed the messages to tell the diver things like ""SoFi is currently swimming forward"" or command her to ""turn left, 20 degrees.""
+
+18 The high-pitched signals only travel about 65 feet and are inaudible to fish, although it's possible some whales or dolphins could hear them, which may require future research.
+
+19 ""Our primary goal was to make something for biologists,"" said Mr. Katzschmann. He envisions a future network of sensor-clad SoFis for studying schooling dynamics^3 or monitoring pollution over time. Currently he's working on primitive A.I. so SoFi can use her footage to identify and track real fish.
+
+20 But what if a real fish—or a shark—tracks SoFi instead?
+
+21 ""If a shark would have come and ate our fish, that would have been the most amazing footage,"" Mr. Katzschmann said.
+
+____ submersibles: boats designed to do underwater research 1 unobtrusive: barely noticeable 2 schooling dynamics: forces that influence change as fish travel together in 3 schools",Which statement best explains how the ideas in paragraph 8 relate to the details in paragraphs 12 39 through 14?,,C,Engineers want to build a robot to explore marine life.,Engineers create a system to guide SoFi underwater.,Engineers focus on design requirements to achieve their goal.,Engineers develop SoFi to think and act like a small fish.,,3,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.849.4,62,1,5,Medium
+NAPLAN-Y7-READING-M3-Q17,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 3,7,English,Reading Comprehension,Main Idea,ReadingComprehension,"Read this article. Then answer questions 36 through 42.
+
+Robotic Fish to Keep a Fishy Eye on the Health of the Oceans by JoAnna Klein
+
+1 You're a fish in the ocean.
+
+2 It's 2023 and humans have begun deploying swarms of sentinel robot fish along the reef where you live that will monitor your environment, track pollution and collect intelligence on your behavior. Welcome to the future, my finned fishy friends.
+
+3 O.K., so you're not a fish. And this sci-fi fishland doesn't exist. But it could—not long from now.
+
+4 Allow me to introduce SoFi—like ""Sophie,"" but short for ""Soft Robotic Fish,"" revealed in Science Robotics, by scientists at the Massachusetts Institute of Technology Computer Science and Artificial Intelligence Lab.
+
+5 They explained how their finned robot was created, and how her first ocean swim on a coral reef outside of Fiji went. Robotic fish like her could be essential to understanding and protecting marine life in danger of disappearing in a fragile ocean environment, threatened by human activity and climate change.
+
+6 This foot-and-a-half long robot mimics a real fish. She can swim in the ocean at speeds up to half-its-body-length a second and at depths up to 60 feet below the surface. SoFi has a battery that will last 45 minutes before she shuts down.
+
+7 She's not quite fish flesh, but she's not a typical marine robot either. Although critical for studying the ocean, remote operated vehicles and submersibles^1 can be expensive to build and operate. They also can startle the sea creatures they're supposed to study. But without a line giving her away by connecting her to a boat, a noisy propeller or the big, rigid, awkward or angular body of a metallic land-alien, she doesn't seem to bother or scare off real fish. Some even swim along with her. Sleek, untethered, relatively inexpensive and well-tolerated, SoFi may provide biologists a fish's-eye view of animal interactions in changing marine ecosystems.
+
+8 For this group of MIT roboticists, SoFi was a dream, combining their love of diving with their work on soft robots. She was also an engineering challenge.
+
+9 SoFi started as a nine-inch silicon tail that wiggled with the assistance of a hydraulic pump.
+
+Page 8 Session 2
+
+10 ""I was amazed at how well it was working, how well I was able to get this tail to beat back and forth or swim left and right, like a shark or some other fish,"" said Robert Katzschmann, a graduate student at MIT who led the team. ""But we wanted to show this wasn't just working on a test bench or table top.""
+
+11 SoFi had to swim in the ocean—at multiple depths.
+
+12 This meant waterproofing, buoyancy control, tweaking weight distributions and figuring out an unobtrusive^2 way to share information underwater. It also meant compact equipment.
+
+13 ""We wanted to build a fish,"" said Mr. Katzschmann. ""And the fish can't be as big as a submarine—unless we wanted to build a whale.""
+
+14 A couple years later SoFi had a finned body and head equipped with a camera, twoway hydrophone, battery, environmental sensors, operating system and communication system that allowed a diver to issue commands using a souped-up Super Nintendo controller.
+
+15 The communication system was the biggest challenge, said Mr. Katzschmann, because normally it requires a cable. Common remote signals used for piloting aerial drones don't travel below water.
+
+16 But sound waves do.
+
+17 They built their own language, sending coded messages on high-pitched sound waves between SoFi and the diver. Different bits of information were assigned their own tones, kind of like how numbers are represented by dial tones when you make a phone call. A processing system decoded and relayed the messages to tell the diver things like ""SoFi is currently swimming forward"" or command her to ""turn left, 20 degrees.""
+
+18 The high-pitched signals only travel about 65 feet and are inaudible to fish, although it's possible some whales or dolphins could hear them, which may require future research.
+
+19 ""Our primary goal was to make something for biologists,"" said Mr. Katzschmann. He envisions a future network of sensor-clad SoFis for studying schooling dynamics^3 or monitoring pollution over time. Currently he's working on primitive A.I. so SoFi can use her footage to identify and track real fish.
+
+20 But what if a real fish—or a shark—tracks SoFi instead?
+
+21 ""If a shark would have come and ate our fish, that would have been the most amazing footage,"" Mr. Katzschmann said.
+
+____ submersibles: boats designed to do underwater research 1 unobtrusive: barely noticeable 2 schooling dynamics: forces that influence change as fish travel together in 3 schools",One aspect of technology that is often stressed is its negative impact on the environment. Which 40 detail from the article presents a contrast to this idea?,,B,"""They explained how their finned robot was created, and how her first ocean swim on a A coral reef outside of Fiji went."" (paragraph 5)","""But without a line giving her away by connecting her to a boat . . . she doesn't seem to B bother or scare off real fish."" (paragraph 7)","""SoFi started as a nine-inch silicon tail that wiggled with the assistance of a hydraulic C pump."" (paragraph 9)","""The high-pitched signals only travel about 65 feet and are inaudible to fish, although it's D possible some whales or dolphins could hear them . . ."" (paragraph 18)",,3,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.849.5,62,1,5,Medium
+NAPLAN-Y7-READING-M3-Q18,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 3,7,English,Reading Comprehension,Summarising,ReadingComprehension,"Read this article. Then answer questions 36 through 42.
+
+Robotic Fish to Keep a Fishy Eye on the Health of the Oceans by JoAnna Klein
+
+1 You're a fish in the ocean.
+
+2 It's 2023 and humans have begun deploying swarms of sentinel robot fish along the reef where you live that will monitor your environment, track pollution and collect intelligence on your behavior. Welcome to the future, my finned fishy friends.
+
+3 O.K., so you're not a fish. And this sci-fi fishland doesn't exist. But it could—not long from now.
+
+4 Allow me to introduce SoFi—like ""Sophie,"" but short for ""Soft Robotic Fish,"" revealed in Science Robotics, by scientists at the Massachusetts Institute of Technology Computer Science and Artificial Intelligence Lab.
+
+5 They explained how their finned robot was created, and how her first ocean swim on a coral reef outside of Fiji went. Robotic fish like her could be essential to understanding and protecting marine life in danger of disappearing in a fragile ocean environment, threatened by human activity and climate change.
+
+6 This foot-and-a-half long robot mimics a real fish. She can swim in the ocean at speeds up to half-its-body-length a second and at depths up to 60 feet below the surface. SoFi has a battery that will last 45 minutes before she shuts down.
+
+7 She's not quite fish flesh, but she's not a typical marine robot either. Although critical for studying the ocean, remote operated vehicles and submersibles^1 can be expensive to build and operate. They also can startle the sea creatures they're supposed to study. But without a line giving her away by connecting her to a boat, a noisy propeller or the big, rigid, awkward or angular body of a metallic land-alien, she doesn't seem to bother or scare off real fish. Some even swim along with her. Sleek, untethered, relatively inexpensive and well-tolerated, SoFi may provide biologists a fish's-eye view of animal interactions in changing marine ecosystems.
+
+8 For this group of MIT roboticists, SoFi was a dream, combining their love of diving with their work on soft robots. She was also an engineering challenge.
+
+9 SoFi started as a nine-inch silicon tail that wiggled with the assistance of a hydraulic pump.
+
+Page 8 Session 2
+
+10 ""I was amazed at how well it was working, how well I was able to get this tail to beat back and forth or swim left and right, like a shark or some other fish,"" said Robert Katzschmann, a graduate student at MIT who led the team. ""But we wanted to show this wasn't just working on a test bench or table top.""
+
+11 SoFi had to swim in the ocean—at multiple depths.
+
+12 This meant waterproofing, buoyancy control, tweaking weight distributions and figuring out an unobtrusive^2 way to share information underwater. It also meant compact equipment.
+
+13 ""We wanted to build a fish,"" said Mr. Katzschmann. ""And the fish can't be as big as a submarine—unless we wanted to build a whale.""
+
+14 A couple years later SoFi had a finned body and head equipped with a camera, twoway hydrophone, battery, environmental sensors, operating system and communication system that allowed a diver to issue commands using a souped-up Super Nintendo controller.
+
+15 The communication system was the biggest challenge, said Mr. Katzschmann, because normally it requires a cable. Common remote signals used for piloting aerial drones don't travel below water.
+
+16 But sound waves do.
+
+17 They built their own language, sending coded messages on high-pitched sound waves between SoFi and the diver. Different bits of information were assigned their own tones, kind of like how numbers are represented by dial tones when you make a phone call. A processing system decoded and relayed the messages to tell the diver things like ""SoFi is currently swimming forward"" or command her to ""turn left, 20 degrees.""
+
+18 The high-pitched signals only travel about 65 feet and are inaudible to fish, although it's possible some whales or dolphins could hear them, which may require future research.
+
+19 ""Our primary goal was to make something for biologists,"" said Mr. Katzschmann. He envisions a future network of sensor-clad SoFis for studying schooling dynamics^3 or monitoring pollution over time. Currently he's working on primitive A.I. so SoFi can use her footage to identify and track real fish.
+
+20 But what if a real fish—or a shark—tracks SoFi instead?
+
+21 ""If a shark would have come and ate our fish, that would have been the most amazing footage,"" Mr. Katzschmann said.
+
+____ submersibles: boats designed to do underwater research 1 unobtrusive: barely noticeable 2 schooling dynamics: forces that influence change as fish travel together in 3 schools",Which idea would be most important to include in a summary of the article?,,C,SoFi uses coded messages to communicate.,SoFi receives commands from a remote control.,SoFi is an important tool for understanding ocean life.,SoFi is designed to swim at different speeds in the ocean.,,2,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.849.6,62,1,4,Medium
+NAPLAN-Y7-READING-M3-Q19,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 4,7,English,Reading Comprehension,Point of View,ReadingComprehension,"Out of Tune
+My cello and I arrived at Riverside Hall forty minutes early, which turned out to be thirty-nine minutes too many. There is only so long you can sit in a cramped backstage room, listening to other people warm up, before your stomach starts turning cartwheels.
+I was playing 'The Swan', a slow, gentle piece I had practised every day for two months. Ms Varga, my teacher, had made me play it so many times that I could hear it in my sleep. At our last lesson, she had given me one piece of advice. 'If something goes wrong, don't stop,' she said. 'An audience follows the music, not the mistakes. If you keep going, most of them will never know.'
+I nodded, but privately I thought nothing would go wrong. I knew every note.
+Backstage, the only free chair was beside an old electric heater that clanked and hissed in the corner. I propped my cello against the wall next to it and spent the next half-hour reading the program over and over, as if my name might vanish from it.
+At last the stage manager called, 'Sam Taylor, you're on.'
+The lights were brighter than I had expected, and the hall was full. Somewhere in the third row sat my grandfather, who had driven two hours to be there. I placed my bow on the strings and began.
+The first few lines went beautifully. The notes floated out over the audience exactly the way Ms Varga had taught me. Then, halfway through, I reached for a high note on the A string, and something was badly wrong. The note came out flat, sour and wobbly, like a singer who has forgotten the tune. I tried the next note. That was flat too. My string had slipped out of tune.
+For one terrible second my bow froze. I could feel hundreds of eyes on me. My hand wanted to stop, put the cello down and run.
+Then I heard Ms Varga's voice in my head: don't stop.
+So I didn't. I kept the bow moving and listened harder than I had ever listened in my life. If the string was low, I would have to place my fingers a little higher to find the right sound. It felt strange and awkward, like writing with the wrong hand, but slowly the notes began to sound right again. I reached the final long note, let it fade into silence and lifted my bow.
+The applause was loud and warm. My grandfather was clapping above his head.
+Afterwards, Ms Varga found me in the corridor. She tapped the cello's tuning peg and raised an eyebrow. 'You left it next to the heater, didn't you?' Then she smiled. 'Nicely rescued.'
+My grandfather told me it was the best thing he had heard all year. He hadn't noticed a thing.",The story is told from the point of view of,,B,"Ms Varga, the teacher","Sam, the young cellist",Sam's proud grandfather,the stage manager,,1,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.1505.1,122,1,2,Easy
+NAPLAN-Y7-READING-M3-Q20,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 4,7,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Out of Tune
+My cello and I arrived at Riverside Hall forty minutes early, which turned out to be thirty-nine minutes too many. There is only so long you can sit in a cramped backstage room, listening to other people warm up, before your stomach starts turning cartwheels.
+I was playing 'The Swan', a slow, gentle piece I had practised every day for two months. Ms Varga, my teacher, had made me play it so many times that I could hear it in my sleep. At our last lesson, she had given me one piece of advice. 'If something goes wrong, don't stop,' she said. 'An audience follows the music, not the mistakes. If you keep going, most of them will never know.'
+I nodded, but privately I thought nothing would go wrong. I knew every note.
+Backstage, the only free chair was beside an old electric heater that clanked and hissed in the corner. I propped my cello against the wall next to it and spent the next half-hour reading the program over and over, as if my name might vanish from it.
+At last the stage manager called, 'Sam Taylor, you're on.'
+The lights were brighter than I had expected, and the hall was full. Somewhere in the third row sat my grandfather, who had driven two hours to be there. I placed my bow on the strings and began.
+The first few lines went beautifully. The notes floated out over the audience exactly the way Ms Varga had taught me. Then, halfway through, I reached for a high note on the A string, and something was badly wrong. The note came out flat, sour and wobbly, like a singer who has forgotten the tune. I tried the next note. That was flat too. My string had slipped out of tune.
+For one terrible second my bow froze. I could feel hundreds of eyes on me. My hand wanted to stop, put the cello down and run.
+Then I heard Ms Varga's voice in my head: don't stop.
+So I didn't. I kept the bow moving and listened harder than I had ever listened in my life. If the string was low, I would have to place my fingers a little higher to find the right sound. It felt strange and awkward, like writing with the wrong hand, but slowly the notes began to sound right again. I reached the final long note, let it fade into silence and lifted my bow.
+The applause was loud and warm. My grandfather was clapping above his head.
+Afterwards, Ms Varga found me in the corridor. She tapped the cello's tuning peg and raised an eyebrow. 'You left it next to the heater, didn't you?' Then she smiled. 'Nicely rescued.'
+My grandfather told me it was the best thing he had heard all year. He hadn't noticed a thing.",How long had Sam been practising 'The Swan'?,,D,every day for two weeks,twice a week for a year,for forty minutes backstage,every day for two months,,1,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.1505.2,122,1,2,Easy
+NAPLAN-Y7-READING-M3-Q21,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 4,7,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Out of Tune
+My cello and I arrived at Riverside Hall forty minutes early, which turned out to be thirty-nine minutes too many. There is only so long you can sit in a cramped backstage room, listening to other people warm up, before your stomach starts turning cartwheels.
+I was playing 'The Swan', a slow, gentle piece I had practised every day for two months. Ms Varga, my teacher, had made me play it so many times that I could hear it in my sleep. At our last lesson, she had given me one piece of advice. 'If something goes wrong, don't stop,' she said. 'An audience follows the music, not the mistakes. If you keep going, most of them will never know.'
+I nodded, but privately I thought nothing would go wrong. I knew every note.
+Backstage, the only free chair was beside an old electric heater that clanked and hissed in the corner. I propped my cello against the wall next to it and spent the next half-hour reading the program over and over, as if my name might vanish from it.
+At last the stage manager called, 'Sam Taylor, you're on.'
+The lights were brighter than I had expected, and the hall was full. Somewhere in the third row sat my grandfather, who had driven two hours to be there. I placed my bow on the strings and began.
+The first few lines went beautifully. The notes floated out over the audience exactly the way Ms Varga had taught me. Then, halfway through, I reached for a high note on the A string, and something was badly wrong. The note came out flat, sour and wobbly, like a singer who has forgotten the tune. I tried the next note. That was flat too. My string had slipped out of tune.
+For one terrible second my bow froze. I could feel hundreds of eyes on me. My hand wanted to stop, put the cello down and run.
+Then I heard Ms Varga's voice in my head: don't stop.
+So I didn't. I kept the bow moving and listened harder than I had ever listened in my life. If the string was low, I would have to place my fingers a little higher to find the right sound. It felt strange and awkward, like writing with the wrong hand, but slowly the notes began to sound right again. I reached the final long note, let it fade into silence and lifted my bow.
+The applause was loud and warm. My grandfather was clapping above his head.
+Afterwards, Ms Varga found me in the corridor. She tapped the cello's tuning peg and raised an eyebrow. 'You left it next to the heater, didn't you?' Then she smiled. 'Nicely rescued.'
+My grandfather told me it was the best thing he had heard all year. He hadn't noticed a thing.",How did Sam correct the sound once the string had gone out of tune?,,D,He stopped briefly to turn the tuning peg.,He played the rest of the piece much faster.,He moved the melody across to a different string.,He placed his fingers a little higher on the string.,,2,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.1505.3,122,1,4,Medium
+NAPLAN-Y7-READING-M3-Q22,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 4,7,English,Inference,Inferential Reasoning,ReadingComprehension,"Out of Tune
+My cello and I arrived at Riverside Hall forty minutes early, which turned out to be thirty-nine minutes too many. There is only so long you can sit in a cramped backstage room, listening to other people warm up, before your stomach starts turning cartwheels.
+I was playing 'The Swan', a slow, gentle piece I had practised every day for two months. Ms Varga, my teacher, had made me play it so many times that I could hear it in my sleep. At our last lesson, she had given me one piece of advice. 'If something goes wrong, don't stop,' she said. 'An audience follows the music, not the mistakes. If you keep going, most of them will never know.'
+I nodded, but privately I thought nothing would go wrong. I knew every note.
+Backstage, the only free chair was beside an old electric heater that clanked and hissed in the corner. I propped my cello against the wall next to it and spent the next half-hour reading the program over and over, as if my name might vanish from it.
+At last the stage manager called, 'Sam Taylor, you're on.'
+The lights were brighter than I had expected, and the hall was full. Somewhere in the third row sat my grandfather, who had driven two hours to be there. I placed my bow on the strings and began.
+The first few lines went beautifully. The notes floated out over the audience exactly the way Ms Varga had taught me. Then, halfway through, I reached for a high note on the A string, and something was badly wrong. The note came out flat, sour and wobbly, like a singer who has forgotten the tune. I tried the next note. That was flat too. My string had slipped out of tune.
+For one terrible second my bow froze. I could feel hundreds of eyes on me. My hand wanted to stop, put the cello down and run.
+Then I heard Ms Varga's voice in my head: don't stop.
+So I didn't. I kept the bow moving and listened harder than I had ever listened in my life. If the string was low, I would have to place my fingers a little higher to find the right sound. It felt strange and awkward, like writing with the wrong hand, but slowly the notes began to sound right again. I reached the final long note, let it fade into silence and lifted my bow.
+The applause was loud and warm. My grandfather was clapping above his head.
+Afterwards, Ms Varga found me in the corridor. She tapped the cello's tuning peg and raised an eyebrow. 'You left it next to the heater, didn't you?' Then she smiled. 'Nicely rescued.'
+My grandfather told me it was the best thing he had heard all year. He hadn't noticed a thing.","Ms Varga's question 'You left it next to the heater, didn't you?' suggests that she",,B,had watched Sam sitting by the heater backstage,knew that heat could put the string out of tune,was angry that Sam had damaged her cello,thought that Sam had felt cold before playing,,3,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.1505.4,122,1,5,Medium
+NAPLAN-Y7-READING-M3-Q23,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 4,7,English,Inference,Cause and Effect,ReadingComprehension,"Out of Tune
+My cello and I arrived at Riverside Hall forty minutes early, which turned out to be thirty-nine minutes too many. There is only so long you can sit in a cramped backstage room, listening to other people warm up, before your stomach starts turning cartwheels.
+I was playing 'The Swan', a slow, gentle piece I had practised every day for two months. Ms Varga, my teacher, had made me play it so many times that I could hear it in my sleep. At our last lesson, she had given me one piece of advice. 'If something goes wrong, don't stop,' she said. 'An audience follows the music, not the mistakes. If you keep going, most of them will never know.'
+I nodded, but privately I thought nothing would go wrong. I knew every note.
+Backstage, the only free chair was beside an old electric heater that clanked and hissed in the corner. I propped my cello against the wall next to it and spent the next half-hour reading the program over and over, as if my name might vanish from it.
+At last the stage manager called, 'Sam Taylor, you're on.'
+The lights were brighter than I had expected, and the hall was full. Somewhere in the third row sat my grandfather, who had driven two hours to be there. I placed my bow on the strings and began.
+The first few lines went beautifully. The notes floated out over the audience exactly the way Ms Varga had taught me. Then, halfway through, I reached for a high note on the A string, and something was badly wrong. The note came out flat, sour and wobbly, like a singer who has forgotten the tune. I tried the next note. That was flat too. My string had slipped out of tune.
+For one terrible second my bow froze. I could feel hundreds of eyes on me. My hand wanted to stop, put the cello down and run.
+Then I heard Ms Varga's voice in my head: don't stop.
+So I didn't. I kept the bow moving and listened harder than I had ever listened in my life. If the string was low, I would have to place my fingers a little higher to find the right sound. It felt strange and awkward, like writing with the wrong hand, but slowly the notes began to sound right again. I reached the final long note, let it fade into silence and lifted my bow.
+The applause was loud and warm. My grandfather was clapping above his head.
+Afterwards, Ms Varga found me in the corridor. She tapped the cello's tuning peg and raised an eyebrow. 'You left it next to the heater, didn't you?' Then she smiled. 'Nicely rescued.'
+My grandfather told me it was the best thing he had heard all year. He hadn't noticed a thing.",Which chain of events best explains why Sam's grandfather 'hadn't noticed a thing'?,,C,"The heater put a string out of tune, so Sam paused briefly to retune it before carrying on.","The bright lights unsettled Sam, but Ms Varga's advice helped him remember every note.","The heater put a string out of tune, but Sam kept playing and adjusted his fingers until the notes sounded right.","Sam pressed too hard on the A string, but the audience was too far back to hear the mistake.",,4,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.1505.5,122,2,8,Hard
+NAPLAN-Y7-READING-M3-Q24,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 4,7,English,Reading Comprehension,Evaluating Evidence,ReadingComprehension,"Out of Tune
+My cello and I arrived at Riverside Hall forty minutes early, which turned out to be thirty-nine minutes too many. There is only so long you can sit in a cramped backstage room, listening to other people warm up, before your stomach starts turning cartwheels.
+I was playing 'The Swan', a slow, gentle piece I had practised every day for two months. Ms Varga, my teacher, had made me play it so many times that I could hear it in my sleep. At our last lesson, she had given me one piece of advice. 'If something goes wrong, don't stop,' she said. 'An audience follows the music, not the mistakes. If you keep going, most of them will never know.'
+I nodded, but privately I thought nothing would go wrong. I knew every note.
+Backstage, the only free chair was beside an old electric heater that clanked and hissed in the corner. I propped my cello against the wall next to it and spent the next half-hour reading the program over and over, as if my name might vanish from it.
+At last the stage manager called, 'Sam Taylor, you're on.'
+The lights were brighter than I had expected, and the hall was full. Somewhere in the third row sat my grandfather, who had driven two hours to be there. I placed my bow on the strings and began.
+The first few lines went beautifully. The notes floated out over the audience exactly the way Ms Varga had taught me. Then, halfway through, I reached for a high note on the A string, and something was badly wrong. The note came out flat, sour and wobbly, like a singer who has forgotten the tune. I tried the next note. That was flat too. My string had slipped out of tune.
+For one terrible second my bow froze. I could feel hundreds of eyes on me. My hand wanted to stop, put the cello down and run.
+Then I heard Ms Varga's voice in my head: don't stop.
+So I didn't. I kept the bow moving and listened harder than I had ever listened in my life. If the string was low, I would have to place my fingers a little higher to find the right sound. It felt strange and awkward, like writing with the wrong hand, but slowly the notes began to sound right again. I reached the final long note, let it fade into silence and lifted my bow.
+The applause was loud and warm. My grandfather was clapping above his head.
+Afterwards, Ms Varga found me in the corridor. She tapped the cello's tuning peg and raised an eyebrow. 'You left it next to the heater, didn't you?' Then she smiled. 'Nicely rescued.'
+My grandfather told me it was the best thing he had heard all year. He hadn't noticed a thing.","Which quotation best supports the idea that Ms Varga's advice, rather than Sam's practice, rescued the performance?",,A,'Then I heard Ms Varga's voice in my head: don't stop.',"'An audience follows the music, not the mistakes.'",'I could hear it in my sleep.','The first few lines went beautifully.',,4,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.1505.6,122,2,8,Hard
+NAPLAN-Y7-READING-M3-Q25,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 5,7,English,Reading Comprehension,Literal Recall,ReadingComprehension,"When Words Swap Places
+Have you ever meant to say ""a crushing blow"" and heard yourself say ""a blushing crow"" instead? If so, you have made a spoonerism: a slip of the tongue in which the first sounds of two words swap places. The result is often nonsense, sometimes oddly poetic, and nearly always funny.
+Spoonerisms are named after William Archibald Spooner, a kindly, white-haired teacher at Oxford University in England more than a hundred years ago. Spooner was said to mix up his words so often that his students began collecting his mistakes. He supposedly scolded one lazy student for having ""hissed all my mystery lectures"", and is said to have told another that he had ""tasted a whole worm"" when he meant ""wasted a whole term"". Before long, any such slip was simply called a ""spoonerism"".
+There is just one problem with these famous stories: most of them are probably not true. Spooner admitted to only a few slips, and historians suspect that his students invented many of the best ones, polishing them for laughs and passing them on. Spooner reportedly found his fame rather tiresome. Even so, the name stuck.
+Whether Spooner said them or not, slips like these are real, and scientists who study language find them fascinating. When you speak, your brain does not choose one word at a time. It plans several words ahead, lining up the sounds before you say them. Occasionally, a sound from a word that is coming up jumps the queue and lands in the wrong place. That is why spoonerisms almost always swap sounds in matching positions, such as the beginnings of two words, and why the mixed-up result usually still sounds as if it could be English. Even when we make mistakes, our brains follow the rules. Researchers have even caused spoonerisms on purpose in experiments, by flashing pairs of words on a screen and asking volunteers to read them aloud as quickly as possible.
+In other words, a spoonerism is not a sign of a careless mind. It is a tiny window into how busy and organised our brains are while we talk.
+Spoonerisms have also become a favourite toy for writers and comedians, who make them up on purpose. Here is a limerick built around one:
+An usher, with manners so neat,
+Met a lady who'd come off the street.
+With a bow and a smile
+He led her down the aisle,
+And said, ""Let me sew you to your sheet!""
+So if you ever make a spoonerism yourself, there is no need to feel embarrassed. You are in good company. Just smile, correct yourself and carry on. After all, a brain that can swap sounds so neatly is running like a well-boiled icicle.",What is a spoonerism?,,D,a joke in which two words are made to rhyme,a word that sounds the same as another word,a mistake in which a word is left out,a slip in which the first sounds of two words swap,,1,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.1538.1,155,1,2,Easy
+NAPLAN-Y7-READING-M3-Q26,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 5,7,English,Reading Comprehension,Literal Recall,ReadingComprehension,"When Words Swap Places
+Have you ever meant to say ""a crushing blow"" and heard yourself say ""a blushing crow"" instead? If so, you have made a spoonerism: a slip of the tongue in which the first sounds of two words swap places. The result is often nonsense, sometimes oddly poetic, and nearly always funny.
+Spoonerisms are named after William Archibald Spooner, a kindly, white-haired teacher at Oxford University in England more than a hundred years ago. Spooner was said to mix up his words so often that his students began collecting his mistakes. He supposedly scolded one lazy student for having ""hissed all my mystery lectures"", and is said to have told another that he had ""tasted a whole worm"" when he meant ""wasted a whole term"". Before long, any such slip was simply called a ""spoonerism"".
+There is just one problem with these famous stories: most of them are probably not true. Spooner admitted to only a few slips, and historians suspect that his students invented many of the best ones, polishing them for laughs and passing them on. Spooner reportedly found his fame rather tiresome. Even so, the name stuck.
+Whether Spooner said them or not, slips like these are real, and scientists who study language find them fascinating. When you speak, your brain does not choose one word at a time. It plans several words ahead, lining up the sounds before you say them. Occasionally, a sound from a word that is coming up jumps the queue and lands in the wrong place. That is why spoonerisms almost always swap sounds in matching positions, such as the beginnings of two words, and why the mixed-up result usually still sounds as if it could be English. Even when we make mistakes, our brains follow the rules. Researchers have even caused spoonerisms on purpose in experiments, by flashing pairs of words on a screen and asking volunteers to read them aloud as quickly as possible.
+In other words, a spoonerism is not a sign of a careless mind. It is a tiny window into how busy and organised our brains are while we talk.
+Spoonerisms have also become a favourite toy for writers and comedians, who make them up on purpose. Here is a limerick built around one:
+An usher, with manners so neat,
+Met a lady who'd come off the street.
+With a bow and a smile
+He led her down the aisle,
+And said, ""Let me sew you to your sheet!""
+So if you ever make a spoonerism yourself, there is no need to feel embarrassed. You are in good company. Just smile, correct yourself and carry on. After all, a brain that can swap sounds so neatly is running like a well-boiled icicle.",Who probably made up many of the famous spoonerisms?,,B,Spooner himself,Spooner's students,modern comedians,language scientists,,1,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.1538.2,155,1,2,Easy
+NAPLAN-Y7-READING-M3-Q27,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 5,7,English,Reading Comprehension,Text Structure,ReadingComprehension,"When Words Swap Places
+Have you ever meant to say ""a crushing blow"" and heard yourself say ""a blushing crow"" instead? If so, you have made a spoonerism: a slip of the tongue in which the first sounds of two words swap places. The result is often nonsense, sometimes oddly poetic, and nearly always funny.
+Spoonerisms are named after William Archibald Spooner, a kindly, white-haired teacher at Oxford University in England more than a hundred years ago. Spooner was said to mix up his words so often that his students began collecting his mistakes. He supposedly scolded one lazy student for having ""hissed all my mystery lectures"", and is said to have told another that he had ""tasted a whole worm"" when he meant ""wasted a whole term"". Before long, any such slip was simply called a ""spoonerism"".
+There is just one problem with these famous stories: most of them are probably not true. Spooner admitted to only a few slips, and historians suspect that his students invented many of the best ones, polishing them for laughs and passing them on. Spooner reportedly found his fame rather tiresome. Even so, the name stuck.
+Whether Spooner said them or not, slips like these are real, and scientists who study language find them fascinating. When you speak, your brain does not choose one word at a time. It plans several words ahead, lining up the sounds before you say them. Occasionally, a sound from a word that is coming up jumps the queue and lands in the wrong place. That is why spoonerisms almost always swap sounds in matching positions, such as the beginnings of two words, and why the mixed-up result usually still sounds as if it could be English. Even when we make mistakes, our brains follow the rules. Researchers have even caused spoonerisms on purpose in experiments, by flashing pairs of words on a screen and asking volunteers to read them aloud as quickly as possible.
+In other words, a spoonerism is not a sign of a careless mind. It is a tiny window into how busy and organised our brains are while we talk.
+Spoonerisms have also become a favourite toy for writers and comedians, who make them up on purpose. Here is a limerick built around one:
+An usher, with manners so neat,
+Met a lady who'd come off the street.
+With a bow and a smile
+He led her down the aisle,
+And said, ""Let me sew you to your sheet!""
+So if you ever make a spoonerism yourself, there is no need to feel embarrassed. You are in good company. Just smile, correct yourself and carry on. After all, a brain that can swap sounds so neatly is running like a well-boiled icicle.",How does the third paragraph relate to the second?,,D,it gives more examples of Spooner's real slips,it explains how the brain causes spoonerisms,it describes where Spooner was born and raised,it casts doubt on the stories told in the second,,3,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.1538.3,155,1,5,Medium
+NAPLAN-Y7-READING-M3-Q28,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 5,7,English,Reading Comprehension,Main Idea,ReadingComprehension,"When Words Swap Places
+Have you ever meant to say ""a crushing blow"" and heard yourself say ""a blushing crow"" instead? If so, you have made a spoonerism: a slip of the tongue in which the first sounds of two words swap places. The result is often nonsense, sometimes oddly poetic, and nearly always funny.
+Spoonerisms are named after William Archibald Spooner, a kindly, white-haired teacher at Oxford University in England more than a hundred years ago. Spooner was said to mix up his words so often that his students began collecting his mistakes. He supposedly scolded one lazy student for having ""hissed all my mystery lectures"", and is said to have told another that he had ""tasted a whole worm"" when he meant ""wasted a whole term"". Before long, any such slip was simply called a ""spoonerism"".
+There is just one problem with these famous stories: most of them are probably not true. Spooner admitted to only a few slips, and historians suspect that his students invented many of the best ones, polishing them for laughs and passing them on. Spooner reportedly found his fame rather tiresome. Even so, the name stuck.
+Whether Spooner said them or not, slips like these are real, and scientists who study language find them fascinating. When you speak, your brain does not choose one word at a time. It plans several words ahead, lining up the sounds before you say them. Occasionally, a sound from a word that is coming up jumps the queue and lands in the wrong place. That is why spoonerisms almost always swap sounds in matching positions, such as the beginnings of two words, and why the mixed-up result usually still sounds as if it could be English. Even when we make mistakes, our brains follow the rules. Researchers have even caused spoonerisms on purpose in experiments, by flashing pairs of words on a screen and asking volunteers to read them aloud as quickly as possible.
+In other words, a spoonerism is not a sign of a careless mind. It is a tiny window into how busy and organised our brains are while we talk.
+Spoonerisms have also become a favourite toy for writers and comedians, who make them up on purpose. Here is a limerick built around one:
+An usher, with manners so neat,
+Met a lady who'd come off the street.
+With a bow and a smile
+He led her down the aisle,
+And said, ""Let me sew you to your sheet!""
+So if you ever make a spoonerism yourself, there is no need to feel embarrassed. You are in good company. Just smile, correct yourself and carry on. After all, a brain that can swap sounds so neatly is running like a well-boiled icicle.",What is the main idea of the fourth paragraph (beginning 'Whether Spooner said them')?,,A,spoonerisms happen because the brain plans words ahead,spoonerisms are mostly made by careless speakers,scientists have stopped believing in spoonerisms,spoonerisms usually produce words that are not English,,3,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.1538.4,155,1,5,Medium
+NAPLAN-Y7-READING-M3-Q29,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 5,7,English,Inference,Drawing Conclusions,ReadingComprehension,"When Words Swap Places
+Have you ever meant to say ""a crushing blow"" and heard yourself say ""a blushing crow"" instead? If so, you have made a spoonerism: a slip of the tongue in which the first sounds of two words swap places. The result is often nonsense, sometimes oddly poetic, and nearly always funny.
+Spoonerisms are named after William Archibald Spooner, a kindly, white-haired teacher at Oxford University in England more than a hundred years ago. Spooner was said to mix up his words so often that his students began collecting his mistakes. He supposedly scolded one lazy student for having ""hissed all my mystery lectures"", and is said to have told another that he had ""tasted a whole worm"" when he meant ""wasted a whole term"". Before long, any such slip was simply called a ""spoonerism"".
+There is just one problem with these famous stories: most of them are probably not true. Spooner admitted to only a few slips, and historians suspect that his students invented many of the best ones, polishing them for laughs and passing them on. Spooner reportedly found his fame rather tiresome. Even so, the name stuck.
+Whether Spooner said them or not, slips like these are real, and scientists who study language find them fascinating. When you speak, your brain does not choose one word at a time. It plans several words ahead, lining up the sounds before you say them. Occasionally, a sound from a word that is coming up jumps the queue and lands in the wrong place. That is why spoonerisms almost always swap sounds in matching positions, such as the beginnings of two words, and why the mixed-up result usually still sounds as if it could be English. Even when we make mistakes, our brains follow the rules. Researchers have even caused spoonerisms on purpose in experiments, by flashing pairs of words on a screen and asking volunteers to read them aloud as quickly as possible.
+In other words, a spoonerism is not a sign of a careless mind. It is a tiny window into how busy and organised our brains are while we talk.
+Spoonerisms have also become a favourite toy for writers and comedians, who make them up on purpose. Here is a limerick built around one:
+An usher, with manners so neat,
+Met a lady who'd come off the street.
+With a bow and a smile
+He led her down the aisle,
+And said, ""Let me sew you to your sheet!""
+So if you ever make a spoonerism yourself, there is no need to feel embarrassed. You are in good company. Just smile, correct yourself and carry on. After all, a brain that can swap sounds so neatly is running like a well-boiled icicle.","Based on the passage, which slip is a speaker most likely to make when trying to say 'cosy nook'?",,A,'nosy cook','nook cosy','cosy book','cosk nooy',,4,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.1538.5,155,2,8,Hard
+NAPLAN-Y7-READING-M3-Q30,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 5,7,English,Literary Techniques,Poetic Form,ReadingComprehension,"When Words Swap Places
+Have you ever meant to say ""a crushing blow"" and heard yourself say ""a blushing crow"" instead? If so, you have made a spoonerism: a slip of the tongue in which the first sounds of two words swap places. The result is often nonsense, sometimes oddly poetic, and nearly always funny.
+Spoonerisms are named after William Archibald Spooner, a kindly, white-haired teacher at Oxford University in England more than a hundred years ago. Spooner was said to mix up his words so often that his students began collecting his mistakes. He supposedly scolded one lazy student for having ""hissed all my mystery lectures"", and is said to have told another that he had ""tasted a whole worm"" when he meant ""wasted a whole term"". Before long, any such slip was simply called a ""spoonerism"".
+There is just one problem with these famous stories: most of them are probably not true. Spooner admitted to only a few slips, and historians suspect that his students invented many of the best ones, polishing them for laughs and passing them on. Spooner reportedly found his fame rather tiresome. Even so, the name stuck.
+Whether Spooner said them or not, slips like these are real, and scientists who study language find them fascinating. When you speak, your brain does not choose one word at a time. It plans several words ahead, lining up the sounds before you say them. Occasionally, a sound from a word that is coming up jumps the queue and lands in the wrong place. That is why spoonerisms almost always swap sounds in matching positions, such as the beginnings of two words, and why the mixed-up result usually still sounds as if it could be English. Even when we make mistakes, our brains follow the rules. Researchers have even caused spoonerisms on purpose in experiments, by flashing pairs of words on a screen and asking volunteers to read them aloud as quickly as possible.
+In other words, a spoonerism is not a sign of a careless mind. It is a tiny window into how busy and organised our brains are while we talk.
+Spoonerisms have also become a favourite toy for writers and comedians, who make them up on purpose. Here is a limerick built around one:
+An usher, with manners so neat,
+Met a lady who'd come off the street.
+With a bow and a smile
+He led her down the aisle,
+And said, ""Let me sew you to your sheet!""
+So if you ever make a spoonerism yourself, there is no need to feel embarrassed. You are in good company. Just smile, correct yourself and carry on. After all, a brain that can swap sounds so neatly is running like a well-boiled icicle.",How does the form of the limerick suit its purpose in the passage?,,B,"its two short middle lines hold the spoonerism, which slows the joke right down",its rhyme pattern builds to a final line that delivers the spoonerism as a punchline,its five lines each contain a different spoonerism to show how common they are,its lack of regular rhythm copies the way that speakers stumble over their words,,4,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.1538.6,155,2,8,Hard
+NAPLAN-Y7-READING-M3-Q31,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 6,7,English,Inference,Cause and Effect,ReadingComprehension,"Mrs Lang's Fairy Books
+In 1889, a book with a bright blue cover appeared in London bookshops. The Blue Fairy Book gathered old tales such as ""Cinderella"", ""Rumpelstiltskin"" and ""Beauty and the Beast"", and it sold so well that a Red Fairy Book followed the next year. By 1910 there were twelve volumes, each named after a different colour. Every one carried the same name: Andrew Lang. Yet the person who did most of the writing was barely mentioned.
+Leonora Blanche Alleyne was born in 1851 and in 1875 married Andrew Lang, a Scottish scholar and journalist. Andrew was fascinated by folklore and believed fairy tales deserved serious study, not merely a place in the nursery. He was also extraordinarily busy, turning out poems, essays, histories and newspaper columns at a startling pace.
+Leonora had a gift for languages. As the fairy book project grew, she took on the task of turning stories from French, German, Spanish, Italian and other languages into lively English. She did not simply translate word for word. She reshaped each tale for young readers, trimming slow passages and softening details that seemed too gruesome for a Victorian nursery. In time she oversaw a small team of translators, most of them women, and polished their work into one consistent voice.
+Andrew's role was mainly to choose the stories' themes, write the prefaces and lend his famous name, which helped the books sell. He never pretended to have done everything. In the preface to The Lilac Fairy Book, the final volume, he stated plainly that the books had been almost wholly the work of Mrs Lang. Few readers noticed. The covers did not change, and for generations, children and librarians spoke of ""Andrew Lang's fairy books"".
+Leonora also published books under her own name, including The Red Book of Heroes and The Book of Princes and Princesses. These attracted far less attention than the coloured series.
+Why did she stay in the background? Part of the answer lies in the customs of the time. Victorian publishers believed a well-known male author would attract buyers, and many women writers accepted that their work would be credited to someone else. How Leonora herself felt about this is not well recorded.
+Today, historians of children's literature are giving her more credit. The coloured fairy books helped decide which tales English-speaking children grew up with, and Leonora's choices about what to keep, what to soften and what to cut still echo through countless picture books and films. She was, in a sense, the invisible gatekeeper of the fairy-tale kingdom.","According to the passage, why did publishers want a well-known man's name on the books?",,D,They believed men were better translators.,They wanted to hide that the tales were old.,They wanted to keep Leonora's name private.,They believed it would attract more buyers.,,1,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.1487.1,104,1,2,Easy
+NAPLAN-Y7-READING-M3-Q32,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 6,7,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"Mrs Lang's Fairy Books
+In 1889, a book with a bright blue cover appeared in London bookshops. The Blue Fairy Book gathered old tales such as ""Cinderella"", ""Rumpelstiltskin"" and ""Beauty and the Beast"", and it sold so well that a Red Fairy Book followed the next year. By 1910 there were twelve volumes, each named after a different colour. Every one carried the same name: Andrew Lang. Yet the person who did most of the writing was barely mentioned.
+Leonora Blanche Alleyne was born in 1851 and in 1875 married Andrew Lang, a Scottish scholar and journalist. Andrew was fascinated by folklore and believed fairy tales deserved serious study, not merely a place in the nursery. He was also extraordinarily busy, turning out poems, essays, histories and newspaper columns at a startling pace.
+Leonora had a gift for languages. As the fairy book project grew, she took on the task of turning stories from French, German, Spanish, Italian and other languages into lively English. She did not simply translate word for word. She reshaped each tale for young readers, trimming slow passages and softening details that seemed too gruesome for a Victorian nursery. In time she oversaw a small team of translators, most of them women, and polished their work into one consistent voice.
+Andrew's role was mainly to choose the stories' themes, write the prefaces and lend his famous name, which helped the books sell. He never pretended to have done everything. In the preface to The Lilac Fairy Book, the final volume, he stated plainly that the books had been almost wholly the work of Mrs Lang. Few readers noticed. The covers did not change, and for generations, children and librarians spoke of ""Andrew Lang's fairy books"".
+Leonora also published books under her own name, including The Red Book of Heroes and The Book of Princes and Princesses. These attracted far less attention than the coloured series.
+Why did she stay in the background? Part of the answer lies in the customs of the time. Victorian publishers believed a well-known male author would attract buyers, and many women writers accepted that their work would be credited to someone else. How Leonora herself felt about this is not well recorded.
+Today, historians of children's literature are giving her more credit. The coloured fairy books helped decide which tales English-speaking children grew up with, and Leonora's choices about what to keep, what to soften and what to cut still echo through countless picture books and films. She was, in a sense, the invisible gatekeeper of the fairy-tale kingdom.","In the passage, the word gruesome means . . .",,B,dull and slow-moving.,horrible and disturbing.,difficult to translate.,old-fashioned and odd.,,2,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.1487.2,104,1,3,Easy
+NAPLAN-Y7-READING-M3-Q33,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 6,7,English,Reading Comprehension,Text Structure,ReadingComprehension,"Mrs Lang's Fairy Books
+In 1889, a book with a bright blue cover appeared in London bookshops. The Blue Fairy Book gathered old tales such as ""Cinderella"", ""Rumpelstiltskin"" and ""Beauty and the Beast"", and it sold so well that a Red Fairy Book followed the next year. By 1910 there were twelve volumes, each named after a different colour. Every one carried the same name: Andrew Lang. Yet the person who did most of the writing was barely mentioned.
+Leonora Blanche Alleyne was born in 1851 and in 1875 married Andrew Lang, a Scottish scholar and journalist. Andrew was fascinated by folklore and believed fairy tales deserved serious study, not merely a place in the nursery. He was also extraordinarily busy, turning out poems, essays, histories and newspaper columns at a startling pace.
+Leonora had a gift for languages. As the fairy book project grew, she took on the task of turning stories from French, German, Spanish, Italian and other languages into lively English. She did not simply translate word for word. She reshaped each tale for young readers, trimming slow passages and softening details that seemed too gruesome for a Victorian nursery. In time she oversaw a small team of translators, most of them women, and polished their work into one consistent voice.
+Andrew's role was mainly to choose the stories' themes, write the prefaces and lend his famous name, which helped the books sell. He never pretended to have done everything. In the preface to The Lilac Fairy Book, the final volume, he stated plainly that the books had been almost wholly the work of Mrs Lang. Few readers noticed. The covers did not change, and for generations, children and librarians spoke of ""Andrew Lang's fairy books"".
+Leonora also published books under her own name, including The Red Book of Heroes and The Book of Princes and Princesses. These attracted far less attention than the coloured series.
+Why did she stay in the background? Part of the answer lies in the customs of the time. Victorian publishers believed a well-known male author would attract buyers, and many women writers accepted that their work would be credited to someone else. How Leonora herself felt about this is not well recorded.
+Today, historians of children's literature are giving her more credit. The coloured fairy books helped decide which tales English-speaking children grew up with, and Leonora's choices about what to keep, what to soften and what to cut still echo through countless picture books and films. She was, in a sense, the invisible gatekeeper of the fairy-tale kingdom.",How does the writer organise the passage?,,B,"It lists the twelve coloured fairy books in order, describing the best-known tale in each one.","It opens with a puzzle about credit, traces Leonora's role, then explains and reassesses her reputation.","It tells Andrew Lang's life story first, then briefly mentions his wife's help near the end.",It compares Leonora's own books with the coloured series to decide which were more successful.,,3,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.1487.3,104,1,5,Medium
+NAPLAN-Y7-READING-M3-Q34,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 6,7,English,Reading Comprehension,Main Idea,ReadingComprehension,"Mrs Lang's Fairy Books
+In 1889, a book with a bright blue cover appeared in London bookshops. The Blue Fairy Book gathered old tales such as ""Cinderella"", ""Rumpelstiltskin"" and ""Beauty and the Beast"", and it sold so well that a Red Fairy Book followed the next year. By 1910 there were twelve volumes, each named after a different colour. Every one carried the same name: Andrew Lang. Yet the person who did most of the writing was barely mentioned.
+Leonora Blanche Alleyne was born in 1851 and in 1875 married Andrew Lang, a Scottish scholar and journalist. Andrew was fascinated by folklore and believed fairy tales deserved serious study, not merely a place in the nursery. He was also extraordinarily busy, turning out poems, essays, histories and newspaper columns at a startling pace.
+Leonora had a gift for languages. As the fairy book project grew, she took on the task of turning stories from French, German, Spanish, Italian and other languages into lively English. She did not simply translate word for word. She reshaped each tale for young readers, trimming slow passages and softening details that seemed too gruesome for a Victorian nursery. In time she oversaw a small team of translators, most of them women, and polished their work into one consistent voice.
+Andrew's role was mainly to choose the stories' themes, write the prefaces and lend his famous name, which helped the books sell. He never pretended to have done everything. In the preface to The Lilac Fairy Book, the final volume, he stated plainly that the books had been almost wholly the work of Mrs Lang. Few readers noticed. The covers did not change, and for generations, children and librarians spoke of ""Andrew Lang's fairy books"".
+Leonora also published books under her own name, including The Red Book of Heroes and The Book of Princes and Princesses. These attracted far less attention than the coloured series.
+Why did she stay in the background? Part of the answer lies in the customs of the time. Victorian publishers believed a well-known male author would attract buyers, and many women writers accepted that their work would be credited to someone else. How Leonora herself felt about this is not well recorded.
+Today, historians of children's literature are giving her more credit. The coloured fairy books helped decide which tales English-speaking children grew up with, and Leonora's choices about what to keep, what to soften and what to cut still echo through countless picture books and films. She was, in a sense, the invisible gatekeeper of the fairy-tale kingdom.",What is the main idea of the passage?,,C,Andrew Lang was too busy with other writing to care about fairy tales.,Victorian fairy tales were softened so they would suit young children.,Leonora Lang did most of the work on famous books credited to her husband.,The coloured fairy books were the most popular children's books ever.,,3,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.1487.4,104,1,5,Medium
+NAPLAN-Y7-READING-M3-Q35,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 6,7,English,Reading Comprehension,Evaluating Evidence,ReadingComprehension,"Mrs Lang's Fairy Books
+In 1889, a book with a bright blue cover appeared in London bookshops. The Blue Fairy Book gathered old tales such as ""Cinderella"", ""Rumpelstiltskin"" and ""Beauty and the Beast"", and it sold so well that a Red Fairy Book followed the next year. By 1910 there were twelve volumes, each named after a different colour. Every one carried the same name: Andrew Lang. Yet the person who did most of the writing was barely mentioned.
+Leonora Blanche Alleyne was born in 1851 and in 1875 married Andrew Lang, a Scottish scholar and journalist. Andrew was fascinated by folklore and believed fairy tales deserved serious study, not merely a place in the nursery. He was also extraordinarily busy, turning out poems, essays, histories and newspaper columns at a startling pace.
+Leonora had a gift for languages. As the fairy book project grew, she took on the task of turning stories from French, German, Spanish, Italian and other languages into lively English. She did not simply translate word for word. She reshaped each tale for young readers, trimming slow passages and softening details that seemed too gruesome for a Victorian nursery. In time she oversaw a small team of translators, most of them women, and polished their work into one consistent voice.
+Andrew's role was mainly to choose the stories' themes, write the prefaces and lend his famous name, which helped the books sell. He never pretended to have done everything. In the preface to The Lilac Fairy Book, the final volume, he stated plainly that the books had been almost wholly the work of Mrs Lang. Few readers noticed. The covers did not change, and for generations, children and librarians spoke of ""Andrew Lang's fairy books"".
+Leonora also published books under her own name, including The Red Book of Heroes and The Book of Princes and Princesses. These attracted far less attention than the coloured series.
+Why did she stay in the background? Part of the answer lies in the customs of the time. Victorian publishers believed a well-known male author would attract buyers, and many women writers accepted that their work would be credited to someone else. How Leonora herself felt about this is not well recorded.
+Today, historians of children's literature are giving her more credit. The coloured fairy books helped decide which tales English-speaking children grew up with, and Leonora's choices about what to keep, what to soften and what to cut still echo through countless picture books and films. She was, in a sense, the invisible gatekeeper of the fairy-tale kingdom.",Which detail best supports the claim that Leonora did far more than translate the stories?,,D,Andrew wrote that the books were almost wholly the work of Mrs Lang.,"She had a gift for languages and worked from French, German and Spanish.",She published The Red Book of Heroes and other books under her own name.,"She reshaped tales, softened details and polished her team's work into one voice.",,4,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.1487.5,104,2,8,Hard
+NAPLAN-Y7-READING-M3-Q36,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 6,7,English,Literary Techniques,Figurative Language,ReadingComprehension,"Mrs Lang's Fairy Books
+In 1889, a book with a bright blue cover appeared in London bookshops. The Blue Fairy Book gathered old tales such as ""Cinderella"", ""Rumpelstiltskin"" and ""Beauty and the Beast"", and it sold so well that a Red Fairy Book followed the next year. By 1910 there were twelve volumes, each named after a different colour. Every one carried the same name: Andrew Lang. Yet the person who did most of the writing was barely mentioned.
+Leonora Blanche Alleyne was born in 1851 and in 1875 married Andrew Lang, a Scottish scholar and journalist. Andrew was fascinated by folklore and believed fairy tales deserved serious study, not merely a place in the nursery. He was also extraordinarily busy, turning out poems, essays, histories and newspaper columns at a startling pace.
+Leonora had a gift for languages. As the fairy book project grew, she took on the task of turning stories from French, German, Spanish, Italian and other languages into lively English. She did not simply translate word for word. She reshaped each tale for young readers, trimming slow passages and softening details that seemed too gruesome for a Victorian nursery. In time she oversaw a small team of translators, most of them women, and polished their work into one consistent voice.
+Andrew's role was mainly to choose the stories' themes, write the prefaces and lend his famous name, which helped the books sell. He never pretended to have done everything. In the preface to The Lilac Fairy Book, the final volume, he stated plainly that the books had been almost wholly the work of Mrs Lang. Few readers noticed. The covers did not change, and for generations, children and librarians spoke of ""Andrew Lang's fairy books"".
+Leonora also published books under her own name, including The Red Book of Heroes and The Book of Princes and Princesses. These attracted far less attention than the coloured series.
+Why did she stay in the background? Part of the answer lies in the customs of the time. Victorian publishers believed a well-known male author would attract buyers, and many women writers accepted that their work would be credited to someone else. How Leonora herself felt about this is not well recorded.
+Today, historians of children's literature are giving her more credit. The coloured fairy books helped decide which tales English-speaking children grew up with, and Leonora's choices about what to keep, what to soften and what to cut still echo through countless picture books and films. She was, in a sense, the invisible gatekeeper of the fairy-tale kingdom.",The writer calls Leonora 'the invisible gatekeeper of the fairy-tale kingdom' to suggest that she . . .,,C,protected the original tales so that nobody could ever change them.,hid her name on purpose so that she could work on the books in peace.,"quietly decided which tales, and in what form, reached young readers.",ruled firmly over her team of translators like a strict fairy-tale queen.,,4,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.1487.6,104,2,8,Hard
+NAPLAN-Y7-READING-M3-Q37,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 7,7,English,Vocabulary,Antonyms,ReadingComprehension,"A Voice in the Shoebox
+Four per cent. Tess watched the number on her phone as if staring at it might stop it shrinking. The storm had torn through the valley overnight, and since dawn the farmhouse had been silent: no fridge hum, no lights, no internet. Pop said the power lines were down somewhere near the highway, but nobody knew how long repairs would take.
+At three per cent, she switched the phone off and slumped at the kitchen table.
+Pop disappeared into the shed and came back with a dusty shoebox. Inside was a tangle of copper wire, a cardboard tube, a tiny glass part no bigger than a grain of rice, and an old earpiece on a cord.
+""More junk?"" Tess asked.
+""A radio,"" said Pop. ""Or it will be, once we build it.""
+For the next hour they worked side by side. Tess wound the thin wire around the cardboard tube, a hundred careful turns, while Pop scraped the ends bare with his pocketknife. He showed her how to join the tiny glass part, which he called a diode, to the coil and the earpiece. Then they carried a long reel of wire outside, and Pop climbed a ladder to tie one end high up on the windmill. A second wire ran from the shoebox to the metal garden tap.
+""Where does the battery go?"" Tess asked, searching the box.
+""There isn't one,"" Pop said. ""The radio station's tower sends out radio waves day and night, and each wave carries a little energy. By the time they reach us, there's only a whisper of it left, so we need a big net to catch enough. The longer and higher the aerial, the more we catch.""
+Tess pressed the earpiece to her ear. Nothing. Pop slid a metal clip slowly along the coil. Still nothing, then a crackle, and then, so faint she had to hold her breath, a man's voice.
+""...crews are working to restore power to the valley, and supply is expected back by early evening...""
+""It's working!"" Tess whispered, as if speaking aloud might frighten the voice away. The man was talking from a studio more than a hundred kilometres away, and his words were reaching her through a cardboard tube and some wire, with nothing to power them but the waves themselves.
+Just after six, the fridge shuddered back to life and every light in the house came on at once. Tess's phone, charging on the bench, buzzed with a stream of messages.
+She didn't look at it. The news had finished, and the announcer was playing an old country song. Tess sat on the back step with the earpiece pressed to her ear, watching the windmill turn slowly against the pink sky, and listened until the very last note.","The voice on the radio was ""so faint she had to hold her breath"". Which word is the opposite of faint?",,B,soft,loud,distant,slow,,1,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.1542.1,159,1,2,Easy
+NAPLAN-Y7-READING-M3-Q38,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 7,7,English,Reading Comprehension,Main Idea,ReadingComprehension,"A Voice in the Shoebox
+Four per cent. Tess watched the number on her phone as if staring at it might stop it shrinking. The storm had torn through the valley overnight, and since dawn the farmhouse had been silent: no fridge hum, no lights, no internet. Pop said the power lines were down somewhere near the highway, but nobody knew how long repairs would take.
+At three per cent, she switched the phone off and slumped at the kitchen table.
+Pop disappeared into the shed and came back with a dusty shoebox. Inside was a tangle of copper wire, a cardboard tube, a tiny glass part no bigger than a grain of rice, and an old earpiece on a cord.
+""More junk?"" Tess asked.
+""A radio,"" said Pop. ""Or it will be, once we build it.""
+For the next hour they worked side by side. Tess wound the thin wire around the cardboard tube, a hundred careful turns, while Pop scraped the ends bare with his pocketknife. He showed her how to join the tiny glass part, which he called a diode, to the coil and the earpiece. Then they carried a long reel of wire outside, and Pop climbed a ladder to tie one end high up on the windmill. A second wire ran from the shoebox to the metal garden tap.
+""Where does the battery go?"" Tess asked, searching the box.
+""There isn't one,"" Pop said. ""The radio station's tower sends out radio waves day and night, and each wave carries a little energy. By the time they reach us, there's only a whisper of it left, so we need a big net to catch enough. The longer and higher the aerial, the more we catch.""
+Tess pressed the earpiece to her ear. Nothing. Pop slid a metal clip slowly along the coil. Still nothing, then a crackle, and then, so faint she had to hold her breath, a man's voice.
+""...crews are working to restore power to the valley, and supply is expected back by early evening...""
+""It's working!"" Tess whispered, as if speaking aloud might frighten the voice away. The man was talking from a studio more than a hundred kilometres away, and his words were reaching her through a cardboard tube and some wire, with nothing to power them but the waves themselves.
+Just after six, the fridge shuddered back to life and every light in the house came on at once. Tess's phone, charging on the bench, buzzed with a stream of messages.
+She didn't look at it. The news had finished, and the announcer was playing an old country song. Tess sat on the back step with the earpiece pressed to her ear, watching the windmill turn slowly against the pink sky, and listened until the very last note.",What is the story mostly about?,,A,a girl and her grandfather building a radio during a blackout,a storm that damaged the power lines near a highway,a girl who learns to look after her phone battery,a farmer who fixes an old windmill after a storm,,2,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.1542.2,159,1,3,Easy
+NAPLAN-Y7-READING-M3-Q39,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 7,7,English,Reading Comprehension,Literal Recall,ReadingComprehension,"A Voice in the Shoebox
+Four per cent. Tess watched the number on her phone as if staring at it might stop it shrinking. The storm had torn through the valley overnight, and since dawn the farmhouse had been silent: no fridge hum, no lights, no internet. Pop said the power lines were down somewhere near the highway, but nobody knew how long repairs would take.
+At three per cent, she switched the phone off and slumped at the kitchen table.
+Pop disappeared into the shed and came back with a dusty shoebox. Inside was a tangle of copper wire, a cardboard tube, a tiny glass part no bigger than a grain of rice, and an old earpiece on a cord.
+""More junk?"" Tess asked.
+""A radio,"" said Pop. ""Or it will be, once we build it.""
+For the next hour they worked side by side. Tess wound the thin wire around the cardboard tube, a hundred careful turns, while Pop scraped the ends bare with his pocketknife. He showed her how to join the tiny glass part, which he called a diode, to the coil and the earpiece. Then they carried a long reel of wire outside, and Pop climbed a ladder to tie one end high up on the windmill. A second wire ran from the shoebox to the metal garden tap.
+""Where does the battery go?"" Tess asked, searching the box.
+""There isn't one,"" Pop said. ""The radio station's tower sends out radio waves day and night, and each wave carries a little energy. By the time they reach us, there's only a whisper of it left, so we need a big net to catch enough. The longer and higher the aerial, the more we catch.""
+Tess pressed the earpiece to her ear. Nothing. Pop slid a metal clip slowly along the coil. Still nothing, then a crackle, and then, so faint she had to hold her breath, a man's voice.
+""...crews are working to restore power to the valley, and supply is expected back by early evening...""
+""It's working!"" Tess whispered, as if speaking aloud might frighten the voice away. The man was talking from a studio more than a hundred kilometres away, and his words were reaching her through a cardboard tube and some wire, with nothing to power them but the waves themselves.
+Just after six, the fridge shuddered back to life and every light in the house came on at once. Tess's phone, charging on the bench, buzzed with a stream of messages.
+She didn't look at it. The news had finished, and the announcer was playing an old country song. Tess sat on the back step with the earpiece pressed to her ear, watching the windmill turn slowly against the pink sky, and listened until the very last note.",Where did the energy that powered the radio come from?,,D,a small battery hidden in the shoebox,the windmill turning slowly in the wind,the power lines once they were repaired,radio waves sent out by the station's tower,,3,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.1542.3,159,1,5,Medium
+NAPLAN-Y7-READING-M3-Q40,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 7,7,English,Inference,Inferential Reasoning,ReadingComprehension,"A Voice in the Shoebox
+Four per cent. Tess watched the number on her phone as if staring at it might stop it shrinking. The storm had torn through the valley overnight, and since dawn the farmhouse had been silent: no fridge hum, no lights, no internet. Pop said the power lines were down somewhere near the highway, but nobody knew how long repairs would take.
+At three per cent, she switched the phone off and slumped at the kitchen table.
+Pop disappeared into the shed and came back with a dusty shoebox. Inside was a tangle of copper wire, a cardboard tube, a tiny glass part no bigger than a grain of rice, and an old earpiece on a cord.
+""More junk?"" Tess asked.
+""A radio,"" said Pop. ""Or it will be, once we build it.""
+For the next hour they worked side by side. Tess wound the thin wire around the cardboard tube, a hundred careful turns, while Pop scraped the ends bare with his pocketknife. He showed her how to join the tiny glass part, which he called a diode, to the coil and the earpiece. Then they carried a long reel of wire outside, and Pop climbed a ladder to tie one end high up on the windmill. A second wire ran from the shoebox to the metal garden tap.
+""Where does the battery go?"" Tess asked, searching the box.
+""There isn't one,"" Pop said. ""The radio station's tower sends out radio waves day and night, and each wave carries a little energy. By the time they reach us, there's only a whisper of it left, so we need a big net to catch enough. The longer and higher the aerial, the more we catch.""
+Tess pressed the earpiece to her ear. Nothing. Pop slid a metal clip slowly along the coil. Still nothing, then a crackle, and then, so faint she had to hold her breath, a man's voice.
+""...crews are working to restore power to the valley, and supply is expected back by early evening...""
+""It's working!"" Tess whispered, as if speaking aloud might frighten the voice away. The man was talking from a studio more than a hundred kilometres away, and his words were reaching her through a cardboard tube and some wire, with nothing to power them but the waves themselves.
+Just after six, the fridge shuddered back to life and every light in the house came on at once. Tess's phone, charging on the bench, buzzed with a stream of messages.
+She didn't look at it. The news had finished, and the announcer was playing an old country song. Tess sat on the back step with the earpiece pressed to her ear, watching the windmill turn slowly against the pink sky, and listened until the very last note.",Why did Pop tie the aerial wire high up on the windmill?,,A,so it could catch more of the weak radio waves,so the wind could turn it and make electricity,so the storm would not knock the wire down,so Tess could see where the wire was from inside,,3,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.1542.4,159,1,5,Medium
+NAPLAN-Y7-READING-M3-Q41,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 7,7,English,Inference,Drawing Conclusions,ReadingComprehension,"A Voice in the Shoebox
+Four per cent. Tess watched the number on her phone as if staring at it might stop it shrinking. The storm had torn through the valley overnight, and since dawn the farmhouse had been silent: no fridge hum, no lights, no internet. Pop said the power lines were down somewhere near the highway, but nobody knew how long repairs would take.
+At three per cent, she switched the phone off and slumped at the kitchen table.
+Pop disappeared into the shed and came back with a dusty shoebox. Inside was a tangle of copper wire, a cardboard tube, a tiny glass part no bigger than a grain of rice, and an old earpiece on a cord.
+""More junk?"" Tess asked.
+""A radio,"" said Pop. ""Or it will be, once we build it.""
+For the next hour they worked side by side. Tess wound the thin wire around the cardboard tube, a hundred careful turns, while Pop scraped the ends bare with his pocketknife. He showed her how to join the tiny glass part, which he called a diode, to the coil and the earpiece. Then they carried a long reel of wire outside, and Pop climbed a ladder to tie one end high up on the windmill. A second wire ran from the shoebox to the metal garden tap.
+""Where does the battery go?"" Tess asked, searching the box.
+""There isn't one,"" Pop said. ""The radio station's tower sends out radio waves day and night, and each wave carries a little energy. By the time they reach us, there's only a whisper of it left, so we need a big net to catch enough. The longer and higher the aerial, the more we catch.""
+Tess pressed the earpiece to her ear. Nothing. Pop slid a metal clip slowly along the coil. Still nothing, then a crackle, and then, so faint she had to hold her breath, a man's voice.
+""...crews are working to restore power to the valley, and supply is expected back by early evening...""
+""It's working!"" Tess whispered, as if speaking aloud might frighten the voice away. The man was talking from a studio more than a hundred kilometres away, and his words were reaching her through a cardboard tube and some wire, with nothing to power them but the waves themselves.
+Just after six, the fridge shuddered back to life and every light in the house came on at once. Tess's phone, charging on the bench, buzzed with a stream of messages.
+She didn't look at it. The news had finished, and the announcer was playing an old country song. Tess sat on the back step with the earpiece pressed to her ear, watching the windmill turn slowly against the pink sky, and listened until the very last note.",What can you conclude from the fact that Tess kept listening after the power came back?,,D,She did not trust the power to stay on for long.,She wanted to hear more news about the storm.,Her phone was still too flat for her to use.,She now valued the radio she had built with Pop.,,4,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.1542.5,159,2,8,Hard
+NAPLAN-Y7-READING-M3-Q42,NAPLAN-Y7-READING-M3,NAPLAN_STYLE_READING,Text 7,7,English,Reading Comprehension,Author Purpose,ReadingComprehension,"A Voice in the Shoebox
+Four per cent. Tess watched the number on her phone as if staring at it might stop it shrinking. The storm had torn through the valley overnight, and since dawn the farmhouse had been silent: no fridge hum, no lights, no internet. Pop said the power lines were down somewhere near the highway, but nobody knew how long repairs would take.
+At three per cent, she switched the phone off and slumped at the kitchen table.
+Pop disappeared into the shed and came back with a dusty shoebox. Inside was a tangle of copper wire, a cardboard tube, a tiny glass part no bigger than a grain of rice, and an old earpiece on a cord.
+""More junk?"" Tess asked.
+""A radio,"" said Pop. ""Or it will be, once we build it.""
+For the next hour they worked side by side. Tess wound the thin wire around the cardboard tube, a hundred careful turns, while Pop scraped the ends bare with his pocketknife. He showed her how to join the tiny glass part, which he called a diode, to the coil and the earpiece. Then they carried a long reel of wire outside, and Pop climbed a ladder to tie one end high up on the windmill. A second wire ran from the shoebox to the metal garden tap.
+""Where does the battery go?"" Tess asked, searching the box.
+""There isn't one,"" Pop said. ""The radio station's tower sends out radio waves day and night, and each wave carries a little energy. By the time they reach us, there's only a whisper of it left, so we need a big net to catch enough. The longer and higher the aerial, the more we catch.""
+Tess pressed the earpiece to her ear. Nothing. Pop slid a metal clip slowly along the coil. Still nothing, then a crackle, and then, so faint she had to hold her breath, a man's voice.
+""...crews are working to restore power to the valley, and supply is expected back by early evening...""
+""It's working!"" Tess whispered, as if speaking aloud might frighten the voice away. The man was talking from a studio more than a hundred kilometres away, and his words were reaching her through a cardboard tube and some wire, with nothing to power them but the waves themselves.
+Just after six, the fridge shuddered back to life and every light in the house came on at once. Tess's phone, charging on the bench, buzzed with a stream of messages.
+She didn't look at it. The news had finished, and the announcer was playing an old country song. Tess sat on the back step with the earpiece pressed to her ear, watching the windmill turn slowly against the pink sky, and listened until the very last note.",What is the main reason the author begins the story with Tess watching her phone battery run down?,,B,to show how bored Tess felt during the blackout,to set up a contrast with a radio that needs no battery,to suggest that Tess was careless with her things,to explain why the storm had cut off the power,,4,1,1,"NAPLAN,Year 7,Mock 3",English_Comprehension_Questions_expanded.csv,7.1542.6,159,2,8,Hard

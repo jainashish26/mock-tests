@@ -149,8 +149,8 @@ export const naplanYear5EnglishPreparationGuide = {
         <h4>2. Teach the Power of Planning</h4>
         <p>At Year 5, planning becomes even more critical. A well-planned piece of writing is <strong>almost always better structured and more coherent</strong> than one written on the fly. Teach your child to spend <strong>3 to 5 minutes planning</strong> before writing:</p>
         <ul>
-          <li><strong>Narrative plan:</strong> Who (characters) -†’ Where (setting) -†’ What goes wrong (complication) -†’ What happens (events) -†’ How it ends (resolution)</li>
-          <li><strong>Persuasive plan:</strong> My position -†’ Argument 1 + evidence -†’ Argument 2 + evidence -†’ Argument 3 + evidence -†’ Conclusion</li>
+          <li><strong>Narrative plan:</strong> Who (characters) → Where (setting) → What goes wrong (complication) → What happens (events) → How it ends (resolution)</li>
+          <li><strong>Persuasive plan:</strong> My position → Argument 1 + evidence → Argument 2 + evidence → Argument 3 + evidence → Conclusion</li>
         </ul>
         <p>A simple dot-point plan or a quick mind map is all it takes. Practise planning until it becomes an automatic first step.</p>
 
@@ -227,7 +227,7 @@ export const naplanYear5EnglishPreparationGuide = {
         <p>Move beyond rote learning to strategies that build <strong>understanding of how English spelling works</strong>:</p>
         <ul>
           <li><strong>Morphemic analysis</strong> - Break words into meaningful parts: <em>un-believe-able</em>, <em>dis-agree-ment</em>, <em>inter-nation-al</em>. Understanding these parts makes unfamiliar words decodable</li>
-          <li><strong>Etymology</strong> - Where does the word come from? Words with Latin or Greek roots often follow predictable patterns (e.g., "aqua" = water -†’ aquarium, aquatic, aqueduct)</li>
+          <li><strong>Etymology</strong> - Where does the word come from? Words with Latin or Greek roots often follow predictable patterns (e.g., "aqua" = water → aquarium, aquatic, aqueduct)</li>
           <li><strong>Mnemonics</strong> - Memory tricks for persistent problem words: "because = Big Elephants Can Always Understand Small Elephants"; "necessary = one collar, two sleeves"</li>
           <li><strong>Dictation practice</strong> - Read a passage aloud and have your child write it down, then compare. This tests both spelling and punctuation simultaneously</li>
           <li><strong>Personal spelling list</strong> - Keep a running list of words your child misspells in everyday writing and revisit them regularly</li>
@@ -237,8 +237,8 @@ export const naplanYear5EnglishPreparationGuide = {
         <p>Grammar is best learned in context, not in isolation:</p>
         <ul>
           <li><strong>Editing practice</strong> - Give your child a short passage with deliberate grammar errors and ask them to find and correct them. This builds the same skills NAPLAN tests</li>
-          <li><strong>Sentence combining</strong> - Take two or three simple sentences and combine them into one complex sentence: "The cat sat on the mat. The mat was old. The cat was grey." -†’ "The grey cat sat on the old mat"</li>
-          <li><strong>Sentence expanding</strong> - Start with a basic sentence and add detail: "The dog ran." -†’ "The excited golden retriever raced across the muddy park, barking joyfully."</li>
+          <li><strong>Sentence combining</strong> - Take two or three simple sentences and combine them into one complex sentence: "The cat sat on the mat. The mat was old. The cat was grey." → "The grey cat sat on the old mat"</li>
+          <li><strong>Sentence expanding</strong> - Start with a basic sentence and add detail: "The dog ran." → "The excited golden retriever raced across the muddy park, barking joyfully."</li>
           <li><strong>Grammar in reading</strong> - When reading together, occasionally point out interesting grammar choices: "Notice how the author used a really short sentence here. Why do you think they did that?"</li>
         </ul>
 
@@ -413,12 +413,35 @@ export const naplanYear5EnglishPreparationGuide = {
       </section>
 
     </article>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What does NAPLAN Year 5 English assess?</h3>
+    <p>Three tests: Reading, Writing, and Language Conventions. At Year 5 the Writing task may be narrative or persuasive, and Language Conventions is broken into spelling, grammar and punctuation - each treated separately in this guide because they need different practice.</p>
+
+    <h3>How is Year 5 English harder than Year 3?</h3>
+    <p>Texts are longer and less heavily illustrated, so more inference is required in Reading. Writing expectations rise to a clear structure with developed ideas, whether narrative or persuasive. Language Conventions moves beyond basic capitalisation and full stops to more demanding grammar, spelling patterns and punctuation including commas and speech marks.</p>
+
+    <h3>Does my child need to write both narratives and persuasive texts?</h3>
+    <p>Yes - both forms should be practised, because the prompt determines the genre and a student who has only rehearsed one is disadvantaged if the other appears. This guide covers what the writing test looks like and how to build writing skills at home across both forms.</p>
+
+    <h3>How should we practise spelling, grammar and punctuation?</h3>
+    <p>Treat them as three separate skills rather than one subject called English. The guide gives distinct approaches for spelling at Year 5, grammar at Year 5, and punctuation at Year 5, then shows how to build language conventions skills at home through short, frequent practice rather than long worksheets.</p>
+
+    <h3>What are the most common Year 5 English mistakes?</h3>
+    <p>The guide lists them separately for Reading, Writing and Language Conventions. They typically involve not reading questions closely enough, writing responses that are under-developed or poorly structured for the genre, and punctuation errors that persist even when a child knows the rule - usually because of rushing rather than ignorance.</p>
+
+    <h3>How do I support my child emotionally through Year 5 NAPLAN?</h3>
+    <p>Normalise and de-escalate worry rather than dismissing it, foster a growth mindset about literacy so effort is seen as the mechanism for improvement, and celebrate literacy in all its forms - including comics, audiobooks and games with text. Handle test-day practicalities in advance so the morning is calm.</p>
+
   `,
   image:
     "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Child reading a book at a bright desk surrounded by notebooks and colourful stationery",
-  date: "March 28, 2026",
+    "Child reading a book at a bright desk surrounded by notebooks and colourful stationery",  date: "November 14, 2026",
+  updatedDate: "November 16, 2026",
+  readingTime: 21,
+  category: "naplan",
   tags: [
     "NAPLAN",
     "YEAR 5",
@@ -443,6 +466,13 @@ export const naplanYear5EnglishPreparationGuide = {
     "Year 5 literacy",
     "NAPLAN spelling grammar punctuation",
     "NAPLAN parent guide English Year 5",
+  ],
+  keyTakeaways: [
+    "NAPLAN Year 5 English assesses Reading, Writing (narrative and persuasive), and Language Conventions covering spelling, grammar and punctuation.",
+    "Year 5 demands more inference in reading and more structured, developed writing than Year 3.",
+    "Spelling, grammar and punctuation are treated as three distinct skill sets, each with its own home practice approach.",
+    "Common Year 5 mistakes are broken down by test area so preparation can be targeted rather than general.",
+    "Emotional preparation matters: normalise and de-escalate worry, foster a growth mindset about literacy, and celebrate literacy in all its forms.",
   ],
   author: {
     name: "Ashish Jain",

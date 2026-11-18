@@ -180,11 +180,31 @@ export const nonVerbalReasoningScholarship = {
     <p>Explore our non-verbal reasoning practice resources, try a free mock test, and remember: the ability to see patterns is the ability to understand the world.</p>
 
     <p><strong>Together, we've absolutely got this.</strong></p>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What is non-verbal reasoning?</h3>
+    <p>Non-verbal reasoning, sometimes called abstract reasoning, is the ability to identify patterns, relationships and logical rules using visual information rather than words. It is assessed in many Australian scholarship and selective-entry exams precisely because it does not depend on curriculum knowledge or reading fluency.</p>
+
+    <h3>Which non-verbal reasoning question types appear in scholarship exams?</h3>
+    <p>The most common are pattern completion (matrix reasoning), odd one out, analogy reasoning with shapes, series or sequence completion, spatial folding and unfolding, and codes or coded figures. Knowing the formats in advance is the most important first step, because each one rewards a different scanning approach.</p>
+
+    <h3>Can non-verbal reasoning be taught, or is it innate?</h3>
+    <p>It can be developed. Much of the difficulty comes from unfamiliarity - students have rarely, if ever, met these question formats in school. Simply understanding what each type asks, and practising the underlying skills of pattern recognition, spatial visualisation, systematic analysis and working memory, improves performance across every format.</p>
+
+    <h3>What is the most effective practice method?</h3>
+    <p>Build familiarity with the question types first, then teach a systematic approach. The 'talk through' method - having your child describe aloud what they notice and what rule they are testing - makes their reasoning visible and correctable. Practise elimination, use both physical and digital resources, and introduce time pressure only gradually.</p>
+
+    <h3>My child says they cannot do it. How do I respond?</h3>
+    <p>Treat that as an expected reaction to an unfamiliar format rather than a verdict on ability. Children often feel they cannot do non-verbal reasoning simply because they have not encountered it before. Keep sessions short and successful, celebrate the strategy used rather than only correct answers, and protect emotional wellbeing alongside scores.</p>
+
   `,
   image: "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=1200&q=80",
   imageAlt:
-    "Colourful geometric shapes and patterns arranged on a surface, representing visual-spatial reasoning and pattern recognition",
-  date: "March 30, 2026",
+    "Colourful geometric shapes and patterns arranged on a surface, representing visual-spatial reasoning and pattern recognition",  date: "October 9, 2026",
+  updatedDate: "October 11, 2026",
+  readingTime: 11,
+  category: "scholarship-exams",
   tags: ["SCHOLARSHIP EXAMS", "NON-VERBAL REASONING", "ABSTRACT REASONING", "EXAM PREPARATION"],
   metaTitle: "How to Improve Non-Verbal Reasoning for Scholarship Exams",
   metaDescription:
@@ -202,6 +222,13 @@ export const nonVerbalReasoningScholarship = {
     "non-verbal reasoning question types",
     "visual reasoning strategies",
     "spatial awareness for exams",
+  ],
+  keyTakeaways: [
+    "Non-verbal (abstract) reasoning is the ability to identify patterns, relationships and logical rules from visual information without relying on words.",
+    "The main question types are matrix pattern completion, odd one out, shape analogies, series completion, spatial folding and unfolding, and coded figures.",
+    "Four underlying skills drive every format: pattern recognition, spatial visualisation, systematic analysis and working memory.",
+    "Most of the difficulty is unfamiliarity - students have rarely met these formats at school, so exposure alone produces rapid gains.",
+    "Introduce time pressure gradually and protect confidence: children who believe they cannot do it perform below their real ability.",
   ],
   author: {
     name: "The Exam Success Team",

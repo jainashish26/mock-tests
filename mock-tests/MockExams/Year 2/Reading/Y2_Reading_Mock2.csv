@@ -1,0 +1,171 @@
+﻿QuestionID,ExamID,ExamType,ExamSection,YearLevel,Subject,Topic,SubTopic,QuestionType,ComprehensionText,QuestionText,QuestionMedia,Correct,AnswerA,AnswerB,AnswerC,AnswerD,AnswerE,Difficulty,IsActive,CorrectAnswerScore,Tags,SourceBank,SourceQuestionNumber,SourceComprehensionID,NAPLANFlag,DifficultyScore,DifficultyLabel
+NAPLAN-Y2-READING-M2-Q01,NAPLAN-Y2-READING-M2,NAPLAN_STYLE_READING,Text 1,2,English,Reading Comprehension,Literal Recall,ReadingComprehension,"How to Make a Friendship Bracelet
+A friendship bracelet is a fun way to show a friend you care.
+You will need:
+three pieces of coloured wool, each as long as your arm
+sticky tape
+Steps:
+1. Tie the three pieces together with a knot at one end.
+2. Tape the knot to a table.
+3. Plait the wool. Cross the left piece over the middle one, then the right piece over the middle one. Keep going.
+4. When it fits around a wrist, tie another knot.
+5. Give it to your friend with a big smile.
+Tip: Choose your friend's favourite colours. They will know you were thinking of them!",How many pieces of wool do you need?,,D,two,four,five,three,,1,1,1,"NAPLAN,Year 2,Mock 2",English_Comprehension_Questions_expanded.csv,2.1039.1,165,1,1,Easy
+NAPLAN-Y2-READING-M2-Q02,NAPLAN-Y2-READING-M2,NAPLAN_STYLE_READING,Text 1,2,English,Reading Comprehension,Literal Recall,ReadingComprehension,"How to Make a Friendship Bracelet
+A friendship bracelet is a fun way to show a friend you care.
+You will need:
+three pieces of coloured wool, each as long as your arm
+sticky tape
+Steps:
+1. Tie the three pieces together with a knot at one end.
+2. Tape the knot to a table.
+3. Plait the wool. Cross the left piece over the middle one, then the right piece over the middle one. Keep going.
+4. When it fits around a wrist, tie another knot.
+5. Give it to your friend with a big smile.
+Tip: Choose your friend's favourite colours. They will know you were thinking of them!",What do you do after you tape the knot to a table?,,C,tie the pieces together,give it to your friend,plait the wool,choose the colours,,1,1,1,"NAPLAN,Year 2,Mock 2",English_Comprehension_Questions_expanded.csv,2.1039.2,165,1,2,Easy
+NAPLAN-Y2-READING-M2-Q03,NAPLAN-Y2-READING-M2,NAPLAN_STYLE_READING,Text 1,2,English,Literary Techniques,Tone and Mood,ReadingComprehension,"How to Make a Friendship Bracelet
+A friendship bracelet is a fun way to show a friend you care.
+You will need:
+three pieces of coloured wool, each as long as your arm
+sticky tape
+Steps:
+1. Tie the three pieces together with a knot at one end.
+2. Tape the knot to a table.
+3. Plait the wool. Cross the left piece over the middle one, then the right piece over the middle one. Keep going.
+4. When it fits around a wrist, tie another knot.
+5. Give it to your friend with a big smile.
+Tip: Choose your friend's favourite colours. They will know you were thinking of them!",How does the writer sound in this passage?,,D,serious and worried,cross and grumpy,sad and lonely,friendly and cheerful,,2,1,1,"NAPLAN,Year 2,Mock 2",English_Comprehension_Questions_expanded.csv,2.1039.3,165,1,4,Medium
+NAPLAN-Y2-READING-M2-Q04,NAPLAN-Y2-READING-M2,NAPLAN_STYLE_READING,Text 1,2,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"How to Make a Friendship Bracelet
+A friendship bracelet is a fun way to show a friend you care.
+You will need:
+three pieces of coloured wool, each as long as your arm
+sticky tape
+Steps:
+1. Tie the three pieces together with a knot at one end.
+2. Tape the knot to a table.
+3. Plait the wool. Cross the left piece over the middle one, then the right piece over the middle one. Keep going.
+4. When it fits around a wrist, tie another knot.
+5. Give it to your friend with a big smile.
+Tip: Choose your friend's favourite colours. They will know you were thinking of them!","In this passage, plait means . . .",,A,to weave pieces together by crossing them over.,to cut the pieces into small bits.,to tie all the pieces in one knot.,to stick the pieces down with tape.,,3,1,1,"NAPLAN,Year 2,Mock 2",English_Comprehension_Questions_expanded.csv,2.1039.4,165,1,5,Medium
+NAPLAN-Y2-READING-M2-Q05,NAPLAN-Y2-READING-M2,NAPLAN_STYLE_READING,Text 1,2,English,Reading Comprehension,Main Idea,ReadingComprehension,"How to Make a Friendship Bracelet
+A friendship bracelet is a fun way to show a friend you care.
+You will need:
+three pieces of coloured wool, each as long as your arm
+sticky tape
+Steps:
+1. Tie the three pieces together with a knot at one end.
+2. Tape the knot to a table.
+3. Plait the wool. Cross the left piece over the middle one, then the right piece over the middle one. Keep going.
+4. When it fits around a wrist, tie another knot.
+5. Give it to your friend with a big smile.
+Tip: Choose your friend's favourite colours. They will know you were thinking of them!",Which TWO parts of the passage BEST show its main message?,,B,the list of things you need and step 3,the first sentence and the Tip,step 2 and step 5,step 1 and step 4,,4,1,1,"NAPLAN,Year 2,Mock 2",English_Comprehension_Questions_expanded.csv,2.1039.5,165,2,7,Hard
+NAPLAN-Y2-READING-M2-Q06,NAPLAN-Y2-READING-M2,NAPLAN_STYLE_READING,Text 2,2,English,Inference,Inferential Reasoning,ReadingComprehension,"The Man Who Gave Us Kindergarten
+Friedrich Froebel was born in Germany in 1782. As a boy, he loved exploring the forest near his home. He studied plants, rocks and animals.
+When he grew up, Froebel became a teacher. He noticed that young children learnt best when they were playing.
+In 1837, he opened a special school for little children. They sang songs, played games and built with wooden blocks. They also grew flowers in a garden.
+Froebel called his school a kindergarten. In German, this means 'children's garden'. Today, kindergartens are found all over the world.",Which language did Froebel most likely speak?,,D,English,French,Italian,German,,1,1,1,"NAPLAN,Year 2,Mock 2",English_Comprehension_Questions_expanded.csv,2.1051.1,177,1,2,Easy
+NAPLAN-Y2-READING-M2-Q07,NAPLAN-Y2-READING-M2,NAPLAN_STYLE_READING,Text 2,2,English,Reading Comprehension,Sequencing,ReadingComprehension,"The Man Who Gave Us Kindergarten
+Friedrich Froebel was born in Germany in 1782. As a boy, he loved exploring the forest near his home. He studied plants, rocks and animals.
+When he grew up, Froebel became a teacher. He noticed that young children learnt best when they were playing.
+In 1837, he opened a special school for little children. They sang songs, played games and built with wooden blocks. They also grew flowers in a garden.
+Froebel called his school a kindergarten. In German, this means 'children's garden'. Today, kindergartens are found all over the world.",Which of these happened first?,,A,Froebel explored the forest near his home.,Froebel became a teacher.,Froebel opened a school for little children.,Froebel named his school a kindergarten.,,1,1,1,"NAPLAN,Year 2,Mock 2",English_Comprehension_Questions_expanded.csv,2.1051.2,177,1,2,Easy
+NAPLAN-Y2-READING-M2-Q08,NAPLAN-Y2-READING-M2,NAPLAN_STYLE_READING,Text 2,2,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Man Who Gave Us Kindergarten
+Friedrich Froebel was born in Germany in 1782. As a boy, he loved exploring the forest near his home. He studied plants, rocks and animals.
+When he grew up, Froebel became a teacher. He noticed that young children learnt best when they were playing.
+In 1837, he opened a special school for little children. They sang songs, played games and built with wooden blocks. They also grew flowers in a garden.
+Froebel called his school a kindergarten. In German, this means 'children's garden'. Today, kindergartens are found all over the world.",Which activity is NOT mentioned at Froebel's school?,,B,singing songs,painting pictures,building with blocks,growing flowers,,2,1,1,"NAPLAN,Year 2,Mock 2",English_Comprehension_Questions_expanded.csv,2.1051.3,177,1,4,Medium
+NAPLAN-Y2-READING-M2-Q09,NAPLAN-Y2-READING-M2,NAPLAN_STYLE_READING,Text 2,2,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"The Man Who Gave Us Kindergarten
+Friedrich Froebel was born in Germany in 1782. As a boy, he loved exploring the forest near his home. He studied plants, rocks and animals.
+When he grew up, Froebel became a teacher. He noticed that young children learnt best when they were playing.
+In 1837, he opened a special school for little children. They sang songs, played games and built with wooden blocks. They also grew flowers in a garden.
+Froebel called his school a kindergarten. In German, this means 'children's garden'. Today, kindergartens are found all over the world.","In the passage, the word 'noticed' means . . .",,B,forgot about,saw and realised,worried about,hoped for,,2,1,1,"NAPLAN,Year 2,Mock 2",English_Comprehension_Questions_expanded.csv,2.1051.4,177,1,4,Medium
+NAPLAN-Y2-READING-M2-Q10,NAPLAN-Y2-READING-M2,NAPLAN_STYLE_READING,Text 2,2,English,Reading Comprehension,Evaluating Evidence,ReadingComprehension,"The Man Who Gave Us Kindergarten
+Friedrich Froebel was born in Germany in 1782. As a boy, he loved exploring the forest near his home. He studied plants, rocks and animals.
+When he grew up, Froebel became a teacher. He noticed that young children learnt best when they were playing.
+In 1837, he opened a special school for little children. They sang songs, played games and built with wooden blocks. They also grew flowers in a garden.
+Froebel called his school a kindergarten. In German, this means 'children's garden'. Today, kindergartens are found all over the world.",Which detail BEST suggests Froebel's childhood helped shape his school?,,D,"'They sang songs, played games and built with wooden blocks.'","'When he grew up, Froebel became a teacher.'","'Today, kindergartens are found all over the world.'",'They also grew flowers in a garden.',,4,1,1,"NAPLAN,Year 2,Mock 2",English_Comprehension_Questions_expanded.csv,2.1051.5,177,1,8,Hard
+NAPLAN-Y2-READING-M2-Q11,NAPLAN-Y2-READING-M2,NAPLAN_STYLE_READING,Text 3,2,English,Reading Comprehension,Locating Information,ReadingComprehension,"Protect Our Seagrass Meadows
+Under the shallow water in some bays, there are green meadows of seagrass. We must look after them!
+Seagrass is home to baby fish, crabs and seahorses. It hides them from hungry hunters. Dugongs, also called sea cows, munch on seagrass every day. Without it, they would go hungry.
+Sadly, boat anchors and propellers can tear the seagrass out. It grows back very slowly.
+Boaties, please drop your anchor on sand, not grass. Go slowly in shallow water. Let's keep the meadows green!",Where in the text does the writer tell boaties what to do?,,A,in the last part,in the title,in the first part,in the second part,,1,1,1,"NAPLAN,Year 2,Mock 2",English_Comprehension_Questions_expanded.csv,2.997.1,123,1,2,Easy
+NAPLAN-Y2-READING-M2-Q12,NAPLAN-Y2-READING-M2,NAPLAN_STYLE_READING,Text 3,2,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Protect Our Seagrass Meadows
+Under the shallow water in some bays, there are green meadows of seagrass. We must look after them!
+Seagrass is home to baby fish, crabs and seahorses. It hides them from hungry hunters. Dugongs, also called sea cows, munch on seagrass every day. Without it, they would go hungry.
+Sadly, boat anchors and propellers can tear the seagrass out. It grows back very slowly.
+Boaties, please drop your anchor on sand, not grass. Go slowly in shallow water. Let's keep the meadows green!",What is another name for dugongs?,,B,seahorses,sea cows,sea stars,sea lions,,1,1,1,"NAPLAN,Year 2,Mock 2",English_Comprehension_Questions_expanded.csv,2.997.2,123,1,2,Easy
+NAPLAN-Y2-READING-M2-Q13,NAPLAN-Y2-READING-M2,NAPLAN_STYLE_READING,Text 3,2,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Protect Our Seagrass Meadows
+Under the shallow water in some bays, there are green meadows of seagrass. We must look after them!
+Seagrass is home to baby fish, crabs and seahorses. It hides them from hungry hunters. Dugongs, also called sea cows, munch on seagrass every day. Without it, they would go hungry.
+Sadly, boat anchors and propellers can tear the seagrass out. It grows back very slowly.
+Boaties, please drop your anchor on sand, not grass. Go slowly in shallow water. Let's keep the meadows green!",How does seagrass help baby fish?,,A,It hides them from hungry hunters.,It gives them food every day.,It keeps the water warm.,It pulls boat anchors away.,,2,1,1,"NAPLAN,Year 2,Mock 2",English_Comprehension_Questions_expanded.csv,2.997.3,123,1,4,Medium
+NAPLAN-Y2-READING-M2-Q14,NAPLAN-Y2-READING-M2,NAPLAN_STYLE_READING,Text 3,2,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"Protect Our Seagrass Meadows
+Under the shallow water in some bays, there are green meadows of seagrass. We must look after them!
+Seagrass is home to baby fish, crabs and seahorses. It hides them from hungry hunters. Dugongs, also called sea cows, munch on seagrass every day. Without it, they would go hungry.
+Sadly, boat anchors and propellers can tear the seagrass out. It grows back very slowly.
+Boaties, please drop your anchor on sand, not grass. Go slowly in shallow water. Let's keep the meadows green!","In this text, the word meadows means . . .",,C,deep holes in the sand.,groups of hungry fish.,large areas covered with grass.,boats with big anchors.,,3,1,1,"NAPLAN,Year 2,Mock 2",English_Comprehension_Questions_expanded.csv,2.997.4,123,1,5,Medium
+NAPLAN-Y2-READING-M2-Q15,NAPLAN-Y2-READING-M2,NAPLAN_STYLE_READING,Text 3,2,English,Inference,Inferential Reasoning,ReadingComprehension,"Protect Our Seagrass Meadows
+Under the shallow water in some bays, there are green meadows of seagrass. We must look after them!
+Seagrass is home to baby fish, crabs and seahorses. It hides them from hungry hunters. Dugongs, also called sea cows, munch on seagrass every day. Without it, they would go hungry.
+Sadly, boat anchors and propellers can tear the seagrass out. It grows back very slowly.
+Boaties, please drop your anchor on sand, not grass. Go slowly in shallow water. Let's keep the meadows green!",Why is it a big problem that seagrass 'grows back very slowly'?,,C,Boaties would have nowhere to drop their anchors.,"Boats would get stuck in the long, thick grass.",Sea animals could lose their food and homes for a long time.,The water in the bay would turn brown and dirty.,,4,1,1,"NAPLAN,Year 2,Mock 2",English_Comprehension_Questions_expanded.csv,2.997.5,123,1,7,Hard
+NAPLAN-Y2-READING-M2-Q16,NAPLAN-Y2-READING-M2,NAPLAN_STYLE_READING,Text 4,2,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Small Squares of the World
+A stamp is a tiny picture you stick on a letter to pay for its trip. Some people collect them.
+Stamps show all sorts of things, like animals, sports stars and famous places. A stamp from Japan might show a mountain. One from Kenya might show a lion.
+Collectors keep stamps in special books called albums. They use tweezers to pick them up, because fingers can bend the edges or leave marks.
+Some stamps are very rare. Only a few were ever made, so collectors will travel a long way just to see one.",What do collectors keep their stamps in?,,B,boxes,albums,envelopes,jars,,1,1,1,"NAPLAN,Year 2,Mock 2",English_Comprehension_Questions_expanded.csv,2.1002.1,128,1,2,Easy
+NAPLAN-Y2-READING-M2-Q17,NAPLAN-Y2-READING-M2,NAPLAN_STYLE_READING,Text 4,2,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Small Squares of the World
+A stamp is a tiny picture you stick on a letter to pay for its trip. Some people collect them.
+Stamps show all sorts of things, like animals, sports stars and famous places. A stamp from Japan might show a mountain. One from Kenya might show a lion.
+Collectors keep stamps in special books called albums. They use tweezers to pick them up, because fingers can bend the edges or leave marks.
+Some stamps are very rare. Only a few were ever made, so collectors will travel a long way just to see one.",What is a stamp used for?,,C,to close an envelope,to write an address,to pay for sending a letter,to decorate a birthday card,,2,1,1,"NAPLAN,Year 2,Mock 2",English_Comprehension_Questions_expanded.csv,2.1002.2,128,1,4,Medium
+NAPLAN-Y2-READING-M2-Q18,NAPLAN-Y2-READING-M2,NAPLAN_STYLE_READING,Text 4,2,English,Inference,Inferential Reasoning,ReadingComprehension,"Small Squares of the World
+A stamp is a tiny picture you stick on a letter to pay for its trip. Some people collect them.
+Stamps show all sorts of things, like animals, sports stars and famous places. A stamp from Japan might show a mountain. One from Kenya might show a lion.
+Collectors keep stamps in special books called albums. They use tweezers to pick them up, because fingers can bend the edges or leave marks.
+Some stamps are very rare. Only a few were ever made, so collectors will travel a long way just to see one.",What could you learn by looking at stamps from many countries?,,C,how to write a letter,how to use tweezers,things about different places,how much a letter weighs,,3,1,1,"NAPLAN,Year 2,Mock 2",English_Comprehension_Questions_expanded.csv,2.1002.3,128,1,5,Medium
+NAPLAN-Y2-READING-M2-Q19,NAPLAN-Y2-READING-M2,NAPLAN_STYLE_READING,Text 4,2,English,Inference,Character Motivation,ReadingComprehension,"Small Squares of the World
+A stamp is a tiny picture you stick on a letter to pay for its trip. Some people collect them.
+Stamps show all sorts of things, like animals, sports stars and famous places. A stamp from Japan might show a mountain. One from Kenya might show a lion.
+Collectors keep stamps in special books called albums. They use tweezers to pick them up, because fingers can bend the edges or leave marks.
+Some stamps are very rare. Only a few were ever made, so collectors will travel a long way just to see one.",Why would a collector be extra careful not to bend a very rare stamp?,,A,"Only a few were made, so it could not easily be replaced.",A bent stamp could not pay for a letter's trip.,A bent stamp would not fit inside the album.,Bent stamps cannot be picked up with tweezers.,,4,1,1,"NAPLAN,Year 2,Mock 2",English_Comprehension_Questions_expanded.csv,2.1002.4,128,1,7,Hard
+NAPLAN-Y2-READING-M2-Q20,NAPLAN-Y2-READING-M2,NAPLAN_STYLE_READING,Text 4,2,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"Small Squares of the World
+A stamp is a tiny picture you stick on a letter to pay for its trip. Some people collect them.
+Stamps show all sorts of things, like animals, sports stars and famous places. A stamp from Japan might show a mountain. One from Kenya might show a lion.
+Collectors keep stamps in special books called albums. They use tweezers to pick them up, because fingers can bend the edges or leave marks.
+Some stamps are very rare. Only a few were ever made, so collectors will travel a long way just to see one.","'Fingers can bend the edges or leave marks.' In this sentence, marks means . . .",,B,scores given for school work.,smudges or spots left on the stamp.,ticks written on a list.,the prices written on stamps.,,4,1,1,"NAPLAN,Year 2,Mock 2",English_Comprehension_Questions_expanded.csv,2.1002.5,128,1,7,Hard
+NAPLAN-Y2-READING-M2-Q21,NAPLAN-Y2-READING-M2,NAPLAN_STYLE_READING,Text 5,2,English,Reading Comprehension,Main Idea,ReadingComprehension,"Biscuit's First Week
+Monday
+Our new guinea pig came home today! Her name is Biscuit. She hid in her wooden box all afternoon and would not come out.
+Wednesday
+I sat very still beside her cage and held out a piece of carrot. Biscuit sniffed it, then ran away. Dad says I need to be patient.
+Saturday
+This morning Biscuit squeaked loudly when she heard me open the fridge. She took a lettuce leaf right from my fingers! Then she let me stroke her soft back. I think we are going to be best friends.",What is the diary mostly about?,,C,the foods that guinea pigs like to eat,how to build a wooden box for a pet,a guinea pig getting used to its new home,the things Dad says about looking after pets,,2,1,1,"NAPLAN,Year 2,Mock 2",English_Comprehension_Questions_expanded.csv,2.927.1,53,1,3,Easy
+NAPLAN-Y2-READING-M2-Q22,NAPLAN-Y2-READING-M2,NAPLAN_STYLE_READING,Text 5,2,English,Inference,Drawing Conclusions,ReadingComprehension,"Biscuit's First Week
+Monday
+Our new guinea pig came home today! Her name is Biscuit. She hid in her wooden box all afternoon and would not come out.
+Wednesday
+I sat very still beside her cage and held out a piece of carrot. Biscuit sniffed it, then ran away. Dad says I need to be patient.
+Saturday
+This morning Biscuit squeaked loudly when she heard me open the fridge. She took a lettuce leaf right from my fingers! Then she let me stroke her soft back. I think we are going to be best friends.",Why did Biscuit squeak when she heard the fridge open?,,D,She was scared of the noise.,She wanted to go back to her box.,She was cold and wanted a blanket.,She knew food was coming.,,3,1,1,"NAPLAN,Year 2,Mock 2",English_Comprehension_Questions_expanded.csv,2.927.2,53,1,5,Medium
+NAPLAN-Y2-READING-M2-Q23,NAPLAN-Y2-READING-M2,NAPLAN_STYLE_READING,Text 5,2,English,Reading Comprehension,Evaluating Evidence,ReadingComprehension,"Biscuit's First Week
+Monday
+Our new guinea pig came home today! Her name is Biscuit. She hid in her wooden box all afternoon and would not come out.
+Wednesday
+I sat very still beside her cage and held out a piece of carrot. Biscuit sniffed it, then ran away. Dad says I need to be patient.
+Saturday
+This morning Biscuit squeaked loudly when she heard me open the fridge. She took a lettuce leaf right from my fingers! Then she let me stroke her soft back. I think we are going to be best friends.",Which sentence shows that Biscuit was still shy on Wednesday?,,A,"'Biscuit sniffed it, then ran away.'",'Dad says I need to be patient.','Her name is Biscuit.','She took a lettuce leaf right from my fingers!',,3,1,1,"NAPLAN,Year 2,Mock 2",English_Comprehension_Questions_expanded.csv,2.927.3,53,1,5,Medium
+NAPLAN-Y2-READING-M2-Q24,NAPLAN-Y2-READING-M2,NAPLAN_STYLE_READING,Text 5,2,English,Reading Comprehension,Text Structure,ReadingComprehension,"Biscuit's First Week
+Monday
+Our new guinea pig came home today! Her name is Biscuit. She hid in her wooden box all afternoon and would not come out.
+Wednesday
+I sat very still beside her cage and held out a piece of carrot. Biscuit sniffed it, then ran away. Dad says I need to be patient.
+Saturday
+This morning Biscuit squeaked loudly when she heard me open the fridge. She took a lettuce leaf right from my fingers! Then she let me stroke her soft back. I think we are going to be best friends.",The writer adds one more diary entry for the next Monday. Which sentence would fit the diary BEST?,,C,Biscuit hid in her wooden box and would not come out.,"Biscuit sniffed my piece of carrot, then ran away.",Biscuit ran to the front of her cage to say hello to me.,Our new guinea pig came home today and her name is Biscuit.,,4,1,1,"NAPLAN,Year 2,Mock 2",English_Comprehension_Questions_expanded.csv,2.927.4,53,2,8,Hard
+NAPLAN-Y2-READING-M2-Q25,NAPLAN-Y2-READING-M2,NAPLAN_STYLE_READING,Text 5,2,English,Inference,Inferential Reasoning,ReadingComprehension,"Biscuit's First Week
+Monday
+Our new guinea pig came home today! Her name is Biscuit. She hid in her wooden box all afternoon and would not come out.
+Wednesday
+I sat very still beside her cage and held out a piece of carrot. Biscuit sniffed it, then ran away. Dad says I need to be patient.
+Saturday
+This morning Biscuit squeaked loudly when she heard me open the fridge. She took a lettuce leaf right from my fingers! Then she let me stroke her soft back. I think we are going to be best friends.",What does the Saturday entry show about Dad's advice?,,D,Biscuit only likes lettuce and not carrot.,Biscuit needed to be fed much more food.,The fridge noise made Biscuit feel braver.,Waiting quietly helped Biscuit learn to trust.,,4,1,1,"NAPLAN,Year 2,Mock 2",English_Comprehension_Questions_expanded.csv,2.927.5,53,1,8,Hard

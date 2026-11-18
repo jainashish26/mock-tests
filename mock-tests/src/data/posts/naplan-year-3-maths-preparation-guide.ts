@@ -263,12 +263,35 @@ export const naplanYear3MathsPreparationGuide = {
       </section>
 
     </article>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What topics does Year 3 NAPLAN Maths cover?</h3>
+    <p>The assessment draws from the Australian Curriculum: Mathematics and is organised into three content strands - Number and Algebra, Measurement and Space (Geometry), and Statistics and Probability - plus an overarching emphasis on mathematical reasoning that applies across all three strands.</p>
+
+    <h3>Is the Year 3 maths test the same for every child?</h3>
+    <p>No. NAPLAN uses adaptive testing online, so question difficulty adjusts to how your child is answering. Two students may see different questions while still being measured on the same scale. This is worth explaining to children beforehand so an unexpectedly easy or hard question is not misread as a sign they are doing badly.</p>
+
+    <h3>How long should we spend preparing?</h3>
+    <p>Short, consistent sessions work better than long ones. The sample weekly plan in this guide is built on three principles: consistency, variety, and keeping sessions short and positive. Starting early and keeping it light reduces pressure and improves retention compared with concentrated last-minute study.</p>
+
+    <h3>What are the most common mistakes in Year 3 NAPLAN Maths?</h3>
+    <p>The guide lists the frequent pitfalls, which cluster around not reading the question carefully, misreading what is being asked, rushing, and arithmetic slips rather than genuine conceptual gaps. Practising reading maths questions carefully is called out specifically because it prevents a large share of avoidable errors.</p>
+
+    <h3>How do I prepare my child emotionally for NAPLAN?</h3>
+    <p>Academic preparation is only half the equation - how your child feels about NAPLAN can significantly affect performance. Normalise the experience, celebrate effort rather than only results, manage your own anxiety because children absorb it, and handle test-day practicalities such as sleep and breakfast in advance.</p>
+
+    <h3>What if my child is genuinely struggling with Year 3 maths?</h3>
+    <p>That is important information rather than something to worry about. Identifying the gap early is the main value of the assessment, because there is still ample time to provide targeted support. Speak to your child's teacher, use official practice materials to locate the specific concept, and keep practice low-pressure while the gap is addressed.</p>
+
   `,
   image:
     "https://images.unsplash.com/photo-1596495578065-6e0763fa1178?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Young child working on maths problems at a desk with colourful learning materials",
-  date: "March 28, 2026",
+    "Young child working on maths problems at a desk with colourful learning materials",  date: "November 8, 2026",
+  updatedDate: "November 10, 2026",
+  readingTime: 13,
+  category: "naplan",
   tags: ["NAPLAN", "YEAR 3", "MATHS", "EXAM PREPARATION", "PRIMARY SCHOOL"],
   metaTitle: "NAPLAN Year 3 Maths - Preparation Guide & Tips (2026)",
   metaDescription:
@@ -284,6 +307,13 @@ export const naplanYear3MathsPreparationGuide = {
     "primary school maths Australia",
     "NAPLAN test format",
     "NAPLAN parent guide",
+  ],
+  keyTakeaways: [
+    "Year 3 NAPLAN Numeracy draws from the Australian Curriculum: Mathematics across three strands plus mathematical reasoning applied across all of them.",
+    "The test is online and adaptive, so question difficulty adjusts to your child's answers.",
+    "Effective preparation builds familiarity and confidence rather than cramming content.",
+    "Start early and keep it light, use official practice tests, focus on understanding rather than answers, embed maths in everyday life, strengthen mental maths, and practise reading questions carefully.",
+    "Emotional preparation matters as much as academic: normalise the experience, celebrate effort, manage your own anxiety and prepare practically for test day.",
   ],
   author: {
     name: "Ashish Jain",

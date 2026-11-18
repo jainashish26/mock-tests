@@ -907,11 +907,34 @@ export const englishGrammarToolkit = {
     <p>Whether you're preparing for NAPLAN, a scholarship exam, high school English, or simply want to communicate with greater confidence and precision, this toolkit is yours. Return to it whenever you need clarification, use the examples as models, and trust that every effort you invest in understanding grammar is building a skill that will serve you for life.</p>
 
     <p><strong>Now, go write something brilliant.</strong></p>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What is the difference between grammar and syntax?</h3>
+    <p>Grammar is the whole system of rules governing how a language works - word forms, agreement, tense and usage. Syntax is the subset concerned with how words combine into phrases and sentences. The guide opens with this distinction because students are often told to 'fix their grammar' when the actual problem is sentence structure.</p>
+
+    <h3>Which grammar areas matter most for NAPLAN Language Conventions?</h3>
+    <p>Punctuation (apostrophes, commas, capitalisation), sentence structure and completeness, agreement and consistency, pronoun accuracy, and verb tense precision. Those are the sections this guide treats in most detail, and they map directly onto what the Language Conventions test assesses.</p>
+
+    <h3>How should a student actually use this guide?</h3>
+    <p>As a reference rather than a textbook to read end to end. Identify the error type appearing in your own writing, read that section, then apply it to a piece you have already written. The final section, 'Bringing It All Together', is designed for exactly that - putting the toolkit to work on real writing.</p>
+
+    <h3>What are the hardest grammar areas for students?</h3>
+    <p>Typically pronoun case and clear pronoun reference, tense consistency across a piece, preposition choice, and the tricky cases of subject-verb agreement. The guide gives each of these its own section with a basic rule followed by the exceptions, because it is the exceptions that cause most errors.</p>
+
+    <h3>Does this cover formal versus informal writing?</h3>
+    <p>Yes - section 12 deals with formal versus informal usage directly, including register and the conventions expected in academic and exam writing. This matters because students often write persuasively or analytically in a conversational register without realising it costs marks.</p>
+
+    <h3>Is this suitable for parents helping at home?</h3>
+    <p>It is written for students, parents and lifelong learners. Explanations are in plain English with practical examples throughout, so a parent can read a section and then explain it without needing prior grammar training.</p>
+
   `,
   image: "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?w=1200&q=80",
   imageAlt:
-    "An open book with a pencil and notebook on a wooden desk, representing the study of English grammar and writing skills",
-  date: "March 30, 2026",
+    "An open book with a pencil and notebook on a wooden desk, representing the study of English grammar and writing skills",  date: "September 6, 2026",
+  updatedDate: "September 8, 2026",
+  readingTime: 34,
+  category: "english-writing",
   tags: ["ENGLISH GRAMMAR", "LITERACY", "WRITING SKILLS", "NAPLAN PREPARATION", "STUDY GUIDE"],
   metaTitle: "English Grammar Toolkit: Complete Guide for Students",
   metaDescription:
@@ -933,6 +956,13 @@ export const englishGrammarToolkit = {
     "English grammar examples",
     "apostrophe rules",
     "comma rules English",
+  ],
+  keyTakeaways: [
+    "A twelve-section plain-English reference covering foundations, punctuation, articles, sentence structure, parts of speech, conjunctions, verb forms, mood and modality, agreement, pronouns, prepositions, and formal versus informal usage.",
+    "Punctuation is treated in depth - apostrophes, commas, capitalisation and ellipsis - because these are assessed directly in NAPLAN Language Conventions.",
+    "Sentence structure covers subjects and predicates, clauses and sentence completeness, which is where fragment and run-on errors come from.",
+    "Conjunctions are split into coordinating, subordinating and correlative, since each joins ideas differently.",
+    "The closing section shows the toolkit in practice, so it works as a reference to consult rather than a book to read once.",
   ],
   author: {
     name: "Ashish Jain",

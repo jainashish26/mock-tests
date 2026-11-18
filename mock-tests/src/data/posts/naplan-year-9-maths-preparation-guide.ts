@@ -50,12 +50,12 @@ export const naplanYear9MathsPreparationGuide = {
         <h3>1. Number and Algebra</h3>
         <p>This strand remains central, but at Year 9 it incorporates substantially more abstract and complex concepts:</p>
         <ul>
-          <li><strong>Rational numbers</strong> - Operations with positive and negative fractions, decimals, and percentages; understanding irrational numbers in simple contexts (e.g., recognising that -ˆš2 cannot be expressed as a fraction)</li>
-          <li><strong>Indices and scientific notation</strong> - Applying index laws (e.g., aÂ³ Ã- aÂ² = a-µ, (aÂ²)Â³ = a-¶); expressing very large and very small numbers in scientific notation (e.g., 4,500,000 = 4.5 Ã- 10-¶)</li>
+          <li><strong>Rational numbers</strong> - Operations with positive and negative fractions, decimals, and percentages; understanding irrational numbers in simple contexts (e.g., recognising that √2 cannot be expressed as a fraction)</li>
+          <li><strong>Indices and scientific notation</strong> - Applying index laws (e.g., a³ × a² = a⁵, (a²)³ = a⁶); expressing very large and very small numbers in scientific notation (e.g., 4,500,000 = 4.5 × 10⁶)</li>
           <li><strong>Percentage applications</strong> - Calculating percentage increase and decrease, profit and loss, simple interest, and successive percentage changes; solving problems where the percentage or the original amount is unknown</li>
           <li><strong>Ratios and proportional reasoning</strong> - Solving ratio problems in context; dividing quantities in a given ratio; understanding direct proportion and its graphical representation</li>
           <li><strong>Algebraic expressions</strong> - Expanding and simplifying expressions using the distributive law (e.g., 3(2x + 5) = 6x + 15); collecting like terms; factorising simple expressions</li>
-          <li><strong>Linear equations and inequalities</strong> - Solving multi-step linear equations (e.g., 4x -ˆ’ 7 = 2x + 9); solving simple inequalities and representing solutions on a number line</li>
+          <li><strong>Linear equations and inequalities</strong> - Solving multi-step linear equations (e.g., 4x − 7 = 2x + 9); solving simple inequalities and representing solutions on a number line</li>
           <li><strong>Linear relationships</strong> - Plotting linear graphs from equations and tables of values; determining the gradient and y-intercept of a line; interpreting linear graphs in real-world contexts (e.g., distance-time graphs, cost graphs)</li>
           <li><strong>Simultaneous equations</strong> - Solving simple pairs of simultaneous equations graphically or by substitution (introductory level)</li>
           <li><strong>Non-linear patterns</strong> - Recognising and describing quadratic and exponential patterns in sequences and graphs</li>
@@ -64,9 +64,9 @@ export const naplanYear9MathsPreparationGuide = {
         <h3>2. Measurement and Space (Geometry)</h3>
         <p>Measurement and geometry at Year 9 require formal reasoning, formula application, and spatial visualisation:</p>
         <ul>
-          <li><strong>Area and perimeter</strong> - Calculating the area of composite shapes, circles (A = ÏrÂ²), and sectors; calculating circumference (C = 2Ïr or C = Ïd); perimeter of composite figures</li>
+          <li><strong>Area and perimeter</strong> - Calculating the area of composite shapes, circles (A = Ïr²), and sectors; calculating circumference (C = 2Ïr or C = Ïd); perimeter of composite figures</li>
           <li><strong>Surface area and volume</strong> - Calculating the surface area and volume of prisms, cylinders, and composite solids; applying appropriate formulas and converting between units</li>
-          <li><strong>Pythagoras' theorem</strong> - Using aÂ² + bÂ² = cÂ² to find unknown side lengths in right-angled triangles; applying the theorem in real-world and multi-step contexts</li>
+          <li><strong>Pythagoras' theorem</strong> - Using a² + b² = c² to find unknown side lengths in right-angled triangles; applying the theorem in real-world and multi-step contexts</li>
           <li><strong>Trigonometry (introductory)</strong> - Understanding sine, cosine, and tangent ratios in right-angled triangles; using trigonometry to find unknown side lengths and angles (introductory level, where assessed)</li>
           <li><strong>Angles and geometric reasoning</strong> - Applying angle relationships: angles on a straight line, angles at a point, vertically opposite angles, co-interior angles, alternate angles, and corresponding angles with parallel lines; angle sum of polygons</li>
           <li><strong>Similarity and congruence</strong> - Identifying similar and congruent figures; using scale factors to solve problems; applying conditions for triangle congruence (SSS, SAS, ASA, RHS)</li>
@@ -127,11 +127,11 @@ export const naplanYear9MathsPreparationGuide = {
         <h3>3. Build Non-Calculator Fluency</h3>
         <p>The non-calculator session demands sharp mental arithmetic and efficient written strategies. For Year 9, this means fluency in:</p>
         <ul>
-          <li><strong>All multiplication and division facts</strong> - instant recall, including with negatives (e.g., -ˆ’6 Ã- 7 = -ˆ’42)</li>
+          <li><strong>All multiplication and division facts</strong> - instant recall, including with negatives (e.g., −6 × 7 = −42)</li>
           <li><strong>Fraction operations</strong> - Adding, subtracting, multiplying, and dividing fractions and mixed numbers without a calculator</li>
           <li><strong>Percentage mental shortcuts</strong> - Finding 10%, 5%, 1%, 25%, and 50% instantly, then combining them (e.g., 15% = 10% + 5%); reversing percentage problems ("If an item costs $85 after a 15% discount, what was the original price?")</li>
           <li><strong>Index laws</strong> - Applying rules for multiplying, dividing, and raising powers without hesitation</li>
-          <li><strong>Square roots and squares</strong> - Knowing perfect squares up to at least 15Â² = 225, and their corresponding square roots</li>
+          <li><strong>Square roots and squares</strong> - Knowing perfect squares up to at least 15² = 225, and their corresponding square roots</li>
           <li><strong>Order of operations</strong> - Applying BODMAS/BIDMAS accurately in complex expressions</li>
           <li><strong>Estimation</strong> - Quickly rounding to check whether an answer is in the right order of magnitude</li>
         </ul>
@@ -151,7 +151,7 @@ export const naplanYear9MathsPreparationGuide = {
         <h3>5. Strengthen Algebra Skills</h3>
         <p>Algebra is heavily represented in Year 9 NAPLAN, and it's the area where many students feel least confident. Targeted practice makes a significant difference:</p>
         <ul>
-          <li><strong>Expanding and simplifying</strong> - Practise expanding brackets and collecting like terms until the process is fluent (e.g., 2(3x -ˆ’ 4) + 5(x + 1) = 6x -ˆ’ 8 + 5x + 5 = 11x -ˆ’ 3)</li>
+          <li><strong>Expanding and simplifying</strong> - Practise expanding brackets and collecting like terms until the process is fluent (e.g., 2(3x − 4) + 5(x + 1) = 6x − 8 + 5x + 5 = 11x − 3)</li>
           <li><strong>Solving equations</strong> - Work through equations of increasing complexity: one-step, two-step, variables on both sides, equations with brackets</li>
           <li><strong>Linear graphs</strong> - Practise plotting lines from equations, identifying gradient and y-intercept, and interpreting what these mean in context</li>
           <li><strong>Forming equations from word problems</strong> - This is a common NAPLAN question type: translating a real-world scenario into an algebraic equation and solving it</li>
@@ -161,12 +161,12 @@ export const naplanYear9MathsPreparationGuide = {
         <h3>6. Master Geometry and Measurement Formulas</h3>
         <p>Year 9 geometry requires confident formula recall and application. Ensure your teenager knows - and can apply - these key formulas:</p>
         <ul>
-          <li>Area of a triangle: A = Â½ Ã- base Ã- height</li>
-          <li>Area of a circle: A = ÏrÂ²</li>
+          <li>Area of a triangle: A = ½ × base × height</li>
+          <li>Area of a circle: A = Ïr²</li>
           <li>Circumference of a circle: C = 2Ïr (or C = Ïd)</li>
-          <li>Volume of a prism: V = area of cross-section Ã- length</li>
-          <li>Volume of a cylinder: V = ÏrÂ²h</li>
-          <li>Pythagoras' theorem: aÂ² + bÂ² = cÂ²</li>
+          <li>Volume of a prism: V = area of cross-section × length</li>
+          <li>Volume of a cylinder: V = Ïr²h</li>
+          <li>Pythagoras' theorem: a² + b² = c²</li>
           <li>Surface area of a rectangular prism: SA = 2(lw + lh + wh)</li>
         </ul>
         <p>Knowing the formula is only the first step. Practise applying each one in <strong>context-based problems</strong> - calculating the volume of a swimming pool, the area of a circular garden, or the shortest distance across a rectangular park using Pythagoras' theorem.</p>
@@ -196,14 +196,14 @@ export const naplanYear9MathsPreparationGuide = {
         <h2>Common Mistakes Year 9 Students Make</h2>
         <p>Even capable Year 9 students lose marks to preventable errors. Recognising these patterns can turn lost marks into gained ones:</p>
         <ul>
-          <li><strong>Order of operations with negative numbers</strong> - Errors in expressions like -ˆ’3Â² (which equals -ˆ’9, not 9) versus (-ˆ’3)Â² (which equals 9)</li>
+          <li><strong>Order of operations with negative numbers</strong> - Errors in expressions like −3² (which equals −9, not 9) versus (−3)² (which equals 9)</li>
           <li><strong>Percentage increase vs percentage of</strong> - Confusing "25% increase on 80" (= 100) with "25% of 80" (= 20)</li>
-          <li><strong>Algebraic sign errors</strong> - Losing the negative sign when expanding brackets (e.g., -ˆ’2(x -ˆ’ 3) = -ˆ’2x + 6, not -ˆ’2x -ˆ’ 6)</li>
-          <li><strong>Confusing area and perimeter formulas</strong> - Particularly with circles: using 2Ïr when area is required, or ÏrÂ² when circumference is asked for</li>
-          <li><strong>Pythagoras' theorem misapplication</strong> - Using aÂ² + bÂ² = cÂ² to find the hypotenuse, but forgetting to rearrange (cÂ² -ˆ’ aÂ² = bÂ²) when finding a shorter side</li>
+          <li><strong>Algebraic sign errors</strong> - Losing the negative sign when expanding brackets (e.g., −2(x − 3) = −2x + 6, not −2x − 6)</li>
+          <li><strong>Confusing area and perimeter formulas</strong> - Particularly with circles: using 2Ïr when area is required, or Ïr² when circumference is asked for</li>
+          <li><strong>Pythagoras' theorem misapplication</strong> - Using a² + b² = c² to find the hypotenuse, but forgetting to rearrange (c² − a² = b²) when finding a shorter side</li>
           <li><strong>Reading graph scales incorrectly</strong> - Assuming uniform increments without checking axis labels</li>
           <li><strong>Incomplete multi-step answers</strong> - Solving part of the problem but stopping before reaching the final answer the question requires</li>
-          <li><strong>Unit errors</strong> - Providing an answer in millimetres when the question specifies centimetres, or confusing cmÂ² with cm</li>
+          <li><strong>Unit errors</strong> - Providing an answer in millimetres when the question specifies centimetres, or confusing cm² with cm</li>
           <li><strong>Probability errors</strong> - Adding probabilities along a tree diagram branch instead of multiplying; forgetting to list all outcomes in compound events</li>
           <li><strong>Rounding too early</strong> - Rounding intermediate calculations, causing the final answer to be inaccurate</li>
         </ul>
@@ -352,12 +352,35 @@ export const naplanYear9MathsPreparationGuide = {
       </section>
 
     </article>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What topics does Year 9 NAPLAN Maths cover?</h3>
+    <p>Number and Algebra, Measurement and Space (Geometry), and Statistics and Probability, with mathematical reasoning applied across all three. At Year 9 this includes rational and irrational numbers, index laws and scientific notation, and percentage applications such as increase, decrease and profit.</p>
+
+    <h3>Why does Year 9 NAPLAN matter if it is the last one?</h3>
+    <p>It completes the longitudinal picture that began in Year 3, and it is the most demanding of the four year levels. The guide is explicit that the useful outcome is an accurate final benchmark of numeracy rather than a maximised score, and it frames preparation around helping your teenager own the process.</p>
+
+    <h3>How does the adaptive test work at Year 9?</h3>
+    <p>NAPLAN Online uses a multi-stage adaptive model. After an initial set of common questions, subsequent questions are routed easier or harder based on responses. Explaining this beforehand helps, because an unexpectedly hard or easy question is a routing decision rather than a signal about performance.</p>
+
+    <h3>What are the proven revision strategies for Year 9?</h3>
+    <p>The guide's strategies emphasise quality over quantity: structured revision against the three strands, official practice material, systematic problem-solving habits, algebraic fluency, data literacy, and applying maths to real contexts. A sample weekly plan shows how to combine them.</p>
+
+    <h3>What mistakes do Year 9 students commonly make?</h3>
+    <p>They are listed separately in the guide. Common patterns include sign errors with negative numbers, misapplying index laws, rounding and estimation errors, misreading multi-step worded problems, and losing time by not checking whether an answer is reasonable.</p>
+
+    <h3>How do I support a teenager who is struggling or stressed?</h3>
+    <p>There is a section on supporting your teenager's emotional wellbeing and another on what to do if they are struggling with Year 9 maths. At this age the approach should respect autonomy: put NAPLAN in perspective, validate feelings rather than dismissing them, encourage a growth mindset, and watch for signs of excessive stress.</p>
+
   `,
   image:
     "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Teenager studying mathematics with a notebook and calculator at a well-lit desk",
-  date: "March 28, 2026",
+    "Teenager studying mathematics with a notebook and calculator at a well-lit desk",  date: "December 5, 2026",
+  updatedDate: "December 7, 2026",
+  readingTime: 19,
+  category: "naplan",
   tags: [
     "NAPLAN",
     "YEAR 9",
@@ -380,6 +403,13 @@ export const naplanYear9MathsPreparationGuide = {
     "secondary school maths Australia",
     "NAPLAN test format Year 9",
     "NAPLAN parent guide Year 9",
+  ],
+  keyTakeaways: [
+    "Year 9 is the final NAPLAN, and its maths content is the most demanding of the four year levels.",
+    "Topics span Number and Algebra, Measurement and Space (Geometry), and Statistics and Probability, with mathematical reasoning applied across them.",
+    "Year 9 includes rational and irrational numbers, index laws and scientific notation, and percentage applications - all areas where precision matters.",
+    "Common Year 9 mistakes are listed separately, and a sample weekly revision plan shows how to structure preparation.",
+    "Supporting a teenager's emotional wellbeing gets its own section, with guidance on what to do if they are struggling.",
   ],
   author: {
     name: "Ashish Jain",

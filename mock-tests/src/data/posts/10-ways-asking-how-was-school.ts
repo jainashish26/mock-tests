@@ -147,11 +147,31 @@ export const waysToAskHowWasSchool = {
     <p>We're here to support your child's academic journey — and the connection between you. Explore our resources, trust the process, and keep those conversations going.</p>
 
     <p><strong>Together, we've absolutely got this.</strong></p>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>Why does 'How was school?' always get a one-word answer?</h3>
+    <p>Because it is too broad. Children, especially younger ones, struggle to summarise a complex day on the spot, so 'fine' is the easiest available answer. The question can also feel like a demand for a report rather than an invitation to talk, and the moment your child walks through the door is often the worst time to ask because they are tired or hungry.</p>
+
+    <h3>What is the best time to ask about the school day?</h3>
+    <p>Usually not the moment they walk in. Many children need time to decompress first. Low-pressure moments work better - the car ride, bath time, bedtime, or anything you do side by side, where direct eye contact is not required and the conversation can start and stop naturally.</p>
+
+    <h3>Which question works best for a reluctant talker?</h3>
+    <p>'What made you laugh today?' tends to work well because it is specific, positive, and redirects attention to something joyful that most children have even on a tough day. Laughter is also a social experience, so it usually opens onto other people and events. A 1-to-10 rating with the follow-up 'what would have made it a 10?' is a good second option.</p>
+
+    <h3>What if I try these questions and still get 'fine'?</h3>
+    <p>That is normal, and it does not mean the approach has failed. The value lies in the consistency of asking rather than in any single answer. Keep the questions low-stakes, let your child pass, and avoid turning them into a daily quiz. Over time, the habit of being asked makes children more likely to volunteer things unprompted.</p>
+
+    <h3>Do these questions work for teenagers as well as younger children?</h3>
+    <p>Yes, with some adjustment. Teens generally respond better to specific, non-evaluative questions and to conversations that happen side by side rather than face to face. Questions about who they sat with at lunch, what surprised them, or what they are looking forward to tomorrow work across age groups because none of them require a verdict on how the day went.</p>
+
   `,
   image: "https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=1200&q=80",
   imageAlt:
-    "A parent and child walking together after school, sharing a warm conversation and moment of connection",
-  date: "March 30, 2026",
+    "A parent and child walking together after school, sharing a warm conversation and moment of connection",  date: "August 1, 2026",
+  updatedDate: "August 3, 2026",
+  readingTime: 12,
+  category: "parenting-wellbeing",
   tags: ["PARENTING", "COMMUNICATION", "WELLBEING", "SCHOOL LIFE", "CHILD DEVELOPMENT"],
   metaTitle: "10 Ways to Ask 'How Was School?' That Get Real Answers",
   metaDescription:
@@ -169,6 +189,13 @@ export const waysToAskHowWasSchool = {
     "parenting communication strategies",
     "emotional coaching children",
     "after school routine tips",
+  ],
+  keyTakeaways: [
+    "'How was school?' fails because it is too broad, can feel like an interrogation, and is usually asked at the worst moment of the day.",
+    "Specific, positive questions give a child a concrete memory to reach for instead of asking them to summarise a whole day on the spot.",
+    "'What made you laugh today?' is the most reliable opener - it points attention to a joyful moment that exists even on a hard day.",
+    "A 1-to-10 rating plus 'what would have made it a 10?' helps children who express feelings more easily as numbers than as words.",
+    "Timing matters more than wording: side-by-side, low-pressure moments beat the walk through the front door.",
   ],
   author: {
     name: "The Exam Success Team",

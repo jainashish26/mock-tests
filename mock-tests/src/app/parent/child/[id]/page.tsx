@@ -1,6 +1,10 @@
 import { requireRole } from '@/lib/rbac/require-role'
 import { createClient } from '@/lib/supabase/server'
 import { AssignTestForm } from '@/features/auth/components/AssignTestForm'
+import { ParentReportingPanels } from '@/features/report/components/ParentReportingPanels'
+import { ConsentPanel } from '@/features/report/components/ConsentPanel'
+import { PlanControls } from '@/features/report/components/PlanControls'
+import { loadParentPlan, overloadSentence } from '@/lib/reporting/parent-plan'
 import Link from 'next/link'
 
 export default async function ChildDetailPage({ params }: { params: Promise<{ id: string }> }) {
@@ -39,6 +43,10 @@ export default async function ChildDetailPage({ params }: { params: Promise<{ id
     .select('id, assigned_at, tests(title, exam_type)')
     .eq('student_id', childId)
     .order('assigned_at', { ascending: false })
+
+  // P9 plan, loaded server-side so the form's first paint shows the stored
+  // values rather than an empty form that then pops into place.
+  const planResult = await loadParentPlan(childId)
 
   // Fetch attempt history
   const { data: attempts } = await supabase
@@ -101,6 +109,47 @@ export default async function ChildDetailPage({ params }: { params: Promise<{ id
           )}
         </section>
       </div>
+
+      {/*
+        Phase 1 parent reporting (P1 projection, P4 trends, P7 behaviour,
+        P8 recommendations, P9 plan controls).
+
+        Kept as a separate section from the lists above on purpose. The lists
+        are operational - assign a test, open a report - and read the
+        operational tables directly. These panels are analytical and read the
+        reporting layer (materialised views behind SECURITY DEFINER functions),
+        which is where score, trend and behaviour figures are defined once and
+        shared with the emailed readiness report. Mixing the two would invite a
+        second definition of the same number living in a page component.
+      */}
+      <section style={{ marginTop: '3rem' }} aria-labelledby="progress-heading">
+        <h2 id="progress-heading">Progress & insights</h2>
+        <p style={{ color: 'var(--color-text-muted)', fontSize: '0.875rem', marginTop: '-0.5rem' }}>
+          Readiness, trends and what to practise next. Every panel shows when its data was last
+          refreshed.
+        </p>
+
+        <div className="mt-4 space-y-4">
+          <ParentReportingPanels studentId={childId} />
+
+        {/*
+          P10 - who can see this child's data. Placed with the reports rather than
+          buried in settings: a parent reading their child's results is exactly
+          the moment they may wonder who else can see them, and the control should
+          be there rather than three clicks away.
+        */}
+        <div className="mt-4">
+          <ConsentPanel studentId={childId} childLabel={child?.username ?? 'this child'} />
+        </div>
+
+          <PlanControls
+            studentId={childId}
+            initialPlan={planResult.plan}
+            initialOverloadNotice={overloadSentence(planResult.plan)}
+            asAt={planResult.asAt}
+          />
+        </div>
+      </section>
     </main>
   )
 }

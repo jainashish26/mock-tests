@@ -1,0 +1,819 @@
+﻿QuestionID,ExamID,ExamType,ExamSection,YearLevel,Subject,Topic,SubTopic,QuestionType,ComprehensionText,QuestionText,QuestionMedia,Correct,AnswerA,AnswerB,AnswerC,AnswerD,AnswerE,Difficulty,IsActive,CorrectAnswerScore,Tags,SourceBank,SourceQuestionNumber,SourceComprehensionID,NAPLANFlag,DifficultyScore,DifficultyLabel
+NAPLAN-Y6-READING-M2-Q01,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 1,6,English,Inference,Inferential Reasoning,ReadingComprehension,"from The Most Marvelous International Spelling Bee by Deborah Abela
+
+1 ""India Wimple,"" Mayor Bob said, ""as a token of our tremendous admiration, I present you with a plastic replica of the town's largest zucchini and . . . the Yungabilla Medallion."" He placed the ribbon and medal around India's neck. ""This medallion is awarded to our finest—like Mathilda Hide, who rescued a herd of cows from a muddy bog. You showed those city slickers the Yungabilla spirit and made us very proud.""
+
+2 The crowd was on their feet again, this time led by the cries of Daryl and the Wimples.
+
+3 India looked at the expectant faces of the townspeople, all of them smiling and eager to hear what she had to say.
+
+4 She'd lived in Yungabilla all her life and knew nearly everyone. There was Gracie Hubbard from the café; Mrs. O'Donnell from the bakery, who made India's favorite blueberry cheesecake; Joe Miller, the butcher; her teacher, Mrs. Wild; and all the kids from school. They were there just to see her.
+
+5 You can do this, India Wimple.
+
+6 This was the voice in India's head. When it first started, it often warned her that her greatest fears were about to come true, but after winning the bee, it had become her devoted fan.
+
+7 ""Dear Mayor,"" India read from her notes, ""thank you for your kind words, and to everyone here for all the support you gave me during the Stupendously Spectacular Spelling Bee. Without you and my family, I'd never have been able to—""
+
+8 India didn't say another word, because at that precise moment, Farmer Austin's prizewinning cow, Bessie, pulled away from her owner's normally strong grip and stampeded through the crowd.
+
+9 ""Bessie!""
+
+10 People dove out of the way, sending chairs flying as Bessie zigzagged toward the podium, straight toward India.
+
+11 ""Oh no,"" she breathed.
+
+12 Dad leaped onto the stage and swept her out of the way just as the cow barreled past, knocking over the microphone stand and tearing through the school's specially made banner.
+
+13 ""Bessie!"" Austin sprinted after his cow, who at that moment crashed into the refreshment stand, splashing juice onto everyone nearby. That's when Austin realized where she was headed.
+
+14 ""Watch out, Mrs. O'Donnell!""
+
+15 For India's special ceremony, Mrs. O'Donnell had filled an entire table with her homemade scones, vanilla custard, and lamingtons—lamingtons which were now being flung into the air in a whirlwind of coconut and sponge cake as Bessie gleefully guzzled them down.
+
+16 Austin finally managed to reach her. He offered her hay from his back pocket. ""Sorry, everyone. She's normally very calm, but lamingtons drive her bananas.""
+
+17 India stared down Main Street from the safety of the podium. Bessie had left quite a trail of destruction: upturned tables and a carpet of squashed cakes and scones.
+
+18 Dad muttered to India, ""Your speech needs to be good to top that.""
+
+19 As the townsfolk of Yungabilla staggered to their feet and wiped cream and cake from their clothes and faces, another surprising thing happened.
+
+20 ""India!"" Mrs. Rahim from the post office raced toward them. Her head scarf and dress fluttered behind her, and she was waving something above her head. ""My darling,"" she puffed. ""There's a special delivery for you. All the way from England.""
+
+21 The crowd parted to let Mrs. Rahim through. When she reached the podium, she handed India a cream-colored envelope. It was addressed in swirling gold lettering and sealed with a red wax crest.
+
+22 ""I don't know what it is,"" Mrs. Rahim said as she tried to catch her breath, ""but it seems important. I can feel it.""
+
+23 The whole town watched as India carefully broke the seal and slipped out the letter. She read it again and again, unable to believe it was real.
+
+24 ""What does it say?"" Dad asked.
+
+25 Everyone gathered closer as India read it aloud, being careful not to miss a single word.
+
+26 Dear India Wimple,
+
+27 As the Australian champion of the Stupendously Spectacular Spelling Bee, you are hereby invited to compete in the Most Marvelous International Spelling Bee in London, England. The top three spellers from each participating country will join us . . .
+
+28 India couldn't go on, mostly because the town burst into raucous cheers and Bessie let out a loud moo. Dad, Mom, Nanna Flo, and Daryl climbed onto the stage and smothered India in hugs. Boo caught her eye through the tangle of arms and gave","Based on this sentence, what can the reader infer about the envelope?",,D,It will be difficult to open.,It has traveled a great distance.,It was sent by a close friend.,It contains something important.,,1,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.638.1,95,1,2,Easy
+NAPLAN-Y6-READING-M2-Q02,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 1,6,English,Literary Techniques,Characterisation,ReadingComprehension,"from The Most Marvelous International Spelling Bee by Deborah Abela
+
+1 ""India Wimple,"" Mayor Bob said, ""as a token of our tremendous admiration, I present you with a plastic replica of the town's largest zucchini and . . . the Yungabilla Medallion."" He placed the ribbon and medal around India's neck. ""This medallion is awarded to our finest—like Mathilda Hide, who rescued a herd of cows from a muddy bog. You showed those city slickers the Yungabilla spirit and made us very proud.""
+
+2 The crowd was on their feet again, this time led by the cries of Daryl and the Wimples.
+
+3 India looked at the expectant faces of the townspeople, all of them smiling and eager to hear what she had to say.
+
+4 She'd lived in Yungabilla all her life and knew nearly everyone. There was Gracie Hubbard from the café; Mrs. O'Donnell from the bakery, who made India's favorite blueberry cheesecake; Joe Miller, the butcher; her teacher, Mrs. Wild; and all the kids from school. They were there just to see her.
+
+5 You can do this, India Wimple.
+
+6 This was the voice in India's head. When it first started, it often warned her that her greatest fears were about to come true, but after winning the bee, it had become her devoted fan.
+
+7 ""Dear Mayor,"" India read from her notes, ""thank you for your kind words, and to everyone here for all the support you gave me during the Stupendously Spectacular Spelling Bee. Without you and my family, I'd never have been able to—""
+
+8 India didn't say another word, because at that precise moment, Farmer Austin's prizewinning cow, Bessie, pulled away from her owner's normally strong grip and stampeded through the crowd.
+
+9 ""Bessie!""
+
+10 People dove out of the way, sending chairs flying as Bessie zigzagged toward the podium, straight toward India.
+
+11 ""Oh no,"" she breathed.
+
+12 Dad leaped onto the stage and swept her out of the way just as the cow barreled past, knocking over the microphone stand and tearing through the school's specially made banner.
+
+13 ""Bessie!"" Austin sprinted after his cow, who at that moment crashed into the refreshment stand, splashing juice onto everyone nearby. That's when Austin realized where she was headed.
+
+14 ""Watch out, Mrs. O'Donnell!""
+
+15 For India's special ceremony, Mrs. O'Donnell had filled an entire table with her homemade scones, vanilla custard, and lamingtons—lamingtons which were now being flung into the air in a whirlwind of coconut and sponge cake as Bessie gleefully guzzled them down.
+
+16 Austin finally managed to reach her. He offered her hay from his back pocket. ""Sorry, everyone. She's normally very calm, but lamingtons drive her bananas.""
+
+17 India stared down Main Street from the safety of the podium. Bessie had left quite a trail of destruction: upturned tables and a carpet of squashed cakes and scones.
+
+18 Dad muttered to India, ""Your speech needs to be good to top that.""
+
+19 As the townsfolk of Yungabilla staggered to their feet and wiped cream and cake from their clothes and faces, another surprising thing happened.
+
+20 ""India!"" Mrs. Rahim from the post office raced toward them. Her head scarf and dress fluttered behind her, and she was waving something above her head. ""My darling,"" she puffed. ""There's a special delivery for you. All the way from England.""
+
+21 The crowd parted to let Mrs. Rahim through. When she reached the podium, she handed India a cream-colored envelope. It was addressed in swirling gold lettering and sealed with a red wax crest.
+
+22 ""I don't know what it is,"" Mrs. Rahim said as she tried to catch her breath, ""but it seems important. I can feel it.""
+
+23 The whole town watched as India carefully broke the seal and slipped out the letter. She read it again and again, unable to believe it was real.
+
+24 ""What does it say?"" Dad asked.
+
+25 Everyone gathered closer as India read it aloud, being careful not to miss a single word.
+
+26 Dear India Wimple,
+
+27 As the Australian champion of the Stupendously Spectacular Spelling Bee, you are hereby invited to compete in the Most Marvelous International Spelling Bee in London, England. The top three spellers from each participating country will join us . . .
+
+28 India couldn't go on, mostly because the town burst into raucous cheers and Bessie let out a loud moo. Dad, Mom, Nanna Flo, and Daryl climbed onto the stage and smothered India in hugs. Boo caught her eye through the tangle of arms and gave",What characteristic of realistic fiction does the author include in the story?,,A,Characters with whom readers can relate,A common problem experienced by many people,Events that lead to a dangerous situation,A setting that readers are likely to be familiar with,,2,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.638.2,95,1,3,Easy
+NAPLAN-Y6-READING-M2-Q03,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 1,6,English,Literary Techniques,Tone and Mood,ReadingComprehension,"from The Most Marvelous International Spelling Bee by Deborah Abela
+
+1 ""India Wimple,"" Mayor Bob said, ""as a token of our tremendous admiration, I present you with a plastic replica of the town's largest zucchini and . . . the Yungabilla Medallion."" He placed the ribbon and medal around India's neck. ""This medallion is awarded to our finest—like Mathilda Hide, who rescued a herd of cows from a muddy bog. You showed those city slickers the Yungabilla spirit and made us very proud.""
+
+2 The crowd was on their feet again, this time led by the cries of Daryl and the Wimples.
+
+3 India looked at the expectant faces of the townspeople, all of them smiling and eager to hear what she had to say.
+
+4 She'd lived in Yungabilla all her life and knew nearly everyone. There was Gracie Hubbard from the café; Mrs. O'Donnell from the bakery, who made India's favorite blueberry cheesecake; Joe Miller, the butcher; her teacher, Mrs. Wild; and all the kids from school. They were there just to see her.
+
+5 You can do this, India Wimple.
+
+6 This was the voice in India's head. When it first started, it often warned her that her greatest fears were about to come true, but after winning the bee, it had become her devoted fan.
+
+7 ""Dear Mayor,"" India read from her notes, ""thank you for your kind words, and to everyone here for all the support you gave me during the Stupendously Spectacular Spelling Bee. Without you and my family, I'd never have been able to—""
+
+8 India didn't say another word, because at that precise moment, Farmer Austin's prizewinning cow, Bessie, pulled away from her owner's normally strong grip and stampeded through the crowd.
+
+9 ""Bessie!""
+
+10 People dove out of the way, sending chairs flying as Bessie zigzagged toward the podium, straight toward India.
+
+11 ""Oh no,"" she breathed.
+
+12 Dad leaped onto the stage and swept her out of the way just as the cow barreled past, knocking over the microphone stand and tearing through the school's specially made banner.
+
+13 ""Bessie!"" Austin sprinted after his cow, who at that moment crashed into the refreshment stand, splashing juice onto everyone nearby. That's when Austin realized where she was headed.
+
+14 ""Watch out, Mrs. O'Donnell!""
+
+15 For India's special ceremony, Mrs. O'Donnell had filled an entire table with her homemade scones, vanilla custard, and lamingtons—lamingtons which were now being flung into the air in a whirlwind of coconut and sponge cake as Bessie gleefully guzzled them down.
+
+16 Austin finally managed to reach her. He offered her hay from his back pocket. ""Sorry, everyone. She's normally very calm, but lamingtons drive her bananas.""
+
+17 India stared down Main Street from the safety of the podium. Bessie had left quite a trail of destruction: upturned tables and a carpet of squashed cakes and scones.
+
+18 Dad muttered to India, ""Your speech needs to be good to top that.""
+
+19 As the townsfolk of Yungabilla staggered to their feet and wiped cream and cake from their clothes and faces, another surprising thing happened.
+
+20 ""India!"" Mrs. Rahim from the post office raced toward them. Her head scarf and dress fluttered behind her, and she was waving something above her head. ""My darling,"" she puffed. ""There's a special delivery for you. All the way from England.""
+
+21 The crowd parted to let Mrs. Rahim through. When she reached the podium, she handed India a cream-colored envelope. It was addressed in swirling gold lettering and sealed with a red wax crest.
+
+22 ""I don't know what it is,"" Mrs. Rahim said as she tried to catch her breath, ""but it seems important. I can feel it.""
+
+23 The whole town watched as India carefully broke the seal and slipped out the letter. She read it again and again, unable to believe it was real.
+
+24 ""What does it say?"" Dad asked.
+
+25 Everyone gathered closer as India read it aloud, being careful not to miss a single word.
+
+26 Dear India Wimple,
+
+27 As the Australian champion of the Stupendously Spectacular Spelling Bee, you are hereby invited to compete in the Most Marvelous International Spelling Bee in London, England. The top three spellers from each participating country will join us . . .
+
+28 India couldn't go on, mostly because the town burst into raucous cheers and Bessie let out a loud moo. Dad, Mom, Nanna Flo, and Daryl climbed onto the stage and smothered India in hugs. Boo caught her eye through the tangle of arms and gave",Which event does the author use to introduce a humorous mood in the story?,,B,India is nervous about speaking in front of the crowd.,The mayor gives India a plastic zucchini as an award.,India receives an invitation to an international spelling bee.,India and her family have a group hug on the stage.,,2,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.638.3,95,1,4,Medium
+NAPLAN-Y6-READING-M2-Q04,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 1,6,English,Reading Comprehension,Point of View,ReadingComprehension,"from The Most Marvelous International Spelling Bee by Deborah Abela
+
+1 ""India Wimple,"" Mayor Bob said, ""as a token of our tremendous admiration, I present you with a plastic replica of the town's largest zucchini and . . . the Yungabilla Medallion."" He placed the ribbon and medal around India's neck. ""This medallion is awarded to our finest—like Mathilda Hide, who rescued a herd of cows from a muddy bog. You showed those city slickers the Yungabilla spirit and made us very proud.""
+
+2 The crowd was on their feet again, this time led by the cries of Daryl and the Wimples.
+
+3 India looked at the expectant faces of the townspeople, all of them smiling and eager to hear what she had to say.
+
+4 She'd lived in Yungabilla all her life and knew nearly everyone. There was Gracie Hubbard from the café; Mrs. O'Donnell from the bakery, who made India's favorite blueberry cheesecake; Joe Miller, the butcher; her teacher, Mrs. Wild; and all the kids from school. They were there just to see her.
+
+5 You can do this, India Wimple.
+
+6 This was the voice in India's head. When it first started, it often warned her that her greatest fears were about to come true, but after winning the bee, it had become her devoted fan.
+
+7 ""Dear Mayor,"" India read from her notes, ""thank you for your kind words, and to everyone here for all the support you gave me during the Stupendously Spectacular Spelling Bee. Without you and my family, I'd never have been able to—""
+
+8 India didn't say another word, because at that precise moment, Farmer Austin's prizewinning cow, Bessie, pulled away from her owner's normally strong grip and stampeded through the crowd.
+
+9 ""Bessie!""
+
+10 People dove out of the way, sending chairs flying as Bessie zigzagged toward the podium, straight toward India.
+
+11 ""Oh no,"" she breathed.
+
+12 Dad leaped onto the stage and swept her out of the way just as the cow barreled past, knocking over the microphone stand and tearing through the school's specially made banner.
+
+13 ""Bessie!"" Austin sprinted after his cow, who at that moment crashed into the refreshment stand, splashing juice onto everyone nearby. That's when Austin realized where she was headed.
+
+14 ""Watch out, Mrs. O'Donnell!""
+
+15 For India's special ceremony, Mrs. O'Donnell had filled an entire table with her homemade scones, vanilla custard, and lamingtons—lamingtons which were now being flung into the air in a whirlwind of coconut and sponge cake as Bessie gleefully guzzled them down.
+
+16 Austin finally managed to reach her. He offered her hay from his back pocket. ""Sorry, everyone. She's normally very calm, but lamingtons drive her bananas.""
+
+17 India stared down Main Street from the safety of the podium. Bessie had left quite a trail of destruction: upturned tables and a carpet of squashed cakes and scones.
+
+18 Dad muttered to India, ""Your speech needs to be good to top that.""
+
+19 As the townsfolk of Yungabilla staggered to their feet and wiped cream and cake from their clothes and faces, another surprising thing happened.
+
+20 ""India!"" Mrs. Rahim from the post office raced toward them. Her head scarf and dress fluttered behind her, and she was waving something above her head. ""My darling,"" she puffed. ""There's a special delivery for you. All the way from England.""
+
+21 The crowd parted to let Mrs. Rahim through. When she reached the podium, she handed India a cream-colored envelope. It was addressed in swirling gold lettering and sealed with a red wax crest.
+
+22 ""I don't know what it is,"" Mrs. Rahim said as she tried to catch her breath, ""but it seems important. I can feel it.""
+
+23 The whole town watched as India carefully broke the seal and slipped out the letter. She read it again and again, unable to believe it was real.
+
+24 ""What does it say?"" Dad asked.
+
+25 Everyone gathered closer as India read it aloud, being careful not to miss a single word.
+
+26 Dear India Wimple,
+
+27 As the Australian champion of the Stupendously Spectacular Spelling Bee, you are hereby invited to compete in the Most Marvelous International Spelling Bee in London, England. The top three spellers from each participating country will join us . . .
+
+28 India couldn't go on, mostly because the town burst into raucous cheers and Bessie let out a loud moo. Dad, Mom, Nanna Flo, and Daryl climbed onto the stage and smothered India in hugs. Boo caught her eye through the tangle of arms and gave",What is the most likely reason the author uses a third-person limited point of view in the story?,,A,To help the reader understand what India is thinking,To create a clear order of events in the story,To help the reader understand how Dad and others feel,To include the narrator in the action of the story,,2,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.638.4,95,1,3,Easy
+NAPLAN-Y6-READING-M2-Q05,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 1,6,English,Reading Comprehension,Summarising,ReadingComprehension,"from The Most Marvelous International Spelling Bee by Deborah Abela
+
+1 ""India Wimple,"" Mayor Bob said, ""as a token of our tremendous admiration, I present you with a plastic replica of the town's largest zucchini and . . . the Yungabilla Medallion."" He placed the ribbon and medal around India's neck. ""This medallion is awarded to our finest—like Mathilda Hide, who rescued a herd of cows from a muddy bog. You showed those city slickers the Yungabilla spirit and made us very proud.""
+
+2 The crowd was on their feet again, this time led by the cries of Daryl and the Wimples.
+
+3 India looked at the expectant faces of the townspeople, all of them smiling and eager to hear what she had to say.
+
+4 She'd lived in Yungabilla all her life and knew nearly everyone. There was Gracie Hubbard from the café; Mrs. O'Donnell from the bakery, who made India's favorite blueberry cheesecake; Joe Miller, the butcher; her teacher, Mrs. Wild; and all the kids from school. They were there just to see her.
+
+5 You can do this, India Wimple.
+
+6 This was the voice in India's head. When it first started, it often warned her that her greatest fears were about to come true, but after winning the bee, it had become her devoted fan.
+
+7 ""Dear Mayor,"" India read from her notes, ""thank you for your kind words, and to everyone here for all the support you gave me during the Stupendously Spectacular Spelling Bee. Without you and my family, I'd never have been able to—""
+
+8 India didn't say another word, because at that precise moment, Farmer Austin's prizewinning cow, Bessie, pulled away from her owner's normally strong grip and stampeded through the crowd.
+
+9 ""Bessie!""
+
+10 People dove out of the way, sending chairs flying as Bessie zigzagged toward the podium, straight toward India.
+
+11 ""Oh no,"" she breathed.
+
+12 Dad leaped onto the stage and swept her out of the way just as the cow barreled past, knocking over the microphone stand and tearing through the school's specially made banner.
+
+13 ""Bessie!"" Austin sprinted after his cow, who at that moment crashed into the refreshment stand, splashing juice onto everyone nearby. That's when Austin realized where she was headed.
+
+14 ""Watch out, Mrs. O'Donnell!""
+
+15 For India's special ceremony, Mrs. O'Donnell had filled an entire table with her homemade scones, vanilla custard, and lamingtons—lamingtons which were now being flung into the air in a whirlwind of coconut and sponge cake as Bessie gleefully guzzled them down.
+
+16 Austin finally managed to reach her. He offered her hay from his back pocket. ""Sorry, everyone. She's normally very calm, but lamingtons drive her bananas.""
+
+17 India stared down Main Street from the safety of the podium. Bessie had left quite a trail of destruction: upturned tables and a carpet of squashed cakes and scones.
+
+18 Dad muttered to India, ""Your speech needs to be good to top that.""
+
+19 As the townsfolk of Yungabilla staggered to their feet and wiped cream and cake from their clothes and faces, another surprising thing happened.
+
+20 ""India!"" Mrs. Rahim from the post office raced toward them. Her head scarf and dress fluttered behind her, and she was waving something above her head. ""My darling,"" she puffed. ""There's a special delivery for you. All the way from England.""
+
+21 The crowd parted to let Mrs. Rahim through. When she reached the podium, she handed India a cream-colored envelope. It was addressed in swirling gold lettering and sealed with a red wax crest.
+
+22 ""I don't know what it is,"" Mrs. Rahim said as she tried to catch her breath, ""but it seems important. I can feel it.""
+
+23 The whole town watched as India carefully broke the seal and slipped out the letter. She read it again and again, unable to believe it was real.
+
+24 ""What does it say?"" Dad asked.
+
+25 Everyone gathered closer as India read it aloud, being careful not to miss a single word.
+
+26 Dear India Wimple,
+
+27 As the Australian champion of the Stupendously Spectacular Spelling Bee, you are hereby invited to compete in the Most Marvelous International Spelling Bee in London, England. The top three spellers from each participating country will join us . . .
+
+28 India couldn't go on, mostly because the town burst into raucous cheers and Bessie let out a loud moo. Dad, Mom, Nanna Flo, and Daryl climbed onto the stage and smothered India in hugs. Boo caught her eye through the tangle of arms and gave",Which sentence should be added to complete the summary?,,C,"Because they brought special treats for India, the townspeople are angry at the cow.","Although she can be rowdy, Farmer Austin's cow Bessie has also won awards.","Before she can continue her speech, an invitation to an international spelling bee arrives.","After the farmer calms his cow, India's dad tells her he wants her speech to be good.",,2,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.638.5,95,1,4,Medium
+NAPLAN-Y6-READING-M2-Q06,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 1,6,English,Reading Comprehension,Main Idea,ReadingComprehension,"from The Most Marvelous International Spelling Bee by Deborah Abela
+
+1 ""India Wimple,"" Mayor Bob said, ""as a token of our tremendous admiration, I present you with a plastic replica of the town's largest zucchini and . . . the Yungabilla Medallion."" He placed the ribbon and medal around India's neck. ""This medallion is awarded to our finest—like Mathilda Hide, who rescued a herd of cows from a muddy bog. You showed those city slickers the Yungabilla spirit and made us very proud.""
+
+2 The crowd was on their feet again, this time led by the cries of Daryl and the Wimples.
+
+3 India looked at the expectant faces of the townspeople, all of them smiling and eager to hear what she had to say.
+
+4 She'd lived in Yungabilla all her life and knew nearly everyone. There was Gracie Hubbard from the café; Mrs. O'Donnell from the bakery, who made India's favorite blueberry cheesecake; Joe Miller, the butcher; her teacher, Mrs. Wild; and all the kids from school. They were there just to see her.
+
+5 You can do this, India Wimple.
+
+6 This was the voice in India's head. When it first started, it often warned her that her greatest fears were about to come true, but after winning the bee, it had become her devoted fan.
+
+7 ""Dear Mayor,"" India read from her notes, ""thank you for your kind words, and to everyone here for all the support you gave me during the Stupendously Spectacular Spelling Bee. Without you and my family, I'd never have been able to—""
+
+8 India didn't say another word, because at that precise moment, Farmer Austin's prizewinning cow, Bessie, pulled away from her owner's normally strong grip and stampeded through the crowd.
+
+9 ""Bessie!""
+
+10 People dove out of the way, sending chairs flying as Bessie zigzagged toward the podium, straight toward India.
+
+11 ""Oh no,"" she breathed.
+
+12 Dad leaped onto the stage and swept her out of the way just as the cow barreled past, knocking over the microphone stand and tearing through the school's specially made banner.
+
+13 ""Bessie!"" Austin sprinted after his cow, who at that moment crashed into the refreshment stand, splashing juice onto everyone nearby. That's when Austin realized where she was headed.
+
+14 ""Watch out, Mrs. O'Donnell!""
+
+15 For India's special ceremony, Mrs. O'Donnell had filled an entire table with her homemade scones, vanilla custard, and lamingtons—lamingtons which were now being flung into the air in a whirlwind of coconut and sponge cake as Bessie gleefully guzzled them down.
+
+16 Austin finally managed to reach her. He offered her hay from his back pocket. ""Sorry, everyone. She's normally very calm, but lamingtons drive her bananas.""
+
+17 India stared down Main Street from the safety of the podium. Bessie had left quite a trail of destruction: upturned tables and a carpet of squashed cakes and scones.
+
+18 Dad muttered to India, ""Your speech needs to be good to top that.""
+
+19 As the townsfolk of Yungabilla staggered to their feet and wiped cream and cake from their clothes and faces, another surprising thing happened.
+
+20 ""India!"" Mrs. Rahim from the post office raced toward them. Her head scarf and dress fluttered behind her, and she was waving something above her head. ""My darling,"" she puffed. ""There's a special delivery for you. All the way from England.""
+
+21 The crowd parted to let Mrs. Rahim through. When she reached the podium, she handed India a cream-colored envelope. It was addressed in swirling gold lettering and sealed with a red wax crest.
+
+22 ""I don't know what it is,"" Mrs. Rahim said as she tried to catch her breath, ""but it seems important. I can feel it.""
+
+23 The whole town watched as India carefully broke the seal and slipped out the letter. She read it again and again, unable to believe it was real.
+
+24 ""What does it say?"" Dad asked.
+
+25 Everyone gathered closer as India read it aloud, being careful not to miss a single word.
+
+26 Dear India Wimple,
+
+27 As the Australian champion of the Stupendously Spectacular Spelling Bee, you are hereby invited to compete in the Most Marvelous International Spelling Bee in London, England. The top three spellers from each participating country will join us . . .
+
+28 India couldn't go on, mostly because the town burst into raucous cheers and Bessie let out a loud moo. Dad, Mom, Nanna Flo, and Daryl climbed onto the stage and smothered India in hugs. Boo caught her eye through the tangle of arms and gave","In paragraph 4, the details about the crowd provide support for which key idea in the story?",,D,The spelling bee is a very challenging competition.,India is the smartest person in the town.,A family's encouragement helps a person succeed.,India's accomplishment is important to the community.,,2,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.638.6,95,1,4,Medium
+NAPLAN-Y6-READING-M2-Q07,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 1,6,English,Reading Comprehension,Author Purpose,ReadingComprehension,"from The Most Marvelous International Spelling Bee by Deborah Abela
+
+1 ""India Wimple,"" Mayor Bob said, ""as a token of our tremendous admiration, I present you with a plastic replica of the town's largest zucchini and . . . the Yungabilla Medallion."" He placed the ribbon and medal around India's neck. ""This medallion is awarded to our finest—like Mathilda Hide, who rescued a herd of cows from a muddy bog. You showed those city slickers the Yungabilla spirit and made us very proud.""
+
+2 The crowd was on their feet again, this time led by the cries of Daryl and the Wimples.
+
+3 India looked at the expectant faces of the townspeople, all of them smiling and eager to hear what she had to say.
+
+4 She'd lived in Yungabilla all her life and knew nearly everyone. There was Gracie Hubbard from the café; Mrs. O'Donnell from the bakery, who made India's favorite blueberry cheesecake; Joe Miller, the butcher; her teacher, Mrs. Wild; and all the kids from school. They were there just to see her.
+
+5 You can do this, India Wimple.
+
+6 This was the voice in India's head. When it first started, it often warned her that her greatest fears were about to come true, but after winning the bee, it had become her devoted fan.
+
+7 ""Dear Mayor,"" India read from her notes, ""thank you for your kind words, and to everyone here for all the support you gave me during the Stupendously Spectacular Spelling Bee. Without you and my family, I'd never have been able to—""
+
+8 India didn't say another word, because at that precise moment, Farmer Austin's prizewinning cow, Bessie, pulled away from her owner's normally strong grip and stampeded through the crowd.
+
+9 ""Bessie!""
+
+10 People dove out of the way, sending chairs flying as Bessie zigzagged toward the podium, straight toward India.
+
+11 ""Oh no,"" she breathed.
+
+12 Dad leaped onto the stage and swept her out of the way just as the cow barreled past, knocking over the microphone stand and tearing through the school's specially made banner.
+
+13 ""Bessie!"" Austin sprinted after his cow, who at that moment crashed into the refreshment stand, splashing juice onto everyone nearby. That's when Austin realized where she was headed.
+
+14 ""Watch out, Mrs. O'Donnell!""
+
+15 For India's special ceremony, Mrs. O'Donnell had filled an entire table with her homemade scones, vanilla custard, and lamingtons—lamingtons which were now being flung into the air in a whirlwind of coconut and sponge cake as Bessie gleefully guzzled them down.
+
+16 Austin finally managed to reach her. He offered her hay from his back pocket. ""Sorry, everyone. She's normally very calm, but lamingtons drive her bananas.""
+
+17 India stared down Main Street from the safety of the podium. Bessie had left quite a trail of destruction: upturned tables and a carpet of squashed cakes and scones.
+
+18 Dad muttered to India, ""Your speech needs to be good to top that.""
+
+19 As the townsfolk of Yungabilla staggered to their feet and wiped cream and cake from their clothes and faces, another surprising thing happened.
+
+20 ""India!"" Mrs. Rahim from the post office raced toward them. Her head scarf and dress fluttered behind her, and she was waving something above her head. ""My darling,"" she puffed. ""There's a special delivery for you. All the way from England.""
+
+21 The crowd parted to let Mrs. Rahim through. When she reached the podium, she handed India a cream-colored envelope. It was addressed in swirling gold lettering and sealed with a red wax crest.
+
+22 ""I don't know what it is,"" Mrs. Rahim said as she tried to catch her breath, ""but it seems important. I can feel it.""
+
+23 The whole town watched as India carefully broke the seal and slipped out the letter. She read it again and again, unable to believe it was real.
+
+24 ""What does it say?"" Dad asked.
+
+25 Everyone gathered closer as India read it aloud, being careful not to miss a single word.
+
+26 Dear India Wimple,
+
+27 As the Australian champion of the Stupendously Spectacular Spelling Bee, you are hereby invited to compete in the Most Marvelous International Spelling Bee in London, England. The top three spellers from each participating country will join us . . .
+
+28 India couldn't go on, mostly because the town burst into raucous cheers and Bessie let out a loud moo. Dad, Mom, Nanna Flo, and Daryl climbed onto the stage and smothered India in hugs. Boo caught her eye through the tangle of arms and gave",What is the most likely reason the author uses italics at the end of paragraph 28?,,A,To show what India is thinking,To explain why India is unable to continue,To show what Boo is thinking,To explain why Boo comes onstage,,2,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.638.7,95,1,4,Medium
+NAPLAN-Y6-READING-M2-Q08,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 1,6,English,Reading Comprehension,Main Idea,ReadingComprehension,"from The Most Marvelous International Spelling Bee by Deborah Abela
+
+1 ""India Wimple,"" Mayor Bob said, ""as a token of our tremendous admiration, I present you with a plastic replica of the town's largest zucchini and . . . the Yungabilla Medallion."" He placed the ribbon and medal around India's neck. ""This medallion is awarded to our finest—like Mathilda Hide, who rescued a herd of cows from a muddy bog. You showed those city slickers the Yungabilla spirit and made us very proud.""
+
+2 The crowd was on their feet again, this time led by the cries of Daryl and the Wimples.
+
+3 India looked at the expectant faces of the townspeople, all of them smiling and eager to hear what she had to say.
+
+4 She'd lived in Yungabilla all her life and knew nearly everyone. There was Gracie Hubbard from the café; Mrs. O'Donnell from the bakery, who made India's favorite blueberry cheesecake; Joe Miller, the butcher; her teacher, Mrs. Wild; and all the kids from school. They were there just to see her.
+
+5 You can do this, India Wimple.
+
+6 This was the voice in India's head. When it first started, it often warned her that her greatest fears were about to come true, but after winning the bee, it had become her devoted fan.
+
+7 ""Dear Mayor,"" India read from her notes, ""thank you for your kind words, and to everyone here for all the support you gave me during the Stupendously Spectacular Spelling Bee. Without you and my family, I'd never have been able to—""
+
+8 India didn't say another word, because at that precise moment, Farmer Austin's prizewinning cow, Bessie, pulled away from her owner's normally strong grip and stampeded through the crowd.
+
+9 ""Bessie!""
+
+10 People dove out of the way, sending chairs flying as Bessie zigzagged toward the podium, straight toward India.
+
+11 ""Oh no,"" she breathed.
+
+12 Dad leaped onto the stage and swept her out of the way just as the cow barreled past, knocking over the microphone stand and tearing through the school's specially made banner.
+
+13 ""Bessie!"" Austin sprinted after his cow, who at that moment crashed into the refreshment stand, splashing juice onto everyone nearby. That's when Austin realized where she was headed.
+
+14 ""Watch out, Mrs. O'Donnell!""
+
+15 For India's special ceremony, Mrs. O'Donnell had filled an entire table with her homemade scones, vanilla custard, and lamingtons—lamingtons which were now being flung into the air in a whirlwind of coconut and sponge cake as Bessie gleefully guzzled them down.
+
+16 Austin finally managed to reach her. He offered her hay from his back pocket. ""Sorry, everyone. She's normally very calm, but lamingtons drive her bananas.""
+
+17 India stared down Main Street from the safety of the podium. Bessie had left quite a trail of destruction: upturned tables and a carpet of squashed cakes and scones.
+
+18 Dad muttered to India, ""Your speech needs to be good to top that.""
+
+19 As the townsfolk of Yungabilla staggered to their feet and wiped cream and cake from their clothes and faces, another surprising thing happened.
+
+20 ""India!"" Mrs. Rahim from the post office raced toward them. Her head scarf and dress fluttered behind her, and she was waving something above her head. ""My darling,"" she puffed. ""There's a special delivery for you. All the way from England.""
+
+21 The crowd parted to let Mrs. Rahim through. When she reached the podium, she handed India a cream-colored envelope. It was addressed in swirling gold lettering and sealed with a red wax crest.
+
+22 ""I don't know what it is,"" Mrs. Rahim said as she tried to catch her breath, ""but it seems important. I can feel it.""
+
+23 The whole town watched as India carefully broke the seal and slipped out the letter. She read it again and again, unable to believe it was real.
+
+24 ""What does it say?"" Dad asked.
+
+25 Everyone gathered closer as India read it aloud, being careful not to miss a single word.
+
+26 Dear India Wimple,
+
+27 As the Australian champion of the Stupendously Spectacular Spelling Bee, you are hereby invited to compete in the Most Marvelous International Spelling Bee in London, England. The top three spellers from each participating country will join us . . .
+
+28 India couldn't go on, mostly because the town burst into raucous cheers and Bessie let out a loud moo. Dad, Mom, Nanna Flo, and Daryl climbed onto the stage and smothered India in hugs. Boo caught her eye through the tangle of arms and gave",How does the setting of the story contribute to the plot?,,B,The diversity of the characters results in a wide variety of refreshments.,"Animals are part of peoples' daily life, leading to the conflict in the story.",The remote location of the village makes communication more difficult.,"Ranching is the town's main business, providing inspiration for India's award.",,3,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.638.8,95,1,5,Medium
+NAPLAN-Y6-READING-M2-Q09,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 1,6,English,Vocabulary,Word Origins and Morphology,ReadingComprehension,"from The Most Marvelous International Spelling Bee by Deborah Abela
+
+1 ""India Wimple,"" Mayor Bob said, ""as a token of our tremendous admiration, I present you with a plastic replica of the town's largest zucchini and . . . the Yungabilla Medallion."" He placed the ribbon and medal around India's neck. ""This medallion is awarded to our finest—like Mathilda Hide, who rescued a herd of cows from a muddy bog. You showed those city slickers the Yungabilla spirit and made us very proud.""
+
+2 The crowd was on their feet again, this time led by the cries of Daryl and the Wimples.
+
+3 India looked at the expectant faces of the townspeople, all of them smiling and eager to hear what she had to say.
+
+4 She'd lived in Yungabilla all her life and knew nearly everyone. There was Gracie Hubbard from the café; Mrs. O'Donnell from the bakery, who made India's favorite blueberry cheesecake; Joe Miller, the butcher; her teacher, Mrs. Wild; and all the kids from school. They were there just to see her.
+
+5 You can do this, India Wimple.
+
+6 This was the voice in India's head. When it first started, it often warned her that her greatest fears were about to come true, but after winning the bee, it had become her devoted fan.
+
+7 ""Dear Mayor,"" India read from her notes, ""thank you for your kind words, and to everyone here for all the support you gave me during the Stupendously Spectacular Spelling Bee. Without you and my family, I'd never have been able to—""
+
+8 India didn't say another word, because at that precise moment, Farmer Austin's prizewinning cow, Bessie, pulled away from her owner's normally strong grip and stampeded through the crowd.
+
+9 ""Bessie!""
+
+10 People dove out of the way, sending chairs flying as Bessie zigzagged toward the podium, straight toward India.
+
+11 ""Oh no,"" she breathed.
+
+12 Dad leaped onto the stage and swept her out of the way just as the cow barreled past, knocking over the microphone stand and tearing through the school's specially made banner.
+
+13 ""Bessie!"" Austin sprinted after his cow, who at that moment crashed into the refreshment stand, splashing juice onto everyone nearby. That's when Austin realized where she was headed.
+
+14 ""Watch out, Mrs. O'Donnell!""
+
+15 For India's special ceremony, Mrs. O'Donnell had filled an entire table with her homemade scones, vanilla custard, and lamingtons—lamingtons which were now being flung into the air in a whirlwind of coconut and sponge cake as Bessie gleefully guzzled them down.
+
+16 Austin finally managed to reach her. He offered her hay from his back pocket. ""Sorry, everyone. She's normally very calm, but lamingtons drive her bananas.""
+
+17 India stared down Main Street from the safety of the podium. Bessie had left quite a trail of destruction: upturned tables and a carpet of squashed cakes and scones.
+
+18 Dad muttered to India, ""Your speech needs to be good to top that.""
+
+19 As the townsfolk of Yungabilla staggered to their feet and wiped cream and cake from their clothes and faces, another surprising thing happened.
+
+20 ""India!"" Mrs. Rahim from the post office raced toward them. Her head scarf and dress fluttered behind her, and she was waving something above her head. ""My darling,"" she puffed. ""There's a special delivery for you. All the way from England.""
+
+21 The crowd parted to let Mrs. Rahim through. When she reached the podium, she handed India a cream-colored envelope. It was addressed in swirling gold lettering and sealed with a red wax crest.
+
+22 ""I don't know what it is,"" Mrs. Rahim said as she tried to catch her breath, ""but it seems important. I can feel it.""
+
+23 The whole town watched as India carefully broke the seal and slipped out the letter. She read it again and again, unable to believe it was real.
+
+24 ""What does it say?"" Dad asked.
+
+25 Everyone gathered closer as India read it aloud, being careful not to miss a single word.
+
+26 Dear India Wimple,
+
+27 As the Australian champion of the Stupendously Spectacular Spelling Bee, you are hereby invited to compete in the Most Marvelous International Spelling Bee in London, England. The top three spellers from each participating country will join us . . .
+
+28 India couldn't go on, mostly because the town burst into raucous cheers and Bessie let out a loud moo. Dad, Mom, Nanna Flo, and Daryl climbed onto the stage and smothered India in hugs. Boo caught her eye through the tangle of arms and gave","Read this information about the origin of the word replica. from Latin replicare, meaning ""repeat"" This information helps the reader understand that a replica in paragraph 1 means a —",,B,statue,copy,gift,trophy,,1,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.638.9,95,1,1,Easy
+NAPLAN-Y6-READING-M2-Q10,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 2,6,English,Inference,Inferential Reasoning,ReadingComprehension,"(1) Medical waste has been a growing concern because of recent incidents of public exposure to discarded blood vials, needles (sharps), empty prescription bottles, and syringes. Medical waste can typically include general refuse, human blood and blood products, cultures and stocks of infectious agents, laboratory animal carcasses, contaminated bedding material, and pathological wastes. (2) Wastes are generally collected by gravity chutes, carts, or pneumatic tubes, each of which has its own advantages and disadvantages. Chutes are limited to vertical transport, and there is some risk of exhausting contaminants into hallways if a door is left open during use. Another disadvantage of gravity chutes is that the waste container may get jammed while dropping, or it may be broken upon hitting the bottom. Carts are primarily for horizontal transport of bagged or containerized wastes. The main risk here is that bags may be broken or torn during transport, potentially exposing the worker to the wastes. Using automated carts can reduce the potential for exposure. Pneumatic tubes offer the best performance for waste transport in a large facility. Advantages include high-speed movement, movement in any direction, and minimal intermediate storage of untreated wastes. However, some objects cannot be conveyed pneumatically.
+
+(3) Off-site disposal of regulated medical wastes remains a viable option for smaller hospitals (those with less than 150 beds). Some preliminary on-site processing, such as compaction or hydropulping, may be necessary prior to sending the waste off site. Compaction reduces the total volume of solid wastes, often reducing transportation and disposal costs, but it does not change the hazardous characteristics of the waste. Compaction may not be economical if transportation and disposal costs are based on weight rather than volume. (4) Hydropulping involves grinding the waste in the presence of an oxidizing fluid, such as hypochlorite solution. The liquid is separated from the pulp and discharged directly into the sewer unless local limits require additional pretreatment prior to discharge. The pulp can often be disposed of at a landfill. One advantage is that waste can be rendered innocuous and reduced in size within the same system. Disadvantages are the added operating burden, difficulty of controlling fugitive emissions, and the difficulty of conducting microbiological tests to determine whether all organic matters and infectious organisms have been destroyed from the waste.
+
+(5) On-site disposal is a feasible alternative for hospitals generating two tons or more per day of total solid waste. Common treatment techniques include steam sterilization and incineration. Although other options are available, incineration is currently the preferred method for on-site treatment of hospital waste. (6) Steam sterilization is limited in the types of medical waste it can treat, but is appropriate for laboratory cultures and/or substances contaminated with infectious organisms. The waste is subjected to steam in a sealed, pressurized chamber. The liquid that may form is drained off to the sewer or sent for processing. The unit is then reopened after a vapor release to the atmosphere, and the solid waste is removed for further processing or disposal. One advantage of steam sterilization is that it has been used for many years in hospitals to sterilize instruments and containers and to treat small quantities of waste. However, since sterilization does not change the appearance of the waste, there could be a problem in gaining acceptance of the waste for landfilling.
+
+(7) A properly designed, maintained, and operated incinerator achieves a relatively high level of organism destruction. Incineration reduces the weight and volume of the waste as much as 95% and is especially appropriate for pathological wastes and sharps. The most common incineration system for medical waste is the controlled-air type. The principal advantage of this type of incinerator is low particulate emissions. Rotary-kiln and grate-type units have been used, but use of grate-type units has been discontinued because of high air emissions. The rotary kiln also puts out high emissions, and the costs have been prohibitive for smaller units.",Hospitals can minimize employee contact with dangerous waste by switching from,,D,a manual cart to a gravity chute.,an automated cart to a hydropulping machine.,a gravity chute to a manual cart.,a manual cart to an automated cart.,,2,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.548.1,5,1,4,Medium
+NAPLAN-Y6-READING-M2-Q11,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 2,6,English,Reading Comprehension,Literal Recall,ReadingComprehension,"(1) Medical waste has been a growing concern because of recent incidents of public exposure to discarded blood vials, needles (sharps), empty prescription bottles, and syringes. Medical waste can typically include general refuse, human blood and blood products, cultures and stocks of infectious agents, laboratory animal carcasses, contaminated bedding material, and pathological wastes. (2) Wastes are generally collected by gravity chutes, carts, or pneumatic tubes, each of which has its own advantages and disadvantages. Chutes are limited to vertical transport, and there is some risk of exhausting contaminants into hallways if a door is left open during use. Another disadvantage of gravity chutes is that the waste container may get jammed while dropping, or it may be broken upon hitting the bottom. Carts are primarily for horizontal transport of bagged or containerized wastes. The main risk here is that bags may be broken or torn during transport, potentially exposing the worker to the wastes. Using automated carts can reduce the potential for exposure. Pneumatic tubes offer the best performance for waste transport in a large facility. Advantages include high-speed movement, movement in any direction, and minimal intermediate storage of untreated wastes. However, some objects cannot be conveyed pneumatically.
+
+(3) Off-site disposal of regulated medical wastes remains a viable option for smaller hospitals (those with less than 150 beds). Some preliminary on-site processing, such as compaction or hydropulping, may be necessary prior to sending the waste off site. Compaction reduces the total volume of solid wastes, often reducing transportation and disposal costs, but it does not change the hazardous characteristics of the waste. Compaction may not be economical if transportation and disposal costs are based on weight rather than volume. (4) Hydropulping involves grinding the waste in the presence of an oxidizing fluid, such as hypochlorite solution. The liquid is separated from the pulp and discharged directly into the sewer unless local limits require additional pretreatment prior to discharge. The pulp can often be disposed of at a landfill. One advantage is that waste can be rendered innocuous and reduced in size within the same system. Disadvantages are the added operating burden, difficulty of controlling fugitive emissions, and the difficulty of conducting microbiological tests to determine whether all organic matters and infectious organisms have been destroyed from the waste.
+
+(5) On-site disposal is a feasible alternative for hospitals generating two tons or more per day of total solid waste. Common treatment techniques include steam sterilization and incineration. Although other options are available, incineration is currently the preferred method for on-site treatment of hospital waste. (6) Steam sterilization is limited in the types of medical waste it can treat, but is appropriate for laboratory cultures and/or substances contaminated with infectious organisms. The waste is subjected to steam in a sealed, pressurized chamber. The liquid that may form is drained off to the sewer or sent for processing. The unit is then reopened after a vapor release to the atmosphere, and the solid waste is removed for further processing or disposal. One advantage of steam sterilization is that it has been used for many years in hospitals to sterilize instruments and containers and to treat small quantities of waste. However, since sterilization does not change the appearance of the waste, there could be a problem in gaining acceptance of the waste for landfilling.
+
+(7) A properly designed, maintained, and operated incinerator achieves a relatively high level of organism destruction. Incineration reduces the weight and volume of the waste as much as 95% and is especially appropriate for pathological wastes and sharps. The most common incineration system for medical waste is the controlled-air type. The principal advantage of this type of incinerator is low particulate emissions. Rotary-kiln and grate-type units have been used, but use of grate-type units has been discontinued because of high air emissions. The rotary kiln also puts out high emissions, and the costs have been prohibitive for smaller units.",One disadvantage of the compaction method of waste disposal is that it,,D,cannot reduce transportation costs.,reduces the volume of solid waste material.,does not allow hospitals to confirm that organic matter has been eliminated.,does not reduce the weight of solid waste material.,,2,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.548.2,5,1,3,Easy
+NAPLAN-Y6-READING-M2-Q12,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 2,6,English,Reading Comprehension,Literal Recall,ReadingComprehension,"(1) Medical waste has been a growing concern because of recent incidents of public exposure to discarded blood vials, needles (sharps), empty prescription bottles, and syringes. Medical waste can typically include general refuse, human blood and blood products, cultures and stocks of infectious agents, laboratory animal carcasses, contaminated bedding material, and pathological wastes. (2) Wastes are generally collected by gravity chutes, carts, or pneumatic tubes, each of which has its own advantages and disadvantages. Chutes are limited to vertical transport, and there is some risk of exhausting contaminants into hallways if a door is left open during use. Another disadvantage of gravity chutes is that the waste container may get jammed while dropping, or it may be broken upon hitting the bottom. Carts are primarily for horizontal transport of bagged or containerized wastes. The main risk here is that bags may be broken or torn during transport, potentially exposing the worker to the wastes. Using automated carts can reduce the potential for exposure. Pneumatic tubes offer the best performance for waste transport in a large facility. Advantages include high-speed movement, movement in any direction, and minimal intermediate storage of untreated wastes. However, some objects cannot be conveyed pneumatically.
+
+(3) Off-site disposal of regulated medical wastes remains a viable option for smaller hospitals (those with less than 150 beds). Some preliminary on-site processing, such as compaction or hydropulping, may be necessary prior to sending the waste off site. Compaction reduces the total volume of solid wastes, often reducing transportation and disposal costs, but it does not change the hazardous characteristics of the waste. Compaction may not be economical if transportation and disposal costs are based on weight rather than volume. (4) Hydropulping involves grinding the waste in the presence of an oxidizing fluid, such as hypochlorite solution. The liquid is separated from the pulp and discharged directly into the sewer unless local limits require additional pretreatment prior to discharge. The pulp can often be disposed of at a landfill. One advantage is that waste can be rendered innocuous and reduced in size within the same system. Disadvantages are the added operating burden, difficulty of controlling fugitive emissions, and the difficulty of conducting microbiological tests to determine whether all organic matters and infectious organisms have been destroyed from the waste.
+
+(5) On-site disposal is a feasible alternative for hospitals generating two tons or more per day of total solid waste. Common treatment techniques include steam sterilization and incineration. Although other options are available, incineration is currently the preferred method for on-site treatment of hospital waste. (6) Steam sterilization is limited in the types of medical waste it can treat, but is appropriate for laboratory cultures and/or substances contaminated with infectious organisms. The waste is subjected to steam in a sealed, pressurized chamber. The liquid that may form is drained off to the sewer or sent for processing. The unit is then reopened after a vapor release to the atmosphere, and the solid waste is removed for further processing or disposal. One advantage of steam sterilization is that it has been used for many years in hospitals to sterilize instruments and containers and to treat small quantities of waste. However, since sterilization does not change the appearance of the waste, there could be a problem in gaining acceptance of the waste for landfilling.
+
+(7) A properly designed, maintained, and operated incinerator achieves a relatively high level of organism destruction. Incineration reduces the weight and volume of the waste as much as 95% and is especially appropriate for pathological wastes and sharps. The most common incineration system for medical waste is the controlled-air type. The principal advantage of this type of incinerator is low particulate emissions. Rotary-kiln and grate-type units have been used, but use of grate-type units has been discontinued because of high air emissions. The rotary kiln also puts out high emissions, and the costs have been prohibitive for smaller units.","According to the passage, which of the following could be safely dis- posed of in a landfill but might not be accepted by landfill facilities?",,B,hydropulped material,sterilized waste,incinerated waste,laboratory cultures,,2,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.548.3,5,1,4,Medium
+NAPLAN-Y6-READING-M2-Q13,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 2,6,English,Reading Comprehension,Locating Information,ReadingComprehension,"(1) Medical waste has been a growing concern because of recent incidents of public exposure to discarded blood vials, needles (sharps), empty prescription bottles, and syringes. Medical waste can typically include general refuse, human blood and blood products, cultures and stocks of infectious agents, laboratory animal carcasses, contaminated bedding material, and pathological wastes. (2) Wastes are generally collected by gravity chutes, carts, or pneumatic tubes, each of which has its own advantages and disadvantages. Chutes are limited to vertical transport, and there is some risk of exhausting contaminants into hallways if a door is left open during use. Another disadvantage of gravity chutes is that the waste container may get jammed while dropping, or it may be broken upon hitting the bottom. Carts are primarily for horizontal transport of bagged or containerized wastes. The main risk here is that bags may be broken or torn during transport, potentially exposing the worker to the wastes. Using automated carts can reduce the potential for exposure. Pneumatic tubes offer the best performance for waste transport in a large facility. Advantages include high-speed movement, movement in any direction, and minimal intermediate storage of untreated wastes. However, some objects cannot be conveyed pneumatically.
+
+(3) Off-site disposal of regulated medical wastes remains a viable option for smaller hospitals (those with less than 150 beds). Some preliminary on-site processing, such as compaction or hydropulping, may be necessary prior to sending the waste off site. Compaction reduces the total volume of solid wastes, often reducing transportation and disposal costs, but it does not change the hazardous characteristics of the waste. Compaction may not be economical if transportation and disposal costs are based on weight rather than volume. (4) Hydropulping involves grinding the waste in the presence of an oxidizing fluid, such as hypochlorite solution. The liquid is separated from the pulp and discharged directly into the sewer unless local limits require additional pretreatment prior to discharge. The pulp can often be disposed of at a landfill. One advantage is that waste can be rendered innocuous and reduced in size within the same system. Disadvantages are the added operating burden, difficulty of controlling fugitive emissions, and the difficulty of conducting microbiological tests to determine whether all organic matters and infectious organisms have been destroyed from the waste.
+
+(5) On-site disposal is a feasible alternative for hospitals generating two tons or more per day of total solid waste. Common treatment techniques include steam sterilization and incineration. Although other options are available, incineration is currently the preferred method for on-site treatment of hospital waste. (6) Steam sterilization is limited in the types of medical waste it can treat, but is appropriate for laboratory cultures and/or substances contaminated with infectious organisms. The waste is subjected to steam in a sealed, pressurized chamber. The liquid that may form is drained off to the sewer or sent for processing. The unit is then reopened after a vapor release to the atmosphere, and the solid waste is removed for further processing or disposal. One advantage of steam sterilization is that it has been used for many years in hospitals to sterilize instruments and containers and to treat small quantities of waste. However, since sterilization does not change the appearance of the waste, there could be a problem in gaining acceptance of the waste for landfilling.
+
+(7) A properly designed, maintained, and operated incinerator achieves a relatively high level of organism destruction. Incineration reduces the weight and volume of the waste as much as 95% and is especially appropriate for pathological wastes and sharps. The most common incineration system for medical waste is the controlled-air type. The principal advantage of this type of incinerator is low particulate emissions. Rotary-kiln and grate-type units have been used, but use of grate-type units has been discontinued because of high air emissions. The rotary kiln also puts out high emissions, and the costs have been prohibitive for smaller units.",The two processes mentioned in the passage that involve the formation of liquid are,,C,compaction and hydropulping.,incineration and compaction.,hydropulping and sterilization.,sterilization and incineration.,,2,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.548.4,5,1,4,Medium
+NAPLAN-Y6-READING-M2-Q14,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 2,6,English,Reading Comprehension,Literal Recall,ReadingComprehension,"(1) Medical waste has been a growing concern because of recent incidents of public exposure to discarded blood vials, needles (sharps), empty prescription bottles, and syringes. Medical waste can typically include general refuse, human blood and blood products, cultures and stocks of infectious agents, laboratory animal carcasses, contaminated bedding material, and pathological wastes. (2) Wastes are generally collected by gravity chutes, carts, or pneumatic tubes, each of which has its own advantages and disadvantages. Chutes are limited to vertical transport, and there is some risk of exhausting contaminants into hallways if a door is left open during use. Another disadvantage of gravity chutes is that the waste container may get jammed while dropping, or it may be broken upon hitting the bottom. Carts are primarily for horizontal transport of bagged or containerized wastes. The main risk here is that bags may be broken or torn during transport, potentially exposing the worker to the wastes. Using automated carts can reduce the potential for exposure. Pneumatic tubes offer the best performance for waste transport in a large facility. Advantages include high-speed movement, movement in any direction, and minimal intermediate storage of untreated wastes. However, some objects cannot be conveyed pneumatically.
+
+(3) Off-site disposal of regulated medical wastes remains a viable option for smaller hospitals (those with less than 150 beds). Some preliminary on-site processing, such as compaction or hydropulping, may be necessary prior to sending the waste off site. Compaction reduces the total volume of solid wastes, often reducing transportation and disposal costs, but it does not change the hazardous characteristics of the waste. Compaction may not be economical if transportation and disposal costs are based on weight rather than volume. (4) Hydropulping involves grinding the waste in the presence of an oxidizing fluid, such as hypochlorite solution. The liquid is separated from the pulp and discharged directly into the sewer unless local limits require additional pretreatment prior to discharge. The pulp can often be disposed of at a landfill. One advantage is that waste can be rendered innocuous and reduced in size within the same system. Disadvantages are the added operating burden, difficulty of controlling fugitive emissions, and the difficulty of conducting microbiological tests to determine whether all organic matters and infectious organisms have been destroyed from the waste.
+
+(5) On-site disposal is a feasible alternative for hospitals generating two tons or more per day of total solid waste. Common treatment techniques include steam sterilization and incineration. Although other options are available, incineration is currently the preferred method for on-site treatment of hospital waste. (6) Steam sterilization is limited in the types of medical waste it can treat, but is appropriate for laboratory cultures and/or substances contaminated with infectious organisms. The waste is subjected to steam in a sealed, pressurized chamber. The liquid that may form is drained off to the sewer or sent for processing. The unit is then reopened after a vapor release to the atmosphere, and the solid waste is removed for further processing or disposal. One advantage of steam sterilization is that it has been used for many years in hospitals to sterilize instruments and containers and to treat small quantities of waste. However, since sterilization does not change the appearance of the waste, there could be a problem in gaining acceptance of the waste for landfilling.
+
+(7) A properly designed, maintained, and operated incinerator achieves a relatively high level of organism destruction. Incineration reduces the weight and volume of the waste as much as 95% and is especially appropriate for pathological wastes and sharps. The most common incineration system for medical waste is the controlled-air type. The principal advantage of this type of incinerator is low particulate emissions. Rotary-kiln and grate-type units have been used, but use of grate-type units has been discontinued because of high air emissions. The rotary kiln also puts out high emissions, and the costs have been prohibitive for smaller units.","According to the passage, two effective methods for treating waste caused by infectious matter are",,A,steam sterilization and incineration.,hydropulping and steam sterilization.,incineration and compaction.,hydropulping and incineration.,,1,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.548.5,5,1,2,Easy
+NAPLAN-Y6-READING-M2-Q15,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 2,6,English,Reading Comprehension,Literal Recall,ReadingComprehension,"(1) Medical waste has been a growing concern because of recent incidents of public exposure to discarded blood vials, needles (sharps), empty prescription bottles, and syringes. Medical waste can typically include general refuse, human blood and blood products, cultures and stocks of infectious agents, laboratory animal carcasses, contaminated bedding material, and pathological wastes. (2) Wastes are generally collected by gravity chutes, carts, or pneumatic tubes, each of which has its own advantages and disadvantages. Chutes are limited to vertical transport, and there is some risk of exhausting contaminants into hallways if a door is left open during use. Another disadvantage of gravity chutes is that the waste container may get jammed while dropping, or it may be broken upon hitting the bottom. Carts are primarily for horizontal transport of bagged or containerized wastes. The main risk here is that bags may be broken or torn during transport, potentially exposing the worker to the wastes. Using automated carts can reduce the potential for exposure. Pneumatic tubes offer the best performance for waste transport in a large facility. Advantages include high-speed movement, movement in any direction, and minimal intermediate storage of untreated wastes. However, some objects cannot be conveyed pneumatically.
+
+(3) Off-site disposal of regulated medical wastes remains a viable option for smaller hospitals (those with less than 150 beds). Some preliminary on-site processing, such as compaction or hydropulping, may be necessary prior to sending the waste off site. Compaction reduces the total volume of solid wastes, often reducing transportation and disposal costs, but it does not change the hazardous characteristics of the waste. Compaction may not be economical if transportation and disposal costs are based on weight rather than volume. (4) Hydropulping involves grinding the waste in the presence of an oxidizing fluid, such as hypochlorite solution. The liquid is separated from the pulp and discharged directly into the sewer unless local limits require additional pretreatment prior to discharge. The pulp can often be disposed of at a landfill. One advantage is that waste can be rendered innocuous and reduced in size within the same system. Disadvantages are the added operating burden, difficulty of controlling fugitive emissions, and the difficulty of conducting microbiological tests to determine whether all organic matters and infectious organisms have been destroyed from the waste.
+
+(5) On-site disposal is a feasible alternative for hospitals generating two tons or more per day of total solid waste. Common treatment techniques include steam sterilization and incineration. Although other options are available, incineration is currently the preferred method for on-site treatment of hospital waste. (6) Steam sterilization is limited in the types of medical waste it can treat, but is appropriate for laboratory cultures and/or substances contaminated with infectious organisms. The waste is subjected to steam in a sealed, pressurized chamber. The liquid that may form is drained off to the sewer or sent for processing. The unit is then reopened after a vapor release to the atmosphere, and the solid waste is removed for further processing or disposal. One advantage of steam sterilization is that it has been used for many years in hospitals to sterilize instruments and containers and to treat small quantities of waste. However, since sterilization does not change the appearance of the waste, there could be a problem in gaining acceptance of the waste for landfilling.
+
+(7) A properly designed, maintained, and operated incinerator achieves a relatively high level of organism destruction. Incineration reduces the weight and volume of the waste as much as 95% and is especially appropriate for pathological wastes and sharps. The most common incineration system for medical waste is the controlled-air type. The principal advantage of this type of incinerator is low particulate emissions. Rotary-kiln and grate-type units have been used, but use of grate-type units has been discontinued because of high air emissions. The rotary kiln also puts out high emissions, and the costs have been prohibitive for smaller units.",The process that transforms waste from hazardous to harmless and diminishes waste volume is,,B,sterilization.,hydropulping.,oxidizing.,compacting.,,3,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.548.6,5,1,5,Medium
+NAPLAN-Y6-READING-M2-Q16,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 2,6,English,Reading Comprehension,Locating Information,ReadingComprehension,"(1) Medical waste has been a growing concern because of recent incidents of public exposure to discarded blood vials, needles (sharps), empty prescription bottles, and syringes. Medical waste can typically include general refuse, human blood and blood products, cultures and stocks of infectious agents, laboratory animal carcasses, contaminated bedding material, and pathological wastes. (2) Wastes are generally collected by gravity chutes, carts, or pneumatic tubes, each of which has its own advantages and disadvantages. Chutes are limited to vertical transport, and there is some risk of exhausting contaminants into hallways if a door is left open during use. Another disadvantage of gravity chutes is that the waste container may get jammed while dropping, or it may be broken upon hitting the bottom. Carts are primarily for horizontal transport of bagged or containerized wastes. The main risk here is that bags may be broken or torn during transport, potentially exposing the worker to the wastes. Using automated carts can reduce the potential for exposure. Pneumatic tubes offer the best performance for waste transport in a large facility. Advantages include high-speed movement, movement in any direction, and minimal intermediate storage of untreated wastes. However, some objects cannot be conveyed pneumatically.
+
+(3) Off-site disposal of regulated medical wastes remains a viable option for smaller hospitals (those with less than 150 beds). Some preliminary on-site processing, such as compaction or hydropulping, may be necessary prior to sending the waste off site. Compaction reduces the total volume of solid wastes, often reducing transportation and disposal costs, but it does not change the hazardous characteristics of the waste. Compaction may not be economical if transportation and disposal costs are based on weight rather than volume. (4) Hydropulping involves grinding the waste in the presence of an oxidizing fluid, such as hypochlorite solution. The liquid is separated from the pulp and discharged directly into the sewer unless local limits require additional pretreatment prior to discharge. The pulp can often be disposed of at a landfill. One advantage is that waste can be rendered innocuous and reduced in size within the same system. Disadvantages are the added operating burden, difficulty of controlling fugitive emissions, and the difficulty of conducting microbiological tests to determine whether all organic matters and infectious organisms have been destroyed from the waste.
+
+(5) On-site disposal is a feasible alternative for hospitals generating two tons or more per day of total solid waste. Common treatment techniques include steam sterilization and incineration. Although other options are available, incineration is currently the preferred method for on-site treatment of hospital waste. (6) Steam sterilization is limited in the types of medical waste it can treat, but is appropriate for laboratory cultures and/or substances contaminated with infectious organisms. The waste is subjected to steam in a sealed, pressurized chamber. The liquid that may form is drained off to the sewer or sent for processing. The unit is then reopened after a vapor release to the atmosphere, and the solid waste is removed for further processing or disposal. One advantage of steam sterilization is that it has been used for many years in hospitals to sterilize instruments and containers and to treat small quantities of waste. However, since sterilization does not change the appearance of the waste, there could be a problem in gaining acceptance of the waste for landfilling.
+
+(7) A properly designed, maintained, and operated incinerator achieves a relatively high level of organism destruction. Incineration reduces the weight and volume of the waste as much as 95% and is especially appropriate for pathological wastes and sharps. The most common incineration system for medical waste is the controlled-air type. The principal advantage of this type of incinerator is low particulate emissions. Rotary-kiln and grate-type units have been used, but use of grate-type units has been discontinued because of high air emissions. The rotary kiln also puts out high emissions, and the costs have been prohibitive for smaller units.",Budgetary constraints have precluded some small hospitals from purchasing,,B,pneumatic tubes.,rotary kilns.,sterilization equipment.,controlled-air kilns.,,1,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.548.7,5,1,2,Easy
+NAPLAN-Y6-READING-M2-Q17,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 2,6,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"(1) Medical waste has been a growing concern because of recent incidents of public exposure to discarded blood vials, needles (sharps), empty prescription bottles, and syringes. Medical waste can typically include general refuse, human blood and blood products, cultures and stocks of infectious agents, laboratory animal carcasses, contaminated bedding material, and pathological wastes. (2) Wastes are generally collected by gravity chutes, carts, or pneumatic tubes, each of which has its own advantages and disadvantages. Chutes are limited to vertical transport, and there is some risk of exhausting contaminants into hallways if a door is left open during use. Another disadvantage of gravity chutes is that the waste container may get jammed while dropping, or it may be broken upon hitting the bottom. Carts are primarily for horizontal transport of bagged or containerized wastes. The main risk here is that bags may be broken or torn during transport, potentially exposing the worker to the wastes. Using automated carts can reduce the potential for exposure. Pneumatic tubes offer the best performance for waste transport in a large facility. Advantages include high-speed movement, movement in any direction, and minimal intermediate storage of untreated wastes. However, some objects cannot be conveyed pneumatically.
+
+(3) Off-site disposal of regulated medical wastes remains a viable option for smaller hospitals (those with less than 150 beds). Some preliminary on-site processing, such as compaction or hydropulping, may be necessary prior to sending the waste off site. Compaction reduces the total volume of solid wastes, often reducing transportation and disposal costs, but it does not change the hazardous characteristics of the waste. Compaction may not be economical if transportation and disposal costs are based on weight rather than volume. (4) Hydropulping involves grinding the waste in the presence of an oxidizing fluid, such as hypochlorite solution. The liquid is separated from the pulp and discharged directly into the sewer unless local limits require additional pretreatment prior to discharge. The pulp can often be disposed of at a landfill. One advantage is that waste can be rendered innocuous and reduced in size within the same system. Disadvantages are the added operating burden, difficulty of controlling fugitive emissions, and the difficulty of conducting microbiological tests to determine whether all organic matters and infectious organisms have been destroyed from the waste.
+
+(5) On-site disposal is a feasible alternative for hospitals generating two tons or more per day of total solid waste. Common treatment techniques include steam sterilization and incineration. Although other options are available, incineration is currently the preferred method for on-site treatment of hospital waste. (6) Steam sterilization is limited in the types of medical waste it can treat, but is appropriate for laboratory cultures and/or substances contaminated with infectious organisms. The waste is subjected to steam in a sealed, pressurized chamber. The liquid that may form is drained off to the sewer or sent for processing. The unit is then reopened after a vapor release to the atmosphere, and the solid waste is removed for further processing or disposal. One advantage of steam sterilization is that it has been used for many years in hospitals to sterilize instruments and containers and to treat small quantities of waste. However, since sterilization does not change the appearance of the waste, there could be a problem in gaining acceptance of the waste for landfilling.
+
+(7) A properly designed, maintained, and operated incinerator achieves a relatively high level of organism destruction. Incineration reduces the weight and volume of the waste as much as 95% and is especially appropriate for pathological wastes and sharps. The most common incineration system for medical waste is the controlled-air type. The principal advantage of this type of incinerator is low particulate emissions. Rotary-kiln and grate-type units have been used, but use of grate-type units has been discontinued because of high air emissions. The rotary kiln also puts out high emissions, and the costs have been prohibitive for smaller units.",The underlined phrase fugitive emissions in the fourth paragraph most nearly means,,C,contaminants that are extremely toxic.,contaminants that are illegally discharged.,contaminants that escape the disposal process.,contaminants that come from micro-biological testing.,,2,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.548.8,5,1,3,Easy
+NAPLAN-Y6-READING-M2-Q18,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 3,6,English,Literary Techniques,Tone and Mood,ReadingComprehension,"The Light That Didn't Blink
+'It's ten to five,' Tess hissed, shaking her brother's shoulder. 'Get up, or you'll miss it.'
+Noah pulled the doona over his head. 'Miss what? It's still the middle of the night.'
+'The space station. It's passing over at three minutes past five. I told you yesterday.'
+She had told him, and he had nodded without listening, the way he did whenever Tess talked about space. She had posters of nebulas above her bed and an app on her phone that showed where the International Space Station was at every moment. Noah thought it was all a bit much.
+Still, he followed her out onto the driveway in his slippers. The air was so cold that his breath hung in front of him like smoke. Above the rooftops, the sky was black and crowded with stars, and only a faint grey line showed in the east.
+'Where do I look?' he grumbled.
+'North-west. Low down, near that gum tree. It'll rise slowly and go almost straight over us.'
+Noah stared at the gum tree. Nothing happened. He was about to say so when Tess grabbed his arm.
+A point of light had appeared above the branches. At first he thought it was a plane, but it made no sound and it didn't flash red and green. It simply glided, bright and steady, brighter than any star, climbing higher and higher.
+'That's people,' Tess whispered. 'Seven of them, right now, going round the Earth about every ninety minutes. It's still dark down here, but up there the sun is shining on them. That's why we can see it.'
+Noah didn't answer. He had tipped his head so far back that he nearly lost his balance. The light passed almost directly overhead, then began to slide towards the south-east.
+Then, halfway down the sky, it did something strange. It turned orange, faded, and vanished, as if someone had switched it off. There was no hill or tree in the way. It was simply gone.
+'Where did it go?' Noah said, much too loudly for five o'clock in the morning.
+Tess grinned. 'Into the Earth's shadow. It's still up there.'
+Noah kept staring at the empty patch of sky. Back inside, he didn't go back to bed. Instead, he sat at the kitchen table and asked Tess to show him the app.","At the start of the story, Noah's mood is best described as . . .",,C,excited and curious,frightened and nervous,grumpy and unwilling,calm and patient,,1,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.1469.1,288,1,2,Easy
+NAPLAN-Y6-READING-M2-Q19,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 3,6,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Light That Didn't Blink
+'It's ten to five,' Tess hissed, shaking her brother's shoulder. 'Get up, or you'll miss it.'
+Noah pulled the doona over his head. 'Miss what? It's still the middle of the night.'
+'The space station. It's passing over at three minutes past five. I told you yesterday.'
+She had told him, and he had nodded without listening, the way he did whenever Tess talked about space. She had posters of nebulas above her bed and an app on her phone that showed where the International Space Station was at every moment. Noah thought it was all a bit much.
+Still, he followed her out onto the driveway in his slippers. The air was so cold that his breath hung in front of him like smoke. Above the rooftops, the sky was black and crowded with stars, and only a faint grey line showed in the east.
+'Where do I look?' he grumbled.
+'North-west. Low down, near that gum tree. It'll rise slowly and go almost straight over us.'
+Noah stared at the gum tree. Nothing happened. He was about to say so when Tess grabbed his arm.
+A point of light had appeared above the branches. At first he thought it was a plane, but it made no sound and it didn't flash red and green. It simply glided, bright and steady, brighter than any star, climbing higher and higher.
+'That's people,' Tess whispered. 'Seven of them, right now, going round the Earth about every ninety minutes. It's still dark down here, but up there the sun is shining on them. That's why we can see it.'
+Noah didn't answer. He had tipped his head so far back that he nearly lost his balance. The light passed almost directly overhead, then began to slide towards the south-east.
+Then, halfway down the sky, it did something strange. It turned orange, faded, and vanished, as if someone had switched it off. There was no hill or tree in the way. It was simply gone.
+'Where did it go?' Noah said, much too loudly for five o'clock in the morning.
+Tess grinned. 'Into the Earth's shadow. It's still up there.'
+Noah kept staring at the empty patch of sky. Back inside, he didn't go back to bed. Instead, he sat at the kitchen table and asked Tess to show him the app.","According to Tess, how often does the space station travel around the Earth?",,C,about every five hours,about once a day,about every ninety minutes,about every seven minutes,,1,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.1469.2,288,1,1,Easy
+NAPLAN-Y6-READING-M2-Q20,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 3,6,English,Inference,Cause and Effect,ReadingComprehension,"The Light That Didn't Blink
+'It's ten to five,' Tess hissed, shaking her brother's shoulder. 'Get up, or you'll miss it.'
+Noah pulled the doona over his head. 'Miss what? It's still the middle of the night.'
+'The space station. It's passing over at three minutes past five. I told you yesterday.'
+She had told him, and he had nodded without listening, the way he did whenever Tess talked about space. She had posters of nebulas above her bed and an app on her phone that showed where the International Space Station was at every moment. Noah thought it was all a bit much.
+Still, he followed her out onto the driveway in his slippers. The air was so cold that his breath hung in front of him like smoke. Above the rooftops, the sky was black and crowded with stars, and only a faint grey line showed in the east.
+'Where do I look?' he grumbled.
+'North-west. Low down, near that gum tree. It'll rise slowly and go almost straight over us.'
+Noah stared at the gum tree. Nothing happened. He was about to say so when Tess grabbed his arm.
+A point of light had appeared above the branches. At first he thought it was a plane, but it made no sound and it didn't flash red and green. It simply glided, bright and steady, brighter than any star, climbing higher and higher.
+'That's people,' Tess whispered. 'Seven of them, right now, going round the Earth about every ninety minutes. It's still dark down here, but up there the sun is shining on them. That's why we can see it.'
+Noah didn't answer. He had tipped his head so far back that he nearly lost his balance. The light passed almost directly overhead, then began to slide towards the south-east.
+Then, halfway down the sky, it did something strange. It turned orange, faded, and vanished, as if someone had switched it off. There was no hill or tree in the way. It was simply gone.
+'Where did it go?' Noah said, much too loudly for five o'clock in the morning.
+Tess grinned. 'Into the Earth's shadow. It's still up there.'
+Noah kept staring at the empty patch of sky. Back inside, he didn't go back to bed. Instead, he sat at the kitchen table and asked Tess to show him the app.",Why could the children see the space station even though it was still dark where they stood?,,B,The station had bright lights flashing on its sides.,Sunlight was shining on the station high above them.,The sky in the east was beginning to grow lighter.,The station was flying very low over their house.,,2,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.1469.3,288,1,4,Medium
+NAPLAN-Y6-READING-M2-Q21,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 3,6,English,Inference,Inferential Reasoning,ReadingComprehension,"The Light That Didn't Blink
+'It's ten to five,' Tess hissed, shaking her brother's shoulder. 'Get up, or you'll miss it.'
+Noah pulled the doona over his head. 'Miss what? It's still the middle of the night.'
+'The space station. It's passing over at three minutes past five. I told you yesterday.'
+She had told him, and he had nodded without listening, the way he did whenever Tess talked about space. She had posters of nebulas above her bed and an app on her phone that showed where the International Space Station was at every moment. Noah thought it was all a bit much.
+Still, he followed her out onto the driveway in his slippers. The air was so cold that his breath hung in front of him like smoke. Above the rooftops, the sky was black and crowded with stars, and only a faint grey line showed in the east.
+'Where do I look?' he grumbled.
+'North-west. Low down, near that gum tree. It'll rise slowly and go almost straight over us.'
+Noah stared at the gum tree. Nothing happened. He was about to say so when Tess grabbed his arm.
+A point of light had appeared above the branches. At first he thought it was a plane, but it made no sound and it didn't flash red and green. It simply glided, bright and steady, brighter than any star, climbing higher and higher.
+'That's people,' Tess whispered. 'Seven of them, right now, going round the Earth about every ninety minutes. It's still dark down here, but up there the sun is shining on them. That's why we can see it.'
+Noah didn't answer. He had tipped his head so far back that he nearly lost his balance. The light passed almost directly overhead, then began to slide towards the south-east.
+Then, halfway down the sky, it did something strange. It turned orange, faded, and vanished, as if someone had switched it off. There was no hill or tree in the way. It was simply gone.
+'Where did it go?' Noah said, much too loudly for five o'clock in the morning.
+Tess grinned. 'Into the Earth's shadow. It's still up there.'
+Noah kept staring at the empty patch of sky. Back inside, he didn't go back to bed. Instead, he sat at the kitchen table and asked Tess to show him the app.",Noah speaks 'much too loudly for five o'clock in the morning'. This suggests that he . . .,,B,wanted to wake up the rest of the family,was so amazed that he forgot to be quiet,was angry that Tess had tricked him,could not hear his sister clearly outside,,3,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.1469.4,288,1,5,Medium
+NAPLAN-Y6-READING-M2-Q22,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 3,6,English,Inference,Drawing Conclusions,ReadingComprehension,"The Light That Didn't Blink
+'It's ten to five,' Tess hissed, shaking her brother's shoulder. 'Get up, or you'll miss it.'
+Noah pulled the doona over his head. 'Miss what? It's still the middle of the night.'
+'The space station. It's passing over at three minutes past five. I told you yesterday.'
+She had told him, and he had nodded without listening, the way he did whenever Tess talked about space. She had posters of nebulas above her bed and an app on her phone that showed where the International Space Station was at every moment. Noah thought it was all a bit much.
+Still, he followed her out onto the driveway in his slippers. The air was so cold that his breath hung in front of him like smoke. Above the rooftops, the sky was black and crowded with stars, and only a faint grey line showed in the east.
+'Where do I look?' he grumbled.
+'North-west. Low down, near that gum tree. It'll rise slowly and go almost straight over us.'
+Noah stared at the gum tree. Nothing happened. He was about to say so when Tess grabbed his arm.
+A point of light had appeared above the branches. At first he thought it was a plane, but it made no sound and it didn't flash red and green. It simply glided, bright and steady, brighter than any star, climbing higher and higher.
+'That's people,' Tess whispered. 'Seven of them, right now, going round the Earth about every ninety minutes. It's still dark down here, but up there the sun is shining on them. That's why we can see it.'
+Noah didn't answer. He had tipped his head so far back that he nearly lost his balance. The light passed almost directly overhead, then began to slide towards the south-east.
+Then, halfway down the sky, it did something strange. It turned orange, faded, and vanished, as if someone had switched it off. There was no hill or tree in the way. It was simply gone.
+'Where did it go?' Noah said, much too loudly for five o'clock in the morning.
+Tess grinned. 'Into the Earth's shadow. It's still up there.'
+Noah kept staring at the empty patch of sky. Back inside, he didn't go back to bed. Instead, he sat at the kitchen table and asked Tess to show him the app.",Which conclusion about the moment the light vanished is best supported by the story?,,A,The station had moved to where the sun could no longer light it.,The station had dropped below the horizon to the south-east.,The astronauts had switched off the lights on the station.,The dawn in the east had made the station too faint to see.,,4,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.1469.5,288,2,8,Hard
+NAPLAN-Y6-READING-M2-Q23,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 3,6,English,Inference,Inferential Reasoning,ReadingComprehension,"The Light That Didn't Blink
+'It's ten to five,' Tess hissed, shaking her brother's shoulder. 'Get up, or you'll miss it.'
+Noah pulled the doona over his head. 'Miss what? It's still the middle of the night.'
+'The space station. It's passing over at three minutes past five. I told you yesterday.'
+She had told him, and he had nodded without listening, the way he did whenever Tess talked about space. She had posters of nebulas above her bed and an app on her phone that showed where the International Space Station was at every moment. Noah thought it was all a bit much.
+Still, he followed her out onto the driveway in his slippers. The air was so cold that his breath hung in front of him like smoke. Above the rooftops, the sky was black and crowded with stars, and only a faint grey line showed in the east.
+'Where do I look?' he grumbled.
+'North-west. Low down, near that gum tree. It'll rise slowly and go almost straight over us.'
+Noah stared at the gum tree. Nothing happened. He was about to say so when Tess grabbed his arm.
+A point of light had appeared above the branches. At first he thought it was a plane, but it made no sound and it didn't flash red and green. It simply glided, bright and steady, brighter than any star, climbing higher and higher.
+'That's people,' Tess whispered. 'Seven of them, right now, going round the Earth about every ninety minutes. It's still dark down here, but up there the sun is shining on them. That's why we can see it.'
+Noah didn't answer. He had tipped his head so far back that he nearly lost his balance. The light passed almost directly overhead, then began to slide towards the south-east.
+Then, halfway down the sky, it did something strange. It turned orange, faded, and vanished, as if someone had switched it off. There was no hill or tree in the way. It was simply gone.
+'Where did it go?' Noah said, much too loudly for five o'clock in the morning.
+Tess grinned. 'Into the Earth's shadow. It's still up there.'
+Noah kept staring at the empty patch of sky. Back inside, he didn't go back to bed. Instead, he sat at the kitchen table and asked Tess to show him the app.",What does Noah's behaviour at the end of the story suggest?,,A,His feelings about Tess's interest in space have changed.,He is too cold and wide awake to go back to sleep.,He wants to prove that Tess was wrong about the shadow.,He is worried that the space station has disappeared.,,4,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.1469.6,288,1,7,Hard
+NAPLAN-Y6-READING-M2-Q24,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 4,6,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Cities Carved from Winter
+In many places, winter is a season to be endured. You pull on extra layers, hurry from one warm building to the next and count the weeks until spring. But in some of the coldest cities on Earth, people have decided to do the opposite. Instead of hiding from winter, they throw it a party.
+The most dazzling of these may be the Harbin International Ice and Snow Sculpture Festival in north-east China. Each winter, workers saw enormous blocks of ice from the frozen Songhua River and haul them into the city. Teams of builders and artists then stack and carve them into towering castles, bridges and slides. At night, coloured lights are placed inside the ice, and the whole frozen city glows like a box of jewels. Temperatures can fall below minus twenty degrees Celsius, yet huge crowds of visitors arrive every year.
+Japan's Sapporo Snow Festival began more modestly. In 1950, a group of local high school students built six snow statues in a city park. Crowds came to look, and the idea snowballed. Today the festival features hundreds of sculptures, some as big as buildings, and draws visitors from around the world each February.
+In Canada, the Quebec Winter Carnival is famous for its mascot, Bonhomme, a cheerful snowman in a red cap and a colourful sash. Visitors can watch canoe races across the icy St Lawrence River, where teams paddle, push and drag their boats over floating chunks of ice.
+Why would anyone celebrate the cold? For one thing, these festivals turn a difficult season into something to look forward to. They bring neighbours outside when they might otherwise stay indoors for months. They also attract tourists, which helps local businesses during a quiet time of year.
+Perhaps most importantly, they show something about human imagination. Ice and snow cannot be kept. Every sculpture, however grand, will crack, slump and melt away when spring arrives. The builders know this before they begin. They carve anyway, for the joy of making something beautiful that lasts only a few weeks.",Where does the ice for the Harbin festival come from?,,B,the St Lawrence River,the frozen Songhua River,a city park in Sapporo,large freezers in factories,,1,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.1439.1,258,1,2,Easy
+NAPLAN-Y6-READING-M2-Q25,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 4,6,English,Reading Comprehension,Main Idea,ReadingComprehension,"Cities Carved from Winter
+In many places, winter is a season to be endured. You pull on extra layers, hurry from one warm building to the next and count the weeks until spring. But in some of the coldest cities on Earth, people have decided to do the opposite. Instead of hiding from winter, they throw it a party.
+The most dazzling of these may be the Harbin International Ice and Snow Sculpture Festival in north-east China. Each winter, workers saw enormous blocks of ice from the frozen Songhua River and haul them into the city. Teams of builders and artists then stack and carve them into towering castles, bridges and slides. At night, coloured lights are placed inside the ice, and the whole frozen city glows like a box of jewels. Temperatures can fall below minus twenty degrees Celsius, yet huge crowds of visitors arrive every year.
+Japan's Sapporo Snow Festival began more modestly. In 1950, a group of local high school students built six snow statues in a city park. Crowds came to look, and the idea snowballed. Today the festival features hundreds of sculptures, some as big as buildings, and draws visitors from around the world each February.
+In Canada, the Quebec Winter Carnival is famous for its mascot, Bonhomme, a cheerful snowman in a red cap and a colourful sash. Visitors can watch canoe races across the icy St Lawrence River, where teams paddle, push and drag their boats over floating chunks of ice.
+Why would anyone celebrate the cold? For one thing, these festivals turn a difficult season into something to look forward to. They bring neighbours outside when they might otherwise stay indoors for months. They also attract tourists, which helps local businesses during a quiet time of year.
+Perhaps most importantly, they show something about human imagination. Ice and snow cannot be kept. Every sculpture, however grand, will crack, slump and melt away when spring arrives. The builders know this before they begin. They carve anyway, for the joy of making something beautiful that lasts only a few weeks.",What is the main idea of the paragraph about the Sapporo Snow Festival?,,A,A festival that began small has grown very large.,High school students are the best snow sculptors.,Snow statues in Japan are as big as buildings.,The festival is held in February every year.,,2,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.1439.2,258,1,3,Easy
+NAPLAN-Y6-READING-M2-Q26,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 4,6,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"Cities Carved from Winter
+In many places, winter is a season to be endured. You pull on extra layers, hurry from one warm building to the next and count the weeks until spring. But in some of the coldest cities on Earth, people have decided to do the opposite. Instead of hiding from winter, they throw it a party.
+The most dazzling of these may be the Harbin International Ice and Snow Sculpture Festival in north-east China. Each winter, workers saw enormous blocks of ice from the frozen Songhua River and haul them into the city. Teams of builders and artists then stack and carve them into towering castles, bridges and slides. At night, coloured lights are placed inside the ice, and the whole frozen city glows like a box of jewels. Temperatures can fall below minus twenty degrees Celsius, yet huge crowds of visitors arrive every year.
+Japan's Sapporo Snow Festival began more modestly. In 1950, a group of local high school students built six snow statues in a city park. Crowds came to look, and the idea snowballed. Today the festival features hundreds of sculptures, some as big as buildings, and draws visitors from around the world each February.
+In Canada, the Quebec Winter Carnival is famous for its mascot, Bonhomme, a cheerful snowman in a red cap and a colourful sash. Visitors can watch canoe races across the icy St Lawrence River, where teams paddle, push and drag their boats over floating chunks of ice.
+Why would anyone celebrate the cold? For one thing, these festivals turn a difficult season into something to look forward to. They bring neighbours outside when they might otherwise stay indoors for months. They also attract tourists, which helps local businesses during a quiet time of year.
+Perhaps most importantly, they show something about human imagination. Ice and snow cannot be kept. Every sculpture, however grand, will crack, slump and melt away when spring arrives. The builders know this before they begin. They carve anyway, for the joy of making something beautiful that lasts only a few weeks.","'In many places, winter is a season to be endured.' In this sentence, 'endured' means . . .",,D,enjoyed and looked forward to.,finished as quickly as possible.,celebrated with loud parties.,"put up with, even though it is unpleasant.",,2,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.1439.3,258,1,4,Medium
+NAPLAN-Y6-READING-M2-Q27,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 4,6,English,Literary Techniques,Figurative Language,ReadingComprehension,"Cities Carved from Winter
+In many places, winter is a season to be endured. You pull on extra layers, hurry from one warm building to the next and count the weeks until spring. But in some of the coldest cities on Earth, people have decided to do the opposite. Instead of hiding from winter, they throw it a party.
+The most dazzling of these may be the Harbin International Ice and Snow Sculpture Festival in north-east China. Each winter, workers saw enormous blocks of ice from the frozen Songhua River and haul them into the city. Teams of builders and artists then stack and carve them into towering castles, bridges and slides. At night, coloured lights are placed inside the ice, and the whole frozen city glows like a box of jewels. Temperatures can fall below minus twenty degrees Celsius, yet huge crowds of visitors arrive every year.
+Japan's Sapporo Snow Festival began more modestly. In 1950, a group of local high school students built six snow statues in a city park. Crowds came to look, and the idea snowballed. Today the festival features hundreds of sculptures, some as big as buildings, and draws visitors from around the world each February.
+In Canada, the Quebec Winter Carnival is famous for its mascot, Bonhomme, a cheerful snowman in a red cap and a colourful sash. Visitors can watch canoe races across the icy St Lawrence River, where teams paddle, push and drag their boats over floating chunks of ice.
+Why would anyone celebrate the cold? For one thing, these festivals turn a difficult season into something to look forward to. They bring neighbours outside when they might otherwise stay indoors for months. They also attract tourists, which helps local businesses during a quiet time of year.
+Perhaps most importantly, they show something about human imagination. Ice and snow cannot be kept. Every sculpture, however grand, will crack, slump and melt away when spring arrives. The builders know this before they begin. They carve anyway, for the joy of making something beautiful that lasts only a few weeks.",The author writes that the Harbin festival 'glows like a box of jewels'. This simile suggests that . . .,,A,the lit-up ice sparkles with many bright colours.,the festival is very expensive for visitors to enter.,the ice sculptures are locked away to keep them safe.,the frozen ice is as hard and heavy as precious stone.,,3,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.1439.4,258,1,5,Medium
+NAPLAN-Y6-READING-M2-Q28,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 4,6,English,Vocabulary,Word Choice,ReadingComprehension,"Cities Carved from Winter
+In many places, winter is a season to be endured. You pull on extra layers, hurry from one warm building to the next and count the weeks until spring. But in some of the coldest cities on Earth, people have decided to do the opposite. Instead of hiding from winter, they throw it a party.
+The most dazzling of these may be the Harbin International Ice and Snow Sculpture Festival in north-east China. Each winter, workers saw enormous blocks of ice from the frozen Songhua River and haul them into the city. Teams of builders and artists then stack and carve them into towering castles, bridges and slides. At night, coloured lights are placed inside the ice, and the whole frozen city glows like a box of jewels. Temperatures can fall below minus twenty degrees Celsius, yet huge crowds of visitors arrive every year.
+Japan's Sapporo Snow Festival began more modestly. In 1950, a group of local high school students built six snow statues in a city park. Crowds came to look, and the idea snowballed. Today the festival features hundreds of sculptures, some as big as buildings, and draws visitors from around the world each February.
+In Canada, the Quebec Winter Carnival is famous for its mascot, Bonhomme, a cheerful snowman in a red cap and a colourful sash. Visitors can watch canoe races across the icy St Lawrence River, where teams paddle, push and drag their boats over floating chunks of ice.
+Why would anyone celebrate the cold? For one thing, these festivals turn a difficult season into something to look forward to. They bring neighbours outside when they might otherwise stay indoors for months. They also attract tourists, which helps local businesses during a quiet time of year.
+Perhaps most importantly, they show something about human imagination. Ice and snow cannot be kept. Every sculpture, however grand, will crack, slump and melt away when spring arrives. The builders know this before they begin. They carve anyway, for the joy of making something beautiful that lasts only a few weeks.","In the final paragraph, the author writes that the builders 'carve anyway'. Why is the word 'anyway' important to the author's point?",,D,It shows that the builders are careless about whether their sculptures melt.,It suggests the builders are forced to keep working despite the freezing cold.,It hints that the builders secretly hope spring will arrive later than usual.,"It stresses that they create knowing their work will melt, simply for the joy of it.",,4,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.1439.5,258,2,7,Hard
+NAPLAN-Y6-READING-M2-Q29,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 4,6,English,Reading Comprehension,Main Idea,ReadingComprehension,"Cities Carved from Winter
+In many places, winter is a season to be endured. You pull on extra layers, hurry from one warm building to the next and count the weeks until spring. But in some of the coldest cities on Earth, people have decided to do the opposite. Instead of hiding from winter, they throw it a party.
+The most dazzling of these may be the Harbin International Ice and Snow Sculpture Festival in north-east China. Each winter, workers saw enormous blocks of ice from the frozen Songhua River and haul them into the city. Teams of builders and artists then stack and carve them into towering castles, bridges and slides. At night, coloured lights are placed inside the ice, and the whole frozen city glows like a box of jewels. Temperatures can fall below minus twenty degrees Celsius, yet huge crowds of visitors arrive every year.
+Japan's Sapporo Snow Festival began more modestly. In 1950, a group of local high school students built six snow statues in a city park. Crowds came to look, and the idea snowballed. Today the festival features hundreds of sculptures, some as big as buildings, and draws visitors from around the world each February.
+In Canada, the Quebec Winter Carnival is famous for its mascot, Bonhomme, a cheerful snowman in a red cap and a colourful sash. Visitors can watch canoe races across the icy St Lawrence River, where teams paddle, push and drag their boats over floating chunks of ice.
+Why would anyone celebrate the cold? For one thing, these festivals turn a difficult season into something to look forward to. They bring neighbours outside when they might otherwise stay indoors for months. They also attract tourists, which helps local businesses during a quiet time of year.
+Perhaps most importantly, they show something about human imagination. Ice and snow cannot be kept. Every sculpture, however grand, will crack, slump and melt away when spring arrives. The builders know this before they begin. They carve anyway, for the joy of making something beautiful that lasts only a few weeks.",The text opens by calling winter 'a season to be endured' and closes with builders who carve 'for the joy of making something beautiful'. Which idea links the beginning and the end?,,B,Winter festivals are held mainly to bring tourists and money to cold cities.,People can choose to turn a hard season into a time of joy and creativity.,Nothing made from ice or snow can ever last for longer than a few weeks.,The coldest cities on Earth always hold the largest festivals in the world.,,4,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.1439.6,258,2,7,Hard
+NAPLAN-Y6-READING-M2-Q30,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 5,6,English,Inference,Drawing Conclusions,ReadingComprehension,"Dancing Dragons
+
+1 In fairy tales, dragons are ferocious creatures. However, in Chinese culture, dragons are not fire-breathing enemies. They are kind creatures that drive away bad luck and bring good fortune. Every year at the Spring Festival, also known as Chinese New Year, the dragons are dancers!
+
+2 In ancient China, people performed the dragon dance to bring more rain. Now, the dance is performed to ensure a good new year. During the Spring Festival, there is a parade that features the dragon dance. This dance is performed by an enormous dragon that is held up by several strong dancers using poles.
+
+3 A dragon is created with joints that allow it to bend easily. The body of the dragon is made of thin bamboo strips. They are woven into cylinders, or large tubes. Then, the dragon is covered in a giant cloth. It is decorated with scales. Most dragons are red. Red symbolizes happiness in Chinese culture. Dragons can be hundreds of feet long!
+
+4 During the parade, one person holds a stick with a large ball that holds the dragon's head. They lead the dragon through the city's streets. Behind the head, there are people holding poles to support sections of the dragon. The people wear clothing the same color as the dragon. This makes their legs look like the legs of the dragon. As the head dips and dives, so does the dragon. It looks like the dragon is dancing! People along the parade route watch and cheer as the dragon weaves back and forth. Its long body ripples like a ribbon.
+
+5 There is also a fire dragon that dances at night. Inside fire dragons are candles or lamps. The skin of the dragon is thin cloth or paper. The light can be seen through the skin. When this dragon dances at night, it looks like it is filled with fire.
+
+6 For centuries, Chinese communities across the globe have gathered in this way to celebrate spring. With the dragon's help, they hope to bring happiness in the year ahead.","Based on information in the article ""Dancing Dragons,"" which conclusion can the reader make about the dragon dance?",,A,The purpose of the dragon dance has changed over time.,Fewer people watch dragon dances today than in ancient times.,The dragon dance is based on a fairy tale that is well known in China.,Dragon dancers must know a lot about Chinese history.,,3,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.600.1,57,1,5,Medium
+NAPLAN-Y6-READING-M2-Q31,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 5,6,English,Literary Techniques,Imagery,ReadingComprehension,"Dancing Dragons
+
+1 In fairy tales, dragons are ferocious creatures. However, in Chinese culture, dragons are not fire-breathing enemies. They are kind creatures that drive away bad luck and bring good fortune. Every year at the Spring Festival, also known as Chinese New Year, the dragons are dancers!
+
+2 In ancient China, people performed the dragon dance to bring more rain. Now, the dance is performed to ensure a good new year. During the Spring Festival, there is a parade that features the dragon dance. This dance is performed by an enormous dragon that is held up by several strong dancers using poles.
+
+3 A dragon is created with joints that allow it to bend easily. The body of the dragon is made of thin bamboo strips. They are woven into cylinders, or large tubes. Then, the dragon is covered in a giant cloth. It is decorated with scales. Most dragons are red. Red symbolizes happiness in Chinese culture. Dragons can be hundreds of feet long!
+
+4 During the parade, one person holds a stick with a large ball that holds the dragon's head. They lead the dragon through the city's streets. Behind the head, there are people holding poles to support sections of the dragon. The people wear clothing the same color as the dragon. This makes their legs look like the legs of the dragon. As the head dips and dives, so does the dragon. It looks like the dragon is dancing! People along the parade route watch and cheer as the dragon weaves back and forth. Its long body ripples like a ribbon.
+
+5 There is also a fire dragon that dances at night. Inside fire dragons are candles or lamps. The skin of the dragon is thin cloth or paper. The light can be seen through the skin. When this dragon dances at night, it looks like it is filled with fire.
+
+6 For centuries, Chinese communities across the globe have gathered in this way to celebrate spring. With the dragon's help, they hope to bring happiness in the year ahead.","The author presents the ideas in paragraphs 3 through 5 of the article ""Dancing Dragons"" using description most likely so that the reader will better understand —",,A,what the dancing dragons look like,why people celebrate with dancing dragons,how newer dragons are different from older dragons,where the dragons are most often used,,2,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.600.2,57,1,4,Medium
+NAPLAN-Y6-READING-M2-Q32,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 5,6,English,Reading Comprehension,Summarising,ReadingComprehension,"Dancing Dragons
+
+1 In fairy tales, dragons are ferocious creatures. However, in Chinese culture, dragons are not fire-breathing enemies. They are kind creatures that drive away bad luck and bring good fortune. Every year at the Spring Festival, also known as Chinese New Year, the dragons are dancers!
+
+2 In ancient China, people performed the dragon dance to bring more rain. Now, the dance is performed to ensure a good new year. During the Spring Festival, there is a parade that features the dragon dance. This dance is performed by an enormous dragon that is held up by several strong dancers using poles.
+
+3 A dragon is created with joints that allow it to bend easily. The body of the dragon is made of thin bamboo strips. They are woven into cylinders, or large tubes. Then, the dragon is covered in a giant cloth. It is decorated with scales. Most dragons are red. Red symbolizes happiness in Chinese culture. Dragons can be hundreds of feet long!
+
+4 During the parade, one person holds a stick with a large ball that holds the dragon's head. They lead the dragon through the city's streets. Behind the head, there are people holding poles to support sections of the dragon. The people wear clothing the same color as the dragon. This makes their legs look like the legs of the dragon. As the head dips and dives, so does the dragon. It looks like the dragon is dancing! People along the parade route watch and cheer as the dragon weaves back and forth. Its long body ripples like a ribbon.
+
+5 There is also a fire dragon that dances at night. Inside fire dragons are candles or lamps. The skin of the dragon is thin cloth or paper. The light can be seen through the skin. When this dragon dances at night, it looks like it is filled with fire.
+
+6 For centuries, Chinese communities across the globe have gathered in this way to celebrate spring. With the dragon's help, they hope to bring happiness in the year ahead.","Which sentence should be included in the paragraph to complete the summary of the article ""Dancing Dragons""?",,B,The bodies of dancing dragons are made from bamboo strips and decorated cloth.,Chinese communities around the world still celebrate spring with dancing dragons.,A dancing dragon can be lit from the inside by lamps so it can be seen at night.,Most dancing dragons are red because that color is a symbol of happiness in China.,,3,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.600.3,57,1,5,Medium
+NAPLAN-Y6-READING-M2-Q33,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 6,6,English,Reading Comprehension,Evaluating Evidence,ReadingComprehension,"Four-Winged Hunters
+If you have ever sat beside a pond on a summer afternoon, you have probably seen a dragonfly zipping over the water like a tiny jet. It is easy to admire their shimmering wings and bright colours. But do not be fooled by their beauty. Dragonflies are among the most successful hunters in the animal kingdom.
+Ancient flyers
+Dragonflies have been around for an astonishingly long time. Their ancestors were flying through forests about 300 million years ago, long before the first dinosaurs appeared. Some of those early relatives were giants, with wings that stretched about 70 centimetres from tip to tip. Scientists think the air at that time held more oxygen than it does today, which may have helped insects grow so large.
+Masters of the air
+A dragonfly has four wings, and each one is powered by its own set of muscles, so it can move each wing separately. As a result, a dragonfly can hover, fly backwards and change direction in an instant.
+Its eyes are just as impressive. Each huge compound eye is made up of thousands of tiny lenses, and together the two eyes wrap almost all the way around its head. A dragonfly can see in nearly every direction at once, tracking a small fly as it darts through the air.
+Put these skills together and you have a remarkable predator. In some studies, dragonflies caught their prey in more than nine out of every ten attempts. Lions, by comparison, succeed only about a quarter of the time.
+A secret life underwater
+Most people never see the longest part of a dragonfly's life. Dragonflies lay their eggs in or near water, and the young, called nymphs, live beneath the surface for months or even years. A nymph is a fierce hunter too. It has a hinged lower lip that shoots forward in a fraction of a second to grab tadpoles, small fish and insect larvae.
+When it is fully grown, the nymph climbs up a reed, splits its skin and slowly pulls out its new body and crumpled wings. Within hours, a new adult takes to the sky.
+So the next time a dragonfly flashes past you, take a moment to watch. You are looking at one of nature's most ancient and skilful hunters, and I think that is something worth stopping for.",Which detail from the text best supports the claim that dragonflies are successful hunters?,,C,They have shimmering wings and bright colours.,Their ancestors lived about 300 million years ago.,They catch prey in more than nine out of ten attempts.,They lay their eggs in or near the water.,,1,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.1465.1,284,1,2,Easy
+NAPLAN-Y6-READING-M2-Q34,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 6,6,English,Literary Techniques,Tone and Mood,ReadingComprehension,"Four-Winged Hunters
+If you have ever sat beside a pond on a summer afternoon, you have probably seen a dragonfly zipping over the water like a tiny jet. It is easy to admire their shimmering wings and bright colours. But do not be fooled by their beauty. Dragonflies are among the most successful hunters in the animal kingdom.
+Ancient flyers
+Dragonflies have been around for an astonishingly long time. Their ancestors were flying through forests about 300 million years ago, long before the first dinosaurs appeared. Some of those early relatives were giants, with wings that stretched about 70 centimetres from tip to tip. Scientists think the air at that time held more oxygen than it does today, which may have helped insects grow so large.
+Masters of the air
+A dragonfly has four wings, and each one is powered by its own set of muscles, so it can move each wing separately. As a result, a dragonfly can hover, fly backwards and change direction in an instant.
+Its eyes are just as impressive. Each huge compound eye is made up of thousands of tiny lenses, and together the two eyes wrap almost all the way around its head. A dragonfly can see in nearly every direction at once, tracking a small fly as it darts through the air.
+Put these skills together and you have a remarkable predator. In some studies, dragonflies caught their prey in more than nine out of every ten attempts. Lions, by comparison, succeed only about a quarter of the time.
+A secret life underwater
+Most people never see the longest part of a dragonfly's life. Dragonflies lay their eggs in or near water, and the young, called nymphs, live beneath the surface for months or even years. A nymph is a fierce hunter too. It has a hinged lower lip that shoots forward in a fraction of a second to grab tadpoles, small fish and insect larvae.
+When it is fully grown, the nymph climbs up a reed, splits its skin and slowly pulls out its new body and crumpled wings. Within hours, a new adult takes to the sky.
+So the next time a dragonfly flashes past you, take a moment to watch. You are looking at one of nature's most ancient and skilful hunters, and I think that is something worth stopping for.",The tone of the text is best described as . . .,,A,enthusiastic and admiring.,worried and fearful.,angry and critical.,bored and uninterested.,,1,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.1465.2,284,1,2,Easy
+NAPLAN-Y6-READING-M2-Q35,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 6,6,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"Four-Winged Hunters
+If you have ever sat beside a pond on a summer afternoon, you have probably seen a dragonfly zipping over the water like a tiny jet. It is easy to admire their shimmering wings and bright colours. But do not be fooled by their beauty. Dragonflies are among the most successful hunters in the animal kingdom.
+Ancient flyers
+Dragonflies have been around for an astonishingly long time. Their ancestors were flying through forests about 300 million years ago, long before the first dinosaurs appeared. Some of those early relatives were giants, with wings that stretched about 70 centimetres from tip to tip. Scientists think the air at that time held more oxygen than it does today, which may have helped insects grow so large.
+Masters of the air
+A dragonfly has four wings, and each one is powered by its own set of muscles, so it can move each wing separately. As a result, a dragonfly can hover, fly backwards and change direction in an instant.
+Its eyes are just as impressive. Each huge compound eye is made up of thousands of tiny lenses, and together the two eyes wrap almost all the way around its head. A dragonfly can see in nearly every direction at once, tracking a small fly as it darts through the air.
+Put these skills together and you have a remarkable predator. In some studies, dragonflies caught their prey in more than nine out of every ten attempts. Lions, by comparison, succeed only about a quarter of the time.
+A secret life underwater
+Most people never see the longest part of a dragonfly's life. Dragonflies lay their eggs in or near water, and the young, called nymphs, live beneath the surface for months or even years. A nymph is a fierce hunter too. It has a hinged lower lip that shoots forward in a fraction of a second to grab tadpoles, small fish and insect larvae.
+When it is fully grown, the nymph climbs up a reed, splits its skin and slowly pulls out its new body and crumpled wings. Within hours, a new adult takes to the sky.
+So the next time a dragonfly flashes past you, take a moment to watch. You are looking at one of nature's most ancient and skilful hunters, and I think that is something worth stopping for.","'Dragonflies have been around for an astonishingly long time.' In this sentence, 'astonishingly' means . . .",,B,in a doubtful or uncertain way.,in a surprising or amazing way.,in a slow and steady way.,in a frightening or alarming way.,,2,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.1465.3,284,1,4,Medium
+NAPLAN-Y6-READING-M2-Q36,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 6,6,English,Literary Techniques,Figurative Language,ReadingComprehension,"Four-Winged Hunters
+If you have ever sat beside a pond on a summer afternoon, you have probably seen a dragonfly zipping over the water like a tiny jet. It is easy to admire their shimmering wings and bright colours. But do not be fooled by their beauty. Dragonflies are among the most successful hunters in the animal kingdom.
+Ancient flyers
+Dragonflies have been around for an astonishingly long time. Their ancestors were flying through forests about 300 million years ago, long before the first dinosaurs appeared. Some of those early relatives were giants, with wings that stretched about 70 centimetres from tip to tip. Scientists think the air at that time held more oxygen than it does today, which may have helped insects grow so large.
+Masters of the air
+A dragonfly has four wings, and each one is powered by its own set of muscles, so it can move each wing separately. As a result, a dragonfly can hover, fly backwards and change direction in an instant.
+Its eyes are just as impressive. Each huge compound eye is made up of thousands of tiny lenses, and together the two eyes wrap almost all the way around its head. A dragonfly can see in nearly every direction at once, tracking a small fly as it darts through the air.
+Put these skills together and you have a remarkable predator. In some studies, dragonflies caught their prey in more than nine out of every ten attempts. Lions, by comparison, succeed only about a quarter of the time.
+A secret life underwater
+Most people never see the longest part of a dragonfly's life. Dragonflies lay their eggs in or near water, and the young, called nymphs, live beneath the surface for months or even years. A nymph is a fierce hunter too. It has a hinged lower lip that shoots forward in a fraction of a second to grab tadpoles, small fish and insect larvae.
+When it is fully grown, the nymph climbs up a reed, splits its skin and slowly pulls out its new body and crumpled wings. Within hours, a new adult takes to the sky.
+So the next time a dragonfly flashes past you, take a moment to watch. You are looking at one of nature's most ancient and skilful hunters, and I think that is something worth stopping for.",The writer describes a dragonfly 'zipping over the water like a tiny jet'. What does this simile suggest?,,A,Dragonflies fly with great speed and power.,Dragonflies make a loud noise as they fly.,"Dragonflies have hard, shiny metal bodies.",Dragonflies fly only in straight lines.,,3,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.1465.4,284,1,5,Medium
+NAPLAN-Y6-READING-M2-Q37,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 6,6,English,Literary Techniques,Narrative Voice,ReadingComprehension,"Four-Winged Hunters
+If you have ever sat beside a pond on a summer afternoon, you have probably seen a dragonfly zipping over the water like a tiny jet. It is easy to admire their shimmering wings and bright colours. But do not be fooled by their beauty. Dragonflies are among the most successful hunters in the animal kingdom.
+Ancient flyers
+Dragonflies have been around for an astonishingly long time. Their ancestors were flying through forests about 300 million years ago, long before the first dinosaurs appeared. Some of those early relatives were giants, with wings that stretched about 70 centimetres from tip to tip. Scientists think the air at that time held more oxygen than it does today, which may have helped insects grow so large.
+Masters of the air
+A dragonfly has four wings, and each one is powered by its own set of muscles, so it can move each wing separately. As a result, a dragonfly can hover, fly backwards and change direction in an instant.
+Its eyes are just as impressive. Each huge compound eye is made up of thousands of tiny lenses, and together the two eyes wrap almost all the way around its head. A dragonfly can see in nearly every direction at once, tracking a small fly as it darts through the air.
+Put these skills together and you have a remarkable predator. In some studies, dragonflies caught their prey in more than nine out of every ten attempts. Lions, by comparison, succeed only about a quarter of the time.
+A secret life underwater
+Most people never see the longest part of a dragonfly's life. Dragonflies lay their eggs in or near water, and the young, called nymphs, live beneath the surface for months or even years. A nymph is a fierce hunter too. It has a hinged lower lip that shoots forward in a fraction of a second to grab tadpoles, small fish and insect larvae.
+When it is fully grown, the nymph climbs up a reed, splits its skin and slowly pulls out its new body and crumpled wings. Within hours, a new adult takes to the sky.
+So the next time a dragonfly flashes past you, take a moment to watch. You are looking at one of nature's most ancient and skilful hunters, and I think that is something worth stopping for.",How does the writer's voice in the opening paragraph prepare the reader for the rest of the text?,,B,It tells a personal story about the writer's own afternoon beside a pond.,"It begins with a scene the reader may know, then makes a surprising claim the text goes on to prove.",It warns the reader that dragonflies can be dangerous to people.,"It praises the dragonfly's beauty, which becomes the main topic of the text.",,4,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.1465.5,284,2,8,Hard
+NAPLAN-Y6-READING-M2-Q38,NAPLAN-Y6-READING-M2,NAPLAN_STYLE_READING,Text 6,6,English,Inference,Cause and Effect,ReadingComprehension,"Four-Winged Hunters
+If you have ever sat beside a pond on a summer afternoon, you have probably seen a dragonfly zipping over the water like a tiny jet. It is easy to admire their shimmering wings and bright colours. But do not be fooled by their beauty. Dragonflies are among the most successful hunters in the animal kingdom.
+Ancient flyers
+Dragonflies have been around for an astonishingly long time. Their ancestors were flying through forests about 300 million years ago, long before the first dinosaurs appeared. Some of those early relatives were giants, with wings that stretched about 70 centimetres from tip to tip. Scientists think the air at that time held more oxygen than it does today, which may have helped insects grow so large.
+Masters of the air
+A dragonfly has four wings, and each one is powered by its own set of muscles, so it can move each wing separately. As a result, a dragonfly can hover, fly backwards and change direction in an instant.
+Its eyes are just as impressive. Each huge compound eye is made up of thousands of tiny lenses, and together the two eyes wrap almost all the way around its head. A dragonfly can see in nearly every direction at once, tracking a small fly as it darts through the air.
+Put these skills together and you have a remarkable predator. In some studies, dragonflies caught their prey in more than nine out of every ten attempts. Lions, by comparison, succeed only about a quarter of the time.
+A secret life underwater
+Most people never see the longest part of a dragonfly's life. Dragonflies lay their eggs in or near water, and the young, called nymphs, live beneath the surface for months or even years. A nymph is a fierce hunter too. It has a hinged lower lip that shoots forward in a fraction of a second to grab tadpoles, small fish and insect larvae.
+When it is fully grown, the nymph climbs up a reed, splits its skin and slowly pulls out its new body and crumpled wings. Within hours, a new adult takes to the sky.
+So the next time a dragonfly flashes past you, take a moment to watch. You are looking at one of nature's most ancient and skilful hunters, and I think that is something worth stopping for.","According to the text, what mainly allows an adult dragonfly to catch a small fly that suddenly changes direction?",,C,a hinged lower lip that can shoot forward in a fraction of a second,the extra oxygen in the air that helped its relatives grow so large,"separate control of each wing, together with eyes that see almost all around",four large wings that allow it to hover and fly upside down,,4,1,1,"NAPLAN,Year 6,Mock 2",English_Comprehension_Questions_expanded.csv,6.1465.6,284,2,8,Hard

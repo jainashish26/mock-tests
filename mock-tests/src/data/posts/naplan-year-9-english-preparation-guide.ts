@@ -81,7 +81,7 @@ export const naplanYear9EnglishPreparationGuide = {
         <p>Year 9 students benefit from deliberate, strategic approaches to complex texts:</p>
         <ul>
           <li><strong>Identify the text type and purpose first</strong> - Before diving in, ask: "Is this trying to entertain, inform, argue, or provoke? Who is the intended audience?" This frames interpretation from the outset</li>
-          <li><strong>Track the argument or narrative arc</strong> - In persuasive texts, map the argument structure (position -†’ arguments -†’ evidence -†’ conclusion). In narratives, track shifts in tension, tone, or perspective</li>
+          <li><strong>Track the argument or narrative arc</strong> - In persuasive texts, map the argument structure (position → arguments → evidence → conclusion). In narratives, track shifts in tension, tone, or perspective</li>
           <li><strong>Pay attention to language choices</strong> - Specific word choices reveal tone, attitude, and intent. "The government announced..." vs "The government admitted..." vs "The government claimed..." - each positions the reader differently</li>
           <li><strong>Read the questions strategically</strong> - Before re-reading the text, skim the questions to know what to look for. This makes reading more targeted and efficient under time pressure</li>
           <li><strong>Always cite textual evidence</strong> - For constructed response questions, the best answers refer directly to specific words, phrases, or sections of the text</li>
@@ -90,7 +90,7 @@ export const naplanYear9EnglishPreparationGuide = {
         <h4>4. Build a Sophisticated Vocabulary</h4>
         <p>Year 9 texts contain academic, abstract, and discipline-specific vocabulary. Strengthen your teenager's vocabulary through:</p>
         <ul>
-          <li><strong>Word roots and families</strong> - Latin and Greek roots unlock vast word networks: "dict" (say/speak) -†’ dictate, predict, contradict, verdict, diction; "graph" (write) -†’ biography, autograph, paragraph, graphic</li>
+          <li><strong>Word roots and families</strong> - Latin and Greek roots unlock vast word networks: "dict" (say/speak) → dictate, predict, contradict, verdict, diction; "graph" (write) → biography, autograph, paragraph, graphic</li>
           <li><strong>Connotation vs denotation</strong> - Discuss how words with similar dictionary meanings carry different emotional weight: "childish" vs "childlike," "notorious" vs "famous," "cheap" vs "affordable"</li>
           <li><strong>Academic vocabulary</strong> - Words that appear across subjects and in formal contexts: analyse, evaluate, significant, perspective, consequently, furthermore, nevertheless, whereas</li>
           <li><strong>Contextual deduction</strong> - Practice working out word meanings from surrounding context before confirming with a dictionary. This mirrors the NAPLAN task itself</li>
@@ -151,8 +151,8 @@ export const naplanYear9EnglishPreparationGuide = {
         <h4>2. Plan Strategically</h4>
         <p>At Year 9, planning is non-negotiable. The students who produce the strongest writing under timed conditions are almost always those who spent <strong>3 to 5 minutes planning deliberately</strong>:</p>
         <ul>
-          <li><strong>Narrative plan:</strong> Theme or message -†’ Character (who, what do they want, what's stopping them) -†’ Opening hook -†’ Complication -†’ Turning point/climax -†’ Resolution -†’ Final image or line</li>
-          <li><strong>Persuasive plan:</strong> Position -†’ Hook/opening strategy -†’ Argument 1 (strongest logical argument) -†’ Argument 2 (emotional appeal) -†’ Argument 3 (broader significance) -†’ Counter-argument + rebuttal -†’ Concluding statement</li>
+          <li><strong>Narrative plan:</strong> Theme or message → Character (who, what do they want, what's stopping them) → Opening hook → Complication → Turning point/climax → Resolution → Final image or line</li>
+          <li><strong>Persuasive plan:</strong> Position → Hook/opening strategy → Argument 1 (strongest logical argument) → Argument 2 (emotional appeal) → Argument 3 (broader significance) → Counter-argument + rebuttal → Concluding statement</li>
         </ul>
         <p>A plan also helps with <strong>pacing</strong> - knowing where the piece is headed prevents the common Year 9 trap of writing a brilliant opening and middle but running out of time for the ending.</p>
 
@@ -195,7 +195,7 @@ export const naplanYear9EnglishPreparationGuide = {
         <p>Year 9 spelling expectations include:</p>
         <ul>
           <li><strong>Complex, frequently misspelt words</strong> - accommodate, conscious, conscience, exaggerate, guarantee, immediately, maintenance, occurrence, parallel, privilege, recommend, separate, thorough, unnecessary</li>
-          <li><strong>Words with Latin and Greek roots</strong> - Recognising roots to decode and spell unfamiliar words (e.g., "bene" = good/well -†’ benefit, benevolent, benefactor; "mal" = bad -†’ malicious, malfunction, malnourished)</li>
+          <li><strong>Words with Latin and Greek roots</strong> - Recognising roots to decode and spell unfamiliar words (e.g., "bene" = good/well → benefit, benevolent, benefactor; "mal" = bad → malicious, malfunction, malnourished)</li>
           <li><strong>Commonly confused words</strong> - affect/effect, compliment/complement, principal/principle, stationary/stationery, licence/license, practice/practise, dependent/dependant, discreet/discrete</li>
           <li><strong>Suffixing conventions</strong> - When to double the final consonant (occurring, committed, beginning), when to drop the silent 'e' (arguing, truly, noticeable), when to retain it (changeable, courageous)</li>
           <li><strong>Academic and cross-curricular vocabulary</strong> - Words encountered across subjects: analysis, hypothesis, parliament, democracy, photosynthesis, bibliography, allegory, metaphorical</li>
@@ -210,7 +210,7 @@ export const naplanYear9EnglishPreparationGuide = {
           <li><strong>Active and passive voice</strong> - Recognising both forms, understanding how each positions the reader, and choosing appropriately in writing</li>
           <li><strong>Tense control</strong> - Maintaining consistent tense across extended passages; understanding the full tense system including perfect and progressive forms (had been running, will have completed)</li>
           <li><strong>Modality and hedging</strong> - Using modal verbs and adverbs to express degrees of certainty: "This <em>will</em> work" vs "This <em>could</em> work" vs "This <em>might possibly</em> work" - and understanding how modality affects persuasiveness and credibility</li>
-          <li><strong>Nominalisation</strong> - Understanding how verbs can be transformed into nouns to create more formal, academic writing: "We analysed the data" -†’ "Our analysis of the data revealed..."</li>
+          <li><strong>Nominalisation</strong> - Understanding how verbs can be transformed into nouns to create more formal, academic writing: "We analysed the data" → "Our analysis of the data revealed..."</li>
           <li><strong>Parallel structure</strong> - Maintaining grammatical consistency in lists and paired constructions: "She enjoyed <em>reading</em>, <em>writing</em>, and <em>debating</em>" (not "reading, to write, and debates")</li>
           <li><strong>Pronoun reference and agreement</strong> - Ensuring pronouns agree in number and clearly refer to the correct antecedent, especially in complex sentences</li>
         </ul>
@@ -438,12 +438,35 @@ export const naplanYear9EnglishPreparationGuide = {
       </section>
 
     </article>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What does NAPLAN Year 9 English assess?</h3>
+    <p>Three tests: Reading, Writing, and Language Conventions. Year 9 is the most demanding of the four NAPLAN year levels, requiring advanced reading analysis, sophisticated writing technique, and command of spelling, grammar and punctuation. It is also the last NAPLAN a student will sit.</p>
+
+    <h3>How is Year 9 reading harder than Year 7?</h3>
+    <p>Texts are more complex, abstract and layered, and questions require analysis of author technique, evaluation of arguments and interpretation rather than comprehension alone. The guide covers what the reading test looks like and how to build these skills at home through engagement with demanding texts and discussion of how meaning is constructed.</p>
+
+    <h3>How much does Year 9 NAPLAN matter?</h3>
+    <p>It is worth preparing for properly, but it is not a gate. This guide is explicit about what NAPLAN is and is not: a national benchmark snapshot that completes the longitudinal picture from Years 3, 5 and 7. Admission and scholarship decisions are made by schools and education departments on their own criteria, so the useful outcome is an accurate final picture and a calm experience.</p>
+
+    <h3>What should my teenager practise for the Year 9 writing test?</h3>
+    <p>Both analytical and creative forms to a sophisticated standard: clear structure, developed and sustained ideas, precise vocabulary, and controlled sentence variety. Planning and revision matter as much as drafting. The guide sets out what the writing test looks like and how to build writing skills at home.</p>
+
+    <h3>What mistakes do Year 9 students commonly make?</h3>
+    <p>They are listed separately for Reading, Writing and Language Conventions. Typical patterns include describing instead of analysing, overreaching for sophisticated vocabulary at the cost of clarity, misreading what a question asks, and convention errors that emerge under time pressure.</p>
+
+    <h3>How do I support a teenager without adding pressure?</h3>
+    <p>Be honest about what NAPLAN is and is not, respect their autonomy over how they prepare, and foster resilience rather than perfectionism. Recognise anxiety early - avoidance, irritability or sleep changes - and keep test day simple. At Year 9 the parent's role is to hold perspective, not to supervise every session.</p>
+
   `,
   image:
     "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Teenager studying English with books and notes spread across a desk in a focused, calm environment",
-  date: "March 28, 2026",
+    "Teenager studying English with books and notes spread across a desk in a focused, calm environment",  date: "December 2, 2026",
+  updatedDate: "December 4, 2026",
+  readingTime: 26,
+  category: "naplan",
   tags: [
     "NAPLAN",
     "YEAR 9",
@@ -468,6 +491,13 @@ export const naplanYear9EnglishPreparationGuide = {
     "Year 9 literacy Australia",
     "NAPLAN spelling grammar Year 9",
     "NAPLAN parent guide English secondary school",
+  ],
+  keyTakeaways: [
+    "Year 9 is the final NAPLAN, covering advanced reading analysis, sophisticated writing, and language conventions at the highest level of the four year levels.",
+    "Reading requires analysis of author technique, evaluation of arguments and interpretation of complex and abstract texts.",
+    "Writing expectations are the most demanding in the NAPLAN series, in both analytical and creative forms.",
+    "Spelling, grammar and punctuation are treated as three distinct skill areas, each with its own practice approach.",
+    "Emotional support at this age means being honest about what NAPLAN is and is not, respecting autonomy, fostering resilience rather than perfectionism, and keeping test day simple.",
   ],
   author: {
     name: "Ashish Jain",

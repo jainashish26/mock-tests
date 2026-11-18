@@ -1,0 +1,41 @@
+﻿QuestionNumber,QuestionID,ExamSection,Correct,CorrectAnswerText,Topic,SubTopic,DifficultyLabel,DifficultyScore,SourceQuestionNumber
+1,NAPLAN-Y5-NUMERACY-M1-Q01,Part A - Non-Calculator,A,72,Measurement,"Speed, Distance and Time",Easy,1,11
+2,NAPLAN-Y5-NUMERACY-M1-Q02,Part A - Non-Calculator,A,57,Statistics,Data Collection,Easy,1,2450
+3,NAPLAN-Y5-NUMERACY-M1-Q03,Part A - Non-Calculator,C,$15,Financial Mathematics,Discounts and GST,Easy,1,80
+4,NAPLAN-Y5-NUMERACY-M1-Q04,Part A - Non-Calculator,A,21,Problem Solving,Number Puzzles,Easy,2,2041
+5,NAPLAN-Y5-NUMERACY-M1-Q05,Part A - Non-Calculator,B,$A2.50,Number,Ratios and Rates,Easy,2,13
+6,NAPLAN-Y5-NUMERACY-M1-Q06,Part A - Non-Calculator,E,Banksia Bay,Measurement,Temperature,Easy,2,1113
+7,NAPLAN-Y5-NUMERACY-M1-Q07,Part A - Non-Calculator,B,"14,282 km",Number,Addition and Subtraction,Easy,3,1223
+8,NAPLAN-Y5-NUMERACY-M1-Q08,Part A - Non-Calculator,D,3.6,Number,Decimals,Easy,3,1703
+9,NAPLAN-Y5-NUMERACY-M1-Q09,Part B - Calculator Allowed,B,E,Geometry,Symmetry,Easy,2,30
+10,NAPLAN-Y5-NUMERACY-M1-Q10,Part B - Calculator Allowed,C,☐ − 23 = 63,Algebra,Word Problems with Unknowns,Easy,2,163
+11,NAPLAN-Y5-NUMERACY-M1-Q11,Part B - Calculator Allowed,D,36 cm²,Measurement,Area,Easy,2,1007
+12,NAPLAN-Y5-NUMERACY-M1-Q12,Part B - Calculator Allowed,D,10,Number,Divisibility and Remainders,Easy,3,1652
+13,NAPLAN-Y5-NUMERACY-M1-Q13,Part B - Calculator Allowed,E,None of the Above,Problem Solving,Counting and Combinatorics,Easy,3,14
+14,NAPLAN-Y5-NUMERACY-M1-Q14,Part B - Calculator Allowed,B,"(7, 6)",Geometry,Transformations,Medium,4,579
+15,NAPLAN-Y5-NUMERACY-M1-Q15,Part B - Calculator Allowed,C,$3.20,Financial Mathematics,Best Buy and Budgeting,Medium,4,318
+16,NAPLAN-Y5-NUMERACY-M1-Q16,Part B - Calculator Allowed,A,"25,687",Number,Digits and Number Properties,Medium,4,1606
+17,NAPLAN-Y5-NUMERACY-M1-Q17,Part B - Calculator Allowed,B,90,Problem Solving,Counting and Combinatorics,Medium,5,2
+18,NAPLAN-Y5-NUMERACY-M1-Q18,Part B - Calculator Allowed,A,4,Number,Factors and Multiples,Medium,5,1791
+19,NAPLAN-Y5-NUMERACY-M1-Q19,Part B - Calculator Allowed,B,4,Number,Factors and Multiples,Medium,5,1788
+20,NAPLAN-Y5-NUMERACY-M1-Q20,Part B - Calculator Allowed,B,9,Probability,Simple Probability,Medium,5,26
+21,NAPLAN-Y5-NUMERACY-M1-Q21,Part B - Calculator Allowed,B,$74,Number,Rounding and Estimation,Medium,5,1351
+22,NAPLAN-Y5-NUMERACY-M1-Q22,Part B - Calculator Allowed,A,14,Statistics,Tables and Graphs,Medium,5,2514
+23,NAPLAN-Y5-NUMERACY-M1-Q23,Part B - Calculator Allowed,D,4,Geometry,Symmetry,Medium,5,455
+24,NAPLAN-Y5-NUMERACY-M1-Q24,Part B - Calculator Allowed,B,"9,200 m",Measurement,Units and Conversion,Medium,6,1090
+25,NAPLAN-Y5-NUMERACY-M1-Q25,Part B - Calculator Allowed,A,orange bag,Measurement,Units and Conversion,Medium,6,1085
+26,NAPLAN-Y5-NUMERACY-M1-Q26,Part B - Calculator Allowed,B,6,Problem Solving,Age Problems,Medium,6,8
+27,NAPLAN-Y5-NUMERACY-M1-Q27,Part B - Calculator Allowed,D,Darcy,Number,Percentages,Medium,6,1855
+28,NAPLAN-Y5-NUMERACY-M1-Q28,Part B - Calculator Allowed,D,Lakeview,Measurement,Temperature,Medium,6,1138
+29,NAPLAN-Y5-NUMERACY-M1-Q29,Part B - Calculator Allowed,D,"3,22,89,942",Algebra,Expressions and Substitution,Medium,6,34
+30,NAPLAN-Y5-NUMERACY-M1-Q30,Part B - Calculator Allowed,A,"1,675 mL",Measurement,Volume and Capacity,Medium,6,988
+31,NAPLAN-Y5-NUMERACY-M1-Q31,Part B - Calculator Allowed,B,6,Number,Factors and Multiples,Medium,6,1801
+32,NAPLAN-Y5-NUMERACY-M1-Q32,Part B - Calculator Allowed,C,"44,999",Number,Rounding and Estimation,Hard,7,1365
+33,NAPLAN-Y5-NUMERACY-M1-Q33,Part B - Calculator Allowed,A,22,Measurement,Units and Conversion,Hard,7,1095
+34,NAPLAN-Y5-NUMERACY-M1-Q34,Part B - Calculator Allowed,C,24,Number,Fractions,Hard,8,1434
+35,NAPLAN-Y5-NUMERACY-M1-Q35,Part B - Calculator Allowed,B,$2.80,Algebra,Word Problems with Unknowns,Hard,8,201
+36,NAPLAN-Y5-NUMERACY-M1-Q36,Part B - Calculator Allowed,A,5/18,Number,Fractions,Hard,8,1432
+37,NAPLAN-Y5-NUMERACY-M1-Q37,Part B - Calculator Allowed,C,371,Problem Solving,Number Puzzles,Hard,9,2078
+38,NAPLAN-Y5-NUMERACY-M1-Q38,Part B - Calculator Allowed,D,$159.75,Number,Mental Computation,Hard,9,1547
+39,NAPLAN-Y5-NUMERACY-M1-Q39,Part B - Calculator Allowed,A,4.2 kg,Measurement,Units and Conversion,Hard,9,1103
+40,NAPLAN-Y5-NUMERACY-M1-Q40,Part B - Calculator Allowed,A,4,Geometry,2D Shapes,Hard,9,560

@@ -1,0 +1,999 @@
+﻿QuestionID,ExamID,ExamType,ExamSection,YearLevel,Subject,Topic,SubTopic,QuestionType,ComprehensionText,QuestionText,QuestionMedia,Correct,AnswerA,AnswerB,AnswerC,AnswerD,AnswerE,Difficulty,IsActive,CorrectAnswerScore,Tags,SourceBank,SourceQuestionNumber,SourceComprehensionID,NAPLANFlag,DifficultyScore,DifficultyLabel
+NAPLAN-Y8-READING-M2-Q01,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 1,8,English,Inference,Character Motivation,ReadingComprehension,"The following passage is an extract from Coming of Age as a Mexican American Woman by Frances Esquibel Tywoniak and Mario T.García.
+
+I especially remember my English classes with great affection. Part of my excitement about these classes had to do with my teachers. My freshman^1 English teacher, for example, was very lively. She was a round-faced twinkle-eyed woman who seemed to care about her students. For instance, she noticed that at first my mind would sometimes wander. I would daydream a bit because I was still getting over Peter. When she observed this, she would gently bring me back to reality in some wonderful creative way without making me feel guilty. 'If I could just have your attention, Frances,' she might say. Startled out of some reverie, I would look in her direction to find a knowing but gentle look of understanding on her face. Her smile made it seem all right.
+
+In this way she won my trust and thereby won me over to her love of literature. In her class, Shakespeare came alive. Portia was a real person. So was Shylock. Even grammar was exciting. Grammar clarified and refined language. There was a reason for it. Adjectives and adverbs had a purpose. That purpose was the beauty of language.
+
+I found that I was responding to both close teacher direction and to being given latitude to work on my own. One teacher to whom I responded very well and whom I very much admired was Miss Julien, another one of my English teachers. She was rumoured to be a Communist. I didn't know what a Communist was. What I did know was that she was a wonderful teacher. She ran her classes very differently. She would have us do our work independently and look up the answers and figure things out on our own. She didn't spoon-feed us. Grammar drill sheets with correct answers didn't count.
+
+'Teach yourselves,' she would say. 'Learn how to learn.' She wanted to know what we were thinking. What counted, she said, was our ability to write with clarity.
+
+I responded to her encouragement, as did the other students. There was no fooling around in Miss Julien's class.
+
+1 Freshman is a reference to the author's first year of high school. 52",Grammar drill sheets with correct answers didn't count. Miss Julien adopted this approach because she,,D,did not believe in only one right answer.,did not believe in traditional grammatical rules.,thought books were more accurate than drill sheets.,wanted students to work things out for themselves.,,3,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.910.1,25,2,5,Medium
+NAPLAN-Y8-READING-M2-Q02,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 1,8,English,Inference,Inferential Reasoning,ReadingComprehension,"The following passage is an extract from Coming of Age as a Mexican American Woman by Frances Esquibel Tywoniak and Mario T.García.
+
+I especially remember my English classes with great affection. Part of my excitement about these classes had to do with my teachers. My freshman^1 English teacher, for example, was very lively. She was a round-faced twinkle-eyed woman who seemed to care about her students. For instance, she noticed that at first my mind would sometimes wander. I would daydream a bit because I was still getting over Peter. When she observed this, she would gently bring me back to reality in some wonderful creative way without making me feel guilty. 'If I could just have your attention, Frances,' she might say. Startled out of some reverie, I would look in her direction to find a knowing but gentle look of understanding on her face. Her smile made it seem all right.
+
+In this way she won my trust and thereby won me over to her love of literature. In her class, Shakespeare came alive. Portia was a real person. So was Shylock. Even grammar was exciting. Grammar clarified and refined language. There was a reason for it. Adjectives and adverbs had a purpose. That purpose was the beauty of language.
+
+I found that I was responding to both close teacher direction and to being given latitude to work on my own. One teacher to whom I responded very well and whom I very much admired was Miss Julien, another one of my English teachers. She was rumoured to be a Communist. I didn't know what a Communist was. What I did know was that she was a wonderful teacher. She ran her classes very differently. She would have us do our work independently and look up the answers and figure things out on our own. She didn't spoon-feed us. Grammar drill sheets with correct answers didn't count.
+
+'Teach yourselves,' she would say. 'Learn how to learn.' She wanted to know what we were thinking. What counted, she said, was our ability to write with clarity.
+
+I responded to her encouragement, as did the other students. There was no fooling around in Miss Julien's class.
+
+1 Freshman is a reference to the author's first year of high school. 52",Historic literature and grammar are both discussed in the same paragraph. Which interpretation of why they are discussed together is most in keeping with the narrator's opinions?,,C,Both are a luxury.,Both are unnecessary.,Both can be considered difficult or dull by students.,Both are usually taught later in high school.,,3,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.910.2,25,2,6,Medium
+NAPLAN-Y8-READING-M2-Q03,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 1,8,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The following passage is an extract from Coming of Age as a Mexican American Woman by Frances Esquibel Tywoniak and Mario T.García.
+
+I especially remember my English classes with great affection. Part of my excitement about these classes had to do with my teachers. My freshman^1 English teacher, for example, was very lively. She was a round-faced twinkle-eyed woman who seemed to care about her students. For instance, she noticed that at first my mind would sometimes wander. I would daydream a bit because I was still getting over Peter. When she observed this, she would gently bring me back to reality in some wonderful creative way without making me feel guilty. 'If I could just have your attention, Frances,' she might say. Startled out of some reverie, I would look in her direction to find a knowing but gentle look of understanding on her face. Her smile made it seem all right.
+
+In this way she won my trust and thereby won me over to her love of literature. In her class, Shakespeare came alive. Portia was a real person. So was Shylock. Even grammar was exciting. Grammar clarified and refined language. There was a reason for it. Adjectives and adverbs had a purpose. That purpose was the beauty of language.
+
+I found that I was responding to both close teacher direction and to being given latitude to work on my own. One teacher to whom I responded very well and whom I very much admired was Miss Julien, another one of my English teachers. She was rumoured to be a Communist. I didn't know what a Communist was. What I did know was that she was a wonderful teacher. She ran her classes very differently. She would have us do our work independently and look up the answers and figure things out on our own. She didn't spoon-feed us. Grammar drill sheets with correct answers didn't count.
+
+'Teach yourselves,' she would say. 'Learn how to learn.' She wanted to know what we were thinking. What counted, she said, was our ability to write with clarity.
+
+I responded to her encouragement, as did the other students. There was no fooling around in Miss Julien's class.
+
+1 Freshman is a reference to the author's first year of high school. 52","In paragraph 1, what problem did the narrator's English teacher help her with?",,A,concentration,over-excitement,a personal relationship,other students distracting her,,1,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.910.3,25,1,2,Easy
+NAPLAN-Y8-READING-M2-Q04,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 1,8,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The following passage is an extract from Coming of Age as a Mexican American Woman by Frances Esquibel Tywoniak and Mario T.García.
+
+I especially remember my English classes with great affection. Part of my excitement about these classes had to do with my teachers. My freshman^1 English teacher, for example, was very lively. She was a round-faced twinkle-eyed woman who seemed to care about her students. For instance, she noticed that at first my mind would sometimes wander. I would daydream a bit because I was still getting over Peter. When she observed this, she would gently bring me back to reality in some wonderful creative way without making me feel guilty. 'If I could just have your attention, Frances,' she might say. Startled out of some reverie, I would look in her direction to find a knowing but gentle look of understanding on her face. Her smile made it seem all right.
+
+In this way she won my trust and thereby won me over to her love of literature. In her class, Shakespeare came alive. Portia was a real person. So was Shylock. Even grammar was exciting. Grammar clarified and refined language. There was a reason for it. Adjectives and adverbs had a purpose. That purpose was the beauty of language.
+
+I found that I was responding to both close teacher direction and to being given latitude to work on my own. One teacher to whom I responded very well and whom I very much admired was Miss Julien, another one of my English teachers. She was rumoured to be a Communist. I didn't know what a Communist was. What I did know was that she was a wonderful teacher. She ran her classes very differently. She would have us do our work independently and look up the answers and figure things out on our own. She didn't spoon-feed us. Grammar drill sheets with correct answers didn't count.
+
+'Teach yourselves,' she would say. 'Learn how to learn.' She wanted to know what we were thinking. What counted, she said, was our ability to write with clarity.
+
+I responded to her encouragement, as did the other students. There was no fooling around in Miss Julien's class.
+
+1 Freshman is a reference to the author's first year of high school. 52",How did the English teacher first win the narrator's trust?,,B,with persuasion,with understanding,by insisting on compliance,by treating everyone equally,,2,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.910.4,25,2,4,Medium
+NAPLAN-Y8-READING-M2-Q05,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 1,8,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The following passage is an extract from Coming of Age as a Mexican American Woman by Frances Esquibel Tywoniak and Mario T.García.
+
+I especially remember my English classes with great affection. Part of my excitement about these classes had to do with my teachers. My freshman^1 English teacher, for example, was very lively. She was a round-faced twinkle-eyed woman who seemed to care about her students. For instance, she noticed that at first my mind would sometimes wander. I would daydream a bit because I was still getting over Peter. When she observed this, she would gently bring me back to reality in some wonderful creative way without making me feel guilty. 'If I could just have your attention, Frances,' she might say. Startled out of some reverie, I would look in her direction to find a knowing but gentle look of understanding on her face. Her smile made it seem all right.
+
+In this way she won my trust and thereby won me over to her love of literature. In her class, Shakespeare came alive. Portia was a real person. So was Shylock. Even grammar was exciting. Grammar clarified and refined language. There was a reason for it. Adjectives and adverbs had a purpose. That purpose was the beauty of language.
+
+I found that I was responding to both close teacher direction and to being given latitude to work on my own. One teacher to whom I responded very well and whom I very much admired was Miss Julien, another one of my English teachers. She was rumoured to be a Communist. I didn't know what a Communist was. What I did know was that she was a wonderful teacher. She ran her classes very differently. She would have us do our work independently and look up the answers and figure things out on our own. She didn't spoon-feed us. Grammar drill sheets with correct answers didn't count.
+
+'Teach yourselves,' she would say. 'Learn how to learn.' She wanted to know what we were thinking. What counted, she said, was our ability to write with clarity.
+
+I responded to her encouragement, as did the other students. There was no fooling around in Miss Julien's class.
+
+1 Freshman is a reference to the author's first year of high school. 52","In paragraph 2, what made grammar exciting for the narrator?",,D,learning its history,competing with classmates,using it to impress her teacher,learning how it improved expression,,2,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.910.5,25,2,3,Easy
+NAPLAN-Y8-READING-M2-Q06,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 1,8,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The following passage is an extract from Coming of Age as a Mexican American Woman by Frances Esquibel Tywoniak and Mario T.García.
+
+I especially remember my English classes with great affection. Part of my excitement about these classes had to do with my teachers. My freshman^1 English teacher, for example, was very lively. She was a round-faced twinkle-eyed woman who seemed to care about her students. For instance, she noticed that at first my mind would sometimes wander. I would daydream a bit because I was still getting over Peter. When she observed this, she would gently bring me back to reality in some wonderful creative way without making me feel guilty. 'If I could just have your attention, Frances,' she might say. Startled out of some reverie, I would look in her direction to find a knowing but gentle look of understanding on her face. Her smile made it seem all right.
+
+In this way she won my trust and thereby won me over to her love of literature. In her class, Shakespeare came alive. Portia was a real person. So was Shylock. Even grammar was exciting. Grammar clarified and refined language. There was a reason for it. Adjectives and adverbs had a purpose. That purpose was the beauty of language.
+
+I found that I was responding to both close teacher direction and to being given latitude to work on my own. One teacher to whom I responded very well and whom I very much admired was Miss Julien, another one of my English teachers. She was rumoured to be a Communist. I didn't know what a Communist was. What I did know was that she was a wonderful teacher. She ran her classes very differently. She would have us do our work independently and look up the answers and figure things out on our own. She didn't spoon-feed us. Grammar drill sheets with correct answers didn't count.
+
+'Teach yourselves,' she would say. 'Learn how to learn.' She wanted to know what we were thinking. What counted, she said, was our ability to write with clarity.
+
+I responded to her encouragement, as did the other students. There was no fooling around in Miss Julien's class.
+
+1 Freshman is a reference to the author's first year of high school. 52",Which of the following aspects did Miss Julien most value in her students' writing?,,B,a literary tone,clear meaning,a flamboyant style,grammatical correctness,,2,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.910.6,25,2,3,Easy
+NAPLAN-Y8-READING-M2-Q07,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 2,8,English,Reading Comprehension,Locating Information,ReadingComprehension,"Designing an Alien That Makes Sense
+Science fiction is full of aliens that are really just people in rubber masks: two arms, two legs, a lumpy forehead and a bad attitude. If you want readers to believe in your creature, you need to think like a scientist before you think like an artist. This guide shows you how to build an alien from the ground up, starting not with the creature but with its world.
+What you will need
+A notebook, a pencil, some basic knowledge of how living things on Earth survive, and a willingness to throw away your first idea.
+Step 1: Choose the planet first
+Every living thing is shaped by its surroundings, so begin there. Decide how big your planet is, because size affects gravity. On a large, heavy world, gravity pulls harder, so tall, spindly creatures would struggle; short, broad bodies with thick legs make more sense. On a small world with weak gravity, tall and delicate shapes become possible. Write down whether the planet is hot or cold, wet or dry, and whether it has seasons.
+Step 2: Look at the light
+Next, think about the star your planet orbits. Many stars are smaller, cooler and redder than our Sun. Under a dim red sun, plants might be dark, even black, to soak up as much light as possible, and animals might have huge eyes, or senses that do not rely on sight at all. On a world wrapped in thick cloud, hearing or smell could matter far more than vision.
+Step 3: Decide what it eats and what eats it
+A creature's body is a record of how it gets food and avoids becoming food. Hunters on Earth often have eyes facing forward to judge distance, while hunted animals often have eyes on the sides of their heads to watch for danger. Ask the same questions about your alien. Does it chase, graze, filter or trap? What is it afraid of?
+Step 4: Give every feature a reason
+Now sketch the body, but justify each part. If it has six legs, why? If it is covered in plates, what are they protecting it from? A useful rule is that if you cannot explain a feature, cut it. The best alien designs feel strange at first and then, a moment later, feel inevitable.
+Step 5: Test it with a story
+Finally, drop your creature into a short scene. Have it hunt, hide, raise young or survive a storm. Problems will appear quickly. Perhaps its delicate wings would be shredded by the planet's fierce winds, or it has no way to stay cool in the long summer. Go back and adjust. Designers of films and games often go through dozens of versions before they settle on one.
+Common mistakes
+The most common mistake is making an alien too human. Another is giving it features simply because they look frightening, such as rows of teeth on a creature that eats only moss. Readers notice these things, even if they cannot say why.
+Remember, an alien is not a monster with a costume on. It is the answer to a question your planet has asked. Get the question right, and the answer will almost design itself.",In which step does the writer explain how gravity affects an alien's body shape?,,B,Step 2,Step 1,Step 4,Step 5,,1,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1728.1,172,1,1,Easy
+NAPLAN-Y8-READING-M2-Q08,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 2,8,English,Reading Comprehension,Main Idea,ReadingComprehension,"Designing an Alien That Makes Sense
+Science fiction is full of aliens that are really just people in rubber masks: two arms, two legs, a lumpy forehead and a bad attitude. If you want readers to believe in your creature, you need to think like a scientist before you think like an artist. This guide shows you how to build an alien from the ground up, starting not with the creature but with its world.
+What you will need
+A notebook, a pencil, some basic knowledge of how living things on Earth survive, and a willingness to throw away your first idea.
+Step 1: Choose the planet first
+Every living thing is shaped by its surroundings, so begin there. Decide how big your planet is, because size affects gravity. On a large, heavy world, gravity pulls harder, so tall, spindly creatures would struggle; short, broad bodies with thick legs make more sense. On a small world with weak gravity, tall and delicate shapes become possible. Write down whether the planet is hot or cold, wet or dry, and whether it has seasons.
+Step 2: Look at the light
+Next, think about the star your planet orbits. Many stars are smaller, cooler and redder than our Sun. Under a dim red sun, plants might be dark, even black, to soak up as much light as possible, and animals might have huge eyes, or senses that do not rely on sight at all. On a world wrapped in thick cloud, hearing or smell could matter far more than vision.
+Step 3: Decide what it eats and what eats it
+A creature's body is a record of how it gets food and avoids becoming food. Hunters on Earth often have eyes facing forward to judge distance, while hunted animals often have eyes on the sides of their heads to watch for danger. Ask the same questions about your alien. Does it chase, graze, filter or trap? What is it afraid of?
+Step 4: Give every feature a reason
+Now sketch the body, but justify each part. If it has six legs, why? If it is covered in plates, what are they protecting it from? A useful rule is that if you cannot explain a feature, cut it. The best alien designs feel strange at first and then, a moment later, feel inevitable.
+Step 5: Test it with a story
+Finally, drop your creature into a short scene. Have it hunt, hide, raise young or survive a storm. Problems will appear quickly. Perhaps its delicate wings would be shredded by the planet's fierce winds, or it has no way to stay cool in the long summer. Go back and adjust. Designers of films and games often go through dozens of versions before they settle on one.
+Common mistakes
+The most common mistake is making an alien too human. Another is giving it features simply because they look frightening, such as rows of teeth on a creature that eats only moss. Readers notice these things, even if they cannot say why.
+Remember, an alien is not a monster with a costume on. It is the answer to a question your planet has asked. Get the question right, and the answer will almost design itself.",What is the guide mainly about?,,D,the most famous aliens in science fiction films,how scientists search for life on other planets,how to draw monsters that frighten your readers,how to design an alien that suits the world it lives on,,1,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1728.2,172,1,2,Easy
+NAPLAN-Y8-READING-M2-Q09,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 2,8,English,Reading Comprehension,Locating Information,ReadingComprehension,"Designing an Alien That Makes Sense
+Science fiction is full of aliens that are really just people in rubber masks: two arms, two legs, a lumpy forehead and a bad attitude. If you want readers to believe in your creature, you need to think like a scientist before you think like an artist. This guide shows you how to build an alien from the ground up, starting not with the creature but with its world.
+What you will need
+A notebook, a pencil, some basic knowledge of how living things on Earth survive, and a willingness to throw away your first idea.
+Step 1: Choose the planet first
+Every living thing is shaped by its surroundings, so begin there. Decide how big your planet is, because size affects gravity. On a large, heavy world, gravity pulls harder, so tall, spindly creatures would struggle; short, broad bodies with thick legs make more sense. On a small world with weak gravity, tall and delicate shapes become possible. Write down whether the planet is hot or cold, wet or dry, and whether it has seasons.
+Step 2: Look at the light
+Next, think about the star your planet orbits. Many stars are smaller, cooler and redder than our Sun. Under a dim red sun, plants might be dark, even black, to soak up as much light as possible, and animals might have huge eyes, or senses that do not rely on sight at all. On a world wrapped in thick cloud, hearing or smell could matter far more than vision.
+Step 3: Decide what it eats and what eats it
+A creature's body is a record of how it gets food and avoids becoming food. Hunters on Earth often have eyes facing forward to judge distance, while hunted animals often have eyes on the sides of their heads to watch for danger. Ask the same questions about your alien. Does it chase, graze, filter or trap? What is it afraid of?
+Step 4: Give every feature a reason
+Now sketch the body, but justify each part. If it has six legs, why? If it is covered in plates, what are they protecting it from? A useful rule is that if you cannot explain a feature, cut it. The best alien designs feel strange at first and then, a moment later, feel inevitable.
+Step 5: Test it with a story
+Finally, drop your creature into a short scene. Have it hunt, hide, raise young or survive a storm. Problems will appear quickly. Perhaps its delicate wings would be shredded by the planet's fierce winds, or it has no way to stay cool in the long summer. Go back and adjust. Designers of films and games often go through dozens of versions before they settle on one.
+Common mistakes
+The most common mistake is making an alien too human. Another is giving it features simply because they look frightening, such as rows of teeth on a creature that eats only moss. Readers notice these things, even if they cannot say why.
+Remember, an alien is not a monster with a costume on. It is the answer to a question your planet has asked. Get the question right, and the answer will almost design itself.","In the 'Common mistakes' section, what example is given of a feature added only to look frightening?",,B,six legs on a creature that has no need for them,rows of teeth on a creature that eats only moss,huge eyes on a creature living under a red sun,delicate wings on a creature from a windy planet,,1,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1728.3,172,1,2,Easy
+NAPLAN-Y8-READING-M2-Q10,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 2,8,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Designing an Alien That Makes Sense
+Science fiction is full of aliens that are really just people in rubber masks: two arms, two legs, a lumpy forehead and a bad attitude. If you want readers to believe in your creature, you need to think like a scientist before you think like an artist. This guide shows you how to build an alien from the ground up, starting not with the creature but with its world.
+What you will need
+A notebook, a pencil, some basic knowledge of how living things on Earth survive, and a willingness to throw away your first idea.
+Step 1: Choose the planet first
+Every living thing is shaped by its surroundings, so begin there. Decide how big your planet is, because size affects gravity. On a large, heavy world, gravity pulls harder, so tall, spindly creatures would struggle; short, broad bodies with thick legs make more sense. On a small world with weak gravity, tall and delicate shapes become possible. Write down whether the planet is hot or cold, wet or dry, and whether it has seasons.
+Step 2: Look at the light
+Next, think about the star your planet orbits. Many stars are smaller, cooler and redder than our Sun. Under a dim red sun, plants might be dark, even black, to soak up as much light as possible, and animals might have huge eyes, or senses that do not rely on sight at all. On a world wrapped in thick cloud, hearing or smell could matter far more than vision.
+Step 3: Decide what it eats and what eats it
+A creature's body is a record of how it gets food and avoids becoming food. Hunters on Earth often have eyes facing forward to judge distance, while hunted animals often have eyes on the sides of their heads to watch for danger. Ask the same questions about your alien. Does it chase, graze, filter or trap? What is it afraid of?
+Step 4: Give every feature a reason
+Now sketch the body, but justify each part. If it has six legs, why? If it is covered in plates, what are they protecting it from? A useful rule is that if you cannot explain a feature, cut it. The best alien designs feel strange at first and then, a moment later, feel inevitable.
+Step 5: Test it with a story
+Finally, drop your creature into a short scene. Have it hunt, hide, raise young or survive a storm. Problems will appear quickly. Perhaps its delicate wings would be shredded by the planet's fierce winds, or it has no way to stay cool in the long summer. Go back and adjust. Designers of films and games often go through dozens of versions before they settle on one.
+Common mistakes
+The most common mistake is making an alien too human. Another is giving it features simply because they look frightening, such as rows of teeth on a creature that eats only moss. Readers notice these things, even if they cannot say why.
+Remember, an alien is not a monster with a costume on. It is the answer to a question your planet has asked. Get the question right, and the answer will almost design itself.","According to the guide, what is the purpose of Step 5?",,A,to reveal weaknesses in the design so it can be improved,to choose a suitable name for the finished creature,to decide what the creature eats and what hunts it,"to produce the final, detailed drawing of the creature",,2,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1728.4,172,1,4,Medium
+NAPLAN-Y8-READING-M2-Q11,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 2,8,English,Reading Comprehension,Evaluating Evidence,ReadingComprehension,"Designing an Alien That Makes Sense
+Science fiction is full of aliens that are really just people in rubber masks: two arms, two legs, a lumpy forehead and a bad attitude. If you want readers to believe in your creature, you need to think like a scientist before you think like an artist. This guide shows you how to build an alien from the ground up, starting not with the creature but with its world.
+What you will need
+A notebook, a pencil, some basic knowledge of how living things on Earth survive, and a willingness to throw away your first idea.
+Step 1: Choose the planet first
+Every living thing is shaped by its surroundings, so begin there. Decide how big your planet is, because size affects gravity. On a large, heavy world, gravity pulls harder, so tall, spindly creatures would struggle; short, broad bodies with thick legs make more sense. On a small world with weak gravity, tall and delicate shapes become possible. Write down whether the planet is hot or cold, wet or dry, and whether it has seasons.
+Step 2: Look at the light
+Next, think about the star your planet orbits. Many stars are smaller, cooler and redder than our Sun. Under a dim red sun, plants might be dark, even black, to soak up as much light as possible, and animals might have huge eyes, or senses that do not rely on sight at all. On a world wrapped in thick cloud, hearing or smell could matter far more than vision.
+Step 3: Decide what it eats and what eats it
+A creature's body is a record of how it gets food and avoids becoming food. Hunters on Earth often have eyes facing forward to judge distance, while hunted animals often have eyes on the sides of their heads to watch for danger. Ask the same questions about your alien. Does it chase, graze, filter or trap? What is it afraid of?
+Step 4: Give every feature a reason
+Now sketch the body, but justify each part. If it has six legs, why? If it is covered in plates, what are they protecting it from? A useful rule is that if you cannot explain a feature, cut it. The best alien designs feel strange at first and then, a moment later, feel inevitable.
+Step 5: Test it with a story
+Finally, drop your creature into a short scene. Have it hunt, hide, raise young or survive a storm. Problems will appear quickly. Perhaps its delicate wings would be shredded by the planet's fierce winds, or it has no way to stay cool in the long summer. Go back and adjust. Designers of films and games often go through dozens of versions before they settle on one.
+Common mistakes
+The most common mistake is making an alien too human. Another is giving it features simply because they look frightening, such as rows of teeth on a creature that eats only moss. Readers notice these things, even if they cannot say why.
+Remember, an alien is not a monster with a costume on. It is the answer to a question your planet has asked. Get the question right, and the answer will almost design itself.",Which sentence best supports the idea that designing a good alien takes many attempts?,,C,"Decide how big your planet is, because size affects gravity.","Readers notice these things, even if they cannot say why.",Designers of films and games often go through dozens of versions before they settle on one.,"Now sketch the body, but justify each part.",,2,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1728.5,172,1,4,Medium
+NAPLAN-Y8-READING-M2-Q12,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 2,8,English,Literary Techniques,Tone and Mood,ReadingComprehension,"Designing an Alien That Makes Sense
+Science fiction is full of aliens that are really just people in rubber masks: two arms, two legs, a lumpy forehead and a bad attitude. If you want readers to believe in your creature, you need to think like a scientist before you think like an artist. This guide shows you how to build an alien from the ground up, starting not with the creature but with its world.
+What you will need
+A notebook, a pencil, some basic knowledge of how living things on Earth survive, and a willingness to throw away your first idea.
+Step 1: Choose the planet first
+Every living thing is shaped by its surroundings, so begin there. Decide how big your planet is, because size affects gravity. On a large, heavy world, gravity pulls harder, so tall, spindly creatures would struggle; short, broad bodies with thick legs make more sense. On a small world with weak gravity, tall and delicate shapes become possible. Write down whether the planet is hot or cold, wet or dry, and whether it has seasons.
+Step 2: Look at the light
+Next, think about the star your planet orbits. Many stars are smaller, cooler and redder than our Sun. Under a dim red sun, plants might be dark, even black, to soak up as much light as possible, and animals might have huge eyes, or senses that do not rely on sight at all. On a world wrapped in thick cloud, hearing or smell could matter far more than vision.
+Step 3: Decide what it eats and what eats it
+A creature's body is a record of how it gets food and avoids becoming food. Hunters on Earth often have eyes facing forward to judge distance, while hunted animals often have eyes on the sides of their heads to watch for danger. Ask the same questions about your alien. Does it chase, graze, filter or trap? What is it afraid of?
+Step 4: Give every feature a reason
+Now sketch the body, but justify each part. If it has six legs, why? If it is covered in plates, what are they protecting it from? A useful rule is that if you cannot explain a feature, cut it. The best alien designs feel strange at first and then, a moment later, feel inevitable.
+Step 5: Test it with a story
+Finally, drop your creature into a short scene. Have it hunt, hide, raise young or survive a storm. Problems will appear quickly. Perhaps its delicate wings would be shredded by the planet's fierce winds, or it has no way to stay cool in the long summer. Go back and adjust. Designers of films and games often go through dozens of versions before they settle on one.
+Common mistakes
+The most common mistake is making an alien too human. Another is giving it features simply because they look frightening, such as rows of teeth on a creature that eats only moss. Readers notice these things, even if they cannot say why.
+Remember, an alien is not a monster with a costume on. It is the answer to a question your planet has asked. Get the question right, and the answer will almost design itself.",The overall tone of the guide is best described as . . .,,C,mocking and dismissive,anxious and uncertain,encouraging and practical,formal and distant,,3,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1728.6,172,1,5,Medium
+NAPLAN-Y8-READING-M2-Q13,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 2,8,English,Reading Comprehension,Author Purpose,ReadingComprehension,"Designing an Alien That Makes Sense
+Science fiction is full of aliens that are really just people in rubber masks: two arms, two legs, a lumpy forehead and a bad attitude. If you want readers to believe in your creature, you need to think like a scientist before you think like an artist. This guide shows you how to build an alien from the ground up, starting not with the creature but with its world.
+What you will need
+A notebook, a pencil, some basic knowledge of how living things on Earth survive, and a willingness to throw away your first idea.
+Step 1: Choose the planet first
+Every living thing is shaped by its surroundings, so begin there. Decide how big your planet is, because size affects gravity. On a large, heavy world, gravity pulls harder, so tall, spindly creatures would struggle; short, broad bodies with thick legs make more sense. On a small world with weak gravity, tall and delicate shapes become possible. Write down whether the planet is hot or cold, wet or dry, and whether it has seasons.
+Step 2: Look at the light
+Next, think about the star your planet orbits. Many stars are smaller, cooler and redder than our Sun. Under a dim red sun, plants might be dark, even black, to soak up as much light as possible, and animals might have huge eyes, or senses that do not rely on sight at all. On a world wrapped in thick cloud, hearing or smell could matter far more than vision.
+Step 3: Decide what it eats and what eats it
+A creature's body is a record of how it gets food and avoids becoming food. Hunters on Earth often have eyes facing forward to judge distance, while hunted animals often have eyes on the sides of their heads to watch for danger. Ask the same questions about your alien. Does it chase, graze, filter or trap? What is it afraid of?
+Step 4: Give every feature a reason
+Now sketch the body, but justify each part. If it has six legs, why? If it is covered in plates, what are they protecting it from? A useful rule is that if you cannot explain a feature, cut it. The best alien designs feel strange at first and then, a moment later, feel inevitable.
+Step 5: Test it with a story
+Finally, drop your creature into a short scene. Have it hunt, hide, raise young or survive a storm. Problems will appear quickly. Perhaps its delicate wings would be shredded by the planet's fierce winds, or it has no way to stay cool in the long summer. Go back and adjust. Designers of films and games often go through dozens of versions before they settle on one.
+Common mistakes
+The most common mistake is making an alien too human. Another is giving it features simply because they look frightening, such as rows of teeth on a creature that eats only moss. Readers notice these things, even if they cannot say why.
+Remember, an alien is not a monster with a costume on. It is the answer to a question your planet has asked. Get the question right, and the answer will almost design itself.",Why does the writer open with 'people in rubber masks' and close with 'a monster with a costume on'?,,D,to criticise the cheap costumes used in older science fiction films,to suggest that aliens should be frightening rather than human-like,to show that the guide is written mainly for film and game makers,to frame the guide around the mistake it aims to help readers avoid,,4,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1728.7,172,2,8,Hard
+NAPLAN-Y8-READING-M2-Q14,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 2,8,English,Literary Techniques,Figurative Language,ReadingComprehension,"Designing an Alien That Makes Sense
+Science fiction is full of aliens that are really just people in rubber masks: two arms, two legs, a lumpy forehead and a bad attitude. If you want readers to believe in your creature, you need to think like a scientist before you think like an artist. This guide shows you how to build an alien from the ground up, starting not with the creature but with its world.
+What you will need
+A notebook, a pencil, some basic knowledge of how living things on Earth survive, and a willingness to throw away your first idea.
+Step 1: Choose the planet first
+Every living thing is shaped by its surroundings, so begin there. Decide how big your planet is, because size affects gravity. On a large, heavy world, gravity pulls harder, so tall, spindly creatures would struggle; short, broad bodies with thick legs make more sense. On a small world with weak gravity, tall and delicate shapes become possible. Write down whether the planet is hot or cold, wet or dry, and whether it has seasons.
+Step 2: Look at the light
+Next, think about the star your planet orbits. Many stars are smaller, cooler and redder than our Sun. Under a dim red sun, plants might be dark, even black, to soak up as much light as possible, and animals might have huge eyes, or senses that do not rely on sight at all. On a world wrapped in thick cloud, hearing or smell could matter far more than vision.
+Step 3: Decide what it eats and what eats it
+A creature's body is a record of how it gets food and avoids becoming food. Hunters on Earth often have eyes facing forward to judge distance, while hunted animals often have eyes on the sides of their heads to watch for danger. Ask the same questions about your alien. Does it chase, graze, filter or trap? What is it afraid of?
+Step 4: Give every feature a reason
+Now sketch the body, but justify each part. If it has six legs, why? If it is covered in plates, what are they protecting it from? A useful rule is that if you cannot explain a feature, cut it. The best alien designs feel strange at first and then, a moment later, feel inevitable.
+Step 5: Test it with a story
+Finally, drop your creature into a short scene. Have it hunt, hide, raise young or survive a storm. Problems will appear quickly. Perhaps its delicate wings would be shredded by the planet's fierce winds, or it has no way to stay cool in the long summer. Go back and adjust. Designers of films and games often go through dozens of versions before they settle on one.
+Common mistakes
+The most common mistake is making an alien too human. Another is giving it features simply because they look frightening, such as rows of teeth on a creature that eats only moss. Readers notice these things, even if they cannot say why.
+Remember, an alien is not a monster with a costume on. It is the answer to a question your planet has asked. Get the question right, and the answer will almost design itself.",What does the writer mean by saying an alien 'is the answer to a question your planet has asked'?,,C,its appearance should surprise readers before it makes sense,it should be able to communicate with the planet's other life,its features should solve the challenges its environment creates,the planet should be designed only once the alien is finished,,4,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1728.8,172,2,8,Hard
+NAPLAN-Y8-READING-M2-Q15,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 3,8,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Box That Isn't Black
+When an aircraft crashes anywhere in the world, investigators immediately begin searching for two devices: the flight data recorder and the cockpit voice recorder. Together they are often called the 'black box', although neither of them is black. Both are painted a vivid orange so that they can be spotted among wreckage, mud or seaweed. Remarkably, the idea behind them came from a young Australian scientist working in a Melbourne laboratory in the 1950s.
+David Warren had a personal reason to care about air safety. When he was a boy, his father was among the passengers on the aircraft Miss Hobart, which disappeared over Bass Strait in 1934. No trace of what went wrong was ever found.
+In 1953, Warren was a chemist at the Aeronautical Research Laboratories when he was asked to help explain a series of crashes involving the Comet, the world's first jet airliner. The investigators had almost nothing to go on. Warren remembered a pocket-sized recorder he had seen at a trade fair and began to wonder. What if every aircraft carried a device that recorded the pilots' voices and the readings of the instruments? Investigators would no longer have to guess.
+His superiors were unconvinced. Some officials argued that the device would be of no use to the people actually flying the aircraft, and pilots objected that it would be like having a spy in the cockpit. Warren kept working on the idea, often in his own time, and by 1958 he had built a prototype that stored four hours of speech and instrument readings on a reel of steel wire.
+The breakthrough came from overseas. A visiting British aviation official saw the prototype and arranged for Warren to demonstrate it in London, where it attracted enormous interest. Back home, attitudes shifted after a passenger aircraft crashed near Mackay in Queensland in 1960 and investigators could not establish the cause. The inquiry recommended that recorders be fitted to airliners, and Australia later became the first country to make cockpit voice recorders compulsory.
+Modern recorders look very different from Warren's wire-reel machine. They store information on memory chips and can track hundreds, sometimes thousands, of measurements, such as altitude, speed and engine temperature. The memory is sealed inside a casing designed to survive a tremendous impact, intense fire and the crushing pressure of deep water. Each recorder also carries a beacon that sends out signals underwater for weeks, helping searchers find it on the sea floor.
+The true value of the black box lies less in explaining any single accident than in preventing the next one. When investigators learn that a part failed or a warning was misunderstood, manufacturers can redesign the part and airlines can retrain their crews. Each lesson is shared across the industry, which is one reason flying is now among the safest ways to travel. Warren, who died in 2010, lived to see his invention carried by airliners all over the world. A boy who had lost his father to an unexplained crash had given the world a way to make sure fewer questions went unanswered.",Why are flight recorders painted orange?,,C,so they can survive the heat of a fire,so pilots can tell the two recorders apart,so they can be spotted easily among wreckage,so they match the colour of airline uniforms,,1,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1644.1,88,1,1,Easy
+NAPLAN-Y8-READING-M2-Q16,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 3,8,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"The Box That Isn't Black
+When an aircraft crashes anywhere in the world, investigators immediately begin searching for two devices: the flight data recorder and the cockpit voice recorder. Together they are often called the 'black box', although neither of them is black. Both are painted a vivid orange so that they can be spotted among wreckage, mud or seaweed. Remarkably, the idea behind them came from a young Australian scientist working in a Melbourne laboratory in the 1950s.
+David Warren had a personal reason to care about air safety. When he was a boy, his father was among the passengers on the aircraft Miss Hobart, which disappeared over Bass Strait in 1934. No trace of what went wrong was ever found.
+In 1953, Warren was a chemist at the Aeronautical Research Laboratories when he was asked to help explain a series of crashes involving the Comet, the world's first jet airliner. The investigators had almost nothing to go on. Warren remembered a pocket-sized recorder he had seen at a trade fair and began to wonder. What if every aircraft carried a device that recorded the pilots' voices and the readings of the instruments? Investigators would no longer have to guess.
+His superiors were unconvinced. Some officials argued that the device would be of no use to the people actually flying the aircraft, and pilots objected that it would be like having a spy in the cockpit. Warren kept working on the idea, often in his own time, and by 1958 he had built a prototype that stored four hours of speech and instrument readings on a reel of steel wire.
+The breakthrough came from overseas. A visiting British aviation official saw the prototype and arranged for Warren to demonstrate it in London, where it attracted enormous interest. Back home, attitudes shifted after a passenger aircraft crashed near Mackay in Queensland in 1960 and investigators could not establish the cause. The inquiry recommended that recorders be fitted to airliners, and Australia later became the first country to make cockpit voice recorders compulsory.
+Modern recorders look very different from Warren's wire-reel machine. They store information on memory chips and can track hundreds, sometimes thousands, of measurements, such as altitude, speed and engine temperature. The memory is sealed inside a casing designed to survive a tremendous impact, intense fire and the crushing pressure of deep water. Each recorder also carries a beacon that sends out signals underwater for weeks, helping searchers find it on the sea floor.
+The true value of the black box lies less in explaining any single accident than in preventing the next one. When investigators learn that a part failed or a warning was misunderstood, manufacturers can redesign the part and airlines can retrain their crews. Each lesson is shared across the industry, which is one reason flying is now among the safest ways to travel. Warren, who died in 2010, lived to see his invention carried by airliners all over the world. A boy who had lost his father to an unexplained crash had given the world a way to make sure fewer questions went unanswered.","In paragraph 4, the word prototype means . . .",,D,a finished product ready to be sold,a written plan describing an invention,a copy made to show overseas visitors,an early working model of an invention,,1,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1644.2,88,1,2,Easy
+NAPLAN-Y8-READING-M2-Q17,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 3,8,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Box That Isn't Black
+When an aircraft crashes anywhere in the world, investigators immediately begin searching for two devices: the flight data recorder and the cockpit voice recorder. Together they are often called the 'black box', although neither of them is black. Both are painted a vivid orange so that they can be spotted among wreckage, mud or seaweed. Remarkably, the idea behind them came from a young Australian scientist working in a Melbourne laboratory in the 1950s.
+David Warren had a personal reason to care about air safety. When he was a boy, his father was among the passengers on the aircraft Miss Hobart, which disappeared over Bass Strait in 1934. No trace of what went wrong was ever found.
+In 1953, Warren was a chemist at the Aeronautical Research Laboratories when he was asked to help explain a series of crashes involving the Comet, the world's first jet airliner. The investigators had almost nothing to go on. Warren remembered a pocket-sized recorder he had seen at a trade fair and began to wonder. What if every aircraft carried a device that recorded the pilots' voices and the readings of the instruments? Investigators would no longer have to guess.
+His superiors were unconvinced. Some officials argued that the device would be of no use to the people actually flying the aircraft, and pilots objected that it would be like having a spy in the cockpit. Warren kept working on the idea, often in his own time, and by 1958 he had built a prototype that stored four hours of speech and instrument readings on a reel of steel wire.
+The breakthrough came from overseas. A visiting British aviation official saw the prototype and arranged for Warren to demonstrate it in London, where it attracted enormous interest. Back home, attitudes shifted after a passenger aircraft crashed near Mackay in Queensland in 1960 and investigators could not establish the cause. The inquiry recommended that recorders be fitted to airliners, and Australia later became the first country to make cockpit voice recorders compulsory.
+Modern recorders look very different from Warren's wire-reel machine. They store information on memory chips and can track hundreds, sometimes thousands, of measurements, such as altitude, speed and engine temperature. The memory is sealed inside a casing designed to survive a tremendous impact, intense fire and the crushing pressure of deep water. Each recorder also carries a beacon that sends out signals underwater for weeks, helping searchers find it on the sea floor.
+The true value of the black box lies less in explaining any single accident than in preventing the next one. When investigators learn that a part failed or a warning was misunderstood, manufacturers can redesign the part and airlines can retrain their crews. Each lesson is shared across the industry, which is one reason flying is now among the safest ways to travel. Warren, who died in 2010, lived to see his invention carried by airliners all over the world. A boy who had lost his father to an unexplained crash had given the world a way to make sure fewer questions went unanswered.",What did Warren's 1958 recorder use to store information?,,C,a set of memory chips,a roll of printed paper,a reel of steel wire,a pocket-sized cassette tape,,1,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1644.3,88,1,2,Easy
+NAPLAN-Y8-READING-M2-Q18,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 3,8,English,Reading Comprehension,Theme,ReadingComprehension,"The Box That Isn't Black
+When an aircraft crashes anywhere in the world, investigators immediately begin searching for two devices: the flight data recorder and the cockpit voice recorder. Together they are often called the 'black box', although neither of them is black. Both are painted a vivid orange so that they can be spotted among wreckage, mud or seaweed. Remarkably, the idea behind them came from a young Australian scientist working in a Melbourne laboratory in the 1950s.
+David Warren had a personal reason to care about air safety. When he was a boy, his father was among the passengers on the aircraft Miss Hobart, which disappeared over Bass Strait in 1934. No trace of what went wrong was ever found.
+In 1953, Warren was a chemist at the Aeronautical Research Laboratories when he was asked to help explain a series of crashes involving the Comet, the world's first jet airliner. The investigators had almost nothing to go on. Warren remembered a pocket-sized recorder he had seen at a trade fair and began to wonder. What if every aircraft carried a device that recorded the pilots' voices and the readings of the instruments? Investigators would no longer have to guess.
+His superiors were unconvinced. Some officials argued that the device would be of no use to the people actually flying the aircraft, and pilots objected that it would be like having a spy in the cockpit. Warren kept working on the idea, often in his own time, and by 1958 he had built a prototype that stored four hours of speech and instrument readings on a reel of steel wire.
+The breakthrough came from overseas. A visiting British aviation official saw the prototype and arranged for Warren to demonstrate it in London, where it attracted enormous interest. Back home, attitudes shifted after a passenger aircraft crashed near Mackay in Queensland in 1960 and investigators could not establish the cause. The inquiry recommended that recorders be fitted to airliners, and Australia later became the first country to make cockpit voice recorders compulsory.
+Modern recorders look very different from Warren's wire-reel machine. They store information on memory chips and can track hundreds, sometimes thousands, of measurements, such as altitude, speed and engine temperature. The memory is sealed inside a casing designed to survive a tremendous impact, intense fire and the crushing pressure of deep water. Each recorder also carries a beacon that sends out signals underwater for weeks, helping searchers find it on the sea floor.
+The true value of the black box lies less in explaining any single accident than in preventing the next one. When investigators learn that a part failed or a warning was misunderstood, manufacturers can redesign the part and airlines can retrain their crews. Each lesson is shared across the industry, which is one reason flying is now among the safest ways to travel. Warren, who died in 2010, lived to see his invention carried by airliners all over the world. A boy who had lost his father to an unexplained crash had given the world a way to make sure fewer questions went unanswered.",Which idea is most central to the passage?,,A,Learning from accidents helps make future flights safer.,Inventors are rarely appreciated in their own country.,Modern technology has made older inventions useless.,Pilots need to be closely watched while they fly.,,3,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1644.4,88,1,5,Medium
+NAPLAN-Y8-READING-M2-Q19,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 3,8,English,Reading Comprehension,Evaluating Evidence,ReadingComprehension,"The Box That Isn't Black
+When an aircraft crashes anywhere in the world, investigators immediately begin searching for two devices: the flight data recorder and the cockpit voice recorder. Together they are often called the 'black box', although neither of them is black. Both are painted a vivid orange so that they can be spotted among wreckage, mud or seaweed. Remarkably, the idea behind them came from a young Australian scientist working in a Melbourne laboratory in the 1950s.
+David Warren had a personal reason to care about air safety. When he was a boy, his father was among the passengers on the aircraft Miss Hobart, which disappeared over Bass Strait in 1934. No trace of what went wrong was ever found.
+In 1953, Warren was a chemist at the Aeronautical Research Laboratories when he was asked to help explain a series of crashes involving the Comet, the world's first jet airliner. The investigators had almost nothing to go on. Warren remembered a pocket-sized recorder he had seen at a trade fair and began to wonder. What if every aircraft carried a device that recorded the pilots' voices and the readings of the instruments? Investigators would no longer have to guess.
+His superiors were unconvinced. Some officials argued that the device would be of no use to the people actually flying the aircraft, and pilots objected that it would be like having a spy in the cockpit. Warren kept working on the idea, often in his own time, and by 1958 he had built a prototype that stored four hours of speech and instrument readings on a reel of steel wire.
+The breakthrough came from overseas. A visiting British aviation official saw the prototype and arranged for Warren to demonstrate it in London, where it attracted enormous interest. Back home, attitudes shifted after a passenger aircraft crashed near Mackay in Queensland in 1960 and investigators could not establish the cause. The inquiry recommended that recorders be fitted to airliners, and Australia later became the first country to make cockpit voice recorders compulsory.
+Modern recorders look very different from Warren's wire-reel machine. They store information on memory chips and can track hundreds, sometimes thousands, of measurements, such as altitude, speed and engine temperature. The memory is sealed inside a casing designed to survive a tremendous impact, intense fire and the crushing pressure of deep water. Each recorder also carries a beacon that sends out signals underwater for weeks, helping searchers find it on the sea floor.
+The true value of the black box lies less in explaining any single accident than in preventing the next one. When investigators learn that a part failed or a warning was misunderstood, manufacturers can redesign the part and airlines can retrain their crews. Each lesson is shared across the industry, which is one reason flying is now among the safest ways to travel. Warren, who died in 2010, lived to see his invention carried by airliners all over the world. A boy who had lost his father to an unexplained crash had given the world a way to make sure fewer questions went unanswered.",Which detail best shows that Warren's idea was not welcomed at first?,,B,""". . . it attracted enormous interest.""",""". . . His superiors were unconvinced.""",""". . . he had built a prototype . . .""",""". . . investigators could not establish the cause.""",,2,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1644.5,88,1,4,Medium
+NAPLAN-Y8-READING-M2-Q20,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 3,8,English,Literary Techniques,Tone and Mood,ReadingComprehension,"The Box That Isn't Black
+When an aircraft crashes anywhere in the world, investigators immediately begin searching for two devices: the flight data recorder and the cockpit voice recorder. Together they are often called the 'black box', although neither of them is black. Both are painted a vivid orange so that they can be spotted among wreckage, mud or seaweed. Remarkably, the idea behind them came from a young Australian scientist working in a Melbourne laboratory in the 1950s.
+David Warren had a personal reason to care about air safety. When he was a boy, his father was among the passengers on the aircraft Miss Hobart, which disappeared over Bass Strait in 1934. No trace of what went wrong was ever found.
+In 1953, Warren was a chemist at the Aeronautical Research Laboratories when he was asked to help explain a series of crashes involving the Comet, the world's first jet airliner. The investigators had almost nothing to go on. Warren remembered a pocket-sized recorder he had seen at a trade fair and began to wonder. What if every aircraft carried a device that recorded the pilots' voices and the readings of the instruments? Investigators would no longer have to guess.
+His superiors were unconvinced. Some officials argued that the device would be of no use to the people actually flying the aircraft, and pilots objected that it would be like having a spy in the cockpit. Warren kept working on the idea, often in his own time, and by 1958 he had built a prototype that stored four hours of speech and instrument readings on a reel of steel wire.
+The breakthrough came from overseas. A visiting British aviation official saw the prototype and arranged for Warren to demonstrate it in London, where it attracted enormous interest. Back home, attitudes shifted after a passenger aircraft crashed near Mackay in Queensland in 1960 and investigators could not establish the cause. The inquiry recommended that recorders be fitted to airliners, and Australia later became the first country to make cockpit voice recorders compulsory.
+Modern recorders look very different from Warren's wire-reel machine. They store information on memory chips and can track hundreds, sometimes thousands, of measurements, such as altitude, speed and engine temperature. The memory is sealed inside a casing designed to survive a tremendous impact, intense fire and the crushing pressure of deep water. Each recorder also carries a beacon that sends out signals underwater for weeks, helping searchers find it on the sea floor.
+The true value of the black box lies less in explaining any single accident than in preventing the next one. When investigators learn that a part failed or a warning was misunderstood, manufacturers can redesign the part and airlines can retrain their crews. Each lesson is shared across the industry, which is one reason flying is now among the safest ways to travel. Warren, who died in 2010, lived to see his invention carried by airliners all over the world. A boy who had lost his father to an unexplained crash had given the world a way to make sure fewer questions went unanswered.",Which word best describes the tone of the final paragraph?,,B,bitter,admiring,humorous,uncertain,,3,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1644.6,88,1,5,Medium
+NAPLAN-Y8-READING-M2-Q21,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 3,8,English,Inference,Cause and Effect,ReadingComprehension,"The Box That Isn't Black
+When an aircraft crashes anywhere in the world, investigators immediately begin searching for two devices: the flight data recorder and the cockpit voice recorder. Together they are often called the 'black box', although neither of them is black. Both are painted a vivid orange so that they can be spotted among wreckage, mud or seaweed. Remarkably, the idea behind them came from a young Australian scientist working in a Melbourne laboratory in the 1950s.
+David Warren had a personal reason to care about air safety. When he was a boy, his father was among the passengers on the aircraft Miss Hobart, which disappeared over Bass Strait in 1934. No trace of what went wrong was ever found.
+In 1953, Warren was a chemist at the Aeronautical Research Laboratories when he was asked to help explain a series of crashes involving the Comet, the world's first jet airliner. The investigators had almost nothing to go on. Warren remembered a pocket-sized recorder he had seen at a trade fair and began to wonder. What if every aircraft carried a device that recorded the pilots' voices and the readings of the instruments? Investigators would no longer have to guess.
+His superiors were unconvinced. Some officials argued that the device would be of no use to the people actually flying the aircraft, and pilots objected that it would be like having a spy in the cockpit. Warren kept working on the idea, often in his own time, and by 1958 he had built a prototype that stored four hours of speech and instrument readings on a reel of steel wire.
+The breakthrough came from overseas. A visiting British aviation official saw the prototype and arranged for Warren to demonstrate it in London, where it attracted enormous interest. Back home, attitudes shifted after a passenger aircraft crashed near Mackay in Queensland in 1960 and investigators could not establish the cause. The inquiry recommended that recorders be fitted to airliners, and Australia later became the first country to make cockpit voice recorders compulsory.
+Modern recorders look very different from Warren's wire-reel machine. They store information on memory chips and can track hundreds, sometimes thousands, of measurements, such as altitude, speed and engine temperature. The memory is sealed inside a casing designed to survive a tremendous impact, intense fire and the crushing pressure of deep water. Each recorder also carries a beacon that sends out signals underwater for weeks, helping searchers find it on the sea floor.
+The true value of the black box lies less in explaining any single accident than in preventing the next one. When investigators learn that a part failed or a warning was misunderstood, manufacturers can redesign the part and airlines can retrain their crews. Each lesson is shared across the industry, which is one reason flying is now among the safest ways to travel. Warren, who died in 2010, lived to see his invention carried by airliners all over the world. A boy who had lost his father to an unexplained crash had given the world a way to make sure fewer questions went unanswered.","According to the passage, what finally led to recorders being required on Australian airliners?",,C,"the Comet crashes, which showed investigators had too little to go on",Warren's decision to keep improving his device in his own time,"an unexplained local crash, after the device had already won interest overseas",the pilots' agreement that a recorder would help them fly more safely,,4,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1644.7,88,2,8,Hard
+NAPLAN-Y8-READING-M2-Q22,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 3,8,English,Reading Comprehension,Theme,ReadingComprehension,"The Box That Isn't Black
+When an aircraft crashes anywhere in the world, investigators immediately begin searching for two devices: the flight data recorder and the cockpit voice recorder. Together they are often called the 'black box', although neither of them is black. Both are painted a vivid orange so that they can be spotted among wreckage, mud or seaweed. Remarkably, the idea behind them came from a young Australian scientist working in a Melbourne laboratory in the 1950s.
+David Warren had a personal reason to care about air safety. When he was a boy, his father was among the passengers on the aircraft Miss Hobart, which disappeared over Bass Strait in 1934. No trace of what went wrong was ever found.
+In 1953, Warren was a chemist at the Aeronautical Research Laboratories when he was asked to help explain a series of crashes involving the Comet, the world's first jet airliner. The investigators had almost nothing to go on. Warren remembered a pocket-sized recorder he had seen at a trade fair and began to wonder. What if every aircraft carried a device that recorded the pilots' voices and the readings of the instruments? Investigators would no longer have to guess.
+His superiors were unconvinced. Some officials argued that the device would be of no use to the people actually flying the aircraft, and pilots objected that it would be like having a spy in the cockpit. Warren kept working on the idea, often in his own time, and by 1958 he had built a prototype that stored four hours of speech and instrument readings on a reel of steel wire.
+The breakthrough came from overseas. A visiting British aviation official saw the prototype and arranged for Warren to demonstrate it in London, where it attracted enormous interest. Back home, attitudes shifted after a passenger aircraft crashed near Mackay in Queensland in 1960 and investigators could not establish the cause. The inquiry recommended that recorders be fitted to airliners, and Australia later became the first country to make cockpit voice recorders compulsory.
+Modern recorders look very different from Warren's wire-reel machine. They store information on memory chips and can track hundreds, sometimes thousands, of measurements, such as altitude, speed and engine temperature. The memory is sealed inside a casing designed to survive a tremendous impact, intense fire and the crushing pressure of deep water. Each recorder also carries a beacon that sends out signals underwater for weeks, helping searchers find it on the sea floor.
+The true value of the black box lies less in explaining any single accident than in preventing the next one. When investigators learn that a part failed or a warning was misunderstood, manufacturers can redesign the part and airlines can retrain their crews. Each lesson is shared across the industry, which is one reason flying is now among the safest ways to travel. Warren, who died in 2010, lived to see his invention carried by airliners all over the world. A boy who had lost his father to an unexplained crash had given the world a way to make sure fewer questions went unanswered.",The final sentence of the passage suggests that . . .,,B,Warren built the recorder mainly to discover what happened to Miss Hobart,Warren's own loss gave lasting meaning to an invention that now helps others,the black box has now solved every mystery about aircraft accidents,Warren's work was only appreciated by others after his death,,4,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1644.8,88,2,8,Hard
+NAPLAN-Y8-READING-M2-Q23,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 4,8,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"Three Days on the Bibbulmun
+Friday 12 April, Mount Cooke campsite
+Aunt Jo says keeping a diary will help me 'notice things'. So far I have noticed that my pack weighs eleven kilograms, that my left boot rubs, and that there is no phone reception anywhere in the jarrah forest. The Bibbulmun Track runs for about a thousand kilometres, from the hills outside Perth all the way to Albany, and Jo wants to walk the whole thing next spring. This weekend is her 'practice run'. I am, apparently, her practice companion. She has planned everything: dehydrated meals, a stove the size of a coffee cup, three litres of water each and a paper map in a zip-lock bag in case the markers are hard to find.
+We followed the yellow triangle markers all day. At the top of Mount Cooke there were granite slabs warm from the sun, and forest rolled away in every direction like a green ocean. I didn't say anything, but I took a photo. Then I remembered I couldn't send it to anyone.
+The campsite has a three-sided timber shelter, a water tank and a toilet, which Jo calls luxury. We wrote our names in the logbook, which every walker is supposed to sign so rangers know who is on the track.
+Saturday 13 April, Nerang campsite
+I woke at 5.40 because a kookaburra had decided our shelter was a stage. Jo was already boiling water for porridge. She asked if I'd slept well. I said the floor was like sleeping on a chopping board, which was true, but I had actually slept better than I have in weeks.
+Today was shorter but hillier. My blister got worse, so Jo showed me how to tape it before it burst. She has a little kit with everything in it: tape, a needle, antiseptic, even a tiny pair of scissors. She told me she once walked on a blister for two days without stopping to fix it and ended up limping for a week. 'The bush doesn't care how tough you are,' she said. 'Fix small problems while they're small.'
+In the afternoon we didn't talk for almost an hour. It wasn't awkward. I listened to the wind moving through the treetops and to some birds Jo said were western rosellas. I realised I hadn't thought about the science test once. That night we ate pasta out of the pot and watched the stars come out between the branches.
+Sunday 14 April, back at the car
+Last entry. My legs ache in places I didn't know had muscles. We walked out this morning through mist so thick the trees looked like grey ghosts, and then the sun burned through and everything sparkled. On the drive home I asked Jo why she had really invited me, since she clearly didn't need any help. She kept her eyes on the road and said that at Christmas I had looked 'like someone who needed more sky'. I didn't know what to say, so I said nothing.
+I have already checked the track website. There is a section through the karri forest near Pemberton where the trees are taller than a fifteen-storey building. Jo says that if I keep the blister tape in my pack, I can come.
+I told her I'd think about it. I've already thought about it.","When Jo calls the campsite 'luxury', she means it is . . .",,A,more comfortable than she expected,too expensive for most walkers,crowded with other hikers,far away from the track,,1,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1683.1,127,1,2,Easy
+NAPLAN-Y8-READING-M2-Q24,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 4,8,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Three Days on the Bibbulmun
+Friday 12 April, Mount Cooke campsite
+Aunt Jo says keeping a diary will help me 'notice things'. So far I have noticed that my pack weighs eleven kilograms, that my left boot rubs, and that there is no phone reception anywhere in the jarrah forest. The Bibbulmun Track runs for about a thousand kilometres, from the hills outside Perth all the way to Albany, and Jo wants to walk the whole thing next spring. This weekend is her 'practice run'. I am, apparently, her practice companion. She has planned everything: dehydrated meals, a stove the size of a coffee cup, three litres of water each and a paper map in a zip-lock bag in case the markers are hard to find.
+We followed the yellow triangle markers all day. At the top of Mount Cooke there were granite slabs warm from the sun, and forest rolled away in every direction like a green ocean. I didn't say anything, but I took a photo. Then I remembered I couldn't send it to anyone.
+The campsite has a three-sided timber shelter, a water tank and a toilet, which Jo calls luxury. We wrote our names in the logbook, which every walker is supposed to sign so rangers know who is on the track.
+Saturday 13 April, Nerang campsite
+I woke at 5.40 because a kookaburra had decided our shelter was a stage. Jo was already boiling water for porridge. She asked if I'd slept well. I said the floor was like sleeping on a chopping board, which was true, but I had actually slept better than I have in weeks.
+Today was shorter but hillier. My blister got worse, so Jo showed me how to tape it before it burst. She has a little kit with everything in it: tape, a needle, antiseptic, even a tiny pair of scissors. She told me she once walked on a blister for two days without stopping to fix it and ended up limping for a week. 'The bush doesn't care how tough you are,' she said. 'Fix small problems while they're small.'
+In the afternoon we didn't talk for almost an hour. It wasn't awkward. I listened to the wind moving through the treetops and to some birds Jo said were western rosellas. I realised I hadn't thought about the science test once. That night we ate pasta out of the pot and watched the stars come out between the branches.
+Sunday 14 April, back at the car
+Last entry. My legs ache in places I didn't know had muscles. We walked out this morning through mist so thick the trees looked like grey ghosts, and then the sun burned through and everything sparkled. On the drive home I asked Jo why she had really invited me, since she clearly didn't need any help. She kept her eyes on the road and said that at Christmas I had looked 'like someone who needed more sky'. I didn't know what to say, so I said nothing.
+I have already checked the track website. There is a section through the karri forest near Pemberton where the trees are taller than a fifteen-storey building. Jo says that if I keep the blister tape in my pack, I can come.
+I told her I'd think about it. I've already thought about it.",Why are walkers asked to sign the logbook?,,D,so they can win a prize at the end,so the campsite can charge a fee,so other walkers can leave messages,so rangers know who is on the track,,1,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1683.2,127,1,1,Easy
+NAPLAN-Y8-READING-M2-Q25,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 4,8,English,Reading Comprehension,Locating Information,ReadingComprehension,"Three Days on the Bibbulmun
+Friday 12 April, Mount Cooke campsite
+Aunt Jo says keeping a diary will help me 'notice things'. So far I have noticed that my pack weighs eleven kilograms, that my left boot rubs, and that there is no phone reception anywhere in the jarrah forest. The Bibbulmun Track runs for about a thousand kilometres, from the hills outside Perth all the way to Albany, and Jo wants to walk the whole thing next spring. This weekend is her 'practice run'. I am, apparently, her practice companion. She has planned everything: dehydrated meals, a stove the size of a coffee cup, three litres of water each and a paper map in a zip-lock bag in case the markers are hard to find.
+We followed the yellow triangle markers all day. At the top of Mount Cooke there were granite slabs warm from the sun, and forest rolled away in every direction like a green ocean. I didn't say anything, but I took a photo. Then I remembered I couldn't send it to anyone.
+The campsite has a three-sided timber shelter, a water tank and a toilet, which Jo calls luxury. We wrote our names in the logbook, which every walker is supposed to sign so rangers know who is on the track.
+Saturday 13 April, Nerang campsite
+I woke at 5.40 because a kookaburra had decided our shelter was a stage. Jo was already boiling water for porridge. She asked if I'd slept well. I said the floor was like sleeping on a chopping board, which was true, but I had actually slept better than I have in weeks.
+Today was shorter but hillier. My blister got worse, so Jo showed me how to tape it before it burst. She has a little kit with everything in it: tape, a needle, antiseptic, even a tiny pair of scissors. She told me she once walked on a blister for two days without stopping to fix it and ended up limping for a week. 'The bush doesn't care how tough you are,' she said. 'Fix small problems while they're small.'
+In the afternoon we didn't talk for almost an hour. It wasn't awkward. I listened to the wind moving through the treetops and to some birds Jo said were western rosellas. I realised I hadn't thought about the science test once. That night we ate pasta out of the pot and watched the stars come out between the branches.
+Sunday 14 April, back at the car
+Last entry. My legs ache in places I didn't know had muscles. We walked out this morning through mist so thick the trees looked like grey ghosts, and then the sun burned through and everything sparkled. On the drive home I asked Jo why she had really invited me, since she clearly didn't need any help. She kept her eyes on the road and said that at Christmas I had looked 'like someone who needed more sky'. I didn't know what to say, so I said nothing.
+I have already checked the track website. There is a section through the karri forest near Pemberton where the trees are taller than a fifteen-storey building. Jo says that if I keep the blister tape in my pack, I can come.
+I told her I'd think about it. I've already thought about it.",On which day did Jo show the writer how to tape her blister?,,D,Friday,Sunday,Thursday,Saturday,,1,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1683.3,127,1,2,Easy
+NAPLAN-Y8-READING-M2-Q26,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 4,8,English,Reading Comprehension,Main Idea,ReadingComprehension,"Three Days on the Bibbulmun
+Friday 12 April, Mount Cooke campsite
+Aunt Jo says keeping a diary will help me 'notice things'. So far I have noticed that my pack weighs eleven kilograms, that my left boot rubs, and that there is no phone reception anywhere in the jarrah forest. The Bibbulmun Track runs for about a thousand kilometres, from the hills outside Perth all the way to Albany, and Jo wants to walk the whole thing next spring. This weekend is her 'practice run'. I am, apparently, her practice companion. She has planned everything: dehydrated meals, a stove the size of a coffee cup, three litres of water each and a paper map in a zip-lock bag in case the markers are hard to find.
+We followed the yellow triangle markers all day. At the top of Mount Cooke there were granite slabs warm from the sun, and forest rolled away in every direction like a green ocean. I didn't say anything, but I took a photo. Then I remembered I couldn't send it to anyone.
+The campsite has a three-sided timber shelter, a water tank and a toilet, which Jo calls luxury. We wrote our names in the logbook, which every walker is supposed to sign so rangers know who is on the track.
+Saturday 13 April, Nerang campsite
+I woke at 5.40 because a kookaburra had decided our shelter was a stage. Jo was already boiling water for porridge. She asked if I'd slept well. I said the floor was like sleeping on a chopping board, which was true, but I had actually slept better than I have in weeks.
+Today was shorter but hillier. My blister got worse, so Jo showed me how to tape it before it burst. She has a little kit with everything in it: tape, a needle, antiseptic, even a tiny pair of scissors. She told me she once walked on a blister for two days without stopping to fix it and ended up limping for a week. 'The bush doesn't care how tough you are,' she said. 'Fix small problems while they're small.'
+In the afternoon we didn't talk for almost an hour. It wasn't awkward. I listened to the wind moving through the treetops and to some birds Jo said were western rosellas. I realised I hadn't thought about the science test once. That night we ate pasta out of the pot and watched the stars come out between the branches.
+Sunday 14 April, back at the car
+Last entry. My legs ache in places I didn't know had muscles. We walked out this morning through mist so thick the trees looked like grey ghosts, and then the sun burned through and everything sparkled. On the drive home I asked Jo why she had really invited me, since she clearly didn't need any help. She kept her eyes on the road and said that at Christmas I had looked 'like someone who needed more sky'. I didn't know what to say, so I said nothing.
+I have already checked the track website. There is a section through the karri forest near Pemberton where the trees are taller than a fifteen-storey building. Jo says that if I keep the blister tape in my pack, I can come.
+I told her I'd think about it. I've already thought about it.",The Saturday entry is mainly about . . .,,B,the writer's blister ruining the walk,the writer relaxing and learning from Jo,a kookaburra that kept the walkers awake,the dangers of walking in the bush,,3,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1683.4,127,1,5,Medium
+NAPLAN-Y8-READING-M2-Q27,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 4,8,English,Vocabulary,Synonyms,ReadingComprehension,"Three Days on the Bibbulmun
+Friday 12 April, Mount Cooke campsite
+Aunt Jo says keeping a diary will help me 'notice things'. So far I have noticed that my pack weighs eleven kilograms, that my left boot rubs, and that there is no phone reception anywhere in the jarrah forest. The Bibbulmun Track runs for about a thousand kilometres, from the hills outside Perth all the way to Albany, and Jo wants to walk the whole thing next spring. This weekend is her 'practice run'. I am, apparently, her practice companion. She has planned everything: dehydrated meals, a stove the size of a coffee cup, three litres of water each and a paper map in a zip-lock bag in case the markers are hard to find.
+We followed the yellow triangle markers all day. At the top of Mount Cooke there were granite slabs warm from the sun, and forest rolled away in every direction like a green ocean. I didn't say anything, but I took a photo. Then I remembered I couldn't send it to anyone.
+The campsite has a three-sided timber shelter, a water tank and a toilet, which Jo calls luxury. We wrote our names in the logbook, which every walker is supposed to sign so rangers know who is on the track.
+Saturday 13 April, Nerang campsite
+I woke at 5.40 because a kookaburra had decided our shelter was a stage. Jo was already boiling water for porridge. She asked if I'd slept well. I said the floor was like sleeping on a chopping board, which was true, but I had actually slept better than I have in weeks.
+Today was shorter but hillier. My blister got worse, so Jo showed me how to tape it before it burst. She has a little kit with everything in it: tape, a needle, antiseptic, even a tiny pair of scissors. She told me she once walked on a blister for two days without stopping to fix it and ended up limping for a week. 'The bush doesn't care how tough you are,' she said. 'Fix small problems while they're small.'
+In the afternoon we didn't talk for almost an hour. It wasn't awkward. I listened to the wind moving through the treetops and to some birds Jo said were western rosellas. I realised I hadn't thought about the science test once. That night we ate pasta out of the pot and watched the stars come out between the branches.
+Sunday 14 April, back at the car
+Last entry. My legs ache in places I didn't know had muscles. We walked out this morning through mist so thick the trees looked like grey ghosts, and then the sun burned through and everything sparkled. On the drive home I asked Jo why she had really invited me, since she clearly didn't need any help. She kept her eyes on the road and said that at Christmas I had looked 'like someone who needed more sky'. I didn't know what to say, so I said nothing.
+I have already checked the track website. There is a section through the karri forest near Pemberton where the trees are taller than a fifteen-storey building. Jo says that if I keep the blister tape in my pack, I can come.
+I told her I'd think about it. I've already thought about it.",Which word is closest in meaning to awkward in 'It wasn't awkward'?,,C,clumsy,boring,uncomfortable,silent,,3,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1683.5,127,1,5,Medium
+NAPLAN-Y8-READING-M2-Q28,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 4,8,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Three Days on the Bibbulmun
+Friday 12 April, Mount Cooke campsite
+Aunt Jo says keeping a diary will help me 'notice things'. So far I have noticed that my pack weighs eleven kilograms, that my left boot rubs, and that there is no phone reception anywhere in the jarrah forest. The Bibbulmun Track runs for about a thousand kilometres, from the hills outside Perth all the way to Albany, and Jo wants to walk the whole thing next spring. This weekend is her 'practice run'. I am, apparently, her practice companion. She has planned everything: dehydrated meals, a stove the size of a coffee cup, three litres of water each and a paper map in a zip-lock bag in case the markers are hard to find.
+We followed the yellow triangle markers all day. At the top of Mount Cooke there were granite slabs warm from the sun, and forest rolled away in every direction like a green ocean. I didn't say anything, but I took a photo. Then I remembered I couldn't send it to anyone.
+The campsite has a three-sided timber shelter, a water tank and a toilet, which Jo calls luxury. We wrote our names in the logbook, which every walker is supposed to sign so rangers know who is on the track.
+Saturday 13 April, Nerang campsite
+I woke at 5.40 because a kookaburra had decided our shelter was a stage. Jo was already boiling water for porridge. She asked if I'd slept well. I said the floor was like sleeping on a chopping board, which was true, but I had actually slept better than I have in weeks.
+Today was shorter but hillier. My blister got worse, so Jo showed me how to tape it before it burst. She has a little kit with everything in it: tape, a needle, antiseptic, even a tiny pair of scissors. She told me she once walked on a blister for two days without stopping to fix it and ended up limping for a week. 'The bush doesn't care how tough you are,' she said. 'Fix small problems while they're small.'
+In the afternoon we didn't talk for almost an hour. It wasn't awkward. I listened to the wind moving through the treetops and to some birds Jo said were western rosellas. I realised I hadn't thought about the science test once. That night we ate pasta out of the pot and watched the stars come out between the branches.
+Sunday 14 April, back at the car
+Last entry. My legs ache in places I didn't know had muscles. We walked out this morning through mist so thick the trees looked like grey ghosts, and then the sun burned through and everything sparkled. On the drive home I asked Jo why she had really invited me, since she clearly didn't need any help. She kept her eyes on the road and said that at Christmas I had looked 'like someone who needed more sky'. I didn't know what to say, so I said nothing.
+I have already checked the track website. There is a section through the karri forest near Pemberton where the trees are taller than a fifteen-storey building. Jo says that if I keep the blister tape in my pack, I can come.
+I told her I'd think about it. I've already thought about it.",What lesson did Jo learn from walking on a blister for two days?,,A,small problems should be fixed early,walkers should carry lighter packs,blisters heal faster if left alone,new boots should be worn in first,,2,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1683.6,127,1,4,Medium
+NAPLAN-Y8-READING-M2-Q29,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 4,8,English,Reading Comprehension,Evaluating Evidence,ReadingComprehension,"Three Days on the Bibbulmun
+Friday 12 April, Mount Cooke campsite
+Aunt Jo says keeping a diary will help me 'notice things'. So far I have noticed that my pack weighs eleven kilograms, that my left boot rubs, and that there is no phone reception anywhere in the jarrah forest. The Bibbulmun Track runs for about a thousand kilometres, from the hills outside Perth all the way to Albany, and Jo wants to walk the whole thing next spring. This weekend is her 'practice run'. I am, apparently, her practice companion. She has planned everything: dehydrated meals, a stove the size of a coffee cup, three litres of water each and a paper map in a zip-lock bag in case the markers are hard to find.
+We followed the yellow triangle markers all day. At the top of Mount Cooke there were granite slabs warm from the sun, and forest rolled away in every direction like a green ocean. I didn't say anything, but I took a photo. Then I remembered I couldn't send it to anyone.
+The campsite has a three-sided timber shelter, a water tank and a toilet, which Jo calls luxury. We wrote our names in the logbook, which every walker is supposed to sign so rangers know who is on the track.
+Saturday 13 April, Nerang campsite
+I woke at 5.40 because a kookaburra had decided our shelter was a stage. Jo was already boiling water for porridge. She asked if I'd slept well. I said the floor was like sleeping on a chopping board, which was true, but I had actually slept better than I have in weeks.
+Today was shorter but hillier. My blister got worse, so Jo showed me how to tape it before it burst. She has a little kit with everything in it: tape, a needle, antiseptic, even a tiny pair of scissors. She told me she once walked on a blister for two days without stopping to fix it and ended up limping for a week. 'The bush doesn't care how tough you are,' she said. 'Fix small problems while they're small.'
+In the afternoon we didn't talk for almost an hour. It wasn't awkward. I listened to the wind moving through the treetops and to some birds Jo said were western rosellas. I realised I hadn't thought about the science test once. That night we ate pasta out of the pot and watched the stars come out between the branches.
+Sunday 14 April, back at the car
+Last entry. My legs ache in places I didn't know had muscles. We walked out this morning through mist so thick the trees looked like grey ghosts, and then the sun burned through and everything sparkled. On the drive home I asked Jo why she had really invited me, since she clearly didn't need any help. She kept her eyes on the road and said that at Christmas I had looked 'like someone who needed more sky'. I didn't know what to say, so I said nothing.
+I have already checked the track website. There is a section through the karri forest near Pemberton where the trees are taller than a fifteen-storey building. Jo says that if I keep the blister tape in my pack, I can come.
+I told her I'd think about it. I've already thought about it.",Which pair of sentences BEST supports the claim that the writer has privately decided to join the next walk but has not admitted it to Jo?,,B,"'I have already checked the track website.' and 'Jo says that if I keep the blister tape in my pack, I can come.'",'I told her I'd think about it.' and 'I've already thought about it.',"'I didn't know what to say, so I said nothing.' and 'I've already thought about it.'","'I didn't say anything, but I took a photo.' and 'I have already checked the track website.'",,4,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1683.7,127,2,8,Hard
+NAPLAN-Y8-READING-M2-Q30,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 4,8,English,Inference,Character Motivation,ReadingComprehension,"Three Days on the Bibbulmun
+Friday 12 April, Mount Cooke campsite
+Aunt Jo says keeping a diary will help me 'notice things'. So far I have noticed that my pack weighs eleven kilograms, that my left boot rubs, and that there is no phone reception anywhere in the jarrah forest. The Bibbulmun Track runs for about a thousand kilometres, from the hills outside Perth all the way to Albany, and Jo wants to walk the whole thing next spring. This weekend is her 'practice run'. I am, apparently, her practice companion. She has planned everything: dehydrated meals, a stove the size of a coffee cup, three litres of water each and a paper map in a zip-lock bag in case the markers are hard to find.
+We followed the yellow triangle markers all day. At the top of Mount Cooke there were granite slabs warm from the sun, and forest rolled away in every direction like a green ocean. I didn't say anything, but I took a photo. Then I remembered I couldn't send it to anyone.
+The campsite has a three-sided timber shelter, a water tank and a toilet, which Jo calls luxury. We wrote our names in the logbook, which every walker is supposed to sign so rangers know who is on the track.
+Saturday 13 April, Nerang campsite
+I woke at 5.40 because a kookaburra had decided our shelter was a stage. Jo was already boiling water for porridge. She asked if I'd slept well. I said the floor was like sleeping on a chopping board, which was true, but I had actually slept better than I have in weeks.
+Today was shorter but hillier. My blister got worse, so Jo showed me how to tape it before it burst. She has a little kit with everything in it: tape, a needle, antiseptic, even a tiny pair of scissors. She told me she once walked on a blister for two days without stopping to fix it and ended up limping for a week. 'The bush doesn't care how tough you are,' she said. 'Fix small problems while they're small.'
+In the afternoon we didn't talk for almost an hour. It wasn't awkward. I listened to the wind moving through the treetops and to some birds Jo said were western rosellas. I realised I hadn't thought about the science test once. That night we ate pasta out of the pot and watched the stars come out between the branches.
+Sunday 14 April, back at the car
+Last entry. My legs ache in places I didn't know had muscles. We walked out this morning through mist so thick the trees looked like grey ghosts, and then the sun burned through and everything sparkled. On the drive home I asked Jo why she had really invited me, since she clearly didn't need any help. She kept her eyes on the road and said that at Christmas I had looked 'like someone who needed more sky'. I didn't know what to say, so I said nothing.
+I have already checked the track website. There is a section through the karri forest near Pemberton where the trees are taller than a fifteen-storey building. Jo says that if I keep the blister tape in my pack, I can come.
+I told her I'd think about it. I've already thought about it.","Considering the whole diary, Jo's real reason for inviting the writer was most likely that she . . .",,B,needed someone to help carry her heavy equipment,sensed the writer was stressed and needed time away,wanted a partner for her full walk next spring,had been asked by the writer's parents to teach bushcraft,,4,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1683.8,127,2,8,Hard
+NAPLAN-Y8-READING-M2-Q31,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 5,8,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"Exhibit Twelve
+
+My granddaughter tugs me past the steam engines.
+She's nine, and walks the way she reads, too fast,
+skipping the boring bits to reach the end,
+past the cases of valves and coiled copper wire,
+to a corner where an orange arm stands bolted to the floor,
+its elbow bent, its wrist cocked like a question.
+'Look, Nanna,' she says. 'A robot.' The sign reads
+WELDING ARM, 1984. GIFT OF KESTREL MOTOR WORKS.
+I know, I tell her. I used to work beside it.
+
+It came the winter I turned thirty,
+crated like a piano, unpacked like a prince.
+The foreman called us round to watch it move.
+It swung, it dipped, it touched the seam with light,
+and where its fingertip had kissed the steel
+a weld ran neat as stitching on a Sunday shirt.
+Nobody clapped. We knew what it could count.
+
+For eleven years we shared the line, that arm and I.
+It never asked for smoko, never hummed,
+never brought a thermos or a photo of its kids.
+It did four hundred welds an hour, each one the same,
+while I did fewer, and each one was mine:
+a little thick here, a little proud there,
+the way a signature is never quite repeated.
+
+At smoko we would sit along the wall
+with sandwiches and crosswords and the radio,
+and watch it working on right through our break,
+not tired, not bored, not anything at all.
+Big Col would raise his mug to it and say,
+'Cheers, mate, have one on us,' and we would laugh
+the way you laugh at weather you can't change.
+
+People ask me now if I hated it.
+I tell them hate is for things that can choose.
+It didn't choose to come. It didn't take my job;
+somebody signed a paper in an office far away,
+and the arm just went on welding, innocent as rain,
+the same week they handed us our envelopes,
+a handshake and a clock with a brass plate.
+
+Still, I'll admit, on bad nights I would dream it
+swinging toward me down an empty line,
+its single eye of light gone cold and searching,
+and I would wake and hear the fridge, and think
+of all the hands that used to make that sound,
+the clink and hiss and shout of forty people
+turned into one long, perfect, patient hum.
+
+My granddaughter presses the button on the rail.
+The arm lifts, turns and slowly bows to her,
+a little stiff, the way my knees are now.
+She laughs and waves. She builds robots at school,
+small ones, from kits, that follow a black line
+across the classroom floor and win her ribbons.
+She tells me how the sensors read the floor,
+how every move begins as lines of code
+that she can change whenever something's wrong.
+She wants to make one that can help old people walk.
+
+And here's the thing I never thought I'd feel:
+I'm proud of her, and not one bit afraid.
+The arm and I are both museum pieces now,
+both pensioned off, both slower than we were.
+Maybe the question never was the arm,
+but whose hands plan the work, and what it's for.
+And hers, I think, are good hands for the job.","In the second stanza, the word crated means . . .",,D,lifted into place by a crane,painted in bright factory colours,checked carefully by experts,packed in a large wooden box,,1,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1727.1,171,1,2,Easy
+NAPLAN-Y8-READING-M2-Q32,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 5,8,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Exhibit Twelve
+
+My granddaughter tugs me past the steam engines.
+She's nine, and walks the way she reads, too fast,
+skipping the boring bits to reach the end,
+past the cases of valves and coiled copper wire,
+to a corner where an orange arm stands bolted to the floor,
+its elbow bent, its wrist cocked like a question.
+'Look, Nanna,' she says. 'A robot.' The sign reads
+WELDING ARM, 1984. GIFT OF KESTREL MOTOR WORKS.
+I know, I tell her. I used to work beside it.
+
+It came the winter I turned thirty,
+crated like a piano, unpacked like a prince.
+The foreman called us round to watch it move.
+It swung, it dipped, it touched the seam with light,
+and where its fingertip had kissed the steel
+a weld ran neat as stitching on a Sunday shirt.
+Nobody clapped. We knew what it could count.
+
+For eleven years we shared the line, that arm and I.
+It never asked for smoko, never hummed,
+never brought a thermos or a photo of its kids.
+It did four hundred welds an hour, each one the same,
+while I did fewer, and each one was mine:
+a little thick here, a little proud there,
+the way a signature is never quite repeated.
+
+At smoko we would sit along the wall
+with sandwiches and crosswords and the radio,
+and watch it working on right through our break,
+not tired, not bored, not anything at all.
+Big Col would raise his mug to it and say,
+'Cheers, mate, have one on us,' and we would laugh
+the way you laugh at weather you can't change.
+
+People ask me now if I hated it.
+I tell them hate is for things that can choose.
+It didn't choose to come. It didn't take my job;
+somebody signed a paper in an office far away,
+and the arm just went on welding, innocent as rain,
+the same week they handed us our envelopes,
+a handshake and a clock with a brass plate.
+
+Still, I'll admit, on bad nights I would dream it
+swinging toward me down an empty line,
+its single eye of light gone cold and searching,
+and I would wake and hear the fridge, and think
+of all the hands that used to make that sound,
+the clink and hiss and shout of forty people
+turned into one long, perfect, patient hum.
+
+My granddaughter presses the button on the rail.
+The arm lifts, turns and slowly bows to her,
+a little stiff, the way my knees are now.
+She laughs and waves. She builds robots at school,
+small ones, from kits, that follow a black line
+across the classroom floor and win her ribbons.
+She tells me how the sensors read the floor,
+how every move begins as lines of code
+that she can change whenever something's wrong.
+She wants to make one that can help old people walk.
+
+And here's the thing I never thought I'd feel:
+I'm proud of her, and not one bit afraid.
+The arm and I are both museum pieces now,
+both pensioned off, both slower than we were.
+Maybe the question never was the arm,
+but whose hands plan the work, and what it's for.
+And hers, I think, are good hands for the job.",How long did the speaker work beside the welding arm?,,B,thirty years,eleven years,four years,forty years,,1,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1727.2,171,1,1,Easy
+NAPLAN-Y8-READING-M2-Q33,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 5,8,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Exhibit Twelve
+
+My granddaughter tugs me past the steam engines.
+She's nine, and walks the way she reads, too fast,
+skipping the boring bits to reach the end,
+past the cases of valves and coiled copper wire,
+to a corner where an orange arm stands bolted to the floor,
+its elbow bent, its wrist cocked like a question.
+'Look, Nanna,' she says. 'A robot.' The sign reads
+WELDING ARM, 1984. GIFT OF KESTREL MOTOR WORKS.
+I know, I tell her. I used to work beside it.
+
+It came the winter I turned thirty,
+crated like a piano, unpacked like a prince.
+The foreman called us round to watch it move.
+It swung, it dipped, it touched the seam with light,
+and where its fingertip had kissed the steel
+a weld ran neat as stitching on a Sunday shirt.
+Nobody clapped. We knew what it could count.
+
+For eleven years we shared the line, that arm and I.
+It never asked for smoko, never hummed,
+never brought a thermos or a photo of its kids.
+It did four hundred welds an hour, each one the same,
+while I did fewer, and each one was mine:
+a little thick here, a little proud there,
+the way a signature is never quite repeated.
+
+At smoko we would sit along the wall
+with sandwiches and crosswords and the radio,
+and watch it working on right through our break,
+not tired, not bored, not anything at all.
+Big Col would raise his mug to it and say,
+'Cheers, mate, have one on us,' and we would laugh
+the way you laugh at weather you can't change.
+
+People ask me now if I hated it.
+I tell them hate is for things that can choose.
+It didn't choose to come. It didn't take my job;
+somebody signed a paper in an office far away,
+and the arm just went on welding, innocent as rain,
+the same week they handed us our envelopes,
+a handshake and a clock with a brass plate.
+
+Still, I'll admit, on bad nights I would dream it
+swinging toward me down an empty line,
+its single eye of light gone cold and searching,
+and I would wake and hear the fridge, and think
+of all the hands that used to make that sound,
+the clink and hiss and shout of forty people
+turned into one long, perfect, patient hum.
+
+My granddaughter presses the button on the rail.
+The arm lifts, turns and slowly bows to her,
+a little stiff, the way my knees are now.
+She laughs and waves. She builds robots at school,
+small ones, from kits, that follow a black line
+across the classroom floor and win her ribbons.
+She tells me how the sensors read the floor,
+how every move begins as lines of code
+that she can change whenever something's wrong.
+She wants to make one that can help old people walk.
+
+And here's the thing I never thought I'd feel:
+I'm proud of her, and not one bit afraid.
+The arm and I are both museum pieces now,
+both pensioned off, both slower than we were.
+Maybe the question never was the arm,
+but whose hands plan the work, and what it's for.
+And hers, I think, are good hands for the job.",What kind of robot does the granddaughter hope to make one day?,,A,one that can help old people walk,one that follows a black line across the floor,one that welds car parts in a factory,one that bows to visitors at a museum,,2,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1727.3,171,1,4,Medium
+NAPLAN-Y8-READING-M2-Q34,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 5,8,English,Reading Comprehension,Evaluating Evidence,ReadingComprehension,"Exhibit Twelve
+
+My granddaughter tugs me past the steam engines.
+She's nine, and walks the way she reads, too fast,
+skipping the boring bits to reach the end,
+past the cases of valves and coiled copper wire,
+to a corner where an orange arm stands bolted to the floor,
+its elbow bent, its wrist cocked like a question.
+'Look, Nanna,' she says. 'A robot.' The sign reads
+WELDING ARM, 1984. GIFT OF KESTREL MOTOR WORKS.
+I know, I tell her. I used to work beside it.
+
+It came the winter I turned thirty,
+crated like a piano, unpacked like a prince.
+The foreman called us round to watch it move.
+It swung, it dipped, it touched the seam with light,
+and where its fingertip had kissed the steel
+a weld ran neat as stitching on a Sunday shirt.
+Nobody clapped. We knew what it could count.
+
+For eleven years we shared the line, that arm and I.
+It never asked for smoko, never hummed,
+never brought a thermos or a photo of its kids.
+It did four hundred welds an hour, each one the same,
+while I did fewer, and each one was mine:
+a little thick here, a little proud there,
+the way a signature is never quite repeated.
+
+At smoko we would sit along the wall
+with sandwiches and crosswords and the radio,
+and watch it working on right through our break,
+not tired, not bored, not anything at all.
+Big Col would raise his mug to it and say,
+'Cheers, mate, have one on us,' and we would laugh
+the way you laugh at weather you can't change.
+
+People ask me now if I hated it.
+I tell them hate is for things that can choose.
+It didn't choose to come. It didn't take my job;
+somebody signed a paper in an office far away,
+and the arm just went on welding, innocent as rain,
+the same week they handed us our envelopes,
+a handshake and a clock with a brass plate.
+
+Still, I'll admit, on bad nights I would dream it
+swinging toward me down an empty line,
+its single eye of light gone cold and searching,
+and I would wake and hear the fridge, and think
+of all the hands that used to make that sound,
+the clink and hiss and shout of forty people
+turned into one long, perfect, patient hum.
+
+My granddaughter presses the button on the rail.
+The arm lifts, turns and slowly bows to her,
+a little stiff, the way my knees are now.
+She laughs and waves. She builds robots at school,
+small ones, from kits, that follow a black line
+across the classroom floor and win her ribbons.
+She tells me how the sensors read the floor,
+how every move begins as lines of code
+that she can change whenever something's wrong.
+She wants to make one that can help old people walk.
+
+And here's the thing I never thought I'd feel:
+I'm proud of her, and not one bit afraid.
+The arm and I are both museum pieces now,
+both pensioned off, both slower than we were.
+Maybe the question never was the arm,
+but whose hands plan the work, and what it's for.
+And hers, I think, are good hands for the job.",Which line best shows that the speaker valued the individuality of her own work?,,D,"It did four hundred welds an hour, each one the same",a weld ran neat as stitching on a Sunday shirt,Nobody clapped. We knew what it could count.,the way a signature is never quite repeated,,3,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1727.4,171,1,5,Medium
+NAPLAN-Y8-READING-M2-Q35,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 5,8,English,Reading Comprehension,Main Idea,ReadingComprehension,"Exhibit Twelve
+
+My granddaughter tugs me past the steam engines.
+She's nine, and walks the way she reads, too fast,
+skipping the boring bits to reach the end,
+past the cases of valves and coiled copper wire,
+to a corner where an orange arm stands bolted to the floor,
+its elbow bent, its wrist cocked like a question.
+'Look, Nanna,' she says. 'A robot.' The sign reads
+WELDING ARM, 1984. GIFT OF KESTREL MOTOR WORKS.
+I know, I tell her. I used to work beside it.
+
+It came the winter I turned thirty,
+crated like a piano, unpacked like a prince.
+The foreman called us round to watch it move.
+It swung, it dipped, it touched the seam with light,
+and where its fingertip had kissed the steel
+a weld ran neat as stitching on a Sunday shirt.
+Nobody clapped. We knew what it could count.
+
+For eleven years we shared the line, that arm and I.
+It never asked for smoko, never hummed,
+never brought a thermos or a photo of its kids.
+It did four hundred welds an hour, each one the same,
+while I did fewer, and each one was mine:
+a little thick here, a little proud there,
+the way a signature is never quite repeated.
+
+At smoko we would sit along the wall
+with sandwiches and crosswords and the radio,
+and watch it working on right through our break,
+not tired, not bored, not anything at all.
+Big Col would raise his mug to it and say,
+'Cheers, mate, have one on us,' and we would laugh
+the way you laugh at weather you can't change.
+
+People ask me now if I hated it.
+I tell them hate is for things that can choose.
+It didn't choose to come. It didn't take my job;
+somebody signed a paper in an office far away,
+and the arm just went on welding, innocent as rain,
+the same week they handed us our envelopes,
+a handshake and a clock with a brass plate.
+
+Still, I'll admit, on bad nights I would dream it
+swinging toward me down an empty line,
+its single eye of light gone cold and searching,
+and I would wake and hear the fridge, and think
+of all the hands that used to make that sound,
+the clink and hiss and shout of forty people
+turned into one long, perfect, patient hum.
+
+My granddaughter presses the button on the rail.
+The arm lifts, turns and slowly bows to her,
+a little stiff, the way my knees are now.
+She laughs and waves. She builds robots at school,
+small ones, from kits, that follow a black line
+across the classroom floor and win her ribbons.
+She tells me how the sensors read the floor,
+how every move begins as lines of code
+that she can change whenever something's wrong.
+She wants to make one that can help old people walk.
+
+And here's the thing I never thought I'd feel:
+I'm proud of her, and not one bit afraid.
+The arm and I are both museum pieces now,
+both pensioned off, both slower than we were.
+Maybe the question never was the arm,
+but whose hands plan the work, and what it's for.
+And hers, I think, are good hands for the job.",What is the poem mainly about?,,C,a girl's visit to a museum full of old steam engines,the way welding robots were first invented in the 1980s,a woman's changing feelings about the machine that replaced her,a factory worker's lifelong fear of all new technology,,3,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1727.5,171,1,5,Medium
+NAPLAN-Y8-READING-M2-Q36,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 5,8,English,Inference,Inferential Reasoning,ReadingComprehension,"Exhibit Twelve
+
+My granddaughter tugs me past the steam engines.
+She's nine, and walks the way she reads, too fast,
+skipping the boring bits to reach the end,
+past the cases of valves and coiled copper wire,
+to a corner where an orange arm stands bolted to the floor,
+its elbow bent, its wrist cocked like a question.
+'Look, Nanna,' she says. 'A robot.' The sign reads
+WELDING ARM, 1984. GIFT OF KESTREL MOTOR WORKS.
+I know, I tell her. I used to work beside it.
+
+It came the winter I turned thirty,
+crated like a piano, unpacked like a prince.
+The foreman called us round to watch it move.
+It swung, it dipped, it touched the seam with light,
+and where its fingertip had kissed the steel
+a weld ran neat as stitching on a Sunday shirt.
+Nobody clapped. We knew what it could count.
+
+For eleven years we shared the line, that arm and I.
+It never asked for smoko, never hummed,
+never brought a thermos or a photo of its kids.
+It did four hundred welds an hour, each one the same,
+while I did fewer, and each one was mine:
+a little thick here, a little proud there,
+the way a signature is never quite repeated.
+
+At smoko we would sit along the wall
+with sandwiches and crosswords and the radio,
+and watch it working on right through our break,
+not tired, not bored, not anything at all.
+Big Col would raise his mug to it and say,
+'Cheers, mate, have one on us,' and we would laugh
+the way you laugh at weather you can't change.
+
+People ask me now if I hated it.
+I tell them hate is for things that can choose.
+It didn't choose to come. It didn't take my job;
+somebody signed a paper in an office far away,
+and the arm just went on welding, innocent as rain,
+the same week they handed us our envelopes,
+a handshake and a clock with a brass plate.
+
+Still, I'll admit, on bad nights I would dream it
+swinging toward me down an empty line,
+its single eye of light gone cold and searching,
+and I would wake and hear the fridge, and think
+of all the hands that used to make that sound,
+the clink and hiss and shout of forty people
+turned into one long, perfect, patient hum.
+
+My granddaughter presses the button on the rail.
+The arm lifts, turns and slowly bows to her,
+a little stiff, the way my knees are now.
+She laughs and waves. She builds robots at school,
+small ones, from kits, that follow a black line
+across the classroom floor and win her ribbons.
+She tells me how the sensors read the floor,
+how every move begins as lines of code
+that she can change whenever something's wrong.
+She wants to make one that can help old people walk.
+
+And here's the thing I never thought I'd feel:
+I'm proud of her, and not one bit afraid.
+The arm and I are both museum pieces now,
+both pensioned off, both slower than we were.
+Maybe the question never was the arm,
+but whose hands plan the work, and what it's for.
+And hers, I think, are good hands for the job.",What is suggested by the line 'Nobody clapped. We knew what it could count.'?,,A,the workers sensed that its speed could cost them their jobs,the workers were unimpressed by the quality of its welds,the workers knew the arm would count each of their mistakes,the workers had been told not to interrupt the foreman,,4,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1727.6,171,2,7,Hard
+NAPLAN-Y8-READING-M2-Q37,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 5,8,English,Reading Comprehension,Point of View,ReadingComprehension,"Exhibit Twelve
+
+My granddaughter tugs me past the steam engines.
+She's nine, and walks the way she reads, too fast,
+skipping the boring bits to reach the end,
+past the cases of valves and coiled copper wire,
+to a corner where an orange arm stands bolted to the floor,
+its elbow bent, its wrist cocked like a question.
+'Look, Nanna,' she says. 'A robot.' The sign reads
+WELDING ARM, 1984. GIFT OF KESTREL MOTOR WORKS.
+I know, I tell her. I used to work beside it.
+
+It came the winter I turned thirty,
+crated like a piano, unpacked like a prince.
+The foreman called us round to watch it move.
+It swung, it dipped, it touched the seam with light,
+and where its fingertip had kissed the steel
+a weld ran neat as stitching on a Sunday shirt.
+Nobody clapped. We knew what it could count.
+
+For eleven years we shared the line, that arm and I.
+It never asked for smoko, never hummed,
+never brought a thermos or a photo of its kids.
+It did four hundred welds an hour, each one the same,
+while I did fewer, and each one was mine:
+a little thick here, a little proud there,
+the way a signature is never quite repeated.
+
+At smoko we would sit along the wall
+with sandwiches and crosswords and the radio,
+and watch it working on right through our break,
+not tired, not bored, not anything at all.
+Big Col would raise his mug to it and say,
+'Cheers, mate, have one on us,' and we would laugh
+the way you laugh at weather you can't change.
+
+People ask me now if I hated it.
+I tell them hate is for things that can choose.
+It didn't choose to come. It didn't take my job;
+somebody signed a paper in an office far away,
+and the arm just went on welding, innocent as rain,
+the same week they handed us our envelopes,
+a handshake and a clock with a brass plate.
+
+Still, I'll admit, on bad nights I would dream it
+swinging toward me down an empty line,
+its single eye of light gone cold and searching,
+and I would wake and hear the fridge, and think
+of all the hands that used to make that sound,
+the clink and hiss and shout of forty people
+turned into one long, perfect, patient hum.
+
+My granddaughter presses the button on the rail.
+The arm lifts, turns and slowly bows to her,
+a little stiff, the way my knees are now.
+She laughs and waves. She builds robots at school,
+small ones, from kits, that follow a black line
+across the classroom floor and win her ribbons.
+She tells me how the sensors read the floor,
+how every move begins as lines of code
+that she can change whenever something's wrong.
+She wants to make one that can help old people walk.
+
+And here's the thing I never thought I'd feel:
+I'm proud of her, and not one bit afraid.
+The arm and I are both museum pieces now,
+both pensioned off, both slower than we were.
+Maybe the question never was the arm,
+but whose hands plan the work, and what it's for.
+And hers, I think, are good hands for the job.",How does the speaker's attitude to the arm develop across the poem?,,D,from hatred of the arm to forgiveness of the people in the office,from admiration of the arm to bitter resentment of all machines,from fear of the arm to a wish that she could work beside it again,from uneasy memories to calm acceptance shaped by her granddaughter,,4,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1727.7,171,2,8,Hard
+NAPLAN-Y8-READING-M2-Q38,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 5,8,English,Persuasive Language,Bias and Perspective,ReadingComprehension,"Exhibit Twelve
+
+My granddaughter tugs me past the steam engines.
+She's nine, and walks the way she reads, too fast,
+skipping the boring bits to reach the end,
+past the cases of valves and coiled copper wire,
+to a corner where an orange arm stands bolted to the floor,
+its elbow bent, its wrist cocked like a question.
+'Look, Nanna,' she says. 'A robot.' The sign reads
+WELDING ARM, 1984. GIFT OF KESTREL MOTOR WORKS.
+I know, I tell her. I used to work beside it.
+
+It came the winter I turned thirty,
+crated like a piano, unpacked like a prince.
+The foreman called us round to watch it move.
+It swung, it dipped, it touched the seam with light,
+and where its fingertip had kissed the steel
+a weld ran neat as stitching on a Sunday shirt.
+Nobody clapped. We knew what it could count.
+
+For eleven years we shared the line, that arm and I.
+It never asked for smoko, never hummed,
+never brought a thermos or a photo of its kids.
+It did four hundred welds an hour, each one the same,
+while I did fewer, and each one was mine:
+a little thick here, a little proud there,
+the way a signature is never quite repeated.
+
+At smoko we would sit along the wall
+with sandwiches and crosswords and the radio,
+and watch it working on right through our break,
+not tired, not bored, not anything at all.
+Big Col would raise his mug to it and say,
+'Cheers, mate, have one on us,' and we would laugh
+the way you laugh at weather you can't change.
+
+People ask me now if I hated it.
+I tell them hate is for things that can choose.
+It didn't choose to come. It didn't take my job;
+somebody signed a paper in an office far away,
+and the arm just went on welding, innocent as rain,
+the same week they handed us our envelopes,
+a handshake and a clock with a brass plate.
+
+Still, I'll admit, on bad nights I would dream it
+swinging toward me down an empty line,
+its single eye of light gone cold and searching,
+and I would wake and hear the fridge, and think
+of all the hands that used to make that sound,
+the clink and hiss and shout of forty people
+turned into one long, perfect, patient hum.
+
+My granddaughter presses the button on the rail.
+The arm lifts, turns and slowly bows to her,
+a little stiff, the way my knees are now.
+She laughs and waves. She builds robots at school,
+small ones, from kits, that follow a black line
+across the classroom floor and win her ribbons.
+She tells me how the sensors read the floor,
+how every move begins as lines of code
+that she can change whenever something's wrong.
+She wants to make one that can help old people walk.
+
+And here's the thing I never thought I'd feel:
+I'm proud of her, and not one bit afraid.
+The arm and I are both museum pieces now,
+both pensioned off, both slower than we were.
+Maybe the question never was the arm,
+but whose hands plan the work, and what it's for.
+And hers, I think, are good hands for the job.",The speaker says the arm 'didn't take my job'. Which statement best describes the perspective she takes across the poem?,,A,"She sees people's decisions, not the technology, as what really matters.",She believes that losing her job was nobody's fault at all.,She thinks the arm deserved the job because it worked faster.,She feels the workers should have refused to work beside it.,,4,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1727.8,171,2,8,Hard
+NAPLAN-Y8-READING-M2-Q39,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 6,8,English,Reading Comprehension,Main Idea,ReadingComprehension,"The Moths That Follow the Stars
+Every spring, as the weather warms, millions of brown moths set off on one of the most remarkable journeys made by any insect. Bogong moths, each with a body barely as long as a paperclip, fly up to a thousand kilometres from the plains of southern Queensland, New South Wales and western Victoria to the Australian Alps. There they crowd into cool caves and rock crevices near the mountain tops, sometimes packed so tightly that the walls appear to be covered in brown roof tiles.
+The moths travel to escape the heat. Summer on the plains is too hot and dry for them, so instead of feeding and breeding they spend the warm months resting in the cool mountain air, in a state of reduced activity similar to hibernation. When autumn arrives, they fly all the way back to the plains, where they mate, lay their eggs and die. The following spring, a new generation of moths, none of which has ever seen the mountains, makes the same journey to the same caves.
+How they find their way has puzzled scientists for decades. The moths fly at night, so they cannot rely on landmarks in the way that many birds do. Research has shown that they can sense the Earth's magnetic field, and recent studies have found that they also use the pattern of stars in the night sky as a compass. When city lights or thick cloud hide the stars, the moths can become confused. In some years, swarms have drifted off course into the bright lights of Canberra and even Sydney.
+For such small creatures, Bogong moths punch well above their weight in the alpine ecosystem. Their bodies are rich in fat, so the moths arriving each spring deliver a huge supply of energy to the mountains. Birds, lizards and small mammals feast on them. One animal depends on them more than any other: the endangered mountain pygmy possum, which wakes from its winter hibernation hungry and relies heavily on the moths to rebuild its strength before breeding. For thousands of years, Aboriginal peoples also travelled to the high country in summer to gather the moths, roasting them as a rich and nourishing food.
+In recent years, however, the journey has become far less crowded. Between 2017 and 2019, the number of moths reaching the caves dropped dramatically, and some caves that once held huge numbers were almost empty. Scientists believe that severe drought on the plains reduced the plants that the caterpillars feed on, so fewer moths survived to make the trip. During those years, researchers reported that mountain pygmy possums in some areas struggled to raise their young. In 2021, the Bogong moth was listed as endangered by the International Union for Conservation of Nature.
+Researchers now monitor the caves each year, and some communities encourage people to switch off unnecessary outdoor lights during the migration season. The Bogong moth is a reminder that the health of a mountain can depend on events hundreds of kilometres away, and on a creature small enough to sit on your fingertip.",What is the passage mainly about?,,A,the Bogong moth's migration and why it matters,the habits of the mountain pygmy possum,how insects survive in the heat of summer,the caves and rock crevices of the Alps,,1,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1592.1,36,1,2,Easy
+NAPLAN-Y8-READING-M2-Q40,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 6,8,English,Inference,Inferential Reasoning,ReadingComprehension,"The Moths That Follow the Stars
+Every spring, as the weather warms, millions of brown moths set off on one of the most remarkable journeys made by any insect. Bogong moths, each with a body barely as long as a paperclip, fly up to a thousand kilometres from the plains of southern Queensland, New South Wales and western Victoria to the Australian Alps. There they crowd into cool caves and rock crevices near the mountain tops, sometimes packed so tightly that the walls appear to be covered in brown roof tiles.
+The moths travel to escape the heat. Summer on the plains is too hot and dry for them, so instead of feeding and breeding they spend the warm months resting in the cool mountain air, in a state of reduced activity similar to hibernation. When autumn arrives, they fly all the way back to the plains, where they mate, lay their eggs and die. The following spring, a new generation of moths, none of which has ever seen the mountains, makes the same journey to the same caves.
+How they find their way has puzzled scientists for decades. The moths fly at night, so they cannot rely on landmarks in the way that many birds do. Research has shown that they can sense the Earth's magnetic field, and recent studies have found that they also use the pattern of stars in the night sky as a compass. When city lights or thick cloud hide the stars, the moths can become confused. In some years, swarms have drifted off course into the bright lights of Canberra and even Sydney.
+For such small creatures, Bogong moths punch well above their weight in the alpine ecosystem. Their bodies are rich in fat, so the moths arriving each spring deliver a huge supply of energy to the mountains. Birds, lizards and small mammals feast on them. One animal depends on them more than any other: the endangered mountain pygmy possum, which wakes from its winter hibernation hungry and relies heavily on the moths to rebuild its strength before breeding. For thousands of years, Aboriginal peoples also travelled to the high country in summer to gather the moths, roasting them as a rich and nourishing food.
+In recent years, however, the journey has become far less crowded. Between 2017 and 2019, the number of moths reaching the caves dropped dramatically, and some caves that once held huge numbers were almost empty. Scientists believe that severe drought on the plains reduced the plants that the caterpillars feed on, so fewer moths survived to make the trip. During those years, researchers reported that mountain pygmy possums in some areas struggled to raise their young. In 2021, the Bogong moth was listed as endangered by the International Union for Conservation of Nature.
+Researchers now monitor the caves each year, and some communities encourage people to switch off unnecessary outdoor lights during the migration season. The Bogong moth is a reminder that the health of a mountain can depend on events hundreds of kilometres away, and on a creature small enough to sit on your fingertip.",The cave walls 'appear to be covered in brown roof tiles'. This suggests that the moths . . .,,D,build hard shelters on the cave walls,are heavy and hard like clay tiles,are very difficult to see in the caves,rest closely together in great numbers,,2,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1592.2,36,1,3,Easy
+NAPLAN-Y8-READING-M2-Q41,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 6,8,English,Inference,Predicting Outcomes,ReadingComprehension,"The Moths That Follow the Stars
+Every spring, as the weather warms, millions of brown moths set off on one of the most remarkable journeys made by any insect. Bogong moths, each with a body barely as long as a paperclip, fly up to a thousand kilometres from the plains of southern Queensland, New South Wales and western Victoria to the Australian Alps. There they crowd into cool caves and rock crevices near the mountain tops, sometimes packed so tightly that the walls appear to be covered in brown roof tiles.
+The moths travel to escape the heat. Summer on the plains is too hot and dry for them, so instead of feeding and breeding they spend the warm months resting in the cool mountain air, in a state of reduced activity similar to hibernation. When autumn arrives, they fly all the way back to the plains, where they mate, lay their eggs and die. The following spring, a new generation of moths, none of which has ever seen the mountains, makes the same journey to the same caves.
+How they find their way has puzzled scientists for decades. The moths fly at night, so they cannot rely on landmarks in the way that many birds do. Research has shown that they can sense the Earth's magnetic field, and recent studies have found that they also use the pattern of stars in the night sky as a compass. When city lights or thick cloud hide the stars, the moths can become confused. In some years, swarms have drifted off course into the bright lights of Canberra and even Sydney.
+For such small creatures, Bogong moths punch well above their weight in the alpine ecosystem. Their bodies are rich in fat, so the moths arriving each spring deliver a huge supply of energy to the mountains. Birds, lizards and small mammals feast on them. One animal depends on them more than any other: the endangered mountain pygmy possum, which wakes from its winter hibernation hungry and relies heavily on the moths to rebuild its strength before breeding. For thousands of years, Aboriginal peoples also travelled to the high country in summer to gather the moths, roasting them as a rich and nourishing food.
+In recent years, however, the journey has become far less crowded. Between 2017 and 2019, the number of moths reaching the caves dropped dramatically, and some caves that once held huge numbers were almost empty. Scientists believe that severe drought on the plains reduced the plants that the caterpillars feed on, so fewer moths survived to make the trip. During those years, researchers reported that mountain pygmy possums in some areas struggled to raise their young. In 2021, the Bogong moth was listed as endangered by the International Union for Conservation of Nature.
+Researchers now monitor the caves each year, and some communities encourage people to switch off unnecessary outdoor lights during the migration season. The Bogong moth is a reminder that the health of a mountain can depend on events hundreds of kilometres away, and on a creature small enough to sit on your fingertip.","What would most likely happen to migrating moths on a cloudy night near a large, brightly lit city?",,B,They would find their way by following landmarks.,They would be more likely to drift towards the city.,They would stop and rest until the next spring.,They would fly faster and reach the caves sooner.,,3,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1592.3,36,1,5,Medium
+NAPLAN-Y8-READING-M2-Q42,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 6,8,English,Vocabulary,Idioms and Expressions,ReadingComprehension,"The Moths That Follow the Stars
+Every spring, as the weather warms, millions of brown moths set off on one of the most remarkable journeys made by any insect. Bogong moths, each with a body barely as long as a paperclip, fly up to a thousand kilometres from the plains of southern Queensland, New South Wales and western Victoria to the Australian Alps. There they crowd into cool caves and rock crevices near the mountain tops, sometimes packed so tightly that the walls appear to be covered in brown roof tiles.
+The moths travel to escape the heat. Summer on the plains is too hot and dry for them, so instead of feeding and breeding they spend the warm months resting in the cool mountain air, in a state of reduced activity similar to hibernation. When autumn arrives, they fly all the way back to the plains, where they mate, lay their eggs and die. The following spring, a new generation of moths, none of which has ever seen the mountains, makes the same journey to the same caves.
+How they find their way has puzzled scientists for decades. The moths fly at night, so they cannot rely on landmarks in the way that many birds do. Research has shown that they can sense the Earth's magnetic field, and recent studies have found that they also use the pattern of stars in the night sky as a compass. When city lights or thick cloud hide the stars, the moths can become confused. In some years, swarms have drifted off course into the bright lights of Canberra and even Sydney.
+For such small creatures, Bogong moths punch well above their weight in the alpine ecosystem. Their bodies are rich in fat, so the moths arriving each spring deliver a huge supply of energy to the mountains. Birds, lizards and small mammals feast on them. One animal depends on them more than any other: the endangered mountain pygmy possum, which wakes from its winter hibernation hungry and relies heavily on the moths to rebuild its strength before breeding. For thousands of years, Aboriginal peoples also travelled to the high country in summer to gather the moths, roasting them as a rich and nourishing food.
+In recent years, however, the journey has become far less crowded. Between 2017 and 2019, the number of moths reaching the caves dropped dramatically, and some caves that once held huge numbers were almost empty. Scientists believe that severe drought on the plains reduced the plants that the caterpillars feed on, so fewer moths survived to make the trip. During those years, researchers reported that mountain pygmy possums in some areas struggled to raise their young. In 2021, the Bogong moth was listed as endangered by the International Union for Conservation of Nature.
+Researchers now monitor the caves each year, and some communities encourage people to switch off unnecessary outdoor lights during the migration season. The Bogong moth is a reminder that the health of a mountain can depend on events hundreds of kilometres away, and on a creature small enough to sit on your fingertip.",The expression 'punch well above their weight' means that Bogong moths . . .,,D,are surprisingly heavy for insects of their size,are able to fight off much larger predators,can fly much further than heavier insects,have a far bigger effect than their size suggests,,2,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1592.4,36,1,4,Medium
+NAPLAN-Y8-READING-M2-Q43,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 6,8,English,Reading Comprehension,Main Idea,ReadingComprehension,"The Moths That Follow the Stars
+Every spring, as the weather warms, millions of brown moths set off on one of the most remarkable journeys made by any insect. Bogong moths, each with a body barely as long as a paperclip, fly up to a thousand kilometres from the plains of southern Queensland, New South Wales and western Victoria to the Australian Alps. There they crowd into cool caves and rock crevices near the mountain tops, sometimes packed so tightly that the walls appear to be covered in brown roof tiles.
+The moths travel to escape the heat. Summer on the plains is too hot and dry for them, so instead of feeding and breeding they spend the warm months resting in the cool mountain air, in a state of reduced activity similar to hibernation. When autumn arrives, they fly all the way back to the plains, where they mate, lay their eggs and die. The following spring, a new generation of moths, none of which has ever seen the mountains, makes the same journey to the same caves.
+How they find their way has puzzled scientists for decades. The moths fly at night, so they cannot rely on landmarks in the way that many birds do. Research has shown that they can sense the Earth's magnetic field, and recent studies have found that they also use the pattern of stars in the night sky as a compass. When city lights or thick cloud hide the stars, the moths can become confused. In some years, swarms have drifted off course into the bright lights of Canberra and even Sydney.
+For such small creatures, Bogong moths punch well above their weight in the alpine ecosystem. Their bodies are rich in fat, so the moths arriving each spring deliver a huge supply of energy to the mountains. Birds, lizards and small mammals feast on them. One animal depends on them more than any other: the endangered mountain pygmy possum, which wakes from its winter hibernation hungry and relies heavily on the moths to rebuild its strength before breeding. For thousands of years, Aboriginal peoples also travelled to the high country in summer to gather the moths, roasting them as a rich and nourishing food.
+In recent years, however, the journey has become far less crowded. Between 2017 and 2019, the number of moths reaching the caves dropped dramatically, and some caves that once held huge numbers were almost empty. Scientists believe that severe drought on the plains reduced the plants that the caterpillars feed on, so fewer moths survived to make the trip. During those years, researchers reported that mountain pygmy possums in some areas struggled to raise their young. In 2021, the Bogong moth was listed as endangered by the International Union for Conservation of Nature.
+Researchers now monitor the caves each year, and some communities encourage people to switch off unnecessary outdoor lights during the migration season. The Bogong moth is a reminder that the health of a mountain can depend on events hundreds of kilometres away, and on a creature small enough to sit on your fingertip.",What is the main idea of the paragraph that begins 'For such small creatures'?,,B,Mountain pygmy possums wake hungry after hibernating.,The moths are an important food for many animals and people.,Aboriginal peoples have roasted moths for thousands of years.,The moths' bodies contain more fat than most insects.,,3,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1592.5,36,1,5,Medium
+NAPLAN-Y8-READING-M2-Q44,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 6,8,English,Reading Comprehension,Text Structure,ReadingComprehension,"The Moths That Follow the Stars
+Every spring, as the weather warms, millions of brown moths set off on one of the most remarkable journeys made by any insect. Bogong moths, each with a body barely as long as a paperclip, fly up to a thousand kilometres from the plains of southern Queensland, New South Wales and western Victoria to the Australian Alps. There they crowd into cool caves and rock crevices near the mountain tops, sometimes packed so tightly that the walls appear to be covered in brown roof tiles.
+The moths travel to escape the heat. Summer on the plains is too hot and dry for them, so instead of feeding and breeding they spend the warm months resting in the cool mountain air, in a state of reduced activity similar to hibernation. When autumn arrives, they fly all the way back to the plains, where they mate, lay their eggs and die. The following spring, a new generation of moths, none of which has ever seen the mountains, makes the same journey to the same caves.
+How they find their way has puzzled scientists for decades. The moths fly at night, so they cannot rely on landmarks in the way that many birds do. Research has shown that they can sense the Earth's magnetic field, and recent studies have found that they also use the pattern of stars in the night sky as a compass. When city lights or thick cloud hide the stars, the moths can become confused. In some years, swarms have drifted off course into the bright lights of Canberra and even Sydney.
+For such small creatures, Bogong moths punch well above their weight in the alpine ecosystem. Their bodies are rich in fat, so the moths arriving each spring deliver a huge supply of energy to the mountains. Birds, lizards and small mammals feast on them. One animal depends on them more than any other: the endangered mountain pygmy possum, which wakes from its winter hibernation hungry and relies heavily on the moths to rebuild its strength before breeding. For thousands of years, Aboriginal peoples also travelled to the high country in summer to gather the moths, roasting them as a rich and nourishing food.
+In recent years, however, the journey has become far less crowded. Between 2017 and 2019, the number of moths reaching the caves dropped dramatically, and some caves that once held huge numbers were almost empty. Scientists believe that severe drought on the plains reduced the plants that the caterpillars feed on, so fewer moths survived to make the trip. During those years, researchers reported that mountain pygmy possums in some areas struggled to raise their young. In 2021, the Bogong moth was listed as endangered by the International Union for Conservation of Nature.
+Researchers now monitor the caves each year, and some communities encourage people to switch off unnecessary outdoor lights during the migration season. The Bogong moth is a reminder that the health of a mountain can depend on events hundreds of kilometres away, and on a creature small enough to sit on your fingertip.",Which description best fits the way the passage is organised?,,A,"It describes a natural event, explains its importance, then reveals a threat to it.","It follows a single moth through its life, from egg to death, in time order.",It presents a problem first and then describes several solutions in detail.,"It compares Bogong moths with birds, and then compares them with possums.",,4,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1592.6,36,2,7,Hard
+NAPLAN-Y8-READING-M2-Q45,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 6,8,English,Inference,Drawing Conclusions,ReadingComprehension,"The Moths That Follow the Stars
+Every spring, as the weather warms, millions of brown moths set off on one of the most remarkable journeys made by any insect. Bogong moths, each with a body barely as long as a paperclip, fly up to a thousand kilometres from the plains of southern Queensland, New South Wales and western Victoria to the Australian Alps. There they crowd into cool caves and rock crevices near the mountain tops, sometimes packed so tightly that the walls appear to be covered in brown roof tiles.
+The moths travel to escape the heat. Summer on the plains is too hot and dry for them, so instead of feeding and breeding they spend the warm months resting in the cool mountain air, in a state of reduced activity similar to hibernation. When autumn arrives, they fly all the way back to the plains, where they mate, lay their eggs and die. The following spring, a new generation of moths, none of which has ever seen the mountains, makes the same journey to the same caves.
+How they find their way has puzzled scientists for decades. The moths fly at night, so they cannot rely on landmarks in the way that many birds do. Research has shown that they can sense the Earth's magnetic field, and recent studies have found that they also use the pattern of stars in the night sky as a compass. When city lights or thick cloud hide the stars, the moths can become confused. In some years, swarms have drifted off course into the bright lights of Canberra and even Sydney.
+For such small creatures, Bogong moths punch well above their weight in the alpine ecosystem. Their bodies are rich in fat, so the moths arriving each spring deliver a huge supply of energy to the mountains. Birds, lizards and small mammals feast on them. One animal depends on them more than any other: the endangered mountain pygmy possum, which wakes from its winter hibernation hungry and relies heavily on the moths to rebuild its strength before breeding. For thousands of years, Aboriginal peoples also travelled to the high country in summer to gather the moths, roasting them as a rich and nourishing food.
+In recent years, however, the journey has become far less crowded. Between 2017 and 2019, the number of moths reaching the caves dropped dramatically, and some caves that once held huge numbers were almost empty. Scientists believe that severe drought on the plains reduced the plants that the caterpillars feed on, so fewer moths survived to make the trip. During those years, researchers reported that mountain pygmy possums in some areas struggled to raise their young. In 2021, the Bogong moth was listed as endangered by the International Union for Conservation of Nature.
+Researchers now monitor the caves each year, and some communities encourage people to switch off unnecessary outdoor lights during the migration season. The Bogong moth is a reminder that the health of a mountain can depend on events hundreds of kilometres away, and on a creature small enough to sit on your fingertip.",What can be concluded from the information about the years 2017 to 2019?,,D,Mountain pygmy possums caused the decline by eating too many moths.,The drought dried out the mountain caves where the moths rest.,Mountain pygmy possums could easily switch to other kinds of food.,A drought far from the Alps can harm animals living in the mountains.,,4,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1592.7,36,2,8,Hard
+NAPLAN-Y8-READING-M2-Q46,NAPLAN-Y8-READING-M2,NAPLAN_STYLE_READING,Text 6,8,English,Reading Comprehension,Evaluating Evidence,ReadingComprehension,"The Moths That Follow the Stars
+Every spring, as the weather warms, millions of brown moths set off on one of the most remarkable journeys made by any insect. Bogong moths, each with a body barely as long as a paperclip, fly up to a thousand kilometres from the plains of southern Queensland, New South Wales and western Victoria to the Australian Alps. There they crowd into cool caves and rock crevices near the mountain tops, sometimes packed so tightly that the walls appear to be covered in brown roof tiles.
+The moths travel to escape the heat. Summer on the plains is too hot and dry for them, so instead of feeding and breeding they spend the warm months resting in the cool mountain air, in a state of reduced activity similar to hibernation. When autumn arrives, they fly all the way back to the plains, where they mate, lay their eggs and die. The following spring, a new generation of moths, none of which has ever seen the mountains, makes the same journey to the same caves.
+How they find their way has puzzled scientists for decades. The moths fly at night, so they cannot rely on landmarks in the way that many birds do. Research has shown that they can sense the Earth's magnetic field, and recent studies have found that they also use the pattern of stars in the night sky as a compass. When city lights or thick cloud hide the stars, the moths can become confused. In some years, swarms have drifted off course into the bright lights of Canberra and even Sydney.
+For such small creatures, Bogong moths punch well above their weight in the alpine ecosystem. Their bodies are rich in fat, so the moths arriving each spring deliver a huge supply of energy to the mountains. Birds, lizards and small mammals feast on them. One animal depends on them more than any other: the endangered mountain pygmy possum, which wakes from its winter hibernation hungry and relies heavily on the moths to rebuild its strength before breeding. For thousands of years, Aboriginal peoples also travelled to the high country in summer to gather the moths, roasting them as a rich and nourishing food.
+In recent years, however, the journey has become far less crowded. Between 2017 and 2019, the number of moths reaching the caves dropped dramatically, and some caves that once held huge numbers were almost empty. Scientists believe that severe drought on the plains reduced the plants that the caterpillars feed on, so fewer moths survived to make the trip. During those years, researchers reported that mountain pygmy possums in some areas struggled to raise their young. In 2021, the Bogong moth was listed as endangered by the International Union for Conservation of Nature.
+Researchers now monitor the caves each year, and some communities encourage people to switch off unnecessary outdoor lights during the migration season. The Bogong moth is a reminder that the health of a mountain can depend on events hundreds of kilometres away, and on a creature small enough to sit on your fingertip.",Which detail best supports the idea that the moths' ability to find the caves is inborn rather than learned?,,A,"'a new generation of moths, none of which has ever seen the mountains, makes the same journey'",'Research has shown that they can sense the Earth's magnetic field','they also use the pattern of stars in the night sky as a compass','swarms have drifted off course into the bright lights of Canberra',,4,1,1,"NAPLAN,Year 8,Mock 2",English_Comprehension_Questions_expanded.csv,8.1592.8,36,2,7,Hard

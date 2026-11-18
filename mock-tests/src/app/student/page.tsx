@@ -2,10 +2,32 @@ import { requireRole } from '@/lib/rbac/require-role'
 import { createClient } from '@/lib/supabase/server'
 import Link from 'next/link'
 import { DashboardLayout } from "@/components/layout/DashboardLayout"
+import { StudentNavBar } from "@/components/layout/StudentNavBar"
 import { Badge } from "@/components/ui/Badge"
 import { getThemeForYear } from './themes'
 import { YearMascot } from './YearMascot'
 import css from './student-dashboard.module.css'
+import {
+  loadStudentToday,
+  primaryTarget,
+  countdownSentence,
+  targetSentence,
+} from '@/lib/reporting/student-today'
+
+/** Shape of the assignment rows rendered as cards on the dashboard. */
+type EmbeddedTest = {
+  id?: string
+  title?: string | null
+  exam_type?: string | null
+  time_limit_mins?: number | null
+}
+
+type AssignmentCardRow = {
+  id: string
+  // PostgREST returns a to-one embed as an object, but supabase-js types it as an
+  // array when the client has no generated Database types. Accept both.
+  tests?: EmbeddedTest | EmbeddedTest[] | null
+}
 
 export default async function StudentDashboard() {
   const { user } = await requireRole(['STUDENT'])
@@ -39,26 +61,33 @@ export default async function StudentDashboard() {
     `)
     .eq('student_id', profile.id)
 
-  const { count: completedAttemptsCount } = await supabase
-    .from('attempts')
-    .select('*', { count: 'exact', head: true })
-    .eq('student_id', profile.id)
-    .eq('status', 'COMPLETE')
+  // "Tests Done" is a practice QUANTITY, not a result, so a student is entitled to
+  // see it - but migration 015 removed student SELECT on `attempts`, so this can no
+  // longer be a direct table query (it would silently return 0 forever). The
+  // SECURITY DEFINER function returns `integer` and nothing else, so there is no
+  // column in which a score could hide.
+  //
+  // Note the count now includes SUBMITTED as well as COMPLETE, which the previous
+  // query did not: a submitted test is finished practice, and excluding it
+  // under-counted any attempt still awaiting its writing mark.
+  const { data: completedAttemptsCount } = await supabase.rpc('my_completed_attempt_count', {
+    p_student_id: profile.id,
+  })
 
   const activeAssignments = assignments || []
   const completedCount = Number(completedAttemptsCount) || 0
 
-  const DAY_LABELS = ['M', 'T', 'W', 'T', 'F', 'S', 'S']
-  // Mock streak data (replace with real data later)
-  const streakDays = [1, 1, 1, 1, 1, 0, 0]
+  // Reports S1 (exam countdown) and S2 (daily practice target) - the only two
+  // reporting reads a student is permitted. See lib/reporting/student-today.ts.
+  const today = await loadStudentToday(profile.id)
+  const target = primaryTarget(today.rows)
 
   return (
     <DashboardLayout
       role="STUDENT"
       userName={profile.username}
-      hasActiveTests={activeAssignments.length > 0}
-      hasCompletedTests={completedCount > 0}
       hideSidebar={true}
+      topBar={<StudentNavBar userName={profile.username} />}
     >
       {/* ===== Hero Banner ===== */}
       <div
@@ -106,25 +135,21 @@ export default async function StudentDashboard() {
             🎯
           </div>
           <div>
+            {/* S1 - exam countdown. Replaces a hardcoded "65% Goal Progress" bar,
+                which was mock data: a fabricated percentage shown to a child as
+                though it were a measurement. */}
             <div className={css.statValue} style={{ color: theme.colors.primaryDark }}>
-              65%
+              {target?.exam_passed
+                ? '🎉'
+                : target?.days_to_exam !== null && target?.days_to_exam !== undefined
+                  ? target.days_to_exam
+                  : '—'}
             </div>
             <div className={css.statLabel} style={{ color: theme.colors.primaryDark }}>
-              Goal Progress
+              {target?.exam_date && !target.exam_passed ? 'Days to go' : 'Days to go'}
             </div>
-            <div
-              className={css.progressBarOuter}
-              style={{ background: `${theme.colors.primary}22`, marginTop: '0.5rem', width: '100px' }}
-              role="progressbar"
-              aria-valuenow={65}
-              aria-valuemin={0}
-              aria-valuemax={100}
-              aria-label="Goal progress: 65%"
-            >
-              <div
-                className={css.progressBarInner}
-                style={{ width: '65%', background: theme.colors.primary }}
-              />
+            <div style={{ marginTop: '0.5rem', fontSize: '0.75rem', color: theme.colors.primaryDark }}>
+              {countdownSentence(target)}
             </div>
           </div>
         </div>
@@ -182,7 +207,12 @@ export default async function StudentDashboard() {
         </div>
       </div>
 
-      {/* ===== Streak Section ===== */}
+      {/* ===== S2: Today's practice target ===== */}
+      {/* Replaces a hardcoded "5 Day Streak!" with fabricated dots. A streak is a
+          loss frame: it shows a child what they have broken. Rule B4 prohibits it,
+          and the numbers were mock data in any case. The daily target answers the
+          question a child actually asks - "how much should I do today?" - and
+          cannot be failed in a way that is displayed. */}
       <div
         className={css.streakSection}
         style={{
@@ -190,29 +220,19 @@ export default async function StudentDashboard() {
           borderColor: `${theme.colors.streakColor}18`,
         }}
         role="region"
-        aria-label="Weekly activity streak"
+        aria-label="Today's practice target"
       >
         <div className={css.streakMeta}>
           <h2 className={css.streakTitle}>
-            🔥 5 Day Streak! {theme.encouragement}
+            🎯 {targetSentence(target)} {theme.encouragement}
           </h2>
-          <p className={css.streakSubtitle}>Keep practising to build your streak!</p>
-        </div>
-        <div className={css.streakDots} aria-label="5 of 7 days active this week">
-          {streakDays.map((active, i) => (
-            <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.25rem' }}>
-              <div
-                className={`${css.streakDot} ${active ? css.streakDotActive : css.streakDotInactive}`}
-                style={{
-                  background: active ? theme.colors.streakColor : `${theme.colors.streakColor}20`,
-                }}
-                aria-label={`${DAY_LABELS[i]}: ${active ? 'Active' : 'Inactive'}`}
-              >
-                {active ? '✓' : ''}
-              </div>
-              <span className={css.streakDotLabel}>{DAY_LABELS[i]}</span>
-            </div>
-          ))}
+          <p className={css.streakSubtitle}>
+            {today.error
+              ? 'We could not load your practice right now. Try again in a minute.'
+              : target?.daily_target_units && target.daily_target_units > 0
+                ? 'Small and steady is the way to go.'
+                : 'No pressure today.'}
+          </p>
         </div>
       </div>
 
@@ -245,9 +265,10 @@ export default async function StudentDashboard() {
         </div>
       ) : (
         <div className={css.assignmentGrid}>
-          {activeAssignments.map((assignment: any, index: number) => {
+          {activeAssignments.map((assignment: AssignmentCardRow, index: number) => {
             // Alternate card tints between primary and secondary for visual variety
             const isEven = index % 2 === 0
+            const test = Array.isArray(assignment.tests) ? assignment.tests[0] : assignment.tests
             const cardBg = isEven ? theme.colors.primaryLight : theme.colors.secondaryLight
             const iconBg = isEven ? `${theme.colors.primary}18` : `${theme.colors.secondary}18`
             const iconColor = isEven ? theme.colors.primary : theme.colors.secondary
@@ -273,14 +294,14 @@ export default async function StudentDashboard() {
                   </div>
                   <div className={css.assignmentInfo}>
                     <h3 className={css.assignmentTitle} style={{ color: 'var(--color-text)' }}>
-                      {assignment.tests?.title}
+                      {test?.title}
                     </h3>
                     <div className={css.assignmentMeta}>
                       <span className={css.assignmentMetaItem}>
-                        <Badge variant="outline" style={{ fontSize: '0.6rem' }}>{assignment.tests?.exam_type}</Badge>
+                        <Badge variant="outline" style={{ fontSize: '0.6rem' }}>{test?.exam_type}</Badge>
                       </span>
                       <span className={css.assignmentMetaItem}>
-                        ⏱️ {assignment.tests?.time_limit_mins} mins
+                        ⏱️ {test?.time_limit_mins} mins
                       </span>
                     </div>
                   </div>
@@ -290,7 +311,7 @@ export default async function StudentDashboard() {
                   href={`/student/test/${assignment.id}`}
                   className={css.startButton}
                   style={{ background: btnColor }}
-                  aria-label={`Start test: ${assignment.tests?.title}`}
+                  aria-label={`Start test: ${test?.title}`}
                 >
                   Let&apos;s Go! ▶
                 </Link>

@@ -398,8 +398,10 @@ export const howToMasterSealProgramExams = {
   image:
     "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Stack of books and study materials on a desk with a student preparing for an academic exam",
-  date: "March 28, 2026",
+    "Stack of books and study materials on a desk with a student preparing for an academic exam",  date: "September 30, 2026",
+  updatedDate: "October 2, 2026",
+  readingTime: 17,
+  category: "selective-schools",
   tags: [
     "SEAL PROGRAM",
     "SELECTIVE ENTRY",
@@ -426,6 +428,13 @@ export const howToMasterSealProgramExams = {
     "SEAL vs selective entry schools",
     "SEAL program application process",
     "how to prepare for SEAL exam Year 7",
+  ],
+  keyTakeaways: [
+    "SEAL is Victoria's Select Entry Accelerated Learning program, offering accelerated learning to high-ability students in government schools.",
+    "The guide identifies which schools offer SEAL programs and explains how the selection process works beyond the exam itself.",
+    "The SEAL exam format and what to expect are broken down component by component, with mastery strategies for each.",
+    "Preparation follows a timeline, and exam-day practicalities are covered separately from content preparation.",
+    "Common mistakes to avoid are listed explicitly, since selection depends on more than raw test performance.",
   ],
   author: {
     name: "Ashish Jain",

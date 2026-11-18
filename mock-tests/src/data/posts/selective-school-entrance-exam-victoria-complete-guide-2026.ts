@@ -451,8 +451,10 @@ export const selectiveSchoolEntranceExamVictoriaGuide = {
   image:
     "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Secondary school building entrance with students walking towards it on a clear morning",
-  date: "March 28, 2026",
+    "Secondary school building entrance with students walking towards it on a clear morning",  date: "December 20, 2026",
+  updatedDate: "December 22, 2026",
+  readingTime: 18,
+  category: "selective-schools",
   tags: [
     "SELECTIVE ENTRY",
     "VICTORIA",
@@ -480,6 +482,13 @@ export const selectiveSchoolEntranceExamVictoriaGuide = {
     "selective school exam key dates 2026",
     "selective entry exam eligibility Victoria",
     "selective school exam tips parents",
+  ],
+  keyTakeaways: [
+    "A complete 2026 guide to Victoria's selective-entry high school exam: eligibility, format, key dates, application steps and results day.",
+    "The application process is set out step by step, including how to choose and order school preferences.",
+    "Scoring and offer-making are explained separately, since a strong score does not automatically translate into an offer.",
+    "Special provisions and adjustments are covered for students who need them.",
+    "A comprehensive preparation strategy and a closing section on managing expectations help families plan realistically.",
   ],
   author: {
     name: "Ashish Jain",

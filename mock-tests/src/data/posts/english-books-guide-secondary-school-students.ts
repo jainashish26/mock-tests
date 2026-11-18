@@ -360,12 +360,32 @@ export const englishBooksSecondarySchoolGuide = {
       </section>
 
     </article>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>How is this guide organised for secondary students?</h3>
+    <p>By year level, with each year given a theme and its own recommendations: Year 7 covers transition, identity and new worlds; Year 8 covers complexity, perspective and voice; Year 9 covers critical analysis, argument and sophistication. Each year lists fiction, non-fiction and poetry separately, plus tips for parents.</p>
+
+    <h3>What changes in English at secondary school?</h3>
+    <p>The guide has a section on exactly this. The shift is in kind rather than difficulty: students move from demonstrating comprehension toward analysing how a text constructs meaning, evaluating arguments, and writing with a distinct voice. Reading choices should reflect that, which is why the Year 9 list leans toward texts that reward analysis.</p>
+
+    <h3>Will these books help with NAPLAN?</h3>
+    <p>Yes, particularly for the Year 7 and Year 9 reading tests. There is a dedicated section on non-fiction that builds NAPLAN and analytical skills, because NAPLAN reading relies heavily on informational and persuasive texts rather than narrative fiction alone.</p>
+
+    <h3>My teenager has stopped reading for pleasure. What helps?</h3>
+    <p>The reluctant readers section for Years 7-9 covers strategies that work and high-engagement titles selected for this age group. The most effective moves are usually to stop policing what counts as 'proper' reading, offer genuine choice, and find short high-interest texts that can be finished quickly.</p>
+
+    <h3>How do you build a reading culture with a teenager?</h3>
+    <p>Differently from primary school - autonomy matters more than routine. The guide's practical steps for teenagers focus on choice, access and conversation rather than scheduled reading time, and its closing argument is that reading is thinking, which is the framing most likely to land with this age group.</p>
+
   `,
   image:
     "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Teenager reading a novel at a desk with bookshelves in the background",
-  date: "March 28, 2026",
+    "Teenager reading a novel at a desk with bookshelves in the background",  date: "September 3, 2026",
+  updatedDate: "September 5, 2026",
+  readingTime: 22,
+  category: "naplan",
   tags: [
     "ENGLISH",
     "READING",
@@ -395,6 +415,13 @@ export const englishBooksSecondarySchoolGuide = {
     "Jasper Jones study guide",
     "secondary school reading list Australia",
     "English books for teenagers 2026",
+  ],
+  keyTakeaways: [
+    "A year-by-year reading guide for Australian secondary students in Years 7, 8 and 9, with fiction, non-fiction and poetry recommendations at each stage.",
+    "Year 7 centres on transition, identity and new worlds; Year 8 on complexity, perspective and voice; Year 9 on critical analysis, argument and sophistication.",
+    "Secondary English changes in kind, not just difficulty - analysis and evaluation replace comprehension and recall.",
+    "Dedicated sections cover reluctant readers in Years 7-9 and non-fiction that builds NAPLAN and analytical skills.",
+    "Building a reading culture for teenagers needs a different approach from primary school, and the guide sets out practical steps.",
   ],
   author: {
     name: "Ashish Jain",

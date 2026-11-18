@@ -1,20 +1,51 @@
 import { requireRole } from '@/lib/rbac/require-role'
 import { ChildCreationForm } from '@/features/auth/components/ChildCreationForm'
+import { SiblingRepurchaseCard } from '@/features/monetisation/SiblingRepurchaseCard'
 import { createClient } from '@/lib/supabase/server'
 import Link from 'next/link'
-import { DashboardLayout } from "@/components/layout/DashboardLayout"
-import { SpatialCard } from "@/components/ui/SpatialCard"
-import { Badge } from "@/components/ui/Badge"
-import { Button } from "@/components/ui/Button"
-import { Users, GraduationCap, ChevronRight, BarChart2, BookOpen } from "lucide-react"
+import { DashboardLayout } from '@/components/layout/DashboardLayout'
+import {
+  Users,
+  GraduationCap,
+  ChevronRight,
+  BarChart2,
+  BookOpen,
+  Sparkles,
+  UserPlus,
+  ShieldCheck,
+  Info,
+  ClipboardList,
+  ArrowRight,
+} from 'lucide-react'
+import css from './parent-dashboard.module.css'
 
+const MAX_STUDENTS = 4
 
+type Attempt = {
+  id: string
+  status: string | null
+  score_out_of100: number | string | null
+}
+
+type LinkedChild = {
+  id: string
+  username: string
+  year_level: number
+  created_at: string | null
+  attempts: Attempt[] | null
+}
+
+function scoreTone(value: number) {
+  if (value >= 80) return css.statValueGood
+  if (value >= 50) return css.statValueMid
+  return css.statValueLow
+}
 
 export default async function ParentDashboard() {
   const { user } = await requireRole(['PARENT'])
   const supabase = await createClient()
-  
-  const { data: links } = await supabase
+
+  const { data } = await supabase
     .from('parent_student_links')
     .select(`
       student_profiles (
@@ -31,104 +62,266 @@ export default async function ParentDashboard() {
     `)
     .eq('parent_user_id', user.id)
 
-  const students = links?.map(l => (l as any).student_profiles).filter(Boolean) || []
+  type LinkRow = { student_profiles: LinkedChild | null }
+  const links = (data ?? []) as unknown as LinkRow[]
+
+  const students = links
+    .map((l) => l.student_profiles)
+    .filter((s): s is LinkedChild => s !== null && s !== undefined)
+
+  const kids = students.map((child) => {
+    const attempts = child.attempts ?? []
+    const completed = attempts.filter((a) => a.status === 'COMPLETE')
+    const scores = completed.map((a) => Number(a.score_out_of100) || 0)
+    const avgScore = scores.length
+      ? Math.round(scores.reduce((sum, s) => sum + s, 0) / scores.length)
+      : null
+    const bestScore = scores.length ? Math.max(...scores) : null
+
+    return {
+      id: child.id,
+      username: child.username,
+      yearLevel: child.year_level,
+      joinedLabel: child.created_at
+        ? `Joined ${new Date(child.created_at).toLocaleDateString('en-AU', { month: 'short', year: 'numeric' })}`
+        : null,
+      hasAttempts: attempts.length > 0,
+      completedCount: completed.length,
+      avgScore,
+      bestScore,
+      scores,
+    }
+  })
+
+  const totalCompleted = kids.reduce((sum, k) => sum + k.completedCount, 0)
+  const allScores = kids.flatMap((k) => k.scores)
+  const overallAvg = allScores.length
+    ? Math.round(allScores.reduce((sum, s) => sum + s, 0) / allScores.length)
+    : null
 
   return (
     <DashboardLayout role="PARENT" userName="Parent Account">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
-            <h2 style={{ fontSize: '1.75rem', fontWeight: 800, margin: 0 }}>Linked Children</h2>
-            <Badge variant="secondary"><Users size={12} className="mr-1" /> {students.length} Registered</Badge>
+      <div className={css.page}>
+        {/* ── Hero ── */}
+        <section className={css.hero} aria-label="Family overview">
+          <div className={`${css.heroDecor} ${css.heroDecor1}`} aria-hidden="true" />
+          <div className={`${css.heroDecor} ${css.heroDecor2}`} aria-hidden="true" />
+          <div className={`${css.heroDecor} ${css.heroDecor3}`} aria-hidden="true" />
+          <div className={css.heroArt} aria-hidden="true">
+            <GraduationCap size={170} strokeWidth={1.5} />
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            {students.length === 0 ? (
-              <SpatialCard intensity={0}>
-                  <div style={{ padding: '4rem', textAlign: 'center' }}>
-                    <Users size={48} style={{ color: 'var(--muted-foreground)', opacity: 0.2, marginBottom: '1rem' }} />
-                    <h3 style={{ margin: 0 }}>No Children Linked</h3>
-                    <p style={{ color: 'var(--muted-foreground)' }}>Create a student profile to start assigned tests and track progress.</p>
-                  </div>
-              </SpatialCard>
-            ) : (
-                students.map((s: any) => {
-                  const completedAttempts = s.attempts?.filter((a: any) => a.status === 'COMPLETE') || []
-                  const hasAttempts = s.attempts && s.attempts.length > 0
-                  
-                  let avgScore = 0
-                  if (completedAttempts.length > 0) {
-                    const total = completedAttempts.reduce((sum: number, att: any) => sum + (Number(att.score_out_of100) || 0), 0)
-                    avgScore = Math.round(total / completedAttempts.length)
-                  }
+          <div className={css.heroContent}>
+            <span className={css.heroBadge}>
+              <Sparkles size={12} aria-hidden="true" /> Parent Dashboard
+            </span>
+            <h2 className={css.heroTitle}>
+              Your family&rsquo;s exam journey, all in one place
+            </h2>
+            <p className={css.heroTagline}>
+              Assign mock tests, track scores and see exactly where each child
+              needs a little more practice.
+            </p>
+            <div className={css.heroActions}>
+              <Link href="/tests" className={css.heroCtaPrimary}>
+                Browse Test Store <ArrowRight size={16} aria-hidden="true" />
+              </Link>
+              <a href="#add-profile" className={css.heroCtaGhost}>
+                <UserPlus size={16} aria-hidden="true" /> Add Child Profile
+              </a>
+            </div>
+          </div>
 
-                  return (
-                  <SpatialCard key={s.id} intensity={5}>
-                    <div style={{ padding: '1.5rem 2rem' }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-                            <div style={{ width: '3.5rem', height: '3.5rem', borderRadius: '50%', background: 'linear-gradient(135deg, var(--primary), #a855f7)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem', fontWeight: 800 }}>
-                                {s.username.charAt(0).toUpperCase()}
-                            </div>
-                            <div>
-                                <h3 style={{ margin: 0, fontSize: '1.25rem' }}>{s.username}</h3>
-                                <div style={{ color: 'var(--muted-foreground)', fontSize: '0.875rem', marginTop: '0.25rem' }}>
-                                    <Badge variant="outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}><GraduationCap size={12} /> Year {s.year_level}</Badge>
-                                </div>
-                            </div>
-                        </div>
-                        {hasAttempts && (
-                          <Link href={`/parent/child/${s.id}`}>
-                              <Button variant="ghost" className="inline-flex items-center gap-2">View Report <BarChart2 size={16} /></Button>
-                          </Link>
-                        )}
+          <div className={css.heroStats}>
+            <div className={css.heroStat}>
+              <div className={css.heroStatValue}>{kids.length}</div>
+              <div className={css.heroStatLabel}>Linked Children</div>
+            </div>
+            <div className={css.heroStat}>
+              <div className={css.heroStatValue}>{totalCompleted}</div>
+              <div className={css.heroStatLabel}>Tests Completed</div>
+            </div>
+            <div className={css.heroStat}>
+              <div className={css.heroStatValue}>
+                {overallAvg !== null ? `${overallAvg}%` : '—'}
+              </div>
+              <div className={css.heroStatLabel}>Avg Score</div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Children + Add-profile grid ── */}
+        <div className={css.grid}>
+          <section aria-labelledby="linked-children-title">
+            <div className={css.sectionHeader}>
+              <h2 className={css.sectionTitle} id="linked-children-title">
+                <span className={css.sectionTitleIcon} aria-hidden="true">
+                  <Users size={18} />
+                </span>
+                Linked Children
+              </h2>
+              <span className={css.countPill}>
+                <Users size={12} aria-hidden="true" /> {kids.length} Registered
+              </span>
+            </div>
+
+            <div className={css.childrenList}>
+              {kids.length === 0 ? (
+                <div className={css.emptyState}>
+                  <div className={css.emptyIcon} aria-hidden="true">
+                    <Users size={30} />
+                  </div>
+                  <h3 className={css.emptyTitle}>No children linked yet</h3>
+                  <p className={css.emptyText}>
+                    Create your first student profile to assign mock tests and
+                    start tracking progress.
+                  </p>
+                  <a href="#add-profile" className={css.btnPrimary}>
+                    <UserPlus size={15} aria-hidden="true" /> Add your first
+                    child
+                  </a>
+                </div>
+              ) : (
+                kids.map((k) => (
+                  <article key={k.id} className={css.childCard}>
+                    <div className={css.childTop}>
+                      <div className={css.childAvatar} aria-hidden="true">
+                        {k.username.charAt(0).toUpperCase()}
                       </div>
-                      
-                      <div style={{ marginTop: '2rem', display: 'flex', gap: '1.5rem', paddingTop: '1.5rem', borderTop: '1px solid var(--color-border)' }}>
-                        {hasAttempts ? (
-                          <>
-                            <div style={{ flex: 1, textAlign: 'center' }}>
-                                <div style={{ fontSize: '1.25rem', fontWeight: 800 }}>{completedAttempts.length}</div>
-                                <div style={{ fontSize: '0.6875rem', color: 'var(--muted-foreground)', textTransform: 'uppercase' }}>Completed Tests</div>
-                            </div>
-                            <div style={{ width: '1px', background: 'var(--color-border)' }} />
-                            <div style={{ flex: 1, textAlign: 'center' }}>
-                                <div style={{ fontSize: '1.25rem', fontWeight: 800 }}>{avgScore}%</div>
-                                <div style={{ fontSize: '0.6875rem', color: 'var(--muted-foreground)', textTransform: 'uppercase' }}>Avg Score</div>
-                            </div>
-                          </>
-                        ) : (
-                          <div style={{ flex: 2, textAlign: 'center', color: 'var(--muted-foreground)', fontSize: '0.875rem', alignSelf: 'center' }}>
-                            No tests taken yet.
-                          </div>
-                        )}
-                        <div style={{ flex: 2, display: 'flex', gap: '0.5rem' }}>
-                            <Link href={`/parent/child/${s.id}`} style={{ flex: 1 }}>
-                                <Button className="w-full" size="sm">Assign Test <ChevronRight size={14} /></Button>
-                            </Link>
-                            <Link href={`/tests`} style={{ flex: 1 }}>
-                                <Button variant="outline" className="w-full" size="sm">Store <BookOpen size={14} /></Button>
-                            </Link>
+                      <div className={css.childInfo}>
+                        <h3 className={css.childName}>{k.username}</h3>
+                        <div className={css.childMeta}>
+                          <span className={css.yearBadge}>
+                            <GraduationCap size={12} aria-hidden="true" /> Year{' '}
+                            {k.yearLevel}
+                          </span>
+                          {k.joinedLabel && (
+                            <span className={css.joinedLabel}>
+                              {k.joinedLabel}
+                            </span>
+                          )}
                         </div>
                       </div>
                     </div>
-                  </SpatialCard>
-                  )
-                })
-            )}
-          </div>
-        </div>
-        
-        <div style={{ position: 'sticky', top: '2rem' }}>
-          <SpatialCard intensity={2}>
-            <div style={{ padding: '2.5rem' }}>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: '0.5rem' }}>Add a Student Profile</h3>
-                <p style={{ color: 'var(--muted-foreground)', fontSize: '0.875rem', marginBottom: '2rem' }}>Creating a profile for your child allows you to assign specific mock tests to them and monitor their results individually.</p>
-                <ChildCreationForm maxStudents={4} currentCount={students.length} />
+
+                    <div className={css.childBody}>
+                      {k.hasAttempts ? (
+                        <div className={css.statsRow}>
+                          <div>
+                            <div className={css.statValue}>
+                              {k.completedCount}
+                            </div>
+                            <div className={css.statLabel}>Tests Completed</div>
+                          </div>
+                          <div>
+                            <div
+                              className={`${css.statValue} ${
+                                k.avgScore !== null ? scoreTone(k.avgScore) : ''
+                              }`}
+                            >
+                              {k.avgScore !== null ? `${k.avgScore}%` : '—'}
+                            </div>
+                            <div className={css.statLabel}>Avg Score</div>
+                            {k.avgScore !== null && (
+                              <div
+                                className={css.progressTrack}
+                                role="progressbar"
+                                aria-valuenow={k.avgScore}
+                                aria-valuemin={0}
+                                aria-valuemax={100}
+                                aria-label={`Average score ${k.avgScore} percent`}
+                              >
+                                <div
+                                  className={css.progressFill}
+                                  style={{ width: `${k.avgScore}%` }}
+                                />
+                              </div>
+                            )}
+                          </div>
+                          <div>
+                            <div className={css.statValue}>
+                              {k.bestScore !== null ? `${k.bestScore}%` : '—'}
+                            </div>
+                            <div className={css.statLabel}>Best Score</div>
+                          </div>
+                        </div>
+                      ) : (
+                        <p className={css.noDataNote}>
+                          <Info size={16} aria-hidden="true" /> No tests taken
+                          yet — assign the first test to see progress here.
+                        </p>
+                      )}
+                    </div>
+
+                    <div className={css.childActions}>
+                      <Link
+                        href={`/parent/child/${k.id}`}
+                        className={css.btnPrimary}
+                      >
+                        <ClipboardList size={15} aria-hidden="true" /> Assign
+                        Test
+                      </Link>
+                      {k.completedCount > 0 && (
+                        <Link
+                          href={`/parent/child/${k.id}`}
+                          className={css.btnOutline}
+                        >
+                          <BarChart2 size={15} aria-hidden="true" /> View Report
+                        </Link>
+                      )}
+                      <Link href="/tests" className={css.btnGhostLink}>
+                        <BookOpen size={15} aria-hidden="true" /> Test Store{' '}
+                        <ChevronRight size={14} aria-hidden="true" />
+                      </Link>
+                    </div>
+                  </article>
+                ))
+              )}
             </div>
-          </SpatialCard>
+          </section>
+
+          <aside className={css.sideColumn}>
+            <div className={css.addPanel} id="add-profile">
+              <div className={css.addPanelHeader}>
+                <span className={css.addPanelIcon} aria-hidden="true">
+                  <UserPlus size={20} />
+                </span>
+                <div>
+                  <h2 className={css.addPanelTitle}>Add a Student Profile</h2>
+                  <p className={css.addPanelSub}>
+                    Up to {MAX_STUDENTS} child profiles per account
+                  </p>
+                </div>
+              </div>
+              <p className={css.addPanelDesc}>
+                Create a profile for each child to assign mock tests and monitor
+                their results individually.
+              </p>
+              <div className={css.privacyNote}>
+                <ShieldCheck
+                  size={16}
+                  className={css.privacyNoteIcon}
+                  aria-hidden="true"
+                />
+                <span>
+                  Privacy-first: we never ask for real names — each child gets a
+                  fun generated username.
+                </span>
+              </div>
+              <ChildCreationForm
+                maxStudents={MAX_STUDENTS}
+                currentCount={kids.length}
+              />
+            </div>
+          </aside>
         </div>
+
+        {/* N-8: one-tap re-purchase for customers with another child. Renders
+            nothing unless the server says the family is eligible. */}
+        <SiblingRepurchaseCard userId={user.id} />
       </div>
     </DashboardLayout>
   )
 }
+
+

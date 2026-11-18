@@ -1,0 +1,44 @@
+﻿QuestionNumber,QuestionID,ExamSection,Correct,CorrectAnswerText,Topic,SubTopic,DifficultyLabel,DifficultyScore,SourceQuestionNumber
+1,NAPLAN-Y8-READING-M3-Q01,Text 1,D,The paragraphs highlight the narrators' strong desire to regain a sense of closeness.,Inference,Drawing Conclusions,Medium,5,8.895.1
+2,NAPLAN-Y8-READING-M3-Q02,Text 1,A,They both have trouble connecting with their remaining parent.,Inference,Character Motivation,Medium,4,8.895.2
+3,NAPLAN-Y8-READING-M3-Q03,Text 1,C,The parent acts in a way that neglects the narrator's interests.,Inference,Cause and Effect,Medium,4,8.895.3
+4,NAPLAN-Y8-READING-M3-Q04,Text 2,C,an artist who began late and made admired art from discarded materials,Reading Comprehension,Main Idea,Easy,2,8.1743.1
+5,NAPLAN-Y8-READING-M3-Q05,Text 2,B,in time order through the artist's life,Reading Comprehension,Text Structure,Easy,2,8.1743.2
+6,NAPLAN-Y8-READING-M3-Q06,Text 2,A,paragraph 5,Reading Comprehension,Locating Information,Easy,2,8.1743.3
+7,NAPLAN-Y8-READING-M3-Q07,Text 2,A,isolated and out of place,Inference,Interpreting Feelings,Medium,4,8.1743.4
+8,NAPLAN-Y8-READING-M3-Q08,Text 2,A,"to think carefully about line, space and balance",Reading Comprehension,Literal Recall,Medium,4,8.1743.5
+9,NAPLAN-Y8-READING-M3-Q09,Text 2,D,so viewers would notice colour and pattern instead of reading words,Inference,Inferential Reasoning,Medium,5,8.1743.6
+10,NAPLAN-Y8-READING-M3-Q10,Text 2,C,Close attention can reveal beauty in what seems empty or worthless.,Reading Comprehension,Theme,Hard,8,8.1743.7
+11,NAPLAN-Y8-READING-M3-Q11,Text 2,D,Walking and collecting became her way of overcoming the loneliness and strangeness described before.,Reading Comprehension,Main Idea,Hard,8,8.1743.8
+12,NAPLAN-Y8-READING-M3-Q12,Text 3,C,They were determined to perform without an invitation.,Inference,Inferential Reasoning,Easy,2,8.1701.1
+13,NAPLAN-Y8-READING-M3-Q13,Text 3,D,easy to guess in advance,Vocabulary,Word Meaning in Context,Easy,2,8.1701.2
+14,NAPLAN-Y8-READING-M3-Q14,Text 3,A,changed,Vocabulary,Synonyms,Easy,3,8.1701.3
+15,NAPLAN-Y8-READING-M3-Q15,Text 3,C,Edinburgh has launched the careers of many performers who were unknown when they arrived.,Reading Comprehension,Evaluating Evidence,Medium,5,8.1701.4
+16,NAPLAN-Y8-READING-M3-Q16,Text 3,A,Talented students do not audition because they expect to be rejected.,Inference,Cause and Effect,Medium,4,8.1701.5
+17,NAPLAN-Y8-READING-M3-Q17,Text 3,D,No panel chooses who may perform.,Reading Comprehension,Literal Recall,Medium,4,8.1701.6
+18,NAPLAN-Y8-READING-M3-Q18,Text 3,C,to present the school's performers as heirs to a proud tradition of not waiting to be invited,Reading Comprehension,Author Purpose,Hard,8,8.1701.7
+19,NAPLAN-Y8-READING-M3-Q19,Text 3,B,performers should not have to wait to be chosen before they can show what they can do,Reading Comprehension,Main Idea,Hard,8,8.1701.8
+20,NAPLAN-Y8-READING-M3-Q20,Text 4,C,a ring he had made that morning,Reading Comprehension,Literal Recall,Easy,1,8.1617.1
+21,NAPLAN-Y8-READING-M3-Q21,Text 4,C,The mayor offered a silver cup.,Reading Comprehension,Sequencing,Easy,2,8.1617.2
+22,NAPLAN-Y8-READING-M3-Q22,Text 4,D,fussy about exact details,Vocabulary,Word Meaning in Context,Easy,3,8.1617.3
+23,NAPLAN-Y8-READING-M3-Q23,Text 4,A,"Edda's company lifted the troll's mood, which healed the bridge",Inference,Cause and Effect,Medium,5,8.1617.4
+24,NAPLAN-Y8-READING-M3-Q24,Text 4,C,it was something she had truly never given anyone before,Inference,Character Motivation,Medium,5,8.1617.5
+25,NAPLAN-Y8-READING-M3-Q25,Text 4,B,his treasures piled up in a heap that he never looked at,Reading Comprehension,Evaluating Evidence,Medium,5,8.1617.6
+26,NAPLAN-Y8-READING-M3-Q26,Text 4,B,she never sold her eggs that day,Reading Comprehension,Evaluating Evidence,Hard,8,8.1617.7
+27,NAPLAN-Y8-READING-M3-Q27,Text 4,B,Even proud people can learn that real connection matters more than impressive gifts.,Reading Comprehension,Theme,Hard,8,8.1617.8
+28,NAPLAN-Y8-READING-M3-Q28,Text 5,C,at least six months,Reading Comprehension,Literal Recall,Easy,1,8.1751.1
+29,NAPLAN-Y8-READING-M3-Q29,Text 5,C,a place to pin up and label old photographs,Reading Comprehension,Literal Recall,Easy,2,8.1751.2
+30,NAPLAN-Y8-READING-M3-Q30,Text 5,B,"Choose a time and place that suit guests' travel, needs and budget.",Reading Comprehension,Summarising,Medium,5,8.1751.3
+31,NAPLAN-Y8-READING-M3-Q31,Text 5,D,spoil the mood of,Vocabulary,Word Meaning in Context,Medium,4,8.1751.4
+32,NAPLAN-Y8-READING-M3-Q32,Text 5,B,by explaining how its features suit young and old guests and cost less,Persuasive Language,Argument Structure,Medium,5,8.1751.5
+33,NAPLAN-Y8-READING-M3-Q33,Text 5,A,"each generation has something to offer, so mixing them strengthens the day",Inference,Inferential Reasoning,Hard,7,8.1751.6
+34,NAPLAN-Y8-READING-M3-Q34,Text 5,A,"Careful, shared planning can make a reunion a way of linking generations to their family story.",Reading Comprehension,Main Idea,Hard,7,8.1751.7
+35,NAPLAN-Y8-READING-M3-Q35,Text 5,A,belonging to a family story that can fade unless it is shared,Reading Comprehension,Theme,Hard,8,8.1751.8
+36,NAPLAN-Y8-READING-M3-Q36,Text 6,C,chips of limestone and broken pottery,Reading Comprehension,Literal Recall,Easy,2,8.1625.1
+37,NAPLAN-Y8-READING-M3-Q37,Text 6,A,messy and badly formed,Literary Techniques,Figurative Language,Easy,3,8.1625.2
+38,NAPLAN-Y8-READING-M3-Q38,Text 6,D,a worthwhile skill takes years to develop,Literary Techniques,Figurative Language,Medium,5,8.1625.3
+39,NAPLAN-Y8-READING-M3-Q39,Text 6,C,stress how useful a scribe could be to a family like his,Persuasive Language,Persuasive Devices,Medium,5,8.1625.4
+40,NAPLAN-Y8-READING-M3-Q40,Text 6,B,to show he understands farm work and is not avoiding it,Inference,Character Motivation,Medium,5,8.1625.5
+41,NAPLAN-Y8-READING-M3-Q41,Text 6,C,"Paneb's remark about ants, which Ahmose calls high praise",Reading Comprehension,Evaluating Evidence,Hard,7,8.1625.6
+42,NAPLAN-Y8-READING-M3-Q42,Text 6,A,"he describes school life, argues for scribes, then offers a compromise",Reading Comprehension,Text Structure,Hard,8,8.1625.7
+43,NAPLAN-Y8-READING-M3-Q43,Text 6,B,"add a gentle, playful touch that links him to his new life with ink",Literary Techniques,Sound Devices,Hard,8,8.1625.8

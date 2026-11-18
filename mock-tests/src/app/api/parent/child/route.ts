@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server'
 import { requireRole } from '@/lib/rbac/require-role'
 import { createAdminClient } from '@/lib/supabase/admin'
+import { recordStudentAdded } from '@/lib/funnel/state'
+import { trackEvent } from '@/lib/funnel/track'
 
 const FLOWERS = ['Rose', 'Tulip', 'Daisy', 'Lily', 'Iris', 'Poppy']
 const FRUITS = ['Apple', 'Mango', 'Berry', 'Peach', 'Kiwi', 'Plum']
@@ -81,7 +83,26 @@ export async function POST(req: Request) {
 
     if (linkErr) throw linkErr
 
-    return NextResponse.json({ success: true, username })
+    // Funnel step 3a: the family now has a child profile, which is the
+    // precondition for the diagnostic. Fire-and-forget - a funnel write must
+    // never fail a child creation that has already succeeded.
+    await recordStudentAdded(user.id, String(profile.id))
+
+    // N-5: the moment a second (or later) child is added is the sibling
+    // offer's trigger point (15-...md: "asking at add-child beats asking by
+    // email later"). SIBLING_ADDED records the opportunity; the form reads
+    // childCount from this response and asks /api/parent/sibling-offer
+    // whether the family may actually see the pitch.
+    const childCount = (count ?? 0) + 1
+    if (childCount >= 2) {
+      try {
+        await trackEvent({ event: 'SIBLING_ADDED', userId: user.id, props: { childCount } })
+      } catch {
+        // Instrumentation must never fail a creation that already succeeded.
+      }
+    }
+
+    return NextResponse.json({ success: true, username, childCount })
     
   } catch (err: any) {
     return NextResponse.json({ error: err.message }, { status: 403 })

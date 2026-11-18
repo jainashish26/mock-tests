@@ -212,7 +212,7 @@ export const howToMasterEdutestExams = {
         <h4>Core Fluency (Non-Negotiable)</h4>
         <p>Before attempting exam-level problems, ensure your child has <strong>automatic fluency</strong> in these areas:</p>
         <ul>
-          <li><strong>Times tables</strong> - instant recall up to 12 Ã- 12 (and ideally beyond)</li>
+          <li><strong>Times tables</strong> - instant recall up to 12 × 12 (and ideally beyond)</li>
           <li><strong>Operations with fractions</strong> - adding, subtracting, multiplying, dividing; converting between fractions, decimals, and percentages</li>
           <li><strong>Order of operations (BODMAS/BIDMAS)</strong> - applied consistently and correctly</li>
           <li><strong>Place value and number sense</strong> - understanding what numbers represent, not just how to manipulate them</li>
@@ -509,8 +509,10 @@ export const howToMasterEdutestExams = {
   image:
     "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Student working through practice test questions at a desk with pencils and an eraser",
-  date: "March 28, 2026",
+    "Student working through practice test questions at a desk with pencils and an eraser",  date: "September 27, 2026",
+  updatedDate: "September 29, 2026",
+  readingTime: 18,
+  category: "selective-schools",
   tags: [
     "EDUTEST",
     "SCHOLARSHIPS",
@@ -537,6 +539,13 @@ export const howToMasterEdutestExams = {
     "EduTest vs ACER",
     "EduTest exam time management",
     "scholarship exam preparation Australia",
+  ],
+  keyTakeaways: [
+    "A standard EduTest exam has four separately timed components: Reading Comprehension, Mathematics, Written Expression, and Verbal Reasoning (and/or Abstract Reasoning).",
+    "EduTest balances curriculum knowledge with reasoning, whereas ACER places greater emphasis on pure reasoning in unfamiliar contexts.",
+    "ACER typically uses three components (verbal reasoning, numerical reasoning, writing) - always confirm which provider your target school uses.",
+    "A sustainable routine is 20-30 minutes, four to five times a week, practising each component systematically and targeting identified weaknesses.",
+    "The guide covers mastery strategies per component, a preparation timeline, EduTest-specific tactics, and the common mistakes that cost students places.",
   ],
   author: {
     name: "Ashish Jain",

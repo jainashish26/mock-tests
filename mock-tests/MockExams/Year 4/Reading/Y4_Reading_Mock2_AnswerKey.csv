@@ -1,0 +1,33 @@
+﻿QuestionNumber,QuestionID,ExamSection,Correct,CorrectAnswerText,Topic,SubTopic,DifficultyLabel,DifficultyScore,SourceQuestionNumber
+1,NAPLAN-Y4-READING-M2-Q01,Text 1,D,Shocked,Vocabulary,Synonyms,Easy,2,4.158.1
+2,NAPLAN-Y4-READING-M2-Q02,Text 1,A,glided,Vocabulary,Synonyms,Easy,2,4.158.2
+3,NAPLAN-Y4-READING-M2-Q03,Text 1,B,thrilling,Vocabulary,Synonyms,Easy,3,4.158.3
+4,NAPLAN-Y4-READING-M2-Q04,Text 2,C,He is grateful for Dustin's act of kindness.,Inference,Character Motivation,Easy,3,4.138.1
+5,NAPLAN-Y4-READING-M2-Q05,Text 2,A,Dustin's actions lead to an invitation to Rocket Land with Salvador's family.,Inference,Drawing Conclusions,Medium,4,4.138.2
+6,NAPLAN-Y4-READING-M2-Q06,Text 2,D,by showing how the clues cause Dustin to find the wallet's owner,Reading Comprehension,Text Structure,Medium,4,4.138.3
+7,NAPLAN-Y4-READING-M2-Q07,Text 2,C,Helping others can bring surprising rewards.,Reading Comprehension,Theme,Medium,4,4.138.4
+8,NAPLAN-Y4-READING-M2-Q08,Text 2,B,Dustin is allowed to sit with Hugo and Carlos.,Vocabulary,Word Meaning in Context,Easy,2,4.138.5
+9,NAPLAN-Y4-READING-M2-Q09,Text 3,B,drooping loosely,Vocabulary,Word Meaning in Context,Easy,2,4.1376.1
+10,NAPLAN-Y4-READING-M2-Q10,Text 3,B,the reef knot,Reading Comprehension,Literal Recall,Easy,1,4.1376.2
+11,NAPLAN-Y4-READING-M2-Q11,Text 3,A,because the word is not said the way it looks,Reading Comprehension,Author Purpose,Medium,4,4.1376.3
+12,NAPLAN-Y4-READING-M2-Q12,Text 3,A,a question used to encourage readers to act,Persuasive Language,Persuasive Devices,Medium,5,4.1376.4
+13,NAPLAN-Y4-READING-M2-Q13,Text 3,D,"She can slide the hitch to tighten the stretched rope, but a bowline's loop stays the same size.",Inference,Inferential Reasoning,Hard,8,4.1376.5
+14,NAPLAN-Y4-READING-M2-Q14,Text 3,D,"A reef knot can slip when pulled hard, but a bowline's loop holds whatever the weight.",Inference,Cause and Effect,Hard,7,4.1376.6
+15,NAPLAN-Y4-READING-M2-Q15,Text 4,D,attaches the milking cups,Reading Comprehension,Sequencing,Easy,2,4.1297.1
+16,NAPLAN-Y4-READING-M2-Q16,Text 4,C,once a day,Reading Comprehension,Literal Recall,Easy,2,4.1297.2
+17,NAPLAN-Y4-READING-M2-Q17,Text 4,D,it must stay fresh until the tanker collects it,Inference,Character Motivation,Medium,5,4.1297.3
+18,NAPLAN-Y4-READING-M2-Q18,Text 4,B,it is the most rewarding job in the country,Persuasive Language,Fact and Opinion,Medium,4,4.1297.4
+19,NAPLAN-Y4-READING-M2-Q19,Text 4,B,"The cows must be milked twice a day at regular times, whenever the tanker comes.",Inference,Character Motivation,Hard,7,4.1297.5
+20,NAPLAN-Y4-READING-M2-Q20,Text 4,C,to inform readers about a dairy farmer's work and help them value it,Reading Comprehension,Author Purpose,Hard,7,4.1297.6
+21,NAPLAN-Y4-READING-M2-Q21,Text 5,C,'that question is the most exciting one there is',Persuasive Language,Fact and Opinion,Easy,2,4.1287.1
+22,NAPLAN-Y4-READING-M2-Q22,Text 5,C,1945,Reading Comprehension,Literal Recall,Easy,1,4.1287.2
+23,NAPLAN-Y4-READING-M2-Q23,Text 5,B,launching from Florida and landing in the ocean,Reading Comprehension,Literal Recall,Medium,4,4.1287.3
+24,NAPLAN-Y4-READING-M2-Q24,Text 5,D,a series of examples followed by a conclusion,Reading Comprehension,Text Structure,Medium,5,4.1287.4
+25,NAPLAN-Y4-READING-M2-Q25,Text 5,D,"It shows that fiction can change the real world in another way, through a word.",Reading Comprehension,Main Idea,Hard,8,4.1287.5
+26,NAPLAN-Y4-READING-M2-Q26,Text 5,B,"It shows a story pushing someone to build an invention, not just predicting it.",Inference,Character Motivation,Hard,8,4.1287.6
+27,NAPLAN-Y4-READING-M2-Q27,Text 6,B,fixed firmly,Vocabulary,Word Meaning in Context,Easy,2,4.1351.1
+28,NAPLAN-Y4-READING-M2-Q28,Text 6,C,Children's House,Reading Comprehension,Literal Recall,Easy,2,4.1351.2
+29,NAPLAN-Y4-READING-M2-Q29,Text 6,D,the third paragraph,Reading Comprehension,Locating Information,Medium,4,4.1351.3
+30,NAPLAN-Y4-READING-M2-Q30,Text 6,D,She had seen that children learn best when they are busy with their hands.,Inference,Character Motivation,Medium,5,4.1351.4
+31,NAPLAN-Y4-READING-M2-Q31,Text 6,C,by sitting still in one place and listening,Inference,Inferential Reasoning,Hard,7,4.1351.5
+32,NAPLAN-Y4-READING-M2-Q32,Text 6,A,a willingness to do things differently from others,Literary Techniques,Characterisation,Hard,8,4.1351.6

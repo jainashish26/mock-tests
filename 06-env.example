@@ -45,6 +45,22 @@ DATABASE_URL_NON_POOLING=""
 # SMTP_SENDER_NAME=Mock Tests
 # SMTP_SENDER_EMAIL=no-reply@yourdomain.com
 
+# ---------- Social Auth (Google) ----------
+# The OAuth client ID + client secret are configured in the Supabase Dashboard
+# (Authentication -> Sign In / Providers -> Google), NOT here. Supabase is the
+# OAuth client that talks to Google; this app only redirects to Supabase.
+# These flags control whether the "Continue with Google" buttons render.
+NEXT_PUBLIC_SOCIAL_AUTH_GOOGLE_ENABLED="false"
+NEXT_PUBLIC_SOCIAL_AUTH_FACEBOOK_ENABLED="false"   # code is ready; Meta app not created yet
+
+# Two DIFFERENT redirect URLs must both be configured:
+#   1. In the Google client (Authorized redirect URIs):
+#        https://<project-ref>.supabase.co/auth/v1/callback
+#   2. In Supabase (Authentication -> URL Configuration -> Redirect URLs):
+#        <APP_URL>/auth/callback   e.g. http://localhost:3000/auth/callback
+#        https://<prod-domain>/auth/callback
+#        Vercel preview pattern for /auth/callback
+
 # ---------- Upstash QStash ----------
 QSTASH_TOKEN=""
 QSTASH_CURRENT_SIGNING_KEY=""
@@ -57,16 +73,39 @@ QSTASH_ANALYTICS_ROLLUP_ENDPOINT="http://localhost:3000/api/jobs/analytics-rollu
 QSTASH_MAX_RETRIES="5"
 QSTASH_RETRY_BACKOFF_SECONDS="60"
 
-# ---------- Stripe (One-time purchases) ----------
+# ---------- Stripe (One-time purchases + Subscriptions) ----------
+# Secret key: SERVER-SIDE ONLY. Never expose it to the client and never commit
+# it. If a key is ever pasted into chat, a log or a screenshot, roll it
+# immediately: Dashboard -> Developers -> API keys -> Roll key.
 STRIPE_SECRET_KEY=""
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=""
 
-# Webhook signing secret for /api/webhooks/stripe
+# Webhook signing secret for /api/webhooks/stripe.
+# Required - the handler fails closed and refuses to process events without it,
+# because unverified events would let anyone forge a "paid" notification.
+# Local dev: stripe listen --forward-to localhost:3000/api/webhooks/stripe
 STRIPE_WEBHOOK_SECRET=""
 STRIPE_WEBHOOK_PATH="/api/webhooks/stripe"
 
-STRIPE_SUCCESS_URL="http://localhost:3000/checkout/success"
-STRIPE_CANCEL_URL="http://localhost:3000/checkout/cancel"
+# Price IDs for the Unlimited subscription shown on /pricing.
+# Both must exist in Stripe and be recurring: the monthly price must use
+# interval "month" and the annual price interval "year" - /pricing verifies this
+# and hides the tier rather than quoting a wrong amount.
+# These are IDENTIFIERS only. Amounts are always read from Stripe at render time
+# so the displayed price can never drift from the price charged.
+# Leave empty until the prices exist; /pricing degrades to "Pricing coming soon"
+# and the build still passes.
+STRIPE_PRICE_UNLIMITED_MONTHLY=""
+STRIPE_PRICE_UNLIMITED_ANNUAL=""
+
+# Set to "true" only once GST is registered in Stripe Tax. Automatic tax errors
+# when the account has no tax registration, so it stays off by default.
+STRIPE_AUTOMATIC_TAX="false"
+
+# Checkout return URLs. Honoured when set; otherwise derived from
+# NEXT_PUBLIC_APP_URL. Keep {CHECKOUT_SESSION_ID} in the success URL.
+STRIPE_SUCCESS_URL="http://localhost:3000/parent/store?checkout=success&session_id={CHECKOUT_SESSION_ID}"
+STRIPE_CANCEL_URL="http://localhost:3000/pricing?checkout=cancelled"
 STRIPE_DEFAULT_CURRENCY="AUD"
 
 # ---------- SendGrid (Optional direct email from app) ----------
@@ -76,9 +115,43 @@ SENDGRID_API_KEY=""
 SENDGRID_FROM_EMAIL=""
 SENDGRID_FROM_NAME=""
 
+# ---------- Lifecycle email (Resend) ----------
+# Drives funnel steps 4, 5, 6, 7, 9 and 10: the readiness report, the surprise
+# free mock, the paywall email, the launch offer, expansion offers and the
+# renewal reminder. See src/lib/email/provider.ts.
+#
+# When RESEND_API_KEY is empty the provider falls back to `console`, which logs
+# the rendered message instead of sending it. That keeps `next build` green and
+# lets the whole lifecycle be exercised locally without a mail account.
+RESEND_API_KEY=""
+# From address. Must be a domain verified in Resend. Defaults to
+# "MockTests Pro <support@mocktestspro.com.au>" from src/lib/seo/site-config.ts.
+EMAIL_FROM=""
+# Where replies land. Defaults to CONTACT.supportEmail.
+EMAIL_REPLY_TO=""
+
+# ---------- Funnel instrumentation + lifecycle worker ----------
+# Shared secret for POST /api/cron/lifecycle. Vercel Cron sends it as a Bearer
+# token when CRON_SECRET is set in the project settings; the route refuses to run
+# without it, because an open trigger would email the entire user base.
+CRON_SECRET=""
+
+# HMAC key for signed one-click unsubscribe links (RFC-8058). Falls back to
+# SESSION_SECRET, then to SUPABASE_SERVICE_ROLE_KEY. Set it explicitly in
+# production so rotating a service key does not invalidate every unsubscribe link
+# already sitting in a parent's inbox.
+UNSUBSCRIBE_SIGNING_KEY=""
+
+# Launch offer (funnel step 7). The slug must match a row in `offers`, seeded by
+# supabase/seed/funnel_offers.sql. The price itself is NEVER configured here -
+# it is read from the offer row and resolved against Stripe at checkout, so the
+# displayed amount cannot drift from the amount charged.
+LAUNCH_OFFER_SLUG="launch-150"
+
 # ---------- DeepSeek (Writing marking) ----------
 DEEPSEEK_API_KEY=""
-DEEPSEEK_MODEL=""               # optional
+DEEPSEEK_MODEL=""               # optional; API model id, e.g. deepseek-flash (marketing name "DeepSeek-V4.1-Flash") or deepseek-chat (alias). Unset -> deepseek-chat.
+DEEPSEEK_BASE_URL=""            # optional; unset -> https://api.deepseek.com
 DEEPSEEK_TIMEOUT_SECONDS="30"    # optional
 
 WRITING_RUBRIC_PROMPT_VERSION="v1.0"
@@ -108,3 +181,7 @@ ANALYTICS_WRITE_KEY=""
 # ---------- Supabase Storage (Optional) ----------
 SUPABASE_STORAGE_BUCKET="question-images"
 NEXT_PUBLIC_SUPABASE_STORAGE_BUCKET="question-images"
+
+# Direct Postgres connection for psql / npm run test:db (pgtap assurance suite).
+# URL-encode the password (e.g. @ -> %40). libpq decodes it; never commit the real value.
+SUPABASE_DB_URL="postgresql://postgres:<url-encoded-password>@db.<project-ref>.supabase.co:5432/postgres"

@@ -1,0 +1,36 @@
+﻿QuestionNumber,QuestionID,ExamSection,Correct,CorrectAnswerText,Topic,SubTopic,DifficultyLabel,DifficultyScore,SourceQuestionNumber
+1,NAPLAN-Y5-READING-M2-Q01,Text 1,C,They cause frogs to develop abnormally.,Inference,Cause and Effect,Easy,2,5.288.1
+2,NAPLAN-Y5-READING-M2-Q02,Text 1,A,Their population begins to decline.,Inference,Cause and Effect,Easy,2,5.288.2
+3,NAPLAN-Y5-READING-M2-Q03,Text 1,C,The growth destroys their habitat and leaves them with no place to live.,Inference,Cause and Effect,Easy,2,5.288.3
+4,NAPLAN-Y5-READING-M2-Q04,Text 1,A,They fear it is a sign of problems that will affect other species.,Inference,Drawing Conclusions,Easy,3,5.288.4
+5,NAPLAN-Y5-READING-M2-Q05,Text 1,D,the thinness of their skins,Reading Comprehension,Literal Recall,Easy,2,5.288.5
+6,NAPLAN-Y5-READING-M2-Q06,Text 2,D,Original;; but similar in style to Mozart and Haydn,Inference,Inferential Reasoning,Easy,3,5.396.1
+7,NAPLAN-Y5-READING-M2-Q07,Text 2,B,He made the decision to overcome his disability,Inference,Inferential Reasoning,Medium,4,5.396.2
+8,NAPLAN-Y5-READING-M2-Q08,Text 2,C,He saw him as a hero who shared his values,Inference,Inferential Reasoning,Medium,4,5.396.3
+9,NAPLAN-Y5-READING-M2-Q09,Text 2,B,Refusing to complete a homework assignment because you didn't like the teacher,Inference,Inferential Reasoning,Medium,4,5.396.4
+10,NAPLAN-Y5-READING-M2-Q10,Text 2,A,How many total symphonies did Beethoven produce?,Reading Comprehension,Locating Information,Easy,3,5.396.5
+11,NAPLAN-Y5-READING-M2-Q11,Text 2,A,Crossroads is the term used to describe when a person is facing a difficult choice that may determine something very important,Vocabulary,Word Meaning in Context,Easy,3,5.396.6
+12,NAPLAN-Y5-READING-M2-Q12,Text 3,D,DARPA learned a lot about robot cars.,Inference,Cause and Effect,Easy,3,5.441.1
+13,NAPLAN-Y5-READING-M2-Q13,Text 3,C,problems and solution,Reading Comprehension,Text Structure,Medium,4,5.441.2
+14,NAPLAN-Y5-READING-M2-Q14,Text 3,B,DARPA wanted to find ways to solve the problem of building a robot that could move and navigate by itself.,Reading Comprehension,Text Structure,Hard,7,5.441.3
+15,NAPLAN-Y5-READING-M2-Q15,Text 3,B,Each team checked its robot's parts and systems carefully.,Reading Comprehension,Sequencing,Easy,2,5.441.4
+16,NAPLAN-Y5-READING-M2-Q16,Text 3,A,what the race course is like,Reading Comprehension,Literal Recall,Easy,2,5.441.5
+17,NAPLAN-Y5-READING-M2-Q17,Text 4,A,fascinating machines.,Inference,Character Motivation,Medium,5,5.392.1
+18,NAPLAN-Y5-READING-M2-Q18,Text 4,B,their height,Literary Techniques,Imagery,Medium,4,5.392.2
+19,NAPLAN-Y5-READING-M2-Q19,Text 4,D,way the ditchdiggers keep working.,Literary Techniques,Imagery,Medium,4,5.392.3
+20,NAPLAN-Y5-READING-M2-Q20,Text 4,C,the metal scoops used for digging,Literary Techniques,Imagery,Medium,5,5.392.4
+21,NAPLAN-Y5-READING-M2-Q21,Text 4,D,'grabbing great gobbets',Literary Techniques,Sound Devices,Easy,2,5.392.5
+22,NAPLAN-Y5-READING-M2-Q22,Text 4,D,routine nature of the work done by the machines.,Literary Techniques,Sound Devices,Medium,4,5.392.6
+23,NAPLAN-Y5-READING-M2-Q23,Text 4,A,searching.,Vocabulary,Word Meaning in Context,Easy,3,5.392.7
+24,NAPLAN-Y5-READING-M2-Q24,Text 5,A,very small,Vocabulary,Word Meaning in Context,Easy,3,5.1411.1
+25,NAPLAN-Y5-READING-M2-Q25,Text 5,C,twelve,Reading Comprehension,Literal Recall,Easy,1,5.1411.2
+26,NAPLAN-Y5-READING-M2-Q26,Text 5,B,"They were meant for the soldiers, and paper was expensive.",Reading Comprehension,Literal Recall,Medium,4,5.1411.3
+27,NAPLAN-Y5-READING-M2-Q27,Text 5,C,separated to do something of their own,Vocabulary,Word Meaning in Context,Medium,4,5.1411.4
+28,NAPLAN-Y5-READING-M2-Q28,Text 5,D,how much the children created from a very small beginning,Literary Techniques,Figurative Language,Hard,7,5.1411.5
+29,NAPLAN-Y5-READING-M2-Q29,Text 5,D,Their games lasted well into adulthood.,Reading Comprehension,Evaluating Evidence,Hard,8,5.1411.6
+30,NAPLAN-Y5-READING-M2-Q30,Text 6,C,Fifty-one of the 72 students said they enjoyed them.,Reading Comprehension,Evaluating Evidence,Easy,2,5.1421.1
+31,NAPLAN-Y5-READING-M2-Q31,Text 6,A,"pleased, because they help her feel alert",Inference,Interpreting Feelings,Easy,2,5.1421.2
+32,NAPLAN-Y5-READING-M2-Q32,Text 6,B,Each maths lesson became ten minutes shorter.,Reading Comprehension,Literal Recall,Medium,4,5.1421.3
+33,NAPLAN-Y5-READING-M2-Q33,Text 6,A,sight and touch,Literary Techniques,Imagery,Medium,5,5.1421.4
+34,NAPLAN-Y5-READING-M2-Q34,Text 6,C,It was written by the group that first suggested the breaks.,Persuasive Language,Bias and Perspective,Hard,8,5.1421.5
+35,NAPLAN-Y5-READING-M2-Q35,Text 6,B,"to show they considered both sides, so their advice seems fairer",Reading Comprehension,Author Purpose,Hard,7,5.1421.6

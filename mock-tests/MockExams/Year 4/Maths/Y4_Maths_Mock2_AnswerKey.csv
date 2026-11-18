@@ -1,0 +1,37 @@
+﻿QuestionNumber,QuestionID,ExamSection,Correct,CorrectAnswerText,Topic,SubTopic,DifficultyLabel,DifficultyScore,SourceQuestionNumber
+1,NAPLAN-Y4-NUMERACY-M2-Q01,Numeracy - No Calculator,B,8:55 am,Problem Solving,Working Backwards,Easy,1,1682
+2,NAPLAN-Y4-NUMERACY-M2-Q02,Numeracy - No Calculator,D,"4,100",Number,Rounding and Estimation,Easy,1,1004
+3,NAPLAN-Y4-NUMERACY-M2-Q03,Numeracy - No Calculator,A,418,Number,Multiplication and Division,Easy,1,956
+4,NAPLAN-Y4-NUMERACY-M2-Q04,Numeracy - No Calculator,D,"40,000 + 5,000 + 400 + 50 + 9",Number,Place Value,Easy,2,3
+5,NAPLAN-Y4-NUMERACY-M2-Q05,Numeracy - No Calculator,D,add 12 each time,Algebra,Number Sequences,Easy,2,8
+6,NAPLAN-Y4-NUMERACY-M2-Q06,Numeracy - No Calculator,D,7,Number,Factors and Multiples,Easy,2,6
+7,NAPLAN-Y4-NUMERACY-M2-Q07,Numeracy - No Calculator,C,60,Statistics,Data Collection,Easy,2,1784
+8,NAPLAN-Y4-NUMERACY-M2-Q08,Numeracy - No Calculator,A,7:25,Measurement,Time,Easy,3,620
+9,NAPLAN-Y4-NUMERACY-M2-Q09,Numeracy - No Calculator,C,7 hours 10 minutes,Measurement,Time,Easy,3,13
+10,NAPLAN-Y4-NUMERACY-M2-Q10,Numeracy - No Calculator,C,10,Geometry,Position and Location,Easy,3,267
+11,NAPLAN-Y4-NUMERACY-M2-Q11,Numeracy - No Calculator,C,16,Number,Addition and Subtraction,Medium,4,928
+12,NAPLAN-Y4-NUMERACY-M2-Q12,Numeracy - No Calculator,C,6,Financial Mathematics,Money and Change,Medium,4,190
+13,NAPLAN-Y4-NUMERACY-M2-Q13,Numeracy - No Calculator,C,Saturday,Measurement,Time,Medium,4,633
+14,NAPLAN-Y4-NUMERACY-M2-Q14,Numeracy - No Calculator,B,41,Algebra,Patterns,Medium,4,63
+15,NAPLAN-Y4-NUMERACY-M2-Q15,Numeracy - No Calculator,B,1,Geometry,2D Shapes,Medium,4,386
+16,NAPLAN-Y4-NUMERACY-M2-Q16,Numeracy - No Calculator,D,61 hours,Measurement,Time,Medium,4,13
+17,NAPLAN-Y4-NUMERACY-M2-Q17,Numeracy - No Calculator,C,200,Number,Mental Computation,Medium,5,1153
+18,NAPLAN-Y4-NUMERACY-M2-Q18,Numeracy - No Calculator,C,"3,693",Number,Addition and Subtraction,Medium,5,930
+19,NAPLAN-Y4-NUMERACY-M2-Q19,Numeracy - No Calculator,D,80 mm,Measurement,Units and Conversion,Medium,5,805
+20,NAPLAN-Y4-NUMERACY-M2-Q20,Numeracy - No Calculator,A,5 minutes,Measurement,Time,Medium,5,40
+21,NAPLAN-Y4-NUMERACY-M2-Q21,Numeracy - No Calculator,D,Imogen,Number,Fractions,Medium,5,1067
+22,NAPLAN-Y4-NUMERACY-M2-Q22,Numeracy - No Calculator,B,4,Problem Solving,Counting and Combinatorics,Medium,5,1619
+23,NAPLAN-Y4-NUMERACY-M2-Q23,Numeracy - No Calculator,D,308 km,Number,Fractions,Medium,6,1070
+24,NAPLAN-Y4-NUMERACY-M2-Q24,Numeracy - No Calculator,B,$5.00,Algebra,Word Problems with Unknowns,Medium,6,146
+25,NAPLAN-Y4-NUMERACY-M2-Q25,Numeracy - No Calculator,A,1,Geometry,Symmetry,Medium,6,322
+26,NAPLAN-Y4-NUMERACY-M2-Q26,Numeracy - No Calculator,B,2 and 15,Number,Factors and Multiples,Medium,6,1368
+27,NAPLAN-Y4-NUMERACY-M2-Q27,Numeracy - No Calculator,D,"pink, blue, red",Probability,Chance and Likelihood,Medium,6,1447
+28,NAPLAN-Y4-NUMERACY-M2-Q28,Numeracy - No Calculator,B,18,Statistics,Data Collection,Medium,6,1801
+29,NAPLAN-Y4-NUMERACY-M2-Q29,Numeracy - No Calculator,C,4/9,Number,Fractions,Hard,8,1083
+30,NAPLAN-Y4-NUMERACY-M2-Q30,Numeracy - No Calculator,B,4,Number,Mental Computation,Hard,8,1166
+31,NAPLAN-Y4-NUMERACY-M2-Q31,Numeracy - No Calculator,C,"1,800 g",Measurement,Mass,Hard,8,695
+32,NAPLAN-Y4-NUMERACY-M2-Q32,Numeracy - No Calculator,D,$56,Problem Solving,Working Backwards,Hard,9,1715
+33,NAPLAN-Y4-NUMERACY-M2-Q33,Numeracy - No Calculator,B,"5,164",Algebra,Number Sequences,Hard,9,44
+34,NAPLAN-Y4-NUMERACY-M2-Q34,Numeracy - No Calculator,D,40,Number,Factors and Multiples,Hard,9,1376
+35,NAPLAN-Y4-NUMERACY-M2-Q35,Numeracy - No Calculator,C,7,Geometry,2D Shapes,Hard,9,407
+36,NAPLAN-Y4-NUMERACY-M2-Q36,Numeracy - No Calculator,B,2 °C,Measurement,Temperature,Hard,9,855

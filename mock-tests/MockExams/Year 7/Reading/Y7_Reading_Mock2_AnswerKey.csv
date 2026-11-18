@@ -1,0 +1,43 @@
+﻿QuestionNumber,QuestionID,ExamSection,Correct,CorrectAnswerText,Topic,SubTopic,DifficultyLabel,DifficultyScore,SourceQuestionNumber
+1,NAPLAN-Y7-READING-M2-Q01,Text 1,C,the government's unwillingness to assist citizens in desperate circumstances.,Inference,Inferential Reasoning,Medium,4,7.792.1
+2,NAPLAN-Y7-READING-M2-Q02,Text 1,D,extravagance.,Inference,Inferential Reasoning,Medium,4,7.792.2
+3,NAPLAN-Y7-READING-M2-Q03,Text 1,B,the crash weakened the economy's ability to withstand other pressures.,Inference,Inferential Reasoning,Medium,5,7.792.3
+4,NAPLAN-Y7-READING-M2-Q04,Text 1,C,underlying problems in the economy preceded it.,Reading Comprehension,Main Idea,Easy,3,7.792.4
+5,NAPLAN-Y7-READING-M2-Q05,Text 1,A,an account of the causes and effects of a major event.,Reading Comprehension,Main Idea,Medium,4,7.792.5
+6,NAPLAN-Y7-READING-M2-Q06,Text 1,D,The federal government became more involved in caring for needy members of society.,Reading Comprehension,Literal Recall,Easy,3,7.792.6
+7,NAPLAN-Y7-READING-M2-Q07,Text 1,B,practices.,Vocabulary,Word Meaning in Context,Medium,5,7.792.7
+8,NAPLAN-Y7-READING-M2-Q08,Text 2,B,the unpredictability of others,Inference,Drawing Conclusions,Medium,5,7.833.1
+9,NAPLAN-Y7-READING-M2-Q09,Text 2,D,their predictability,Reading Comprehension,Literal Recall,Easy,3,7.833.2
+10,NAPLAN-Y7-READING-M2-Q10,Text 2,B,It varies from language to language.,Reading Comprehension,Main Idea,Medium,5,7.833.3
+11,NAPLAN-Y7-READING-M2-Q11,Text 2,B,strategy.,Vocabulary,Word Meaning in Context,Medium,4,7.833.4
+12,NAPLAN-Y7-READING-M2-Q12,Text 2,C,made sounds,Vocabulary,Word Meaning in Context,Medium,5,7.833.5
+13,NAPLAN-Y7-READING-M2-Q13,Text 3,A,thin,Vocabulary,Word Meaning in Context,Easy,2,7.1562.1
+14,NAPLAN-Y7-READING-M2-Q14,Text 3,A,"a small, satisfying click",Literary Techniques,Sound Devices,Easy,2,7.1562.2
+15,NAPLAN-Y7-READING-M2-Q15,Text 3,C,stopped making an effort with it,Vocabulary,Word Meaning in Context,Medium,4,7.1562.3
+16,NAPLAN-Y7-READING-M2-Q16,Text 3,D,It is the first place anyone would look.,Reading Comprehension,Literal Recall,Medium,4,7.1562.4
+17,NAPLAN-Y7-READING-M2-Q17,Text 3,B,Mr Abernethy has been locked out in the rain for an hour and is still grieving his wife.,Inference,Inferential Reasoning,Hard,8,7.1562.5
+18,NAPLAN-Y7-READING-M2-Q18,Text 3,D,introduce himself to the family across the street and leave it with them,Inference,Predicting Outcomes,Hard,7,7.1562.6
+19,NAPLAN-Y7-READING-M2-Q19,Text 4,D,drown them with water until they are cold,Reading Comprehension,Literal Recall,Easy,2,7.1557.1
+20,NAPLAN-Y7-READING-M2-Q20,Text 4,B,a prefix meaning 'not' to the word 'tidy',Vocabulary,Word Origins and Morphology,Easy,2,7.1557.2
+21,NAPLAN-Y7-READING-M2-Q21,Text 4,A,the third paragraph,Reading Comprehension,Locating Information,Medium,4,7.1557.3
+22,NAPLAN-Y7-READING-M2-Q22,Text 4,C,gentle and encouraging,Literary Techniques,Tone and Mood,Medium,4,7.1557.4
+23,NAPLAN-Y7-READING-M2-Q23,Text 4,A,His years fighting fires had shown him how easily a campfire can cause harm.,Inference,Character Motivation,Hard,7,7.1557.5
+24,NAPLAN-Y7-READING-M2-Q24,Text 4,D,Campers with a stove have no need to gather the fallen wood the creatures shelter in.,Inference,Cause and Effect,Hard,8,7.1557.6
+25,NAPLAN-Y7-READING-M2-Q25,Text 5,C,harsh and unfriendly to life,Vocabulary,Word Meaning in Context,Easy,2,7.1501.1
+26,NAPLAN-Y7-READING-M2-Q26,Text 5,C,carbon dioxide,Reading Comprehension,Literal Recall,Easy,2,7.1501.2
+27,NAPLAN-Y7-READING-M2-Q27,Text 5,B,They could not see its surface and pictured it as Earth-like.,Inference,Inferential Reasoning,Medium,5,7.1501.3
+28,NAPLAN-Y7-READING-M2-Q28,Text 5,D,It takes longer to spin once than to orbit the Sun.,Reading Comprehension,Literal Recall,Medium,5,7.1501.4
+29,NAPLAN-Y7-READING-M2-Q29,Text 5,D,A planet's atmosphere can affect its temperature more than its distance from the Sun.,Inference,Drawing Conclusions,Hard,7,7.1501.5
+30,NAPLAN-Y7-READING-M2-Q30,Text 5,B,to set up a contrast between what was expected and what probes found,Reading Comprehension,Author Purpose,Hard,7,7.1501.6
+31,NAPLAN-Y7-READING-M2-Q31,Text 6,C,thin,Vocabulary,Synonyms,Easy,2,7.1515.1
+32,NAPLAN-Y7-READING-M2-Q32,Text 6,C,glittered,Vocabulary,Synonyms,Easy,2,7.1515.2
+33,NAPLAN-Y7-READING-M2-Q33,Text 6,B,Generosity can bring rewards greater than admiration.,Reading Comprehension,Theme,Medium,5,7.1515.3
+34,NAPLAN-Y7-READING-M2-Q34,Text 6,A,it held the last of her summer colours and was meant for the gathering,Reading Comprehension,Literal Recall,Medium,5,7.1515.4
+35,NAPLAN-Y7-READING-M2-Q35,Text 6,A,"Her colours held the summer's plants and light, kept to brighten the dark.",Literary Techniques,Figurative Language,Hard,8,7.1515.5
+36,NAPLAN-Y7-READING-M2-Q36,Text 6,D,the North Wind in disguise,Inference,Drawing Conclusions,Hard,7,7.1515.6
+37,NAPLAN-Y7-READING-M2-Q37,Text 7,A,hard to find,Vocabulary,Word Meaning in Context,Easy,2,7.1530.1
+38,NAPLAN-Y7-READING-M2-Q38,Text 7,A,they hold food that the colony can use later,Inference,Inferential Reasoning,Easy,3,7.1530.2
+39,NAPLAN-Y7-READING-M2-Q39,Text 7,D,"the sap of mulga trees, taken in by small insects",Reading Comprehension,Literal Recall,Medium,4,7.1530.3
+40,NAPLAN-Y7-READING-M2-Q40,Text 7,C,repletes keep the colony fed when food runs short,Reading Comprehension,Main Idea,Medium,5,7.1530.4
+41,NAPLAN-Y7-READING-M2-Q41,Text 7,D,"Honeypot ants store food in the swollen bodies of special workers, which keeps the colony alive in dry times and has made them a valued bush food.",Reading Comprehension,Main Idea,Hard,7,7.1530.5
+42,NAPLAN-Y7-READING-M2-Q42,Text 7,B,the depth shields the helpless repletes and keeps their food from drying out,Inference,Inferential Reasoning,Hard,8,7.1530.6

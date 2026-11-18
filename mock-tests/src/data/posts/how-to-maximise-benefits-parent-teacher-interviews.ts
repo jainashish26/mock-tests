@@ -404,8 +404,10 @@ export const howToMaximiseBenefitsParentTeacherInterviews = {
   image:
     "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Parent and teacher having a focused conversation at a school desk during a parent-teacher interview",
-  date: "March 28, 2026",
+    "Parent and teacher having a focused conversation at a school desk during a parent-teacher interview",  date: "October 3, 2026",
+  updatedDate: "October 5, 2026",
+  readingTime: 18,
+  category: "parenting-wellbeing",
   tags: [
     "PARENTS",
     "SCHOOL SUPPORT",
@@ -430,6 +432,13 @@ export const howToMaximiseBenefitsParentTeacherInterviews = {
     "school parent engagement",
     "how to talk to child's teacher",
     "parent teacher interview preparation guide",
+  ],
+  keyTakeaways: [
+    "Nine expert-backed strategies turn a 15-minute interview into meaningful progress rather than a courtesy exchange.",
+    "Preparation matters most: be specific about what you want to know, talk to your child beforehand, and review recent work and reports.",
+    "Ask open questions and listen more than you talk - the interview is a rare source of information you cannot get elsewhere.",
+    "Address the whole child, share your own perspective because teachers need it, and do not avoid the difficult conversations.",
+    "Finish by leaving with a clear actionable plan, then debrief with your child carefully; a bonus section covers what to do when the time is not enough.",
   ],
   author: {
     name: "Ashish Jain",

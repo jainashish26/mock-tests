@@ -1,82 +1,355 @@
 import Link from 'next/link'
 
-export function TestReportView({ attempt, responses, role }: { attempt: any, responses: any[], role: 'STUDENT' | 'PARENT' }) {
-  const isComplete = attempt.status === 'COMPLETE'
-  const isPending = attempt.status === 'WRITING_PENDING'
+const OPTION_COLUMNS = [
+  ['A', 'answer_a'],
+  ['B', 'answer_b'],
+  ['C', 'answer_c'],
+  ['D', 'answer_d'],
+  ['E', 'answer_e'],
+] as const
 
-  const backLink = role === 'STUDENT' ? '/student' : `/parent/child/${attempt.student_id}`
+/** `responses.answer` is jsonb - render it safely instead of letting React choke on an object. */
+function answerToText(value: unknown): string {
+  if (value === null || value === undefined) return ''
+  if (typeof value === 'string') return value
+  if (typeof value === 'number' || typeof value === 'boolean') return String(value)
+  if (Array.isArray(value)) return value.map(answerToText).filter(Boolean).join(', ')
+  if (typeof value === 'object') return Object.values(value as Record<string, unknown>).map(answerToText).filter(Boolean).join(', ')
+  return String(value)
+}
+
+function formatDate(value: unknown): string | null {
+  if (!value) return null
+  const d = new Date(String(value))
+  if (Number.isNaN(d.getTime())) return null
+  return d.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })
+}
+
+function scoreLabel(value: unknown): string | null {
+  const n = typeof value === 'string' ? Number(value) : Number(value ?? NaN)
+  if (!Number.isFinite(n)) return null
+  return `${Math.round(n * 10) / 10}%`
+}
+
+/** Maps a stored option letter back to its option text for review. */
+function optionTextFor(q: any, letter: string | null): string | null {
+  if (!q || !letter) return null
+  const entry = OPTION_COLUMNS.find(([l]) => l === letter.trim().toUpperCase()[0])
+  if (!entry) return null
+  const text = q[entry[1]]
+  return typeof text === 'string' && text.trim() ? text.trim() : null
+}
+
+const card: React.CSSProperties = {
+  background: 'var(--color-surface)',
+  border: '1px solid var(--color-border)',
+  borderRadius: 'var(--radius-lg)',
+  padding: '2rem',
+}
+
+export function TestReportView({
+  attempt,
+  responses,
+  writingEvaluations = [],
+  role,
+}: {
+  attempt: any
+  responses: any[]
+  writingEvaluations?: any[]
+  role: 'STUDENT' | 'PARENT'
+}) {
+  const status = attempt?.status
+  const isComplete = status === 'COMPLETE'
+  const isPendingWriting = status === 'WRITING_PENDING'
+  const isSubmitted = status === 'SUBMITTED'
+  const isInProgress = status === 'IN_PROGRESS'
+  const overallScore = scoreLabel(attempt?.score_out_of100)
+  const submittedOn = formatDate(attempt?.submitted_at)
+  const sectionScores =
+    attempt?.section_scores && typeof attempt.section_scores === 'object'
+      ? Object.entries(attempt.section_scores as Record<string, unknown>)
+      : []
+  const showReview = !isInProgress
+
+  const backLink = role === 'STUDENT' ? '/student' : `/parent/child/${attempt?.student_id ?? ''}`
   const backText = role === 'STUDENT' ? '← Back to Dashboard' : '← Back to Student Profile'
 
+  const statusBanner = (() => {
+    if (isInProgress) {
+      return {
+        heading: 'Test Still In Progress',
+        body: 'This attempt has been submitted but not finished. The score below is not final.',
+        tone: 'var(--color-warning-bg)',
+        toneText: 'var(--color-warning)',
+      }
+    }
+    if (isPendingWriting) {
+      return {
+        heading: 'Writing Section Being Evaluated',
+        body: overallScore
+          ? `Your objective score is ${overallScore}. The writing section is still being marked - your final score will update shortly.`
+          : 'Your writing section is currently being evaluated. Check back soon for your full score.',
+        tone: 'var(--color-warning-bg)',
+        toneText: 'var(--color-warning)',
+      }
+    }
+    if (isSubmitted) {
+      return {
+        heading: 'Scoring In Progress',
+        body: 'Your test has been submitted and is being scored. Refresh shortly to see the result.',
+        tone: 'var(--color-warning-bg)',
+        toneText: 'var(--color-warning)',
+      }
+    }
+    return null
+  })()
+
   return (
-    <main style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto' }}>
+    <main style={{ padding: '2rem', maxWidth: '860px', margin: '0 auto' }}>
       <div style={{ marginBottom: '2rem' }}>
-        <Link href={backLink} style={{ color: 'var(--color-primary)' }}>{backText}</Link>
+        <Link href={backLink} style={{ color: 'var(--color-primary)' }}>
+          {backText}
+        </Link>
       </div>
 
-      <div style={{ background: 'var(--color-surface)', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-lg)', padding: '2rem', textAlign: 'center' }}>
-        <h1 style={{ marginBottom: '0.5rem' }}>{attempt.tests?.title}</h1>
-        <p style={{ color: 'var(--color-text-muted)', marginBottom: '2rem' }}>{new Date(attempt.submitted_at).toLocaleDateString()}</p>
+      <div style={{ ...card, textAlign: 'center' }}>
+        <h1 style={{ marginBottom: '0.5rem' }}>{attempt?.tests?.title ?? 'Test Report'}</h1>
+        {submittedOn && (
+          <p style={{ color: 'var(--color-text-muted)', marginBottom: '2rem' }}>Submitted {submittedOn}</p>
+        )}
 
-        {isPending ? (
-          <div style={{ padding: '2rem', background: 'var(--color-warning-bg)', borderRadius: 'var(--radius-md)' }}>
-            <h2 style={{ color: 'var(--color-warning)', margin: 0 }}>Scoring in Progress</h2>
-            <p style={{ marginTop: '0.5rem' }}>Your writing section is currently being evaluated. Check back soon for your full score.</p>
-          </div>
-        ) : isComplete ? (
+        {overallScore ? (
           <div>
             <div style={{ fontSize: '4rem', fontWeight: 'bold', color: 'var(--color-primary)', lineHeight: 1 }}>
-              {attempt.score_out_of100}%
+              {overallScore}
             </div>
-            <p style={{ marginTop: '0.5rem', color: 'var(--color-text-muted)' }}>Overall Score</p>
+            <p style={{ marginTop: '0.5rem', color: 'var(--color-text-muted)' }}>
+              {isComplete ? 'Overall Score' : 'Score So Far'}
+            </p>
           </div>
         ) : (
-          <p>Test not complete.</p>
+          <p style={{ color: 'var(--color-text-muted)', margin: 0 }}>No score recorded yet.</p>
         )}
       </div>
 
-      {isComplete && attempt.section_scores && (
+      {statusBanner && (
+        <div
+          role="status"
+          style={{
+            marginTop: '1.5rem',
+            padding: '1.5rem 2rem',
+            background: statusBanner.tone,
+            borderRadius: 'var(--radius-md)',
+            textAlign: 'center',
+          }}
+        >
+          <h2 style={{ color: statusBanner.toneText, margin: 0, fontSize: '1.25rem' }}>
+            {statusBanner.heading}
+          </h2>
+          <p style={{ marginTop: '0.5rem', marginBottom: 0 }}>{statusBanner.body}</p>
+        </div>
+      )}
+
+      {sectionScores.length > 0 && (
         <section style={{ marginTop: '3rem' }}>
           <h2>Section Breakdown</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
-            {Object.entries(attempt.section_scores).map(([sec, score]) => (
-              <div key={sec} style={{ padding: '1.5rem', background: 'var(--color-surface)', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-md)', textAlign: 'center' }}>
-                <h3 style={{ margin: 0, fontSize: '1.125rem' }}>{sec}</h3>
-                <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--color-primary)', marginTop: '0.5rem' }}>
-                  {Number(score).toFixed(0)}%
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem' }}>
+            {sectionScores.map(([sec, score]) => {
+              const label = scoreLabel(score)
+              return (
+                <div key={sec} style={{ ...card, padding: '1.5rem', textAlign: 'center' }}>
+                  <h3 style={{ margin: 0, fontSize: '1.125rem' }}>{sec}</h3>
+                  <div
+                    style={{
+                      fontSize: '2rem',
+                      fontWeight: 'bold',
+                      marginTop: '0.5rem',
+                      color: label ? 'var(--color-primary)' : 'var(--color-text-muted)',
+                    }}
+                  >
+                    {label ?? 'Pending'}
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </section>
       )}
 
-      {isComplete && (
+      {writingEvaluations.length > 0 && (
+        <section style={{ marginTop: '3rem' }}>
+          <h2>Writing Feedback</h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            {writingEvaluations.map((ev, i) => {
+              const strengths = Array.isArray(ev?.strengths) ? ev.strengths : []
+              const improvements = Array.isArray(ev?.improvements) ? ev.improvements : []
+              const evScore = scoreLabel(ev?.score_out_of100)
+
+              return (
+                <div key={ev?.id ?? i} style={card}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+                    <h3 style={{ margin: 0 }}>Writing Response{i + 1 > 1 ? ` ${i + 1}` : ''}</h3>
+                    {evScore && (
+                      <strong style={{ fontSize: '1.5rem', color: 'var(--color-primary)' }}>{evScore}</strong>
+                    )}
+                  </div>
+
+                  {strengths.length > 0 && (
+                    <div style={{ marginTop: '1.25rem' }}>
+                      <h4 style={{ margin: '0 0 0.5rem', color: 'var(--color-success)' }}>Strengths</h4>
+                      <ul style={{ margin: 0, paddingLeft: '1.25rem' }}>
+                        {strengths.map((s: unknown, si: number) => (
+                          <li key={si}>{answerToText(s)}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {improvements.length > 0 && (
+                    <div style={{ marginTop: '1.25rem' }}>
+                      <h4 style={{ margin: '0 0 0.5rem', color: 'var(--color-warning)' }}>Areas to Improve</h4>
+                      <ul style={{ margin: 0, paddingLeft: '1.25rem' }}>
+                        {improvements.map((s: unknown, si: number) => (
+                          <li key={si}>{answerToText(s)}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {ev?.improved_text && (
+                    <div style={{ marginTop: '1.25rem' }}>
+                      <h4 style={{ margin: '0 0 0.5rem' }}>Model Answer</h4>
+                      <div
+                        style={{
+                          whiteSpace: 'pre-wrap',
+                          background: 'var(--color-bg, #f8fafc)',
+                          border: '1px solid var(--color-border)',
+                          borderRadius: 'var(--radius-md)',
+                          padding: '1rem',
+                        }}
+                      >
+                        {ev.improved_text}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )
+            })}
+          </div>
+        </section>
+      )}
+
+      {showReview && responses.length > 0 && (
         <section style={{ marginTop: '3rem' }}>
           <h2>Review Responses</h2>
           <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
             {responses.map((r, i) => {
-              const q = r.questions
-              const correct = r.is_correct
+              const q = r?.questions
+              const type = q?.type ?? 'MCQ'
+              const isWriting = type === 'WRITING'
+              const isShortAnswer = type === 'SHORT_ANSWER'
+              const correct = r?.is_correct === true
+              const graded = r?.is_correct !== null && r?.is_correct !== undefined
+
+              const studentAnswer = answerToText(r?.answer)
+              const correctLetter =
+                typeof q?.correct_answer === 'string' ? q.correct_answer.trim().toUpperCase()[0] ?? null : null
+              const studentLetter =
+                !isWriting && !isShortAnswer && studentAnswer.trim().length === 1
+                  ? studentAnswer.trim().toUpperCase()
+                  : null
+
+              const accent = isWriting || !graded
+                ? 'var(--color-border)'
+                : correct
+                  ? 'var(--color-success)'
+                  : 'var(--color-danger)'
 
               return (
-                <li key={r.id} style={{ padding: '1.5rem', background: 'var(--color-surface)', border: `1px solid ${correct ? 'var(--color-success)' : 'var(--color-danger)'}`, borderLeft: `4px solid ${correct ? 'var(--color-success)' : 'var(--color-danger)'}`, borderRadius: 'var(--radius-md)' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
-                    <strong>Q{i + 1} ({r.section_name})</strong>
-                    <span style={{ color: correct ? 'var(--color-success)' : 'var(--color-danger)', fontWeight: 'bold' }}>
-                      {correct ? '✓ Correct' : '✗ Incorrect'}
-                    </span>
+                <li
+                  key={r?.id ?? i}
+                  style={{
+                    ...card,
+                    padding: '1.5rem',
+                    textAlign: 'left',
+                    borderLeft: `4px solid ${accent}`,
+                  }}
+                >
+                  <div style={{ display: 'flex', justifyContent: 'space-between', gap: '1rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
+                    <strong>
+                      Q{i + 1}
+                      {r?.section_name ? ` · ${r.section_name}` : ''}
+                    </strong>
+                    {isWriting ? (
+                      <span style={{ color: 'var(--color-text-muted)', fontWeight: 600 }}>
+                        Written answer — see feedback above
+                      </span>
+                    ) : !graded ? (
+                      <span style={{ color: 'var(--color-text-muted)', fontWeight: 600 }}>Not marked</span>
+                    ) : (
+                      <span
+                        style={{
+                          color: correct ? 'var(--color-success)' : 'var(--color-danger)',
+                          fontWeight: 'bold',
+                        }}
+                      >
+                        {correct ? '✓ Correct' : '✗ Incorrect'}
+                      </span>
+                    )}
                   </div>
-                  <p style={{ marginBottom: '1rem' }}>{q?.stem}</p>
-                  
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.875rem' }}>
-                    <div style={{ display: 'flex', gap: '1rem' }}>
-                      <span style={{ color: 'var(--color-text-muted)', width: '100px' }}>Your Answer:</span>
-                      <strong style={{ color: correct ? 'var(--color-success)' : 'var(--color-danger)' }}>{r.answer}</strong>
+
+                  {q?.stem && <p style={{ marginBottom: '1rem' }}>{q.stem}</p>}
+
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '0.9rem' }}>
+                    <div>
+                      <span style={{ color: 'var(--color-text-muted)', display: 'block', marginBottom: '0.25rem' }}>
+                        Your answer
+                      </span>
+                      {studentAnswer ? (
+                        <div
+                          style={{
+                            whiteSpace: 'pre-wrap',
+                            fontWeight: 600,
+                            color: isWriting || !graded ? 'inherit' : correct ? 'var(--color-success)' : 'var(--color-danger)',
+                          }}
+                        >
+                          {studentLetter && optionTextFor(q, studentLetter)
+                            ? `${studentLetter}. ${optionTextFor(q, studentLetter)}`
+                            : studentAnswer}
+                        </div>
+                      ) : (
+                        <em style={{ color: 'var(--color-text-muted)' }}>No answer saved</em>
+                      )}
                     </div>
-                    {!correct && (
-                      <div style={{ display: 'flex', gap: '1rem' }}>
-                        <span style={{ color: 'var(--color-text-muted)', width: '100px' }}>Correct Answer:</span>
-                        <strong style={{ color: 'var(--color-success)' }}>{q?.correct_answer}</strong>
+
+                    {!isWriting && !isShortAnswer && graded && !correct && (
+                      <div>
+                        <span style={{ color: 'var(--color-text-muted)', display: 'block', marginBottom: '0.25rem' }}>
+                          Correct answer
+                        </span>
+                        <strong style={{ color: 'var(--color-success)' }}>
+                          {correctLetter
+                            ? `${correctLetter}${optionTextFor(q, correctLetter) ? `. ${optionTextFor(q, correctLetter)}` : ''}`
+                            : answerToText(q?.correct_answer) || 'Not provided'}
+                        </strong>
+                      </div>
+                    )}
+
+                    {!isWriting && isShortAnswer && q?.correct_answer && (
+                      <div>
+                        <span style={{ color: 'var(--color-text-muted)', display: 'block', marginBottom: '0.25rem' }}>
+                          Expected answer
+                        </span>
+                        <strong style={{ color: 'var(--color-success)' }}>{answerToText(q.correct_answer)}</strong>
+                      </div>
+                    )}
+
+                    {q?.explanation && (
+                      <div>
+                        <span style={{ color: 'var(--color-text-muted)', display: 'block', marginBottom: '0.25rem' }}>
+                          Explanation
+                        </span>
+                        <div style={{ whiteSpace: 'pre-wrap' }}>{q.explanation}</div>
                       </div>
                     )}
                   </div>
@@ -86,6 +359,13 @@ export function TestReportView({ attempt, responses, role }: { attempt: any, res
           </ul>
         </section>
       )}
+
+      {showReview && responses.length === 0 && (
+        <section style={{ marginTop: '3rem', textAlign: 'center', color: 'var(--color-text-muted)' }}>
+          <p>No responses were recorded for this attempt.</p>
+        </section>
+      )}
     </main>
   )
 }
+

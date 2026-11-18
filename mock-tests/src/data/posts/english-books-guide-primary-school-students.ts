@@ -240,12 +240,32 @@ export const englishBooksPrimarySchoolGuide = {
       </section>
 
     </article>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>How is this book guide organised?</h3>
+    <p>By school stage: Foundation (Prep) and Year 1 for building the foundations of reading, Years 2 and 3 for growing confidence and independence, Years 4 and 5 for deepening comprehension and critical thinking, and Year 6 for preparing for secondary school. Each stage gives what to look for, recommended titles, and tips for parents.</p>
+
+    <h3>Do the recommendations help with NAPLAN?</h3>
+    <p>Indirectly but meaningfully, and the guide includes a dedicated section on non-fiction books that build NAPLAN skills. Wide reading develops the vocabulary, inference and stamina that the Reading test requires, and non-fiction in particular builds familiarity with the informational text types NAPLAN uses.</p>
+
+    <h3>What should I do if my child is a reluctant reader?</h3>
+    <p>There is a section devoted to it, covering strategies that work and high-engagement titles chosen specifically for reluctant readers. The emphasis is on engagement before difficulty - a book a child chooses and finishes does more for reading habit than an ambitious book abandoned.</p>
+
+    <h3>Does reading fiction alone build literacy?</h3>
+    <p>No, and the guide deliberately includes non-fiction and poetry collections alongside fiction. Different text types develop different skills, and exposure to a variety of them is part of what the research section describes as reading building more than literacy alone.</p>
+
+    <h3>How do I build a reading culture at home?</h3>
+    <p>The guide sets out practical steps rather than general advice to read more. In practice these involve visible books, protected reading time, adults reading themselves, and conversation about what is being read - the habits that make reading ordinary rather than a task.</p>
+
   `,
   image:
     "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Stack of colourful children's books on a wooden table with a child's hand reaching for one",
-  date: "March 28, 2026",
+    "Stack of colourful children's books on a wooden table with a child's hand reaching for one",  date: "August 31, 2026",
+  updatedDate: "September 2, 2026",
+  readingTime: 17,
+  category: "naplan",
   tags: [
     "ENGLISH",
     "READING",
@@ -272,6 +292,13 @@ export const englishBooksPrimarySchoolGuide = {
     "primary school reading guide",
     "books to improve reading skills",
     "children's book recommendations Australia",
+  ],
+  keyTakeaways: [
+    "An age-by-age reading guide for Australian primary students from Foundation (Prep) through Year 6.",
+    "Each stage covers what to look for, recommended books, and specific tips for parents.",
+    "Separate sections address reluctant readers, non-fiction that builds NAPLAN skills, and poetry collections.",
+    "Reading builds more than literacy - the research section explains why volume and variety of reading matter.",
+    "Building a reading culture at home is treated as a set of practical steps rather than general encouragement.",
   ],
   author: {
     name: "Ashish Jain",

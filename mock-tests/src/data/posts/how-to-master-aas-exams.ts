@@ -205,7 +205,7 @@ export const howToMasterAasExams = {
             </tr>
             <tr>
               <td><strong>Question types</strong></td>
-              <td>Pattern sequences, matrices (2Ã-2 and 3Ã-3), figure classification, spatial rotation and reflection, paper folding, figure analogies, shape overlays</td>
+              <td>Pattern sequences, matrices (2×2 and 3×3), figure classification, spatial rotation and reflection, paper folding, figure analogies, shape overlays</td>
             </tr>
             <tr>
               <td><strong>Skills assessed</strong></td>
@@ -322,7 +322,7 @@ export const howToMasterAasExams = {
         <h4>Non-Negotiable Foundations</h4>
         <p>Ensure automatic fluency in:</p>
         <ul>
-          <li><strong>Times tables</strong> - instant recall to 12 Ã- 12 minimum</li>
+          <li><strong>Times tables</strong> - instant recall to 12 × 12 minimum</li>
           <li><strong>Fractions</strong> - all four operations; converting between fractions, decimals, and percentages; equivalent fractions; ordering</li>
           <li><strong>Order of operations (BODMAS)</strong> - applied accurately and consistently</li>
           <li><strong>Place value</strong> - understanding what digits represent in whole numbers and decimals</li>
@@ -412,7 +412,7 @@ export const howToMasterAasExams = {
         <h4>Question-Type-Specific Tips</h4>
         <ul>
           <li><strong>Sequences</strong> - identify the rule that governs the progression from frame to frame, then apply it to predict the next frame</li>
-          <li><strong>2Ã-2 and 3Ã-3 matrices</strong> - identify rules governing both rows AND columns. The answer must satisfy both directions simultaneously</li>
+          <li><strong>2×2 and 3×3 matrices</strong> - identify rules governing both rows AND columns. The answer must satisfy both directions simultaneously</li>
           <li><strong>Figure classification</strong> - identify the shared characteristic of the group (shape type, number of sides, shading, symmetry), then find the option that belongs</li>
           <li><strong>Paper folding</strong> - mentally unfold the paper step by step, tracking where the holes or marks would appear. Practise with actual paper first to build intuition</li>
           <li><strong>Figure analogies</strong> - identify the transformation applied to the first figure to produce the second, then apply the same transformation to the third figure</li>
@@ -421,7 +421,7 @@ export const howToMasterAasExams = {
         <h4>Building Abstract Reasoning Skill</h4>
         <ul>
           <li><strong>Start with simple patterns</strong> - master straightforward single-attribute sequences before attempting complex multi-attribute matrices</li>
-          <li><strong>Verbalise the pattern</strong> - "The triangle rotates 90Â° clockwise each time, and the circle alternates between filled and empty." Speaking the pattern aloud confirms understanding and catches errors</li>
+          <li><strong>Verbalise the pattern</strong> - "The triangle rotates 90° clockwise each time, and the circle alternates between filled and empty." Speaking the pattern aloud confirms understanding and catches errors</li>
           <li><strong>Build spatial skills naturally</strong> - tangrams, jigsaw puzzles, Rubik's cubes, Tetris, origami, and construction activities all develop spatial reasoning in engaging ways</li>
           <li><strong>Practise under timed conditions</strong> - build speed gradually. Abstract reasoning sections are often time-pressured, and slow, deliberate analysis needs to become faster with practice</li>
           <li><strong>Review errors by identifying which attribute you missed</strong> - "I noticed the rotation but missed the shading change." This targeted reflection prevents the same mistake in future</li>
@@ -607,8 +607,10 @@ export const howToMasterAasExams = {
   image:
     "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Students sitting at desks in an exam hall, focused and writing with pencils",
-  date: "March 28, 2026",
+    "Students sitting at desks in an exam hall, focused and writing with pencils",  date: "September 21, 2026",
+  updatedDate: "September 23, 2026",
+  readingTime: 20,
+  category: "scholarship-exams",
   tags: [
     "AAS",
     "SCHOLARSHIPS",
@@ -635,6 +637,13 @@ export const howToMasterAasExams = {
     "AAS vs ACER vs EduTest",
     "AAS exam five components",
     "scholarship exam preparation Australia",
+  ],
+  keyTakeaways: [
+    "AAS (Academic Assessment Services) uses a five-component structure - more components than ACER or EduTest.",
+    "The five components are Reading Comprehension, Written Expression, Mathematics, Verbal Reasoning, and Abstract / Non-Verbal Reasoning.",
+    "More components means more opportunity: a student weaker in one area can still perform strongly overall.",
+    "The guide covers mastery strategies for each component separately, plus a preparation timeline and exam-day practicalities.",
+    "Common mistakes that cost students places are listed explicitly, along with official and supplementary resources.",
   ],
   author: {
     name: "Ashish Jain",

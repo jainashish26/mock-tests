@@ -297,51 +297,51 @@ export const englishWritingTipsDosAndDontsPersuasiveWriting = {
           </thead>
           <tbody>
             <tr>
-              <td>-˜</td>
+              <td>☐</td>
               <td>Is my contention clear, specific, and stated in the introduction?</td>
             </tr>
             <tr>
-              <td>-˜</td>
+              <td>☐</td>
               <td>Does each body paragraph present a distinct argument (not repeat the same point)?</td>
             </tr>
             <tr>
-              <td>-˜</td>
+              <td>☐</td>
               <td>Have I used the TEEL structure in each body paragraph?</td>
             </tr>
             <tr>
-              <td>-˜</td>
+              <td>☐</td>
               <td>Is every major claim supported by evidence (facts, statistics, expert opinion, examples)?</td>
             </tr>
             <tr>
-              <td>-˜</td>
+              <td>☐</td>
               <td>Have I used at least two persuasive techniques (rhetorical question, inclusive language, rule of three, etc.)?</td>
             </tr>
             <tr>
-              <td>-˜</td>
+              <td>☐</td>
               <td>Have I acknowledged and rebutted the opposing viewpoint?</td>
             </tr>
             <tr>
-              <td>-˜</td>
+              <td>☐</td>
               <td>Is my tone formal and confident (not casual, chatty, or ranty)?</td>
             </tr>
             <tr>
-              <td>-˜</td>
+              <td>☐</td>
               <td>Have I avoided sweeping generalisations and unsupported claims?</td>
             </tr>
             <tr>
-              <td>-˜</td>
+              <td>☐</td>
               <td>Does my conclusion restate my contention and end with impact?</td>
             </tr>
             <tr>
-              <td>-˜</td>
+              <td>☐</td>
               <td>Have I avoided introducing new arguments in the conclusion?</td>
             </tr>
             <tr>
-              <td>-˜</td>
+              <td>☐</td>
               <td>Is this a persuasive text (not a narrative or a report)?</td>
             </tr>
             <tr>
-              <td>-˜</td>
+              <td>☐</td>
               <td>Have I proofread for spelling, grammar, and punctuation?</td>
             </tr>
           </tbody>
@@ -363,12 +363,35 @@ export const englishWritingTipsDosAndDontsPersuasiveWriting = {
       </section>
 
     </article>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What is TEEL and why does it matter?</h3>
+    <p>TEEL stands for Topic sentence, Explanation, Evidence, Link. It is the paragraph structure this guide recommends because it forces every paragraph to make one claim, justify it, support it and connect it back to the contention - which is exactly what markers look for. Structure is the second of the seven do's.</p>
+
+    <h3>Should my child write 'I think' in a persuasive piece?</h3>
+    <p>Not repeatedly. Starting every sentence with 'I think' or 'I believe' is one of the explicit don'ts, because it frames the argument as personal opinion rather than as a case the reader should accept. Formal, confident language that states the position directly is stronger.</p>
+
+    <h3>Is it good to use emotional language?</h3>
+    <p>Only in balance. Persuasive techniques should be used deliberately, but relying on emotion alone is one of the nine don'ts, as is confusing persuasion with ranting. Exclamation marks and capital letters do not make an argument more convincing - they usually signal that evidence is missing.</p>
+
+    <h3>Should the other side's view be mentioned?</h3>
+    <p>Yes. Acknowledging and rebutting the opposing position is one of the do's, and it strengthens credibility rather than weakening the case. It shows the writer has considered the issue rather than simply asserting a preference.</p>
+
+    <h3>What should a persuasive conclusion do?</h3>
+    <p>Restate the contention and consolidate the argument. The guide warns explicitly against introducing new arguments in the conclusion, because a point raised for the first time at the end has no supporting evidence and leaves the piece unfinished.</p>
+
+    <h3>What is the most common structural error?</h3>
+    <p>Writing a narrative instead of an argument. Telling a story about the issue feels natural to many students, but a persuasive task requires a contention, reasons and evidence. Ignoring the audience and using sweeping generalisations are the other frequent structural problems the checklist targets.</p>
+
   `,
   image:
     "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Student writing an essay at a desk with notes and a highlighter, focused and organised",
-  date: "March 28, 2026",
+    "Student writing an essay at a desk with notes and a highlighter, focused and organised",  date: "August 28, 2026",
+  updatedDate: "August 30, 2026",
+  readingTime: 14,
+  category: "naplan",
   tags: [
     "ENGLISH",
     "WRITING TIPS",
@@ -395,6 +418,13 @@ export const englishWritingTipsDosAndDontsPersuasiveWriting = {
     "English writing tips secondary school",
     "persuasive writing checklist",
     "argument writing techniques for students",
+  ],
+  keyTakeaways: [
+    "Seven do's: state the contention clearly and early, structure with TEEL paragraphs, support every claim with evidence, use persuasive techniques deliberately, acknowledge and rebut the other side, write a powerful introduction and conclusion, and use formal confident language.",
+    "Nine don'ts, including confusing persuasion with ranting, opening every sentence with 'I think', making claims without evidence, and relying on emotion alone.",
+    "Sweeping generalisations and excessive exclamation marks or capital letters weaken rather than strengthen an argument.",
+    "Never introduce a new argument in the conclusion - it leaves the piece structurally unfinished.",
+    "Writing a narrative instead of an argument, and ignoring the audience, are two of the most common ways marks are lost.",
   ],
   author: {
     name: "Ashish Jain",

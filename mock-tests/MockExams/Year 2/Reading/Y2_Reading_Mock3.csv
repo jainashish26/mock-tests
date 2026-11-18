@@ -1,0 +1,141 @@
+﻿QuestionID,ExamID,ExamType,ExamSection,YearLevel,Subject,Topic,SubTopic,QuestionType,ComprehensionText,QuestionText,QuestionMedia,Correct,AnswerA,AnswerB,AnswerC,AnswerD,AnswerE,Difficulty,IsActive,CorrectAnswerScore,Tags,SourceBank,SourceQuestionNumber,SourceComprehensionID,NAPLANFlag,DifficultyScore,DifficultyLabel
+NAPLAN-Y2-READING-M3-Q01,NAPLAN-Y2-READING-M3,NAPLAN_STYLE_READING,Text 1,2,English,Reading Comprehension,Summarising,ReadingComprehension,"Farms That Grow Up
+In the future, more people will live in big cities. There may not be much space for farms nearby. So some people are building farms that grow up instead of out!
+These are called vertical farms. Plants grow on shelves stacked high inside a building, like books in a bookcase. Special lights shine instead of the sun. Water drips onto the roots, and very little is wasted.
+Vertical farms can grow lettuce and herbs all year, even in winter. The food is grown close to where people live, so it stays fresh.
+One day, your salad might come from a skyscraper!",What is this passage mostly about?,,D,farms where cows and sheep live in cities,gardens that grow on the roofs of houses,shops in the city that sell fresh salad,farms where plants grow on tall shelves indoors,,1,1,1,"NAPLAN,Year 2,Mock 3",English_Comprehension_Questions_expanded.csv,2.1033.1,159,1,2,Easy
+NAPLAN-Y2-READING-M3-Q02,NAPLAN-Y2-READING-M3,NAPLAN_STYLE_READING,Text 1,2,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Farms That Grow Up
+In the future, more people will live in big cities. There may not be much space for farms nearby. So some people are building farms that grow up instead of out!
+These are called vertical farms. Plants grow on shelves stacked high inside a building, like books in a bookcase. Special lights shine instead of the sun. Water drips onto the roots, and very little is wasted.
+Vertical farms can grow lettuce and herbs all year, even in winter. The food is grown close to where people live, so it stays fresh.
+One day, your salad might come from a skyscraper!",What shines on the plants instead of the sun?,,D,the moon,shiny shelves,big windows,special lights,,1,1,1,"NAPLAN,Year 2,Mock 3",English_Comprehension_Questions_expanded.csv,2.1033.2,159,1,1,Easy
+NAPLAN-Y2-READING-M3-Q03,NAPLAN-Y2-READING-M3,NAPLAN_STYLE_READING,Text 1,2,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Farms That Grow Up
+In the future, more people will live in big cities. There may not be much space for farms nearby. So some people are building farms that grow up instead of out!
+These are called vertical farms. Plants grow on shelves stacked high inside a building, like books in a bookcase. Special lights shine instead of the sun. Water drips onto the roots, and very little is wasted.
+Vertical farms can grow lettuce and herbs all year, even in winter. The food is grown close to where people live, so it stays fresh.
+One day, your salad might come from a skyscraper!",Why does food from a vertical farm stay fresh?,,A,It is grown close to where people live.,It is kept on high shelves.,It is grown only in winter.,It is given a lot of water.,,2,1,1,"NAPLAN,Year 2,Mock 3",English_Comprehension_Questions_expanded.csv,2.1033.3,159,1,4,Medium
+NAPLAN-Y2-READING-M3-Q04,NAPLAN-Y2-READING-M3,NAPLAN_STYLE_READING,Text 1,2,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"Farms That Grow Up
+In the future, more people will live in big cities. There may not be much space for farms nearby. So some people are building farms that grow up instead of out!
+These are called vertical farms. Plants grow on shelves stacked high inside a building, like books in a bookcase. Special lights shine instead of the sun. Water drips onto the roots, and very little is wasted.
+Vertical farms can grow lettuce and herbs all year, even in winter. The food is grown close to where people live, so it stays fresh.
+One day, your salad might come from a skyscraper!","In this passage, vertical means . . .",,B,wide and flat.,going straight up.,under the ground.,out in the open.,,3,1,1,"NAPLAN,Year 2,Mock 3",English_Comprehension_Questions_expanded.csv,2.1033.4,159,1,5,Medium
+NAPLAN-Y2-READING-M3-Q05,NAPLAN-Y2-READING-M3,NAPLAN_STYLE_READING,Text 1,2,English,Inference,Character Motivation,ReadingComprehension,"Farms That Grow Up
+In the future, more people will live in big cities. There may not be much space for farms nearby. So some people are building farms that grow up instead of out!
+These are called vertical farms. Plants grow on shelves stacked high inside a building, like books in a bookcase. Special lights shine instead of the sun. Water drips onto the roots, and very little is wasted.
+Vertical farms can grow lettuce and herbs all year, even in winter. The food is grown close to where people live, so it stays fresh.
+One day, your salad might come from a skyscraper!",Which TWO problems are the builders of vertical farms trying to solve?,,A,"not much space near cities, and food that is not fresh","not much space near cities, and no sun in winter","too much water being wasted, and too many cities","plants that do not like sun, and food that is not fresh",,4,1,1,"NAPLAN,Year 2,Mock 3",English_Comprehension_Questions_expanded.csv,2.1033.5,159,2,7,Hard
+NAPLAN-Y2-READING-M3-Q06,NAPLAN-Y2-READING-M3,NAPLAN_STYLE_READING,Text 2,2,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Rain Alarm
+Every time it rained, Gran's washing got soaked on the line. Leo wanted to help.
+He found a tin lid, a battery, two wires and an old bell. When raindrops filled the lid, the water would touch both wires and ring the bell.
+The first test was a flop. The bell stayed silent, even when Leo poured a whole cup of water into the lid.
+'Back to the drawing board,' Leo sighed. He moved the wires closer together and tried again.
+That afternoon, dark clouds rolled in. Ding! Ding! Gran rushed out and grabbed her sheets just in time.
+'Leo, you're a genius!' she laughed.",What did Leo use to catch the raindrops?,,D,a cup,an old bell,a bucket,a tin lid,,1,1,1,"NAPLAN,Year 2,Mock 3",English_Comprehension_Questions_expanded.csv,2.925.1,51,1,2,Easy
+NAPLAN-Y2-READING-M3-Q07,NAPLAN-Y2-READING-M3,NAPLAN_STYLE_READING,Text 2,2,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Rain Alarm
+Every time it rained, Gran's washing got soaked on the line. Leo wanted to help.
+He found a tin lid, a battery, two wires and an old bell. When raindrops filled the lid, the water would touch both wires and ring the bell.
+The first test was a flop. The bell stayed silent, even when Leo poured a whole cup of water into the lid.
+'Back to the drawing board,' Leo sighed. He moved the wires closer together and tried again.
+That afternoon, dark clouds rolled in. Ding! Ding! Gran rushed out and grabbed her sheets just in time.
+'Leo, you're a genius!' she laughed.",What did Leo do after his first test?,,D,poured more water on the bell,found a newer and louder bell,asked Gran to help him fix it,moved the wires closer together,,1,1,1,"NAPLAN,Year 2,Mock 3",English_Comprehension_Questions_expanded.csv,2.925.2,51,1,2,Easy
+NAPLAN-Y2-READING-M3-Q08,NAPLAN-Y2-READING-M3,NAPLAN_STYLE_READING,Text 2,2,English,Inference,Interpreting Feelings,ReadingComprehension,"The Rain Alarm
+Every time it rained, Gran's washing got soaked on the line. Leo wanted to help.
+He found a tin lid, a battery, two wires and an old bell. When raindrops filled the lid, the water would touch both wires and ring the bell.
+The first test was a flop. The bell stayed silent, even when Leo poured a whole cup of water into the lid.
+'Back to the drawing board,' Leo sighed. He moved the wires closer together and tried again.
+That afternoon, dark clouds rolled in. Ding! Ding! Gran rushed out and grabbed her sheets just in time.
+'Leo, you're a genius!' she laughed.",How did Gran feel when the alarm rang?,,C,worried and upset,cross and grumpy,pleased and thankful,bored and sleepy,,2,1,1,"NAPLAN,Year 2,Mock 3",English_Comprehension_Questions_expanded.csv,2.925.3,51,1,4,Medium
+NAPLAN-Y2-READING-M3-Q09,NAPLAN-Y2-READING-M3,NAPLAN_STYLE_READING,Text 2,2,English,Inference,Inferential Reasoning,ReadingComprehension,"The Rain Alarm
+Every time it rained, Gran's washing got soaked on the line. Leo wanted to help.
+He found a tin lid, a battery, two wires and an old bell. When raindrops filled the lid, the water would touch both wires and ring the bell.
+The first test was a flop. The bell stayed silent, even when Leo poured a whole cup of water into the lid.
+'Back to the drawing board,' Leo sighed. He moved the wires closer together and tried again.
+That afternoon, dark clouds rolled in. Ding! Ding! Gran rushed out and grabbed her sheets just in time.
+'Leo, you're a genius!' she laughed.",Why did the bell most likely stay silent in the first test?,,B,There was no water in the lid.,The wires were too far apart.,The old bell was broken.,It was not raining yet.,,3,1,1,"NAPLAN,Year 2,Mock 3",English_Comprehension_Questions_expanded.csv,2.925.4,51,1,5,Medium
+NAPLAN-Y2-READING-M3-Q10,NAPLAN-Y2-READING-M3,NAPLAN_STYLE_READING,Text 2,2,English,Vocabulary,Idioms and Expressions,ReadingComprehension,"The Rain Alarm
+Every time it rained, Gran's washing got soaked on the line. Leo wanted to help.
+He found a tin lid, a battery, two wires and an old bell. When raindrops filled the lid, the water would touch both wires and ring the bell.
+The first test was a flop. The bell stayed silent, even when Leo poured a whole cup of water into the lid.
+'Back to the drawing board,' Leo sighed. He moved the wires closer together and tried again.
+That afternoon, dark clouds rolled in. Ding! Ding! Gran rushed out and grabbed her sheets just in time.
+'Leo, you're a genius!' she laughed.",Leo says 'Back to the drawing board' after his first test. In which of these would someone ALSO say 'Back to the drawing board'?,,C,Sam finishes a drawing of a bell and pins it on the wall.,"Ben's block tower falls down, so he stops building forever.","Mia's paper boat sinks, so she folds a new one a different way.",Kim's kite flies so high that all her friends clap and cheer.,,4,1,1,"NAPLAN,Year 2,Mock 3",English_Comprehension_Questions_expanded.csv,2.925.5,51,1,7,Hard
+NAPLAN-Y2-READING-M3-Q11,NAPLAN-Y2-READING-M3,NAPLAN_STYLE_READING,Text 3,2,English,Reading Comprehension,Sequencing,ReadingComprehension,"Be Bright, Be Seen
+When the sun goes down, it is hard for drivers to see people walking or riding. That is why everyone should wear something bright at night.
+First, light colours like white and yellow are much easier to spot in the dark than black or navy.
+Second, reflective strips shine when car headlights hit them. They bounce the light straight back to the driver.
+Last, a small light on your bike or bag shows people where you are, even from far away.
+So before you head out at dusk, light up and stay safe!",What is the writer's first reason?,,A,Light colours are easier to spot in the dark.,Reflective strips shine in car headlights.,A small light shows people where you are.,Drivers should drive slowly in the dark.,,1,1,1,"NAPLAN,Year 2,Mock 3",English_Comprehension_Questions_expanded.csv,2.1096.1,222,1,2,Easy
+NAPLAN-Y2-READING-M3-Q12,NAPLAN-Y2-READING-M3,NAPLAN_STYLE_READING,Text 3,2,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Be Bright, Be Seen
+When the sun goes down, it is hard for drivers to see people walking or riding. That is why everyone should wear something bright at night.
+First, light colours like white and yellow are much easier to spot in the dark than black or navy.
+Second, reflective strips shine when car headlights hit them. They bounce the light straight back to the driver.
+Last, a small light on your bike or bag shows people where you are, even from far away.
+So before you head out at dusk, light up and stay safe!",What do reflective strips do?,,C,make their own bright light,keep you warm at night,bounce light back to the driver,make a loud beeping sound,,1,1,1,"NAPLAN,Year 2,Mock 3",English_Comprehension_Questions_expanded.csv,2.1096.2,222,1,2,Easy
+NAPLAN-Y2-READING-M3-Q13,NAPLAN-Y2-READING-M3,NAPLAN_STYLE_READING,Text 3,2,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"Be Bright, Be Seen
+When the sun goes down, it is hard for drivers to see people walking or riding. That is why everyone should wear something bright at night.
+First, light colours like white and yellow are much easier to spot in the dark than black or navy.
+Second, reflective strips shine when car headlights hit them. They bounce the light straight back to the driver.
+Last, a small light on your bike or bag shows people where you are, even from far away.
+So before you head out at dusk, light up and stay safe!",'before you head out at dusk' The word 'dusk' means . . .,,B,the time very early in the morning.,the time when it starts to get dark.,the middle of a sunny day.,a big dark cloud in the sky.,,3,1,1,"NAPLAN,Year 2,Mock 3",English_Comprehension_Questions_expanded.csv,2.1096.3,222,1,5,Medium
+NAPLAN-Y2-READING-M3-Q14,NAPLAN-Y2-READING-M3,NAPLAN_STYLE_READING,Text 3,2,English,Reading Comprehension,Evaluating Evidence,ReadingComprehension,"Be Bright, Be Seen
+When the sun goes down, it is hard for drivers to see people walking or riding. That is why everyone should wear something bright at night.
+First, light colours like white and yellow are much easier to spot in the dark than black or navy.
+Second, reflective strips shine when car headlights hit them. They bounce the light straight back to the driver.
+Last, a small light on your bike or bag shows people where you are, even from far away.
+So before you head out at dusk, light up and stay safe!",Which sentence BEST supports the idea that bright clothes help people be seen?,,A,'light colours like white and yellow are much easier to spot in the dark than black or navy',"'When the sun goes down, it is hard for drivers to see people'",'That is why everyone should wear something bright at night.',"'So before you head out at dusk, light up and stay safe!'",,3,1,1,"NAPLAN,Year 2,Mock 3",English_Comprehension_Questions_expanded.csv,2.1096.4,222,1,5,Medium
+NAPLAN-Y2-READING-M3-Q15,NAPLAN-Y2-READING-M3,NAPLAN_STYLE_READING,Text 3,2,English,Reading Comprehension,Text Structure,ReadingComprehension,"Be Bright, Be Seen
+When the sun goes down, it is hard for drivers to see people walking or riding. That is why everyone should wear something bright at night.
+First, light colours like white and yellow are much easier to spot in the dark than black or navy.
+Second, reflective strips shine when car headlights hit them. They bounce the light straight back to the driver.
+Last, a small light on your bike or bag shows people where you are, even from far away.
+So before you head out at dusk, light up and stay safe!",How do the first and last paragraphs work together?,,B,"The first gives one reason, and the last gives another reason.","The first gives the writer's idea, and the last tells readers to act on it.","The first tells a story, and the last tells how the story ended.","The first explains reflectors, and the last explains bike lights.",,4,1,1,"NAPLAN,Year 2,Mock 3",English_Comprehension_Questions_expanded.csv,2.1096.5,222,2,7,Hard
+NAPLAN-Y2-READING-M3-Q16,NAPLAN-Y2-READING-M3,NAPLAN_STYLE_READING,Text 4,2,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Every School Needs a Nurse
+Every school should have its own nurse. Here is why.
+First, children get sick or hurt at school all the time. A nurse knows exactly what to do with a bumped head, a bad cough or a nasty bee sting.
+Second, teachers are busy teaching. When a nurse looks after a sick child, the teacher can keep helping the rest of the class.
+Last, a nurse can teach us how to wash our hands and stay healthy, so fewer people get sick.
+A school nurse keeps everyone safe and happy. Let's ask for one today!",What can a nurse teach children?,,A,how to wash their hands,how to read and write,how to play a new sport,how to catch a bee,,1,1,1,"NAPLAN,Year 2,Mock 3",English_Comprehension_Questions_expanded.csv,2.1110.1,236,1,2,Easy
+NAPLAN-Y2-READING-M3-Q17,NAPLAN-Y2-READING-M3,NAPLAN_STYLE_READING,Text 4,2,English,Inference,Inferential Reasoning,ReadingComprehension,"Every School Needs a Nurse
+Every school should have its own nurse. Here is why.
+First, children get sick or hurt at school all the time. A nurse knows exactly what to do with a bumped head, a bad cough or a nasty bee sting.
+Second, teachers are busy teaching. When a nurse looks after a sick child, the teacher can keep helping the rest of the class.
+Last, a nurse can teach us how to wash our hands and stay healthy, so fewer people get sick.
+A school nurse keeps everyone safe and happy. Let's ask for one today!",How does the writer think a nurse would help teachers?,,B,teachers would never get sick,teachers could keep teaching the class,teachers would learn first aid,teachers could go home early,,2,1,1,"NAPLAN,Year 2,Mock 3",English_Comprehension_Questions_expanded.csv,2.1110.2,236,1,4,Medium
+NAPLAN-Y2-READING-M3-Q18,NAPLAN-Y2-READING-M3,NAPLAN_STYLE_READING,Text 4,2,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"Every School Needs a Nurse
+Every school should have its own nurse. Here is why.
+First, children get sick or hurt at school all the time. A nurse knows exactly what to do with a bumped head, a bad cough or a nasty bee sting.
+Second, teachers are busy teaching. When a nurse looks after a sick child, the teacher can keep helping the rest of the class.
+Last, a nurse can teach us how to wash our hands and stay healthy, so fewer people get sick.
+A school nurse keeps everyone safe and happy. Let's ask for one today!",What does 'nasty' mean in 'a nasty bee sting'?,,C,tiny,unkind,painful,funny,,3,1,1,"NAPLAN,Year 2,Mock 3",English_Comprehension_Questions_expanded.csv,2.1110.3,236,1,5,Medium
+NAPLAN-Y2-READING-M3-Q19,NAPLAN-Y2-READING-M3,NAPLAN_STYLE_READING,Text 4,2,English,Inference,Drawing Conclusions,ReadingComprehension,"Every School Needs a Nurse
+Every school should have its own nurse. Here is why.
+First, children get sick or hurt at school all the time. A nurse knows exactly what to do with a bumped head, a bad cough or a nasty bee sting.
+Second, teachers are busy teaching. When a nurse looks after a sick child, the teacher can keep helping the rest of the class.
+Last, a nurse can teach us how to wash our hands and stay healthy, so fewer people get sick.
+A school nurse keeps everyone safe and happy. Let's ask for one today!",Which reasons show that a nurse also helps children who are NOT sick or hurt?,,C,the first and second reasons,the first and last reasons,the second and last reasons,only the first reason,,4,1,1,"NAPLAN,Year 2,Mock 3",English_Comprehension_Questions_expanded.csv,2.1110.4,236,1,8,Hard
+NAPLAN-Y2-READING-M3-Q20,NAPLAN-Y2-READING-M3,NAPLAN_STYLE_READING,Text 4,2,English,Persuasive Language,Persuasive Devices,ReadingComprehension,"Every School Needs a Nurse
+Every school should have its own nurse. Here is why.
+First, children get sick or hurt at school all the time. A nurse knows exactly what to do with a bumped head, a bad cough or a nasty bee sting.
+Second, teachers are busy teaching. When a nurse looks after a sick child, the teacher can keep helping the rest of the class.
+Last, a nurse can teach us how to wash our hands and stay healthy, so fewer people get sick.
+A school nurse keeps everyone safe and happy. Let's ask for one today!",The writer says a nurse 'keeps everyone safe and happy.' Why is this a persuasive choice of words?,,A,it makes a nurse sound good for the whole school,it gives a fact that readers can easily check,it shows that only sick children need a nurse,it explains what to do about a bee sting,,4,1,1,"NAPLAN,Year 2,Mock 3",English_Comprehension_Questions_expanded.csv,2.1110.5,236,1,7,Hard
+NAPLAN-Y2-READING-M3-Q21,NAPLAN-Y2-READING-M3,NAPLAN_STYLE_READING,Text 5,2,English,Inference,Inferential Reasoning,ReadingComprehension,"Sugar Gliders
+Sugar gliders are small possums that live in Australian forests.
+A sugar glider has a thin flap of skin from its front legs to its back legs. When it leaps from a tree and spreads its legs, the flap opens like a kite. It can glide about 50 metres! Its long tail helps it steer.
+Sugar gliders live in small groups. They sleep together in tree hollows during the day. At night, they come out to lick sweet sap and nectar from trees and to catch insects.",Sugar gliders are probably called 'sugar' gliders because they . . .,,C,are white like sugar.,live in sugar cane.,like sweet food.,are very small.,,2,1,1,"NAPLAN,Year 2,Mock 3",English_Comprehension_Questions_expanded.csv,2.1020.1,146,1,3,Easy
+NAPLAN-Y2-READING-M3-Q22,NAPLAN-Y2-READING-M3,NAPLAN_STYLE_READING,Text 5,2,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Sugar Gliders
+Sugar gliders are small possums that live in Australian forests.
+A sugar glider has a thin flap of skin from its front legs to its back legs. When it leaps from a tree and spreads its legs, the flap opens like a kite. It can glide about 50 metres! Its long tail helps it steer.
+Sugar gliders live in small groups. They sleep together in tree hollows during the day. At night, they come out to lick sweet sap and nectar from trees and to catch insects.",Where do sugar gliders sleep?,,D,in burrows during the night,on branches during the day,in tree hollows during the night,in tree hollows during the day,,2,1,1,"NAPLAN,Year 2,Mock 3",English_Comprehension_Questions_expanded.csv,2.1020.2,146,1,4,Medium
+NAPLAN-Y2-READING-M3-Q23,NAPLAN-Y2-READING-M3,NAPLAN_STYLE_READING,Text 5,2,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Sugar Gliders
+Sugar gliders are small possums that live in Australian forests.
+A sugar glider has a thin flap of skin from its front legs to its back legs. When it leaps from a tree and spreads its legs, the flap opens like a kite. It can glide about 50 metres! Its long tail helps it steer.
+Sugar gliders live in small groups. They sleep together in tree hollows during the day. At night, they come out to lick sweet sap and nectar from trees and to catch insects.",What happens when a sugar glider leaps and spreads its legs?,,A,Its flap of skin opens like a kite.,Its long tail curls around a branch.,It flaps its legs like a bird's wings.,It drops straight down to the ground.,,2,1,1,"NAPLAN,Year 2,Mock 3",English_Comprehension_Questions_expanded.csv,2.1020.3,146,1,4,Medium
+NAPLAN-Y2-READING-M3-Q24,NAPLAN-Y2-READING-M3,NAPLAN_STYLE_READING,Text 5,2,English,Reading Comprehension,Evaluating Evidence,ReadingComprehension,"Sugar Gliders
+Sugar gliders are small possums that live in Australian forests.
+A sugar glider has a thin flap of skin from its front legs to its back legs. When it leaps from a tree and spreads its legs, the flap opens like a kite. It can glide about 50 metres! Its long tail helps it steer.
+Sugar gliders live in small groups. They sleep together in tree hollows during the day. At night, they come out to lick sweet sap and nectar from trees and to catch insects.",Which set of details BEST shows that sugar gliders need trees for many parts of their lives?,,B,"They live in groups, sleep in the day and catch insects at night.","They leap from trees, sleep in tree hollows and lick sap from trees.","They have a skin flap, a long tail and live in Australian forests.","They glide about 50 metres, steer with their tails and eat nectar.",,4,1,1,"NAPLAN,Year 2,Mock 3",English_Comprehension_Questions_expanded.csv,2.1020.4,146,2,8,Hard
+NAPLAN-Y2-READING-M3-Q25,NAPLAN-Y2-READING-M3,NAPLAN_STYLE_READING,Text 5,2,English,Inference,Inferential Reasoning,ReadingComprehension,"Sugar Gliders
+Sugar gliders are small possums that live in Australian forests.
+A sugar glider has a thin flap of skin from its front legs to its back legs. When it leaps from a tree and spreads its legs, the flap opens like a kite. It can glide about 50 metres! Its long tail helps it steer.
+Sugar gliders live in small groups. They sleep together in tree hollows during the day. At night, they come out to lick sweet sap and nectar from trees and to catch insects.",Mia sees a sugar glider curled up inside a tree hollow. What can she most likely work out?,,D,"It is night-time, and it is waiting to catch insects.","It has hurt its skin flap, so it cannot glide away.",It is hiding alone because it has lost its group.,"It is daytime, and its group is probably sleeping with it.",,4,1,1,"NAPLAN,Year 2,Mock 3",English_Comprehension_Questions_expanded.csv,2.1020.5,146,2,8,Hard

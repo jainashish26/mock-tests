@@ -1,205 +1,153 @@
-'use client'
+import type { Metadata } from 'next';
+import { Suspense } from 'react';
+import Link from 'next/link';
+import { PublicLayout } from '@/components/layout/PublicLayout';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { BlogExplorer } from './BlogExplorer';
+import styles from './blog.module.css';
+import { BLOG_POSTS, getPostsByCategory } from '@/data/blog-posts';
+import { BLOG_CATEGORIES, deriveCategory } from '@/lib/seo/categories';
+import { toIsoDate } from '@/lib/seo/content-utils';
+import { toBlogCard } from '@/lib/seo/post-seo';
+import { blogCollectionGraph } from '@/lib/seo/schema';
+import { absoluteUrl, SITE_NAME } from '@/lib/seo/site-config';
 
-import { useState, useMemo } from 'react';
-import { PublicLayout } from "@/components/layout/PublicLayout";
-import { BookOpen, ChevronRight, Search, Calendar } from "lucide-react";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
-import styles from "./blog.module.css";
-import { BLOG_POSTS, BlogPost } from "@/data/blog-posts";
+/**
+ * Blog index.
+ *
+ * Previously a client component, which meant the route could not export any
+ * metadata at all - no title, description, canonical or Open Graph tags - and it
+ * bundled every article body into client JavaScript. It is now a server
+ * component: metadata and CollectionPage/ItemList JSON-LD are emitted here, the
+ * grid is server-rendered from slim card data, and only the search/filter
+ * interaction lives in BlogExplorer.
+ */
 
+const PAGE_TITLE = 'Exam Preparation Blog: NAPLAN, Selective & Scholarship Guides';
+const PAGE_DESCRIPTION =
+  'Evidence-based preparation guides for Australian families - NAPLAN year-level syllabuses, Selective School entrance, EduTest, ACER and AAS scholarship exams, writing technique and student wellbeing.';
+
+export const metadata: Metadata = {
+  title: { absolute: PAGE_TITLE },
+  description: PAGE_DESCRIPTION,
+  alternates: { canonical: '/blog' },
+  keywords: [
+    'NAPLAN preparation guide',
+    'selective school entrance exam tips',
+    'scholarship exam preparation Australia',
+    'EduTest practice',
+    'ACER scholarship exam guide',
+    'NAPLAN Year 3 5 7 9 syllabus',
+    'primary school English and maths resources',
+  ],
+  openGraph: {
+    type: 'website',
+    url: absoluteUrl('/blog'),
+    siteName: SITE_NAME,
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+  },
+  robots: { index: true, follow: true },
+};
 export default function BlogPage() {
-  const [searchQuery, setSearchQuery] = useState('');
+  // Slim cards only - article bodies stay on the server.
+  const cards = BLOG_POSTS.map(toBlogCard);
 
-  const filteredPosts = useMemo(() => {
-    let posts = BLOG_POSTS;
-    
-    if (searchQuery.trim()) {
-      const query = searchQuery.toLowerCase().trim();
-      posts = posts.filter(post => 
-        post.title.toLowerCase().includes(query) || 
-        post.excerpt.toLowerCase().includes(query) ||
-        post.tags.some(tag => tag.toLowerCase().includes(query))
-      );
+  const categories = BLOG_CATEGORIES.map((category) => ({
+    slug: category.slug,
+    name: category.name,
+    count: getPostsByCategory(category.slug).length,
+  })).filter((category) => category.count > 0);
+
+  const schema = blogCollectionGraph(
+    BLOG_POSTS.map((post) => {
+      const card = toBlogCard(post);
+      return {
+        title: post.title,
+        url: absoluteUrl(card.path),
+        description: card.description,
+        image: card.image,
+        datePublished: toIsoDate(post.date),
+        author: post.author.name,
+      };
+    }),
+    {
+      url: absoluteUrl('/blog'),
+      name: SITE_NAME + ' Blog',
+      description: PAGE_DESCRIPTION,
     }
-    
-    return posts;
-  }, [searchQuery]);
-
-  const featuredPost = BLOG_POSTS[0];
-  const regularPosts = filteredPosts.slice(1);
+  );
 
   return (
     <PublicLayout>
+      <JsonLd data={schema} />
+
       <div className={styles.pageContainer}>
-        {/* --- HERO --- */}
-        <section className={styles.hero}>
-          <div className={styles.heroBlob1} aria-hidden="true" />
-          <div className={styles.heroBlob2} aria-hidden="true" />
-          
-          <motion.div 
-            className={styles.heroContent}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <div className={styles.heroBadge}>
-              <BookOpen size={14} />
-              Insights & Resources
-            </div>
-            <h1 className={styles.heroTitle}>
-              Explore our <span className={styles.heroTitleAccent}>latest articles</span>
-            </h1>
-            <p className={styles.heroSubtitle}>
-              Expert tips, study guides, and insights to help your child succeed in exams.
-            </p>
-            
-            <div className={styles.searchWrapper}>
-              <Search size={20} className={styles.searchIcon} />
-              <input 
-                type="text" 
-                placeholder="Search for articles, topics or tags..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className={styles.searchInput}
-              />
-            </div>
-          </motion.div>
-        </section>
+        {/* useSearchParams inside BlogExplorer needs a Suspense boundary for the
+            route to stay statically prerenderable. */}
+        <Suspense fallback={<div className={styles.hero} />}>
+          <BlogExplorer cards={cards} categories={categories} />
+        </Suspense>
 
-        {/* --- SEARCH RESULTS --- */}
-        {searchQuery.trim() && (
-          <section className={styles.searchResults}>
-            <div className={styles.searchResultsHeader}>
-              <Search size={20} color="#6366f1" />
-              <h2 className={styles.searchResultsTitle}>Search Results for "{searchQuery}"</h2>
-              <span className={styles.searchResultsCount}>{filteredPosts.length} matches</span>
-            </div>
-            
-            {filteredPosts.length > 0 ? (
-              <div className={styles.postsGrid}>
-                {filteredPosts.map((post, index) => (
-                  <PostCard key={post.id} post={post} index={index} />
-                ))}
-              </div>
-            ) : (
-              <div className={styles.noResults}>
-                <div className={styles.noResultsIcon}>
-                  <Search size={32} />
-                </div>
-                <h3 className={styles.noResultsTitle}>No articles found</h3>
-                <p className={styles.noResultsText}>Try a different keyword or browse by category.</p>
-              </div>
-            )}
-          </section>
-        )}
-
-        {/* --- FEATURED POST --- */}
-        {!searchQuery.trim() && featuredPost && (
-          <section className={styles.featuredSection}>
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-            >
-              <Link href={`/blog/${featuredPost.slug}`} className={styles.featuredCard}>
-                <div className={styles.featuredImage}>
-                  <Image 
-                    src={featuredPost.image} 
-                    alt={featuredPost.imageAlt || featuredPost.title} 
-                    width={800} 
-                    height={500}
-                    priority
-                  />
-                </div>
-                <div className={styles.featuredContent}>
-                  <div className={styles.featuredMeta}>
-                    {featuredPost.tags && featuredPost.tags[0] && (
-                      <span className={styles.featuredTag}>{featuredPost.tags[0]}</span>
-                    )}
-                    <span className={styles.featuredMetaItem}>
-                      <Calendar size={14} />
-                      {featuredPost.date}
+        {/* Server-rendered taxonomy. Real links mean the category hubs are
+            discoverable without JavaScript - the client filter above is a
+            progressive enhancement layered on top. */}
+        <section className={styles.hubSection} aria-labelledby="browse-by-topic">
+          <h2 id="browse-by-topic" className={styles.hubTitle}>
+            Browse guides by topic
+          </h2>
+          <p className={styles.hubIntro}>
+            Every guide is reviewed against official ACARA and state department
+            sources before publication, and re-checked each NAPLAN testing cycle.
+          </p>
+          <ul className={styles.hubList}>
+            {BLOG_CATEGORIES.map((category) => {
+              const count = getPostsByCategory(category.slug).length;
+              if (count === 0) return null;
+              return (
+                <li key={category.slug}>
+                  <Link href={'/blog/category/' + category.slug} className={styles.hubCard}>
+                    <span className={styles.hubCardName}>{category.name}</span>
+                    <span className={styles.hubCardDesc}>{category.description}</span>
+                    <span className={styles.hubCardCount}>
+                      {count} {count === 1 ? 'guide' : 'guides'}
                     </span>
-                  </div>
-                  <h2 className={styles.featuredTitle}>{featuredPost.title}</h2>
-                  <p className={styles.featuredExcerpt}>{featuredPost.excerpt}</p>
-                  <span className={styles.featuredReadMore}>
-                    Read Article <ChevronRight size={16} />
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+        {/* Plain-HTML index of the full library. Guarantees every article is one
+            click from the index for crawlers that ignore interactive widgets. */}
+        <section className={styles.indexSection} aria-labelledby="all-articles">
+          <h2 id="all-articles" className={styles.hubTitle}>
+            All {cards.length} guides
+          </h2>
+          <ol className={styles.indexList}>
+            {BLOG_POSTS.map((post) => (
+              <li key={post.slug}>
+                <Link href={'/blog/' + post.slug}>
+                  {post.title}
+                  <span className={styles.indexMeta}>
+                    {' \u2014 '}{deriveCategory(post.tags).name}
                   </span>
-                </div>
-              </Link>
-            </motion.div>
-          </section>
-        )}
-
-        {/* --- POSTS GRID --- */}
-        {!searchQuery.trim() && regularPosts.length > 0 && (
-          <section className={styles.postsSection}>
-            <div className={styles.postsHeader}>
-              <h2 className={styles.postsTitle}>
-                <BookOpen size={20} color="#6366f1" />
-                More Articles
-              </h2>
-              <span className={styles.postsCount}>{regularPosts.length} articles</span>
-            </div>
-            
-            <div className={styles.postsGrid}>
-              {regularPosts.map((post, index) => (
-                <PostCard key={post.id} post={post} index={index} />
-              ))}
-            </div>
-          </section>
-        )}
+                </Link>
+              </li>
+            ))}
+          </ol>
+          <p className={styles.indexNote}>
+            Looking for something specific? View the{' '}
+            <Link href="/sitemap.xml">full sitemap</Link> or read{' '}
+            <Link href="/about">about our editorial standards</Link>.
+          </p>
+        </section>
       </div>
     </PublicLayout>
-  );
-}
-
-function PostCard({ post, index }: { post: BlogPost; index: number }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-    >
-      <Link href={`/blog/${post.slug}`} className={styles.postCard}>
-        <div className={styles.postCardImage}>
-          <Image 
-            src={post.image} 
-            alt={post.imageAlt || post.title} 
-            width={400} 
-            height={250}
-          />
-          {post.tags && post.tags.length > 0 && (
-            <div className={styles.postCardTags}>
-              {post.tags.slice(0, 2).map((tag, i) => (
-                <span key={i} className={styles.postCardTag}>{tag}</span>
-              ))}
-            </div>
-          )}
-        </div>
-        <div className={styles.postCardBody}>
-          <div className={styles.postCardMeta}>
-            <Calendar size={14} />
-            {post.date}
-          </div>
-          <h3 className={styles.postCardTitle}>{post.title}</h3>
-          <p className={styles.postCardExcerpt}>{post.excerpt}</p>
-          <div className={styles.postCardFooter}>
-            <div className={styles.postCardAuthor}>
-              <div className={styles.postCardAuthorAvatar}>
-                {post.author.name.charAt(0)}
-              </div>
-              <span className={styles.postCardAuthorName}>{post.author.name}</span>
-            </div>
-            <span className={styles.postCardReadMore}>
-              Read <ChevronRight size={14} />
-            </span>
-          </div>
-        </div>
-      </Link>
-    </motion.div>
   );
 }

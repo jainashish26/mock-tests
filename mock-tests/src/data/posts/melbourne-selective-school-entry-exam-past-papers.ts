@@ -343,8 +343,10 @@ export const melbourneSelectiveSchoolEntryExamPastPapers = {
   image:
     "https://images.unsplash.com/photo-1523050854058-8df90110c476?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Student studying at a library desk with an open notebook and pencil, preparing for an exam",
-  date: "March 28, 2026",
+    "Student studying at a library desk with an open notebook and pencil, preparing for an exam",  date: "October 30, 2026",
+  updatedDate: "November 1, 2026",
+  readingTime: 15,
+  category: "selective-schools",
   tags: [
     "SELECTIVE ENTRY",
     "MELBOURNE",
@@ -371,6 +373,13 @@ export const melbourneSelectiveSchoolEntryExamPastPapers = {
     "selective school exam tips parents",
     "mock exams selective entry Melbourne",
     "how to prepare for selective entry exam",
+  ],
+  keyTakeaways: [
+    "Official past papers for Victoria's four selective-entry high school exams are not released - the guide explains what is and is not officially available.",
+    "Because past papers are unavailable, the best alternative preparation strategies matter more than usual.",
+    "The guide sets out what the selective-entry exam actually tests and gives a realistic preparation timeline.",
+    "Recommended resources are summarised in one place so families are not chasing unofficial 'past paper' material.",
+    "The emotional side of exam preparation is addressed directly, since managing pressure is part of preparation without past papers.",
   ],
   author: {
     name: "Ashish Jain",

@@ -18,7 +18,7 @@ export default function StudentLoginPage() {
             <StudentLoginForm />
             
             <p style={{ marginTop: '3rem', fontSize: '0.8125rem', color: '#94a3b8' }}>
-              Can't remember your name? Ask your parent or teacher for help!
+              Can&apos;t remember your name? Ask your parent or teacher for help!
             </p>
           </div>
         </SpatialCard>

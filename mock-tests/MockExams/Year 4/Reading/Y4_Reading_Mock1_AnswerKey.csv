@@ -1,0 +1,33 @@
+﻿QuestionNumber,QuestionID,ExamSection,Correct,CorrectAnswerText,Topic,SubTopic,DifficultyLabel,DifficultyScore,SourceQuestionNumber
+1,NAPLAN-Y4-READING-M1-Q01,Text 1,A,because almost everyone knows the song,Inference,Inferential Reasoning,Medium,4,4.172.1
+2,NAPLAN-Y4-READING-M1-Q02,Text 1,C,Patty and Mildred Hill,Reading Comprehension,Literal Recall,Easy,1,4.172.2
+3,NAPLAN-Y4-READING-M1-Q03,Text 1,D,The tune was published in a song book with the words as a second verse.,Reading Comprehension,Literal Recall,Easy,2,4.172.3
+4,NAPLAN-Y4-READING-M1-Q04,Text 1,D,short song.,Vocabulary,Word Meaning in Context,Easy,2,4.172.4
+5,NAPLAN-Y4-READING-M1-Q05,Text 2,A,the woodpecker finch,Reading Comprehension,Comparing Texts,Easy,3,4.182.1
+6,NAPLAN-Y4-READING-M1-Q06,Text 2,B,It uses small sticks to pick insects out of tree bark.,Reading Comprehension,Evaluating Evidence,Medium,5,4.182.2
+7,NAPLAN-Y4-READING-M1-Q07,Text 2,C,rare,Vocabulary,Word Origins and Morphology,Easy,2,4.182.3
+8,NAPLAN-Y4-READING-M1-Q08,Text 3,A,terrified,Inference,Interpreting Feelings,Easy,2,4.262.1
+9,NAPLAN-Y4-READING-M1-Q09,Text 3,B,children invented them to scare each other.,Inference,Inferential Reasoning,Medium,5,4.262.2
+10,NAPLAN-Y4-READING-M1-Q10,Text 3,A,relief at being outside,Inference,Interpreting Feelings,Easy,3,4.262.3
+11,NAPLAN-Y4-READING-M1-Q11,Text 3,D,justify his beliefs about the shopkeeper.,Literary Techniques,Characterisation,Hard,7,4.262.4
+12,NAPLAN-Y4-READING-M1-Q12,Text 3,B,It reinforces the idea that the narrator was in a state of panic.,Literary Techniques,Narrative Voice,Hard,7,4.262.5
+13,NAPLAN-Y4-READING-M1-Q13,Text 3,D,to buy milk for his mother,Reading Comprehension,Literal Recall,Easy,1,4.262.6
+14,NAPLAN-Y4-READING-M1-Q14,Text 3,C,were wrapped in layers around him.,Vocabulary,Word Meaning in Context,Medium,4,4.262.7
+15,NAPLAN-Y4-READING-M1-Q15,Text 4,A,tidy,Vocabulary,Synonyms,Easy,2,4.1355.1
+16,NAPLAN-Y4-READING-M1-Q16,Text 4,C,a child finding out how sand ripples are made,Reading Comprehension,Main Idea,Easy,2,4.1355.2
+17,NAPLAN-Y4-READING-M1-Q17,Text 4,D,"the child, who takes part in the events",Literary Techniques,Narrative Voice,Medium,4,4.1355.3
+18,NAPLAN-Y4-READING-M1-Q18,Text 4,C,on the dunes higher up,Reading Comprehension,Locating Information,Medium,5,4.1355.4
+19,NAPLAN-Y4-READING-M1-Q19,Text 4,B,The returning tide never reached the dunes to roll their sand into new shapes.,Inference,Cause and Effect,Hard,8,4.1355.5
+20,NAPLAN-Y4-READING-M1-Q20,Text 4,A,"We feel the hair whipping and sand stinging just as the narrator does, right before the answer.",Literary Techniques,Narrative Voice,Hard,8,4.1355.6
+21,NAPLAN-Y4-READING-M1-Q21,Text 5,D,argued noisily,Vocabulary,Word Meaning in Context,Easy,2,4.1352.1
+22,NAPLAN-Y4-READING-M1-Q22,Text 5,C,calm and smooth,Literary Techniques,Imagery,Easy,2,4.1352.2
+23,NAPLAN-Y4-READING-M1-Q23,Text 5,D,"gave her nose a sharp, painful feeling",Vocabulary,Word Meaning in Context,Medium,4,4.1352.3
+24,NAPLAN-Y4-READING-M1-Q24,Text 5,A,She did not own clothes warm enough for Antarctica.,Inference,Inferential Reasoning,Medium,5,4.1352.4
+25,NAPLAN-Y4-READING-M1-Q25,Text 5,B,She was deeply moved that a long-held dream had come true.,Inference,Interpreting Feelings,Hard,8,4.1352.5
+26,NAPLAN-Y4-READING-M1-Q26,Text 5,C,The wish she wrote on her postcard has finally happened.,Inference,Inferential Reasoning,Hard,8,4.1352.6
+27,NAPLAN-Y4-READING-M1-Q27,Text 6,A,belonging to an earlier time,Vocabulary,Word Meaning in Context,Easy,2,4.1381.1
+28,NAPLAN-Y4-READING-M1-Q28,Text 6,C,gives a different reason in each one,Reading Comprehension,Text Structure,Easy,3,4.1381.2
+29,NAPLAN-Y4-READING-M1-Q29,Text 6,A,They help to look after their school.,Inference,Inferential Reasoning,Medium,4,4.1381.3
+30,NAPLAN-Y4-READING-M1-Q30,Text 6,C,Her teacher says her writing has improved.,Reading Comprehension,Evaluating Evidence,Medium,5,4.1381.4
+31,NAPLAN-Y4-READING-M1-Q31,Text 6,B,something you wait for can mean more to you,Inference,Inferential Reasoning,Hard,8,4.1381.5
+32,NAPLAN-Y4-READING-M1-Q32,Text 6,B,her own happy experience of having Hana as a pen pal,Inference,Character Motivation,Hard,7,4.1381.6

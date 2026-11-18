@@ -1,0 +1,45 @@
+﻿QuestionNumber,QuestionID,ExamSection,Correct,CorrectAnswerText,Topic,SubTopic,DifficultyLabel,DifficultyScore,SourceQuestionNumber
+1,NAPLAN-Y8-READING-M1-Q01,Text 1,A,the narrator expected the project to fall apart on its own,Inference,Character Motivation,Easy,2,8.1731.1
+2,NAPLAN-Y8-READING-M1-Q02,Text 1,B,on a dairy farm near Bega,Reading Comprehension,Literal Recall,Easy,1,8.1731.2
+3,NAPLAN-Y8-READING-M1-Q03,Text 1,C,serious,Vocabulary,Synonyms,Easy,3,8.1731.3
+4,NAPLAN-Y8-READING-M1-Q04,Text 1,B,it marks the turning point after which the family starts to succeed,Reading Comprehension,Text Structure,Medium,5,8.1731.4
+5,NAPLAN-Y8-READING-M1-Q05,Text 1,C,she could see the family struggling with things she already knew how to do,Inference,Character Motivation,Medium,4,8.1731.5
+6,NAPLAN-Y8-READING-M1-Q06,Text 1,C,medicine,Reading Comprehension,Literal Recall,Medium,4,8.1731.6
+7,NAPLAN-Y8-READING-M1-Q07,Text 1,A,I didn't read it out.,Reading Comprehension,Evaluating Evidence,Hard,7,8.1731.7
+8,NAPLAN-Y8-READING-M1-Q08,Text 1,A,"A plastic-free month falls short of its goal, but with Nana's help it leads to lasting changes and a new attitude.",Reading Comprehension,Summarising,Hard,7,8.1731.8
+9,NAPLAN-Y8-READING-M1-Q09,Text 2,A,disappointed,Inference,Interpreting Feelings,Easy,2,8.1647.1
+10,NAPLAN-Y8-READING-M1-Q10,Text 2,D,Clever trickster characters appear in many cultures around the world.,Reading Comprehension,Summarising,Easy,2,8.1647.2
+11,NAPLAN-Y8-READING-M1-Q11,Text 2,A,to give his people longer days,Inference,Character Motivation,Easy,1,8.1647.3
+12,NAPLAN-Y8-READING-M1-Q12,Text 2,C,"""Anansi's greed lands him in trouble again and again.""",Reading Comprehension,Evaluating Evidence,Medium,4,8.1647.4
+13,NAPLAN-Y8-READING-M1-Q13,Text 2,B,Trickster tales warn against bad behaviour rather than encourage it.,Reading Comprehension,Main Idea,Medium,5,8.1647.5
+14,NAPLAN-Y8-READING-M1-Q14,Text 2,A,keep teaching them alongside trickster tales,Reading Comprehension,Literal Recall,Medium,4,8.1647.6
+15,NAPLAN-Y8-READING-M1-Q15,Text 2,D,"the characters arose separately, so they reflect a shared human need",Inference,Inferential Reasoning,Hard,8,8.1647.7
+16,NAPLAN-Y8-READING-M1-Q16,Text 2,C,Trickster tales deserve a place beside hero stories because they teach different lessons.,Reading Comprehension,Main Idea,Hard,7,8.1647.8
+17,NAPLAN-Y8-READING-M1-Q17,Text 3,B,how a pipeline brought water to the goldfields despite great difficulties,Reading Comprehension,Main Idea,Easy,2,8.1740.1
+18,NAPLAN-Y8-READING-M1-Q18,Text 3,A,to inform readers about the building and importance of the pipeline,Reading Comprehension,Author Purpose,Easy,2,8.1740.2
+19,NAPLAN-Y8-READING-M1-Q19,Text 3,D,rare,Vocabulary,Synonyms,Easy,2,8.1740.3
+20,NAPLAN-Y8-READING-M1-Q20,Text 3,B,It made the pipe joints stronger and less likely to leak.,Reading Comprehension,Literal Recall,Medium,4,8.1740.4
+21,NAPLAN-Y8-READING-M1-Q21,Text 3,A,The gold would run out before the pipeline was finished.,Reading Comprehension,Literal Recall,Medium,4,8.1740.5
+22,NAPLAN-Y8-READING-M1-Q22,Text 3,D,to show that the challenge involved more than distance,Inference,Inferential Reasoning,Medium,5,8.1740.6
+23,NAPLAN-Y8-READING-M1-Q23,Text 3,B,"They proved wrong, as mining expanded and the pipeline stayed in use.",Inference,Drawing Conclusions,Hard,7,8.1740.7
+24,NAPLAN-Y8-READING-M1-Q24,Text 3,D,He stuck with a bold plan despite strong opposition and great personal cost.,Inference,Inferential Reasoning,Hard,8,8.1740.8
+25,NAPLAN-Y8-READING-M1-Q25,Text 4,B,love very much,Vocabulary,Word Meaning in Context,Easy,1,8.1686.1
+26,NAPLAN-Y8-READING-M1-Q26,Text 4,D,every time it is asked,Vocabulary,Word Meaning in Context,Easy,2,8.1686.2
+27,NAPLAN-Y8-READING-M1-Q27,Text 4,B,A budgie flying around the room could be hurt by the blades.,Inference,Drawing Conclusions,Easy,3,8.1686.3
+28,NAPLAN-Y8-READING-M1-Q28,Text 4,A,sit beside the cage and talk softly without handling the bird,Reading Comprehension,Literal Recall,Medium,4,8.1686.4
+29,NAPLAN-Y8-READING-M1-Q29,Text 4,C,once it steps up reliably inside the cage,Reading Comprehension,Literal Recall,Medium,5,8.1686.5
+30,NAPLAN-Y8-READING-M1-Q30,Text 4,A,It imitates the lively sounds of a contented bird.,Literary Techniques,Sound Devices,Medium,5,8.1686.6
+31,NAPLAN-Y8-READING-M1-Q31,Text 4,C,Over several sessions it will usually edge closer to nibble the treat. Do not grab at it.,Reading Comprehension,Evaluating Evidence,Hard,8,8.1686.7
+32,NAPLAN-Y8-READING-M1-Q32,Text 4,C,'in the wild a shape swooping from above could mean a hungry hawk',Reading Comprehension,Evaluating Evidence,Hard,7,8.1686.8
+33,NAPLAN-Y8-READING-M1-Q33,Text 5,C,Her school required community service hours.,Reading Comprehension,Literal Recall,Easy,2,8.1667.1
+34,NAPLAN-Y8-READING-M1-Q34,Text 5,C,a girl who learns patience from a gruff cook at a community kitchen,Reading Comprehension,Main Idea,Easy,3,8.1667.2
+35,NAPLAN-Y8-READING-M1-Q35,Text 5,A,use it to make stock,Reading Comprehension,Literal Recall,Medium,4,8.1667.3
+36,NAPLAN-Y8-READING-M1-Q36,Text 5,D,in Rosa's conversation at the serving table,Reading Comprehension,Locating Information,Medium,4,8.1667.4
+37,NAPLAN-Y8-READING-M1-Q37,Text 5,B,kept volunteering long enough to understand Mr Okafor,Inference,Inferential Reasoning,Medium,5,8.1667.5
+38,NAPLAN-Y8-READING-M1-Q38,Text 5,C,seeing what the meal meant to people after Rosa explained the cook's reasons,Inference,Cause and Effect,Hard,8,8.1667.6
+39,NAPLAN-Y8-READING-M1-Q39,Text 5,D,to echo the opening and show that their relationship has quietly changed,Reading Comprehension,Author Purpose,Hard,8,8.1667.7
+40,NAPLAN-Y8-READING-M1-Q40,Text 5,D,"at first they feel cold and dismissive, but later the same brevity carries quiet care",Literary Techniques,Tone and Mood,Hard,8,8.1667.8
+41,NAPLAN-Y8-READING-M1-Q41,Text 6,A,because she realized that the recycling club had been neglecting an area of concern,Inference,Character Motivation,Medium,4,8.888.1
+42,NAPLAN-Y8-READING-M1-Q42,Text 6,B,A student broadens the scope of her school's recycling program by including a drive specifically for e-waste.,Reading Comprehension,Main Idea,Medium,5,8.888.2
+43,NAPLAN-Y8-READING-M1-Q43,Text 6,A,"By determining a new project for the recycling club, Scarlett keeps a lot of e-waste from ending up in a landfill.",Reading Comprehension,Theme,Medium,6,8.888.3
+44,NAPLAN-Y8-READING-M1-Q44,Text 6,D,"As Scarlett helped, she heard someone suggest that the school have another e-drive in a few months.",Reading Comprehension,Evaluating Evidence,Medium,6,8.888.4

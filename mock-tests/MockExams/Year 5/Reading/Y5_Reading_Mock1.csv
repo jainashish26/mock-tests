@@ -1,0 +1,494 @@
+﻿QuestionID,ExamID,ExamType,ExamSection,YearLevel,Subject,Topic,SubTopic,QuestionType,ComprehensionText,QuestionText,QuestionMedia,Correct,AnswerA,AnswerB,AnswerC,AnswerD,AnswerE,Difficulty,IsActive,CorrectAnswerScore,Tags,SourceBank,SourceQuestionNumber,SourceComprehensionID,NAPLANFlag,DifficultyScore,DifficultyLabel
+NAPLAN-Y5-READING-M1-Q01,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 1,5,English,Reading Comprehension,Author Purpose,ReadingComprehension,"Donna's memo caused much contention around the office last week. She may have meant well, but her usually caustic tone offended almost everybody. She has become a consistent nuisance at work, and probably should be fired.","Based on the tone of the passage, which of the following words best describes the author's attitude toward Donna?",,A,exasperated,admiring,patronizing,isolated,,3,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.321.1,50,2,5,Medium
+NAPLAN-Y5-READING-M1-Q02,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 1,5,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"Donna's memo caused much contention around the office last week. She may have meant well, but her usually caustic tone offended almost everybody. She has become a consistent nuisance at work, and probably should be fired.","The underlined word caustic, as used in this passage, most nearly means",,C,cause and effect.,reoccurring.,biting.,unclear.,,1,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.321.2,50,1,2,Easy
+NAPLAN-Y5-READING-M1-Q03,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 1,5,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"Donna's memo caused much contention around the office last week. She may have meant well, but her usually caustic tone offended almost everybody. She has become a consistent nuisance at work, and probably should be fired.",What is the meaning of the underlined word contention as it is used in this passage?,,B,theorizing,discord,gossip,calm,,1,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.321.3,50,1,2,Easy
+NAPLAN-Y5-READING-M1-Q04,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 2,5,English,Inference,Character Motivation,ReadingComprehension,"Carl sat chewing, his glasses balanced on the very tip of his nose. He was concentrating very hard. Cass watched fascinated. One more chew and they would slip off. ""Well,"" Carl lifted his head and his glasses slid back into place. ""I don't know if we can do anything more, Cass. If adults can't stop them, what can we do?""
+
+The twins ate in silence, watching the sun slip behind the distant skyline, silhouetting the tall faceless office blocks that poked out of a shifting yellow haze. The din of the city traffic barely reached them. It mingled with the warm shushing sound of the surrounding park.
+
+The Trumper Tree rose above them, majestic and tall, its twisted branches and gnarled trunk swirling in strange patterns. It looked as if it reached into the sky forever.
+
+""I'm going to save a leaf from the Trumper Tree as a memento,"" said Cass and she picked up a fallen leaf. ""Here's one for you,"" and she handed it to Carl. He was very quiet. The air became heavy and still. The park seemed to be holding its breath.
+
+""Let's make a wish, a wish to make things right,"" whispered Cass.
+
+""I don't believe in wishes,"" was Carl's reply, but he didn't push the leaf away; he placed it carefully in his pocket.
+
+Around them the valley waited, motionless and silent. Cass shivered. ""I feel strange, eerie. I can almost hear the tree speaking to me.""
+
+""What am I supposed to listen for?""
+
+""Quiet! Can't you hear? There's a sound in the leaves, a sort of stirring, a movement, a rustling.""
+
+""And for your next trick there'll be gnomes in the grass."" Carl was not impressed.
+
+Cass was listening intently. ""It's saying that now is the time, now is special, if we wish now something important will happen.""
+
+""And pigs might fly. Come on Cass, it's time we went home.""
+
+""Please let's try one wish now. Come on Carl, please...!""
+
+""Oh, all right. Just one, then we must go or Mum and Dad will be late for that meeting.""
+
+""Let's put our arms around the tree and wish hard for something to save it.""",What was Carl doing in the first paragraph?,,D,arguing with his sister,hiding from his parents,quickly finishing a big meal,thinking deeply about a problem,,2,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.310.1,39,1,3,Easy
+NAPLAN-Y5-READING-M1-Q05,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 2,5,English,Inference,Character Motivation,ReadingComprehension,"Carl sat chewing, his glasses balanced on the very tip of his nose. He was concentrating very hard. Cass watched fascinated. One more chew and they would slip off. ""Well,"" Carl lifted his head and his glasses slid back into place. ""I don't know if we can do anything more, Cass. If adults can't stop them, what can we do?""
+
+The twins ate in silence, watching the sun slip behind the distant skyline, silhouetting the tall faceless office blocks that poked out of a shifting yellow haze. The din of the city traffic barely reached them. It mingled with the warm shushing sound of the surrounding park.
+
+The Trumper Tree rose above them, majestic and tall, its twisted branches and gnarled trunk swirling in strange patterns. It looked as if it reached into the sky forever.
+
+""I'm going to save a leaf from the Trumper Tree as a memento,"" said Cass and she picked up a fallen leaf. ""Here's one for you,"" and she handed it to Carl. He was very quiet. The air became heavy and still. The park seemed to be holding its breath.
+
+""Let's make a wish, a wish to make things right,"" whispered Cass.
+
+""I don't believe in wishes,"" was Carl's reply, but he didn't push the leaf away; he placed it carefully in his pocket.
+
+Around them the valley waited, motionless and silent. Cass shivered. ""I feel strange, eerie. I can almost hear the tree speaking to me.""
+
+""What am I supposed to listen for?""
+
+""Quiet! Can't you hear? There's a sound in the leaves, a sort of stirring, a movement, a rustling.""
+
+""And for your next trick there'll be gnomes in the grass."" Carl was not impressed.
+
+Cass was listening intently. ""It's saying that now is the time, now is special, if we wish now something important will happen.""
+
+""And pigs might fly. Come on Cass, it's time we went home.""
+
+""Please let's try one wish now. Come on Carl, please...!""
+
+""Oh, all right. Just one, then we must go or Mum and Dad will be late for that meeting.""
+
+""Let's put our arms around the tree and wish hard for something to save it.""",Cass gave a leaf to Carl because,,B,she planned to show him a trick.,she wanted him to keep it as a souvenir.,she was sharing her love of nature with him.,she knew that his hobby was collecting small things.,,2,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.310.2,39,1,3,Easy
+NAPLAN-Y5-READING-M1-Q06,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 2,5,English,Inference,Character Motivation,ReadingComprehension,"Carl sat chewing, his glasses balanced on the very tip of his nose. He was concentrating very hard. Cass watched fascinated. One more chew and they would slip off. ""Well,"" Carl lifted his head and his glasses slid back into place. ""I don't know if we can do anything more, Cass. If adults can't stop them, what can we do?""
+
+The twins ate in silence, watching the sun slip behind the distant skyline, silhouetting the tall faceless office blocks that poked out of a shifting yellow haze. The din of the city traffic barely reached them. It mingled with the warm shushing sound of the surrounding park.
+
+The Trumper Tree rose above them, majestic and tall, its twisted branches and gnarled trunk swirling in strange patterns. It looked as if it reached into the sky forever.
+
+""I'm going to save a leaf from the Trumper Tree as a memento,"" said Cass and she picked up a fallen leaf. ""Here's one for you,"" and she handed it to Carl. He was very quiet. The air became heavy and still. The park seemed to be holding its breath.
+
+""Let's make a wish, a wish to make things right,"" whispered Cass.
+
+""I don't believe in wishes,"" was Carl's reply, but he didn't push the leaf away; he placed it carefully in his pocket.
+
+Around them the valley waited, motionless and silent. Cass shivered. ""I feel strange, eerie. I can almost hear the tree speaking to me.""
+
+""What am I supposed to listen for?""
+
+""Quiet! Can't you hear? There's a sound in the leaves, a sort of stirring, a movement, a rustling.""
+
+""And for your next trick there'll be gnomes in the grass."" Carl was not impressed.
+
+Cass was listening intently. ""It's saying that now is the time, now is special, if we wish now something important will happen.""
+
+""And pigs might fly. Come on Cass, it's time we went home.""
+
+""Please let's try one wish now. Come on Carl, please...!""
+
+""Oh, all right. Just one, then we must go or Mum and Dad will be late for that meeting.""
+
+""Let's put our arms around the tree and wish hard for something to save it.""",Which quotation shows that Carl would follow Cass and make a wish?,,D,'He was very quiet.','What am I supposed to listen for?',"'Come on Cass, it's time we went home.'","'Just one, then we must go'",,2,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.310.3,39,1,4,Medium
+NAPLAN-Y5-READING-M1-Q07,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 2,5,English,Inference,Character Motivation,ReadingComprehension,"Carl sat chewing, his glasses balanced on the very tip of his nose. He was concentrating very hard. Cass watched fascinated. One more chew and they would slip off. ""Well,"" Carl lifted his head and his glasses slid back into place. ""I don't know if we can do anything more, Cass. If adults can't stop them, what can we do?""
+
+The twins ate in silence, watching the sun slip behind the distant skyline, silhouetting the tall faceless office blocks that poked out of a shifting yellow haze. The din of the city traffic barely reached them. It mingled with the warm shushing sound of the surrounding park.
+
+The Trumper Tree rose above them, majestic and tall, its twisted branches and gnarled trunk swirling in strange patterns. It looked as if it reached into the sky forever.
+
+""I'm going to save a leaf from the Trumper Tree as a memento,"" said Cass and she picked up a fallen leaf. ""Here's one for you,"" and she handed it to Carl. He was very quiet. The air became heavy and still. The park seemed to be holding its breath.
+
+""Let's make a wish, a wish to make things right,"" whispered Cass.
+
+""I don't believe in wishes,"" was Carl's reply, but he didn't push the leaf away; he placed it carefully in his pocket.
+
+Around them the valley waited, motionless and silent. Cass shivered. ""I feel strange, eerie. I can almost hear the tree speaking to me.""
+
+""What am I supposed to listen for?""
+
+""Quiet! Can't you hear? There's a sound in the leaves, a sort of stirring, a movement, a rustling.""
+
+""And for your next trick there'll be gnomes in the grass."" Carl was not impressed.
+
+Cass was listening intently. ""It's saying that now is the time, now is special, if we wish now something important will happen.""
+
+""And pigs might fly. Come on Cass, it's time we went home.""
+
+""Please let's try one wish now. Come on Carl, please...!""
+
+""Oh, all right. Just one, then we must go or Mum and Dad will be late for that meeting.""
+
+""Let's put our arms around the tree and wish hard for something to save it.""",Which word best describes Cass?,,D,logical,efficient,reckless,persistent,,2,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.310.4,39,1,4,Medium
+NAPLAN-Y5-READING-M1-Q08,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 2,5,English,Literary Techniques,Figurative Language,ReadingComprehension,"Carl sat chewing, his glasses balanced on the very tip of his nose. He was concentrating very hard. Cass watched fascinated. One more chew and they would slip off. ""Well,"" Carl lifted his head and his glasses slid back into place. ""I don't know if we can do anything more, Cass. If adults can't stop them, what can we do?""
+
+The twins ate in silence, watching the sun slip behind the distant skyline, silhouetting the tall faceless office blocks that poked out of a shifting yellow haze. The din of the city traffic barely reached them. It mingled with the warm shushing sound of the surrounding park.
+
+The Trumper Tree rose above them, majestic and tall, its twisted branches and gnarled trunk swirling in strange patterns. It looked as if it reached into the sky forever.
+
+""I'm going to save a leaf from the Trumper Tree as a memento,"" said Cass and she picked up a fallen leaf. ""Here's one for you,"" and she handed it to Carl. He was very quiet. The air became heavy and still. The park seemed to be holding its breath.
+
+""Let's make a wish, a wish to make things right,"" whispered Cass.
+
+""I don't believe in wishes,"" was Carl's reply, but he didn't push the leaf away; he placed it carefully in his pocket.
+
+Around them the valley waited, motionless and silent. Cass shivered. ""I feel strange, eerie. I can almost hear the tree speaking to me.""
+
+""What am I supposed to listen for?""
+
+""Quiet! Can't you hear? There's a sound in the leaves, a sort of stirring, a movement, a rustling.""
+
+""And for your next trick there'll be gnomes in the grass."" Carl was not impressed.
+
+Cass was listening intently. ""It's saying that now is the time, now is special, if we wish now something important will happen.""
+
+""And pigs might fly. Come on Cass, it's time we went home.""
+
+""Please let's try one wish now. Come on Carl, please...!""
+
+""Oh, all right. Just one, then we must go or Mum and Dad will be late for that meeting.""
+
+""Let's put our arms around the tree and wish hard for something to save it.""",Personification is a type of description that gives human qualities to something which is not human. Which quotation uses personification?,,B,'The twins ate in silence','The park seemed to be holding its breath.','There's a sound in the leaves','And pigs might fly.',,2,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.310.5,39,1,3,Easy
+NAPLAN-Y5-READING-M1-Q09,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 2,5,English,Literary Techniques,Imagery,ReadingComprehension,"Carl sat chewing, his glasses balanced on the very tip of his nose. He was concentrating very hard. Cass watched fascinated. One more chew and they would slip off. ""Well,"" Carl lifted his head and his glasses slid back into place. ""I don't know if we can do anything more, Cass. If adults can't stop them, what can we do?""
+
+The twins ate in silence, watching the sun slip behind the distant skyline, silhouetting the tall faceless office blocks that poked out of a shifting yellow haze. The din of the city traffic barely reached them. It mingled with the warm shushing sound of the surrounding park.
+
+The Trumper Tree rose above them, majestic and tall, its twisted branches and gnarled trunk swirling in strange patterns. It looked as if it reached into the sky forever.
+
+""I'm going to save a leaf from the Trumper Tree as a memento,"" said Cass and she picked up a fallen leaf. ""Here's one for you,"" and she handed it to Carl. He was very quiet. The air became heavy and still. The park seemed to be holding its breath.
+
+""Let's make a wish, a wish to make things right,"" whispered Cass.
+
+""I don't believe in wishes,"" was Carl's reply, but he didn't push the leaf away; he placed it carefully in his pocket.
+
+Around them the valley waited, motionless and silent. Cass shivered. ""I feel strange, eerie. I can almost hear the tree speaking to me.""
+
+""What am I supposed to listen for?""
+
+""Quiet! Can't you hear? There's a sound in the leaves, a sort of stirring, a movement, a rustling.""
+
+""And for your next trick there'll be gnomes in the grass."" Carl was not impressed.
+
+Cass was listening intently. ""It's saying that now is the time, now is special, if we wish now something important will happen.""
+
+""And pigs might fly. Come on Cass, it's time we went home.""
+
+""Please let's try one wish now. Come on Carl, please...!""
+
+""Oh, all right. Just one, then we must go or Mum and Dad will be late for that meeting.""
+
+""Let's put our arms around the tree and wish hard for something to save it.""","In the third paragraph, why does the writer describe the Trumper Tree as having a 'gnarled trunk swirling in strange patterns'?",,B,to emphasise how bright the sun is,to create a mysterious atmosphere,to make a comparison with city buildings,to highlight the colour of its leaves and branches,,3,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.310.6,39,1,5,Medium
+NAPLAN-Y5-READING-M1-Q10,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 2,5,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Carl sat chewing, his glasses balanced on the very tip of his nose. He was concentrating very hard. Cass watched fascinated. One more chew and they would slip off. ""Well,"" Carl lifted his head and his glasses slid back into place. ""I don't know if we can do anything more, Cass. If adults can't stop them, what can we do?""
+
+The twins ate in silence, watching the sun slip behind the distant skyline, silhouetting the tall faceless office blocks that poked out of a shifting yellow haze. The din of the city traffic barely reached them. It mingled with the warm shushing sound of the surrounding park.
+
+The Trumper Tree rose above them, majestic and tall, its twisted branches and gnarled trunk swirling in strange patterns. It looked as if it reached into the sky forever.
+
+""I'm going to save a leaf from the Trumper Tree as a memento,"" said Cass and she picked up a fallen leaf. ""Here's one for you,"" and she handed it to Carl. He was very quiet. The air became heavy and still. The park seemed to be holding its breath.
+
+""Let's make a wish, a wish to make things right,"" whispered Cass.
+
+""I don't believe in wishes,"" was Carl's reply, but he didn't push the leaf away; he placed it carefully in his pocket.
+
+Around them the valley waited, motionless and silent. Cass shivered. ""I feel strange, eerie. I can almost hear the tree speaking to me.""
+
+""What am I supposed to listen for?""
+
+""Quiet! Can't you hear? There's a sound in the leaves, a sort of stirring, a movement, a rustling.""
+
+""And for your next trick there'll be gnomes in the grass."" Carl was not impressed.
+
+Cass was listening intently. ""It's saying that now is the time, now is special, if we wish now something important will happen.""
+
+""And pigs might fly. Come on Cass, it's time we went home.""
+
+""Please let's try one wish now. Come on Carl, please...!""
+
+""Oh, all right. Just one, then we must go or Mum and Dad will be late for that meeting.""
+
+""Let's put our arms around the tree and wish hard for something to save it.""",The story is set in,,A,a park.,a building.,a city street.,a sports field.,,1,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.310.7,39,1,1,Easy
+NAPLAN-Y5-READING-M1-Q11,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 2,5,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Carl sat chewing, his glasses balanced on the very tip of his nose. He was concentrating very hard. Cass watched fascinated. One more chew and they would slip off. ""Well,"" Carl lifted his head and his glasses slid back into place. ""I don't know if we can do anything more, Cass. If adults can't stop them, what can we do?""
+
+The twins ate in silence, watching the sun slip behind the distant skyline, silhouetting the tall faceless office blocks that poked out of a shifting yellow haze. The din of the city traffic barely reached them. It mingled with the warm shushing sound of the surrounding park.
+
+The Trumper Tree rose above them, majestic and tall, its twisted branches and gnarled trunk swirling in strange patterns. It looked as if it reached into the sky forever.
+
+""I'm going to save a leaf from the Trumper Tree as a memento,"" said Cass and she picked up a fallen leaf. ""Here's one for you,"" and she handed it to Carl. He was very quiet. The air became heavy and still. The park seemed to be holding its breath.
+
+""Let's make a wish, a wish to make things right,"" whispered Cass.
+
+""I don't believe in wishes,"" was Carl's reply, but he didn't push the leaf away; he placed it carefully in his pocket.
+
+Around them the valley waited, motionless and silent. Cass shivered. ""I feel strange, eerie. I can almost hear the tree speaking to me.""
+
+""What am I supposed to listen for?""
+
+""Quiet! Can't you hear? There's a sound in the leaves, a sort of stirring, a movement, a rustling.""
+
+""And for your next trick there'll be gnomes in the grass."" Carl was not impressed.
+
+Cass was listening intently. ""It's saying that now is the time, now is special, if we wish now something important will happen.""
+
+""And pigs might fly. Come on Cass, it's time we went home.""
+
+""Please let's try one wish now. Come on Carl, please...!""
+
+""Oh, all right. Just one, then we must go or Mum and Dad will be late for that meeting.""
+
+""Let's put our arms around the tree and wish hard for something to save it.""","In the second paragraph, the words 'silhouetting the tall faceless office blocks' refer to the effect of the",,A,sun.,tree.,haze.,skyline.,,1,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.310.8,39,1,2,Easy
+NAPLAN-Y5-READING-M1-Q12,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 3,5,English,Inference,Inferential Reasoning,ReadingComprehension,"The latest Tyranno movie, Tyranno 2: Earth defence, has just taken a nosedive and crash-landed at a cinema near you all in 3D! While the original Tyranno was a visual feast with strong characters and a gripping story, Tyranno 2 has failed miserably as so many sequels do. It is loosely based on the second book in the excellent series by Lillian Sidle, but it has mutated into a truly awful movie. In particular, parts of the plot which were significant in the book have been left out of the script. This plot-thinning has had the effect of creating characters that are somewhat one-dimensional even if they look great in their dinosaur costumes.
+
+Simon Gray, who did such a fabulous job in the first movie, plays Tyro. He is responsible for defending Earth from the evil pirate dinosaur Piratopod. Help with this mission is provided by a couple of velociraptor co-stars named Barry (Evan Green) and Kevin (Brian Scott). Piratopod has invented a solar-powered meteor magnet and intends to capture meteors from their space orbits, re-directing them onto a collision course with Earth. Tyro must mobilise the Earth Defence Team to locate and disable Piratopod's secret weapon. It's a typical 'good-guy-fights-bad-guy-and-overcomes-a-few-problems-along-the-way-while-winning-in-the-end' sort of movie. Usually this is a reasonable formula for success. However, the plot is mind-numbingly predictable, with gaps in the story that become obvious quite early on. This also means that the story tends to jolt strangely from one scene to the next.
+
+I often use a 'spoiler alert' to warn readers when I intend to provide key details about a movie. In this case however, the story is so under-developed that there aren't many key details to reveal. You would think the director might have considered borrowing ideas from Sidle's books to make the characters more interesting - for instance Piratopod's twisted personality was actually explained as the result of traumatic events in his past. But no.
+
+It is clearly in special effects that all the time and energy were invested in this movie, and if you love this sort of thing you will be enthralled. The views of Earth and the Moon are spectacular. I wasn't sitting in a cinema wearing 3D glasses; I was out there in space! Although the story is weak and the characters under-developed, the special effects are brilliant. They are the icing on a stale cake!
+
+If the movie makers had followed Lillian Sidle's work more closely, this movie could have been a success. My suggestion to fans is to save your money on this movie and buy the book instead.
+
+Reviewed by Lee Evan
+Rated: PG",Why does the reviewer describe the characters as 'one-dimensional'?,,C,This is how the characters are portrayed in the book.,The actors did not have the experience to play the parts.,There is a lack of character development in the movie.,The characters are played by unknown actors in the movie.,,3,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.487.1,216,1,5,Medium
+NAPLAN-Y5-READING-M1-Q13,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 3,5,English,Literary Techniques,Tone and Mood,ReadingComprehension,"The latest Tyranno movie, Tyranno 2: Earth defence, has just taken a nosedive and crash-landed at a cinema near you all in 3D! While the original Tyranno was a visual feast with strong characters and a gripping story, Tyranno 2 has failed miserably as so many sequels do. It is loosely based on the second book in the excellent series by Lillian Sidle, but it has mutated into a truly awful movie. In particular, parts of the plot which were significant in the book have been left out of the script. This plot-thinning has had the effect of creating characters that are somewhat one-dimensional even if they look great in their dinosaur costumes.
+
+Simon Gray, who did such a fabulous job in the first movie, plays Tyro. He is responsible for defending Earth from the evil pirate dinosaur Piratopod. Help with this mission is provided by a couple of velociraptor co-stars named Barry (Evan Green) and Kevin (Brian Scott). Piratopod has invented a solar-powered meteor magnet and intends to capture meteors from their space orbits, re-directing them onto a collision course with Earth. Tyro must mobilise the Earth Defence Team to locate and disable Piratopod's secret weapon. It's a typical 'good-guy-fights-bad-guy-and-overcomes-a-few-problems-along-the-way-while-winning-in-the-end' sort of movie. Usually this is a reasonable formula for success. However, the plot is mind-numbingly predictable, with gaps in the story that become obvious quite early on. This also means that the story tends to jolt strangely from one scene to the next.
+
+I often use a 'spoiler alert' to warn readers when I intend to provide key details about a movie. In this case however, the story is so under-developed that there aren't many key details to reveal. You would think the director might have considered borrowing ideas from Sidle's books to make the characters more interesting - for instance Piratopod's twisted personality was actually explained as the result of traumatic events in his past. But no.
+
+It is clearly in special effects that all the time and energy were invested in this movie, and if you love this sort of thing you will be enthralled. The views of Earth and the Moon are spectacular. I wasn't sitting in a cinema wearing 3D glasses; I was out there in space! Although the story is weak and the characters under-developed, the special effects are brilliant. They are the icing on a stale cake!
+
+If the movie makers had followed Lillian Sidle's work more closely, this movie could have been a success. My suggestion to fans is to save your money on this movie and buy the book instead.
+
+Reviewed by Lee Evan
+Rated: PG",The overall tone of the review is,,C,angry.,rude.,dissatisfied.,arrogant.,,3,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.487.2,216,1,5,Medium
+NAPLAN-Y5-READING-M1-Q14,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 3,5,English,Persuasive Language,Persuasive Devices,ReadingComprehension,"The latest Tyranno movie, Tyranno 2: Earth defence, has just taken a nosedive and crash-landed at a cinema near you all in 3D! While the original Tyranno was a visual feast with strong characters and a gripping story, Tyranno 2 has failed miserably as so many sequels do. It is loosely based on the second book in the excellent series by Lillian Sidle, but it has mutated into a truly awful movie. In particular, parts of the plot which were significant in the book have been left out of the script. This plot-thinning has had the effect of creating characters that are somewhat one-dimensional even if they look great in their dinosaur costumes.
+
+Simon Gray, who did such a fabulous job in the first movie, plays Tyro. He is responsible for defending Earth from the evil pirate dinosaur Piratopod. Help with this mission is provided by a couple of velociraptor co-stars named Barry (Evan Green) and Kevin (Brian Scott). Piratopod has invented a solar-powered meteor magnet and intends to capture meteors from their space orbits, re-directing them onto a collision course with Earth. Tyro must mobilise the Earth Defence Team to locate and disable Piratopod's secret weapon. It's a typical 'good-guy-fights-bad-guy-and-overcomes-a-few-problems-along-the-way-while-winning-in-the-end' sort of movie. Usually this is a reasonable formula for success. However, the plot is mind-numbingly predictable, with gaps in the story that become obvious quite early on. This also means that the story tends to jolt strangely from one scene to the next.
+
+I often use a 'spoiler alert' to warn readers when I intend to provide key details about a movie. In this case however, the story is so under-developed that there aren't many key details to reveal. You would think the director might have considered borrowing ideas from Sidle's books to make the characters more interesting - for instance Piratopod's twisted personality was actually explained as the result of traumatic events in his past. But no.
+
+It is clearly in special effects that all the time and energy were invested in this movie, and if you love this sort of thing you will be enthralled. The views of Earth and the Moon are spectacular. I wasn't sitting in a cinema wearing 3D glasses; I was out there in space! Although the story is weak and the characters under-developed, the special effects are brilliant. They are the icing on a stale cake!
+
+If the movie makers had followed Lillian Sidle's work more closely, this movie could have been a success. My suggestion to fans is to save your money on this movie and buy the book instead.
+
+Reviewed by Lee Evan
+Rated: PG",What is the main technique used by the reviewer to persuade readers not to watch the movie?,,C,describing what it is like to view the movie in 3D,exaggerating the strengths of the book,contrasting the movie with the book,including humour,,3,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.487.3,216,1,6,Medium
+NAPLAN-Y5-READING-M1-Q15,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 3,5,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"The latest Tyranno movie, Tyranno 2: Earth defence, has just taken a nosedive and crash-landed at a cinema near you all in 3D! While the original Tyranno was a visual feast with strong characters and a gripping story, Tyranno 2 has failed miserably as so many sequels do. It is loosely based on the second book in the excellent series by Lillian Sidle, but it has mutated into a truly awful movie. In particular, parts of the plot which were significant in the book have been left out of the script. This plot-thinning has had the effect of creating characters that are somewhat one-dimensional even if they look great in their dinosaur costumes.
+
+Simon Gray, who did such a fabulous job in the first movie, plays Tyro. He is responsible for defending Earth from the evil pirate dinosaur Piratopod. Help with this mission is provided by a couple of velociraptor co-stars named Barry (Evan Green) and Kevin (Brian Scott). Piratopod has invented a solar-powered meteor magnet and intends to capture meteors from their space orbits, re-directing them onto a collision course with Earth. Tyro must mobilise the Earth Defence Team to locate and disable Piratopod's secret weapon. It's a typical 'good-guy-fights-bad-guy-and-overcomes-a-few-problems-along-the-way-while-winning-in-the-end' sort of movie. Usually this is a reasonable formula for success. However, the plot is mind-numbingly predictable, with gaps in the story that become obvious quite early on. This also means that the story tends to jolt strangely from one scene to the next.
+
+I often use a 'spoiler alert' to warn readers when I intend to provide key details about a movie. In this case however, the story is so under-developed that there aren't many key details to reveal. You would think the director might have considered borrowing ideas from Sidle's books to make the characters more interesting - for instance Piratopod's twisted personality was actually explained as the result of traumatic events in his past. But no.
+
+It is clearly in special effects that all the time and energy were invested in this movie, and if you love this sort of thing you will be enthralled. The views of Earth and the Moon are spectacular. I wasn't sitting in a cinema wearing 3D glasses; I was out there in space! Although the story is weak and the characters under-developed, the special effects are brilliant. They are the icing on a stale cake!
+
+If the movie makers had followed Lillian Sidle's work more closely, this movie could have been a success. My suggestion to fans is to save your money on this movie and buy the book instead.
+
+Reviewed by Lee Evan
+Rated: PG",What does the word 'mutated' mean?,,A,changed,shifted,progressed,decreased,,1,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.487.4,216,1,2,Easy
+NAPLAN-Y5-READING-M1-Q16,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 3,5,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"The latest Tyranno movie, Tyranno 2: Earth defence, has just taken a nosedive and crash-landed at a cinema near you all in 3D! While the original Tyranno was a visual feast with strong characters and a gripping story, Tyranno 2 has failed miserably as so many sequels do. It is loosely based on the second book in the excellent series by Lillian Sidle, but it has mutated into a truly awful movie. In particular, parts of the plot which were significant in the book have been left out of the script. This plot-thinning has had the effect of creating characters that are somewhat one-dimensional even if they look great in their dinosaur costumes.
+
+Simon Gray, who did such a fabulous job in the first movie, plays Tyro. He is responsible for defending Earth from the evil pirate dinosaur Piratopod. Help with this mission is provided by a couple of velociraptor co-stars named Barry (Evan Green) and Kevin (Brian Scott). Piratopod has invented a solar-powered meteor magnet and intends to capture meteors from their space orbits, re-directing them onto a collision course with Earth. Tyro must mobilise the Earth Defence Team to locate and disable Piratopod's secret weapon. It's a typical 'good-guy-fights-bad-guy-and-overcomes-a-few-problems-along-the-way-while-winning-in-the-end' sort of movie. Usually this is a reasonable formula for success. However, the plot is mind-numbingly predictable, with gaps in the story that become obvious quite early on. This also means that the story tends to jolt strangely from one scene to the next.
+
+I often use a 'spoiler alert' to warn readers when I intend to provide key details about a movie. In this case however, the story is so under-developed that there aren't many key details to reveal. You would think the director might have considered borrowing ideas from Sidle's books to make the characters more interesting - for instance Piratopod's twisted personality was actually explained as the result of traumatic events in his past. But no.
+
+It is clearly in special effects that all the time and energy were invested in this movie, and if you love this sort of thing you will be enthralled. The views of Earth and the Moon are spectacular. I wasn't sitting in a cinema wearing 3D glasses; I was out there in space! Although the story is weak and the characters under-developed, the special effects are brilliant. They are the icing on a stale cake!
+
+If the movie makers had followed Lillian Sidle's work more closely, this movie could have been a success. My suggestion to fans is to save your money on this movie and buy the book instead.
+
+Reviewed by Lee Evan
+Rated: PG",What is a 'spoiler alert'?,,C,a suggestion to change the plot,a hint that a negative comment will be made,a warning that key parts of the plot will be exposed,a clue that links the movie with the book,,1,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.487.5,216,1,2,Easy
+NAPLAN-Y5-READING-M1-Q17,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 3,5,English,Vocabulary,Synonyms,ReadingComprehension,"The latest Tyranno movie, Tyranno 2: Earth defence, has just taken a nosedive and crash-landed at a cinema near you all in 3D! While the original Tyranno was a visual feast with strong characters and a gripping story, Tyranno 2 has failed miserably as so many sequels do. It is loosely based on the second book in the excellent series by Lillian Sidle, but it has mutated into a truly awful movie. In particular, parts of the plot which were significant in the book have been left out of the script. This plot-thinning has had the effect of creating characters that are somewhat one-dimensional even if they look great in their dinosaur costumes.
+
+Simon Gray, who did such a fabulous job in the first movie, plays Tyro. He is responsible for defending Earth from the evil pirate dinosaur Piratopod. Help with this mission is provided by a couple of velociraptor co-stars named Barry (Evan Green) and Kevin (Brian Scott). Piratopod has invented a solar-powered meteor magnet and intends to capture meteors from their space orbits, re-directing them onto a collision course with Earth. Tyro must mobilise the Earth Defence Team to locate and disable Piratopod's secret weapon. It's a typical 'good-guy-fights-bad-guy-and-overcomes-a-few-problems-along-the-way-while-winning-in-the-end' sort of movie. Usually this is a reasonable formula for success. However, the plot is mind-numbingly predictable, with gaps in the story that become obvious quite early on. This also means that the story tends to jolt strangely from one scene to the next.
+
+I often use a 'spoiler alert' to warn readers when I intend to provide key details about a movie. In this case however, the story is so under-developed that there aren't many key details to reveal. You would think the director might have considered borrowing ideas from Sidle's books to make the characters more interesting - for instance Piratopod's twisted personality was actually explained as the result of traumatic events in his past. But no.
+
+It is clearly in special effects that all the time and energy were invested in this movie, and if you love this sort of thing you will be enthralled. The views of Earth and the Moon are spectacular. I wasn't sitting in a cinema wearing 3D glasses; I was out there in space! Although the story is weak and the characters under-developed, the special effects are brilliant. They are the icing on a stale cake!
+
+If the movie makers had followed Lillian Sidle's work more closely, this movie could have been a success. My suggestion to fans is to save your money on this movie and buy the book instead.
+
+Reviewed by Lee Evan
+Rated: PG",The word 'enthralled' means,,B,curious.,fascinated.,puzzled.,amused.,,2,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.487.6,216,1,3,Easy
+NAPLAN-Y5-READING-M1-Q18,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 4,5,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Windows into the Wild
+Walk into many natural history museums and you will find glass cases that seem to open onto another world: a misty rainforest, a snowy mountain slope or a billabong at sunset. These scenes are called dioramas. Although each one looks like a window, it is really a clever illusion built by a team of artists and scientists.
+Creating a diorama usually happens in several stages.
+First, the team studies the real place. Artists visit the location, take photographs, make sketches and collect samples of soil, leaves and rocks. Scientists check which animals and plants really belong together, and at what time of year.
+Next, a painter creates the background on a curved wall at the back of the case. Because the wall curves, there are no corners to give the trick away. Distant hills and sky are painted in soft, pale colours, since faraway things look hazy to our eyes.
+Then the foreground is built. This is the part closest to the glass. It holds real or carefully copied rocks, logs and soil, along with model leaves made one by one from wax, paper or plastic. Some dioramas contain thousands of handmade leaves.
+The hardest job is joining the two parts. Where the real ground meets the painted wall, the colours and shapes must match exactly. If they do, visitors cannot tell where the solid ground ends and the painting begins.
+Finally, preserved animals or lifelike models are put in place, and the lighting is set. Lights hidden above the case can make a scene look like early morning or late afternoon.
+Some visitors today prefer screens and touch displays, and a few museums have removed their older dioramas. Yet many people still stand at the glass for minutes at a time. A good diorama lets you see an animal in its home, all in a single glance, in a way that a label or a photograph never could.",Why is the background painted on a curved wall?,,C,so the lights can be hidden behind it,so more animals can fit inside the case,so there are no corners to give the trick away,so visitors can see it from both sides,,1,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.1410.1,285,1,2,Easy
+NAPLAN-Y5-READING-M1-Q19,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 4,5,English,Reading Comprehension,Evaluating Evidence,ReadingComprehension,"Windows into the Wild
+Walk into many natural history museums and you will find glass cases that seem to open onto another world: a misty rainforest, a snowy mountain slope or a billabong at sunset. These scenes are called dioramas. Although each one looks like a window, it is really a clever illusion built by a team of artists and scientists.
+Creating a diorama usually happens in several stages.
+First, the team studies the real place. Artists visit the location, take photographs, make sketches and collect samples of soil, leaves and rocks. Scientists check which animals and plants really belong together, and at what time of year.
+Next, a painter creates the background on a curved wall at the back of the case. Because the wall curves, there are no corners to give the trick away. Distant hills and sky are painted in soft, pale colours, since faraway things look hazy to our eyes.
+Then the foreground is built. This is the part closest to the glass. It holds real or carefully copied rocks, logs and soil, along with model leaves made one by one from wax, paper or plastic. Some dioramas contain thousands of handmade leaves.
+The hardest job is joining the two parts. Where the real ground meets the painted wall, the colours and shapes must match exactly. If they do, visitors cannot tell where the solid ground ends and the painting begins.
+Finally, preserved animals or lifelike models are put in place, and the lighting is set. Lights hidden above the case can make a scene look like early morning or late afternoon.
+Some visitors today prefer screens and touch displays, and a few museums have removed their older dioramas. Yet many people still stand at the glass for minutes at a time. A good diorama lets you see an animal in its home, all in a single glance, in a way that a label or a photograph never could.",Which detail best shows that making a diorama takes a great deal of effort?,,A,Some dioramas contain thousands of handmade leaves.,These scenes are called dioramas.,Lights hidden above the case can make a scene look like early morning.,A few museums have removed their older dioramas.,,2,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.1410.2,285,1,3,Easy
+NAPLAN-Y5-READING-M1-Q20,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 4,5,English,Reading Comprehension,Sequencing,ReadingComprehension,"Windows into the Wild
+Walk into many natural history museums and you will find glass cases that seem to open onto another world: a misty rainforest, a snowy mountain slope or a billabong at sunset. These scenes are called dioramas. Although each one looks like a window, it is really a clever illusion built by a team of artists and scientists.
+Creating a diorama usually happens in several stages.
+First, the team studies the real place. Artists visit the location, take photographs, make sketches and collect samples of soil, leaves and rocks. Scientists check which animals and plants really belong together, and at what time of year.
+Next, a painter creates the background on a curved wall at the back of the case. Because the wall curves, there are no corners to give the trick away. Distant hills and sky are painted in soft, pale colours, since faraway things look hazy to our eyes.
+Then the foreground is built. This is the part closest to the glass. It holds real or carefully copied rocks, logs and soil, along with model leaves made one by one from wax, paper or plastic. Some dioramas contain thousands of handmade leaves.
+The hardest job is joining the two parts. Where the real ground meets the painted wall, the colours and shapes must match exactly. If they do, visitors cannot tell where the solid ground ends and the painting begins.
+Finally, preserved animals or lifelike models are put in place, and the lighting is set. Lights hidden above the case can make a scene look like early morning or late afternoon.
+Some visitors today prefer screens and touch displays, and a few museums have removed their older dioramas. Yet many people still stand at the glass for minutes at a time. A good diorama lets you see an animal in its home, all in a single glance, in a way that a label or a photograph never could.",Which stage comes straight after the background is painted?,,A,building the foreground,setting the lighting,studying the real place,putting the animals in place,,2,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.1410.3,285,1,4,Medium
+NAPLAN-Y5-READING-M1-Q21,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 4,5,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"Windows into the Wild
+Walk into many natural history museums and you will find glass cases that seem to open onto another world: a misty rainforest, a snowy mountain slope or a billabong at sunset. These scenes are called dioramas. Although each one looks like a window, it is really a clever illusion built by a team of artists and scientists.
+Creating a diorama usually happens in several stages.
+First, the team studies the real place. Artists visit the location, take photographs, make sketches and collect samples of soil, leaves and rocks. Scientists check which animals and plants really belong together, and at what time of year.
+Next, a painter creates the background on a curved wall at the back of the case. Because the wall curves, there are no corners to give the trick away. Distant hills and sky are painted in soft, pale colours, since faraway things look hazy to our eyes.
+Then the foreground is built. This is the part closest to the glass. It holds real or carefully copied rocks, logs and soil, along with model leaves made one by one from wax, paper or plastic. Some dioramas contain thousands of handmade leaves.
+The hardest job is joining the two parts. Where the real ground meets the painted wall, the colours and shapes must match exactly. If they do, visitors cannot tell where the solid ground ends and the painting begins.
+Finally, preserved animals or lifelike models are put in place, and the lighting is set. Lights hidden above the case can make a scene look like early morning or late afternoon.
+Some visitors today prefer screens and touch displays, and a few museums have removed their older dioramas. Yet many people still stand at the glass for minutes at a time. A good diorama lets you see an animal in its home, all in a single glance, in a way that a label or a photograph never could.","As it is used in the passage, the word illusion means . . .",,B,a special kind of glass case,something that tricks the eye,a painting of a distant sky,a careful scientific study,,2,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.1410.4,285,1,4,Medium
+NAPLAN-Y5-READING-M1-Q22,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 4,5,English,Reading Comprehension,Main Idea,ReadingComprehension,"Windows into the Wild
+Walk into many natural history museums and you will find glass cases that seem to open onto another world: a misty rainforest, a snowy mountain slope or a billabong at sunset. These scenes are called dioramas. Although each one looks like a window, it is really a clever illusion built by a team of artists and scientists.
+Creating a diorama usually happens in several stages.
+First, the team studies the real place. Artists visit the location, take photographs, make sketches and collect samples of soil, leaves and rocks. Scientists check which animals and plants really belong together, and at what time of year.
+Next, a painter creates the background on a curved wall at the back of the case. Because the wall curves, there are no corners to give the trick away. Distant hills and sky are painted in soft, pale colours, since faraway things look hazy to our eyes.
+Then the foreground is built. This is the part closest to the glass. It holds real or carefully copied rocks, logs and soil, along with model leaves made one by one from wax, paper or plastic. Some dioramas contain thousands of handmade leaves.
+The hardest job is joining the two parts. Where the real ground meets the painted wall, the colours and shapes must match exactly. If they do, visitors cannot tell where the solid ground ends and the painting begins.
+Finally, preserved animals or lifelike models are put in place, and the lighting is set. Lights hidden above the case can make a scene look like early morning or late afternoon.
+Some visitors today prefer screens and touch displays, and a few museums have removed their older dioramas. Yet many people still stand at the glass for minutes at a time. A good diorama lets you see an animal in its home, all in a single glance, in a way that a label or a photograph never could.",Which sentence from the passage best states its main idea?,,C,"Where the real ground meets the painted wall, the colours and shapes must match exactly.","A good diorama lets you see an animal in its home, all in a single glance, in a way that a label or a photograph never could.","Although each one looks like a window, it is really a clever illusion built by a team of artists and scientists.","Some visitors today prefer screens and touch displays, and a few museums have removed their older dioramas.",,4,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.1410.5,285,2,7,Hard
+NAPLAN-Y5-READING-M1-Q23,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 4,5,English,Inference,Drawing Conclusions,ReadingComprehension,"Windows into the Wild
+Walk into many natural history museums and you will find glass cases that seem to open onto another world: a misty rainforest, a snowy mountain slope or a billabong at sunset. These scenes are called dioramas. Although each one looks like a window, it is really a clever illusion built by a team of artists and scientists.
+Creating a diorama usually happens in several stages.
+First, the team studies the real place. Artists visit the location, take photographs, make sketches and collect samples of soil, leaves and rocks. Scientists check which animals and plants really belong together, and at what time of year.
+Next, a painter creates the background on a curved wall at the back of the case. Because the wall curves, there are no corners to give the trick away. Distant hills and sky are painted in soft, pale colours, since faraway things look hazy to our eyes.
+Then the foreground is built. This is the part closest to the glass. It holds real or carefully copied rocks, logs and soil, along with model leaves made one by one from wax, paper or plastic. Some dioramas contain thousands of handmade leaves.
+The hardest job is joining the two parts. Where the real ground meets the painted wall, the colours and shapes must match exactly. If they do, visitors cannot tell where the solid ground ends and the painting begins.
+Finally, preserved animals or lifelike models are put in place, and the lighting is set. Lights hidden above the case can make a scene look like early morning or late afternoon.
+Some visitors today prefer screens and touch displays, and a few museums have removed their older dioramas. Yet many people still stand at the glass for minutes at a time. A good diorama lets you see an animal in its home, all in a single glance, in a way that a label or a photograph never could.",What can you conclude about the stages of making a diorama?,,D,The painters' work matters far more than the scientists' work.,Dioramas are mainly made to show off rare and unusual animals.,Each stage is planned so that museums will not need labels.,Every stage aims to make the scene look both real and accurate.,,4,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.1410.6,285,2,7,Hard
+NAPLAN-Y5-READING-M1-Q24,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 5,5,English,Literary Techniques,Tone and Mood,ReadingComprehension,"On the Tip of My Tongue
+A quiz kid called Lachlan McRae
+Knew the answer but just couldn't say.
+It was there on his tongue,
+Like a bell left unrung,
+And it came to him later that day.
+You know the feeling. You are trying to remember the name of a film, a song or the kid who sat next to you in Year 2. You might even know that it starts with 'M' or has three syllables, but the word itself refuses to come out. Scientists have a name for this everyday mishap. They call it a tip-of-the-tongue moment.
+In 1966, two researchers at Harvard University decided to study it. They read out dictionary definitions of rare words, such as 'sampan', and asked students to name each word. Many students got stuck partway. Often they could guess the first letter, or they came up with words that sounded similar, like 'Siam' and 'sarong'. This showed that the brain had found part of the word, but not all of it.
+Since then, studies have found that most people have a tip-of-the-tongue moment about once a week. These moments become more common as people get older, and they happen most often with names.
+So what should you do when a word gets stuck? Strangely, trying harder can make things worse, because your brain keeps landing on the wrong word. Many experts suggest thinking about something else. The missing word often pops up on its own, sometimes hours later, usually at a moment when it is no help at all.
+My uncle Dev learned this the hard way. At a trivia night, his team needed one last answer: the name of the longest river in Australia. Dev was sure he knew it. He scrunched up his face, drummed on the table and muttered 'Mur... Mur...' until the time ran out. His team lost by one point. Halfway home in the car, he suddenly shouted 'The Murray!' so loudly that Aunty Mel nearly dropped her phone. He still blames the trivia host.",Which words best describe the tone of the text?,,B,serious and worried,light-hearted and informative,angry and complaining,sad and thoughtful,,1,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.1423.1,298,1,2,Easy
+NAPLAN-Y5-READING-M1-Q25,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 5,5,English,Literary Techniques,Poetic Form,ReadingComprehension,"On the Tip of My Tongue
+A quiz kid called Lachlan McRae
+Knew the answer but just couldn't say.
+It was there on his tongue,
+Like a bell left unrung,
+And it came to him later that day.
+You know the feeling. You are trying to remember the name of a film, a song or the kid who sat next to you in Year 2. You might even know that it starts with 'M' or has three syllables, but the word itself refuses to come out. Scientists have a name for this everyday mishap. They call it a tip-of-the-tongue moment.
+In 1966, two researchers at Harvard University decided to study it. They read out dictionary definitions of rare words, such as 'sampan', and asked students to name each word. Many students got stuck partway. Often they could guess the first letter, or they came up with words that sounded similar, like 'Siam' and 'sarong'. This showed that the brain had found part of the word, but not all of it.
+Since then, studies have found that most people have a tip-of-the-tongue moment about once a week. These moments become more common as people get older, and they happen most often with names.
+So what should you do when a word gets stuck? Strangely, trying harder can make things worse, because your brain keeps landing on the wrong word. Many experts suggest thinking about something else. The missing word often pops up on its own, sometimes hours later, usually at a moment when it is no help at all.
+My uncle Dev learned this the hard way. At a trivia night, his team needed one last answer: the name of the longest river in Australia. Dev was sure he knew it. He scrunched up his face, drummed on the table and muttered 'Mur... Mur...' until the time ran out. His team lost by one point. Halfway home in the car, he suddenly shouted 'The Murray!' so loudly that Aunty Mel nearly dropped her phone. He still blames the trivia host.",The five lines at the start of the text are an example of,,B,a haiku,a limerick,a list poem,an acrostic,,2,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.1423.2,298,1,3,Easy
+NAPLAN-Y5-READING-M1-Q26,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 5,5,English,Inference,Inferential Reasoning,ReadingComprehension,"On the Tip of My Tongue
+A quiz kid called Lachlan McRae
+Knew the answer but just couldn't say.
+It was there on his tongue,
+Like a bell left unrung,
+And it came to him later that day.
+You know the feeling. You are trying to remember the name of a film, a song or the kid who sat next to you in Year 2. You might even know that it starts with 'M' or has three syllables, but the word itself refuses to come out. Scientists have a name for this everyday mishap. They call it a tip-of-the-tongue moment.
+In 1966, two researchers at Harvard University decided to study it. They read out dictionary definitions of rare words, such as 'sampan', and asked students to name each word. Many students got stuck partway. Often they could guess the first letter, or they came up with words that sounded similar, like 'Siam' and 'sarong'. This showed that the brain had found part of the word, but not all of it.
+Since then, studies have found that most people have a tip-of-the-tongue moment about once a week. These moments become more common as people get older, and they happen most often with names.
+So what should you do when a word gets stuck? Strangely, trying harder can make things worse, because your brain keeps landing on the wrong word. Many experts suggest thinking about something else. The missing word often pops up on its own, sometimes hours later, usually at a moment when it is no help at all.
+My uncle Dev learned this the hard way. At a trivia night, his team needed one last answer: the name of the longest river in Australia. Dev was sure he knew it. He scrunched up his face, drummed on the table and muttered 'Mur... Mur...' until the time ran out. His team lost by one point. Halfway home in the car, he suddenly shouted 'The Murray!' so loudly that Aunty Mel nearly dropped her phone. He still blames the trivia host.",The writer says a missing word often pops up 'at a moment when it is no help at all'. This means the word usually comes back,,A,after the person no longer needs it,while the person is trying their hardest,only when someone else says it first,in the middle of the night during sleep,,2,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.1423.3,298,1,4,Medium
+NAPLAN-Y5-READING-M1-Q27,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 5,5,English,Vocabulary,Synonyms,ReadingComprehension,"On the Tip of My Tongue
+A quiz kid called Lachlan McRae
+Knew the answer but just couldn't say.
+It was there on his tongue,
+Like a bell left unrung,
+And it came to him later that day.
+You know the feeling. You are trying to remember the name of a film, a song or the kid who sat next to you in Year 2. You might even know that it starts with 'M' or has three syllables, but the word itself refuses to come out. Scientists have a name for this everyday mishap. They call it a tip-of-the-tongue moment.
+In 1966, two researchers at Harvard University decided to study it. They read out dictionary definitions of rare words, such as 'sampan', and asked students to name each word. Many students got stuck partway. Often they could guess the first letter, or they came up with words that sounded similar, like 'Siam' and 'sarong'. This showed that the brain had found part of the word, but not all of it.
+Since then, studies have found that most people have a tip-of-the-tongue moment about once a week. These moments become more common as people get older, and they happen most often with names.
+So what should you do when a word gets stuck? Strangely, trying harder can make things worse, because your brain keeps landing on the wrong word. Many experts suggest thinking about something else. The missing word often pops up on its own, sometimes hours later, usually at a moment when it is no help at all.
+My uncle Dev learned this the hard way. At a trivia night, his team needed one last answer: the name of the longest river in Australia. Dev was sure he knew it. He scrunched up his face, drummed on the table and muttered 'Mur... Mur...' until the time ran out. His team lost by one point. Halfway home in the car, he suddenly shouted 'The Murray!' so loudly that Aunty Mel nearly dropped her phone. He still blames the trivia host.",'They read out dictionary definitions of rare words' Which word has the same meaning as 'rare' in this sentence?,,C,precious,undercooked,uncommon,ancient,,3,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.1423.4,298,1,5,Medium
+NAPLAN-Y5-READING-M1-Q28,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 5,5,English,Reading Comprehension,Evaluating Evidence,ReadingComprehension,"On the Tip of My Tongue
+A quiz kid called Lachlan McRae
+Knew the answer but just couldn't say.
+It was there on his tongue,
+Like a bell left unrung,
+And it came to him later that day.
+You know the feeling. You are trying to remember the name of a film, a song or the kid who sat next to you in Year 2. You might even know that it starts with 'M' or has three syllables, but the word itself refuses to come out. Scientists have a name for this everyday mishap. They call it a tip-of-the-tongue moment.
+In 1966, two researchers at Harvard University decided to study it. They read out dictionary definitions of rare words, such as 'sampan', and asked students to name each word. Many students got stuck partway. Often they could guess the first letter, or they came up with words that sounded similar, like 'Siam' and 'sarong'. This showed that the brain had found part of the word, but not all of it.
+Since then, studies have found that most people have a tip-of-the-tongue moment about once a week. These moments become more common as people get older, and they happen most often with names.
+So what should you do when a word gets stuck? Strangely, trying harder can make things worse, because your brain keeps landing on the wrong word. Many experts suggest thinking about something else. The missing word often pops up on its own, sometimes hours later, usually at a moment when it is no help at all.
+My uncle Dev learned this the hard way. At a trivia night, his team needed one last answer: the name of the longest river in Australia. Dev was sure he knew it. He scrunched up his face, drummed on the table and muttered 'Mur... Mur...' until the time ran out. His team lost by one point. Halfway home in the car, he suddenly shouted 'The Murray!' so loudly that Aunty Mel nearly dropped her phone. He still blames the trivia host.",Which detail from the text best supports the experts' advice that trying harder can make things worse?,,C,Most people have a tip-of-the-tongue moment about once a week.,Students in the 1966 study could often guess the first letter.,"Dev strained until time ran out, then remembered on the drive home.",These moments become more common as people grow older.,,4,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.1423.5,298,2,8,Hard
+NAPLAN-Y5-READING-M1-Q29,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 5,5,English,Inference,Character Motivation,ReadingComprehension,"On the Tip of My Tongue
+A quiz kid called Lachlan McRae
+Knew the answer but just couldn't say.
+It was there on his tongue,
+Like a bell left unrung,
+And it came to him later that day.
+You know the feeling. You are trying to remember the name of a film, a song or the kid who sat next to you in Year 2. You might even know that it starts with 'M' or has three syllables, but the word itself refuses to come out. Scientists have a name for this everyday mishap. They call it a tip-of-the-tongue moment.
+In 1966, two researchers at Harvard University decided to study it. They read out dictionary definitions of rare words, such as 'sampan', and asked students to name each word. Many students got stuck partway. Often they could guess the first letter, or they came up with words that sounded similar, like 'Siam' and 'sarong'. This showed that the brain had found part of the word, but not all of it.
+Since then, studies have found that most people have a tip-of-the-tongue moment about once a week. These moments become more common as people get older, and they happen most often with names.
+So what should you do when a word gets stuck? Strangely, trying harder can make things worse, because your brain keeps landing on the wrong word. Many experts suggest thinking about something else. The missing word often pops up on its own, sometimes hours later, usually at a moment when it is no help at all.
+My uncle Dev learned this the hard way. At a trivia night, his team needed one last answer: the name of the longest river in Australia. Dev was sure he knew it. He scrunched up his face, drummed on the table and muttered 'Mur... Mur...' until the time ran out. His team lost by one point. Halfway home in the car, he suddenly shouted 'The Murray!' so loudly that Aunty Mel nearly dropped her phone. He still blames the trivia host.",Why does Uncle Dev most likely 'still blame the trivia host'?,,A,He would rather not admit that his own memory let him down.,The host did not give the teams enough time to answer.,The host asked a question that nobody could have known.,The host had read out the wrong answer at the end.,,4,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.1423.6,298,1,7,Hard
+NAPLAN-Y5-READING-M1-Q30,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 6,5,English,Reading Comprehension,Sequencing,ReadingComprehension,"The Same Shape Twice
+Lena's art teacher had asked the class to draw 'a pattern found in nature', and by Saturday morning Lena still had a blank page. Half the class had already done zebra stripes. Spider webs were too fiddly.
+'Come up Tawny Hill with me,' said Grandpa, lacing his boots. 'Patterns are easier to find when you stop looking so hard.'
+The track was steep and dusty. Halfway up, Lena picked up a fallen gum leaf. A pale line ran down its middle, and thinner lines branched off it, then split again and again until they were as fine as hairs. She tucked it into her sketchbook without thinking much about it.
+At the top, they sat on a flat rock. Far below, the creek wound across the flats towards the sea. Near the coast it split into two channels, then four, then a dozen silver threads that spread out like the fingers of a hand dipping into the water.
+Lena frowned. Something about it tickled her memory. She opened her sketchbook, and the gum leaf slid out onto the rock. She held it up against the view. The thick middle vein, the branches, the tiny threads at the edges: the creek was drawing the very same shape across the land.
+'Grandpa,' she whispered, 'the river copied the leaf.'
+Grandpa chuckled. 'Or the leaf copied the river. Look behind you.'
+Lena turned. A dead tree stood at the edge of the hilltop, its bare branches black against the sky. Trunk, branches, twigs, smaller twigs. The same shape again, this time reaching up instead of out.
+All the way home, Lena kept finding it. In the cracks of a dried-up puddle. In the blue veins on the back of Grandpa's wrist. That night a summer storm rolled in, and as lightning forked across the clouds, she pressed her nose to the window and laughed out loud.
+On Monday, Lena handed in a page divided into five boxes: a leaf, a river, a tree, a wrist and a flash of lightning. Underneath, in her neatest writing, was one word: Branches.",What did Lena do just after the gum leaf slid out onto the rock?,,D,She picked it up from the dusty track.,She turned around to look at the dead tree.,She tucked it back into her sketchbook.,She held it up against the view.,,1,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.1417.1,292,1,2,Easy
+NAPLAN-Y5-READING-M1-Q31,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 6,5,English,Reading Comprehension,Main Idea,ReadingComprehension,"The Same Shape Twice
+Lena's art teacher had asked the class to draw 'a pattern found in nature', and by Saturday morning Lena still had a blank page. Half the class had already done zebra stripes. Spider webs were too fiddly.
+'Come up Tawny Hill with me,' said Grandpa, lacing his boots. 'Patterns are easier to find when you stop looking so hard.'
+The track was steep and dusty. Halfway up, Lena picked up a fallen gum leaf. A pale line ran down its middle, and thinner lines branched off it, then split again and again until they were as fine as hairs. She tucked it into her sketchbook without thinking much about it.
+At the top, they sat on a flat rock. Far below, the creek wound across the flats towards the sea. Near the coast it split into two channels, then four, then a dozen silver threads that spread out like the fingers of a hand dipping into the water.
+Lena frowned. Something about it tickled her memory. She opened her sketchbook, and the gum leaf slid out onto the rock. She held it up against the view. The thick middle vein, the branches, the tiny threads at the edges: the creek was drawing the very same shape across the land.
+'Grandpa,' she whispered, 'the river copied the leaf.'
+Grandpa chuckled. 'Or the leaf copied the river. Look behind you.'
+Lena turned. A dead tree stood at the edge of the hilltop, its bare branches black against the sky. Trunk, branches, twigs, smaller twigs. The same shape again, this time reaching up instead of out.
+All the way home, Lena kept finding it. In the cracks of a dried-up puddle. In the blue veins on the back of Grandpa's wrist. That night a summer storm rolled in, and as lightning forked across the clouds, she pressed her nose to the window and laughed out loud.
+On Monday, Lena handed in a page divided into five boxes: a leaf, a river, a tree, a wrist and a flash of lightning. Underneath, in her neatest writing, was one word: Branches.",What is the story mostly about?,,C,a girl and her grandfather racing each other up a steep hill,a girl who is kept awake by a frightening summer storm,a girl who finds the same branching shape in many parts of nature,a girl who copies her classmates' ideas for an art task,,1,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.1417.2,292,1,2,Easy
+NAPLAN-Y5-READING-M1-Q32,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 6,5,English,Reading Comprehension,Main Idea,ReadingComprehension,"The Same Shape Twice
+Lena's art teacher had asked the class to draw 'a pattern found in nature', and by Saturday morning Lena still had a blank page. Half the class had already done zebra stripes. Spider webs were too fiddly.
+'Come up Tawny Hill with me,' said Grandpa, lacing his boots. 'Patterns are easier to find when you stop looking so hard.'
+The track was steep and dusty. Halfway up, Lena picked up a fallen gum leaf. A pale line ran down its middle, and thinner lines branched off it, then split again and again until they were as fine as hairs. She tucked it into her sketchbook without thinking much about it.
+At the top, they sat on a flat rock. Far below, the creek wound across the flats towards the sea. Near the coast it split into two channels, then four, then a dozen silver threads that spread out like the fingers of a hand dipping into the water.
+Lena frowned. Something about it tickled her memory. She opened her sketchbook, and the gum leaf slid out onto the rock. She held it up against the view. The thick middle vein, the branches, the tiny threads at the edges: the creek was drawing the very same shape across the land.
+'Grandpa,' she whispered, 'the river copied the leaf.'
+Grandpa chuckled. 'Or the leaf copied the river. Look behind you.'
+Lena turned. A dead tree stood at the edge of the hilltop, its bare branches black against the sky. Trunk, branches, twigs, smaller twigs. The same shape again, this time reaching up instead of out.
+All the way home, Lena kept finding it. In the cracks of a dried-up puddle. In the blue veins on the back of Grandpa's wrist. That night a summer storm rolled in, and as lightning forked across the clouds, she pressed her nose to the window and laughed out loud.
+On Monday, Lena handed in a page divided into five boxes: a leaf, a river, a tree, a wrist and a flash of lightning. Underneath, in her neatest writing, was one word: Branches.",What is the main idea of the paragraph beginning 'All the way home'?,,C,Lena was frightened of the storm that night.,Grandpa's veins showed that he was getting old.,"Once Lena noticed the pattern, she saw it everywhere.",Lena was worried about finishing her homework.,,3,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.1417.3,292,1,5,Medium
+NAPLAN-Y5-READING-M1-Q33,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 6,5,English,Reading Comprehension,Evaluating Evidence,ReadingComprehension,"The Same Shape Twice
+Lena's art teacher had asked the class to draw 'a pattern found in nature', and by Saturday morning Lena still had a blank page. Half the class had already done zebra stripes. Spider webs were too fiddly.
+'Come up Tawny Hill with me,' said Grandpa, lacing his boots. 'Patterns are easier to find when you stop looking so hard.'
+The track was steep and dusty. Halfway up, Lena picked up a fallen gum leaf. A pale line ran down its middle, and thinner lines branched off it, then split again and again until they were as fine as hairs. She tucked it into her sketchbook without thinking much about it.
+At the top, they sat on a flat rock. Far below, the creek wound across the flats towards the sea. Near the coast it split into two channels, then four, then a dozen silver threads that spread out like the fingers of a hand dipping into the water.
+Lena frowned. Something about it tickled her memory. She opened her sketchbook, and the gum leaf slid out onto the rock. She held it up against the view. The thick middle vein, the branches, the tiny threads at the edges: the creek was drawing the very same shape across the land.
+'Grandpa,' she whispered, 'the river copied the leaf.'
+Grandpa chuckled. 'Or the leaf copied the river. Look behind you.'
+Lena turned. A dead tree stood at the edge of the hilltop, its bare branches black against the sky. Trunk, branches, twigs, smaller twigs. The same shape again, this time reaching up instead of out.
+All the way home, Lena kept finding it. In the cracks of a dried-up puddle. In the blue veins on the back of Grandpa's wrist. That night a summer storm rolled in, and as lightning forked across the clouds, she pressed her nose to the window and laughed out loud.
+On Monday, Lena handed in a page divided into five boxes: a leaf, a river, a tree, a wrist and a flash of lightning. Underneath, in her neatest writing, was one word: Branches.",Which detail best shows that Lena was delighted by her discovery?,,D,Lena frowned as something tickled her memory,she tucked the leaf away without thinking much about it,she whispered to Grandpa that the river copied the leaf,she pressed her nose to the window and laughed out loud,,3,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.1417.4,292,1,5,Medium
+NAPLAN-Y5-READING-M1-Q34,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 6,5,English,Literary Techniques,Figurative Language,ReadingComprehension,"The Same Shape Twice
+Lena's art teacher had asked the class to draw 'a pattern found in nature', and by Saturday morning Lena still had a blank page. Half the class had already done zebra stripes. Spider webs were too fiddly.
+'Come up Tawny Hill with me,' said Grandpa, lacing his boots. 'Patterns are easier to find when you stop looking so hard.'
+The track was steep and dusty. Halfway up, Lena picked up a fallen gum leaf. A pale line ran down its middle, and thinner lines branched off it, then split again and again until they were as fine as hairs. She tucked it into her sketchbook without thinking much about it.
+At the top, they sat on a flat rock. Far below, the creek wound across the flats towards the sea. Near the coast it split into two channels, then four, then a dozen silver threads that spread out like the fingers of a hand dipping into the water.
+Lena frowned. Something about it tickled her memory. She opened her sketchbook, and the gum leaf slid out onto the rock. She held it up against the view. The thick middle vein, the branches, the tiny threads at the edges: the creek was drawing the very same shape across the land.
+'Grandpa,' she whispered, 'the river copied the leaf.'
+Grandpa chuckled. 'Or the leaf copied the river. Look behind you.'
+Lena turned. A dead tree stood at the edge of the hilltop, its bare branches black against the sky. Trunk, branches, twigs, smaller twigs. The same shape again, this time reaching up instead of out.
+All the way home, Lena kept finding it. In the cracks of a dried-up puddle. In the blue veins on the back of Grandpa's wrist. That night a summer storm rolled in, and as lightning forked across the clouds, she pressed her nose to the window and laughed out loud.
+On Monday, Lena handed in a page divided into five boxes: a leaf, a river, a tree, a wrist and a flash of lightning. Underneath, in her neatest writing, was one word: Branches.",The writer says 'the creek was drawing the very same shape across the land'. Describing the creek as if it were drawing is especially fitting because,,A,Lena herself has been searching for something to draw,the channels were as thin and neat as pencil lines,Grandpa had just told her that the river copied the leaf,the creek was slowly changing shape as she watched it,,4,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.1417.5,292,1,8,Hard
+NAPLAN-Y5-READING-M1-Q35,NAPLAN-Y5-READING-M1,NAPLAN_STYLE_READING,Text 6,5,English,Inference,Inferential Reasoning,ReadingComprehension,"The Same Shape Twice
+Lena's art teacher had asked the class to draw 'a pattern found in nature', and by Saturday morning Lena still had a blank page. Half the class had already done zebra stripes. Spider webs were too fiddly.
+'Come up Tawny Hill with me,' said Grandpa, lacing his boots. 'Patterns are easier to find when you stop looking so hard.'
+The track was steep and dusty. Halfway up, Lena picked up a fallen gum leaf. A pale line ran down its middle, and thinner lines branched off it, then split again and again until they were as fine as hairs. She tucked it into her sketchbook without thinking much about it.
+At the top, they sat on a flat rock. Far below, the creek wound across the flats towards the sea. Near the coast it split into two channels, then four, then a dozen silver threads that spread out like the fingers of a hand dipping into the water.
+Lena frowned. Something about it tickled her memory. She opened her sketchbook, and the gum leaf slid out onto the rock. She held it up against the view. The thick middle vein, the branches, the tiny threads at the edges: the creek was drawing the very same shape across the land.
+'Grandpa,' she whispered, 'the river copied the leaf.'
+Grandpa chuckled. 'Or the leaf copied the river. Look behind you.'
+Lena turned. A dead tree stood at the edge of the hilltop, its bare branches black against the sky. Trunk, branches, twigs, smaller twigs. The same shape again, this time reaching up instead of out.
+All the way home, Lena kept finding it. In the cracks of a dried-up puddle. In the blue veins on the back of Grandpa's wrist. That night a summer storm rolled in, and as lightning forked across the clouds, she pressed her nose to the window and laughed out loud.
+On Monday, Lena handed in a page divided into five boxes: a leaf, a river, a tree, a wrist and a flash of lightning. Underneath, in her neatest writing, was one word: Branches.",How does the story show that Grandpa's advice about finding patterns was right?,,B,Lena found the pattern only after studying the creek carefully for a very long time.,"Lena noticed the pattern by chance, thanks to a leaf she picked up without much thought.",Lena gave up on spider webs and zebra stripes because they were too hard to draw.,Grandpa pointed out every example of the pattern to Lena as they walked up the hill.,,4,1,1,"NAPLAN,Year 5,Mock 1",English_Comprehension_Questions_expanded.csv,5.1417.6,292,2,8,Hard

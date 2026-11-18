@@ -1,0 +1,277 @@
+﻿QuestionID,ExamID,ExamType,ExamSection,YearLevel,Subject,Topic,SubTopic,QuestionType,ComprehensionText,QuestionText,QuestionMedia,Correct,AnswerA,AnswerB,AnswerC,AnswerD,AnswerE,Difficulty,IsActive,CorrectAnswerScore,Tags,SourceBank,SourceQuestionNumber,SourceComprehensionID,NAPLANFlag,DifficultyScore,DifficultyLabel
+NAPLAN-Y3-READING-M1-Q01,NAPLAN-Y3-READING-M1,NAPLAN_STYLE_READING,Text 1,3,English,Inference,Inferential Reasoning,ReadingComprehension,"Mr Brown had a magnificent apple tree. On this hung five ripe, red apples.
+
+Each day, Mr Brown went out to count the apples. 1, 2, 3, 4, 5! Five ripe, red apples.
+
+One night, a tiny, grey mouse ran up the trunk of the tree. Tip, tap! Tip, tap!
+
+She chewed through the stem of one apple.
+
+Plop!
+
+It fell to the ground where the mouse family was waiting. Nibble, nibble, nibble. The mouse family soon ate up every piece of the apple then scampered back home.
+
+The next morning, Mr Brown came out of his house and counted the apples.
+
+1, 2, 3, 4! Only four apples!
+
+'A tall, tall thief must have come in the night and stolen my apple,' he said. He went back into his house, very puzzled.","At the end of the story, Mr Brown was puzzled because",,D,he thought he had not counted the apples correctly.,he wondered why the thief had not taken all the apples.,he could not find the mouse family.,he was not sure how the apple had been taken.,,2,1,1,"NAPLAN,Year 3,Mock 1",English_Comprehension_Questions_expanded.csv,3.100.1,56,1,4,Medium
+NAPLAN-Y3-READING-M1-Q02,NAPLAN-Y3-READING-M1,NAPLAN_STYLE_READING,Text 1,3,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Mr Brown had a magnificent apple tree. On this hung five ripe, red apples.
+
+Each day, Mr Brown went out to count the apples. 1, 2, 3, 4, 5! Five ripe, red apples.
+
+One night, a tiny, grey mouse ran up the trunk of the tree. Tip, tap! Tip, tap!
+
+She chewed through the stem of one apple.
+
+Plop!
+
+It fell to the ground where the mouse family was waiting. Nibble, nibble, nibble. The mouse family soon ate up every piece of the apple then scampered back home.
+
+The next morning, Mr Brown came out of his house and counted the apples.
+
+1, 2, 3, 4! Only four apples!
+
+'A tall, tall thief must have come in the night and stolen my apple,' he said. He went back into his house, very puzzled.","At the start of this story, how many apples were on the tree?",,D,two,three,four,five,,1,1,1,"NAPLAN,Year 3,Mock 1",English_Comprehension_Questions_expanded.csv,3.100.2,56,1,1,Easy
+NAPLAN-Y3-READING-M1-Q03,NAPLAN-Y3-READING-M1,NAPLAN_STYLE_READING,Text 1,3,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Mr Brown had a magnificent apple tree. On this hung five ripe, red apples.
+
+Each day, Mr Brown went out to count the apples. 1, 2, 3, 4, 5! Five ripe, red apples.
+
+One night, a tiny, grey mouse ran up the trunk of the tree. Tip, tap! Tip, tap!
+
+She chewed through the stem of one apple.
+
+Plop!
+
+It fell to the ground where the mouse family was waiting. Nibble, nibble, nibble. The mouse family soon ate up every piece of the apple then scampered back home.
+
+The next morning, Mr Brown came out of his house and counted the apples.
+
+1, 2, 3, 4! Only four apples!
+
+'A tall, tall thief must have come in the night and stolen my apple,' he said. He went back into his house, very puzzled.",Mr Brown thought that the thief,,B,was a mouse.,was very tall.,ran up the tree.,waited for the apple to drop.,,1,1,1,"NAPLAN,Year 3,Mock 1",English_Comprehension_Questions_expanded.csv,3.100.3,56,1,1,Easy
+NAPLAN-Y3-READING-M1-Q04,NAPLAN-Y3-READING-M1,NAPLAN_STYLE_READING,Text 2,3,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Front Seat, No Driver
+On Saturday morning, Dad and Ivy caught the first train on the city's new metro line. Ivy raced to the very front carriage. Where the driver's cabin should have been, there was only a huge window.
+'Who's driving?' Ivy whispered.
+'Computers,' said Dad. 'They control the speed and the stops.'
+Ivy gripped the rail. The train slid into the dark tunnel, and tiny green lights flicked past like fireflies. Soon Ivy let go of the rail and pressed her nose to the glass.
+At each station, glass doors on the platform opened at the same moment as the train doors. 'Those stop people falling onto the tracks,' Dad explained.
+Then the train rose out of the tunnel onto a tall bridge. The city spread out below them, and Ivy spotted the roof of her own school.
+At the last stop, Ivy didn't move. 'Can we go back the same way?' she asked. 'I want to sit at the front again.'",What was at the front of the train where the driver's cabin would usually be?,,A,a huge window,a glass door,a computer screen,a row of seats,,1,1,1,"NAPLAN,Year 3,Mock 1",English_Comprehension_Questions_expanded.csv,3.1237.1,204,1,2,Easy
+NAPLAN-Y3-READING-M1-Q05,NAPLAN-Y3-READING-M1,NAPLAN_STYLE_READING,Text 2,3,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Front Seat, No Driver
+On Saturday morning, Dad and Ivy caught the first train on the city's new metro line. Ivy raced to the very front carriage. Where the driver's cabin should have been, there was only a huge window.
+'Who's driving?' Ivy whispered.
+'Computers,' said Dad. 'They control the speed and the stops.'
+Ivy gripped the rail. The train slid into the dark tunnel, and tiny green lights flicked past like fireflies. Soon Ivy let go of the rail and pressed her nose to the glass.
+At each station, glass doors on the platform opened at the same moment as the train doors. 'Those stop people falling onto the tracks,' Dad explained.
+Then the train rose out of the tunnel onto a tall bridge. The city spread out below them, and Ivy spotted the roof of her own school.
+At the last stop, Ivy didn't move. 'Can we go back the same way?' she asked. 'I want to sit at the front again.'","According to Dad, the glass doors on the platform stop people from . . .",,A,falling onto the tracks,getting on the wrong train,missing their stop,standing near the driver,,1,1,1,"NAPLAN,Year 3,Mock 1",English_Comprehension_Questions_expanded.csv,3.1237.2,204,1,2,Easy
+NAPLAN-Y3-READING-M1-Q06,NAPLAN-Y3-READING-M1,NAPLAN_STYLE_READING,Text 2,3,English,Inference,Interpreting Feelings,ReadingComprehension,"Front Seat, No Driver
+On Saturday morning, Dad and Ivy caught the first train on the city's new metro line. Ivy raced to the very front carriage. Where the driver's cabin should have been, there was only a huge window.
+'Who's driving?' Ivy whispered.
+'Computers,' said Dad. 'They control the speed and the stops.'
+Ivy gripped the rail. The train slid into the dark tunnel, and tiny green lights flicked past like fireflies. Soon Ivy let go of the rail and pressed her nose to the glass.
+At each station, glass doors on the platform opened at the same moment as the train doors. 'Those stop people falling onto the tracks,' Dad explained.
+Then the train rose out of the tunnel onto a tall bridge. The city spread out below them, and Ivy spotted the roof of her own school.
+At the last stop, Ivy didn't move. 'Can we go back the same way?' she asked. 'I want to sit at the front again.'","When Ivy first gripped the rail, she was most likely feeling . . .",,B,very bored,a little nervous,cross with Dad,rather sleepy,,2,1,1,"NAPLAN,Year 3,Mock 1",English_Comprehension_Questions_expanded.csv,3.1237.3,204,1,4,Medium
+NAPLAN-Y3-READING-M1-Q07,NAPLAN-Y3-READING-M1,NAPLAN_STYLE_READING,Text 2,3,English,Inference,Character Motivation,ReadingComprehension,"Front Seat, No Driver
+On Saturday morning, Dad and Ivy caught the first train on the city's new metro line. Ivy raced to the very front carriage. Where the driver's cabin should have been, there was only a huge window.
+'Who's driving?' Ivy whispered.
+'Computers,' said Dad. 'They control the speed and the stops.'
+Ivy gripped the rail. The train slid into the dark tunnel, and tiny green lights flicked past like fireflies. Soon Ivy let go of the rail and pressed her nose to the glass.
+At each station, glass doors on the platform opened at the same moment as the train doors. 'Those stop people falling onto the tracks,' Dad explained.
+Then the train rose out of the tunnel onto a tall bridge. The city spread out below them, and Ivy spotted the roof of her own school.
+At the last stop, Ivy didn't move. 'Can we go back the same way?' she asked. 'I want to sit at the front again.'",Why did Ivy ask to go back the same way?,,D,She wanted to look at her school again.,She had left something at the first station.,She was worried about the new train.,She had loved riding at the very front.,,3,1,1,"NAPLAN,Year 3,Mock 1",English_Comprehension_Questions_expanded.csv,3.1237.4,204,1,5,Medium
+NAPLAN-Y3-READING-M1-Q08,NAPLAN-Y3-READING-M1,NAPLAN_STYLE_READING,Text 2,3,English,Reading Comprehension,Evaluating Evidence,ReadingComprehension,"Front Seat, No Driver
+On Saturday morning, Dad and Ivy caught the first train on the city's new metro line. Ivy raced to the very front carriage. Where the driver's cabin should have been, there was only a huge window.
+'Who's driving?' Ivy whispered.
+'Computers,' said Dad. 'They control the speed and the stops.'
+Ivy gripped the rail. The train slid into the dark tunnel, and tiny green lights flicked past like fireflies. Soon Ivy let go of the rail and pressed her nose to the glass.
+At each station, glass doors on the platform opened at the same moment as the train doors. 'Those stop people falling onto the tracks,' Dad explained.
+Then the train rose out of the tunnel onto a tall bridge. The city spread out below them, and Ivy spotted the roof of her own school.
+At the last stop, Ivy didn't move. 'Can we go back the same way?' she asked. 'I want to sit at the front again.'",Which sentence BEST shows that Ivy had stopped feeling worried about the train?,,B,Ivy raced to the very front carriage.,Soon Ivy let go of the rail and pressed her nose to the glass.,"The city spread out below them, and Ivy spotted the roof of her own school.",Ivy gripped the rail.,,4,1,1,"NAPLAN,Year 3,Mock 1",English_Comprehension_Questions_expanded.csv,3.1237.5,204,2,7,Hard
+NAPLAN-Y3-READING-M1-Q09,NAPLAN-Y3-READING-M1,NAPLAN_STYLE_READING,Text 2,3,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"Front Seat, No Driver
+On Saturday morning, Dad and Ivy caught the first train on the city's new metro line. Ivy raced to the very front carriage. Where the driver's cabin should have been, there was only a huge window.
+'Who's driving?' Ivy whispered.
+'Computers,' said Dad. 'They control the speed and the stops.'
+Ivy gripped the rail. The train slid into the dark tunnel, and tiny green lights flicked past like fireflies. Soon Ivy let go of the rail and pressed her nose to the glass.
+At each station, glass doors on the platform opened at the same moment as the train doors. 'Those stop people falling onto the tracks,' Dad explained.
+Then the train rose out of the tunnel onto a tall bridge. The city spread out below them, and Ivy spotted the roof of her own school.
+At the last stop, Ivy didn't move. 'Can we go back the same way?' she asked. 'I want to sit at the front again.'","'The city spread out below them.' In this story, 'spread out' suggests that . . .",,D,the city was growing bigger while Ivy watched it,the buildings in the city were far apart from each other,the city was hidden in the dark under the bridge,Ivy could see a wide view of the city from high up,,4,1,1,"NAPLAN,Year 3,Mock 1",English_Comprehension_Questions_expanded.csv,3.1237.6,204,2,7,Hard
+NAPLAN-Y3-READING-M1-Q10,NAPLAN-Y3-READING-M1,NAPLAN_STYLE_READING,Text 3,3,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Cereal Contraption
+Ruby hated waiting for breakfast, so she decided to invent a machine to make it for her.
+She spent all of Saturday building. A marble would roll down a ramp of books, knock over a line of dominoes and tip a cup that tugged a string. The string would tilt the cereal box over her bowl.
+'It will never work,' said her brother Max, crunching his toast.
+Ruby ignored him. She tested it once, and the marble flew off the ramp. She tested it again, and the dominoes fell the wrong way. By lunchtime, the kitchen floor was a sea of cornflakes.
+Ruby swept up, moved the ramp and added a wall of pencils. On the tenth try, everything worked. The marble rolled, the dominoes clicked, the cup tipped and the cereal poured perfectly into the bowl.
+Max stared with his mouth open. 'Can you make one for me?'
+Ruby grinned. 'Sure,' she said. 'But first, who's going to pour the milk?'","In Ruby's machine, what did the string do?",,A,tilted the cereal box,knocked over the dominoes,rolled the marble,poured the milk,,1,1,1,"NAPLAN,Year 3,Mock 1",English_Comprehension_Questions_expanded.csv,3.1274.1,241,1,2,Easy
+NAPLAN-Y3-READING-M1-Q11,NAPLAN-Y3-READING-M1,NAPLAN_STYLE_READING,Text 3,3,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Cereal Contraption
+Ruby hated waiting for breakfast, so she decided to invent a machine to make it for her.
+She spent all of Saturday building. A marble would roll down a ramp of books, knock over a line of dominoes and tip a cup that tugged a string. The string would tilt the cereal box over her bowl.
+'It will never work,' said her brother Max, crunching his toast.
+Ruby ignored him. She tested it once, and the marble flew off the ramp. She tested it again, and the dominoes fell the wrong way. By lunchtime, the kitchen floor was a sea of cornflakes.
+Ruby swept up, moved the ramp and added a wall of pencils. On the tenth try, everything worked. The marble rolled, the dominoes clicked, the cup tipped and the cereal poured perfectly into the bowl.
+Max stared with his mouth open. 'Can you make one for me?'
+Ruby grinned. 'Sure,' she said. 'But first, who's going to pour the milk?'",What was Max eating?,,A,toast,cornflakes,porridge,an apple,,1,1,1,"NAPLAN,Year 3,Mock 1",English_Comprehension_Questions_expanded.csv,3.1274.2,241,1,1,Easy
+NAPLAN-Y3-READING-M1-Q12,NAPLAN-Y3-READING-M1,NAPLAN_STYLE_READING,Text 3,3,English,Vocabulary,Word Meaning in Context,ReadingComprehension,"The Cereal Contraption
+Ruby hated waiting for breakfast, so she decided to invent a machine to make it for her.
+She spent all of Saturday building. A marble would roll down a ramp of books, knock over a line of dominoes and tip a cup that tugged a string. The string would tilt the cereal box over her bowl.
+'It will never work,' said her brother Max, crunching his toast.
+Ruby ignored him. She tested it once, and the marble flew off the ramp. She tested it again, and the dominoes fell the wrong way. By lunchtime, the kitchen floor was a sea of cornflakes.
+Ruby swept up, moved the ramp and added a wall of pencils. On the tenth try, everything worked. The marble rolled, the dominoes clicked, the cup tipped and the cereal poured perfectly into the bowl.
+Max stared with his mouth open. 'Can you make one for me?'
+Ruby grinned. 'Sure,' she said. 'But first, who's going to pour the milk?'","In the title, a 'contraption' is . . .",,B,a kind of breakfast cereal,a machine made of many parts,a long ramp made of books,a game played with dominoes,,3,1,1,"NAPLAN,Year 3,Mock 1",English_Comprehension_Questions_expanded.csv,3.1274.3,241,1,5,Medium
+NAPLAN-Y3-READING-M1-Q13,NAPLAN-Y3-READING-M1,NAPLAN_STYLE_READING,Text 3,3,English,Reading Comprehension,Summarising,ReadingComprehension,"The Cereal Contraption
+Ruby hated waiting for breakfast, so she decided to invent a machine to make it for her.
+She spent all of Saturday building. A marble would roll down a ramp of books, knock over a line of dominoes and tip a cup that tugged a string. The string would tilt the cereal box over her bowl.
+'It will never work,' said her brother Max, crunching his toast.
+Ruby ignored him. She tested it once, and the marble flew off the ramp. She tested it again, and the dominoes fell the wrong way. By lunchtime, the kitchen floor was a sea of cornflakes.
+Ruby swept up, moved the ramp and added a wall of pencils. On the tenth try, everything worked. The marble rolled, the dominoes clicked, the cup tipped and the cereal poured perfectly into the bowl.
+Max stared with his mouth open. 'Can you make one for me?'
+Ruby grinned. 'Sure,' she said. 'But first, who's going to pour the milk?'",Which sentence best summarises the story?,,C,Ruby and Max spend Saturday building a breakfast machine together.,Ruby makes a big mess in the kitchen and gives up on her machine.,"After many failed tries, Ruby builds a machine that pours her cereal.",Max shows Ruby a quicker way to make her breakfast each morning.,,2,1,1,"NAPLAN,Year 3,Mock 1",English_Comprehension_Questions_expanded.csv,3.1274.4,241,1,4,Medium
+NAPLAN-Y3-READING-M1-Q14,NAPLAN-Y3-READING-M1,NAPLAN_STYLE_READING,Text 3,3,English,Literary Techniques,Figurative Language,ReadingComprehension,"The Cereal Contraption
+Ruby hated waiting for breakfast, so she decided to invent a machine to make it for her.
+She spent all of Saturday building. A marble would roll down a ramp of books, knock over a line of dominoes and tip a cup that tugged a string. The string would tilt the cereal box over her bowl.
+'It will never work,' said her brother Max, crunching his toast.
+Ruby ignored him. She tested it once, and the marble flew off the ramp. She tested it again, and the dominoes fell the wrong way. By lunchtime, the kitchen floor was a sea of cornflakes.
+Ruby swept up, moved the ramp and added a wall of pencils. On the tenth try, everything worked. The marble rolled, the dominoes clicked, the cup tipped and the cereal poured perfectly into the bowl.
+Max stared with his mouth open. 'Can you make one for me?'
+Ruby grinned. 'Sure,' she said. 'But first, who's going to pour the milk?'","'By lunchtime, the kitchen floor was a sea of cornflakes.' Together with the sentences before it, what does this tell us?",,C,Ruby had spilt the whole box in one big accident.,Ruby had poured cereal on the floor to test it.,"Ruby had tried and failed many times, spilling lots of cereal.","The machine worked, but the bowl was in the wrong place.",,4,1,1,"NAPLAN,Year 3,Mock 1",English_Comprehension_Questions_expanded.csv,3.1274.5,241,2,7,Hard
+NAPLAN-Y3-READING-M1-Q15,NAPLAN-Y3-READING-M1,NAPLAN_STYLE_READING,Text 3,3,English,Literary Techniques,Characterisation,ReadingComprehension,"The Cereal Contraption
+Ruby hated waiting for breakfast, so she decided to invent a machine to make it for her.
+She spent all of Saturday building. A marble would roll down a ramp of books, knock over a line of dominoes and tip a cup that tugged a string. The string would tilt the cereal box over her bowl.
+'It will never work,' said her brother Max, crunching his toast.
+Ruby ignored him. She tested it once, and the marble flew off the ramp. She tested it again, and the dominoes fell the wrong way. By lunchtime, the kitchen floor was a sea of cornflakes.
+Ruby swept up, moved the ramp and added a wall of pencils. On the tenth try, everything worked. The marble rolled, the dominoes clicked, the cup tipped and the cereal poured perfectly into the bowl.
+Max stared with his mouth open. 'Can you make one for me?'
+Ruby grinned. 'Sure,' she said. 'But first, who's going to pour the milk?'","Ruby 'ignored' Max when he said 'It will never work.' Together with the rest of the story, this shows that Ruby is . . .",,B,rude and unkind to the people in her family,sure of her idea and not put off by doubts,too busy with her machine to eat her breakfast,unsure what Max meant and too shy to ask him,,4,1,1,"NAPLAN,Year 3,Mock 1",English_Comprehension_Questions_expanded.csv,3.1274.6,241,2,8,Hard
+NAPLAN-Y3-READING-M1-Q16,NAPLAN-Y3-READING-M1,NAPLAN_STYLE_READING,Text 4,3,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Albert Namatjira: Painter of the Ranges
+Albert Namatjira was born in 1902 at Hermannsburg, west of Alice Springs. He was an Arrernte man, and as a boy he came to know every hill, creek and tree of his Country.
+As a young man, Albert carved and decorated wooden objects to sell. Then, in 1936, an artist named Rex Battarbee came to paint the area. Albert offered to guide him to the best places in return for painting lessons. Rex showed him how to use watercolour paints.
+Albert learned quickly. He painted the red cliffs of the MacDonnell Ranges, purple hills at sunset and tall white ghost gums that seem to shine against the sky.
+In 1938, Albert held his first exhibition in Melbourne. Every painting sold. People across Australia had never seen the outback painted in such glowing colours.
+Albert went on to paint hundreds of pictures. Today his works hang in galleries around the country, and members of his family still paint in his style.",Where did Albert hold his first exhibition?,,A,in Melbourne,in Alice Springs,in Hermannsburg,in Sydney,,1,1,1,"NAPLAN,Year 3,Mock 1",English_Comprehension_Questions_expanded.csv,3.1259.1,226,1,1,Easy
+NAPLAN-Y3-READING-M1-Q17,NAPLAN-Y3-READING-M1,NAPLAN_STYLE_READING,Text 4,3,English,Reading Comprehension,Literal Recall,ReadingComprehension,"Albert Namatjira: Painter of the Ranges
+Albert Namatjira was born in 1902 at Hermannsburg, west of Alice Springs. He was an Arrernte man, and as a boy he came to know every hill, creek and tree of his Country.
+As a young man, Albert carved and decorated wooden objects to sell. Then, in 1936, an artist named Rex Battarbee came to paint the area. Albert offered to guide him to the best places in return for painting lessons. Rex showed him how to use watercolour paints.
+Albert learned quickly. He painted the red cliffs of the MacDonnell Ranges, purple hills at sunset and tall white ghost gums that seem to shine against the sky.
+In 1938, Albert held his first exhibition in Melbourne. Every painting sold. People across Australia had never seen the outback painted in such glowing colours.
+Albert went on to paint hundreds of pictures. Today his works hang in galleries around the country, and members of his family still paint in his style.",What did Rex Battarbee teach Albert?,,C,how to carve wooden objects,how to find the best places,how to use watercolour paints,how to hold an exhibition,,1,1,1,"NAPLAN,Year 3,Mock 1",English_Comprehension_Questions_expanded.csv,3.1259.2,226,1,2,Easy
+NAPLAN-Y3-READING-M1-Q18,NAPLAN-Y3-READING-M1,NAPLAN_STYLE_READING,Text 4,3,English,Reading Comprehension,Author Purpose,ReadingComprehension,"Albert Namatjira: Painter of the Ranges
+Albert Namatjira was born in 1902 at Hermannsburg, west of Alice Springs. He was an Arrernte man, and as a boy he came to know every hill, creek and tree of his Country.
+As a young man, Albert carved and decorated wooden objects to sell. Then, in 1936, an artist named Rex Battarbee came to paint the area. Albert offered to guide him to the best places in return for painting lessons. Rex showed him how to use watercolour paints.
+Albert learned quickly. He painted the red cliffs of the MacDonnell Ranges, purple hills at sunset and tall white ghost gums that seem to shine against the sky.
+In 1938, Albert held his first exhibition in Melbourne. Every painting sold. People across Australia had never seen the outback painted in such glowing colours.
+Albert went on to paint hundreds of pictures. Today his works hang in galleries around the country, and members of his family still paint in his style.",Why does the author tell us that every painting sold at the exhibition?,,C,to show how cheap the paintings were,to show that Albert needed more money,to show how popular Albert's work was,to show how many paintings Rex had made,,2,1,1,"NAPLAN,Year 3,Mock 1",English_Comprehension_Questions_expanded.csv,3.1259.3,226,1,4,Medium
+NAPLAN-Y3-READING-M1-Q19,NAPLAN-Y3-READING-M1,NAPLAN_STYLE_READING,Text 4,3,English,Inference,Inferential Reasoning,ReadingComprehension,"Albert Namatjira: Painter of the Ranges
+Albert Namatjira was born in 1902 at Hermannsburg, west of Alice Springs. He was an Arrernte man, and as a boy he came to know every hill, creek and tree of his Country.
+As a young man, Albert carved and decorated wooden objects to sell. Then, in 1936, an artist named Rex Battarbee came to paint the area. Albert offered to guide him to the best places in return for painting lessons. Rex showed him how to use watercolour paints.
+Albert learned quickly. He painted the red cliffs of the MacDonnell Ranges, purple hills at sunset and tall white ghost gums that seem to shine against the sky.
+In 1938, Albert held his first exhibition in Melbourne. Every painting sold. People across Australia had never seen the outback painted in such glowing colours.
+Albert went on to paint hundreds of pictures. Today his works hang in galleries around the country, and members of his family still paint in his style.",Why was Albert a good guide for Rex?,,A,He had known the land well since he was a boy.,He had already sold many paintings of it.,He had been to art galleries in Melbourne.,He had learned to paint before Rex arrived.,,3,1,1,"NAPLAN,Year 3,Mock 1",English_Comprehension_Questions_expanded.csv,3.1259.4,226,1,5,Medium
+NAPLAN-Y3-READING-M1-Q20,NAPLAN-Y3-READING-M1,NAPLAN_STYLE_READING,Text 4,3,English,Inference,Inferential Reasoning,ReadingComprehension,"Albert Namatjira: Painter of the Ranges
+Albert Namatjira was born in 1902 at Hermannsburg, west of Alice Springs. He was an Arrernte man, and as a boy he came to know every hill, creek and tree of his Country.
+As a young man, Albert carved and decorated wooden objects to sell. Then, in 1936, an artist named Rex Battarbee came to paint the area. Albert offered to guide him to the best places in return for painting lessons. Rex showed him how to use watercolour paints.
+Albert learned quickly. He painted the red cliffs of the MacDonnell Ranges, purple hills at sunset and tall white ghost gums that seem to shine against the sky.
+In 1938, Albert held his first exhibition in Melbourne. Every painting sold. People across Australia had never seen the outback painted in such glowing colours.
+Albert went on to paint hundreds of pictures. Today his works hang in galleries around the country, and members of his family still paint in his style.",Which detail best helps explain why Albert could paint the outback so well?,,D,Rex showed him how to use watercolour paints.,Every painting at his first exhibition sold.,He went on to paint hundreds of pictures.,"As a boy he came to know every hill, creek and tree.",,4,1,1,"NAPLAN,Year 3,Mock 1",English_Comprehension_Questions_expanded.csv,3.1259.5,226,2,8,Hard
+NAPLAN-Y3-READING-M1-Q21,NAPLAN-Y3-READING-M1,NAPLAN_STYLE_READING,Text 4,3,English,Literary Techniques,Tone and Mood,ReadingComprehension,"Albert Namatjira: Painter of the Ranges
+Albert Namatjira was born in 1902 at Hermannsburg, west of Alice Springs. He was an Arrernte man, and as a boy he came to know every hill, creek and tree of his Country.
+As a young man, Albert carved and decorated wooden objects to sell. Then, in 1936, an artist named Rex Battarbee came to paint the area. Albert offered to guide him to the best places in return for painting lessons. Rex showed him how to use watercolour paints.
+Albert learned quickly. He painted the red cliffs of the MacDonnell Ranges, purple hills at sunset and tall white ghost gums that seem to shine against the sky.
+In 1938, Albert held his first exhibition in Melbourne. Every painting sold. People across Australia had never seen the outback painted in such glowing colours.
+Albert went on to paint hundreds of pictures. Today his works hang in galleries around the country, and members of his family still paint in his style.","Which sentence shows the author's own admiration for Albert most strongly, rather than just giving a fact?",,B,Every painting sold at his first exhibition in Melbourne.,People across Australia had never seen the outback painted in such glowing colours.,Albert went on to paint hundreds of pictures.,Rex showed him how to use watercolour paints.,,4,1,1,"NAPLAN,Year 3,Mock 1",English_Comprehension_Questions_expanded.csv,3.1259.6,226,2,7,Hard
+NAPLAN-Y3-READING-M1-Q22,NAPLAN-Y3-READING-M1,NAPLAN_STYLE_READING,Text 5,3,English,Reading Comprehension,Author Purpose,ReadingComprehension,"The Crinkly Lunchbox
+On Monday, Ms Patel made an announcement. 'From now on, Tuesday will be Nude Food Day,' she said. 'That means no plastic wrappers in your lunchbox.'
+Everybody giggled at the word 'nude', but Arlo groaned. His lunch was always crinkly. His sandwich came in cling wrap, his crackers in a packet and his cheese in its own plastic coat.
+That night, Arlo told Grandma. She smiled and opened her cupboard. Out came a pile of cloth squares coated in beeswax. 'I made these years ago,' she said. 'Your sandwich can wear one instead.'
+Grandma showed him how to warm the cloth with his hands so it folded neatly around the bread. Then they filled small containers with crackers, grapes and cheese cubes.
+On Tuesday, Ms Patel held up the class rubbish bin. It was nearly empty. 'Last week, this was overflowing by lunchtime,' she said.
+Arlo looked at his cloth wrap, ready to wash. 'Can we have Nude Food Day every day?' he asked.",The author wrote this story mainly to . . .,,C,explain step by step how beeswax wraps are made,persuade schools to stop students bringing lunch,entertain while showing how to cut lunch rubbish,teach readers how plastic wrappers are made,,2,1,1,"NAPLAN,Year 3,Mock 1",English_Comprehension_Questions_expanded.csv,3.1252.1,219,1,3,Easy
+NAPLAN-Y3-READING-M1-Q23,NAPLAN-Y3-READING-M1,NAPLAN_STYLE_READING,Text 5,3,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Crinkly Lunchbox
+On Monday, Ms Patel made an announcement. 'From now on, Tuesday will be Nude Food Day,' she said. 'That means no plastic wrappers in your lunchbox.'
+Everybody giggled at the word 'nude', but Arlo groaned. His lunch was always crinkly. His sandwich came in cling wrap, his crackers in a packet and his cheese in its own plastic coat.
+That night, Arlo told Grandma. She smiled and opened her cupboard. Out came a pile of cloth squares coated in beeswax. 'I made these years ago,' she said. 'Your sandwich can wear one instead.'
+Grandma showed him how to warm the cloth with his hands so it folded neatly around the bread. Then they filled small containers with crackers, grapes and cheese cubes.
+On Tuesday, Ms Patel held up the class rubbish bin. It was nearly empty. 'Last week, this was overflowing by lunchtime,' she said.
+Arlo looked at his cloth wrap, ready to wash. 'Can we have Nude Food Day every day?' he asked.",What is Nude Food Day?,,B,a day when students bring no lunch at all,a day with no plastic wrappers in lunchboxes,a day when Ms Patel brings food for the class,a day for eating only fruit and vegetables,,1,1,1,"NAPLAN,Year 3,Mock 1",English_Comprehension_Questions_expanded.csv,3.1252.2,219,1,2,Easy
+NAPLAN-Y3-READING-M1-Q24,NAPLAN-Y3-READING-M1,NAPLAN_STYLE_READING,Text 5,3,English,Reading Comprehension,Literal Recall,ReadingComprehension,"The Crinkly Lunchbox
+On Monday, Ms Patel made an announcement. 'From now on, Tuesday will be Nude Food Day,' she said. 'That means no plastic wrappers in your lunchbox.'
+Everybody giggled at the word 'nude', but Arlo groaned. His lunch was always crinkly. His sandwich came in cling wrap, his crackers in a packet and his cheese in its own plastic coat.
+That night, Arlo told Grandma. She smiled and opened her cupboard. Out came a pile of cloth squares coated in beeswax. 'I made these years ago,' she said. 'Your sandwich can wear one instead.'
+Grandma showed him how to warm the cloth with his hands so it folded neatly around the bread. Then they filled small containers with crackers, grapes and cheese cubes.
+On Tuesday, Ms Patel held up the class rubbish bin. It was nearly empty. 'Last week, this was overflowing by lunchtime,' she said.
+Arlo looked at his cloth wrap, ready to wash. 'Can we have Nude Food Day every day?' he asked.",What did Arlo have to do so the beeswax cloth would fold neatly?,,B,wash it in warm water,warm it with his hands,cut it into small squares,fill it with cheese cubes,,2,1,1,"NAPLAN,Year 3,Mock 1",English_Comprehension_Questions_expanded.csv,3.1252.3,219,1,4,Medium
+NAPLAN-Y3-READING-M1-Q25,NAPLAN-Y3-READING-M1,NAPLAN_STYLE_READING,Text 5,3,English,Inference,Inferential Reasoning,ReadingComprehension,"The Crinkly Lunchbox
+On Monday, Ms Patel made an announcement. 'From now on, Tuesday will be Nude Food Day,' she said. 'That means no plastic wrappers in your lunchbox.'
+Everybody giggled at the word 'nude', but Arlo groaned. His lunch was always crinkly. His sandwich came in cling wrap, his crackers in a packet and his cheese in its own plastic coat.
+That night, Arlo told Grandma. She smiled and opened her cupboard. Out came a pile of cloth squares coated in beeswax. 'I made these years ago,' she said. 'Your sandwich can wear one instead.'
+Grandma showed him how to warm the cloth with his hands so it folded neatly around the bread. Then they filled small containers with crackers, grapes and cheese cubes.
+On Tuesday, Ms Patel held up the class rubbish bin. It was nearly empty. 'Last week, this was overflowing by lunchtime,' she said.
+Arlo looked at his cloth wrap, ready to wash. 'Can we have Nude Food Day every day?' he asked.",Why did Arlo groan when he heard about Nude Food Day?,,C,He did not like the taste of beeswax at all.,He was embarrassed by the word 'nude'.,His lunch always had lots of plastic wrapping.,He had forgotten to bring his lunch that day.,,3,1,1,"NAPLAN,Year 3,Mock 1",English_Comprehension_Questions_expanded.csv,3.1252.4,219,1,5,Medium
+NAPLAN-Y3-READING-M1-Q26,NAPLAN-Y3-READING-M1,NAPLAN_STYLE_READING,Text 5,3,English,Reading Comprehension,Author Purpose,ReadingComprehension,"The Crinkly Lunchbox
+On Monday, Ms Patel made an announcement. 'From now on, Tuesday will be Nude Food Day,' she said. 'That means no plastic wrappers in your lunchbox.'
+Everybody giggled at the word 'nude', but Arlo groaned. His lunch was always crinkly. His sandwich came in cling wrap, his crackers in a packet and his cheese in its own plastic coat.
+That night, Arlo told Grandma. She smiled and opened her cupboard. Out came a pile of cloth squares coated in beeswax. 'I made these years ago,' she said. 'Your sandwich can wear one instead.'
+Grandma showed him how to warm the cloth with his hands so it folded neatly around the bread. Then they filled small containers with crackers, grapes and cheese cubes.
+On Tuesday, Ms Patel held up the class rubbish bin. It was nearly empty. 'Last week, this was overflowing by lunchtime,' she said.
+Arlo looked at his cloth wrap, ready to wash. 'Can we have Nude Food Day every day?' he asked.",Why does the author describe Arlo's cheese as having 'its own plastic coat'?,,D,to show that the cheese needed to be kept warm,"to show that the cheese was a special, costly kind",to describe the colour and shape of the cheese,to make the extra wrapping sound silly and unneeded,,4,1,1,"NAPLAN,Year 3,Mock 1",English_Comprehension_Questions_expanded.csv,3.1252.5,219,2,8,Hard
+NAPLAN-Y3-READING-M1-Q27,NAPLAN-Y3-READING-M1,NAPLAN_STYLE_READING,Text 5,3,English,Inference,Drawing Conclusions,ReadingComprehension,"The Crinkly Lunchbox
+On Monday, Ms Patel made an announcement. 'From now on, Tuesday will be Nude Food Day,' she said. 'That means no plastic wrappers in your lunchbox.'
+Everybody giggled at the word 'nude', but Arlo groaned. His lunch was always crinkly. His sandwich came in cling wrap, his crackers in a packet and his cheese in its own plastic coat.
+That night, Arlo told Grandma. She smiled and opened her cupboard. Out came a pile of cloth squares coated in beeswax. 'I made these years ago,' she said. 'Your sandwich can wear one instead.'
+Grandma showed him how to warm the cloth with his hands so it folded neatly around the bread. Then they filled small containers with crackers, grapes and cheese cubes.
+On Tuesday, Ms Patel held up the class rubbish bin. It was nearly empty. 'Last week, this was overflowing by lunchtime,' she said.
+Arlo looked at his cloth wrap, ready to wash. 'Can we have Nude Food Day every day?' he asked.",What can you conclude about why the class rubbish bin was nearly empty on Tuesday?,,A,Most children had brought lunches without plastic wrappers.,Ms Patel had emptied the bin just before lunchtime.,Only Arlo had remembered that it was Nude Food Day.,The children had not started eating their lunches yet.,,4,1,1,"NAPLAN,Year 3,Mock 1",English_Comprehension_Questions_expanded.csv,3.1252.6,219,2,7,Hard
+NAPLAN-Y3-READING-M1-Q28,NAPLAN-Y3-READING-M1,NAPLAN_STYLE_READING,Text 6,3,English,Inference,Character Motivation,ReadingComprehension,"Sally Spangles was the popular young star of a TV show called Happy Families. She loved being recognised wherever she went. One day a new boy came into her class at school. Sally waited for him to ask for her autograph but he just said, 'Hi, I'm Melvin. What's your name?'
+
+Sally was astounded. 'You mean you don't know who I am? Seriously?!' Melvin blinked at her through his large glasses. 'No, why should I?' 'Because I am the one and only Sally Spangles, star of Happy Families!' Melvin stared blankly at her. 'What's that?'
+
+'Well, it's only one of the most popular shows on television!'
+
+But Melvin simply shrugged his shoulders. 'Is that all? We don't have a TV at our place.'
+
+By this time, a crowd of classmates had gathered. Surrounded by an audience, Sally instantly put on her standard act, pretending to faint. 'Quick, give me air!'
+
+However, the rest of the class were so used to Sally's over-acting that they ignored her. They all stared at Melvin. Some gasped with disbelief, while others shook their heads with pity. A boy who didn't have a TV!!
+
+Sally wasn't used to being ignored and she didn't like it. She glared at the newcomer but (annoyingly) Melvin stared straight back. 'Is that really so weird?' he asked mildly. 'Anyhow, I'd never have time to watch it.'
+
+'Oh, I see! So what do you spend all your time doing then?' said Sally, her eyebrows raised.
+
+Melvin blushed with embarrassment as he said, 'I'm guessing you don't play chess. Otherwise, you'd know that I'm the Melvin Preston: National Primary School Chess Champion!'",Why did Sally pretend to faint?,,A,She was trying to be the centre of attention.,She wanted people to know she was unwell.,She was shocked that Melvin did not have a TV.,She wanted her classmates to move away from her.,,3,1,1,"NAPLAN,Year 3,Mock 1",English_Comprehension_Questions_expanded.csv,3.107.1,63,2,6,Medium
+NAPLAN-Y3-READING-M1-Q29,NAPLAN-Y3-READING-M1,NAPLAN_STYLE_READING,Text 6,3,English,Inference,Character Motivation,ReadingComprehension,"Sally Spangles was the popular young star of a TV show called Happy Families. She loved being recognised wherever she went. One day a new boy came into her class at school. Sally waited for him to ask for her autograph but he just said, 'Hi, I'm Melvin. What's your name?'
+
+Sally was astounded. 'You mean you don't know who I am? Seriously?!' Melvin blinked at her through his large glasses. 'No, why should I?' 'Because I am the one and only Sally Spangles, star of Happy Families!' Melvin stared blankly at her. 'What's that?'
+
+'Well, it's only one of the most popular shows on television!'
+
+But Melvin simply shrugged his shoulders. 'Is that all? We don't have a TV at our place.'
+
+By this time, a crowd of classmates had gathered. Surrounded by an audience, Sally instantly put on her standard act, pretending to faint. 'Quick, give me air!'
+
+However, the rest of the class were so used to Sally's over-acting that they ignored her. They all stared at Melvin. Some gasped with disbelief, while others shook their heads with pity. A boy who didn't have a TV!!
+
+Sally wasn't used to being ignored and she didn't like it. She glared at the newcomer but (annoyingly) Melvin stared straight back. 'Is that really so weird?' he asked mildly. 'Anyhow, I'd never have time to watch it.'
+
+'Oh, I see! So what do you spend all your time doing then?' said Sally, her eyebrows raised.
+
+Melvin blushed with embarrassment as he said, 'I'm guessing you don't play chess. Otherwise, you'd know that I'm the Melvin Preston: National Primary School Chess Champion!'","'Otherwise, you'd know that I'm the Melvin Preston' Which of the following is NOT a reason why Melvin stresses 'the' in the quotation?",,C,to copy the way Sally speaks,to highlight how important he is,to compare being a chess champion with being a TV star,to bring attention to his title as champion,,5,1,1,"NAPLAN,Year 3,Mock 1",English_Comprehension_Questions_expanded.csv,3.107.2,63,2,10,Hard
+NAPLAN-Y3-READING-M1-Q30,NAPLAN-Y3-READING-M1,NAPLAN_STYLE_READING,Text 6,3,English,Vocabulary,Synonyms,ReadingComprehension,"Sally Spangles was the popular young star of a TV show called Happy Families. She loved being recognised wherever she went. One day a new boy came into her class at school. Sally waited for him to ask for her autograph but he just said, 'Hi, I'm Melvin. What's your name?'
+
+Sally was astounded. 'You mean you don't know who I am? Seriously?!' Melvin blinked at her through his large glasses. 'No, why should I?' 'Because I am the one and only Sally Spangles, star of Happy Families!' Melvin stared blankly at her. 'What's that?'
+
+'Well, it's only one of the most popular shows on television!'
+
+But Melvin simply shrugged his shoulders. 'Is that all? We don't have a TV at our place.'
+
+By this time, a crowd of classmates had gathered. Surrounded by an audience, Sally instantly put on her standard act, pretending to faint. 'Quick, give me air!'
+
+However, the rest of the class were so used to Sally's over-acting that they ignored her. They all stared at Melvin. Some gasped with disbelief, while others shook their heads with pity. A boy who didn't have a TV!!
+
+Sally wasn't used to being ignored and she didn't like it. She glared at the newcomer but (annoyingly) Melvin stared straight back. 'Is that really so weird?' he asked mildly. 'Anyhow, I'd never have time to watch it.'
+
+'Oh, I see! So what do you spend all your time doing then?' said Sally, her eyebrows raised.
+
+Melvin blushed with embarrassment as he said, 'I'm guessing you don't play chess. Otherwise, you'd know that I'm the Melvin Preston: National Primary School Chess Champion!'",Sally Spangles is described as a 'popular' TV star. This means that she is,,D,up-to-date.,friendly.,talented.,well-known.,,1,1,1,"NAPLAN,Year 3,Mock 1",English_Comprehension_Questions_expanded.csv,3.107.3,63,1,2,Easy

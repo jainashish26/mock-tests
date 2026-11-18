@@ -176,11 +176,34 @@ export const mathsOlympiadProblemSolving = {
     <p>Explore our mathematical reasoning resources, encourage your child to embrace challenges, and remember: every hard problem is an opportunity to grow.</p>
 
     <p><strong>Together, we've absolutely got this.</strong></p>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What is the Maths Olympiad in Australia?</h3>
+    <p>In Australia the term Maths Olympiad can refer to several competitions at different levels rather than one single event. This guide sets out the landscape before discussing preparation, because the right approach depends on which competition your child is entering and what level it targets.</p>
+
+    <h3>How are Olympiad problems different from school maths?</h3>
+    <p>School mathematics is largely procedural: learn a method, then apply it to a familiar type of question. Olympiad problems are deliberately unfamiliar and reward reasoning, creativity and persistence over recall. Understanding that distinction is crucial, because preparation built on doing more school-style exercises will not transfer well.</p>
+
+    <h3>What problem-solving strategies should my child learn?</h3>
+    <p>The ten strategies in this guide were originally articulated by mathematician George Polya in How to Solve It (1945) and remain the foundation of mathematical problem solving: understand the problem, draw a diagram, look for patterns, try smaller or simpler cases, work backwards, consider all possibilities through systematic listing, use logical elimination, make a table or organised list, use algebra strategically, and check and reflect.</p>
+
+    <h3>How much practice does Olympiad preparation need?</h3>
+    <p>Quality over quantity. One well-understood problem is worth more than ten problems completed without reflection. After solving, discuss how the problem was approached and what would be tried differently; study solutions carefully, especially for problems that could not be solved; keep a problem-solving journal; and practise regularly but sustainably rather than in bursts.</p>
+
+    <h3>Do I need to be good at maths to support my child?</h3>
+    <p>No. Supporting a child preparing for a Maths Olympiad does not require you to be a mathematician. What it does require is encouragement, comfort with your child being stuck, help keeping practice sustainable, and an emphasis on the satisfaction of a hard problem rather than on ranking or results.</p>
+
+    <h3>Does my child still need basic fluency for Olympiad problems?</h3>
+    <p>Yes. Olympiad problems prioritise reasoning over calculation, but strong foundational fluency frees up mental resources for higher-order thinking. A student who must laboriously work through arithmetic has less capacity available for the insight the problem actually requires.</p>
+
   `,
   image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=1200&q=80",
   imageAlt:
-    "A student working on challenging mathematical problems with notebooks and geometric tools on a desk",
-  date: "March 30, 2026",
+    "A student working on challenging mathematical problems with notebooks and geometric tools on a desk",  date: "October 15, 2026",
+  updatedDate: "October 17, 2026",
+  readingTime: 11,
+  category: "maths-olympiad",
   tags: ["MATHS OLYMPIAD", "PROBLEM SOLVING", "MATHEMATICAL REASONING", "COMPETITION PREPARATION"],
   metaTitle: "How to Improve Problem Solving for Maths Olympiad | Guide",
   metaDescription:
@@ -198,6 +221,13 @@ export const mathsOlympiadProblemSolving = {
     "maths olympiad practice",
     "problem solving strategies mathematics",
     "mathematical thinking for kids",
+  ],
+  keyTakeaways: [
+    "Olympiad problems differ fundamentally from school mathematics: they reward reasoning and creativity over recall and procedure.",
+    "The ten core strategies trace back to George Polya's How to Solve It (1945) - understand the problem, diagram, look for patterns, try simpler cases, work backwards, list systematically, eliminate logically, tabulate, use algebra strategically, then check and reflect.",
+    "One well-understood problem is worth more than ten completed without reflection.",
+    "Foundational fluency still matters because it frees mental resources for higher-order thinking.",
+    "Parents do not need to be mathematicians - what is required is encouragement, patience with being stuck, and sustainable practice habits.",
   ],
   author: {
     name: "The Exam Success Team",

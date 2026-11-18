@@ -8,14 +8,13 @@ import Link from 'next/link'
 import { createClient } from '@/lib/supabase/client'
 import { useRouter } from 'next/navigation'
 import { Users, GraduationCap } from 'lucide-react'
+import { ROLE_REDIRECTS } from '@/lib/auth/role-redirects'
+import { nextParam } from '@/lib/auth/safe-redirect'
+import { SocialAuthButtons } from '@/features/auth/components/SocialAuthButtons'
+import { AuthErrorBanner } from '@/features/auth/components/AuthErrorBanner'
+import type { UserRole } from '@/types'
+import { trackClientEvent } from '@/features/monetisation/track-client'
 
-const ROLE_REDIRECTS: Record<string, string> = {
-  PARENT: '/parent',
-  ADMIN: '/admin',
-  TEST_CREATOR: '/creator',
-  STUDENT: '/student',
-  TUTOR: '/tutor',
-}
 
 export default function LoginPage() {
   const [activeTab, setActiveTab] = useState<'PARENT' | 'STUDENT'>('PARENT')
@@ -65,8 +64,29 @@ export default function LoginPage() {
       .eq('user_id', user.id)
       .single()
 
-    const destination = roleData?.role ? (ROLE_REDIRECTS[roleData.role] ?? '/') : '/'
-    router.push(destination)
+    const roleDestination = roleData?.role ? (ROLE_REDIRECTS[roleData.role as UserRole] ?? '/') : '/'
+    // Funnel step 2: a RETURNING user came back. Recorded separately from
+    // SIGNUP_COMPLETED because retention and acquisition are different
+    // questions - a login counted as a signup would inflate the acquisition
+    // denominator every time an existing parent returns, and the funnel would
+    // report growth that is really just the same family coming back.
+    //
+    // `immediate` + awaited because the next statement navigates, and a queued
+    // beacon may not survive the transition.
+    //
+    // Props carry the resolved role and the tab used, so A11 can scope the
+    // signup stage to parents without this event having to guess. No email, no
+    // password, nothing about what the user may access.
+    await trackClientEvent(
+      'LOGIN_COMPLETED',
+      { role: roleData?.role ?? null, tab: activeTab },
+      { immediate: true }
+    )
+
+
+    // An explicit, validated `next` wins over the role default so the user
+    // returns to whatever they were doing before being sent to log in.
+    router.push(nextParam(roleDestination))
   }
 
   return (
@@ -94,6 +114,9 @@ export default function LoginPage() {
                 <GraduationCap size={16} /> Student
               </button>
             </div>
+
+            {/* Surfaces ?error= codes from /auth/oauth/[provider] and /auth/callback. */}
+            <AuthErrorBanner />
 
             {error && (
               <div style={{ background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', borderRadius: '0.75rem', padding: '0.875rem 1rem', marginBottom: '1.25rem', color: '#ef4444', fontSize: '0.875rem' }}>
@@ -124,7 +147,7 @@ export default function LoginPage() {
                     className="w-full px-4 py-3 rounded-lg border border-border bg-card text-foreground placeholder:text-muted-foreground transition-all duration-200 focus:outline-none focus:border-primary focus:ring-[3px] focus:ring-primary/10"
                   />
                   <p style={{ marginTop: '0.5rem', fontSize: '0.75rem', color: 'var(--muted-foreground)' }}>
-                    Your unique fun name linked to your parent's account.
+                    Your unique fun name linked to your parent&apos;s account.
                   </p>
                 </div>
               )}
@@ -150,8 +173,14 @@ export default function LoginPage() {
               </Button>
             </form>
 
+            {/* Students sign in with a synthetic username minted by their parent
+                (see /api/parent/child) and have no Google account of their own;
+                AI_HANDOVER.md also forbids storing real student PII. Social
+                sign-in is therefore offered on the Parent tab only. */}
+            {activeTab === 'PARENT' && <SocialAuthButtons divider="before" />}
+
             <div style={{ marginTop: '2rem', textAlign: 'center', fontSize: '0.875rem', color: 'var(--muted-foreground)' }}>
-              Don't have an account? <Link href="/auth/signup" style={{ color: 'var(--primary)', fontWeight: 600 }}>Create parent account</Link>
+              Don&apos;t have an account? <Link href="/auth/signup" style={{ color: 'var(--primary)', fontWeight: 600 }}>Create parent account</Link>
             </div>
           </div>
         </SpatialCard>

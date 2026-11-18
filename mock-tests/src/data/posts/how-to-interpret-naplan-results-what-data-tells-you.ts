@@ -423,8 +423,10 @@ export const howToInterpretNaplanResultsWhatDataTellsYou = {
   image:
     "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Parent reviewing their child's school report at a table with supportive focus",
-  date: "March 28, 2026",
+    "Parent reviewing their child's school report at a table with supportive focus",  date: "September 18, 2026",
+  updatedDate: "September 20, 2026",
+  readingTime: 23,
+  category: "naplan",
   tags: [
     "NAPLAN",
     "PARENTS",
@@ -451,6 +453,13 @@ export const howToInterpretNaplanResultsWhatDataTellsYou = {
     "My School NAPLAN data",
     "NAPLAN growth over time",
     "NAPLAN adaptive testing explained",
+  ],
+  keyTakeaways: [
+    "A NAPLAN report is a diagnostic snapshot, and the guide explains what each part of it actually means.",
+    "There are firm limits to the data: NAPLAN cannot capture a bad day, cannot assess everything that matters, and cannot replace a professional assessment.",
+    "Trends across Years 3, 5, 7 and 9 are more informative than any single result.",
+    "Five constructive steps: start with the positives, identify specific areas for growth, talk to the teacher, talk to your child carefully, and use results to inform rather than to label.",
+    "Proficiency levels describe where a student sits against national expectations - they are not a ranking of worth or potential.",
   ],
   author: {
     name: "Ashish Jain",

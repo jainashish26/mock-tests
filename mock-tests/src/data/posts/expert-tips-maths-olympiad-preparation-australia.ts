@@ -141,7 +141,7 @@ export const expertTipsMathsOlympiadPreparationAustralia = {
           <li><strong>Prime numbers and prime factorisation</strong> - the fundamental theorem of arithmetic (every integer greater than 1 has a unique prime factorisation) is a cornerstone tool</li>
           <li><strong>Modular arithmetic</strong> - working with remainders (e.g. "What is the remainder when 2<sup>100</sup> is divided by 7?"). This is rarely covered in schools but appears constantly in competitions</li>
           <li><strong>Greatest common divisor (GCD) and least common multiple (LCM)</strong> - including the Euclidean algorithm for finding the GCD efficiently</li>
-          <li><strong>Diophantine equations</strong> - equations where only whole number solutions are sought (e.g. "Find all positive integers <em>x</em> and <em>y</em> such that <em>x</em><sup>2</sup> -ˆ’ <em>y</em><sup>2</sup> = 2026")</li>
+          <li><strong>Diophantine equations</strong> - equations where only whole number solutions are sought (e.g. "Find all positive integers <em>x</em> and <em>y</em> such that <em>x</em><sup>2</sup> − <em>y</em><sup>2</sup> = 2026")</li>
         </ul>
 
         <h3>2. Combinatorics</h3>
@@ -361,7 +361,7 @@ export const expertTipsMathsOlympiadPreparationAustralia = {
         <h2>Building the Right Mindset: What Separates Top Olympiad Students</h2>
         <p>Technical knowledge is necessary but not sufficient for Olympiad success. The difference between a good student and a great Olympiad performer often comes down to <strong>mindset, habits, and persistence</strong>.</p>
 
-        <h3>Growth Mindset Is Not a ClichÃ© - It's a Necessity</h3>
+        <h3>Growth Mindset Is Not a Cliché - It's a Necessity</h3>
         <p>Olympiad maths is inherently humbling. Even the strongest students will regularly encounter problems they cannot solve. The students who thrive are those who interpret difficulty as <strong>an opportunity to learn</strong>, not as evidence of inadequacy.</p>
         <p>Research in mathematical education consistently shows that students who believe ability can be developed through effort and good strategies outperform those who see mathematical talent as fixed. This is especially true in competition mathematics, where persistence and willingness to fail are prerequisites for growth.</p>
 
@@ -540,8 +540,10 @@ export const expertTipsMathsOlympiadPreparationAustralia = {
   image:
     "https://images.unsplash.com/photo-1596495578065-6e0763fa1178?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Student solving challenging mathematics problems at a desk with pencil and notebook",
-  date: "March 28, 2026",
+    "Student solving challenging mathematics problems at a desk with pencil and notebook",  date: "September 12, 2026",
+  updatedDate: "September 14, 2026",
+  readingTime: 25,
+  category: "maths-olympiad",
   tags: [
     "MATHS OLYMPIAD",
     "COMPETITION MATHS",
@@ -570,6 +572,13 @@ export const expertTipsMathsOlympiadPreparationAustralia = {
     "Australian Mathematics Trust competitions",
     "IMO team selection Australia",
     "competition maths for primary students",
+  ],
+  keyTakeaways: [
+    "Australia has a defined competition pathway, with the AMC as the common entry point and further competitions beyond it.",
+    "Olympiad mathematics rests on four pillars: number theory, combinatorics, geometry and algebra.",
+    "Preparation is staged - foundation building (typically Years 4-7), competition readiness (Years 6-9), and Olympiad-level training (Years 8-12).",
+    "Learning to write proofs is the critical transition that separates competition mathematics from school mathematics.",
+    "Mindset matters as much as technique: growth mindset is a necessity, and learning the art of being stuck is part of the training.",
   ],
   author: {
     name: "Ashish Jain",

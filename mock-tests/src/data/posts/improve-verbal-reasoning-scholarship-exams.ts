@@ -168,11 +168,34 @@ export const verbalReasoningScholarship = {
     <p>Explore our verbal reasoning practice resources, try a free mock test, and remember: the investment of time and effort your family is making right now is genuinely building something that lasts.</p>
 
     <p><strong>Together, we've absolutely got this.</strong></p>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What is the difference between verbal reasoning and reading comprehension?</h3>
+    <p>Reading comprehension tests whether your child can understand and recall what a passage said. Verbal reasoning tests whether they can understand, analyse and draw logical conclusions from language-based information - often with very short stimuli such as a single word pair or a coded sequence. A strong reader is not automatically a strong verbal reasoner.</p>
+
+    <h3>Which verbal reasoning question types appear in Australian scholarship exams?</h3>
+    <p>The most common categories are analogies, synonyms and antonyms, odd one out, sentence completion (cloze passages), codes and letter sequences, and logical deduction from given statements. Knowing the types in advance is the first step to effective preparation, because each one rewards a different approach.</p>
+
+    <h3>Can verbal reasoning actually be improved, or is it fixed talent?</h3>
+    <p>It can be improved. Verbal reasoning is a skill that develops with practice, exposure and encouragement rather than a fixed talent. Children who read widely, think critically and engage in discussion build it steadily, which is why sustained practice matters more than any single diagnostic score.</p>
+
+    <h3>How often should my child practise?</h3>
+    <p>Little and often. Research on distributed practice consistently shows that spreading study over time produces significantly better retention than concentrating it into one session. Short, regular practice with active retrieval - recalling answers rather than rereading notes - is the most efficient approach.</p>
+
+    <h3>What is the single highest-impact thing to work on?</h3>
+    <p>Vocabulary. Across almost every question type, vocabulary is the most important factor in verbal reasoning success, and a student with a broad, deep vocabulary has a significant advantage. Build it through wide reading and deliberate attention to unfamiliar words rather than through word lists alone.</p>
+
+    <h3>Are mock exams worth it for verbal reasoning?</h3>
+    <p>Yes. One of the most effective things you can do is let your child practise under realistic conditions. When the format, question types and timing are already familiar, the exam itself holds far fewer surprises, and time pressure can be introduced gradually rather than all at once.</p>
+
   `,
   image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=1200&q=80",
   imageAlt:
-    "A student working through reasoning exercises at a desk with books and a pencil, looking focused and engaged",
-  date: "March 30, 2026",
+    "A student working through reasoning exercises at a desk with books and a pencil, looking focused and engaged",  date: "October 18, 2026",
+  updatedDate: "October 20, 2026",
+  readingTime: 12,
+  category: "scholarship-exams",
   tags: ["SCHOLARSHIP EXAMS", "VERBAL REASONING", "EXAM PREPARATION", "ACER", "EDUTEST"],
   metaTitle: "How to Improve Verbal Reasoning for Scholarship Exams",
   metaDescription:
@@ -190,6 +213,13 @@ export const verbalReasoningScholarship = {
     "analogies practice",
     "scholarship test preparation",
     "verbal reasoning strategies",
+  ],
+  keyTakeaways: [
+    "Verbal reasoning is the ability to understand, analyse and draw logical conclusions from language - it is not the same as reading comprehension.",
+    "The common Australian question types are analogies, synonyms and antonyms, odd one out, sentence completion (cloze), codes and letter sequences, and logical deduction from statements.",
+    "Vocabulary is the single most important factor across almost every question type.",
+    "Distributed practice beats cramming: shorter, regular sessions outperform one long marathon session.",
+    "Active retrieval beats passive review, and mock exams under realistic timing remove format surprises on the day.",
   ],
   author: {
     name: "The Exam Success Team",

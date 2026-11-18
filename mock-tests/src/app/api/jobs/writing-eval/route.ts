@@ -1,85 +1,83 @@
 import { NextResponse } from 'next/server'
 import { verifySignatureAppRouter } from '@upstash/qstash/dist/nextjs'
-import { createAdminClient } from '@/lib/supabase/admin'
-import { scoreAttempt } from '@/lib/scoring/score-attempt'
+import { gradeWritingForAttempt } from '@/lib/writing/grade-writing'
 
+/**
+ * Live-measured DeepSeek round trips for a full-rubric essay grade run 18-58s.
+ * Vercel's default function duration would cut the call mid-flight (and QStash
+ * would then retry into the same wall), so the limit is raised explicitly.
+ */
+export const maxDuration = 120
+
+/**
+ * POST /api/jobs/writing-eval - the QStash-triggered writing-marking job.
+ *
+ * THIN BY DESIGN: all grading logic lives in src/lib/writing/grade-writing.ts,
+ * shared with the /api/cron/writing-backlog sweeper, so the two paths cannot
+ * drift (one rubric, one contract, one storage shape). This file keeps only
+ * the two things specific to the QStash path: signature verification and the
+ * not-configured policy ('complete' the attempt rather than strand a student
+ * in WRITING_PENDING because an env var is missing - the essay can be
+ * re-queued; the sweeper deliberately uses the opposite policy).
+ *
+ * A historical bug worth remembering: this handler once selected
+ * `questions(stem, explanation)` but filtered on `questions.type` - a column
+ * never fetched - so the filter was always empty and every essay attempt sat
+ * in WRITING_PENDING forever while the job reported success. The filter and
+ * the select now live together in the shared core.
+ */
 async function handler(req: Request) {
   try {
     const { attemptId } = await req.json()
     if (!attemptId) throw new Error('Missing attemptId')
 
-    const admin = createAdminClient()
-
-    // 1. Fetch WRITING responses for this attempt
-    const { data: responses, error: respErr } = await admin
-      .from('responses')
-      .select('id, answer, questions(stem, explanation)')
-      .eq('attempt_id', attemptId)
-    
-    if (respErr || !responses) throw new Error('Could not fetch responses')
-
-    const writingResponses = responses.filter(r => r.questions && (r.questions as any).type === 'WRITING')
-
-    if (writingResponses.length === 0) {
-      return NextResponse.json({ message: 'No writing responses found' })
-    }
-
-    // For simplicity MVP, process the first writing response (usually tests have 1 essay)
-    const writingResp = writingResponses[0]
-    const studentText = writingResp.answer as string
-    const promptRef = (writingResp.questions as any).stem
-    const rubric = (writingResp.questions as any).explanation || 'Standard rubric: Evaluate grammar, structure, and coherence.'
-
-    // 2. Call DeepSeek
-    const dsRes = await fetch('https://api.deepseek.com/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.DEEPSEEK_API_KEY}`
-      },
-      body: JSON.stringify({
-        model: 'deepseek-chat',
-        response_format: { type: 'json_object' },
-        messages: [
-          { role: 'system', content: `You are an expert writing evaluator. Evaluate the student's text based on this rubric: ${rubric}. You must output JSON with these keys: "score_out_of100" (number), "strengths" (array of strings), "improvements" (array of strings), "improved_text" (string).` },
-          { role: 'user', content: `Prompt: ${promptRef}\n\nStudent Text:\n${studentText}` }
-        ]
-      })
+    const result = await gradeWritingForAttempt(String(attemptId), {
+      onNotConfigured: 'complete',
     })
 
-    if (!dsRes.ok) {
-      const errText = await dsRes.text()
-      throw new Error('DeepSeek API error: ' + errText)
+    if (result.status === 'not_configured') {
+      // 200, not 5xx: QStash would retry a configured-away job forever. The
+      // attempt was released to COMPLETE; the sweeper can re-grade later.
+      return NextResponse.json(
+        { success: false, error: 'Writing evaluation is not configured' },
+        { status: 200 }
+      )
     }
 
-    const dsData = await dsRes.json()
-    const content = JSON.parse(dsData.choices[0].message.content)
-
-    // 3. Save Evaluation
-    const { error: evalErr } = await admin.from('writing_evaluations').insert({
-      attempt_id: attemptId,
-      provider: 'DeepSeek',
-      score_out_of100: content.score_out_of100,
-      strengths: content.strengths,
-      improvements: content.improvements,
-      improved_text: content.improved_text,
-      raw_response: dsData
+    return NextResponse.json({
+      success: true,
+      status: result.status,
+      graded: result.graded,
+      writingAverage: result.writingAverage,
+      model: result.model,
     })
-
-    if (evalErr) throw evalErr
-
-    // 4. Update the attempt to COMPLETE and recalculate (or just aggregate)
-    await admin.from('attempts').update({ status: 'COMPLETE' }).eq('id', attemptId)
-
-    // Optionally re-run the score function to aggregate the final score
-    await scoreAttempt(attemptId)
-
-    return NextResponse.json({ success: true, score: content.score_out_of100 })
-
   } catch (err: any) {
-    console.error('Job error', err)
-    return NextResponse.json({ error: err.message }, { status: 500 })
+    console.error('[writing-eval] job error', err)
+    // Non-2xx makes QStash retry with backoff - correct here, because every
+    // failure mode (API timeout, unparseable reply, DB write error) is
+    // transient or worth another attempt, and grading is idempotent.
+    return NextResponse.json({ error: err?.message ?? 'Job failed' }, { status: 500 })
   }
 }
 
-export const POST = verifySignatureAppRouter(handler)
+/**
+ * `verifySignatureAppRouter` constructs a QStash `Receiver`, which throws when
+ * QSTASH_CURRENT_SIGNING_KEY / QSTASH_NEXT_SIGNING_KEY are absent. Doing that at
+ * module scope killed `next build` during page-data collection, so the verifier
+ * is built on first request and cached (matching the previous single-instance
+ * behaviour, including signing-key rotation).
+ */
+let verifiedHandler: ReturnType<typeof verifySignatureAppRouter> | null = null
+
+export async function POST(req: Request) {
+  try {
+    if (!verifiedHandler) verifiedHandler = verifySignatureAppRouter(handler)
+    return await verifiedHandler(req)
+  } catch (err: any) {
+    console.error('[writing-eval] request could not be processed', err?.message ?? err)
+    return NextResponse.json(
+      { error: 'Writing evaluation endpoint is not available' },
+      { status: 503 }
+    )
+  }
+}

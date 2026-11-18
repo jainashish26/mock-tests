@@ -225,14 +225,14 @@ export const schoolLunchIdeasAllergyFreeVegetarianFamilies = {
 
         <h3>Essential Food Safety Practices</h3>
         <ul>
-          <li><strong>Use an insulated lunchbox with an ice brick</strong> - this is non-negotiable in an Australian climate. An insulated lunchbox with a frozen ice brick keeps food below 5Â°C for 4-5 hours, which covers the morning school period</li>
+          <li><strong>Use an insulated lunchbox with an ice brick</strong> - this is non-negotiable in an Australian climate. An insulated lunchbox with a frozen ice brick keeps food below 5°C for 4-5 hours, which covers the morning school period</li>
           <li><strong>Freeze drink bottles or pouches</strong> - a frozen water bottle acts as a second ice pack and provides cold water by lunchtime</li>
-          <li><strong>Pack hot food in a preheated thermos</strong> - fill the thermos with boiling water for 5 minutes before adding the hot food. This keeps the food above 60Â°C for longer, which prevents bacterial growth</li>
+          <li><strong>Pack hot food in a preheated thermos</strong> - fill the thermos with boiling water for 5 minutes before adding the hot food. This keeps the food above 60°C for longer, which prevents bacterial growth</li>
           <li><strong>Avoid leaving dairy-based foods at room temperature</strong> - yoghurt, cheese-based dips, and cream cheese fillings need to stay cold. If you can't guarantee cold storage, choose shelf-stable alternatives for warm days</li>
           <li><strong>Wash the lunchbox daily</strong> - damp, food-residue environments breed bacteria. Wash with hot, soapy water every evening and dry thoroughly</li>
         </ul>
 
-        <h3>For Hot Weather (Above 30Â°C)</h3>
+        <h3>For Hot Weather (Above 30°C)</h3>
         <ul>
           <li>Pack <strong>two ice bricks</strong> instead of one</li>
           <li>Use <strong>shelf-stable options</strong> as the main component - crackers, sealed cheese portions, whole fruit, dried fruit, popcorn, sealed hummus cups</li>
@@ -409,8 +409,8 @@ export const schoolLunchIdeasAllergyFreeVegetarianFamilies = {
         <ul>
           <li><strong>Flax egg</strong> - 1 tablespoon ground flaxseed + 3 tablespoons water, left to gel for 5 minutes. Works well in muffins, fritters, and slices</li>
           <li><strong>Chia egg</strong> - 1 tablespoon chia seeds + 3 tablespoons water, left to gel for 10-15 minutes. Similar to flax but slightly thicker</li>
-          <li><strong>Mashed banana</strong> - Â¼ cup replaces one egg. Adds sweetness, so best for sweet baking</li>
-          <li><strong>Unsweetened apple sauce</strong> - Â¼ cup replaces one egg. Adds moisture and subtle sweetness</li>
+          <li><strong>Mashed banana</strong> - ¼ cup replaces one egg. Adds sweetness, so best for sweet baking</li>
+          <li><strong>Unsweetened apple sauce</strong> - ¼ cup replaces one egg. Adds moisture and subtle sweetness</li>
           <li><strong>Commercial egg replacer</strong> - products like Orgran No Egg or Bob's Red Mill Egg Replacer are widely available and work reliably across most recipes</li>
         </ul>
 
@@ -446,8 +446,10 @@ export const schoolLunchIdeasAllergyFreeVegetarianFamilies = {
   image:
     "https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Colourful bento-style school lunchbox filled with vegetables, fruit, crackers, and dips - nut-free and egg-free",
-  date: "March 28, 2026",
+    "Colourful bento-style school lunchbox filled with vegetables, fruit, crackers, and dips - nut-free and egg-free",  date: "December 14, 2026",
+  updatedDate: "December 16, 2026",
+  readingTime: 20,
+  category: "parenting-wellbeing",
   tags: [
     "PARENTS",
     "STUDENT WELLBEING",
@@ -473,6 +475,13 @@ export const schoolLunchIdeasAllergyFreeVegetarianFamilies = {
     "nut free vegetarian snacks",
     "allergy free lunch prep",
     "school lunchbox meal prep",
+  ],
+  keyTakeaways: [
+    "Over 40 nut-free, egg-free and vegetarian lunchbox ideas, organised by category, plus a sample week of lunchboxes.",
+    "A clear lunchbox framework defines what a balanced allergy-free vegetarian lunch actually looks like before any recipes.",
+    "Allergy safety comes first: always read labels, understand that 'may contain' warnings are voluntary in Australia, and keep the school's ASCIA Action Plan current.",
+    "Batch cooking and meal prep, food safety in Australian conditions, and store-bought shortcuts make the approach sustainable on busy mornings.",
+    "Nutrition adequacy without nuts, eggs or meat is addressed directly, along with what to do when your child will not eat what you pack.",
   ],
   author: {
     name: "Ashish Jain",

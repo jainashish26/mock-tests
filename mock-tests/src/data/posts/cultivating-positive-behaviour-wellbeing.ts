@@ -161,11 +161,31 @@ export const positiveBehaviourWellbeing = {
     <p>We're here to support both your child's academic learning and their overall wellbeing. Explore our resources, and remember: you are doing something profoundly important every single day.</p>
 
     <p><strong>Together, we've absolutely got this.</strong></p>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What is Positive Behaviour for Learning?</h3>
+    <p>Positive Behaviour for Learning (PBL) is a broad term used in Australian schools, and increasingly in homes, for the skills and dispositions that let children learn well and get along with others. Many Australian schools run structured frameworks such as PBL or School-Wide Positive Behaviour Interventions and Supports, and the strategies work best when home and school take a consistent approach.</p>
+
+    <h3>Why does my child behave differently at home than at school?</h3>
+    <p>Behaviour is communication, and children often release the effort of holding themselves together all day once they are somewhere they feel completely safe. That is not an excuse for difficult behaviour, but understanding what drives it - including ongoing brain development and the need for belonging and significance - is far more useful than treating it as deliberate defiance.</p>
+
+    <h3>What is the single most effective thing a parent can do?</h3>
+    <p>Build the relationship. Research consistently shows that the quality of the connection with primary caregivers is the most powerful influence on children's behaviour. Warmth combined with clear, consistent expectations outperforms either on its own - warmth without limits tends toward permissiveness, and limits without warmth tend toward conflict.</p>
+
+    <h3>Should I use rewards to shape behaviour?</h3>
+    <p>Positive reinforcement works, but it needs to be specific and used deliberately rather than as a constant transaction. Pair it with the other strategies: explicitly teaching emotional regulation, keeping predictable routines and structures, and using natural and logical consequences. The aim is for behaviour to become internally guided rather than purchased.</p>
+
+    <h3>When should I seek professional support?</h3>
+    <p>All children display challenging behaviour at times. Persistent patterns that significantly affect learning, relationships or family life may benefit from professional help. Start with your GP, your child's school wellbeing team, or a child psychologist - early support is generally more effective than waiting to see whether a pattern resolves on its own.</p>
+
   `,
   image: "https://images.unsplash.com/photo-1588075592446-265fd1e6e76f?w=1200&q=80",
   imageAlt:
-    "A parent and child sitting together at home, sharing a moment of connection and learning with warm expressions",
-  date: "March 30, 2026",
+    "A parent and child sitting together at home, sharing a moment of connection and learning with warm expressions",  date: "August 19, 2026",
+  updatedDate: "August 21, 2026",
+  readingTime: 11,
+  category: "parenting-wellbeing",
   tags: ["WELLBEING", "POSITIVE BEHAVIOUR", "PARENTING", "SOCIAL-EMOTIONAL LEARNING", "CHILD DEVELOPMENT"],
   metaTitle: "Cultivating Positive Behaviour & Wellbeing in Children",
   metaDescription:
@@ -183,6 +203,13 @@ export const positiveBehaviourWellbeing = {
     "positive parenting strategies",
     "behaviour and academic success",
     "PBL positive behaviour for learning",
+  ],
+  keyTakeaways: [
+    "Behaviour is communication: what drives it, including brain development and the need for belonging, matters more than the surface behaviour.",
+    "The quality of the relationship with a primary caregiver is the most powerful single influence on a child's behaviour.",
+    "Six evidence-based strategies anchor the approach at home: warm relationship, clear expectations, effective reinforcement, explicit emotional-regulation teaching, supportive routines, and natural or logical consequences.",
+    "Wellbeing, behaviour and academic achievement are deeply interconnected, so supporting one supports the others.",
+    "Consistency between home and school frameworks such as Positive Behaviour for Learning makes the strategies considerably more effective.",
   ],
   author: {
     name: "The Exam Success Team",

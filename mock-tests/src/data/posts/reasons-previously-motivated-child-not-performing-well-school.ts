@@ -341,12 +341,35 @@ export const reasonsPreviouslyMotivatedChildNotPerformingWellSchool = {
       </section>
 
     </article>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>My child was motivated and is now underperforming. What is the most likely cause?</h3>
+    <p>The most common academic reason for a sudden drop is that the work has outpaced their foundational skills, and it is the one most frequently misdiagnosed as laziness. A gap in an earlier concept makes later content feel arbitrary, so effort stops producing results and motivation collapses. Check the foundations before assuming an attitude problem.</p>
+
+    <h3>Could it be anxiety rather than an academic problem?</h3>
+    <p>Yes. Anxiety in school-aged children has risen significantly in Australia over the past decade, and the Australian Institute of Health and Welfare reports high rates among young people. Anxiety consumes working memory and attention, so a child can understand the material and still be unable to demonstrate it. Look for avoidance, perfectionism, physical symptoms and a drop that is situation-specific.</p>
+
+    <h3>Is my child lazy or bored?</h3>
+    <p>Boredom is one of the most counterintuitive causes on the list: some children underperform not because the work is too hard but because it is too easy. Without challenge there is no reason to engage, and disengagement is easily misread as laziness. If your child performs well on harder or self-chosen tasks, under-challenge is worth considering.</p>
+
+    <h3>How much do sleep and screens matter?</h3>
+    <p>A great deal. The impact of insufficient sleep on academic performance is dramatic, well-documented and consistently underestimated by parents and educators. Screen time and digital distraction fragment attention in a way that makes sustained effort harder. Neither is usually the whole explanation, but both can prevent every other intervention from working.</p>
+
+    <h3>Should I talk to the school?</h3>
+    <p>Yes, and specifically about the teacher relationship. The connection between student and teacher is one of the most powerful but least openly discussed factors in academic performance, and a breakdown in it can depress results independently of ability. Also ask whether an underlying learning difference has gone unidentified - some children cope while the curriculum is broad, then struggle as expectations rise.</p>
+
+    <h3>What should I avoid doing?</h3>
+    <p>Avoid responding to a decline with more pressure, more punishment or immediate withdrawal of everything the child enjoys. Those reactions treat a symptom as though it were a choice. The guide sets out what not to do alongside the causes, because a well-intentioned but punitive response usually deepens the disengagement it is trying to fix.</p>
+
   `,
   image:
     "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Parent and child sitting together at a study desk having a supportive conversation about school",
-  date: "March 28, 2026",
+    "Parent and child sitting together at a study desk having a supportive conversation about school",  date: "December 11, 2026",
+  updatedDate: "December 13, 2026",
+  readingTime: 23,
+  category: "naplan",
   tags: [
     "STUDENT WELLBEING",
     "PARENTS",
@@ -372,6 +395,13 @@ export const reasonsPreviouslyMotivatedChildNotPerformingWellSchool = {
     "child bored at school gifted",
     "parent guide child school problems",
     "how to motivate child at school",
+  ],
+  keyTakeaways: [
+    "A sudden drop is rarely laziness. The ten most common causes are mostly invisible from report cards alone.",
+    "The most common academic cause is work that has outpaced foundational skills - and it is the one most often misdiagnosed as laziness.",
+    "Anxiety, social struggle and sleep deprivation each measurably reduce a child's capacity to engage with schoolwork.",
+    "Boredom is frequently mistaken for laziness: some children underperform because the work is too easy, not too hard.",
+    "Declines are usually multi-causal, so several factors interact and reinforce each other rather than one explaining everything.",
   ],
   author: {
     name: "Ashish Jain",

@@ -1,3 +1,8 @@
+// Imported directly (not via the `@/lib/seo` barrel) to avoid a circular
+// dependency: the barrel re-exports `post-seo`, which type-imports this file.
+import { toIsoDate } from "@/lib/seo/content-utils";
+import { deriveCategory } from "@/lib/seo/categories";
+
 export interface BlogPost {
   id: string;
   slug: string;
@@ -6,17 +11,38 @@ export interface BlogPost {
   content: string;
   image: string;
   imageAlt?: string;
+  /** Display date, e.g. "March 30, 2026". Normalised to ISO by `derivePostSeo`. */
   date: string;
+  /**
+   * Display date of the most recent substantive revision. Drives
+   * `dateModified` in schema and the "Updated" label on page. Omit for posts
+   * that have never been revised.
+   */
+  updatedDate?: string;
   tags: string[];
+  /** Optional explicit category slug; auto-derived from tags when omitted. */
+  category?: string;
   metaTitle?: string;
   metaDescription?: string;
   keywords?: string[];
+  /** Optional override; computed from word count when omitted. */
+  readingTime?: number;
+  /**
+   * Author-written bullet summary rendered as the "Key takeaways" block and
+   * used for schema `about` hints.
+   *
+   * Keep to 3-6 short bullets (each under ~170 characters). This is never
+   * auto-generated: deriving bullets from article markup produced misleading
+   * summaries, so an article without this field simply renders no takeaway block.
+   */
+  keyTakeaways?: string[];
   author: {
     name: string;
     role: string;
     avatar?: string;
   };
 }
+
 
 import { waysToAskHowWasSchool } from "./posts/10-ways-asking-how-was-school";
 import { narrativeWritingPrompts } from "./posts/52-narrative-writing-prompts";
@@ -122,7 +148,92 @@ const allPosts: BlogPost[] = [
   whyNaplanIsImportantForYourChildsFuture
 ] as BlogPost[];
 
-// Automatically sort posts by date (Newest First)
+// Automatically sort posts by date (Newest First).
+// Uses `toIsoDate` rather than `new Date(displayString)` because post dates are
+// stored as display strings such as "March 30, 2026", which parse inconsistently.
 export const BLOG_POSTS: BlogPost[] = [...allPosts].sort((a, b) => {
-  return new Date(b.date).getTime() - new Date(a.date).getTime();
+  const aTime = toIsoDate(a.updatedDate ?? a.date) ?? '';
+  const bTime = toIsoDate(b.updatedDate ?? b.date) ?? '';
+  return bTime.localeCompare(aTime) || b.title.localeCompare(a.title);
 });
+
+/* ------------------------------------------------------------------ *
+ * Selectors
+ * ------------------------------------------------------------------ */
+
+/** Index posts by slug for O(1) lookup in `generateMetadata` and pages. */
+const BY_SLUG = new Map<string, BlogPost>(BLOG_POSTS.map((p) => [p.slug, p]));
+
+/** Get a post by slug, or `undefined` when it does not exist. */
+export function getPostBySlug(slug: string): BlogPost | undefined {
+  return BY_SLUG.get(slug);
+}
+
+/** All slugs - consumed by `generateStaticParams` to prerender every article. */
+export function getAllPostSlugs(): string[] {
+  return BLOG_POSTS.map((p) => p.slug);
+}
+
+/** Posts matching a category slug, newest first. */
+export function getPostsByCategory(categorySlug: string): BlogPost[] {
+  return BLOG_POSTS.filter((p) => deriveCategory(p.tags).slug === categorySlug);
+}
+
+/** Posts matching a tag (case-insensitive), newest first. */
+export function getPostsByTag(tag: string): BlogPost[] {
+  const needle = tag.trim().toLowerCase();
+  if (!needle) return [];
+  return BLOG_POSTS.filter((p) =>
+    (p.tags ?? []).some((t) => t.toLowerCase() === needle)
+  );
+}
+
+/**
+ * Related posts for internal linking.
+ *
+ * Scored by shared category, then shared tags, then keyword overlap so every
+ * article links out to genuinely relevant neighbours. Internal links are how
+ * topical authority is passed and how AI engines discover the wider library.
+ */
+export function getRelatedPosts(post: BlogPost, limit = 4): BlogPost[] {
+  const ownCategory = deriveCategory(post.tags).slug;
+  const ownTags = new Set((post.tags ?? []).map((t) => t.toLowerCase()));
+  const ownKeywords = new Set((post.keywords ?? []).map((k) => k.toLowerCase()));
+
+  return BLOG_POSTS
+    .filter((candidate) => candidate.slug !== post.slug)
+    .map((candidate) => {
+      let score = 0;
+      if (deriveCategory(candidate.tags).slug === ownCategory) score += 5;
+      for (const tag of candidate.tags ?? []) {
+        if (ownTags.has(tag.toLowerCase())) score += 2;
+      }
+      for (const keyword of candidate.keywords ?? []) {
+        if (ownKeywords.has(keyword.toLowerCase())) score += 1;
+      }
+      return { candidate, score };
+    })
+    .filter((entry) => entry.score > 0)
+    .sort((a, b) => b.score - a.score || b.candidate.title.localeCompare(a.candidate.title))
+    .slice(0, limit)
+    .map((entry) => entry.candidate);
+}
+
+/** Distinct tag values across the library with post counts, most used first. */
+export function getAllTagsWithCounts(): { tag: string; count: number }[] {
+  const counts = new Map<string, number>();
+  for (const post of BLOG_POSTS) {
+    for (const tag of post.tags ?? []) {
+      counts.set(tag, (counts.get(tag) ?? 0) + 1);
+    }
+  }
+  return [...counts.entries()]
+    .map(([tag, count]) => ({ tag, count }))
+    .sort((a, b) => b.count - a.count || a.tag.localeCompare(b.tag));
+}
+
+/** Newest N posts, used on the home page and in llms.txt. */
+export function getLatestPosts(limit: number): BlogPost[] {
+  return BLOG_POSTS.slice(0, limit);
+}
+

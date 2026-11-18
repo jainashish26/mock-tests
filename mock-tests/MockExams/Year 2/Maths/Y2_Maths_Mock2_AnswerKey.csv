@@ -1,0 +1,26 @@
+﻿QuestionNumber,QuestionID,ExamSection,Correct,CorrectAnswerText,Topic,SubTopic,DifficultyLabel,DifficultyScore,SourceQuestionNumber
+1,NAPLAN-Y2-NUMERACY-M2-Q01,Numeracy - No Calculator,C,37,Algebra,Number Sequences,Easy,1,6
+2,NAPLAN-Y2-NUMERACY-M2-Q02,Numeracy - No Calculator,B,4,Number,Addition and Subtraction,Easy,1,2
+3,NAPLAN-Y2-NUMERACY-M2-Q03,Numeracy - No Calculator,B,"January, April, August",Measurement,Time,Easy,1,5
+4,NAPLAN-Y2-NUMERACY-M2-Q04,Numeracy - No Calculator,A,pentagon,Geometry,2D Shapes,Easy,1,255
+5,NAPLAN-Y2-NUMERACY-M2-Q05,Numeracy - No Calculator,A,450,Number,Multiplication and Division,Easy,1,13
+6,NAPLAN-Y2-NUMERACY-M2-Q06,Numeracy - No Calculator,A,33,Number,Addition and Subtraction,Easy,1,18
+7,NAPLAN-Y2-NUMERACY-M2-Q07,Numeracy - No Calculator,B,2,Statistics,Tables and Graphs,Easy,2,1145
+8,NAPLAN-Y2-NUMERACY-M2-Q08,Numeracy - No Calculator,C,4 cups,Measurement,Volume and Capacity,Easy,2,490
+9,NAPLAN-Y2-NUMERACY-M2-Q09,Numeracy - No Calculator,D,Diego,Measurement,Length and Perimeter,Medium,4,378
+10,NAPLAN-Y2-NUMERACY-M2-Q10,Numeracy - No Calculator,B,20,Number,Fractions,Medium,4,703
+11,NAPLAN-Y2-NUMERACY-M2-Q11,Numeracy - No Calculator,B,12,Measurement,Volume and Capacity,Medium,4,501
+12,NAPLAN-Y2-NUMERACY-M2-Q12,Numeracy - No Calculator,C,32,Algebra,Number Sequences,Medium,5,26
+13,NAPLAN-Y2-NUMERACY-M2-Q13,Numeracy - No Calculator,A,979,Number,Digits and Number Properties,Medium,5,847
+14,NAPLAN-Y2-NUMERACY-M2-Q14,Numeracy - No Calculator,E,None of the above,Problem Solving,Age Problems,Medium,5,8
+15,NAPLAN-Y2-NUMERACY-M2-Q15,Numeracy - No Calculator,E,15,Geometry,3D Objects,Medium,5,239
+16,NAPLAN-Y2-NUMERACY-M2-Q16,Numeracy - No Calculator,B,impossible,Probability,Chance and Likelihood,Medium,5,900
+17,NAPLAN-Y2-NUMERACY-M2-Q17,Numeracy - No Calculator,A,99,Number,Place Value,Medium,6,761
+18,NAPLAN-Y2-NUMERACY-M2-Q18,Numeracy - No Calculator,D,200,Number,Mental Computation,Medium,6,809
+19,NAPLAN-Y2-NUMERACY-M2-Q19,Numeracy - No Calculator,A,12,Statistics,Data Interpretation,Medium,6,1099
+20,NAPLAN-Y2-NUMERACY-M2-Q20,Numeracy - No Calculator,B,$7.30,Financial Mathematics,Money and Change,Medium,6,146
+21,NAPLAN-Y2-NUMERACY-M2-Q21,Numeracy - No Calculator,A,$24,Number,Fractions,Medium,6,712
+22,NAPLAN-Y2-NUMERACY-M2-Q22,Numeracy - No Calculator,C,4,Geometry,2D Shapes,Hard,7,283
+23,NAPLAN-Y2-NUMERACY-M2-Q23,Numeracy - No Calculator,A,3,Number,Fractions,Hard,7,720
+24,NAPLAN-Y2-NUMERACY-M2-Q24,Numeracy - No Calculator,C,10,Number,Multiplication and Division,Hard,9,659
+25,NAPLAN-Y2-NUMERACY-M2-Q25,Numeracy - No Calculator,A,30 g,Measurement,Mass,Hard,9,480

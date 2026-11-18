@@ -1,7 +1,35 @@
+import type { Metadata } from "next";
 import { PublicLayout } from "@/components/layout/PublicLayout";
 import { Badge } from "@/components/ui/Badge";
 import { Sparkles, Zap, GraduationCap, Heart, CheckCircle2 } from "lucide-react";
 import { SpatialCard } from "@/components/ui/SpatialCard";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { featuresGraph } from "@/lib/seo/schema";
+import { absoluteUrl } from "@/lib/seo/site-config";
+
+const PAGE_TITLE = "Platform Features: AI Essay Grading & Adaptive Exam Practice";
+const PAGE_DESCRIPTION =
+  "Criterion-based AI essay grading, adaptive difficulty, parent progress dashboards and low-pressure exam practice for Australian students in Years 3 to 8.";
+
+export const metadata: Metadata = {
+  title: { absolute: PAGE_TITLE },
+  description: PAGE_DESCRIPTION,
+  alternates: { canonical: "/features" },
+  keywords: [
+    "AI essay grading",
+    "adaptive testing Australia",
+    "NAPLAN practice platform",
+    "parent progress dashboard",
+    "exam preparation software",
+  ],
+  openGraph: {
+    type: "website",
+    url: absoluteUrl("/features"),
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+  },
+  twitter: { card: "summary_large_image", title: PAGE_TITLE, description: PAGE_DESCRIPTION },
+};
 
 export default function FeaturesPage() {
   const features = [
@@ -13,6 +41,13 @@ export default function FeaturesPage() {
 
   return (
     <PublicLayout>
+      <JsonLd
+        data={featuresGraph(
+          absoluteUrl("/features"),
+          PAGE_DESCRIPTION,
+          features.map((f) => f.title)
+        )}
+      />
       <section className="py-24 px-6" style={{ paddingTop: '8rem' }}>
         <div className="max-w-3xl mx-auto text-center mb-16">
           <Badge variant="secondary">Platform Features</Badge>

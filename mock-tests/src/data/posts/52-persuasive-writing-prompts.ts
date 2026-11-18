@@ -167,11 +167,31 @@ export const persuasiveWritingPrompts = {
     <p>Explore our writing resources, try our persuasive writing practice tools, and remember: the ability to express what you believe — and why — is one of the most important things education can give a young person.</p>
 
     <p><strong>Now, pick a prompt and start arguing. We can't wait to read what you think.</strong></p>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>How are the persuasive prompts organised?</h3>
+    <p>By school term: Term 1 covers school and learning, Term 2 technology and the modern world, Term 3 environment and society, and Term 4 everyday life and big questions, with bonus prompts for holidays. One prompt per week fits an existing routine, and the guide explains how to use them effectively before the collection begins.</p>
+
+    <h3>Why does persuasive writing matter beyond school?</h3>
+    <p>Because it is the form most often required in real life - making a case, proposing a change, evaluating a claim. The guide devotes a section to why persuasive writing matters beyond the classroom, alongside the immediate benefit of preparing students for the NAPLAN writing task, which may require a persuasive response to a prompt.</p>
+
+    <h3>Will these prompts help with NAPLAN writing?</h3>
+    <p>Yes. NAPLAN writing asks for a response to a prompt that may be persuasive or narrative. Regular practice forming a clear contention, supporting it with evidence and addressing a counter-argument is direct preparation for that task, and familiarity with responding to an unfamiliar stimulus reduces time pressure on the day.</p>
+
+    <h3>How can I support my child without writing it for them?</h3>
+    <p>The guide includes a dedicated section of tips for parents supporting persuasive writers. The most useful moves are conversational: ask what their position is, ask why, ask what someone who disagrees would say, and ask what evidence would change their mind. Questioning develops the argument without supplying it.</p>
+
+    <h3>What if my child always agrees with the obvious position?</h3>
+    <p>Deliberately ask them to argue the opposite side as an exercise. Defending a position they do not hold is one of the fastest ways to build genuine critical thinking, because it forces attention to evidence and reasoning rather than to pre-existing opinion. Several of the prompts are framed to invite this.</p>
+
   `,
   image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1200&q=80",
   imageAlt:
-    "A student writing passionately in a notebook with a determined expression, representing persuasive writing and critical thinking",
-  date: "March 30, 2026",
+    "A student writing passionately in a notebook with a determined expression, representing persuasive writing and critical thinking",  date: "August 7, 2026",
+  updatedDate: "August 9, 2026",
+  readingTime: 10,
+  category: "english-writing",
   tags: ["CREATIVE WRITING", "PERSUASIVE WRITING", "WRITING PROMPTS", "LITERACY", "NAPLAN WRITING"],
   metaTitle: "52 Persuasive Writing Prompts for Students | Weekly Ideas",
   metaDescription:
@@ -189,6 +209,13 @@ export const persuasiveWritingPrompts = {
     "writing prompts Year 3 4 5 6 7 8",
     "persuasive essay topics kids",
     "weekly persuasive writing challenge",
+  ],
+  keyTakeaways: [
+    "52 persuasive prompts, one per week, organised by school term with bonus holiday prompts.",
+    "Term themes are school and learning, technology and the modern world, environment and society, and everyday life with big questions.",
+    "The collection is designed to develop critical thinking and argument skill, not just to supply topics.",
+    "Persuasive writing matters beyond the classroom - it is the form used in NAPLAN writing, essays, and everyday advocacy.",
+    "The guide includes specific tips for parents supporting persuasive writers at home.",
   ],
   author: {
     name: "The Exam Success Team",

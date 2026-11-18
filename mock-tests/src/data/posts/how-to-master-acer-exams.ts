@@ -246,7 +246,7 @@ export const howToMasterAcerExams = {
         <h4>Build Unshakeable Foundations</h4>
         <p>Before tackling ACER-style reasoning problems, ensure <strong>automatic fluency</strong> in:</p>
         <ul>
-          <li><strong>Times tables</strong> - instant recall to 12 Ã- 12 and comfortable with larger multiplications (e.g. 15 Ã- 12, 25 Ã- 8)</li>
+          <li><strong>Times tables</strong> - instant recall to 12 × 12 and comfortable with larger multiplications (e.g. 15 × 12, 25 × 8)</li>
           <li><strong>Fraction operations</strong> - adding, subtracting, multiplying, dividing; converting between fractions, decimals, and percentages; comparing and ordering fractions</li>
           <li><strong>BODMAS / order of operations</strong> - applied consistently with whole numbers, fractions, and negative numbers</li>
           <li><strong>Ratio and proportion</strong> - setting up and solving ratio problems; scaling; percentage increase and decrease</li>
@@ -571,8 +571,10 @@ export const howToMasterAcerExams = {
   image:
     "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1200&q=80",
   imageAlt:
-    "Student reading and taking notes at a library desk surrounded by books",
-  date: "March 28, 2026",
+    "Student reading and taking notes at a library desk surrounded by books",  date: "September 24, 2026",
+  updatedDate: "September 26, 2026",
+  readingTime: 22,
+  category: "selective-schools",
   tags: [
     "ACER",
     "SCHOLARSHIPS",
@@ -599,6 +601,13 @@ export const howToMasterAcerExams = {
     "ACER vs EduTest",
     "selective entry exam Melbourne",
     "ACER cooperative scholarship testing",
+  ],
+  keyTakeaways: [
+    "ACER exams have three components only: Verbal Reasoning, Numerical Reasoning, and Written Expression - the most streamlined structure of the major providers.",
+    "ACER administers the single entrance exam used by all four of Victoria's selective-entry high schools.",
+    "ACER is also used nationally through the Cooperative Scholarship Testing Program and by individual schools for their own scholarship exams.",
+    "Timing differs by goal: selective entry is Year 9 entry with the exam sat in Year 8, while scholarships are Year 7 entry with the exam sat in Year 5 or 6.",
+    "Because the format is reasoning-first rather than curriculum recall, preparation should target reasoning technique, time management and multiple-choice strategy.",
   ],
   author: {
     name: "Ashish Jain",
