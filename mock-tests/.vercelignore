@@ -2,7 +2,12 @@
 # cuts the CLI upload from ~418MB to ~10MB (deploys respect .vercelignore).
 # The app reads questions/users from Supabase at runtime; these are offline
 # seeder/migration/assurance assets for local + CI use only.
-QuestionBank/
-MockExams/
-supabase/
-scripts/
+#
+# LEADING SLASHES ARE LOAD-BEARING: ignore patterns without a leading slash
+# match at ANY depth — an unanchored `supabase/` also deleted
+# src/lib/supabase/{admin,client,server}.ts and broke the first git build
+# with "Module not found: @/lib/supabase/admin" (deployment dpl_GJ5GkpNB...).
+/QuestionBank/
+/MockExams/
+/supabase/
+/scripts/
