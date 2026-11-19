@@ -39,6 +39,7 @@ import {
   ipPepper,
   verifyFormToken,
 } from '@/lib/support/form-token';
+import type { EnquiryStatus } from '@/lib/support/triage';
 
 let pass = 0;
 let fail = 0;
@@ -266,6 +267,104 @@ console.log('\n=== ip fingerprint ===');
   // proxy would otherwise spend the allowance of every visitor behind it.
   eq('a null address yields no fingerprint', fingerprintIp(null, pepper), null);
   eq('a blank address yields no fingerprint', fingerprintIp('   ', pepper), null);
+}
+
+console.log('\n=== the triage state machine mirrors the SQL guards ===');
+{
+  const {
+    ENQUIRY_STATUSES,
+    ENQUIRY_ACTIONS,
+    ENQUIRY_OUTCOMES,
+    ACTION_TARGET,
+    allowedActions,
+    responseKnowledge,
+    actionNeedsOutcome,
+    isDone,
+    slaCaveat,
+    taskReasonError,
+    describeAge,
+  } = await import('@/lib/support/triage');
+
+  // Hand-written expectations: the whole point of this block is that the TS
+  // must not be allowed to grade its own homework. Each case names the
+  // admin_enquiry_transition guard it mirrors.
+  const cases: Array<{
+    label: string
+    row: { status: EnquiryStatus; first_response_at: string | null; resolved_at: string | null }
+    expect: string[]
+  }> = [
+    { label: 'brand new enquiry', row: { status: 'new', first_response_at: null, resolved_at: null },
+      expect: ['assign', 'reply', 'triage', 'start', 'resolve', 'close', 'spam'] },
+    { label: 'triaged, unanswered', row: { status: 'triaged', first_response_at: null, resolved_at: null },
+      expect: ['assign', 'reply', 'start', 'resolve', 'close', 'spam'] },
+    { label: 'in progress, still unanswered', row: { status: 'in_progress', first_response_at: null, resolved_at: null },
+      expect: ['assign', 'reply', 'resolve', 'close', 'spam'] },
+    // The reply button disappears the moment a first response exists, because
+    // the SQL raises 22023 on a second one.
+    { label: 'waiting on the family (already replied)', row: { status: 'waiting_on_customer', first_response_at: '2026-01-01T00:00:00Z', resolved_at: null },
+      expect: ['assign', 'start', 'resolve', 'close', 'spam'] },
+    { label: 'resolved', row: { status: 'resolved', first_response_at: '2026-01-01T00:00:00Z', resolved_at: '2026-01-02T00:00:00Z' },
+      expect: ['assign', 'reopen'] },
+    // Closing is what makes the reply guard bite: the SQL refuses a reply after
+    // closure rather than back-filling a response time nobody saw.
+    { label: 'closed with no reply on record', row: { status: 'closed', first_response_at: null, resolved_at: '2026-01-02T00:00:00Z' },
+      expect: ['assign', 'reopen'] },
+    { label: 'spam', row: { status: 'spam', first_response_at: null, resolved_at: '2026-01-02T00:00:00Z' },
+      expect: ['assign', 'reopen'] },
+  ];
+
+  for (const c of cases) {
+    eq(`allowedActions: ${c.label}`, allowedActions(c.row).slice().sort(), c.expect.slice().sort());
+    ok(`allowedActions never offers reply on a finished enquiry: ${c.label}`,
+      isDone(c.row.status) ? !allowedActions(c.row).includes('reply') : true);
+  }
+
+  eq('responseKnowledge: open with no reply', responseKnowledge({ status: 'in_progress', first_response_at: null }), 'open');
+  eq('responseKnowledge: reply recorded', responseKnowledge({ status: 'closed', first_response_at: 'x' }), 'recorded');
+  // The state that must not be rendered as "met".
+  eq('responseKnowledge: finished with no reply is missing, not recorded',
+    responseKnowledge({ status: 'resolved', first_response_at: null }), 'missing');
+
+  eq('only resolve and close take an outcome',
+    ENQUIRY_ACTIONS.filter(actionNeedsOutcome), ['resolve', 'close']);
+
+  // ACTION_TARGET must agree with the SQL CASE statement, value for value.
+  eq('triage -> triaged', ACTION_TARGET.triage, 'triaged');
+  eq('reply -> waiting_on_customer', ACTION_TARGET.reply, 'waiting_on_customer');
+  eq('resolve -> resolved', ACTION_TARGET.resolve, 'resolved');
+  eq('close -> closed', ACTION_TARGET.close, 'closed');
+  eq('reopen -> in_progress', ACTION_TARGET.reopen, 'in_progress');
+  eq('spam -> spam', ACTION_TARGET.spam, 'spam');
+  eq('assign moves nothing', ACTION_TARGET.assign, null);
+  eq('start -> in_progress', ACTION_TARGET.start, 'in_progress');
+
+  ok('every action has a target and every target is a real status',
+    ENQUIRY_ACTIONS.every((a: string) => ACTION_TARGET[a as keyof typeof ACTION_TARGET] === null
+      || ENQUIRY_STATUSES.includes(ACTION_TARGET[a as keyof typeof ACTION_TARGET] as never)));
+  ok('every outcome is one the database CHECK accepts',
+    ENQUIRY_OUTCOMES.every((o: string) => ['answered', 'refunded', 'escalated', 'no_action', 'spam', 'duplicate', 'withdrawn'].includes(o)));
+
+  console.log('\n=== SLA wording and the audit gate ===');
+  // An unconfirmed SLA must say so: this is the A-15/Q-5 gap made visible.
+  ok('an unconfirmed SLA produces a caveat',
+    slaCaveat({ sla_minutes: 1440, sla_is_confirmed: false }) !== null);
+  eq('the caveat names the window in hours, not raw minutes',
+    slaCaveat({ sla_minutes: 1440, sla_is_confirmed: false })?.includes('24 continuous hours'), true);
+  eq('a confirmed SLA stops hedging', slaCaveat({ sla_minutes: 1440, sla_is_confirmed: true }), null);
+
+  // 012's CHECK is length(trim(task_reason)) >= 12; the UI must agree or it
+  // sends requests the database will reject.
+  eq('blank reason refused', taskReasonError('') !== null, true);
+  eq('whitespace-only reason refused', taskReasonError('   ') !== null, true);
+  eq('11 characters refused', taskReasonError('a'.repeat(11)) !== null, true);
+  eq('exactly 12 characters accepted', taskReasonError('a'.repeat(12)), null);
+  eq('padding does not count toward the 12', taskReasonError('   ' + 'a'.repeat(11) + '   ') !== null, true);
+
+  eq('119 minutes reads as just under two hours', describeAge(119), '2.0 h');
+  eq('45 minutes reads in minutes', describeAge(45), '45 min');
+  eq('49 hours reads in days', describeAge(2940), '2 d');
+  eq('null is never silently zero', describeAge(null), 'unknown');
+  eq('a negative age is unknown, not a negative duration', describeAge(-5), 'unknown');
 }
 
 console.log(`\n${'-'.repeat(58)}`);

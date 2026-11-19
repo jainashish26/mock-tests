@@ -91,6 +91,7 @@ export function DashboardLayout({ children, role, userName, hideSidebar = false,
           { icon: <FileQuestion size={20} />, label: "Review Questions", href: "/admin/review/questions" },
           { icon: <PenLine size={20} />, label: "Writing Prompts", href: "/creator/writing-prompts" },
           { icon: <Users size={20} />, label: "Users", href: "/admin/users" },
+          { icon: <Bell size={20} />, label: "Support Queue", href: "/admin/enquiries" },
           { icon: <BarChart3 size={20} />, label: "Reports", href: "/admin/reports" },
           { icon: <Settings size={20} />, label: "Settings", href: "/admin/settings" },
         ];

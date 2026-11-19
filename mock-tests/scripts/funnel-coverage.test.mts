@@ -144,14 +144,12 @@ const EXPECTED_UNWIRED: Record<string, string> = {
   WRITING_MARK_FLAGGED: 'Phase 2: writing mark extension (11-...md 11.1)',
 
   // Phase 3: needs an ingestion layer that does not exist.
-  // ENQUIRY_CREATED left this list when POST /api/enquiries shipped (migration
-  // 103 + the web form on /contact) - the direction-2 check below fails on an
-  // entry that has since been wired, which is how the list stays truthful.
-  // The other two still have no caller: they fire from the admin triage surface,
-  // and until it exists first_response_at and resolved_at have no writer, which
-  // would leave A13 measuring an SLA against a clock nobody starts.
-  ENQUIRY_FIRST_RESPONDED: 'Phase 3: A13 enquiry ingest integration',
-  ENQUIRY_RESOLVED: 'Phase 3: A13 enquiry ingest integration',
+  // ENQUIRY_CREATED left this list when POST /api/enquiries shipped (103), and
+  // ENQUIRY_FIRST_RESPONDED / ENQUIRY_RESOLVED left it with the admin triage
+  // surface (104), which is the thing that finally writes first_response_at and
+  // resolved_at. All three removals are the direction-2 check doing its job: an
+  // allowlist entry for an event that has since been wired is fiction, and the
+  // suite fails on it rather than letting the list rot.
   EMAIL_OPENED: 'needs email-provider open tracking webhook; not integrated',
   EMAIL_CLICKED: 'needs email-provider click tracking webhook; not integrated',
 
