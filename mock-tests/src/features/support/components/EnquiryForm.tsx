@@ -39,7 +39,15 @@ import { ENQUIRY_LIMITS, ENQUIRY_TYPE_CHOICES, HONEYPOT_FIELD } from "@/lib/supp
  */
 
 interface EnquiryFormProps {
-  supportEmail: string
+  /**
+   * `null` when no support mailbox is configured, which is the state of this
+   * deployment until a real domain exists. Every one of this component's
+   * "or just email us" affordances disappears with it, because a `mailto:`
+   * built from a null renders as `mailto:null` — a link that opens a mail client
+   * addressed to a nonsense recipient, from a form whose whole job is to be the
+   * reliable channel.
+   */
+  supportEmail: string | null
   responseTime: string
 }
 
@@ -161,8 +169,9 @@ export function EnquiryForm({ supportEmail, responseTime }: EnquiryFormProps) {
         setFormError(
           `You have sent several messages already. Please wait ${describeWait(
             payload.retryAfterSeconds
-          )} before trying again, or email ${supportEmail}.`
+          )} before trying again${supportEmail ? `, or email ${supportEmail}` : ""}.`
         )
+
         setState("idle")
         focusStatus()
         return
@@ -206,16 +215,19 @@ export function EnquiryForm({ supportEmail, responseTime }: EnquiryFormProps) {
                 Reference: {reference}
               </p>
             ) : null}
-            <p className="mt-3 text-sm text-muted-foreground">
-              Urgent, or would rather write directly?{" "}
-              <a
-                className="font-medium text-primary underline underline-offset-4"
-                href={`mailto:${supportEmail}`}
-              >
-                Email {supportEmail}
-              </a>
-              .
-            </p>
+            {supportEmail ? (
+              <p className="mt-3 text-sm text-muted-foreground">
+                Urgent, or would rather write directly?{" "}
+                <a
+                  className="font-medium text-primary underline underline-offset-4"
+                  href={`mailto:${supportEmail}`}
+                >
+                  Email {supportEmail}
+                </a>
+                .
+              </p>
+            ) : null}
+
           </div>
         </div>
       </div>
@@ -234,19 +246,38 @@ export function EnquiryForm({ supportEmail, responseTime }: EnquiryFormProps) {
         className="rounded-xl border border-border bg-card p-5 text-sm shadow-xs"
       >
         <p className="font-semibold text-foreground">The message form is unavailable.</p>
-        <p className="mt-1 text-muted-foreground">
-          Please email{" "}
-          <a
-            className="font-medium text-primary underline underline-offset-4"
-            href={`mailto:${supportEmail}`}
-          >
-            {supportEmail}
-          </a>{" "}
-          and we will reply within {responseTime}.
-        </p>
+        {supportEmail ? (
+          <p className="mt-1 text-muted-foreground">
+            Please email{" "}
+            <a
+              className="font-medium text-primary underline underline-offset-4"
+              href={`mailto:${supportEmail}`}
+            >
+              {supportEmail}
+            </a>{" "}
+            and we will reply within {responseTime}.
+          </p>
+        ) : (
+          /**
+           * No form, no mailbox. This is the deployment's actual state today, and
+           * it is the one place where that has a user-visible cost, so the copy
+           * says so plainly instead of reaching for an address that does not exist.
+           *
+           * The honest sentence matters more than the comforting one here: a parent
+           * whose child has a test tomorrow needs to know that retrying is the only
+           * route, not that an email they cannot send would have worked.
+           */
+          <p className="mt-1 text-muted-foreground">
+            This form is the only way to reach us right now, so please try again in a few
+            minutes — the page will recover on its own reload. If it keeps failing, reload
+            this page and try once more; messages are never partially submitted, so nothing
+            is lost by retrying.
+          </p>
+        )}
       </div>
     )
   }
+
 
 
   const showError = (key: string) => errors[key] ?? null
@@ -367,15 +398,21 @@ export function EnquiryForm({ supportEmail, responseTime }: EnquiryFormProps) {
           <Send aria-hidden="true" />
           {state === "sending" ? "Sending…" : formToken === null ? "Loading…" : "Send message"}
         </Button>
-        <p className="text-xs text-muted-foreground">
-          Prefer email?{" "}
-          <a
-            className="font-medium text-primary underline underline-offset-4"
-            href={`mailto:${supportEmail}`}
-          >
-            {supportEmail}
-          </a>
-        </p>
+        {supportEmail ? (
+          <p className="text-xs text-muted-foreground">
+            Prefer email?{" "}
+            <a
+              className="font-medium text-primary underline underline-offset-4"
+              href={`mailto:${supportEmail}`}
+            >
+              {supportEmail}
+            </a>
+          </p>
+        ) : (
+          <p className="text-xs text-muted-foreground">
+            This form is the way to reach us. Nothing is sent until you press Send.
+          </p>
+        )}
       </div>
     </form>
   )

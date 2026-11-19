@@ -7,7 +7,7 @@ import { getAuthor } from "@/lib/seo/authors";
 import { toIsoDateTime } from "@/lib/seo/content-utils";
 import { derivePostSeo, toRelatedSummary, toSchemaInput } from "@/lib/seo/post-seo";
 import { blogPostingGraph } from "@/lib/seo/schema";
-import { absoluteUrl, LOCALE, SITE_NAME } from "@/lib/seo/site-config";
+import { absoluteUrl, INDEXABLE_ROBOTS, LOCALE, SITE_NAME } from "@/lib/seo/site-config";
 import styles from "./page.module.css";
 import { ReadingProgressBar } from "./ReadingProgressBar";
 import { BlogPostContent } from "./BlogPostContent";
@@ -65,17 +65,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: seo.title,
       description: seo.description,
     },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        "max-image-preview": "large",
-        "max-snippet": -1,
-        "max-video-preview": -1,
-      },
-    },
+    /**
+     * Was a literal `index: true, follow: true` with the full `googleBot` block.
+     *
+     * This is the finding worth keeping: articles are the site's entire organic
+     * surface, and because a page-level `robots` beats the root layout's, fixing
+     * only the layout left all fifty-odd guides still asking to be indexed on a
+     * host that must not be. The build validator caught it — `/` and `/contact`
+     * had flipped to `noindex, nofollow` while these had not.
+     */
+    robots: INDEXABLE_ROBOTS,
   };
 }
 

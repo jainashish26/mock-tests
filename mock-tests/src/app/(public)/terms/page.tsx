@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LegalPage, LegalSection } from "@/components/legal/LegalPage";
-import { absoluteUrl, CONTACT, LEGAL_LAST_UPDATED, LEGAL_ROUTES, SITE_NAME } from "@/lib/seo/site-config";
+import { absoluteUrl, CONTACT, INDEXABLE_ROBOTS, LEGAL_LAST_UPDATED, LEGAL_ROUTES, SITE_NAME } from "@/lib/seo/site-config";
+import { ContactAction } from "@/components/legal/ContactChannel";
 
 const PATH = LEGAL_ROUTES.terms;
 const PAGE_TITLE = "Terms & Conditions of Use";
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
     title: PAGE_TITLE,
     description: PAGE_DESCRIPTION,
   },
-  robots: { index: true, follow: true },
+  robots: INDEXABLE_ROBOTS,
 };
 
 export default function TermsPage() {
@@ -85,7 +86,8 @@ export default function TermsPage() {
             responsible for activity that occurs under your account.
           </li>
           <li>
-            Tell us promptly at {CONTACT.supportEmail} if you suspect unauthorised access.
+            Tell us promptly — <ContactAction channel="support" /> — if you suspect unauthorised
+            access.
           </li>
           <li>One person may not share a single student profile between multiple children.</li>
         </ul>
@@ -126,9 +128,9 @@ export default function TermsPage() {
         <p>
           This is an unconditional promise, not a discretionary review. We do not require a reason, a
           form, evidence that you used the product, or a conversation about staying. You keep
-          whatever reports were generated during those 14 days. Email {CONTACT.supportEmail} with
-          your order reference and the refund is issued to the original payment method, normally
-          within five business days of the request.
+          whatever reports were generated during those 14 days.{' '}
+          <ContactAction channel="support" /> with your order reference and the refund is issued to
+          the original payment method, normally within five business days of the request.
         </p>
         <p>
           <strong>Why we can offer this on digital content.</strong> Practice material is normally
@@ -262,8 +264,9 @@ export default function TermsPage() {
 
       <LegalSection id="termination" title="14. Ending the agreement">
         <p>
-          You may stop using the service and request deletion of your account at any time by emailing{' '}
-          {CONTACT.privacyEmail}. Deletion is described in our Privacy Policy.
+          You may stop using the service and request deletion of your account at any time.{' '}
+          <ContactAction channel="privacy" /> to make that request. Deletion is described in our
+          Privacy Policy.
         </p>
         <p>
           We may suspend or terminate access for breach of these terms, for suspected fraud, or to
@@ -289,11 +292,20 @@ export default function TermsPage() {
 
       <LegalSection id="contact" title="17. Contact">
         <p>
-          Questions about these terms: <a href={'mailto:' + CONTACT.supportEmail}>{CONTACT.supportEmail}</a>
-          <br />
-          Privacy matters: <a href={'mailto:' + CONTACT.privacyEmail}>{CONTACT.privacyEmail}</a>
-          <br />
-          Or see our <Link href={LEGAL_ROUTES.contact}>contact page</Link> and{' '}
+          {CONTACT.supportEmail && (
+            <>
+              Questions about these terms:{" "}
+              <a href={'mailto:' + CONTACT.supportEmail}>{CONTACT.supportEmail}</a>
+              <br />
+            </>
+          )}
+          {CONTACT.privacyEmail && (
+            <>
+              Privacy matters: <a href={'mailto:' + CONTACT.privacyEmail}>{CONTACT.privacyEmail}</a>
+              <br />
+            </>
+          )}
+          See our <Link href={LEGAL_ROUTES.contact}>contact page</Link> and{' '}
           <Link href={LEGAL_ROUTES.privacy}>Privacy Policy</Link>.
         </p>
       </LegalSection>

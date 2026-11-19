@@ -148,11 +148,20 @@ export function Footer() {
                   <Link href={link.href} className={linkClass}>{link.label}</Link>
                 </li>
               ))}
-              <li>
-                <a href={'mailto:' + CONTACT.supportEmail} className={linkClass}>
-                  {CONTACT.supportEmail}
-                </a>
-              </li>
+              {/*
+                Only the address, never a second "Contact Us" entry — that link is
+                already in LEGAL_LINKS above, and until a mailbox is configured the
+                address is not something that can be advertised. The previous version
+                rendered a mailto: for a domain nobody owns in the one place every
+                page of the site shows it.
+              */}
+              {CONTACT.supportEmail && (
+                <li>
+                  <a href={'mailto:' + CONTACT.supportEmail} className={linkClass}>
+                    {CONTACT.supportEmail}
+                  </a>
+                </li>
+              )}
             </ul>
           </div>
         </div>

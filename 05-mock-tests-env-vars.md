@@ -23,6 +23,34 @@
   - Example: `https://yourdomain.com` (prod), `https://<vercel-preview>.vercel.app` (preview)
 - **Current production (deployed 2026-11-19):** `https://mock-tests-eight.vercel.app` — set as `APP_URL`, `NEXT_PUBLIC_APP_URL`, `QSTASH_BASE_CALLBACK_URL` in Vercel (production + preview), with `QSTASH_WRITING_EVAL_ENDPOINT=https://mock-tests-eight.vercel.app/api/jobs/writing-eval`.
 - `NEXT_PUBLIC_APP_URL` (**PUBLIC**) — Same as `APP_URL` but client-readable.
+- `NEXT_PUBLIC_SITE_URL` (**PUBLIC**, optional) — The permanent production origin
+  used for every canonical, OG URL, JSON-LD entity `url`, sitemap reference and
+  robots.txt `Host:`.
+  - Resolution order in `src/lib/seo/site-config.ts`: `NEXT_PUBLIC_SITE_URL` →
+    `NEXT_PUBLIC_APP_URL` → `NEXT_PUBLIC_VERCEL_URL` → `http://localhost:3000`.
+  - Leave unset until a real domain exists. It previously had no fallback through
+    `APP_URL`, which is how a never-purchased placeholder domain ended up in
+    production canonicals; see backlog item 21 / decision 11-B.
+  - **Setting it is also what switches proper indexing on.** It is not only a URL.
+- `NEXT_PUBLIC_INDEXABLE` (**PUBLIC**, optional) — `true`/`false` to force
+  indexability. **Leave unset** for the normal case, which derives it: a
+  `*.vercel.app` or loopback origin is noindexed and every `Disallow`s, any other
+  origin is indexable and serves a real sitemap. Derived rather than flagged so
+  the domain cutover cannot be half-done — the failure mode of a flag is a real
+  domain that silently stays out of the index.
+  - Current state (decision 11-B): deployed on `*.vercel.app`, therefore
+    **noindexed**. Vercel's automatic `x-robots-tag: noindex` covers preview
+    deployments only; a production deployment on `*.vercel.app` is indexable
+    unless the app says otherwise.
+- `SUPPORT_EMAIL` / `PRIVACY_EMAIL` (**PUBLIC**) — Real, monitored mailboxes.
+  Unset means unpublished: the Privacy Policy, Terms, footer, `/contact`, the
+  JSON-LD `contactPoint` and the outbound `From:` all route to the web form
+  instead, and `scripts/validate-seo.mjs` fails the build if the site ever
+  advertises an address that is not configured here. There is no default, because
+  the default was a mailbox that has never existed — and a privacy policy naming
+  an unreachable privacy contact is an Australian Privacy Principles problem
+  (APP 1.4).
+
 
 ### 1.2 Security & sessions
 > If you use Supabase Auth session cookies only, you may not need your own session secret. Keep these for server-side signing, state and encryption.

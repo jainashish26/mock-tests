@@ -1,4 +1,4 @@
-import { SITE_NAME } from '@/lib/seo/site-config';
+import { BRAND_HOST_LABEL, SITE_NAME } from '@/lib/seo/site-config';
 
 /**
  * Shared design for dynamically generated Open Graph images.
@@ -158,9 +158,26 @@ export function OgTemplate({ eyebrow, title, subtitle, author }: OgTemplateProps
         <div style={{ display: 'flex', color: '#94a3b8', fontSize: '22px' }}>
           {author ? author : 'NAPLAN · Selective · Scholarship · Years 3–8'}
         </div>
-        <div style={{ display: 'flex', color: '#64748b', fontSize: '22px' }}>
-          mocktestspro.com.au
-        </div>
+        {/*
+          Previously the literal `mocktestspro.com.au` — a placeholder domain from
+          the original brief that was never purchased. This is the one place the
+          address was rendered *to a person*: on an image that gets shared into
+          WhatsApp groups and Facebook feeds, where a dead domain is a card telling
+          a parent to go somewhere that does not resolve, and where they cannot
+          click it to find out.
+
+          It now prints the real hostname once one is configured, and nothing at
+          all until then. Nothing is the correct interim answer: the deployment's
+          `*.vercel.app` host is reachable but is not the brand, and printing a
+          hashed platform hostname on a marketing card would be its own kind of
+          fiction.
+        */}
+        {BRAND_HOST_LABEL && (
+          <div style={{ display: 'flex', color: '#64748b', fontSize: '22px' }}>
+            {BRAND_HOST_LABEL}
+          </div>
+        )}
+
       </div>
     </div>
   );

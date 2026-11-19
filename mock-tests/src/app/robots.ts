@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { SITE_URL } from '@/lib/seo/site-config';
+import { INDEXABLE, SITE_URL } from '@/lib/seo/site-config';
 
 /**
  * Routes that must never be crawled or indexed.
@@ -74,7 +74,27 @@ const SEARCH_CRAWLERS = [
   'Applebot',
 ];
 
+/**
+ * When the origin must not be indexed, the whole document inverts.
+ *
+ * A `robots.txt` that invites every crawler in and then relies on a per-page
+ * `noindex` is contradictory, and the contradiction has a cost: crawlers spend
+ * budget fetching pages that are then refused, and Google's own guidance is that
+ * `Disallow` alone does **not** keep a URL out of the index — it only stops it
+ * being crawled, so the noindex meta tag never gets read. Blocking everything
+ * here while also emitting `noindex` in the page metadata is the pair that works.
+ *
+ * The sitemap reference is dropped for the same reason: advertising a sitemap of
+ * noindexed URLs is asking to be crawled in order to be refused.
+ */
 export default function robots(): MetadataRoute.Robots {
+  if (!INDEXABLE) {
+    return {
+      rules: [{ userAgent: '*', disallow: '/' }, ...NO_CRAWL],
+      // No `sitemap` key. Next omits the directive when it is absent.
+    };
+  }
+
   return {
     rules: [
       {
@@ -98,3 +118,10 @@ export default function robots(): MetadataRoute.Robots {
     host: SITE_URL,
   };
 }
+
+/** Every named crawler, told to stay away. Only used on a non-indexable origin. */
+const NO_CRAWL = [...SEARCH_CRAWLERS, ...AI_CRAWLERS].map((userAgent) => ({
+  userAgent: [userAgent],
+  disallow: ['/'],
+}));
+

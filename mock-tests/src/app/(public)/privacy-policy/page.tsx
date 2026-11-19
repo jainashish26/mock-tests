@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LegalPage, LegalSection } from "@/components/legal/LegalPage";
-import { absoluteUrl, CONTACT, LEGAL_LAST_UPDATED, LEGAL_ROUTES, SITE_NAME } from "@/lib/seo/site-config";
+import { absoluteUrl, CONTACT, INDEXABLE_ROBOTS, LEGAL_LAST_UPDATED, LEGAL_ROUTES, SITE_NAME } from "@/lib/seo/site-config";
+import { ContactAction } from "@/components/legal/ContactChannel";
 
 const PATH = LEGAL_ROUTES.privacy;
 const PAGE_TITLE = "Privacy Policy: How We Handle Student & Parent Data";
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
     title: PAGE_TITLE,
     description: PAGE_DESCRIPTION,
   },
-  robots: { index: true, follow: true },
+  robots: INDEXABLE_ROBOTS,
 };
 
 /**
@@ -162,7 +163,7 @@ export default function PrivacyPolicyPage() {
         </ol>
         <p>
           If you believe a child has given us personal information without a parent or guardian
-          registering the account, email {CONTACT.privacyEmail} and we will remove it.
+          registering the account, <ContactAction channel="privacy" /> and we will remove it.
         </p>
       </LegalSection>
 
@@ -178,8 +179,9 @@ export default function PrivacyPolicyPage() {
         </p>
         <p>
           If you would prefer your child not to use AI-marked writing tasks, you can disable or
-          avoid the writing component and still use the multiple-choice practice tests. Contact us
-          at {CONTACT.privacyEmail} if you would like this arranged for an existing account.
+          avoid the writing component and still use the multiple-choice practice tests.{' '}
+          <ContactAction channel="privacy" /> if you would like this arranged for an existing
+          account.
         </p>
       </LegalSection>
       <LegalSection id="sharing" title="Who we share information with">
@@ -276,9 +278,9 @@ export default function PrivacyPolicyPage() {
           <li><strong>Object or restrict</strong> particular processing, including AI marking of writing</li>
         </ul>
         <p>
-          Send requests to {CONTACT.privacyEmail}. To protect student data we will verify that the
-          request comes from the parent or guardian who registered the account before we act on it.
-          We aim to respond within 30 days.
+          <ContactAction channel="privacy" /> to make a request. To protect student data we will
+          verify that the request comes from the parent or guardian who registered the account
+          before we act on it. We aim to respond within 30 days.
         </p>
         <p>
           Many requests can also be handled directly in the product: parents can manage linked
@@ -296,8 +298,9 @@ export default function PrivacyPolicyPage() {
 
       <LegalSection id="complaints" title="Complaints">
         <p>
-          If you believe we have breached the Australian Privacy Principles, email{' '}
-          {CONTACT.privacyEmail} with the details and we will investigate and reply in writing.
+          If you believe we have breached the Australian Privacy Principles,{' '}
+          <ContactAction channel="privacy" /> with the details and we will investigate and reply in
+          writing.
         </p>
         <p>
           If you are not satisfied with our response, you can complain to the{' '}
@@ -318,11 +321,26 @@ export default function PrivacyPolicyPage() {
 
       <LegalSection id="contact" title="Contact us">
         <p>
-          Privacy enquiries: <a href={'mailto:' + CONTACT.privacyEmail}>{CONTACT.privacyEmail}</a>
-          <br />
-          General support: <a href={'mailto:' + CONTACT.supportEmail}>{CONTACT.supportEmail}</a>
-          <br />
-          Or use our <Link href={LEGAL_ROUTES.contact}>contact page</Link>.
+          {CONTACT.privacyEmail && (
+            <>
+              Privacy enquiries: <a href={'mailto:' + CONTACT.privacyEmail}>{CONTACT.privacyEmail}</a>
+              <br />
+            </>
+          )}
+          {CONTACT.supportEmail && (
+            <>
+              General support: <a href={'mailto:' + CONTACT.supportEmail}>{CONTACT.supportEmail}</a>
+              <br />
+            </>
+          )}
+          {/*
+            Always rendered, and no longer introduced as an alternative ("Or ...").
+            Until a mailbox exists this is not the second-best route to a human — it
+            is the only one, and it is the one that actually records the request.
+          */}
+          Use our <Link href={LEGAL_ROUTES.contact}>contact page</Link>. Every message sent that
+          way is logged with a reference number and a response clock, so it cannot be lost the way
+          an email in a shared inbox can.
         </p>
         <p>
           See also our <Link href={LEGAL_ROUTES.terms}>Terms &amp; Conditions</Link> and{' '}

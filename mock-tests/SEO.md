@@ -246,26 +246,43 @@ Ordered by impact. Items 1-4 from the original audit are now closed (see
    `SOCIAL_PROFILES` in `site-config.ts` and `SOCIAL_LINKS` in
    `components/layout/Footer.tsx` — both are intentionally empty rather than
    pointing at `href="#"`.
-2. **Contact mailboxes must be real.** `CONTACT.supportEmail` and
-   `CONTACT.privacyEmail` are `support@` / `privacy@mocktestspro.com.au`. The
-   Privacy Policy names them, so they must be monitored before launch.
-3. **Legal pages need review by a lawyer.** `/privacy-policy` and `/terms` are
+2. **Contact mailboxes must be configured, not hardcoded.** Now closed as a
+   correctness issue and open as a business one: `CONTACT.supportEmail` and
+   `CONTACT.privacyEmail` read `SUPPORT_EMAIL` / `PRIVACY_EMAIL` and have **no
+   default**. They previously hardcoded `support@` / `privacy@mocktestspro.com.au`
+   — a domain that was never purchased — into the Privacy Policy, the Terms, the
+   footer, `/contact`, the JSON-LD `contactPoint` and the outbound `From:`
+   address. With nothing configured, every one of those surfaces now points at
+   the `/contact` web form (migration 103), which is the channel that actually
+   works and produces a tracked enquiry with a response clock. Set the two
+   variables when real mailboxes exist and they reappear automatically.
+3. **The production origin is noindexed, deliberately.** Deployed on
+   `*.vercel.app`, so `INDEXABLE` is false: every page emits `noindex, nofollow`,
+   `robots.txt` serves `Disallow: /` to all 28 named crawlers, and `sitemap.xml`
+   is an empty `<urlset>` with no `Sitemap:` reference. This is decision 11-B and
+   it is **not a defect** — it exists so the throwaway host never enters the index
+   and needs unwinding by 301s later. **It flips itself off the moment
+   `NEXT_PUBLIC_SITE_URL` is set to a real domain**; no flag to remember, no code
+   to change. Follow-up at that point: register the sitemap in Search Console,
+   add the domain to Supabase Auth redirects and Resend verified senders, and 301
+   the `*.vercel.app` origin. Full checklist in `16-delivery-backlog.md`, item 21.
+4. **Legal pages need review by a lawyer.** `/privacy-policy` and `/terms` are
    accurate to the real stack (Supabase, Stripe, Vercel, Upstash QStash,
    SendGrid, Google OAuth, DeepSeek) and reference the APPs, the Notifiable
    Data Breaches scheme and Australian Consumer Law — but they are a strong
    starting draft, not legal advice.
-4. **DeepSeek processes student writing.** The Privacy Policy discloses this
+5. **DeepSeek processes student writing.** The Privacy Policy discloses this
    plainly. For an Australian product handling children's data, confirm the
    provider's terms and data-residency position, and consider whether an
    AU-hosted alternative is preferable.
-5. **Home page is a client component** (`src/app/page.tsx`). It cannot export
+6. **Home page is a client component** (`src/app/page.tsx`). It cannot export
    `metadata`, so it inherits the root layout defaults, and its test list is
    fetched client-side from Supabase (not in the initial HTML). Converting it to
    a server component with a client island would let it carry its own schema and
    server-rendered content.
-6. **Third-party brand mentions** (Reddit, Quora, education forums) are off-page
+7. **Third-party brand mentions** (Reddit, Quora, education forums) are off-page
    work and cannot be done in code — but they are a real GEO ranking factor.
-7. **Original research** would strengthen authority considerably. The platform
+8. **Original research** would strengthen authority considerably. The platform
    already collects attempt data; publishing an annual aggregated report (e.g.
    "How Australian students perform on NAPLAN numeracy by year level") would
    create a citable primary source that AI engines actively look for.

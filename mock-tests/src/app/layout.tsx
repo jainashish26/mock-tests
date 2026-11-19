@@ -5,6 +5,7 @@ import { siteGraph } from "@/lib/seo/schema";
 import {
   absoluteUrl,
   DEFAULT_OG_IMAGE,
+  INDEXABLE_ROBOTS,
   LOCALE,
   SITE_NAME,
   SITE_TAGLINE,
@@ -88,17 +89,16 @@ export const metadata: Metadata = {
     images: [DEFAULT_OG_IMAGE],
   },
   ...(SOCIAL_PROFILES.length > 0 ? { other: { sameAs: SOCIAL_PROFILES } } : {}),
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
+  /**
+   * Indexability of every page that does not override it.
+   *
+   * The constant lives in `site-config.ts` rather than here because six pages
+   * override `robots` at the page level, and a page-level declaration wins over
+   * this one — so the layout alone can never be the place the decision is made.
+   * See `INDEXABLE_ROBOTS` for the full history, including how the blog articles
+   * stayed indexable after this line was changed and what caught it.
+   */
+  robots: INDEXABLE_ROBOTS,
   formatDetection: {
     telephone: false,
     address: false,

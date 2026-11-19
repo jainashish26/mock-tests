@@ -16,6 +16,53 @@ APP_ENV="development"   # development | staging | production
 APP_URL="http://localhost:3000"
 NEXT_PUBLIC_APP_URL="http://localhost:3000"
 
+# ---------- Site origin, indexability and contact channels ----------
+# Read by src/lib/seo/site-config.ts. These four decide every canonical tag,
+# Open Graph URL, JSON-LD `url`, robots.txt, sitemap.xml and llms.txt the build
+# emits, plus whether the site asks to be indexed at all.
+#
+# ⚠ WHY NEXT_PUBLIC_SITE_URL EXISTS SEPARATELY FROM NEXT_PUBLIC_APP_URL
+#   Until 2026-11-20 site-config read ONLY NEXT_PUBLIC_SITE_URL — a variable no
+#   environment ever set — while every environment set NEXT_PUBLIC_APP_URL. The
+#   mismatch was invisible because the fallback chain ended in a hardcoded
+#   `https://mocktestspro.com.au`, a placeholder from the original brief that was
+#   never purchased. Production therefore published canonicals, OG URLs,
+#   structured data and a robots.txt `Host:` for a domain that does not resolve,
+#   and scripts/validate-seo.mjs asserted that literal, so it was not a gap in
+#   coverage but an active guard against fixing it.
+#
+#   The chain now falls back through APP_URL and Vercel's own VERCEL_URL, so
+#   setting SITE_URL is optional. Set it to the permanent production domain once
+#   one is bought — and note that doing so also switches indexing on by itself.
+#   Leave empty for local development and for the current *.vercel.app deploy.
+NEXT_PUBLIC_SITE_URL=""
+
+# Leave empty for automatic behaviour, which is what this deployment wants:
+# a `*.vercel.app` or loopback origin is NOT indexed, any other origin IS.
+# Indexing therefore turns on the moment a real domain is configured, with
+# nothing to remember to flip. Set "true" or "false" only to override that —
+# for instance to keep a staging domain out of the index.
+#
+# Why it has to be the app's decision: Vercel's automatic `x-robots-tag: noindex`
+# covers *preview* deployments only. A production deployment served from
+# *.vercel.app is indexable unless the app says otherwise, and this app currently
+# is one. See backlog item 21 / decision 11-B for the plan to retire this once the
+# domain exists.
+NEXT_PUBLIC_INDEXABLE=""
+
+# Real, monitored mailboxes. Both are unpublished until they are real: the
+# privacy policy, the terms, the footer, /contact, the JSON-LD contactPoint and
+# the outbound `From:` address all fall back to the web form when unset, and
+# scripts/validate-seo.mjs fails the build if the site ever advertises an address
+# that is not configured here.
+#
+# A privacy policy naming an unreachable privacy contact is an Australian Privacy
+# Principles problem (APP 1.4), which is why there is no default any more rather
+# than a placeholder. Set these when the domain and mailboxes exist.
+SUPPORT_EMAIL=""
+PRIVACY_EMAIL=""
+
+
 # Optional server-side crypto/session (recommended)
 SESSION_SECRET=""
 APP_ENCRYPTION_KEY=""
@@ -125,10 +172,18 @@ SENDGRID_FROM_NAME=""
 # the rendered message instead of sending it. That keeps `next build` green and
 # lets the whole lifecycle be exercised locally without a mail account.
 RESEND_API_KEY=""
-# From address. Must be a domain verified in Resend. Defaults to
-# "MockTests Pro <support@mocktestspro.com.au>" from src/lib/seo/site-config.ts.
+# From address. Must be a domain verified in Resend.
+#
+# There is no default since 2026-11-20. It used to fall back to
+# "MockTests Pro <support@mocktestspro.com.au>", an address on a domain that was
+# never bought — so the sender could not be verified by Resend, and a parent who
+# replied was writing into nothing. Now, if neither EMAIL_FROM nor SUPPORT_EMAIL
+# is set, resolveEmailProvider() returns `console` and nothing is sent: the
+# honest answer to "this deployment cannot send mail" instead of a message that
+# is guaranteed to fail at the transport.
 EMAIL_FROM=""
-# Where replies land. Defaults to CONTACT.supportEmail.
+# Where replies land. Defaults to SUPPORT_EMAIL, and is omitted from the message
+# entirely when no mailbox is configured.
 EMAIL_REPLY_TO=""
 
 # ---------- Funnel instrumentation + lifecycle worker ----------

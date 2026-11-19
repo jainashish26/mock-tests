@@ -1,4 +1,4 @@
-import { CONTACT, SITE_NAME } from '@/lib/seo/site-config'
+import { CONTACT, LEGAL_ROUTES, SITE_NAME } from '@/lib/seo/site-config'
 import {
   callout,
   ctaButton,
@@ -471,7 +471,7 @@ function guaranteeCallout(guaranteeDays: number, childLabel: string): string {
 ${guaranteeDays}-day money-back guarantee
 </div>
 <div style="font-size:13px;color:${MUTED};line-height:1.6;">
-Use it properly for ${guaranteeDays} days. If ${esc(childLabel)}'s scores have not moved, or you simply decide it is not right for your family, email ${esc(CONTACT_SUPPORT)} and we refund the full amount &mdash; no form, no interrogation, no asking you to stay. The full policy is in the <a href="${esc(link('/terms'))}" style="color:${MUTED};">refunds section of our terms</a>.
+Use it properly for ${guaranteeDays} days. If ${esc(childLabel)}'s scores have not moved, or you simply decide it is not right for your family, ${supportAskHtml()} and we refund the full amount &mdash; no form, no interrogation, no asking you to stay. The full policy is in the <a href="${esc(link('/terms'))}" style="color:${MUTED};">refunds section of our terms</a>.
 </div>
 `, SUCCESS)
 }
@@ -493,8 +493,37 @@ ${days === 0 ? 'Today is the last day.' : `${days} ${days === 1 ? 'day' : 'days'
 `, DANGER)
 }
 
-/** Support address, sourced from site-config so it cannot drift from /contact. */
+/**
+ * Support address, sourced from site-config so it cannot drift from /contact.
+ *
+ * Nullable since 2026-11-20, because the address it used to hold was a hardcoded
+ * `support@mocktestspro.com.au` on an unpurchased domain — which meant the
+ * money-back guarantee in the highest-intent email the lifecycle sends told
+ * families to write to a mailbox that has never existed.
+ */
 const CONTACT_SUPPORT = CONTACT.supportEmail
+
+/**
+ * The ask, phrased for the channel that actually exists. HTML fragment.
+ *
+ * "contact us" rather than a dead mailto is the whole point, and the two
+ * branches must produce a sentence the reader can act on: the refund promise is
+ * the reason this email gets opened, and an instruction that cannot be followed
+ * turns a guarantee into a complaint.
+ */
+function supportAskHtml(): string {
+  return CONTACT_SUPPORT
+    ? `email ${esc(CONTACT_SUPPORT)}`
+    : `<a href="${esc(link(LEGAL_ROUTES.contact))}" style="color:${MUTED};">contact us</a>`
+}
+
+/** The same ask for the plain-text alternative part. */
+function supportAskText(): string {
+  return CONTACT_SUPPORT
+    ? `email ${CONTACT_SUPPORT}`
+    : `contact us via ${link(LEGAL_ROUTES.contact)}`
+}
+
 
 
 /** Build the step-7 offer email. See the block comment above for the reasoning. */
@@ -582,7 +611,7 @@ Secure checkout by Stripe &middot; Card, Apple Pay, Google Pay and Afterpay acce
       '',
       `${input.guaranteeDays}-DAY MONEY-BACK GUARANTEE`,
       `Use it properly for ${input.guaranteeDays} days. If ${input.childLabel}'s scores have not moved,`,
-      `or you decide it is not right, email ${CONTACT_SUPPORT} and we refund the full amount.`,
+      `or you decide it is not right, ${supportAskText()} and we refund the full amount.`,
       '',
       `This price closes ${formatDeadline(input.expiresAt)}.`,
       '',

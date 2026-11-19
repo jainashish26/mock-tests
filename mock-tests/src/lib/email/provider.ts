@@ -25,32 +25,54 @@ import { CONTACT, SITE_NAME } from '@/lib/seo/site-config'
 /** Provider selection. `console` is the zero-config development fallback. */
 export type EmailProvider = 'resend' | 'console'
 
+/**
+ * Resend is only usable when BOTH the key and a sender address exist.
+ *
+ * Checking the key alone was wrong while the sender had a hardcoded fictional
+ * default, and it is wrong now that the default is gone: a configured key with no
+ * resolvable `From:` is a guaranteed 4xx from Resend's API, because the domain
+ * cannot be verified. Falling back to `console` means that misconfiguration
+ * degrades the same way every other unconfigured integration in this repo does —
+ * the message is logged and the run continues — instead of failing every
+ * lifecycle email at the transport for a reason the log would obscure.
+ *
+ * `isEmailConfigured()` is the health check, so it inherits the same rule and
+ * reports the honest answer: this deployment cannot send mail.
+ */
 export function resolveEmailProvider(): EmailProvider {
-  return process.env.RESEND_API_KEY?.trim() ? 'resend' : 'console'
+  return process.env.RESEND_API_KEY?.trim() && resolveFromAddress() ? 'resend' : 'console'
 }
+
 
 export function isEmailConfigured(): boolean {
   return resolveEmailProvider() === 'resend'
 }
 
 /**
- * From address.
+ * From address. `null` when nothing usable is configured.
  *
- * Falls back to the support mailbox already declared in `site-config.ts` so the
- * sender can never disagree with the address published in the Privacy Policy -
- * a mismatch there is both confusing for parents and an Australian Privacy
- * Principle problem.
+ * Used to fall back to `CONTACT.supportEmail`, which was a hardcoded
+ * `support@mocktestspro.com.au` on a domain nobody owns — so every outbound
+ * lifecycle email was addressed `From:` a mailbox that cannot receive, and
+ * Resend would have rejected it outright for failing domain verification. That
+ * coupling was deliberate and is documented in `site-config.ts`: the sender must
+ * never disagree with the address published in the Privacy Policy, because a
+ * mismatch is both confusing for parents and an Australian Privacy Principle
+ * problem. The right response to that rule is for both to go unset together,
+ * which is what happens now — not for the policy to name a dead address and the
+ * mailer to send from it.
  */
-export function resolveFromAddress(): string {
+export function resolveFromAddress(): string | null {
   const custom = process.env.EMAIL_FROM?.trim()
   if (custom) return custom
-  return `${SITE_NAME} <${CONTACT.supportEmail}>`
+  return CONTACT.supportEmail ? `${SITE_NAME} <${CONTACT.supportEmail}>` : null
 }
 
 /** Reply-To, so a parent who hits reply reaches a monitored mailbox. */
-export function resolveReplyTo(): string {
+export function resolveReplyTo(): string | null {
   return process.env.EMAIL_REPLY_TO?.trim() || CONTACT.supportEmail
 }
+
 
 export interface SendEmailInput {
   to: string
@@ -149,6 +171,8 @@ async function sendViaResend(
   const apiKey = process.env.RESEND_API_KEY?.trim()
   if (!apiKey) return { error: 'RESEND_API_KEY is not set' }
 
+  const replyTo = input.replyTo ?? resolveReplyTo()
+
   const body = {
     from,
     to: [input.to],
@@ -157,7 +181,12 @@ async function sendViaResend(
     // A text part is not optional in practice: clients that strip HTML and spam
     // filters both penalise HTML-only mail.
     text: input.text ?? stripToText(input.html),
-    reply_to: input.replyTo ?? resolveReplyTo(),
+    // Omitted entirely when there is no mailbox to reply to. Sending
+    // `reply_to: null` is accepted, but a *blank* one from a template string
+    // would be the kind of silently-wrong value that makes a parent's reply
+    // bounce — and right now no address is configured, so this is the normal
+    // path, not the edge case.
+    ...(replyTo ? { reply_to: replyTo } : {}),
     headers: {
       // One-click unsubscribe is required by Gmail and Yahoo for bulk senders,
       // and it is the difference between an unsubscribe and a spam complaint.
@@ -290,18 +319,38 @@ export async function sendEmail(input: SendEmailInput): Promise<SendEmailResult>
   // Development without credentials: print the message instead of failing, so
   // the whole lifecycle can be exercised locally.
   if (provider === 'console') {
+    // The reason is distinguished because the two causes look identical from
+    // here and are not: "no key yet" is the expected local state, whereas
+    // "key present but no sender configured" is a production misconfiguration
+    // that would otherwise log as anodyne and stay broken.
+    const reason = !process.env.RESEND_API_KEY?.trim()
+      ? 'no RESEND_API_KEY'
+      : 'no sender address (set EMAIL_FROM or SUPPORT_EMAIL)'
     logger.info('[email] console delivery', {
       to: input.to,
       subject: input.subject,
       template: input.template,
+      reason,
       text: (input.text ?? stripToText(input.html)).slice(0, 500),
     })
-    await recordDeliveryOutcome(input, { status: 'SKIPPED', error: 'console provider' })
+    await recordDeliveryOutcome(input, { status: 'SKIPPED', error: `console provider: ${reason}` })
     return { ok: true, skipped: false, provider }
   }
 
+  // resolveEmailProvider() already requires a From address for the 'resend'
+  // branch, so reaching here without one means the two checks have drifted apart.
+  // Guarded rather than trusted, because the failure it prevents is a runtime
+  // TypeError inside a fire-and-forget worker.
+  const fromAddress = resolveFromAddress()
+  if (!fromAddress) {
+    const message = 'no sender address configured (set EMAIL_FROM or SUPPORT_EMAIL)'
+    await recordDeliveryOutcome(input, { status: 'FAILED', error: message })
+    logger.error('EMAIL_NO_SENDER', '[email] provider selected without a From address', message)
+    return { ok: false, skipped: false, provider, error: message }
+  }
+
   try {
-    const outcome = await sendViaResend(input, resolveFromAddress())
+    const outcome = await sendViaResend(input, fromAddress)
     if (outcome.error) {
       await recordDeliveryOutcome(input, { status: 'FAILED', error: outcome.error })
       logger.error('EMAIL_SEND', '[email] provider rejected the message', outcome.error)

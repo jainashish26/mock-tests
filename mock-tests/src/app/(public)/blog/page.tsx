@@ -10,7 +10,7 @@ import { BLOG_CATEGORIES, deriveCategory } from '@/lib/seo/categories';
 import { toIsoDate } from '@/lib/seo/content-utils';
 import { toBlogCard } from '@/lib/seo/post-seo';
 import { blogCollectionGraph } from '@/lib/seo/schema';
-import { absoluteUrl, SITE_NAME } from '@/lib/seo/site-config';
+import { absoluteUrl, INDEXABLE_ROBOTS, SITE_NAME } from '@/lib/seo/site-config';
 
 /**
  * Blog index.
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     title: PAGE_TITLE,
     description: PAGE_DESCRIPTION,
   },
-  robots: { index: true, follow: true },
+  robots: INDEXABLE_ROBOTS,
 };
 export default function BlogPage() {
   // Slim cards only - article bodies stay on the server.

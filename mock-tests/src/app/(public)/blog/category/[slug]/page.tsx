@@ -9,7 +9,7 @@ import { BLOG_CATEGORIES, getCategoryBySlug } from '@/lib/seo/categories';
 import { getPostsByCategory } from '@/data/blog-posts';
 import { toBlogCard } from '@/lib/seo/post-seo';
 import { blogCollectionGraph, breadcrumbSchema } from '@/lib/seo/schema';
-import { absoluteUrl, SITE_NAME } from '@/lib/seo/site-config';
+import { absoluteUrl, INDEXABLE_ROBOTS, SITE_NAME } from '@/lib/seo/site-config';
 
 /**
  * Category hub pages.
@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
     },
     twitter: { card: 'summary_large_image', title, description },
-    robots: { index: true, follow: true },
+    robots: INDEXABLE_ROBOTS,
   };
 }
 export default async function BlogCategoryPage({ params }: Props) {

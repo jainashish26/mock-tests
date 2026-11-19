@@ -6,6 +6,8 @@ import { faqPageSchema, contactPageGraph } from "@/lib/seo/schema";
 import {
   absoluteUrl,
   CONTACT,
+  HAS_EMAIL_CONTACT,
+  INDEXABLE_ROBOTS,
   LEGAL_LAST_UPDATED,
   LEGAL_ROUTES,
   SITE_NAME,
@@ -26,7 +28,7 @@ export const metadata: Metadata = {
     title: PAGE_TITLE,
     description: PAGE_DESCRIPTION,
   },
-  robots: { index: true, follow: true },
+  robots: INDEXABLE_ROBOTS,
 };
 
 const CONTACT_FAQ = [
@@ -43,12 +45,16 @@ const CONTACT_FAQ = [
   {
     question: "How do I request a copy or deletion of my data?",
     answer:
-      "Send us the form above or email " + CONTACT.privacyEmail + ". You can request access to, correction of, or deletion of your personal information and your child's account data. See our privacy policy for the full list of rights and how we handle requests.",
+      "Send us the form above" +
+      (CONTACT.privacyEmail ? " or email " + CONTACT.privacyEmail : "") +
+      ". You can request access to, correction of, or deletion of your personal information and your child's account data. See our privacy policy for the full list of rights and how we handle requests.",
   },
   {
     question: "Do you offer refunds?",
     answer:
-      "Yes - a 14-day money-back guarantee on every purchase, for any reason. Send us the form above or an email to " + CONTACT.supportEmail + " with your order reference within 14 days of purchase and we refund it in full. No explanation required, and you keep any reports generated in the meantime. Subscriptions can also be paused or cancelled at any time from the billing portal. Full wording is in the refunds section of our terms.",
+      "Yes - a 14-day money-back guarantee on every purchase, for any reason. Send us the form above" +
+      (CONTACT.supportEmail ? " or an email to " + CONTACT.supportEmail : "") +
+      " with your order reference within 14 days of purchase and we refund it in full. No explanation required, and you keep any reports generated in the meantime. Subscriptions can also be paused or cancelled at any time from the billing portal. Full wording is in the refunds section of our terms.",
   },
   {
     question: "Are the practice tests aligned to the Australian Curriculum?",
@@ -56,6 +62,21 @@ const CONTACT_FAQ = [
       "Yes. Practice content is aligned to the Australian Curriculum and mirrors the format of NAPLAN Online. Our editorial process is described in the privacy policy and on our about page.",
   },
 ];
+
+/**
+ * "email X" / "send us the form", phrased for whichever channels exist.
+ *
+ * Both branches have to read as finished sentences, because this page is one of
+ * the trust signals Google and parents check, and copy that visibly assumes a
+ * mailbox the site does not have is worse than copy that never mentions one.
+ */
+function contactVia(channel: 'support' | 'privacy'): string {
+  const address = channel === 'support' ? CONTACT.supportEmail : CONTACT.privacyEmail;
+  return address
+    ? 'email ' + address
+    : 'send us the form above';
+}
+
 
 export default function ContactPage() {
   const url = absoluteUrl(PATH);
@@ -110,32 +131,45 @@ export default function ContactPage() {
         />
       </LegalSection>
 
-      <LegalSection id="email-us" title="Email us directly">
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">For</th>
-              <th scope="col">Email</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Practice tests, accounts, billing, technical problems</td>
-              <td><a href={'mailto:' + CONTACT.supportEmail}>{CONTACT.supportEmail}</a></td>
-            </tr>
-            <tr>
-              <td>Privacy requests, data access, deletion, children&apos;s data</td>
-              <td><a href={'mailto:' + CONTACT.privacyEmail}>{CONTACT.privacyEmail}</a></td>
-            </tr>
-          </tbody>
-        </table>
-        <p>
-          A privacy or deletion request is best sent from the address registered on
-          the parent account, so we can verify who is asking. We reply within{" "}
-          {CONTACT.responseTime}. We are based in {CONTACT.country} and answer in
-          English.
-        </p>
-      </LegalSection>
+      {/*
+        Rendered only when at least one real mailbox is configured. Until then the
+        form above is the whole of the support channel, and this section would
+        otherwise be a table of dead links - the previous behaviour, which published
+        two addresses on a domain nobody owns. The heading, the table and the closing
+        paragraph all disappear together rather than leaving an empty shell.
+      */}
+      {HAS_EMAIL_CONTACT && (
+        <LegalSection id="email-us" title="Email us directly">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">For</th>
+                <th scope="col">Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              {CONTACT.supportEmail && (
+                <tr>
+                  <td>Practice tests, accounts, billing, technical problems</td>
+                  <td><a href={'mailto:' + CONTACT.supportEmail}>{CONTACT.supportEmail}</a></td>
+                </tr>
+              )}
+              {CONTACT.privacyEmail && (
+                <tr>
+                  <td>Privacy requests, data access, deletion, children&apos;s data</td>
+                  <td><a href={'mailto:' + CONTACT.privacyEmail}>{CONTACT.privacyEmail}</a></td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+          <p>
+            A privacy or deletion request is best sent from the address registered on
+            the parent account, so we can verify who is asking. We reply within{' '}
+            {CONTACT.responseTime}. We are based in {CONTACT.country} and answer in
+            English.
+          </p>
+        </LegalSection>
+      )}
 
       <LegalSection id="privacy-requests" title="Privacy and children&apos;s data">
         <div className="notice">
@@ -143,7 +177,7 @@ export default function ContactPage() {
             <strong>Parents and guardians:</strong> student accounts are created and managed by a
             parent or guardian. Students sign in with a system-generated pseudonymous username
             rather than their real name. To request access to, correction of, or deletion of your
-            child&apos;s data, email {CONTACT.privacyEmail} from the address registered on the
+            child&apos;s data, {contactVia('privacy')} from the address registered on the
             parent account so we can verify you are authorised to act.
           </p>
         </div>

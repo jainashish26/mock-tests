@@ -949,6 +949,134 @@
 >    14–16 (Stripe revenue), which is the largest remaining block now D-C is
 >    declared.
 
+> ### ✅ Item 21 — the eleven open business questions, answered (2026-11-20)
+>
+> Every one of these was blocking at least one estimated task, and none of them
+> cost engineering time to settle. Recorded here because the answers are now
+> load-bearing: code, config and later estimates all read off this table.
+>
+> | # | Question | **Decision** | What it commits to |
+> |---|---|---|---|
+> | **1** | Is the SLA clock calendar or business days? | **B — business days.** Sub-decision **1a**: due at the *close of the next business day*, which needs only a holiday calendar, not an opening-hours window. | New `reporting.dim_public_holiday_vic`; `sla_basis='business_day'`; `business_day_deadline()`; `sla_state` gains an `unknown_calendar` state so a missing holiday year refuses to compute rather than guessing. **D2 below is now load-bearing.** |
+> | **2** | May a converted enquiry point at a non-`purchases` order? | **A — yes.** Relax `enquiries_converted_has_order` and add `converted_ref`. | One migration of its own; subscription payments create no `purchases` row, so the current CHECK makes "converted" unreachable for the majority of revenue. |
+> | **3** | Inbound email channel? | **A — Resend inbound, built dormant.** | Needs a real domain to enable (see 11), so it ships dark: schema + route scaffold, no public promise of an address that does not exist. |
+> | **4** | Per-year test/question ceilings? | **A — 10/15/15/15/20/20/25/25 tests for Years 2–9, questions = tests × 25**, as a **ceiling**, with a separate **recommended target** of at least 2 tests/day. Stored in DB, not env vars. | `dim_year_level_cap` gains the recommended column; seeded from versioned SQL; editable at `/admin/settings`. Ceiling enforced, target advisory — the two must never be conflated in a report. |
+> | **5** | Adaptive engine? | **B — yes, roadmap.** | A design note, not code this quarter. |
+> | **6** | VC2 skill dependency? | **C — retired.** Keep A-9's assumed mapping. | Migration `026` dropped VC2; only `dim_skill_area` exists. Removes the "biggest schedule risk" claim from the roadmap. |
+> | **7** | Skill → exam mapping for A-9? | **A — invent it as config, labelled editorial and unvalidated.** | `skill_exam_mapping` table, 11 proposed rows, reviewed before ship. The label is the guarantee: a derived mapping presented as fact is how an unvalidated number becomes a parental decision. |
+> | **8** | Q-11 identifier collisions? | **B — renumber.** | Documentation only; zero risk, and it stops two different questions sharing a tag in the same file. |
+> | **9** | Checkout-abandon window? | **A — 60 minutes.** | `funnel.checkout_abandon_minutes` is currently NULL, so abandonment has been unmeasurable. |
+> | **10** | Paywall threshold? | **A — stays 2 in code.** | D-E in §2 closes; no change, one fewer open question. |
+> | **11** | Domain / productionisation? | **B — stay on the Vercel URL.** Retire the fictional addresses in favour of the new working form. | **Built.** Noindex on `*.vercel.app`, dead `mocktestspro.com.au` contact addresses deleted, `NEXT_PUBLIC_SITE_URL` mismatch fixed (D1). |
+>
+> #### Two defects found while grounding these answers, not while fixing them
+>
+> **D1 — the SEO origin was unreachable by configuration, and the validator
+> enforced it.** `site-config.ts` read `NEXT_PUBLIC_SITE_URL`; every environment
+> sets `APP_URL`/`NEXT_PUBLIC_APP_URL`. The variable named in the code existed
+> nowhere, so the fallback chain always landed on a hardcoded
+> `https://mocktestspro.com.au` — a placeholder domain from the original brief
+> that was **never purchased**. Production was emitting canonicals, OG URLs,
+> JSON-LD entity URLs, a sitemap reference and a robots.txt `Host:` for a domain
+> that does not resolve. `scripts/validate-seo.mjs` asserted that literal in five
+> places, so the one check positioned to notice was positioned to *prevent*
+> noticing: any build emitting the real origin would have failed.
+>
+> The same addresses were the **default outbound `From:`** in
+> `lib/email/provider.ts`. Not cosmetic: Resend cannot verify a domain nobody
+> owns, so the promise in the highest-intent lifecycle email — the 14-day
+> money-back guarantee — told families to write to a mailbox that has never
+> existed, and a privacy policy naming an unreachable privacy contact is an
+> Australian Privacy Principles problem (APP 1.4).
+>
+> **D2 — `reporting.dim_date.is_vic_public_holiday` is false for all 2,557 rows**
+> and `is_school_term` true for all of them: column defaults that were never
+> populated. Harmless while nothing read them. Decision 1 makes the holiday
+> calendar load-bearing for a customer-facing SLA promise, so a business-day clock
+> built on that column would have treated ANZAC Day and Christmas as ordinary
+> Tuesdays. Fixed by a dedicated, provenanced holiday table rather than by
+> back-filling a date dimension whose other consumers do not expect it to change.
+>
+> #### 11-B, as built — and the part that is not a switch
+>
+> Indexing is **derived from the origin, not flagged**, so the eventual domain
+> cutover cannot be forgotten:
+>
+> - `SITE_URL` now resolves `NEXT_PUBLIC_SITE_URL` → `NEXT_PUBLIC_APP_URL` →
+>   Vercel's own `NEXT_PUBLIC_VERCEL_URL` → `http://localhost:3000`. The last
+>   resort is loopback on purpose: a canonical pointing at localhost in a
+>   production build is *loudly* wrong and gets fixed, while one pointing at a
+>   plausible-looking dead domain looks fine forever.
+> - `INDEXABLE` is false for a `*.vercel.app` or loopback origin and true for any
+>   other host, overridable with `NEXT_PUBLIC_INDEXABLE`. **Setting
+>   `NEXT_PUBLIC_SITE_URL` to the real domain therefore turns proper indexing on
+>   by itself** — which is the production item below.
+> - Why the app must decide at all: Vercel's automatic `x-robots-tag: noindex`
+>   covers *preview* deployments only. A **production** deployment served from
+>   `*.vercel.app` is fully indexable unless the app says otherwise, and this app
+>   is deployed to production on exactly such a host.
+> - `robots.txt` inverts to `Disallow: /` for every named crawler and drops the
+>   sitemap reference; `sitemap.xml` returns an empty `<urlset>`. Both matter:
+>   `Disallow` alone does not keep a URL out of the index (the noindex meta never
+>   gets read), while a sitemap that still lists the pages is a statement of
+>   intent to be indexed, which Google settles by crawling anyway.
+> - `CONTACT.supportEmail`/`privacyEmail` are now read from `SUPPORT_EMAIL` /
+>   `PRIVACY_EMAIL` with **no default**. Every surface that used them degrades to
+>   the web form through one shared component (`components/legal/ContactChannel`),
+>   because eleven hand-edited sentences across three pages is how one page ends up
+>   advertising a mailbox another has stopped naming.
+>
+> **🔑 PRODUCTION ITEM — flip indexing on at the domain cutover.** When the real
+> `.com.au` domain is bought and the site productionised:
+>
+> 1. Set `NEXT_PUBLIC_SITE_URL=https://<real-domain>` in Vercel (production).
+>    Nothing else is required — `INDEXABLE`, `BRAND_HOST_LABEL`, every canonical,
+>    the hostname printed on the OG card, `robots.txt` and the sitemap all follow it.
+> 2. Set `SUPPORT_EMAIL` / `PRIVACY_EMAIL` once monitored mailboxes exist. Both
+>    then reappear automatically in the privacy policy, terms, footer, `/contact`,
+>    JSON-LD and the outbound `From:`; until then all of those point at the form.
+> 3. Add the domain to Supabase Auth redirect URLs and to Resend's verified senders
+>    (`provider.ts` now refuses to select Resend without a resolvable sender).
+> 4. Register the sitemap in Search Console, and 301 the `*.vercel.app` origin so
+>    any early organic footprint transfers instead of competing with itself.
+> 5. Re-run `node scripts/validate-seo.mjs` against the new origin. It prints the
+>    origin and indexability it expects and every assertion is conditional on
+>    them, so the same script verifies both configurations rather than freezing one.
+>
+> **Verification, both directions.** Today's config: build green, validator
+> **2502/2502**, and `/` + `/contact` + articles emit `noindex, nofollow` with
+> `Disallow: /` for all 28 named crawlers and a 110-byte empty sitemap. Simulated
+> cutover (`NEXT_PUBLIC_SITE_URL=https://mocktests.example.au` + both mailboxes,
+> **no code change**): validator **2500/2500**, indexing turns on by itself, and
+> 35 `mailto:` links appear — every one of them an address that resolves to a
+> configured mailbox.
+>
+> **Two findings worth keeping, because both were nearly shipped:**
+>
+> 1. *Page-level `robots` beats the layout's.* Six surfaces declared it
+>    themselves — `/blog`, `/contact`, `/privacy-policy`, `/terms`, and the two
+>    that a single-line grep **missed** because they were written across several
+>    lines: every blog article and every category hub. Fixing only the layout
+>    would have noindexed the marketing pages while leaving the entire organic
+>    surface asking to be indexed. The build validator caught it — `/` said
+>    `noindex, nofollow` and the articles still said `index, follow`.
+>    `INDEXABLE_ROBOTS` is now the single place indexing may be granted, and
+>    static gate *"no page grants indexing"* pins it.
+> 2. *A green check that cannot fail is not a check.* Both new static gates were
+>    proven by injecting the two defects into throwaway probe files: with them
+>    present the suite reported **17 passed / 2 failed**, naming both, and
+>    returned to **19/0** once removed. A CRLF bug found while writing them was
+>    also fixed rather than accepted — a gate that fails because it is blind looks
+>    exactly like a working gate right up to the defect it does not catch.
+>
+> **Still to do in this sequence:** decisions 1, 2, 4, 7, 9 (config + migration
+> 105), 8 and 6 (documentation), 5 (design note), 3 (dormant build), then Phase C
+> and Phase D.
+
+
+
+
+
 
 
 

@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { BLOG_POSTS } from '@/data/blog-posts';
 import { BLOG_CATEGORIES } from '@/lib/seo/categories';
 import { toIsoDate } from '@/lib/seo/content-utils';
-import { SITE_URL, LEGAL_ROUTES, LEGAL_LAST_UPDATED } from '@/lib/seo/site-config';
+import { SITE_URL, LEGAL_ROUTES, LEGAL_LAST_UPDATED, INDEXABLE } from '@/lib/seo/site-config';
 
 /**
  * Dynamic sitemap.
@@ -22,6 +22,21 @@ function toDate(iso?: string): Date | undefined {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  /**
+   * Empty on an origin that must not be indexed.
+   *
+   * Not merely tidy. A URL listed in a sitemap is a *statement of intent to be
+   * indexed*, which directly contradicts the `noindex` every page now emits — and
+   * when the two disagree, Google tends to trust the sitemap and go looking. The
+   * result is exactly the outcome the noindex was added to prevent: the
+   * throwaway `*.vercel.app` host entering the index, then needing to be unwound
+   * by 301s once the real domain exists.
+   *
+   * The file is still served (an empty `<urlset>`, not a 404) so nothing that
+   * already has the URL registered breaks on fetch.
+   */
+  if (!INDEXABLE) return [];
+
   const buildTime = new Date();
   const legalDate = toDate(LEGAL_LAST_UPDATED) ?? buildTime;
 

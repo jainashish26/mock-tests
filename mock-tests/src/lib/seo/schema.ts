@@ -29,6 +29,31 @@ import { getAuthor, EDITORIAL_POLICY, type AuthorProfile } from './authors';
 /** A JSON-LD node. Kept intentionally loose - schema.org is open-vocabulary. */
 export type JsonLdObject = Record<string, unknown>;
 
+/**
+ * A schema.org `ContactPoint` for one contact channel.
+ *
+ * Falls back to the web form's URL when no mailbox is configured, because
+ * `ContactPoint` accepts `contactType` + `url` without `email`, and this file's
+ * own contract is that every value must be literal and accurate. Emitting
+ * `email: null` would be a null in a field Google parses as text; emitting the
+ * previous hardcoded address was worse — it published a mailbox that has never
+ * existed as machine-readable fact, which is precisely what the validator at
+ * `scripts/validate-seo.mjs` then went on to enforce.
+ */
+function contactPointNode(
+  contactType: 'customer support' | 'privacy',
+  email: string | null
+): JsonLdObject {
+  return {
+    '@type': 'ContactPoint',
+    contactType,
+    ...(email ? { email } : { url: absoluteUrl('/contact') }),
+    areaServed: 'AU',
+    availableLanguage: ['English'],
+  };
+}
+
+
 /* ------------------------------------------------------------------ *
  * Organisation + WebSite  (site-wide entity identity)
  * ------------------------------------------------------------------ */
@@ -53,13 +78,7 @@ export function organizationNode(): JsonLdObject {
       '@type': 'Country',
       name: 'Australia',
     },
-    contactPoint: {
-      '@type': 'ContactPoint',
-      contactType: 'customer support',
-      email: CONTACT.supportEmail,
-      areaServed: 'AU',
-      availableLanguage: ['English'],
-    },
+    contactPoint: contactPointNode('customer support', CONTACT.supportEmail),
     knowsAbout: [
       'NAPLAN preparation',
       'Selective school entrance exams',
@@ -489,20 +508,8 @@ export function contactPageGraph(url: string, description: string): JsonLdObject
       '@id': `${SITE_URL}/#organization`,
       name: ORGANISATION_NAME,
       contactPoint: [
-        {
-          '@type': 'ContactPoint',
-          contactType: 'customer support',
-          email: CONTACT.supportEmail,
-          areaServed: 'AU',
-          availableLanguage: ['English'],
-        },
-        {
-          '@type': 'ContactPoint',
-          contactType: 'privacy',
-          email: CONTACT.privacyEmail,
-          areaServed: 'AU',
-          availableLanguage: ['English'],
-        },
+        contactPointNode('customer support', CONTACT.supportEmail),
+        contactPointNode('privacy', CONTACT.privacyEmail),
       ],
     },
   };

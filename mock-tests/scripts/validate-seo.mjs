@@ -16,6 +16,60 @@ import { join } from "node:path";
 const APP_DIR = join(process.cwd(), ".next", "server", "app");
 const BLOG_DIR = join(APP_DIR, "blog");
 
+/* -------------------------------------------------------------------- *
+ * THE ORIGIN THE BUILD IS SUPPOSED TO HAVE USED
+ *
+ * This block mirrors `src/lib/seo/site-config.ts` deliberately, and it is the
+ * reason that file no longer ends in a hardcoded `https://mocktestspro.com.au`.
+ *
+ * The validator used to assert that literal domain in five places. It is the
+ * only check in the repo that looks at what production actually emits, so by
+ * pinning the fictional value it did not merely miss the bug — it *protected*
+ * it: any attempt to emit the real deployment origin would have failed the
+ * build. A test that encodes a placeholder turns into the placeholder's lawyer.
+ *
+ * Mirroring rather than importing: this is a plain `node` script with no
+ * TypeScript loader, so it cannot read a `.ts` module. The duplication is two
+ * small functions, and the drift risk is bounded by what these checks do next —
+ * they compare the build's own canonicals against this value, so if
+ * `site-config.ts` ever resolves differently from here, every page check fails
+ * together and names both origins. Silence is not an option in either direction.
+ * -------------------------------------------------------------------- */
+function normaliseOrigin(value) {
+  const trimmed = typeof value === "string" ? value.trim().replace(/\/+$/, "") : "";
+  if (!trimmed) return null;
+  return /^https?:\/\//i.test(trimmed) ? trimmed : `https://${trimmed}`;
+}
+
+const EXPECTED_ORIGIN =
+  normaliseOrigin(process.env.NEXT_PUBLIC_SITE_URL) ??
+  normaliseOrigin(process.env.NEXT_PUBLIC_APP_URL) ??
+  (process.env.NEXT_PUBLIC_VERCEL_URL ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}` : null) ??
+  "http://localhost:3000";
+
+const NON_INDEXABLE_HOST = /(^|\/\/)([^/]+\.)?vercel\.app$|(^|\/\/)(localhost|127\.0\.0\.1|0\.0\.0\.0)(:|\/|$)/i;
+
+/** The same three-step rule as `resolveIndexable()` in site-config.ts. */
+function resolveIndexable(explicit, origin) {
+  const value = (explicit ?? "").trim().toLowerCase();
+  if (value === "true" || value === "1") return true;
+  if (value === "false" || value === "0") return false;
+  return !NON_INDEXABLE_HOST.test(origin);
+}
+
+const EXPECT_INDEXABLE = resolveIndexable(process.env.NEXT_PUBLIC_INDEXABLE, EXPECTED_ORIGIN);
+
+
+console.log("Expected origin    : " + EXPECTED_ORIGIN);
+console.log("Expected indexable : " + EXPECT_INDEXABLE);
+
+/** True when `html`'s robots meta refuses indexing. */
+function isNoIndexed(html) {
+  const value = metaContent(html, "robots") || "";
+  return /noindex/i.test(value);
+}
+
+
 let passed = 0;
 let failed = 0;
 const failures = [];
@@ -167,7 +221,7 @@ for (const file of postFiles) {
   }
 
   const canonical = linkHref(html, "canonical");
-  check(slug + ": canonical absolute", /^https:\/\/mocktestspro\.com\.au\/blog\//.test(canonical || ""), String(canonical));
+  check(slug + ": canonical absolute", (canonical || "").startsWith(EXPECTED_ORIGIN + "/blog/"), String(canonical));
   check(slug + ": og:title", Boolean(metaContent(html, "og:title")));
   check(slug + ": og:image", Boolean(metaContent(html, "og:image")), String(metaContent(html, "og:image")));
   check(slug + ": og:type=article", metaContent(html, "og:type") === "article", String(metaContent(html, "og:type")));
@@ -177,7 +231,13 @@ for (const file of postFiles) {
   // (e.g. &#x27;) inflates the raw length without affecting what Google sees.
   const desc = decodeAttr(metaContent(html, "description") || "");
   check(slug + ": description 50-165 chars", desc.length >= 50 && desc.length <= 165, desc.length + " chars");
-  check(slug + ": robots index,follow", /index/.test(metaContent(html, "robots") || "") && /follow/.test(metaContent(html, "robots") || ""), String(metaContent(html, "robots")));
+  // The old assertion was `/index/.test(robots)`, which "noindex,nofollow"
+  // satisfies — so it passed on a noindexed page and could not tell the
+  // difference between the two states it was meant to distinguish.
+  const robotsMeta = metaContent(html, "robots") || "";
+  check(slug + ": robots matches indexability",
+    EXPECT_INDEXABLE ? (!isNoIndexed(html) && /follow/.test(robotsMeta)) : isNoIndexed(html),
+    robotsMeta);
 
   check(slug + ": breadcrumb nav", /aria-label="Breadcrumb"/.test(html));
   check(slug + ": h1", /<h1[^>]*>/.test(html));
@@ -191,7 +251,12 @@ for (const file of postFiles) {
   check(slug + ": sources block rendered", /Sources (&amp;|&) authoritative references/.test(html));
   const ogImg = metaContent(html, "og:image") || "";
   check(slug + ": og:image is generated card", /\/opengraph-image/.test(ogImg), ogImg);
-  check(slug + ": og:image absolute", /^https:\/\//.test(ogImg), ogImg);
+  // Was `/^https:\/\//`, which pinned the scheme rather than the origin — so it
+  // passed for any absolute URL on any domain, and failed a correct local build
+  // served over http. What actually matters is that og:image is absolute AND on
+  // the same origin as the page: a card served from a different host is the
+  // failure mode this is meant to catch, and "https" alone never did.
+  check(slug + ": og:image absolute on origin", ogImg.startsWith(EXPECTED_ORIGIN + "/"), ogImg);
   check(slug + ": no boilerplate bio", !/dedicated to helping students/.test(html));
   check(slug + ": time element with dateTime", /<time dateTime="\d{4}-\d{2}-\d{2}"/.test(html));
 
@@ -217,7 +282,7 @@ if (blogIndex) {
   check("blog index: Blog", types.has("Blog"));
   check("blog index: ItemList", types.has("ItemList"));
   const bc = linkHref(blogIndex, "canonical");
-  check("blog index: canonical", bc === "https://mocktestspro.com.au/blog", String(bc));
+  check("blog index: canonical", bc === EXPECTED_ORIGIN + "/blog", String(bc));
   check("blog index: og:title", Boolean(metaContent(blogIndex, "og:title")), String(metaContent(blogIndex, "og:title")));
   check("blog index: description > 50", (metaContent(blogIndex, "description") || "").length > 50);
   check("blog index: category hub links", /\/blog\/category\/naplan/.test(blogIndex));
@@ -237,29 +302,51 @@ if (existsSync(catDir)) {
     const name = file.replace(/\.html$/, "");
     check("category " + name + ": CollectionPage", types.has("CollectionPage"));
     check("category " + name + ": BreadcrumbList", types.has("BreadcrumbList"));
-    check("category " + name + ": canonical", linkHref(html, "canonical") === "https://mocktestspro.com.au/blog/category/" + name, String(linkHref(html, "canonical")));
+    check("category " + name + ": canonical", linkHref(html, "canonical") === EXPECTED_ORIGIN + "/blog/category/" + name, String(linkHref(html, "canonical")));
     check("category " + name + ": h1", /<h1[^>]*>/.test(html));
     check("category " + name + ": article links", (html.match(/href="\/blog\/[a-z0-9-]+"/g) || []).length > 0);
   }
 } else { check("category dir exists", false); }
 
 // ---- 4. Crawl infrastructure -------------------------------------------
+// Conditional on EXPECT_INDEXABLE throughout. The correct robots.txt and sitemap
+// are completely different documents in the two states, so an assertion that only
+// passes in one of them is a check on the *configuration*, not on the app — which
+// is exactly how the fictional-domain pin survived: it could only ever pass while
+// the app was broken.
 const robots = readIf(join(APP_DIR, "robots.txt.body"));
-check("robots: sitemap directive", /Sitemap:.*sitemap\.xml/.test(robots));
+check("robots: sitemap directive present iff indexable",
+  EXPECT_INDEXABLE ? /Sitemap:.*sitemap\.xml/.test(robots) : !/Sitemap:/i.test(robots),
+  robots.slice(0, 140));
 for (const bot of ["GPTBot", "OAI-SearchBot", "PerplexityBot", "ClaudeBot", "Google-Extended", "Applebot-Extended", "Googlebot", "Bingbot"]) {
+  // Named in both states: indexable to grant access, non-indexable to refuse it
+  // explicitly rather than by inheritance.
   check("robots: names " + bot, robots.includes(bot));
 }
-for (const blocked of ["/admin/", "/creator/", "/api/", "/student/", "/parent/", "/tutor/"]) {
-  check("robots: disallows " + blocked, robots.includes("Disallow: " + blocked));
+if (EXPECT_INDEXABLE) {
+  for (const blocked of ["/admin/", "/creator/", "/api/", "/student/", "/parent/", "/tutor/"]) {
+    check("robots: disallows " + blocked, robots.includes("Disallow: " + blocked));
+  }
+} else {
+  check("robots: blocks the whole origin", robots.includes("Disallow: /"));
+  check("robots: no allow rules while noindexed", !/Allow: \//.test(robots));
 }
 
 const sitemap = readIf(join(APP_DIR, "sitemap.xml.body"));
 const sitemapUrls = (sitemap.match(/<loc>/g) || []).length;
-check("sitemap: 60+ URLs", sitemapUrls >= 60, sitemapUrls + " URLs");
-check("sitemap: ISO lastmod", /<lastmod>\d{4}-\d{2}-\d{2}/.test(sitemap));
+if (EXPECT_INDEXABLE) {
+  check("sitemap: 60+ URLs", sitemapUrls >= 60, sitemapUrls + " URLs");
+  check("sitemap: ISO lastmod", /<lastmod>\d{4}-\d{2}-\d{2}/.test(sitemap));
+  check("sitemap: includes category hubs", sitemap.includes("/blog/category/"));
+} else {
+  // The check that makes the noindex real. A populated sitemap alongside noindex
+  // metadata is a contradiction Google resolves in favour of crawling, so an
+  // empty sitemap is not a degradation here — it is the other half of the fix.
+  check("sitemap: empty on a noindexed origin", sitemapUrls === 0, sitemapUrls + " URLs");
+}
 check("sitemap: no auth URLs", !sitemap.includes("/auth/"));
-check("sitemap: includes category hubs", sitemap.includes("/blog/category/"));
 check("sitemap: no Invalid Date", !/NaN|Invalid/.test(sitemap));
+
 
 const llms = readIf(join(APP_DIR, "llms.txt.body"));
 check("llms.txt: generated", llms.length > 1000, llms.length + " bytes");
@@ -298,7 +385,7 @@ for (const page of STATIC_PAGES) {
     check(page.path + ": schema " + t, types.has(t), [...types].join(","));
   }
   const canonical = linkHref(html, "canonical");
-  check(page.path + ": canonical", canonical === "https://mocktestspro.com.au" + page.path, String(canonical));
+  check(page.path + ": canonical", canonical === EXPECTED_ORIGIN + page.path, String(canonical));
   const title = metaContent(html, "og:title") || "";
   check(page.path + ": og:title present", title.length > 10, title);
   const pageDesc = decodeAttr(metaContent(html, "description") || "");
@@ -335,7 +422,7 @@ if (home) {
   check("home: SearchAction", types.has("SearchAction"));
   check("home: SiteNavigationElement", types.has("SiteNavigationElement"));
   check("home: lang=en-AU", /<html[^>]+lang="en-AU"/.test(home));
-  check("home: canonical", /^https:\/\/mocktestspro\.com\.au\/?$/.test(linkHref(home, "canonical") || ""), String(linkHref(home, "canonical")));
+  check("home: canonical", linkHref(home, "canonical") === EXPECTED_ORIGIN || linkHref(home, "canonical") === EXPECTED_ORIGIN + "/", String(linkHref(home, "canonical")));
   check("home: og:image", Boolean(metaContent(home, "og:image")), String(metaContent(home, "og:image")));
   check("home: og:site_name", metaContent(home, "og:site_name") === "MockTests Pro");
 }
@@ -443,7 +530,12 @@ const LEGAL_PAGES = [
   { file: 'terms.html', path: '/terms', types: ['BreadcrumbList'],
     needles: ['Australian Consumer Law', 'AI-generated writing feedback', 'Refunds'] },
   { file: 'contact.html', path: '/contact', types: ['BreadcrumbList', 'ContactPage', 'FAQPage'],
-    needles: ['privacy@mocktestspro.com.au', 'support@mocktestspro.com.au'] },
+    // Was ['privacy@mocktestspro.com.au', 'support@mocktestspro.com.au'] — i.e.
+    // this check's whole purpose was to prove two dead mailboxes were published.
+    // The needles now name the *form*, which is the channel that exists: the
+    // section that explains it, the honeypot that protects it, and the response
+    // clock it starts.
+    needles: ['Send us a message', 'What to include in your message', 'Company website'] },
 ];
 
 for (const page of LEGAL_PAGES) {
@@ -454,7 +546,7 @@ for (const page of LEGAL_PAGES) {
   const types = collectTypes(html);
   for (const t of page.types) check(page.path + ': schema ' + t, types.has(t), [...types].join(','));
   check(page.path + ': canonical',
-    linkHref(html, 'canonical') === 'https://mocktestspro.com.au' + page.path,
+    linkHref(html, 'canonical') === EXPECTED_ORIGIN + page.path,
     String(linkHref(html, 'canonical')));
   check(page.path + ': h1', /<h1[^>]*>/.test(html));
   check(page.path + ': last-updated shown', /Last updated/.test(html));
@@ -465,7 +557,75 @@ for (const page of LEGAL_PAGES) {
   }
 }
 
+/* -------------------------------------------------------------------- *
+ * THE CHECK THAT WOULD HAVE CAUGHT THE PLACEHOLDER DOMAIN
+ *
+ * Every `mailto:` the build publishes must be an address the deployment
+ * actually configured. Nothing else in this repo looks at that: the old
+ * assertion did the opposite, pinning `privacy@` and `support@mocktestspro.com.au`
+ * as the *required* content of /contact, so a build that grew a real domain would
+ * have failed and a build advertising a domain nobody owns passed for months.
+ *
+ * It is written as a rule rather than a list of expected strings so it keeps
+ * working in both directions: with mailboxes configured it demands they appear,
+ * with none configured it demands that no mailbox appears at all.
+ * -------------------------------------------------------------------- */
+const CONFIGURED_EMAILS = [
+  process.env.SUPPORT_EMAIL?.trim(),
+  process.env.PRIVACY_EMAIL?.trim(),
+].filter(Boolean);
+
+const MAILTO_SCAN_FILES = [
+  "index.html", "contact.html", "terms.html", "privacy-policy.html",
+  "about.html", "pricing.html", "features.html", "blog.html",
+];
+
+let mailtoTotal = 0;
+const unconfiguredMailto = new Set();
+for (const file of MAILTO_SCAN_FILES) {
+  const html = readIf(join(APP_DIR, file));
+  if (!html) continue;
+  // The character class excludes backslash deliberately. Next serialises metadata
+  // hrefs into its streamed RSC payload with escapes (`mailto:…\u003e`), so a
+  // class that permits `\` captures the escape's own backslash as part of the
+  // address and every correctly-configured mailbox then looks unconfigured. That
+  // is a false failure in the check meant to prevent false *passes*, which is the
+  // worse of the two directions to get wrong — so it is pinned here.
+  for (const match of html.matchAll(/mailto:([^"'<>?\\\s]+)/g)) {
+    mailtoTotal++;
+    const address = decodeURIComponent(match[1]).toLowerCase();
+    if (!CONFIGURED_EMAILS.some((e) => e.toLowerCase() === address)) {
+      unconfiguredMailto.add(file + " -> " + address);
+    }
+  }
+}
+
+check(
+  "no mailto: to an unconfigured address",
+  unconfiguredMailto.size === 0,
+  [...unconfiguredMailto].slice(0, 5).join(" ; ")
+);
+check(
+  "configured mailboxes are published when they exist",
+  CONFIGURED_EMAILS.length === 0 || mailtoTotal > 0,
+  CONFIGURED_EMAILS.length + " configured, " + mailtoTotal + " published"
+);
+console.log(
+  "\nMailto links published: " + mailtoTotal +
+  " (" + CONFIGURED_EMAILS.length + " address(es) configured)"
+);
+
+// A noindexed origin must not be advertising itself as indexable anywhere.
+if (!EXPECT_INDEXABLE) {
+  for (const file of MAILTO_SCAN_FILES) {
+    const html = readIf(join(APP_DIR, file));
+    if (!html) continue;
+    check(file + ": noindex present", isNoIndexed(html), String(metaContent(html, "robots")));
+  }
+}
+
 // Every public page footer must reach the legal pages.
+
 for (const file of ['index.html', 'blog.html', 'about.html', 'free.html']) {
   const html = readIf(join(APP_DIR, file));
   if (!html) continue;
@@ -477,10 +637,32 @@ for (const file of ['index.html', 'blog.html', 'about.html', 'free.html']) {
 const homeForContact = readIf(join(APP_DIR, 'index.html'));
 if (homeForContact) {
   const org = allNodesOf(homeForContact).find((n) => n['@type'] === 'Organization');
-  check('Organization: has contactPoint email',
-    Boolean(org && org.contactPoint && org.contactPoint.email),
-    JSON.stringify(org && org.contactPoint));
+  /**
+   * The invariant, not one configuration.
+   *
+   * Was `Boolean(org.contactPoint.email)` — which is only satisfiable by
+   * publishing *an* address, and the address the app published was a placeholder
+   * on an unpurchased domain. A check that can only pass by shipping a fiction is
+   * worse than no check, because it makes the fiction look verified.
+   *
+   * What must actually hold is that a `ContactPoint` names a reachable channel: a
+   * mailbox that is configured here, or a URL. Never neither, and never an
+   * address that is not in the environment.
+   */
+  const cp = org?.contactPoint;
+  const cpEmail = typeof cp?.email === 'string' ? cp.email.toLowerCase() : null;
+  const cpUrl = typeof cp?.url === 'string' ? cp.url : null;
+  check('Organization: contactPoint resolves to a configured mailbox or a URL',
+    Boolean(
+      (cpEmail && CONFIGURED_EMAILS.some((e) => e.toLowerCase() === cpEmail)) ||
+      (!cpEmail && cpUrl)
+    ),
+    JSON.stringify(cp));
+  check('Organization: contactPoint does not name an unconfigured mailbox',
+    !cpEmail || CONFIGURED_EMAILS.some((e) => e.toLowerCase() === cpEmail),
+    String(cpEmail));
 }
+
 
 // ---- 10. Content encoding hygiene ---------------------------------------
 // Double-encoded UTF-8 was present in 14 source files and repaired. Assert the
