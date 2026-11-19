@@ -195,6 +195,13 @@ console.log('\n=== reporting RPC surface is explicit ===');
     'parent_grant_tutor_consent',
     'parent_grant_tutor_consent_by_email',
     'parent_revoke_tutor_consent',
+    // Decision 4-A (migration 107). Both read and write the per-year-level daily
+    // practice limits through wrappers, never the table: `dim_year_level_cap` has
+    // no SELECT grant for `authenticated` at all, so a `.from()` here would not
+    // merely bypass the role check, it would fail. Listing them is the deliberate
+    // act the gate exists to require.
+    'admin_year_level_caps',
+    'admin_set_year_level_cap',
   ]);
 
   const called = new Set<string>();
@@ -211,7 +218,182 @@ console.log('\n=== reporting RPC surface is explicit ===');
 }
 
 /* -------------------------------------------------------------------- *
+ * Year-level cap bounds: client mirror vs database guarantee
+ *
+ * WHY COMPARE THEM AT ALL
+ *   `CAP_BOUNDS` in `src/lib/reporting/year-caps.ts` duplicates the ranges the
+ *   migration's CHECK constraints enforce. That duplication is deliberate — it is
+ *   what lets the form refuse a value with a sentence instead of a constraint
+ *   name — but a copy with nothing keeping it honest drifts, and it drifts in the
+ *   bad direction: the form starts accepting something the database then rejects,
+ *   so the operator's own tool tells them the save worked.
+ *
+ *   Reading the migration text rather than the live database keeps this gate
+ *   runnable with no connection. That is weaker than querying `pg_constraint` — a
+ *   later migration could change the live constraint without editing 107 — and the
+ *   limitation is stated rather than glossed, because a gate that quietly stops
+ *   tracking reality is how `checkout_abandon_minutes` ended up configured,
+ *   documented, and read by nothing.
+ * -------------------------------------------------------------------- */
+console.log('\n=== Year-level cap bounds parity (decision 4-A) ===');
+{
+  const migrationPath = join(ROOT, 'supabase', 'migrations', '107_year_level_caps.sql');
+  ok('the caps migration is present', existsSync(migrationPath));
+
+  const sql = stripComments(readFileSync(migrationPath, 'utf8'));
+  const boundsSource = stripComments(
+    readFileSync(join(ROOT, 'src', 'lib', 'reporting', 'year-caps.ts'), 'utf8')
+  );
+
+  /** Pull `BETWEEN <a> AND <b>` out of a named CHECK constraint. */
+  const checkRange = (constraint: string): [number, number] | null => {
+    const m = new RegExp(
+      constraint + '\\s*\\n?\\s*CHECK \\((\\w+) BETWEEN (\\d+) AND (\\d+)\\)',
+      'm'
+    ).exec(sql);
+    return m ? [Number(m[2]), Number(m[3])] : null;
+  };
+
+  /** Pull a field out of the CAP_BOUNDS object literal. */
+  const boundNumber = (key: string): number | null => {
+    const m = new RegExp(key + ':\\s*(\\d+)').exec(boundsSource);
+    return m ? Number(m[1]) : null;
+  };
+
+  const ceilingRange = checkRange('dim_year_level_cap_tests_range');
+  ok('the test-ceiling CHECK is legible to this gate', ceilingRange !== null);
+  if (ceilingRange) {
+    ok(
+      'client test-ceiling bounds match the database',
+      boundNumber('testsMin') === ceilingRange[0] && boundNumber('testsMax') === ceilingRange[1],
+      `client ${boundNumber('testsMin')}..${boundNumber('testsMax')} vs sql ${ceilingRange[0]}..${ceilingRange[1]}`
+    );
+  }
+
+  const questionRange = checkRange('dim_year_level_cap_questions_range');
+  ok('the question-ceiling CHECK is legible to this gate', questionRange !== null);
+  if (questionRange) {
+    ok(
+      'client question-ceiling bounds match the database',
+      boundNumber('questionsMin') === questionRange[0] &&
+        boundNumber('questionsMax') === questionRange[1],
+      `client ${boundNumber('questionsMin')}..${boundNumber('questionsMax')} vs sql ${questionRange[0]}..${questionRange[1]}`
+    );
+  }
+
+  // Decision 4-A said the recommended target must be "at least 2". That is a
+  // business rule with no other automated guardian: the SQL coherence CHECK says
+  // `BETWEEN 2 AND max_*`, so the lower bound lives there and in the client only.
+  const coherence = /dim_year_level_cap_tests_target_coherence\s*\n?\s*CHECK \(recommended_tests_per_day BETWEEN (\d+) AND/.exec(
+    sql
+  );
+  ok(
+    'recommended-minimum parity: client and the coherence CHECK both say 2',
+    coherence !== null && Number(coherence[1]) === boundNumber('recommendedMin') && boundNumber('recommendedMin') === 2,
+    `sql ${coherence ? coherence[1] : 'unreadable'} / client ${boundNumber('recommendedMin')}`
+  );
+
+  // Migration 101 extended the product to Year 9. A client range still ending at 8
+  // would refuse Year 9 in the form while the database happily stored it, which is
+  // an interface that disagrees with its own storage.
+  ok(
+    'client year-level range covers 2 through 9',
+    boundNumber('yearLevelMin') === 2 && boundNumber('yearLevelMax') === 9,
+    `${boundNumber('yearLevelMin')}..${boundNumber('yearLevelMax')}`
+  );
+
+  // Every seeded year level must be editable, and the seed must be the full set.
+  const seedBlock = /WITH seed[\s\S]*?\n\)/.exec(sql);
+  // Every number in the VALUES list may carry a `::smallint` cast — only the first
+  // row needs it, so a parser that tolerates it on the year and not on the values
+  // reads the seed as missing Year 2. Seen live: the gate reported
+  // "3,4,5,6,7,8,9" while the table held all eight rows, i.e. it would have passed
+  // a genuinely absent Year 2 as well. Both positions are now cast-aware.
+  const seedYears = seedBlock
+    ? [
+        ...seedBlock[0].matchAll(
+          /\(\s*(\d+)\s*(?:::smallint)?\s*,\s*\d+\s*(?:::smallint)?\s*,\s*\d+/g
+        ),
+      ].map((m) => Number(m[1]))
+    : [];
+  ok('the seed block is legible to this gate', seedBlock !== null);
+  ok(
+    'seeded year levels are exactly 2 through 9',
+    seedYears.join(',') === '2,3,4,5,6,7,8,9',
+    seedYears.join(',')
+  );
+
+  // The read path must go through the RPC. A direct `dim_year_level_cap` read in
+  // the settings surface would fail for `authenticated` — migration 107 withholds
+  // SELECT entirely — and on this page a failed read is indistinguishable from an
+  // empty one, so it would say "no limits configured" about a fully configured
+  // database.
+  const uiFiles = [
+    join(ROOT, 'src', 'app', 'admin', 'settings', 'page.tsx'),
+    join(ROOT, 'src', 'app', 'admin', 'settings', 'actions.ts'),
+    join(ROOT, 'src', 'app', 'admin', 'settings', 'YearCapsTable.tsx'),
+  ].filter((f) => existsSync(f));
+  ok('the caps editor files all exist', uiFiles.length === 3, `${uiFiles.length} found`);
+  const directTableReads = uiFiles.filter((f) =>
+    /dim_year_level_cap/.test(stripComments(readFileSync(f, 'utf8')))
+  );
+  ok(
+    'the settings surface never touches dim_year_level_cap directly',
+    directTableReads.length === 0,
+    directTableReads.map(rel).join(', ')
+  );
+
+  // And the enforcement gap must be stated where the number is entered, not only
+  // in a migration comment: the recommended column is stored but clamps nothing.
+  const tableSrc = uiFiles.length === 3 ? readFileSync(uiFiles[2], 'utf8') : '';
+  ok(
+    'the caps editor renders the recommended-is-not-enforced note',
+    /CAP_ENFORCEMENT_NOTE/.test(tableSrc)
+  );
+  const noteSrc = readFileSync(join(ROOT, 'src', 'lib', 'reporting', 'year-caps.ts'), 'utf8');
+  ok(
+    'the note states plainly that nothing clamps to the recommended target',
+    /nothing clamps/.test(noteSrc) && /to it yet/.test(noteSrc)
+  );
+
+  // The client's mandated set must be exactly what the migration seeds. If the
+  // seed grows a Year 10 and this list does not, `missingYearLevels` is asserting
+  // a completeness guarantee that no longer matches reality.
+  const expectedSrc = /EXPECTED_YEAR_LEVELS = Object\.freeze\(\[([\d,\s]+)\]\)/.exec(
+    readFileSync(join(ROOT, 'src', 'lib', 'reporting', 'year-caps.ts'), 'utf8')
+  );
+  const expectedYears = expectedSrc
+    ? expectedSrc[1].split(',').map((s) => Number(s.trim())).filter((n) => !Number.isNaN(n))
+    : [];
+  ok(
+    'the mandated year-level set matches the seeded set exactly',
+    expectedYears.join(',') === seedYears.join(','),
+    `expected ${expectedYears.join(',')} vs seeded ${seedYears.join(',')}`
+  );
+
+  // `loadYearLevelCaps` must keep treating an empty read as a refusal, not as
+  // "nothing configured". That distinction is the whole defence against the
+  // service-role 200-with-[] response rendering as an empty settings table, and
+  // it is one `catch`-free line to accidentally delete.
+  const ioSrc = readFileSync(join(ROOT, 'src', 'lib', 'reporting', 'admin-year-caps.ts'), 'utf8');
+  ok(
+    'an empty caps read is still reported as an error, not as emptiness',
+    /rows\.length === 0/.test(ioSrc) && /error:\s*true/.test(ioSrc) &&
+      /empty-refused/.test(ioSrc)
+  );
+
+  // And the page must not reintroduce a bare "no limits" empty state on top of it.
+  const pageSrc = readFileSync(join(ROOT, 'src', 'app', 'admin', 'settings', 'page.tsx'), 'utf8');
+  ok(
+    'the settings page has no path that renders an empty read as unconfigured',
+    !/capsResult\.caps\.length === 0/.test(pageSrc)
+  );
+}
+
+/* -------------------------------------------------------------------- *
  * SEO origin + indexability integrity
+
+
  *
  * WHY THESE ARE HERE RATHER THAN ONLY IN validate-seo.mjs
  *   Two defects shipped silently in this area, and neither was exotic:

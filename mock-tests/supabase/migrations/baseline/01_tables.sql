@@ -146,10 +146,16 @@ CREATE TABLE IF NOT EXISTS reporting.dim_test_family (
 
 CREATE TABLE IF NOT EXISTS reporting.dim_year_level_cap (
   year_level smallint NOT NULL,
-  max_tests_per_day smallint,
-  max_questions_per_day smallint,
+  max_tests_per_day smallint NOT NULL,
+  max_questions_per_day smallint NOT NULL,
   updated_at timestamp with time zone DEFAULT now() NOT NULL,
+  recommended_tests_per_day smallint NOT NULL,
+  recommended_questions_per_day smallint NOT NULL,
   CONSTRAINT dim_year_level_cap_pkey PRIMARY KEY (year_level),
+  CONSTRAINT dim_year_level_cap_questions_range CHECK (((max_questions_per_day >= 1) AND (max_questions_per_day <= 2000))),
+  CONSTRAINT dim_year_level_cap_questions_target_coherence CHECK (((recommended_questions_per_day >= 2) AND (recommended_questions_per_day <= max_questions_per_day))),
+  CONSTRAINT dim_year_level_cap_tests_range CHECK (((max_tests_per_day >= 1) AND (max_tests_per_day <= 40))),
+  CONSTRAINT dim_year_level_cap_tests_target_coherence CHECK (((recommended_tests_per_day >= 2) AND (recommended_tests_per_day <= max_tests_per_day))),
   CONSTRAINT dim_year_level_cap_year_level_check CHECK (((year_level >= 2) AND (year_level <= 9)))
 );
 

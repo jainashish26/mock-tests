@@ -86,6 +86,16 @@ import {
   LOCKED_INSIGHT_TITLES,
   prioritiseIncludes,
 } from '@/lib/pricing/offer-personalisation';
+import {
+  CAP_BOUNDS,
+  EXPECTED_YEAR_LEVELS,
+  describeCap,
+  isCapDraftValid,
+  missingYearLevels,
+  validateYearLevelCap,
+  type YearLevelCap,
+  type YearLevelCapDraft,
+} from '@/lib/reporting/year-caps';
 import type { PracticePlan } from '@/lib/reporting/plan-types';
 
 let pass = 0;
@@ -1001,7 +1011,209 @@ console.log('\n=== A12: the forest plot must not manufacture confidence ===');
 }
 
 // ---------------------------------------------------------------------------
+// Year-level practice caps (decision 4-A)
+//
+// These tests are about three things that all fail silently:
+//
+//  1. The coherence rule. A recommended target above the ceiling is not a
+//     formatting problem, it is an incoherent policy — the ceiling is defined as
+//     the most the system will ever ask, so advice above it means the operator
+//     believes the ceiling is something else. If that reaches Postgres it is
+//     rejected by a CHECK, but a rejected save with an unreadable message is how
+//     operators stop trusting a screen.
+//
+//  2. The "at least 2" floor. This is the only automated guard on a number that
+//     came from a business decision rather than from arithmetic. Nothing in the
+//     schema says a recommended target may not be 0; the CHECK does, and this
+//     pins that the client agrees with it.
+//
+//  3. That `field` names match what the editor renders. The table looks failures
+//     up by field key. A validator returning `target_tests` while the form
+//     expects `recommended_tests` produces a save that is refused and displays
+//     nothing at all — a silent no-op, and the easiest of the three to introduce.
+// ---------------------------------------------------------------------------
+
+console.log('\n=== Year-level practice caps (decision 4-A) ===');
+{
+  const base: YearLevelCapDraft = {
+    year_level: 2,
+    max_tests: 10,
+    max_questions: 250,
+    recommended_tests: 2,
+    recommended_questions: 50,
+  };
+  const draft = (over: Partial<YearLevelCapDraft>): YearLevelCapDraft => ({ ...base, ...over });
+
+  ok('the seeded Year 2 row validates', validateYearLevelCap(base).length === 0);
+  ok(
+    'every seeded year level validates',
+    [
+      draft({ year_level: 3, max_tests: 15, max_questions: 375 }),
+      draft({ year_level: 5, max_tests: 15, max_questions: 375 }),
+      draft({ year_level: 6, max_tests: 20, max_questions: 500, recommended_tests: 3, recommended_questions: 75 }),
+      draft({ year_level: 9, max_tests: 25, max_questions: 625, recommended_tests: 3, recommended_questions: 75 }),
+    ].every((d) => isCapDraftValid(d))
+  );
+
+  ok(
+    'a target above the ceiling is refused',
+    validateYearLevelCap(draft({ recommended_tests: 30 })).some(
+      (f) => f.field === 'recommended_tests' && f.code === 'TARGET_TESTS_EXCEEDS_CEILING'
+    )
+  );
+  ok(
+    'a question target above the question ceiling is refused',
+    validateYearLevelCap(draft({ recommended_questions: 300 })).some(
+      (f) => f.field === 'recommended_questions' && f.code === 'TARGET_QUESTIONS_EXCEEDS_CEILING'
+    )
+  );
+
+  // Decision 4-A: "target must be recommended only and around at least 2".
+  ok('the floor is 2, not 1 or 0', CAP_BOUNDS.recommendedMin === 2);
+  ok(
+    'a recommended target below the floor is refused',
+    validateYearLevelCap(draft({ recommended_tests: 1 })).some((f) => f.code === 'TARGET_TESTS_TOO_LOW')
+  );
+  ok(
+    'a zero target is refused rather than read as "no limit"',
+    validateYearLevelCap(draft({ recommended_tests: 0 })).length > 0
+  );
+
+  ok(
+    'a ceiling beyond the guard range is refused',
+    validateYearLevelCap(draft({ max_tests: 41 })).some((f) => f.code === 'CEILING_TESTS_OUT_OF_RANGE')
+  );
+  ok(
+    'a ceiling of zero is refused — it would stop every child practising',
+    validateYearLevelCap(draft({ max_tests: 0 })).some((f) => f.code === 'CEILING_TESTS_OUT_OF_RANGE')
+  );
+  ok(
+    'a question ceiling beyond the guard range is refused',
+    validateYearLevelCap(draft({ max_questions: 5000 })).some((f) => f.code === 'CEILING_QUESTIONS_OUT_OF_RANGE')
+  );
+
+  ok(
+    'Year 1 and Year 10 are both out of range',
+    validateYearLevelCap(draft({ year_level: 1 })).some((f) => f.code === 'YEAR_LEVEL_OUT_OF_RANGE') &&
+      validateYearLevelCap(draft({ year_level: 10 })).some((f) => f.code === 'YEAR_LEVEL_OUT_OF_RANGE')
+  );
+
+  // Blank and fractional fields arrive as NaN from the number inputs.
+  const blank = draft({ max_tests: Number.NaN });
+  ok('a blank ceiling is refused, not treated as unlimited', validateYearLevelCap(blank).length > 0);
+  ok(
+    'a fractional ceiling is refused',
+    validateYearLevelCap(draft({ max_tests: 7.5 })).some((f) => f.code === 'CEILING_TESTS_OUT_OF_RANGE')
+  );
+  ok(
+    'a blank target does not invent a spurious exceeds-ceiling error',
+    validateYearLevelCap(draft({ recommended_tests: Number.NaN })).every(
+      (f) => f.code !== 'TARGET_TESTS_EXCEEDS_CEILING'
+    )
+  );
+  ok('validation never throws on hostile input', (() => {
+    try {
+      validateYearLevelCap(draft({ max_tests: Infinity, recommended_questions: -Infinity }));
+      return true;
+    } catch {
+      return false;
+    }
+  })());
+
+  ok(
+    'several bad fields are reported together, not one per keystroke',
+    validateYearLevelCap(draft({ year_level: 12, max_tests: 99, recommended_tests: 0 })).length >= 3
+  );
+
+  // Every message names the year level: on an eight-row table an error without a
+  // row reference is an error about the wrong row.
+  //
+  // Note the draft: the ceiling stays legal (10) and only the target is wrong.
+  // The first version of this test set `max_tests: 99` as well, which pushed the
+  // ceiling out of range and meant 99 > 99 — so the coherence rule never fired and
+  // the assertion was checking a message that had not been produced. A test that
+  // passes because the interesting branch was skipped is the quiet kind of useless.
+  const messages = validateYearLevelCap(draft({ recommended_tests: 30 }));
+  ok('every refusal names its year level', messages.length > 0 && messages.every((f) => f.message.includes('Year 2')));
+  ok(
+    'a coherence refusal quotes the ceiling it exceeded',
+    messages.some((f) => f.code === 'TARGET_TESTS_EXCEEDS_CEILING' && f.message.includes('(10)'))
+  );
+  ok(
+    'a refusal that is out of range says so instead of pretending to be coherent',
+    validateYearLevelCap(draft({ max_tests: 99, recommended_tests: 99 })).some(
+      (f) => f.code === 'CEILING_TESTS_OUT_OF_RANGE'
+    )
+  );
+
+  // The field keys must be exactly the ones YearCapsTable renders against.
+  const renderable = new Set([
+    'year_level',
+    'max_tests',
+    'max_questions',
+    'recommended_tests',
+    'recommended_questions',
+  ]);
+  ok(
+    'every failure field is one the editor can display',
+    validateYearLevelCap(
+      draft({ year_level: 1, max_tests: 0, max_questions: 0, recommended_tests: 1, recommended_questions: 1 })
+    ).every((f) => renderable.has(f.field))
+  );
+
+  ok('isCapDraftValid agrees with the failure list', isCapDraftValid(base) && !isCapDraftValid(blank));
+
+  // The mandated year-level set. `loadYearLevelCaps()` reports an *empty* read as
+  // a failure rather than as "nothing configured", because HTTP 200 with [] is
+  // what a refused read looks like — verified live against a fully seeded table.
+  // That reasoning only holds while this set matches what the migration seeds, so
+  // it is pinned here and cross-checked against the migration by test:gates.
+  ok('the mandated set is Years 2 through 9', EXPECTED_YEAR_LEVELS.join(',') === '2,3,4,5,6,7,8,9');
+  ok('a complete read reports nothing missing', missingYearLevels([2, 3, 4, 5, 6, 7, 8, 9]).length === 0);
+  ok(
+    'a missing level is named, not swallowed',
+    missingYearLevels([2, 3, 4, 5, 7, 8, 9]).join(',') === '6'
+  );
+  ok('an empty read reports every level missing', missingYearLevels([]).length === 8);
+  ok(
+    'unexpected extra levels are not treated as missing',
+    missingYearLevels([2, 3, 4, 5, 6, 7, 8, 9, 10]).length === 0
+  );
+  ok('the mandated set cannot be mutated by a caller', (() => {
+    try {
+      (EXPECTED_YEAR_LEVELS as number[]).push(10);
+      return false;
+    } catch {
+      return EXPECTED_YEAR_LEVELS.length === 8;
+    }
+  })());
+
+
+  // The audit line carries all four numbers, or a changed ceiling hides behind an
+  // unchanged target in the toast an operator reads after saving.
+  //
+  // Annotated rather than inferred: naming the type here means a rename of any
+  // field on YearLevelCap fails the compile instead of quietly leaving this test
+  // asserting against an object the interface no longer describes.
+  const describedRow: YearLevelCap = {
+    year_level: 7,
+    max_tests_per_day: 20,
+    max_questions_per_day: 500,
+    recommended_tests_per_day: 3,
+    recommended_questions_per_day: 75,
+    updated_at: null,
+  };
+  const described = describeCap(describedRow);
+  ok(
+    'the audit summary carries every configured number',
+    ['Year 7', '20 tests', '500 questions', '3 tests', '75 questions'].every((t) => described.includes(t))
+  );
+}
+
+// ---------------------------------------------------------------------------
 console.log(`\n${'-'.repeat(58)}`);
+
+
 console.log(`PASSED: ${pass}   FAILED: ${fail}`);
 console.log(`${'-'.repeat(58)}\n`);
 if (fail > 0) process.exit(1);

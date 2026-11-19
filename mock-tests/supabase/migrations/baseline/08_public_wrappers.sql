@@ -428,6 +428,81 @@ END;
 $function$
 ;
 
+CREATE OR REPLACE FUNCTION public.admin_set_year_level_cap(p_year_level smallint, p_max_tests smallint, p_max_questions smallint, p_recommended_tests smallint, p_recommended_questions smallint)
+ RETURNS TABLE(year_level smallint, max_tests_per_day smallint, max_questions_per_day smallint, recommended_tests_per_day smallint, recommended_questions_per_day smallint, updated_at timestamp with time zone)
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO 'reporting', 'public', 'pg_catalog'
+AS $function$
+BEGIN
+  IF NOT public.has_role('ADMIN') THEN
+    RAISE EXCEPTION 'admin role required' USING ERRCODE = '42501';
+  END IF;
+
+  IF p_year_level IS NULL OR p_year_level NOT BETWEEN 2 AND 9 THEN
+    RAISE EXCEPTION 'year_level % is outside the configured range 2-9', p_year_level
+      USING ERRCODE = '22023';
+  END IF;
+  IF p_max_tests IS NULL OR p_max_tests NOT BETWEEN 1 AND 40 THEN
+    RAISE EXCEPTION 'max_tests_per_day must be between 1 and 40 (got %)', p_max_tests
+      USING ERRCODE = '22023';
+  END IF;
+  IF p_max_questions IS NULL OR p_max_questions NOT BETWEEN 1 AND 2000 THEN
+    RAISE EXCEPTION 'max_questions_per_day must be between 1 and 2000 (got %)', p_max_questions
+      USING ERRCODE = '22023';
+  END IF;
+  IF p_recommended_tests IS NULL OR p_recommended_tests < 2 THEN
+    RAISE EXCEPTION 'recommended_tests_per_day must be at least 2 (got %)', p_recommended_tests
+      USING ERRCODE = '22023';
+  END IF;
+  IF p_recommended_tests > p_max_tests THEN
+    RAISE EXCEPTION 'recommended target % exceeds the ceiling % for Year %',
+      p_recommended_tests, p_max_tests, p_year_level USING ERRCODE = '22023';
+  END IF;
+  IF p_recommended_questions IS NULL OR p_recommended_questions < 2 THEN
+    RAISE EXCEPTION 'recommended_questions_per_day must be at least 2 (got %)', p_recommended_questions
+      USING ERRCODE = '22023';
+  END IF;
+  IF p_recommended_questions > p_max_questions THEN
+    RAISE EXCEPTION 'recommended question target % exceeds the ceiling % for Year %',
+      p_recommended_questions, p_max_questions, p_year_level USING ERRCODE = '22023';
+  END IF;
+
+  UPDATE reporting.dim_year_level_cap c
+     SET max_tests_per_day             = p_max_tests,
+         max_questions_per_day         = p_max_questions,
+         recommended_tests_per_day     = p_recommended_tests,
+         recommended_questions_per_day = p_recommended_questions,
+         updated_at                    = now()
+   WHERE c.year_level = p_year_level;
+
+  IF NOT FOUND THEN
+    RAISE EXCEPTION 'no cap row for year_level %', p_year_level USING ERRCODE = 'P0002';
+  END IF;
+
+  RETURN QUERY SELECT c.year_level, c.max_tests_per_day, c.max_questions_per_day,
+                       c.recommended_tests_per_day, c.recommended_questions_per_day,
+                       c.updated_at
+                  FROM reporting.dim_year_level_cap c
+                 WHERE c.year_level = p_year_level;
+END;
+$function$
+;
+
+CREATE OR REPLACE FUNCTION public.admin_year_level_caps()
+ RETURNS TABLE(year_level smallint, max_tests_per_day smallint, max_questions_per_day smallint, recommended_tests_per_day smallint, recommended_questions_per_day smallint, updated_at timestamp with time zone)
+ LANGUAGE sql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'reporting', 'public', 'pg_catalog'
+AS $function$
+  SELECT c.year_level, c.max_tests_per_day, c.max_questions_per_day,
+         c.recommended_tests_per_day, c.recommended_questions_per_day, c.updated_at
+  FROM reporting.dim_year_level_cap c
+  WHERE public.has_role('ADMIN')
+  ORDER BY c.year_level;
+$function$
+;
+
 CREATE OR REPLACE FUNCTION public.advance_funnel_stage(target_user_id uuid, new_stage text)
  RETURNS void
  LANGUAGE plpgsql

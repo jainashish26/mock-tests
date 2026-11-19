@@ -891,7 +891,8 @@
 > *interim* state, not the answer, and a first response that lands over a weekend
 > or a Victorian public holiday is currently measured against the wrong clock —
 > which reads as *better* performance than was promised, the safe direction, but
-> is still a number nobody agreed to. The fix is migration **107**:
+> is still a number nobody agreed to. The fix is migration **108** (105 and 106 and
+> 107 were spent on decisions 9, D3 and 4-A in the meantime):
 > `reporting.dim_public_holiday_vic` + `business_day_deadline()` + an
 > `unknown_calendar` state that refuses to compute when a holiday year is missing.
 > See D2 below for why the existing `dim_date.is_vic_public_holiday` cannot be
@@ -980,7 +981,8 @@
 > | **1** | Is the SLA clock calendar or business days? | **B — business days.** Sub-decision **1a**: due at the *close of the next business day*, which needs only a holiday calendar, not an opening-hours window. | New `reporting.dim_public_holiday_vic`; `sla_basis='business_day'`; `business_day_deadline()`; `sla_state` gains an `unknown_calendar` state so a missing holiday year refuses to compute rather than guessing. **D2 below is now load-bearing.** |
 > | **2** | May a converted enquiry point at a non-`purchases` order? | **A — yes.** Relax `enquiries_converted_has_order` and add `converted_ref`. | One migration of its own; subscription payments create no `purchases` row, so the current CHECK makes "converted" unreachable for the majority of revenue. |
 > | **3** | Inbound email channel? | **A — Resend inbound, built dormant.** | Needs a real domain to enable (see 11), so it ships dark: schema + route scaffold, no public promise of an address that does not exist. |
-> | **4** | Per-year test/question ceilings? | **A — 10/15/15/15/20/20/25/25 tests for Years 2–9, questions = tests × 25**, as a **ceiling**, with a separate **recommended target** of at least 2 tests/day. Stored in DB, not env vars. | `dim_year_level_cap` gains the recommended column; seeded from versioned SQL; editable at `/admin/settings`. Ceiling enforced, target advisory — the two must never be conflated in a report. |
+> | **4** | Per-year test/question ceilings? | **A — 10/15/15/15/20/20/25/25 tests for Years 2–9, questions = tests × 25**, as a **ceiling**, with a separate **recommended target** of at least 2 tests/day. Stored in DB, not env vars. | **Done — migration 107.** `dim_year_level_cap` seeded for all 8 levels, ceilings NOT NULL (an unset child-safety limit is now unrepresentable), plus `recommended_tests_per_day` (2 for Years 2–5, 3 for 6–9) and `recommended_questions_per_day`. Read/written only through `admin_year_level_caps()` / `admin_set_year_level_cap(...)`, editable at `/admin/settings`. **Raises one question it does not answer — see 4-A-follow below.** |
+
 > | **5** | Adaptive engine? | **B — yes, roadmap.** | A design note, not code this quarter. |
 > | **6** | VC2 skill dependency? | **C — retired.** Keep A-9's assumed mapping. | **Done (documentation).** `14-…md` §19 now answers Q-10 in place and §20.5 points the surviving mapping at Q-11/7-A. Migration `026` dropped VC2; only `dim_skill_area` exists. The "biggest schedule risk" framing is corrected rather than deleted. |
 > | **7** | Skill → exam mapping for A-9? | **A — invent it as config, labelled editorial and unvalidated.** | `skill_exam_mapping` table, 11 proposed rows, reviewed before ship. The label is the guarantee: a derived mapping presented as fact is how an unvalidated number becomes a parental decision. **Not yet built** — the proposed rows need your review first. |
@@ -1127,20 +1129,121 @@
 > on `grants`. Two lessons: snapshot before you change a generator, and verify by
 > comparing output, not by confirming the statement was accepted.
 >
-> **Still to do in this sequence:** decisions **1** (business-day SLA — planned as
-> migration 107, since 105 was spent on decision 9 and 106 on D3), **2** (relax
-> `enquiries_converted_has_order` + `converted_ref`), **4** (year caps: ceiling +
-> advisory target, seeded and editable), **7** (`skill_exam_mapping`, proposed rows
-> awaiting review), **5** (adaptive-engine design note) and **3** (Resend inbound,
-> dormant). Decisions **6, 8, 9, 10 and 11 are done.** Then Phase C (A13) and
-> Phase D (pgtap assurance).
+> #### 4-A-follow — seeding the ceilings changed what the ceiling *does*, and that is a question
+>
+> Decision 4-A is implemented exactly as given. Implementing it surfaced something
+> the register could not have known, and it needs an answer before the first study
+> plan is created rather than after.
+>
+> `mv_student_daily_target.effective_cap` is
+> `COALESCE(cap.max_tests_per_day, 2 * ceil(weekly_sessions_goal / 7))`, and
+> `daily_target_units = LEAST(required_daily, effective_cap)`. So while the caps sat
+> NULL — the state since migration 013 — the fallback gave a typical
+> 3-sessions-a-week plan an effective cap of **2**. Seeding Year 2 to 10 therefore
+> **raises** what a behind-plan Year 2 child can be told to do, from 2 to as many as
+> 10 full papers in a day.
+>
+> That is rule B7 working as written ("the student keeps seeing the cap"), not a
+> defect. But the numbers came from a conversation about **limits**, and a limit of
+> 10 papers a day for a seven-year-old is not a limit in the protective sense — it
+> is a permission. Meanwhile the recommended target, which is the number that
+> actually reads like advice (2–3/day), is stored and displayed and **clamps
+> nothing**.
+>
+> **The open question, for the product owner, one line:** should a student's daily
+> target be clamped by the *ceiling* (as now, and as B7 says) or by the
+> *recommended target* (which is the number you gave as the normal day)?
+>
+> - Clamping to the ceiling keeps the spec and means a plan that falls far behind
+>   can demand 10–25 papers.
+> - Clamping to the recommended target makes the guard match the intent, and leaves
+>   the ceiling as the absolute backstop that `plan_overload_flag` measures against.
+>
+> **Why it is safe to leave open for now: there are zero current plans in the
+> database.** `dim_practice_plan` has no `is_current` rows and the MV has 0 rows, so
+> nothing a child sees changes today. The decision is needed before the first plan,
+> not after — and the migration, the admin screen, the table comment and this entry
+> all say the recommended target enforces nothing, so nobody can be surprised into
+> believing otherwise.
+>
+> #### Two findings from building it, both verified rather than assumed
+>
+> 1. **`admin_year_level_caps()` answers HTTP 200 with `[]` to a service-role
+>    caller.** Confirmed against the live REST endpoint: 200, empty body, on a
+>    database holding all eight configured rows — because `has_role('ADMIN')`
+>    resolves `auth.uid()`, and the service role has none. The page already reads
+>    through the session client for that reason, but the shape is dangerous: an
+>    empty array and an unconfigured table are the same value, so any future
+>    refactor to the obvious-looking `createAdminClient()` (already used two lines
+>    above it for `admin_settings`) would print "no limits are configured" about a
+>    fully configured database and invite the operator to configure limits that
+>    exist. `loadYearLevelCaps()` therefore reports an empty read as a **failure**,
+>    and `EXPECTED_YEAR_LEVELS` makes "complete" a defined thing (2–9) rather than
+>    "whatever came back". Pinned by gates and tests: dropping Year 9 from the
+>    mandated set turns the suite red **35→34** and the reporting suite red
+>    **214→211**.
+> 2. **The client component imported the I/O module and the build died.**
+>    `YearCapsTable.tsx` reached for `@/lib/reporting/admin-year-caps`, which pulls
+>    `./connection` → `next/headers`, which a client component cannot load. The two
+>    modules sit side by side with near-identical exports, so choosing the wrong one
+>    is the obvious mistake — caught only because Turbopack fails the whole graph.
+>    The pure/impure split is what makes it catchable at all: the fix was to import
+>    the pure module and cross the boundary only through the server action.
+>
+> Also measured while writing the seed, because "questions = tests × 25" deserved a
+> check against reality: published tests have a **median of 35 items** (min 0, max
+> 90; only 6 of 59 are exactly 25). So 25 is a policy floor, not a measurement, and
+> it makes the question ceiling bind sooner than the test ceiling for a typical
+> paper. Harmless — `unit_kind` selects exactly one of the two columns per plan, so
+> they never fight — but it is stated in the migration, the table comment and the
+> admin screen so nobody later mistakes it for data.
+>
+> **Still to do in this sequence:** decisions **1** (business-day SLA — now
+> migration 108; 105 went to decision 9, 106 to D3, 107 to decision 4-A), **2**
+> (relax `enquiries_converted_has_order` + `converted_ref`), **7**
+> (`skill_exam_mapping`, proposed rows awaiting your review), **5** (adaptive-engine
+> design note) and **3** (Resend inbound, dormant). Decisions **4, 6, 8, 9, 10 and
+> 11 are done.** Then Phase C (A13) and Phase D (pgtap assurance).
 >
 > **Migration numbering note, recorded because the plan changed under it:** the
 > original sequence reserved 105 for the business-day calendar. Decision 9 landed
-> first and took 105; D3 took 106. The SLA work is therefore **107**, and the
-> earlier references to "migration 105" for holiday calendars in this section and
-> in `14-…md` §19 should be read as 107. Renumbering a plan is fine; renumbering an
-> applied migration is not, which is why this is a note rather than a silent fix.
+> first and took 105; D3 took 106; decision 4-A took 107. The SLA work is therefore
+> **108**, and earlier references in this section and in `14-…md` §19 to "migration
+> 105" for holiday calendars should be read as 108. Renumbering a plan is fine;
+> renumbering an applied migration is not, which is why this is a note rather than a
+> silent fix.
+>
+> **Separate, pre-existing history drift found while applying 105–107, and it is
+> wider than it first looked.** The live
+> `supabase_migrations.schema_migrations` table keys history on a **timestamp**
+> version (`20261119214132`) plus a name, while every local file is named
+> `107_year_level_caps.sql` — a sequence number where a timestamp should be. The
+> CLI derives its version from the filename, so it cannot reconcile *any* of these
+> files against the remote history, not merely the two that look worst.
+>
+> The visible symptom is narrower and still worth fixing: migrations 096–102 were
+> recorded with their file names (`101_year_level_to_9`), but the two support
+> migrations were recorded as `enquiry_ingest` and `enquiry_source_ref_lookup` —
+> matching neither a filename nor each other, since the repo has
+> `103_enquiry_ingest.sql` and `104_enquiry_triage.sql`. So two different kinds of
+> drift are in play: a naming convention the CLI cannot read at all, and within it
+> an inconsistency that hides which file produced which row.
+>
+> There is no Supabase CLI in this environment, so migrations are applied through
+> the MCP tool, which takes a free-form name — and a name typed at the moment of
+> applying need not match the file, which is how the second kind arises. Neither
+> affects the running system: the schema is correct, and `schema:validate` compares
+> live structure to the captured baseline rather than trusting history. But history
+> is the only thing that answers "is this file already in?", and right now that
+> answer is reconstructable only by reading object definitions.
+>
+> Recorded rather than fixed: rewriting applied history to rename rows is riskier
+> than annotating it, and adopting timestamp filenames properly means renaming 100+
+> files and re-baselining, which is its own decision. 105, 106 and 107 were
+> consistent with whatever convention was to hand, which is not a solution —
+> whichever way this is resolved, it should be resolved once and then followed.
+
+
 
 
 
