@@ -868,14 +868,34 @@
 > `enquiries_converted_has_order` CHECK, or a purchases row per subscription
 > period — so it is recorded as an open question in 104 §4 instead of decided
 > here, and the metric reports `NOT_IMPLEMENTED` the way A15 already does for
-> `stripe_reconciliation`. **New question for the next review — Q-11: what does a
+> `stripe_reconciliation`. **Question Q-13 (renumbered from a `Q-11` tag that three
+> unrelated questions were sharing — decision 8): what does a
 > "converted enquiry" reference when the order is a subscription?**
+> **Answered 2026-11-20 by decision 2-A:** relax 012's `enquiries_converted_has_order`
+> CHECK and add `converted_ref`, so a conversion can point at a subscription, a
+> purchase, or an external order id without the CHECK deciding which products are
+> allowed to be attributed. Until that migration ships, `NOT_IMPLEMENTED` remains
+> the correct output — the alternative is a number that is not imprecise but
+> biased, and a biased number is worse to act on than a missing one.
 >
 > **The SLA is declared, not assumed** (the D-C precedent). `/contact` publishes
 > "one business day" and nothing states calendar-or-business (A-15/Q-5), so config
 > carries `sla_basis` and `sla_is_confirmed`, defaulted to 1440 **calendar**
 > minutes and explicitly unconfirmed, and the queue prints a caveat beside every
 > figure until someone `UPDATE`s the flag. Confirming it is not a migration.
+>
+> **⚠ Superseded by decision 1-B (2026-11-20) — the shipped default is now the
+> knowingly-wrong one.** Q-5 was answered **B**: the clock is **business days**,
+> sub-decision 1a = due at the close of the next business day, which needs a
+> holiday calendar but no opening-hours window. So `sla_basis='calendar'` is the
+> *interim* state, not the answer, and a first response that lands over a weekend
+> or a Victorian public holiday is currently measured against the wrong clock —
+> which reads as *better* performance than was promised, the safe direction, but
+> is still a number nobody agreed to. The fix is migration **107**:
+> `reporting.dim_public_holiday_vic` + `business_day_deadline()` + an
+> `unknown_calendar` state that refuses to compute when a holiday year is missing.
+> See D2 below for why the existing `dim_date.is_vic_public_holiday` cannot be
+> reused for it.
 >
 > **Verified (Phase B):** typecheck 0 · lint ratchet unchanged 60/16 · build 0 ·
 > all 8 Node suites green (**94** enquiry assertions, +41) · 104 applied **from
@@ -962,11 +982,12 @@
 > | **3** | Inbound email channel? | **A — Resend inbound, built dormant.** | Needs a real domain to enable (see 11), so it ships dark: schema + route scaffold, no public promise of an address that does not exist. |
 > | **4** | Per-year test/question ceilings? | **A — 10/15/15/15/20/20/25/25 tests for Years 2–9, questions = tests × 25**, as a **ceiling**, with a separate **recommended target** of at least 2 tests/day. Stored in DB, not env vars. | `dim_year_level_cap` gains the recommended column; seeded from versioned SQL; editable at `/admin/settings`. Ceiling enforced, target advisory — the two must never be conflated in a report. |
 > | **5** | Adaptive engine? | **B — yes, roadmap.** | A design note, not code this quarter. |
-> | **6** | VC2 skill dependency? | **C — retired.** Keep A-9's assumed mapping. | Migration `026` dropped VC2; only `dim_skill_area` exists. Removes the "biggest schedule risk" claim from the roadmap. |
-> | **7** | Skill → exam mapping for A-9? | **A — invent it as config, labelled editorial and unvalidated.** | `skill_exam_mapping` table, 11 proposed rows, reviewed before ship. The label is the guarantee: a derived mapping presented as fact is how an unvalidated number becomes a parental decision. |
-> | **8** | Q-11 identifier collisions? | **B — renumber.** | Documentation only; zero risk, and it stops two different questions sharing a tag in the same file. |
-> | **9** | Checkout-abandon window? | **A — 60 minutes.** | `funnel.checkout_abandon_minutes` is currently NULL, so abandonment has been unmeasurable. |
-> | **10** | Paywall threshold? | **A — stays 2 in code.** | D-E in §2 closes; no change, one fewer open question. |
+> | **6** | VC2 skill dependency? | **C — retired.** Keep A-9's assumed mapping. | **Done (documentation).** `14-…md` §19 now answers Q-10 in place and §20.5 points the surviving mapping at Q-11/7-A. Migration `026` dropped VC2; only `dim_skill_area` exists. The "biggest schedule risk" framing is corrected rather than deleted. |
+> | **7** | Skill → exam mapping for A-9? | **A — invent it as config, labelled editorial and unvalidated.** | `skill_exam_mapping` table, 11 proposed rows, reviewed before ship. The label is the guarantee: a derived mapping presented as fact is how an unvalidated number becomes a parental decision. **Not yet built** — the proposed rows need your review first. |
+> | **8** | Q-11 identifier collisions? | **B — renumber.** | **Done.** `Q-11` turned out to name **three** different questions, not two, and none was in the canonical register (which stops at Q-10): the skill→exam mapping stays **Q-11**, the `family_group` prerequisite becomes **Q-12** and is **closed by the data** (17/17 populated, verified live), and the converted-enquiry reference becomes **Q-13** (answered 2-A). Both stale cross-references corrected in place. |
+> | **9** | Checkout-abandon window? | **A — 60 minutes.** | **Done, and it was not a config change.** Migration 105: `checkout_abandon_minutes` is 60 and NOT NULL, **and `funnel_outcomes` now reads it** — it previously read nothing, and abandonment was `started AND NOT completed in window`, which counted a parent 90 seconds into a checkout as abandoned. Verified: live abandoned is **1 either way** (4 starts, 3 completed <60 min, 0 late), so no historical figure moves, while the synthetic cases now behave correctly. Recorded as a **deviation**: the register described this as "near-zero-risk config". |
+> | **10** | Paywall threshold? | **A — stays 2 in code.** | **Done — no change.** `PAYWALL_ATTEMPT_THRESHOLD = 2` in `src/lib/funnel/state.ts` stays; backlog §2 row **D-E closed** accordingly. A12 remains the right venue to test 1-vs-2 rather than editing a constant the gift sequence depends on. |
+
 > | **11** | Domain / productionisation? | **B — stay on the Vercel URL.** Retire the fictional addresses in favour of the new working form. | **Built.** Noindex on `*.vercel.app`, dead `mocktestspro.com.au` contact addresses deleted, `NEXT_PUBLIC_SITE_URL` mismatch fixed (D1). |
 >
 > #### Two defects found while grounding these answers, not while fixing them
@@ -1069,9 +1090,59 @@
 >    also fixed rather than accepted — a gate that fails because it is blind looks
 >    exactly like a working gate right up to the defect it does not catch.
 >
-> **Still to do in this sequence:** decisions 1, 2, 4, 7, 9 (config + migration
-> 105), 8 and 6 (documentation), 5 (design note), 3 (dormant build), then Phase C
-> and Phase D.
+> #### D3 — found while executing decision 9: the generated baseline was not deterministic
+>
+> Regenerating the schema baseline rewrote **48 lines of `06_grants.sql` with no
+> change of content** — every added line had an identical removed line. Cause:
+> `reporting.export_baseline('grants')` aggregated with
+> `ORDER BY r.relname, r.priv`, which leaves the tie unresolved whenever one table
+> grants the same privilege to two roles. That is every reporting table, since all
+> are readable by both `reporting_ro` and `postgres`.
+>
+> This is not cosmetics. The baseline is the artifact that makes a restore
+> reproducible, and `schema:validate` is the test that proves it. A file that
+> reshuffles itself every run trains the reviewer to skim grant churn — and grant
+> churn is exactly where a widened `anon` grant, or a `reporting_ro` SELECT quietly
+> dropped, would arrive looking like noise. Non-determinism in a security-relevant
+> generated file removes the signal rather than weakening it.
+>
+> Fixed in migration 106 by ordering on the role **name**, not its oid: oids are
+> not preserved across a restore, so a name is the only key that means the same
+> thing on both sides of a comparison. Verified rather than assumed:
+>
+> - every other baseline part hashed **identical** before and after; only `grants`
+>   changed, and with the **same 19,798 characters** — a pure permutation,
+> - the emitted statement set equals the live ACL set exactly (**342 = 342**),
+> - two consecutive calls, and two consecutive generator runs, now return
+>   byte-identical output — the whole baseline directory hash is unchanged by a
+>   third regeneration.
+>
+> **The mistake made while fixing it is worth recording too.** The first attempt
+> rewrote the whole function by hand from the catalog's `prosrc` and referenced
+> `(aclexplode(...)).grantee` inside a `CASE`, which Postgres rejects as "argument
+> of CASE/WHEN must not return a set". Because plpgsql compiles each `RETURN QUERY`
+> lazily, `CREATE OR REPLACE` **accepted the broken body**, and it was the
+> verification query — not the apply — that found it. Had the check been "does it
+> run in production later", live would have been left with an exporter that throws
+> on `grants`. Two lessons: snapshot before you change a generator, and verify by
+> comparing output, not by confirming the statement was accepted.
+>
+> **Still to do in this sequence:** decisions **1** (business-day SLA — planned as
+> migration 107, since 105 was spent on decision 9 and 106 on D3), **2** (relax
+> `enquiries_converted_has_order` + `converted_ref`), **4** (year caps: ceiling +
+> advisory target, seeded and editable), **7** (`skill_exam_mapping`, proposed rows
+> awaiting review), **5** (adaptive-engine design note) and **3** (Resend inbound,
+> dormant). Decisions **6, 8, 9, 10 and 11 are done.** Then Phase C (A13) and
+> Phase D (pgtap assurance).
+>
+> **Migration numbering note, recorded because the plan changed under it:** the
+> original sequence reserved 105 for the business-day calendar. Decision 9 landed
+> first and took 105; D3 took 106. The SLA work is therefore **107**, and the
+> earlier references to "migration 105" for holiday calendars in this section and
+> in `14-…md` §19 should be read as 107. Renumbering a plan is fine; renumbering an
+> applied migration is not, which is why this is a note rather than a silent fix.
+
+
 
 
 
@@ -1122,14 +1193,19 @@ days of work. Nothing else should be scheduled ahead of asking them.
 
 | # | Decision needed | Unblocks | Cost of delay |
 |---|---|---|---|
-| **D-A** | Value for `reporting.coverage_thresholds.min_items_per_subtopic` | A3 + TC1 can *classify* coverage instead of only ordering it. Clears the standing A15 **FAIL**. | Two shipped reports stay half-blind: all 85 sub-topics report `ADEQUATE`, some with 1 published item. |
+| **D-A** | Value for `reporting.coverage_thresholds.min_items_per_subtopic` | A3 + TC1 can *classify* coverage instead of only ordering it. Clears the standing A15 **FAIL**. | **CLOSED before this table was written.** Migration 046 set it to **10**, derived as 2 × `MIN_ITEMS_FOR_SIGNAL`; verified live on 2026-11-20. This row is stale as a *question* and is left visible rather than deleted so the sequence — a decision worth minutes sat here labelled outstanding — stays on the record. |
 | **D-B** | **Q-2** — confirm tutor access semantics ("all reports for consented students; no unlinked students; no billing") | The entire tutor surface: **9 reports** (P10, T1, T2, T3, T5, T7, P6, T6, later T4) | Largest report-count block in the programme. Cannot start consent schema without it. |
-| **D-C** | **Q-7 / A-18** — GST treatment per product line | All revenue reporting (A8, A9, A10) and reconciliation | Flagged **High**: `gross/1.10` misstates revenue if any line is GST-free. Building first guarantees rework. |
+| **D-C** | **Q-7 / A-18** — GST treatment per product line | All revenue reporting (A8, A9, A10) and reconciliation | Flagged **High**: `gross/1.10` misstates revenue if any line is GST-free. Building first guarantees rework. **Corrected 2026-11-20 — there is no `/1.10` to rework.** Revenue maths goes through `reporting.net_ex_gst()`, which reads `reporting.product_tax_treatment` per `product_key`; a catalog scan of every function whose body mentions revenue/gross/amount found **zero** hard-coded GST divisors. Four rows are seeded, all `inclusive @ 10.00`, including `writing_booster` declared before its first sale. So D-C is now **a product/accounting question with a one-`UPDATE` answer per line**, not a schema risk — the remaining exposure is whether `inclusive@10%` is *correct* for each line (education services can be GST-free in some configurations), which is an accountant's call and is still outstanding. The table being wired is what makes that call cheap; it was not obvious from the roadmap's wording, and the difference matters for scheduling. |
 | **D-D** | Should A14 be exempt from the refresh blackout? | A14 freshness during peak | `mv_platform_health` stops refreshing exactly when the platform is busiest (weekends 09:00–13:00, weekdays 16:00–21:00 Melbourne) — i.e. when "is it coping?" matters most. |
-| **D-E** | Confirm **D-2** (paywall threshold stays 2) and **D-4** (marketing percentiles gated on n≥200) | Removes two open conversion questions | Low. Defaults are already the safe ones. |
+| **D-E** | Confirm **D-2** (paywall threshold stays 2) and **D-4** (marketing percentiles gated on n≥200) | Removes two open conversion questions | **CLOSED 2026-11-20 by decision 10-A.** `PAYWALL_ATTEMPT_THRESHOLD = 2` in `src/lib/funnel/state.ts` stays. No code change, which is the point: the question was whether to *act*, and the answer was not to. D-4 (percentiles at n≥200) remains blocked on sample size, not on a decision. |
 
-**Scrum note**: D-A is a product decision measured in minutes that has been blocking two
-delivered reports. Raise it at the next standup, not the next planning session.
+**Scrum note (superseded for D-A)**: the standing advice to "raise D-A at the next
+standup" was overtaken by events — it was answered and shipped in migration 046 as
+`min_items_per_subtopic = 10`. What the note got right is general and still worth
+keeping: **a decision measured in minutes can block a delivered report for longer
+than the engineering would have taken**, and the expensive part is not the answer
+but the asking. D-E closed the same way in this session, for the same reason.
+
 
 ---
 

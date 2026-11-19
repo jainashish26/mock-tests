@@ -383,6 +383,54 @@ The brief said to ask only about conflicts. These are the conflicts and unfilled
 | **Q-9** | Is the **adaptive engine** on the roadmap? A2 and `pathway_distribution` have no source column today, and I have not invented one. | A2 |
 | **Q-10** | Does a **VC2 mapping** already exist anywhere — spreadsheet, authoring tool, publisher data? If so, Phase 2's critical path shortens substantially. | P3, T2, A3, TC1, P5 |
 
+**Q-10 — answered 2026-11-20, decision 6-C: the dependency is retired.** No mapping
+was ever produced, because there is nothing left to map *to*. Migration `026` dropped
+VC2 and created `dim_skill_area` instead; P3, A3, TC1 and T-series reports were then
+shipped on that basis without it. The register row is kept rather than deleted for the
+same reason as D-A above — a question that was framed as "High — gates 8 reports,
+biggest schedule risk" and later dissolved not by an answer arriving but by the thing
+it asked about ceasing to exist is a fact about how the estimate was built, and that is
+worth more than a struck line. What survives from it is A-9's assumed skill→exam
+mapping, which is now governed by **Q-11 / decision 7-A** and is labelled editorial and
+unvalidated rather than inherited silently from a retired document.
+
+
+> **Where these stand now.** This register is the *questions*, not the answers —
+> the answers live in `16-delivery-backlog.md` item 21's decision table, and one
+> place deciding is the only reason the two documents cannot disagree. As of
+> 2026-11-20: **Q-4** → 4-A (year caps as ceiling + advisory target, stored in the
+> DB), **Q-5** → 1-B (business days; the shipped `sla_basis='calendar'` is interim
+> and says so), **Q-6** → 3-A (Resend inbound, built dormant), **Q-9** → 5-B (on
+> the roadmap; design note outstanding), **Q-10** → 6-C (answered above),
+> **Q-11/Q-12/Q-13** → 7-A / closed-by-data / 2-A (§19.1). **Q-1, Q-2, Q-3, Q-7
+> and Q-8 remain genuinely open**, and Q-2 is the one with the largest consequence:
+> nine tutor reports wait on it.
+
+### 19.1 Q-11 was used for three different questions — now Q-11, Q-12, Q-13
+
+
+
+> Renumbered on 2026-11-20 under decision 8. This was not pedantry. `Q-11`
+> appeared in three places meaning three different things, and none of them was
+> in the register above, which stops at Q-10:
+>
+> - `14-…md` §20.5 — the 11 unmapped `SKILL_EXAM_TYPES` values,
+> - `14-…md` §20.8 — `dim_test_family.family_group` as a P2 cohort prerequisite,
+> - `16-…md` item 21 — what a "converted enquiry" references when the order is a subscription.
+>
+> A shared tag is worse than a missing one, because it reads as agreement: two of
+> these were answered by different decisions, so a reader who looked up "Q-11"
+> would have applied the wrong answer to the wrong blocker. Cross-references now
+> point at distinct numbers, and each row records its resolution rather than
+> leaving it to be re-derived.
+
+| # | Question | Blocks | **Resolved (2026-11-20)** |
+|---|---|---|---|
+| **Q-11** | The 11 skill values in `dim_skill_area` (`GRAMMAR`, `GEOMETRY`, `SPELLING`…) are exported as `SKILL_EXAM_TYPES` and map to no readiness exam. Does an authoritative skill→exam relationship exist, or may one be asserted? | A-9 readiness attribution | **7-A.** Invent it as configuration, labelled editorial and unvalidated. See `16-…md` item 21 decision 7 and the proposed `skill_exam_mapping` rows, which need review before shipping — the label is the guarantee. |
+| **Q-12** | `dim_test_family.family_group` is needed before P2 can compute a cohort; without it a NAPLAN cohort fragments three ways and drops below the n=20 suppression floor. | P2 cohort, A-21 | **Closed by the data, not by a decision.** `family_group` exists and is populated for **17 of 17** members. The §20.8 row that still says "needed" is stale and is corrected below. |
+| **Q-13** | What does a "converted enquiry" reference when the order is a **subscription**? Migration 012's `enquiries_converted_has_order` CHECK demands a `purchases` row, and subscription payments do not create one — so conversion is unreachable for most revenue. | A13 conversion metric | **2-A.** Relax the CHECK and add `converted_ref`. Until that migration lands the metric reports `NOT_IMPLEMENTED`, which is what it does now. |
+
+
 ---
 
 **End of Part 4.** Document set: `11-bi-reporting-design.md`, `12-bi-reporting-data-model.md`,
@@ -513,7 +561,12 @@ mix genuine exam families with skill categories (`GRAMMAR`, `GEOMETRY`, `SPELLIN
   `NAPLAN_STYLE_*` → one family and `*_OLYMPIAD` → one family.
 - Mapping the 11 skill values onto a readiness exam would assert an assessment relationship nobody has
   decided (e.g. that a `GEOMETRY` practice item evidences Selective readiness). **I have not invented
-  one.** They are unmapped, exported as `SKILL_EXAM_TYPES`, and flagged as question **Q-11**.
+  one.** They are unmapped, exported as `SKILL_EXAM_TYPES`, and flagged as question **Q-11** —
+  answered on 2026-11-20 by **decision 7-A**: a `skill_exam_mapping` configuration table, labelled
+  editorial and unvalidated. The mapping is asserted *as configuration*, which is the only form in
+  which it can be reviewed and withdrawn; had it been written into the readiness function itself it
+  would have presented as measured fact, and a parent reading "Selective readiness 62%" off a
+  `GRAMMAR` practice item would have had no way to know the link was invented.
 
 ### 20.6 Design-document text now known to be wrong
 
@@ -558,7 +611,7 @@ columns must be checked through `pg_attribute`. That is the assertion now used a
 | Apply `010_subscriptions` | Fixed in repo — creates `public.profiles` plus an `auth.users` trigger, without which the webhook's `.update()` silently affects zero rows. Not applied. |
 | Student app surface | `src/app/student/report/[attemptId]/page.tsx` still renders `TestReportView`. It now **fails safe** — with the SELECT policies gone, `loadReportData` returns `attempt: null` and the page shows "Report unavailable" — but it should be replaced by the S3 completion screen plus the S1/S2 cards. |
 | `/api/reporting/student/*` routes | `today` and `completion` endpoints per `13-…md` §12, using `withReportingRole()`. |
-| `dim_test_family.family_group` | Needed before P2 can compute a cohort (A-21, Q-11). |
+| ~~`dim_test_family.family_group`~~ | **Done, and the reference was stale.** This row cited it as an outstanding prerequisite under `Q-11`, the same tag two other unrelated questions were using; it is renumbered **Q-12** in §19.1. Verified against the live database on 2026-11-20: `family_group` is populated for **17 of 17** families across `NAPLAN_STYLE`, `SELECTIVE`, `OLYMPIAD`, `SKILL_PRACTICE`, `BENCHMARK` — so the three-way NAPLAN fragmentation that would have pushed a cohort under the n=20 suppression floor no longer happens. P2's cohort is unblocked by the data, not by a decision. |
 | Year-level caps | `dim_year_level_cap` is 7 rows of NULL awaiting Q-4. Until set, S2 falls back to `weekly_sessions_goal / 7`. |
 | Remainder of Phase 1 | P1, P4, P7, P8, P9, A14, A15 per §16. |
 

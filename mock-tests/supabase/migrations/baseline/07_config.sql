@@ -30,7 +30,7 @@ INSERT INTO reporting.enquiry_thresholds SELECT * FROM jsonb_populate_record(NUL
 INSERT INTO reporting.experiment_thresholds SELECT * FROM jsonb_populate_record(NULL::reporting.experiment_thresholds, '{"id": 1, "alpha": 0.05, "updated_at": "2026-11-16T06:24:07.718637+00:00", "min_sample_size": 200, "min_meaningful_lift_pp": 2.0}') ON CONFLICT DO NOTHING;
 
 -- funnel_thresholds
-INSERT INTO reporting.funnel_thresholds SELECT * FROM jsonb_populate_record(NULL::reporting.funnel_thresholds, '{"id": 1, "updated_at": "2026-11-15T21:50:03.252539+00:00", "min_segment_visitors": 20, "checkout_abandon_minutes": null}') ON CONFLICT DO NOTHING;
+INSERT INTO reporting.funnel_thresholds SELECT * FROM jsonb_populate_record(NULL::reporting.funnel_thresholds, '{"id": 1, "updated_at": "2026-11-19T21:21:32.787433+00:00", "min_segment_visitors": 20, "checkout_abandon_minutes": 60}') ON CONFLICT DO NOTHING;
 
 -- item_thresholds
 INSERT INTO reporting.item_thresholds SELECT * FROM jsonb_populate_record(NULL::reporting.item_thresholds, '{"id": 1, "updated_at": "2026-11-17T12:02:37.537307+00:00", "p_value_floor": 0.200, "p_value_ceiling": 0.900, "skip_rate_max_pct": 10.00, "point_biserial_min": 0.200, "min_responses_per_item": 20, "median_time_max_seconds": 180}') ON CONFLICT DO NOTHING;

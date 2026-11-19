@@ -252,7 +252,7 @@ CREATE TABLE IF NOT EXISTS reporting.fact_test_attempt (
 CREATE TABLE IF NOT EXISTS reporting.funnel_thresholds (
   id smallint DEFAULT 1 NOT NULL,
   min_segment_visitors integer,
-  checkout_abandon_minutes integer,
+  checkout_abandon_minutes integer DEFAULT 60 NOT NULL,
   updated_at timestamp with time zone DEFAULT now() NOT NULL,
   CONSTRAINT funnel_thresholds_id_check CHECK ((id = 1)),
   CONSTRAINT funnel_thresholds_pkey PRIMARY KEY (id)
