@@ -62,6 +62,24 @@ Set these in **Supabase Dashboard → Auth → SMTP** (not necessarily as Vercel
 - `SMTP_SENDER_NAME` — e.g., `Mock Tests`
 - `SMTP_SENDER_EMAIL` — e.g., `no-reply@yourdomain.com`
 
+### 2.5 GitHub Actions CI secret — `SUPABASE_DB_URL` (pgtap database assurance)
+
+> **This is a GitHub repository secret, NOT a Vercel env var.** It is consumed only by the CI `verify` job (`.github/workflows/ci.yml`, step "Database assurance (pgtap, transaction-rolled-back)").
+
+- **What it is**: a direct Postgres connection string used by `npm run test:db` → `scripts/run-db-tests.mjs` → `supabase/tests/assurance.sql` (the pgtap suite, ~100 assertions: AC/DA/PR/PF, T3/T5/T7, P2). _Recommended follow-up: add RLS assertions for `writing_practice_sessions` (student INSERT-only / no SELECT, parent SELECT of linked child, admin) to this suite._
+- **Why it matters**: the CI step is **gated on this secret**. When it is absent the step prints a `::warning::` and **skips** (CI still goes green, but the database assertions are NOT enforced). Setting it makes the RLS/privilege assurances mandatory on every push and PR.
+- **Where to set it**: GitHub → repo `jainashish26/mock-tests` → **Settings → Secrets and variables → Actions → New repository secret** → Name `SUPABASE_DB_URL`, paste the value below.
+- **Value format** (use the **direct** connection on port `5432`, not the pooler — `psql`/pgtap need a session connection):
+  ```
+  postgresql://postgres:<URL_ENCODED_DB_PASSWORD>@db.ekdjrvjgrhpqolthbznr.supabase.co:5432/postgres
+  ```
+  - `ekdjrvjgrhpqolthbznr` is the production project ref (the same host in `NEXT_PUBLIC_SUPABASE_URL`).
+  - **URL-encode the password** (libpq decodes it): `@` → `%40`, `#` → `%23`, `/` → `%2F`, `:` → `%3A`, etc.
+  - Get/reset the password in **Supabase Dashboard → Project Settings → Database → Connection string / DB password**.
+- **Safety**: the suite is wrapped in `BEGIN … ROLLBACK` and creates only TEMP tables and rolled-back fixtures, so it does not mutate the hosted database. Treat the credential as privileged regardless — it is a direct DB password.
+- **Scope**: a single **repository** secret (not per-environment); the `verify` job runs it for pushes to `main`/`master` and all PRs.
+- **Local use**: the same variable name is documented in `06-env.example` (`SUPABASE_DB_URL=…`) for running `npm run test:db` locally.
+
 ### 2.5 Supabase Auth settings (Supabase dashboard)
 - **Site URL**: must match `APP_URL` (prod) and allow preview URLs as additional redirect URLs.
 - **Redirect URLs allowlist**: include
@@ -300,4 +318,5 @@ Same keys as production, but:
 - [ ] Stripe webhook secret set and endpoint reachable from Stripe.
 - [ ] QStash signing key verification enabled on job handlers.
 - [ ] Separate env vars exist for dev/staging/prod.
+- [ ] GitHub Actions secret `SUPABASE_DB_URL` set (Settings → Secrets and variables → Actions) so the pgtap database-assurance step runs instead of skipping — see §2.5.
 

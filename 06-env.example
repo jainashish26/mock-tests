@@ -183,6 +183,8 @@ ANALYTICS_WRITE_KEY=""
 SUPABASE_STORAGE_BUCKET="question-images"
 NEXT_PUBLIC_SUPABASE_STORAGE_BUCKET="question-images"
 
+# This same value is the GitHub Actions repository secret `SUPABASE_DB_URL` that
+# enables the CI "Database assurance (pgtap)" step - see 05-mock-tests-env-vars.md §2.5.
 # Direct Postgres connection for psql / npm run test:db (pgtap assurance suite).
 # URL-encode the password (e.g. @ -> %40). libpq decodes it; never commit the real value.
 SUPABASE_DB_URL="postgresql://postgres:<url-encoded-password>@db.<project-ref>.supabase.co:5432/postgres"
