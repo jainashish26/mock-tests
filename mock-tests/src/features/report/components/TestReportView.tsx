@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { WritingReportPanel } from './WritingReportPanel'
 
 const OPTION_COLUMNS = [
   ['A', 'answer_a'],
@@ -52,11 +53,13 @@ export function TestReportView({
   responses,
   writingEvaluations = [],
   role,
+  unlocked = false,
 }: {
   attempt: any
   responses: any[]
   writingEvaluations?: any[]
   role: 'STUDENT' | 'PARENT'
+  unlocked?: boolean
 }) {
   const status = attempt?.status
   const isComplete = status === 'COMPLETE'
@@ -70,6 +73,8 @@ export function TestReportView({
       ? Object.entries(attempt.section_scores as Record<string, unknown>)
       : []
   const showReview = !isInProgress
+  const writingResponse = responses.find((r) => r?.questions?.type === 'WRITING')
+  const writingStudentText = writingResponse ? answerToText(writingResponse.answer) : undefined
 
   const backLink = role === 'STUDENT' ? '/student' : `/parent/child/${attempt?.student_id ?? ''}`
   const backText = role === 'STUDENT' ? '← Back to Dashboard' : '← Back to Student Profile'
@@ -176,68 +181,7 @@ export function TestReportView({
         </section>
       )}
 
-      {writingEvaluations.length > 0 && (
-        <section style={{ marginTop: '3rem' }}>
-          <h2>Writing Feedback</h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            {writingEvaluations.map((ev, i) => {
-              const strengths = Array.isArray(ev?.strengths) ? ev.strengths : []
-              const improvements = Array.isArray(ev?.improvements) ? ev.improvements : []
-              const evScore = scoreLabel(ev?.score_out_of100)
-
-              return (
-                <div key={ev?.id ?? i} style={card}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-                    <h3 style={{ margin: 0 }}>Writing Response{i + 1 > 1 ? ` ${i + 1}` : ''}</h3>
-                    {evScore && (
-                      <strong style={{ fontSize: '1.5rem', color: 'var(--color-primary)' }}>{evScore}</strong>
-                    )}
-                  </div>
-
-                  {strengths.length > 0 && (
-                    <div style={{ marginTop: '1.25rem' }}>
-                      <h4 style={{ margin: '0 0 0.5rem', color: 'var(--color-success)' }}>Strengths</h4>
-                      <ul style={{ margin: 0, paddingLeft: '1.25rem' }}>
-                        {strengths.map((s: unknown, si: number) => (
-                          <li key={si}>{answerToText(s)}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  {improvements.length > 0 && (
-                    <div style={{ marginTop: '1.25rem' }}>
-                      <h4 style={{ margin: '0 0 0.5rem', color: 'var(--color-warning)' }}>Areas to Improve</h4>
-                      <ul style={{ margin: 0, paddingLeft: '1.25rem' }}>
-                        {improvements.map((s: unknown, si: number) => (
-                          <li key={si}>{answerToText(s)}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  {ev?.improved_text && (
-                    <div style={{ marginTop: '1.25rem' }}>
-                      <h4 style={{ margin: '0 0 0.5rem' }}>Model Answer</h4>
-                      <div
-                        style={{
-                          whiteSpace: 'pre-wrap',
-                          background: 'var(--color-bg, #f8fafc)',
-                          border: '1px solid var(--color-border)',
-                          borderRadius: 'var(--radius-md)',
-                          padding: '1rem',
-                        }}
-                      >
-                        {ev.improved_text}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              )
-            })}
-          </div>
-        </section>
-      )}
+      <WritingReportPanel evaluations={writingEvaluations} studentText={writingStudentText} unlocked={unlocked} />
 
       {showReview && responses.length > 0 && (
         <section style={{ marginTop: '3rem' }}>

@@ -29,7 +29,7 @@ export async function loadReportData(supabase: SupabaseClient, attemptId: string
       .eq('attempt_id', attemptId),
     supabase
       .from('writing_evaluations')
-      .select('id, provider, score_out_of100, strengths, improvements, improved_text, created_at')
+      .select('id, provider, score_out_of100, strengths, improvements, improvements_detail, improved_text, text_type, category_scores, techniques_used, practice_exercise, rubric_version, model, word_count, graded_at, created_at')
       .eq('attempt_id', attemptId)
       .order('created_at', { ascending: true }),
     attempt.test_id

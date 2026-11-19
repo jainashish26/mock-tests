@@ -23,7 +23,7 @@ export default async function TestPage({ params }: { params: Promise<{ assignmen
 
   const { data: profile } = await supabase
     .from('student_profiles')
-    .select('id')
+    .select('id, year_level')
     .eq('auth_user_id', user.id)
     .single()
 
@@ -129,6 +129,7 @@ export default async function TestPage({ params }: { params: Promise<{ assignmen
       startedAt={openAttempt?.started_at ?? null}
       savedResponses={savedResponses}
       dueAt={assignment.due_at ?? null}
+      yearLevel={profile.year_level ?? null}
     />
   )
 }

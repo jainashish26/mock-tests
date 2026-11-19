@@ -68,6 +68,7 @@ QSTASH_NEXT_SIGNING_KEY=""
 
 QSTASH_BASE_CALLBACK_URL="http://localhost:3000"
 QSTASH_WRITING_EVAL_ENDPOINT="http://localhost:3000/api/jobs/writing-eval"
+QSTASH_WRITING_PRACTICE_ENDPOINT="http://localhost:3000/api/jobs/writing-practice"
 QSTASH_ANALYTICS_ROLLUP_ENDPOINT="http://localhost:3000/api/jobs/analytics-rollup"
 
 QSTASH_MAX_RETRIES="5"
@@ -150,7 +151,7 @@ LAUNCH_OFFER_SLUG="launch-150"
 
 # ---------- DeepSeek (Writing marking) ----------
 DEEPSEEK_API_KEY=""
-DEEPSEEK_MODEL=""               # optional; API model id, e.g. deepseek-flash (marketing name "DeepSeek-V4.1-Flash") or deepseek-chat (alias). Unset -> deepseek-chat.
+DEEPSEEK_MODEL=""               # optional; API model id, e.g. deepseek-chat (alias) — the code defaults to deepseek-flash for writing marking. Unset -> deepseek-flash.
 DEEPSEEK_BASE_URL=""            # optional; unset -> https://api.deepseek.com
 DEEPSEEK_TIMEOUT_SECONDS="30"    # optional
 

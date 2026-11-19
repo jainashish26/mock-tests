@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { createAdminClient } from '@/lib/supabase/admin'
-import { gradeWritingForAttempt, isWritingMarkingConfigured } from '@/lib/writing/grade-writing'
+import { gradeWritingForAttempt, gradePracticeSession, isWritingMarkingConfigured } from '@/lib/writing/grade-writing'
 import { isAuthorizedCron } from '@/lib/cron/auth'
 
 /**
@@ -85,5 +85,32 @@ export async function POST(req: Request) {
     }
   }
 
-  return NextResponse.json({ ok: true, ...summary })
+  // AI Practice Lab sessions use the same bounded, oldest-first, sequential
+  // policy. They are graded by the same core (gradePracticeSession) so a
+  // practice piece never sits PENDING just because the QStash path was absent.
+  const practice = { scanned: 0, graded: 0, failed: 0 }
+  const { data: pendingPractice, error: practiceErr } = await admin
+    .from('writing_practice_sessions')
+    .select('id')
+    .eq('status', 'PENDING')
+    .order('created_at', { ascending: true })
+    .limit(limit)
+
+  if (practiceErr) {
+    console.error('[writing-backlog] could not list pending practice sessions', practiceErr.message)
+  } else {
+    for (const row of (pendingPractice ?? []) as { id: string }[]) {
+      practice.scanned += 1
+      try {
+        const result = await gradePracticeSession(row.id, { admin })
+        if (result.status === 'graded') practice.graded += 1
+        // already_graded / not_configured / no_writing left as-is
+      } catch (err) {
+        practice.failed += 1
+        console.error('[writing-backlog] practice grading failed', { sessionId: row.id, err })
+      }
+    }
+  }
+
+  return NextResponse.json({ ok: true, ...summary, practice })
 }

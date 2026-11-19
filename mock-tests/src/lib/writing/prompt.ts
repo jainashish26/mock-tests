@@ -30,7 +30,7 @@
 
 /** Rubric version stamped into every stored evaluation. */
 export const WRITING_RUBRIC_VERSION =
-  process.env.WRITING_RUBRIC_PROMPT_VERSION?.trim() || 'v1.0'
+  process.env.WRITING_RUBRIC_PROMPT_VERSION?.trim() || 'v1.1'
 
 /**
  * The JSON contract the model must satisfy. Keys mirror the source rubric's
@@ -67,6 +67,7 @@ export const WRITING_JSON_CONTRACT = `{
 export function writingSystemPrompt(yearLevel: number | null): string {
   const year = Number.isFinite(yearLevel) && (yearLevel as number) > 0 ? yearLevel : 5
   return `You are an experienced Australian English teacher evaluating a text (narrative or persuasive) written by a student in Year ${year} of an Australian school. Grade strictly against that year level - do not be lenient, but do not apply senior-secondary (VCE) expectations to a primary/early-secondary student.
+Expect a length appropriate to Year ${year} (longer for higher years), but judge quality before quantity: do not penalise a short, strong piece merely for length, and note in "improvements" when the length limited what the writing could achieve.
 
 EVALUATION RUBRIC (100 points total)
 

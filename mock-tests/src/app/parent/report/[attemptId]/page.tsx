@@ -12,6 +12,15 @@ export default async function ParentReportPage({ params }: { params: Promise<{ a
   // RLS ensures the parent only ever receives a linked child's attempt.
   const { attempt, responses, writingEvaluations } = await loadReportData(supabase, attemptId)
 
+  // Full writing detail is gated behind an active subscription (see
+  // `has_active_subscription` in migration 010). The summary (score, band,
+  // strengths, first two improvements) renders free.
+  const { data: unlimited } = await supabase
+    .from('my_access')
+    .select('is_unlimited')
+    .maybeSingle()
+  const unlocked = Boolean((unlimited as { is_unlimited?: boolean } | null)?.is_unlimited)
+
   if (!attempt) {
     return (
       <main style={{ padding: '2rem', maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
@@ -30,6 +39,7 @@ export default async function ParentReportPage({ params }: { params: Promise<{ a
       responses={responses}
       writingEvaluations={writingEvaluations}
       role="PARENT"
+      unlocked={unlocked}
     />
   )
 }

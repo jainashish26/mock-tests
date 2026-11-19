@@ -66,6 +66,12 @@ export default async function ChildDetailPage({ params }: { params: Promise<{ id
         <span style={{ color: 'var(--color-text-muted)' }}>Year {child?.year_level}</span>
       </div>
 
+      <div style={{ marginTop: '0.75rem' }}>
+        <Link href={`/parent/child/${childId}/writing`} style={{ color: 'var(--color-primary)' }}>
+          View writing progress & AI practice →
+        </Link>
+      </div>
+
       <section style={{ marginTop: '3rem' }}>
         <h2>Assign a New Test</h2>
         <p style={{ color: 'var(--color-text-muted)' }}>Select from your available free and purchased tests.</p>

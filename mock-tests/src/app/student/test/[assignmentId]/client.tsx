@@ -16,6 +16,7 @@ type Props = {
   /** Answers already persisted server-side, keyed by question id. */
   savedResponses?: Record<string, string> | null
   dueAt?: string | null
+  yearLevel?: number | null
 }
 
 type ActiveAttempt = {
@@ -33,6 +34,7 @@ export default function TestPageClient({
   startedAt = null,
   savedResponses = null,
   dueAt = null,
+  yearLevel = null,
 }: Props) {
   const router = useRouter()
 
@@ -91,6 +93,7 @@ export default function TestPageClient({
         startedAt={attempt.startedAt}
         initialQuestions={initialQuestions}
         savedResponses={attempt.savedResponses}
+        yearLevel={yearLevel}
       />
     )
   }

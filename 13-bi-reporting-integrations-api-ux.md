@@ -577,3 +577,23 @@ known-empty pre-launch period gets muted and then ignored when it matters.
 
 **End of Part 3.** Continue in `14-bi-reporting-assurance-roadmap.md` for the test plan, the phased
 roadmap, the assumptions log, the self-review and the open questions.
+---
+
+## Appendix — resolution of the writing_evaluations gaps (A5/A6/A7)
+
+The A5/A6/A7 gap note ("no model version, no rubric version, no status, no
+timing, no criterion-level breakdown, no flag") is now resolved by migrations
+096 and 100:
+
+- `writing_evaluations` gained first-class `category_scores`, `techniques_used`,
+  `text_type`, `improvements_detail`, `practice_exercise`, `rubric_version`,
+  `model`, `word_count`, `graded_at`, `duration_ms` (backfilled from
+  `raw_response`). Criterion-level reporting and mark-traceability queries no
+  longer parse the raw API payload.
+- Standalone practice grading gained `writing_practice_sessions` (PENDING →
+  GRADED status, timing, model, rubric_version, full `evaluation` jsonb), so the
+  A-series writing metrics are buildable across both test essays and AI-practice
+  submissions.
+
+The parent/student report surface consumes these directly (`toEvaluationDetail`,
+`loadWritingProgress`); no change to the reporting analytics schema was needed.

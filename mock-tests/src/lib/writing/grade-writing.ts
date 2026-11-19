@@ -1,6 +1,7 @@
 import { createAdminClient } from '@/lib/supabase/admin'
 import { scoreAttempt } from '@/lib/scoring/score-attempt'
 import { WRITING_RUBRIC_VERSION, writingSystemPrompt } from './prompt'
+import { countWords } from './word-limits'
 
 /**
  * The writing-marking core, shared by BOTH entry points:
@@ -44,10 +45,10 @@ function deepseekConfig() {
   const timeoutSeconds = Number(process.env.DEEPSEEK_TIMEOUT_SECONDS)
   return {
     url: `${base}/chat/completions`,
-    // 'deepseek-chat' is the long-standing alias; DEEPSEEK_MODEL pins the
-    // canonical id (deepseek-flash). Env wins so an operator can move models
-    // without a deploy.
-    model: process.env.DEEPSEEK_MODEL?.trim() || 'deepseek-chat',
+    // deepseek-flash is the default for writing marking (fast + sufficient for
+    // rubric grading); DEEPSEEK_MODEL pins another id if an operator needs to
+    // move models without a deploy.
+    model: process.env.DEEPSEEK_MODEL?.trim() || 'deepseek-flash',
     timeoutMs: (Number.isFinite(timeoutSeconds) && timeoutSeconds > 0 ? timeoutSeconds : 90) * 1000,
   }
 }
@@ -130,12 +131,13 @@ function improvementsToLines(value: unknown): string[] {
 }
 
 /** One DeepSeek chat-completion call for one essay. Throws on any failure. */
-async function callDeepseek(
+export async function callDeepseekForText(
   cfg: ReturnType<typeof deepseekConfig>,
   yearLevel: number | null,
   promptRef: string,
   studentText: string
-): Promise<{ parsed: Record<string, any>; raw: Row }> {
+): Promise<{ parsed: Record<string, any>; raw: Row; durationMs: number }> {
+  const started = Date.now()
   const res = await fetch(cfg.url, {
     method: 'POST',
     headers: {
@@ -161,7 +163,7 @@ async function callDeepseek(
   const raw = (await res.json()) as Row
   const parsed = parseModelJson(raw?.choices?.[0]?.message?.content)
   if (!parsed) throw new Error('DeepSeek returned an unparseable response')
-  return { parsed, raw }
+  return { parsed, raw, durationMs: Date.now() - started }
 }
 
 /**
@@ -278,7 +280,7 @@ export async function gradeWritingForAttempt(
     const studentText = toText(writingResp.answer)
     const promptRef = toText(q.stem)
 
-    const { parsed, raw } = await callDeepseek(cfg, yearLevel, promptRef, studentText)
+    const { parsed, raw, durationMs } = await callDeepseekForText(cfg, yearLevel, promptRef, studentText)
     const score = clampScore(parsed.score_out_of100)
     savedScores.push(score)
 
@@ -288,7 +290,19 @@ export async function gradeWritingForAttempt(
       score_out_of100: score,
       strengths: asStringArray(parsed.strengths),
       improvements: improvementsToLines(parsed.improvements),
+      improvements_detail: parsed.improvements ?? null,
       improved_text: toText(parsed.improved_text) || null,
+      // First-class detail columns (096/100) so reports query marks directly
+      // rather than re-parsing raw_response.
+      text_type: toText(parsed.text_type) || null,
+      category_scores: parsed.category_scores ?? null,
+      techniques_used: parsed.techniques_used ?? null,
+      practice_exercise: toText(parsed.practice_exercise) || null,
+      rubric_version: WRITING_RUBRIC_VERSION,
+      model: toText(raw?.model) || cfg.model,
+      word_count: countWords(studentText),
+      graded_at: new Date().toISOString(),
+      duration_ms: durationMs,
       // Traceability: which model, which rubric, what it cost, and the full
       // criterion-level detail the columns cannot hold. The AL-15 marking-ops
       // alert and any future mark audit read from here.
@@ -339,4 +353,82 @@ export async function gradeWritingForAttempt(
   if (studentId) await notifyParents(admin, studentId, attemptId)
 
   return { status: 'graded', graded: savedScores.length, writingAverage, model: cfg.model }
+}
+
+/**
+ * Grade one AI Practice Lab session in place. Mirrors gradeWritingForAttempt's
+ * safety properties (idempotent, clamped score, traceable) but stores the
+ * result on writing_practice_sessions.evaluation - practice has no attempts row
+ * (writing_evaluations.attempt_id is NOT NULL UNIQUE).
+ *
+ * onNotConfigured 'complete' releases nothing here (there is no attempt to
+ * release); both callers rely on the sweeper leaving it PENDING.
+ */
+export async function gradePracticeSession(
+  sessionId: string,
+  opts: { admin?: Admin; onNotConfigured?: 'leave-pending' } = {}
+): Promise<GradeWritingResult> {
+  const admin = opts.admin ?? createAdminClient()
+
+  const { data: session, error: fetchErr } = await admin
+    .from('writing_practice_sessions')
+    .select('id, status, prompt_text, student_text, year_level')
+    .eq('id', sessionId)
+    .single()
+  if (fetchErr || !session) throw new Error('Could not fetch writing practice session: ' + (fetchErr?.message ?? 'not found'))
+
+  // Idempotent: a QStash retry after a successful grade must not re-charge the
+  // DeepSeek API. The job and sweeper both call this; whichever runs second
+  // finds GRADED and stops.
+  if ((session as Row).status === 'GRADED') {
+    return { status: 'already_graded', graded: 0, writingAverage: null, model: null }
+  }
+
+  if (!isWritingMarkingConfigured()) {
+    console.error('[grade-writing] DEEPSEEK_API_KEY not configured; practice session left pending', { sessionId })
+    return { status: 'not_configured', graded: 0, writingAverage: null, model: null }
+  }
+
+  const yearLevel = Number((session as Row).year_level) || null
+  const studentText = toText((session as Row).student_text)
+  const promptRef = toText((session as Row).prompt_text)
+
+  if (!studentText.trim()) {
+    await admin.from('writing_practice_sessions').update({ status: 'FAILED' }).eq('id', sessionId)
+    return { status: 'no_writing', graded: 0, writingAverage: null, model: null }
+  }
+
+  const cfg = deepseekConfig()
+  const { parsed, raw, durationMs } = await callDeepseekForText(cfg, yearLevel, promptRef, studentText)
+  const score = clampScore(parsed.score_out_of100)
+
+  const evaluation = {
+    score_out_of100: score,
+    text_type: parsed.text_type ?? null,
+    category_scores: parsed.category_scores ?? null,
+    techniques_used: parsed.techniques_used ?? null,
+    strengths: asStringArray(parsed.strengths),
+    // Flat lines for any legacy consumer + rich objects for the parent detail
+    // view (gains + rewrites survive without re-parsing a raw API payload).
+    improvements: improvementsToLines(parsed.improvements),
+    improvements_detail: Array.isArray(parsed.improvements) ? parsed.improvements : null,
+    improved_text: toText(parsed.improved_text) || null,
+    practice_exercise: toText(parsed.practice_exercise) || null,
+  }
+
+  const { error: updateErr } = await admin
+    .from('writing_practice_sessions')
+    .update({
+      status: 'GRADED',
+      score_out_of100: score,
+      evaluation,
+      rubric_version: WRITING_RUBRIC_VERSION,
+      model: toText(raw?.model) || cfg.model,
+      graded_at: new Date().toISOString(),
+      duration_ms: durationMs,
+    })
+    .eq('id', sessionId)
+  if (updateErr) throw updateErr
+
+  return { status: 'graded', graded: 1, writingAverage: score, model: cfg.model }
 }

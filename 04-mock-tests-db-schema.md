@@ -554,3 +554,64 @@ processed_jobs (QStash idempotency)
 - **RBAC**: Role-based access control enforced in server-side application code.
 - **Objective question**: MCQ or Short Answer (eligible for adaptive engine).
 
+---
+
+## Appendix — Writing Assessment schema (DeepSeek Flash, 2026-11)
+
+Implemented after the original schema doc. Applies to the hosted project
+`ekdjrvjgrhpqolthbznr` (migrations 096–100) and is recorded by the same names in
+`supabase/migrations/`.
+
+### Enum change
+- `public.exam_type` gains `'WRITING'` (096). Writing-assessment tests and
+  questions are classified by it instead of borrowing a misleading value.
+
+### `public.writing_evaluations` — first-class detail columns (096, 100)
+The AI mark detail was previously only reachable by re-parsing `raw_response`.
+Added (all additive, backfilled where present):
+
+| column | type | notes |
+|---|---|---|
+| `text_type` | text | `narrative` \| `persuasive` \| `other` |
+| `category_scores` | jsonb | five categories + sub-criteria, mirrors the rubric |
+| `techniques_used` | jsonb | narrative or persuasive techniques detected |
+| `practice_exercise` | text | tailored drill |
+| `rubric_version` | text | stamped from `WRITING_RUBRIC_VERSION` |
+| `model` | text | DeepSeek model id |
+| `word_count` | int | student word count |
+| `graded_at` | timestamptz | |
+| `duration_ms` | int | DeepSeek round-trip |
+| `improvements_detail` | jsonb | `[{suggestion, estimated_score_gain, rewrite}]` (100) |
+
+`improvements` (text[]) is retained for legacy consumers; `improvements_detail`
+carries the rich objects.
+
+### New table `public.writing_practice_sessions` (096)
+Standalone AI Practice Lab grading. It exists because `writing_evaluations.attempt_id`
+is `NOT NULL UNIQUE` and cannot host non-test writing.
+
+| column | type |
+|---|---|
+| `id` | uuid PK |
+| `student_id` | uuid FK → student_profiles |
+| `prompt_id`, `text_type`, `prompt_text`, `student_text` | text |
+| `word_count` | int |
+| `year_level` | int |
+| `status` | text `PENDING`\|`GRADED`\|`FAILED` |
+| `score_out_of100` | numeric(5,2) |
+| `evaluation` | jsonb (full mark detail incl. `improvements_detail`) |
+| `rubric_version`, `model`, `created_at`, `graded_at`, `duration_ms` | |
+
+RLS matches the 015 student-blindness rule:
+- student **INSERT only** (`is_student_self(student_id)`) — never SELECT a result;
+- parent **SELECT** (`may_read_results() AND is_parent_of(student_id)`);
+- admin SELECT/ALL; service role ALL; `anon` revoked.
+
+### Seeded content (097–099, idempotent)
+- 13 `WRITING` questions (8 narrative + 5 persuasive), `PUBLISHED`, `exam_type='WRITING'`.
+- 6 `WRITING` tests: 3 year bands (2–4 / 5–6 / 7–8) × narrative/persuasive, one
+  writing question each (PM rule: max 1 per test), `is_free=true` initially.
+
+### Access model (unchanged, load-bearing)
+Students never see a mark: reports (`WritingReportPanel`, progress) are
+parent/tutor-facing; the AI Practice Lab gives only a qualitative acknowledgment.

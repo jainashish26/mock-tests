@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties }
 import { useRouter } from 'next/navigation'
 import { Flag, Accessibility, Moon, Sun, CloudOff, Cloud, Loader2, ChevronUp, ChevronDown } from 'lucide-react'
 import { trackClientEvent } from '@/features/monetisation/track-client'
+import { scaffoldForYear } from '@/lib/writing/word-limits'
 import styles from './TestRunner.module.css'
 
 type Theme = 'light' | 'dark' | 'high-contrast'
@@ -60,6 +61,7 @@ export default function TestRunner({
   startedAt,
   initialQuestions,
   savedResponses = [],
+  yearLevel = null,
 }: {
   attemptId: string
   testTitle?: string | null
@@ -67,6 +69,7 @@ export default function TestRunner({
   startedAt?: string | null
   initialQuestions: RunnerQuestion[]
   savedResponses?: unknown
+  yearLevel?: number | null
 }) {
   const router = useRouter()
 
@@ -535,6 +538,7 @@ export default function TestRunner({
     // textarea. We deliberately NEVER fall back to rendering `correct_answer` as
     // an option - that leaked the answer key to the student mid-exam.
     const words = value.trim() ? value.trim().split(/\s+/).length : 0
+    const minWords = yearLevel ? scaffoldForYear(yearLevel).minWords : null
     return (
       <div>
         <textarea
@@ -556,6 +560,11 @@ export default function TestRunner({
         >
           {words} {words === 1 ? 'word' : 'words'}
         </div>
+        {minWords !== null && words < minWords && (
+          <div style={{ marginTop: '0.25rem', fontSize: '0.85rem', color: 'var(--color-warning, #b45309)' }}>
+            Aim for at least {minWords} words for Year {yearLevel}.
+          </div>
+        )}
       </div>
     )
   }

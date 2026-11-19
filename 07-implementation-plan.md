@@ -1319,3 +1319,54 @@ Every story is "done" only when:
 ---
 
 > **Next step**: Begin Sprint 1, Story S1.1 — Project scaffold + Vercel CI/CD.
+---
+
+## Appendix — Writing Assessment (DeepSeek Flash): implementation status
+
+Delivered 2026-11 as an extension of the Sprint-9 writing pipeline. The marking
+core (`src/lib/writing/prompt.ts`, `grade-writing.ts`, QStash job + cron sweeper)
+now feeds a full report suite.
+
+### Marking
+- Model default `deepseek-flash` (API id for "DeepSeek-V4.1-Flash-1017"),
+  overridable via `DEEPSEEK_MODEL`.
+- Rubric `v1.1` — adds a year-scaled length expectation; weights unchanged.
+- `callDeepseekForText` extracted (shared by attempt + practice grading);
+  `gradePracticeSession` added (idempotent, clamped, traceable).
+- First-class `writing_evaluations` columns written on grade (096/100).
+
+### Content
+- `src/lib/writing/prompts-catalog.ts` — 13 typed prompt seeds (source of truth
+  for the AI Practice Lab); `word-limits.ts` — year-band word/time scaffolding
+  (2–4: 150/20 · 5–6: 250/30 · 7–8: 400/40).
+
+### Reports (parent/tutor only — see 015 student-blindness rule)
+- **A. Enhanced per-attempt report** — `WritingReportPanel`: band, category
+  breakdown bars, technique badges, strengths, improvements with
+  `estimated_score_gain` + grammar rewrites, side-by-side "High Distinction"
+  rewrite, targeted practice exercise, `ParentActionSummary`.
+- **B. Writing progress** — `/parent/child/[id]/writing`: `WritingProgressChart`
+  (hand-rolled SVG) + recent-results table linking to per-attempt and
+  per-practice detail.
+- **C. AI Practice details** — `/parent/child/[id]/writing/[sessionId]`.
+
+### AI Practice Lab
+- `/student/ai-practice` (replaces the stub): prompt picker, textarea with
+  word/time hint, submit → `writing_practice_sessions` (PENDING) → QStash job
+  `/api/jobs/writing-practice` (sweeper as fallback). Student sees only a
+  qualitative acknowledgment; the parent sees the graded detail.
+
+### Gating
+- Free tier: score, band, strengths, first two improvements.
+- Premium (active subscription via `my_access.is_unlimited`): category breakdown,
+  techniques, full improvements, rewrite, practice exercise, parent actions.
+  Locked content renders inline as a `LockedInsightCard` (same funnel tracking
+  as the readiness report).
+
+### Runner
+- Soft word-count warning for WRITING items using the year-band minimum.
+
+### Validation
+`tsc --noEmit` ✓ · `lint-ratchet` no regression ✓ · `next build` ✓ ·
+`npm run test:writing` (42 assertions) ✓. A live mark still requires
+`DEEPSEEK_API_KEY` set in the environment.
