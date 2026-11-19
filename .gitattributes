@@ -1,0 +1,34 @@
+# Line-ending policy.
+#
+# WHY THIS FILE EXISTS AT ALL
+#   `core.autocrlf` is `true` on the machine that maintains this repo, and that
+#   default converts text files between LF in the object database and CRLF in the
+#   working tree. For hand-written source that is invisible. For *generated,
+#   compared* artefacts it is not: a fresh `pg_dump -f` emits LF, the checkout it
+#   replaces has been smudged to CRLF, and the two differ on every single line
+#   while being byte-identical in substance.
+#
+#   This is not hypothetical. Regenerating `app_baseline/public_schema.sql` to
+#   record migration 107 produced a 13,929-line diff in which 31 lines were the
+#   actual change; the rest was line-ending damage accumulated because an earlier
+#   capture had been written through a shell redirect rather than `pg_dump -f`
+#   (that same redirect had also re-encoded UTF-8 and turned `§` into `Â§`). A
+#   reviewer cannot audit a security-relevant schema capture inside a diff that
+#   large, and the next capture would have hit it again.
+#
+# WHAT `-text` MEANS HERE
+#   Store these files exactly as the generator produced them and never convert on
+#   checkout, so blob and working tree are the same bytes. A later capture then
+#   differs only where the database actually differs. This is the property the
+#   baseline exists to provide: `schema:validate` and a code review of a capture
+#   both assume the file is what the generator emitted.
+#
+# Everything else keeps git's normal behaviour; only the artefacts that are
+# regenerated and diffed are pinned. There is deliberately no `merge=` or
+# `diff=` driver here: naming a driver that is not configured in git makes git
+# fail every conflicting change to these files rather than fall back to the
+# normal three-way merge, which is a much worse trade than the one being fixed.
+
+mock-tests/supabase/migrations/app_baseline/*.sql  -text
+mock-tests/supabase/migrations/baseline/*.sql      -text
+

@@ -1166,6 +1166,51 @@
 > all say the recommended target enforces nothing, so nobody can be surprised into
 > believing otherwise.
 >
+> #### D4 — the schema captures were stored with inconsistent line endings, and it made a 31-line change look like 13,929
+>
+> Regenerating `app_baseline/public_schema.sql` for migration 107 produced a
+> **13,929-line diff in which 31 lines were the actual change.** Diffing
+> line-ending-insensitively showed the truth: the previously committed capture held
+> 6,909 CRLF terminators *plus 241 stray CR bytes*, while a clean `pg_dump -f`
+> produces LF throughout. Git was storing one convention and the generator emitting
+> another, so every line "changed" every time anyone regenerated anything.
+>
+> Two separate causes, both real:
+>
+> 1. `core.autocrlf` is `true` on this machine and there was no `.gitattributes`.
+>    Git therefore converts these files between LF (object database) and CRLF
+>    (working tree) invisibly. A fresh `pg_dump -f` writes LF; the file it replaces
+>    had been smudged to CRLF; the two differ on every line while being identical in
+>    substance. Hand-written source survives this. **A file whose entire purpose is
+>    to be diffed does not.**
+> 2. The earlier capture had been produced through a shell redirect rather than
+>    `pg_dump -f`. The same technique corrupted encoding in this session's first
+>    attempt — a `>` redirect turned `§` into `Â§` — which is how the damage got
+>    baked in the first time.
+>
+> **Fixed with `.gitattributes` marking both capture directories `-text`** (store
+> byte-exact, never smudge), so a future capture differs only where the database
+> differs. The one-time whole-file diff is unavoidable and is not hidden: it is the
+> cost of correcting a parent blob that was committed in the damaged form.
+>
+> Deliberately *not* done: no `merge=` or `diff=` driver is declared. Naming a
+> driver that is not configured in git makes git **fail** every conflicting change
+> to those files instead of falling back to a three-way merge — trading a review
+> nuisance for a broken workflow, which is the wrong direction.
+>
+> Practical instruction, now that the cause is known: **capture with `pg_dump -f`,
+> never a redirect.** A redirect silently re-encodes and re-terminates, and the
+> damage only shows up as an unreadable diff much later, on someone else's review.
+>
+> **A note on how this was found, because it nearly wasn't.** The first explanation
+> I reached for — that the old capture had been console-width-wrapped, splitting
+> long SQL lines — was wrong, and it would have gone into this document as fact. It
+> was falsified by measuring maximum line length in both blobs (644 and 643: both
+> full of long lines, no wrapping anywhere). The actual cause only appeared once the
+> comparison printed `repr()` of the differing lines, which shows a trailing `\r`
+> that rendered as nothing at all. A plausible reading of a rendered diff was not
+> evidence; byte counts were.
+>
 > #### Two findings from building it, both verified rather than assumed
 >
 > 1. **`admin_year_level_caps()` answers HTTP 200 with `[]` to a service-role

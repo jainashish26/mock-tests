@@ -38,6 +38,32 @@ psql "$SUPABASE_DB_URL" -v ON_ERROR_STOP=1 -f supabase/migrations/app_baseline/a
 # then Stripe prices: node scripts/setup-offer-prices.mjs
 ```
 
+## How to re-capture — and the one way that quietly ruins the file
+
+```powershell
+# CORRECT: pg_dump writes the file itself, so the bytes are exactly what the
+# database produced.
+pg_dump --schema-only --no-owner --schema=public -f supabase/migrations/app_baseline/public_schema.sql $SUPABASE_DB_URL
+
+# WRONG: piping or redirecting through the shell.
+pg_dump --schema-only --no-owner --schema=public $SUPABASE_DB_URL > supabase/migrations/app_baseline/public_schema.sql
+```
+
+**Do not use the second form.** A shell redirect re-encodes the output and
+re-terminates its lines, and it does so invisibly: on Windows PowerShell it turned
+`§` into `Â§` and left files holding CRLF line endings plus stray lone CR bytes.
+The damage is not cosmetic in this folder's purpose. These captures exist to be
+**diffed** — `schema:validate:app` and code review both assume the file is what
+`pg_dump` emitted — and a capture with mixed endings differs from a correct one on
+*every line*, which is how a 31-line schema change once arrived as a 13,929-line
+diff that nobody could meaningfully review. `.gitattributes` pins these paths to
+`-text` so git stops converting them; that handles one half. Using `-f` is the
+other half, and it is the half that requires a human to remember it.
+
+If a capture has already been written by redirect, the recovery is simply to
+re-capture with `-f` and commit that; expect one final whole-file diff, because
+correcting the endings is itself a change to every line.
+
 Validate the capture against live at any time:
 
 ```bash
