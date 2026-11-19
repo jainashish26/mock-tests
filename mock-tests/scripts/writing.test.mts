@@ -10,7 +10,7 @@
  *   npm run test:writing
  */
 
-import { WRITING_PROMPTS, writingPromptById, writingPromptsForBand } from '@/lib/writing/prompts-catalog'
+import { WRITING_PROMPTS, writingPromptById, promptsFor, calibrationFor, markingCriteria, normalizeYear, randomPrompt } from '@/lib/writing/prompts-catalog'
 import { bandForYear, scaffoldForYear, countWords } from '@/lib/writing/word-limits'
 import { scoreBand, toEvaluationDetail, buildParentActions, categoryPercents } from '@/lib/writing/evaluation-detail'
 import type { WritingCategoryScores } from '@/lib/writing/types'
@@ -30,16 +30,42 @@ const eq = (label: string, actual: unknown, expected: unknown) => {
 }
 const ok = (label: string, cond: boolean) => eq(label, cond, true)
 
-// ---- prompt catalog --------------------------------------------------------
-eq('catalog seeds 13 prompts', WRITING_PROMPTS.length, 13)
-eq('catalog has 8 narrative prompts', WRITING_PROMPTS.filter((p) => p.text_type === 'narrative').length, 8)
-eq('catalog has 5 persuasive prompts', WRITING_PROMPTS.filter((p) => p.text_type === 'persuasive').length, 5)
-eq('prompt ids are unique', new Set(WRITING_PROMPTS.map((p) => p.id)).size, WRITING_PROMPTS.length)
-ok('every prompt targets all three year bands', WRITING_PROMPTS.every((p) => p.year_bands.length === 3))
-eq('nar-01 resolves', writingPromptById('nar-01')?.text_type, 'narrative')
-eq('per-05 resolves', writingPromptById('per-05')?.text_type, 'persuasive')
+// ---- prompt catalog (MECE: Years 2-9, 15 cells per year) -------------------
+eq('catalog seeds 120 prompts', WRITING_PROMPTS.length, 120)
+eq('prompt ids are unique', new Set(WRITING_PROMPTS.map((p) => p.id)).size, 120)
+eq('8 year levels present', new Set(WRITING_PROMPTS.map((p) => p.year)).size, 8)
+ok(
+  'every year has exactly 15 prompts',
+  [2, 3, 4, 5, 6, 7, 8, 9].every((y) => WRITING_PROMPTS.filter((p) => p.year === y).length === 15)
+)
+eq('year 5 has 10 narrative', promptsFor(5, 'narrative').length, 10)
+eq('year 5 has 5 persuasive', promptsFor(5, 'persuasive').length, 5)
+eq('year 5 has 15 total', promptsFor(5).length, 15)
+eq('y2-n1 resolves', writingPromptById('y2-n1')?.type, 'narrative')
+eq('y9-s5 resolves', writingPromptById('y9-s5')?.type, 'persuasive')
 eq('unknown prompt returns undefined', writingPromptById('nope'), undefined)
-eq('band 2-4 returns all 13 prompts', writingPromptsForBand('2-4').length, 13)
+
+// ---- calibration -----------------------------------------------------------
+eq('year 5 target min words', calibrationFor(5).minWords, 200)
+eq('year 5 target max words', calibrationFor(5).maxWords, 275)
+eq('year 5 time (mins)', calibrationFor(5).mins, 30)
+eq('year 2 time (mins)', calibrationFor(2).mins, 15)
+eq('normalizeYear(null) -> 5', normalizeYear(null), 5)
+eq('normalizeYear(1) -> 5', normalizeYear(1), 5)
+eq('normalizeYear(10) -> 9', normalizeYear(10), 9)
+eq('normalizeYear(3) -> 3', normalizeYear(3), 3)
+
+// ---- marking criteria + random --------------------------------------------
+ok(
+  'narrative criteria for year 5 is a short list',
+  markingCriteria(5, 'narrative').length > 0 && markingCriteria(5, 'narrative').length <= 5
+)
+ok(
+  'persuasive criteria for year 7 is a short list',
+  markingCriteria(7, 'persuasive').length > 0 && markingCriteria(7, 'persuasive').length <= 5
+)
+const rnd = randomPrompt(6, 'narrative')
+ok('randomPrompt returns a year-6 narrative', !!rnd && rnd.year === 6 && rnd.type === 'narrative')
 
 // ---- word limits -----------------------------------------------------------
 eq('year 2 -> 2-4 band', bandForYear(2), '2-4')

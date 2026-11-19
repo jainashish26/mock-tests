@@ -2,8 +2,8 @@ import { NextResponse } from 'next/server'
 import { requireRole } from '@/lib/rbac/require-role'
 import { createClient } from '@/lib/supabase/server'
 import { Client as QStashClient } from '@upstash/qstash'
-import { writingPromptById, writingPromptsForBand } from '@/lib/writing/prompts-catalog'
-import { bandForYear, countWords } from '@/lib/writing/word-limits'
+import { writingPromptById, promptsFor, calibrationFor, markingCriteria, normalizeYear } from '@/lib/writing/prompts-catalog'
+import { countWords } from '@/lib/writing/word-limits'
 
 /**
  * AI Practice Lab API.
@@ -27,16 +27,25 @@ export async function GET() {
     .eq('auth_user_id', user.id)
     .single()
 
-  const band = bandForYear(profile?.year_level ? Number(profile.year_level) : 5)
-  const prompts = writingPromptsForBand(band).map((p) => ({
+  const year = normalizeYear(profile?.year_level)
+  const calibration = calibrationFor(year)
+  const prompts = promptsFor(year).map((p) => ({
     id: p.id,
-    text_type: p.text_type,
-    prompt: p.prompt,
-    min_words: p.min_words[band],
-    suggested_mins: p.suggested_mins[band],
+    year: p.year,
+    territory: p.territory,
+    type: p.type,
+    text: p.text,
   }))
 
-  return NextResponse.json({ band, prompts })
+  return NextResponse.json({
+    year,
+    calibration,
+    prompts,
+    criteria: {
+      narrative: markingCriteria(year, 'narrative'),
+      persuasive: markingCriteria(year, 'persuasive'),
+    },
+  })
 }
 
 export async function POST(req: Request) {
@@ -70,8 +79,8 @@ export async function POST(req: Request) {
       .insert({
         student_id: profile.id,
         prompt_id: promptId,
-        text_type: meta.text_type,
-        prompt_text: meta.prompt,
+        text_type: meta.type,
+        prompt_text: meta.text,
         student_text: text,
         word_count: countWords(text),
         year_level: Number(profile.year_level),
