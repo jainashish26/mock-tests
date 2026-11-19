@@ -1,0 +1,8 @@
+# Files never needed by `next build` / the deployed runtime — excluding them
+# cuts the CLI upload from ~418MB to ~10MB (deploys respect .vercelignore).
+# The app reads questions/users from Supabase at runtime; these are offline
+# seeder/migration/assurance assets for local + CI use only.
+QuestionBank/
+MockExams/
+supabase/
+scripts/
