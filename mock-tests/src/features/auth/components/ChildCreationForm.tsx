@@ -131,7 +131,7 @@ export function ChildCreationForm({ apiEndpoint = '/api/parent/child', maxStuden
       <form onSubmit={handleSubmit} className={css.form}>
         <div className={css.field}>
           <label htmlFor={yearLevelId} className={css.label}>
-            Year Level <span className={css.labelHint}>(2–8)</span>
+            Year Level <span className={css.labelHint}>(2–9)</span>
           </label>
           <select
             id={yearLevelId}
@@ -141,7 +141,7 @@ export function ChildCreationForm({ apiEndpoint = '/api/parent/child', maxStuden
             className={`${css.control} ${css.select}`}
           >
             <option value="">Select Year</option>
-            {[2, 3, 4, 5, 6, 7, 8].map((y) => (
+            {[2, 3, 4, 5, 6, 7, 8, 9].map((y) => (
               <option key={y} value={y}>Year {y}</option>
             ))}
           </select>

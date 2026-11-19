@@ -106,10 +106,10 @@ export function questionPayload(body: Record<string, unknown>, options: Options 
   if (has('exam_id')) payload.exam_id = nullableString(body.exam_id)
 
   if (has('year_level') || !partial) {
-    // `questions.year_level` has CHECK (year_level BETWEEN 2 AND 8) in Postgres, so
+    // `questions.year_level` has CHECK (year_level BETWEEN 2 AND 9) in Postgres, so
     // validating the same range here turns a 23514 into a message a creator can act on.
-    const yearLevel = intOr(body.year_level, null, 2, 8, 'Year level')
-    if (yearLevel === null) throw new ApiError(400, 'Year level is required (2-8).')
+    const yearLevel = intOr(body.year_level, null, 2, 9, 'Year level')
+    if (yearLevel === null) throw new ApiError(400, 'Year level is required (2-9).')
     payload.year_level = yearLevel
   }
 

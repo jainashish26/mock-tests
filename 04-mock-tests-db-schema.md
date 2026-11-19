@@ -115,7 +115,7 @@ processed_jobs (QStash idempotency)
   - `auth_user_id` unique (1-to-1 mapping of auth user to student profile)
   - `username` unique
 - **CK**:
-  - `year_level between 2 and 8`
+  - `year_level between 2 and 9`
 - **Columns**
   - `id` (uuid, PK, default `gen_random_uuid()`)
   - `auth_user_id` (uuid, NOT NULL, unique)

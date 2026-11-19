@@ -59,7 +59,7 @@ export const WRITING_JSON_CONTRACT = `{
 /**
  * System prompt for one evaluation.
  *
- * @param yearLevel the writing student's year (2-8); anything unusable falls
+ * @param yearLevel the writing student's year (2-9); anything unusable falls
  *   back to a mid-primary expectation rather than the source document's VCE
  *   default - an uncalibrated harshness on a young child is the failure mode
  *   this guard exists to prevent.

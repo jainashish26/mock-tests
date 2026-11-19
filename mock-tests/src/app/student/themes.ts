@@ -148,6 +148,24 @@ export const YEAR_THEMES: Record<number, YearTheme> = {
     },
     emoji: '🔥',
   },
+  9: {
+    yearLevel: 9,
+    name: 'Pioneer',
+    mascot: 'wolf',
+    tagline: 'Chart your own path — the horizon is yours!',
+    encouragement: 'You are leading the way!',
+    colors: {
+      primary: '#4f46e5',
+      primaryLight: '#eef2ff',
+      primaryDark: '#4338ca',
+      secondary: '#0d9488',
+      secondaryLight: '#f0fdfa',
+      gradient: 'linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #a5b4fc 100%)',
+      cardGlow: '0 4px 24px rgba(79, 70, 229, 0.12)',
+      streakColor: '#0d9488',
+    },
+    emoji: '🐺',
+  },
 }
 
 export function getThemeForYear(yearLevel: number): YearTheme {

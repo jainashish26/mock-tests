@@ -249,6 +249,37 @@ export function PhoenixMascot({ size = 120, className, style }: MascotProps) {
   )
 }
 
+// Year 9 - Wolf: Independent, sharp, a pathfinder
+export function WolfMascot({ size = 120, className, style }: MascotProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} style={style} role="img" aria-label="Friendly wolf mascot">
+      {/* Ears */}
+      <polygon points="28,16 24,52 47,42" fill="#6366f1" />
+      <polygon points="31,25 28,46 43,40" fill="#c7d2fe" />
+      <polygon points="92,16 96,52 73,42" fill="#6366f1" />
+      <polygon points="89,25 92,46 77,40" fill="#c7d2fe" />
+      {/* Head */}
+      <ellipse cx="60" cy="56" rx="33" ry="30" fill="#818cf8" />
+      {/* Muzzle */}
+      <ellipse cx="60" cy="70" rx="18" ry="16" fill="#e0e7ff" />
+      {/* Cheek fur */}
+      <path d="M30 58 Q21 65 30 73" fill="#c7d2fe" opacity="0.7" />
+      <path d="M90 58 Q99 65 90 73" fill="#c7d2fe" opacity="0.7" />
+      {/* Eyes */}
+      <ellipse cx="48" cy="50" rx="4.5" ry="5.5" fill="#1e1b4b" />
+      <ellipse cx="72" cy="50" rx="4.5" ry="5.5" fill="#1e1b4b" />
+      <circle cx="49.5" cy="48" r="1.6" fill="white" />
+      <circle cx="73.5" cy="48" r="1.6" fill="white" />
+      {/* Nose + mouth */}
+      <ellipse cx="60" cy="64" rx="6" ry="4.5" fill="#312e81" />
+      <path d="M60 68 L60 73" stroke="#312e81" strokeWidth="2" strokeLinecap="round" />
+      <path d="M52 75 Q60 81 68 75" stroke="#312e81" strokeWidth="2" fill="none" strokeLinecap="round" />
+      {/* Star accessory */}
+      <path d="M60 95 L62 101 L68 101 L63 105 L65 111 L60 107 L55 111 L57 105 L52 101 L58 101 Z" fill="#0d9488" />
+    </svg>
+  )
+}
+
 // Mascot selector
 export function YearMascot({ mascot, size = 120, className, style }: MascotProps & { mascot: string }) {
   switch (mascot) {
@@ -259,6 +290,7 @@ export function YearMascot({ mascot, size = 120, className, style }: MascotProps
     case 'eagle': return <EagleMascot size={size} className={className} style={style} />
     case 'dragon': return <DragonMascot size={size} className={className} style={style} />
     case 'phoenix': return <PhoenixMascot size={size} className={className} style={style} />
+    case 'wolf': return <WolfMascot size={size} className={className} style={style} />
     default: return <OwlMascot size={size} className={className} style={style} />
   }
 }

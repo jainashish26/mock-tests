@@ -13,7 +13,7 @@ export async function POST(req: Request) {
     const yearLevel = parseInt(body.yearLevel)
     const password = body.password
 
-    if (!yearLevel || yearLevel < 2 || yearLevel > 8 || !password) {
+    if (!yearLevel || yearLevel < 2 || yearLevel > 9 || !password) {
       return NextResponse.json({ error: 'Invalid year level or password' }, { status: 400 })
     }
 

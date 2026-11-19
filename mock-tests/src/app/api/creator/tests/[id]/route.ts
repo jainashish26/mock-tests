@@ -105,10 +105,10 @@ export async function PUT(req: NextRequest, context: RouteContext) {
       patch.exam_type = examType
     }
     if (body.year_level_min !== undefined || body.year_level_max !== undefined) {
-      // Years 2-8 is the band the platform serves (and the range the questions
+      // Years 2-9 is the band the platform serves (and the range the questions
       // table enforces), so the test header cannot drift outside it.
-      const yearMin = intOr(body.year_level_min ?? test.year_level_min, null, 2, 8, 'Year level (min)')
-      const yearMax = intOr(body.year_level_max ?? test.year_level_max, null, 2, 8, 'Year level (max)')
+      const yearMin = intOr(body.year_level_min ?? test.year_level_min, null, 2, 9, 'Year level (min)')
+      const yearMax = intOr(body.year_level_max ?? test.year_level_max, null, 2, 9, 'Year level (max)')
       if (yearMin === null || yearMax === null) {
         throw new ApiError(400, 'Both the minimum and maximum year level are required.')
       }

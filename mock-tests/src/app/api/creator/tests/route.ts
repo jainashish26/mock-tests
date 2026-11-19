@@ -94,8 +94,8 @@ export async function POST(req: NextRequest) {
 
     // Creators may only author editable content; publishing stays with moderators.
     const status = enumParam(String(body.status ?? 'DRAFT'), EDITABLE_STATUSES) ?? 'DRAFT'
-    const yearMin = intOr(body.year_level_min, null, 2, 8, 'Year level (min)')
-    const yearMax = intOr(body.year_level_max, null, 2, 8, 'Year level (max)')
+    const yearMin = intOr(body.year_level_min, null, 2, 9, 'Year level (min)')
+    const yearMax = intOr(body.year_level_max, null, 2, 9, 'Year level (max)')
     // Both columns are NOT NULL in Postgres; asking here beats a 23502 from the DB.
     if (yearMin === null) throw new ApiError(400, 'Choose the lowest year level this test covers.')
     if (yearMax === null) throw new ApiError(400, 'Choose the highest year level this test covers.')

@@ -47,11 +47,11 @@ export const QUESTION_TYPE_OPTIONS: SelectOption[] = QUESTION_TYPES.map((type) =
 /**
  * Year levels the platform serves.
  *
- * `questions.year_level` carries `CHECK (year_level BETWEEN 2 AND 8)` and
+ * `questions.year_level` carries `CHECK (year_level BETWEEN 2 AND 9)` and
  * `student_profiles.year_level` the same, so offering anything else would only
  * produce a 23514 from Postgres after the API had already accepted it.
  */
-export const YEAR_LEVELS = Array.from({ length: 7 }, (_, index) => index + 2)
+export const YEAR_LEVELS = Array.from({ length: 8 }, (_, index) => index + 2)
 
 /**
  * `questions.subject` is free text (no enum in Postgres), so the editor offers

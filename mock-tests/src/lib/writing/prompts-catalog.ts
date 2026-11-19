@@ -224,7 +224,7 @@ export function writingPromptById(id: string): WritingPrompt | undefined {
   return WRITING_PROMPTS.find((p) => p.id === id)
 }
 
-/** Clamp any year to the supported range (student_profiles allows 2–8; bank spans 2–9). */
+/** Clamp any year to the supported range (student_profiles allows 2–9; bank spans 2–9). */
 export function normalizeYear(year: number | null | undefined): number {
   const n = Number(year)
   if (!Number.isFinite(n) || n < 2) return 5
