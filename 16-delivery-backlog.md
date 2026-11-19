@@ -629,19 +629,34 @@
 > validate 36 ✓, lint ratchet ✓, schema validators 84/84 + 33/33 ✓,
 > **live pgtap 100/100 rolled back ✓**, production build ✓.
 >
-> **Still open (unchanged, decision-gated):** QStash credentials for the fast
-> path (the sweeper covers the gap meanwhile); `DEEPSEEK_*` + `CRON_SECRET` +
-> `SUPABASE_DB_URL` must be set in Vercel/GitHub for production (checklist in
-> `05-...env-vars.md`); no WRITING questions exist in live content yet (0 rows —
-> content seeding produces MCQ/reading only), so the CMS must author writing
+> **Still open (decision-gated):** ~~QStash credentials for the fast path~~ —
+> **DONE (2026-11-19): QStash connected via the Upstash MCP.** EU user
+> (`eu-central-1`, free plan) token + both signing keys are in `.env.local`
+> (gitignored), region-matched to the SDK's default `https://qstash.upstash.io`
+> base URL. **Proven both halves live:** publish through the app's own SDK +
+> token returned a real `messageId` and QStash logs show `CREATED → ACTIVE →
+> DELIVERED (200)`; and the receiver gate — untestable while the keys were
+> empty — passed a validly signed POST (HS256, issuer `Upstash`, body-hash
+> claim, minted with the real current key) through to the handler (500 on a
+> nonexistent attempt, i.e. past the gate), while a garbage signature was
+> rejected 503 and an unsigned one 403. DLQ left empty, probes deleted.
+> Two findings recorded in `05-...env-vars.md` §3: **loopback destinations are
+> rejected at publish time** (so the `localhost` callback URL can never
+> enqueue — local submissions fall to the sweeper, safe by design), and
+> **token/signing keys are per-region** — mixing regions would publish fine
+> but fail every verification. For production: push the commit, set
+> `QSTASH_TOKEN`/`QSTASH_CURRENT_SIGNING_KEY`/`QSTASH_NEXT_SIGNING_KEY` +
+> `QSTASH_WRITING_EVAL_ENDPOINT` (public HTTPS app URL) in Vercel alongside
+> `DEEPSEEK_*` + `CRON_SECRET` + `SUPABASE_DB_URL` (GitHub secret). No WRITING
+> questions exist in live content yet (0 rows), so the CMS must author writing
 > items before students ever hit this path; **item 17 (writing-mark extension:
 > `fact_writing_mark`, criteria columns, `model_version` NOT NULL) remains the
 > BI-side follow-up** — until then the criterion-level detail lives in
 > `writing_evaluations.raw_response` (model, rubric version, usage,
 > category_scores, techniques, practice exercise), which is exactly the
-> capture item 17 will formalise. **Security:** the API key was shared in
-> chat — rotate it in the DeepSeek console when convenient; it is stored only
-> in gitignored `.env.local` and never in the repo.
+> capture item 17 will formalise. **Security:** the DeepSeek API key *and an
+> Upstash account API key* were shared in chat — rotate both when convenient;
+> app credentials live only in gitignored `.env.local`, never in the repo.
 
 > ### ⏭ Remaining, in priority order
 >

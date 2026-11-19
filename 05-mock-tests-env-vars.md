@@ -109,11 +109,30 @@ Full console walkthrough, scopes and provider-specific quirks:
 - `QSTASH_CURRENT_SIGNING_KEY` (**SERVER ONLY**) — Signing key for verifying job deliveries.
 - `QSTASH_NEXT_SIGNING_KEY` (**SERVER ONLY, optional**) — For key rotation.
 
+> **Region binding (verified live 2026-11):** tokens and signing keys are **per
+> region user** (Upstash provisions one QStash user each in `eu-central-1` and
+> `us-east-1`). All three values above must come from the *same* region, or
+> publishing works while every delivery fails signature verification. The app
+> publishes via `new Client({ token })` with no `baseUrl`, which the SDK
+> defaults to `https://qstash.upstash.io` = the **EU** user — so the EU
+> credentials are the ones configured. To use the US user instead, also set
+> `baseUrl: 'https://qstash-us-east-1.upstash.io'` in `score-attempt.ts`.
+> Free-plan note: both users are on the free tier (limited monthly messages);
+> the writing sweeper is bounded at 10 grades/run, and each essay submission
+> publishes exactly one message.
+
 ### 3.2 Job endpoints (internal)
 - `QSTASH_BASE_CALLBACK_URL` (**SERVER ONLY**) — Base callback URL for job handlers (usually `APP_URL`).
 - `QSTASH_WRITING_EVAL_ENDPOINT` (**SERVER ONLY**) — Full URL path to writing evaluation job handler.
   - Example: `${QSTASH_BASE_CALLBACK_URL}/api/jobs/writing-eval`
 - `QSTASH_ANALYTICS_ROLLUP_ENDPOINT` (**SERVER ONLY, optional**) — Full URL for analytics rollup job.
+
+> **Must be a public HTTPS URL in production (verified live 2026-11):** QStash
+> rejects loopback/private destinations **at publish time** ("endpoint resolves
+> to a loopback address"). A `localhost` endpoint therefore never enqueues:
+> `scoreAttempt` catches the publish error, logs it, and the essay falls
+> through to the `/api/cron/writing-backlog` sweeper — safe by design for local
+> dev, but production without a public callback URL silently runs sweeper-only.
 
 ### 3.3 Job safety
 - `QSTASH_MAX_RETRIES` (**SERVER ONLY, optional**) — e.g., `5`

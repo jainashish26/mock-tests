@@ -1,0 +1,14 @@
+# Root .gitignore — repo hygiene for agent/tooling artifacts.
+#
+# The Upstash MCP skill sync (2026-11) wrote its documentation cache into
+# ~49 root-level dot-directories (one per AI coding tool: .adal, .agents,
+# .aider-desk, .claude, ... ) plus /skills, /skills-lock.json and /data.
+# These are machine-local caches, not project source: ignore every root-level
+# dot-directory except .github (CI workflows are project source).
+/.*/
+!/.github/
+
+# Skill-sync artifacts at the repo root
+/skills/
+/skills-lock.json
+/data/
