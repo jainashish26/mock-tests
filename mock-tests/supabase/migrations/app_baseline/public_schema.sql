@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict mqO93Qy8KhL5T37vEpQgZLgZQGPDvYFtyR7Lgy9RVUBvE42i7xzigMwnDObe2PN
+\restrict z1Ldo3SjAa8bzeWVaXAti9Buplv6lAXMghEXfMu2V0oTSrie63hHRVGuBhjQlbP
 
 -- Dumped from database version 17.6
 -- Dumped by pg_dump version 17.12
@@ -78,7 +78,8 @@ CREATE TYPE public.exam_type AS ENUM (
     'WORD_PROBLEMS',
     'PROBLEM_SOLVING',
     'CRITICAL_THINKING',
-    'VOCABULARY'
+    'VOCABULARY',
+    'WRITING'
 );
 
 
@@ -185,6 +186,291 @@ $$;
 --
 
 COMMENT ON FUNCTION public.admin_data_quality(p_from_date integer, p_to_date integer) IS 'A15 data quality over a real date range, from reporting.data_quality_history (migration 038). ADMIN only, range capped at 366 days. Ordered newest day first then worst-first within the day.';
+
+
+--
+-- Name: admin_enquiry_counts(); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.admin_enquiry_counts() RETURNS TABLE(open_total bigint, breached bigint, at_risk bigint, unrecorded_open bigint, oldest_age_minutes integer, sla_minutes integer, sla_is_confirmed boolean)
+    LANGUAGE sql STABLE SECURITY DEFINER
+    SET search_path TO 'public', 'pg_catalog'
+    AS $$
+  SELECT
+    COUNT(*) FILTER (WHERE q.status NOT IN ('resolved','closed','spam'))::bigint,
+    COUNT(*) FILTER (WHERE q.status NOT IN ('resolved','closed','spam')
+                       AND q.sla_state = 'breached')::bigint,
+    COUNT(*) FILTER (WHERE q.status NOT IN ('resolved','closed','spam')
+                       AND q.sla_state = 'at_risk')::bigint,
+    -- Open, past the window, and no reply recorded yet: these become
+    -- 'unrecorded' silently if nobody acts, so they are counted apart from a
+    -- plain backlog.
+    COUNT(*) FILTER (WHERE q.status NOT IN ('resolved','closed','spam')
+                       AND q.first_response_at IS NULL
+                       AND q.age_minutes > q.sla_minutes)::bigint,
+    COALESCE(MAX(q.age_minutes) FILTER (
+      WHERE q.status NOT IN ('resolved','closed','spam'))::integer, 0),
+    MAX(q.sla_minutes),
+    BOOL_AND(q.sla_is_confirmed)
+  FROM public.admin_enquiry_queue(NULL, NULL, false, 200, 0) q;
+$$;
+
+
+--
+-- Name: admin_enquiry_queue(text, text, boolean, integer, integer); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.admin_enquiry_queue(p_status text DEFAULT NULL::text, p_type text DEFAULT NULL::text, p_unanswered boolean DEFAULT false, p_limit integer DEFAULT 50, p_offset integer DEFAULT 0) RETURNS TABLE(enquiry_id uuid, channel text, enquiry_type text, status text, outcome text, received_at timestamp with time zone, first_response_at timestamp with time zone, resolved_at timestamp with time zone, assigned_to uuid, parent_user_id uuid, converted boolean, age_minutes integer, response_minutes integer, resolution_hours numeric, sla_minutes integer, sla_state text, sla_is_confirmed boolean, utm_source text)
+    LANGUAGE plpgsql STABLE SECURITY DEFINER
+    SET search_path TO 'public', 'pg_catalog'
+    AS $$
+BEGIN
+  -- Authorisation before the parameter validation below: a non-admin must not
+  -- be able to learn the valid status names by observing which of two 400s
+  -- comes back. Silent zero rows is the only answer for an unauthorised
+  -- caller, and it is the same shape for every student and every id.
+  IF NOT public.has_role('ADMIN') THEN
+    RETURN;
+  END IF;
+
+  IF p_limit IS NULL OR p_limit < 1 OR p_limit > 200 THEN
+    RAISE EXCEPTION 'p_limit must be between 1 and 200' USING ERRCODE = '22023';
+  END IF;
+  IF p_offset IS NULL OR p_offset < 0 THEN
+    RAISE EXCEPTION 'p_offset must be zero or greater' USING ERRCODE = '22023';
+  END IF;
+  IF p_status IS NOT NULL AND p_status NOT IN (
+       'new','triaged','in_progress','waiting_on_customer','resolved','closed','spam') THEN
+    RAISE EXCEPTION 'unknown enquiry status: %', p_status USING ERRCODE = '22023';
+  END IF;
+  IF p_type IS NOT NULL AND p_type NOT IN (
+       'billing','technical','privacy','accessibility','product_question',
+       'refund','complaint','other') THEN
+    RAISE EXCEPTION 'unknown enquiry type: %', p_type USING ERRCODE = '22023';
+  END IF;
+
+  RETURN QUERY
+  SELECT
+    e.id,
+    e.channel,
+    e.enquiry_type,
+    e.status,
+    e.outcome,
+    e.received_at,
+    e.first_response_at,
+    e.resolved_at,
+    e.assigned_to,
+    e.parent_user_id,
+    (e.converted_order_id IS NOT NULL),
+    -- Ageing is measured against the clock the database owns, never a
+    -- client-supplied now(), or the queue could be made to look fresh.
+    -- UNITS MATTER, AND THIS LINE IS WHERE THEY WENT WRONG FIRST.
+    -- EXTRACT(EPOCH FROM an interval) is SECONDS. Dividing by 60 is what makes
+    -- a column called age_minutes mean minutes. The SLA comparisons below all
+    -- divide by 60 inside the CASE, so sla_state stayed correct while these
+    -- returned values sixty times too large - which is how the bug survived a
+    -- passing queue and was caught only by hand-computing a fixture's age.
+    -- It also corrupted admin_enquiry_counts(), whose unrecorded_open test
+    -- compares this column against the SLA in minutes.
+    (EXTRACT(EPOCH FROM (now() - e.received_at)) / 60)::int,
+    (EXTRACT(EPOCH FROM (e.first_response_at - e.received_at)) / 60)::int,
+    -- resolution_hours stays NULL without a recorded first response for the
+    -- same reason the response clock does: an enquiry that was answered offline
+    -- and then closed has an unknown middle, and inventing one from the two
+    -- ends would silently fill the report's most interesting gap.
+    CASE WHEN e.resolved_at IS NULL OR e.first_response_at IS NULL THEN NULL
+         ELSE ROUND(EXTRACT(EPOCH FROM (e.resolved_at - e.received_at)) / 3600, 2) END,
+    th.first_response_sla_minutes,
+    -- Five states, and the reason each one exists:
+    --   met        a reply is recorded and it was inside the window
+    --   breached   replied late, OR still unanswered past the window. §5.8 is
+    --              explicit that an unanswered enquiry counts as a breach NOW:
+    --              waiting for it to be resolved is how the worst cases never
+    --              appear on the screen meant to surface them.
+    --   at_risk    still open, inside the window but past three quarters of it
+    --   within     still open, comfortably inside the window
+    --   unrecorded resolved or closed with no reply ever recorded. Not "met":
+    --              calling it met is the fabrication section 2 refuses.
+    CASE
+      WHEN e.status IN ('resolved','closed') AND e.first_response_at IS NULL
+        THEN 'unrecorded'
+      WHEN e.first_response_at IS NOT NULL
+        THEN CASE WHEN EXTRACT(EPOCH FROM (e.first_response_at - e.received_at)) / 60
+                       <= th.first_response_sla_minutes THEN 'met' ELSE 'breached' END
+      WHEN EXTRACT(EPOCH FROM (now() - e.received_at)) / 60
+           > th.first_response_sla_minutes THEN 'breached'
+      WHEN EXTRACT(EPOCH FROM (now() - e.received_at)) / 60
+           > th.first_response_sla_minutes * 0.75 THEN 'at_risk'
+      ELSE 'within'
+    END,
+    th.sla_is_confirmed,
+    e.utm_source
+  FROM public.enquiries e
+  CROSS JOIN reporting.enquiry_thresholds th
+  WHERE th.id = 1
+    AND (p_status IS NULL OR e.status = p_status)
+    -- The default view is the work queue, and spam is not work. Asking for
+    -- status='spam' explicitly still returns it.
+    AND (p_status IS NOT NULL OR e.status <> 'spam')
+    AND (p_type IS NULL OR e.enquiry_type = p_type)
+    AND (NOT p_unanswered OR e.first_response_at IS NULL)
+  ORDER BY e.received_at ASC
+  LIMIT p_limit OFFSET p_offset;
+END;
+$$;
+
+
+--
+-- Name: FUNCTION admin_enquiry_queue(p_status text, p_type text, p_unanswered boolean, p_limit integer, p_offset integer); Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON FUNCTION public.admin_enquiry_queue(p_status text, p_type text, p_unanswered boolean, p_limit integer, p_offset integer) IS 'Admin support queue. Returns no contact column: reading an enquirer email or message body goes through read_enquiry_contact(), which audits the access. sla_state is computed here so the queue and A13 cannot disagree about what breached means.';
+
+
+--
+-- Name: admin_enquiry_transition(uuid, text, text, uuid); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.admin_enquiry_transition(p_enquiry_id uuid, p_action text, p_outcome text DEFAULT NULL::text, p_assignee uuid DEFAULT NULL::uuid) RETURNS TABLE(enquiry_id uuid, status text, outcome text, first_response_at timestamp with time zone, first_response_minutes integer, resolved_at timestamp with time zone, resolution_hours numeric, response_recorded boolean, response_was_missing boolean)
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO 'public', 'pg_catalog'
+    AS $$
+DECLARE
+  v_now     timestamptz := now();
+  v_e       public.enquiries%ROWTYPE;
+  v_target  text;
+  v_new_fr  timestamptz;
+  v_new_res timestamptz;
+BEGIN
+  IF NOT public.has_role('ADMIN') THEN
+    RAISE EXCEPTION 'only an administrator can change an enquiry''s status'
+      USING ERRCODE = '42501';
+  END IF;
+
+  IF p_action IS NULL OR p_action NOT IN
+     ('triage','start','reply','resolve','close','reopen','assign','spam') THEN
+    RAISE EXCEPTION 'unknown enquiry action: %', p_action USING ERRCODE = '22023';
+  END IF;
+
+  -- FOR UPDATE, so two admins clicking the same button at the same moment
+  -- cannot both pass the "is this already resolved?" tests below and both stamp
+  -- a clock. The second sees the row as the first left it.
+  SELECT * INTO v_e FROM public.enquiries WHERE id = p_enquiry_id FOR UPDATE;
+  IF NOT FOUND THEN
+    RAISE EXCEPTION 'no such enquiry' USING ERRCODE = 'P0002';
+  END IF;
+
+  v_target  := v_e.status;
+  v_new_fr  := v_e.first_response_at;
+  v_new_res := v_e.resolved_at;
+
+  -- Each action names the status it produces. The table is never handed a
+  -- status it has to interpret.
+  CASE p_action
+    WHEN 'triage'  THEN v_target := 'triaged';
+    WHEN 'start'   THEN v_target := 'in_progress';
+    WHEN 'reply'   THEN v_target := 'waiting_on_customer';
+    WHEN 'resolve' THEN v_target := 'resolved';
+    WHEN 'close'   THEN v_target := 'closed';
+    WHEN 'reopen'  THEN v_target := 'in_progress';
+    WHEN 'spam'    THEN v_target := 'spam';
+    WHEN 'assign'  THEN v_target := v_e.status;   -- assignment moves nothing
+  END CASE;
+
+  -- The reply clock. Only 'reply' stamps it, and only once: a second reply is
+  -- an ordinary conversation, not a second first response.
+  IF p_action = 'reply' THEN
+    IF v_e.first_response_at IS NOT NULL THEN
+      RAISE EXCEPTION 'the first response was already recorded at %',
+        v_e.first_response_at USING ERRCODE = '22023';
+    END IF;
+    -- Refused after resolution rather than backfilled. A reply entered now
+    -- would be timed from receipt to now, which is the admin's click time and
+    -- not the moment anybody was answered - and it would also violate
+    -- enquiries_timeline_sane. See the header, section 2.
+    IF v_e.resolved_at IS NOT NULL OR v_e.status IN ('resolved','closed') THEN
+      RAISE EXCEPTION
+        'cannot record a first response after an enquiry is resolved or closed; '
+        'the response was never recorded, and A13 reports it as such'
+        USING ERRCODE = '22023';
+    END IF;
+    v_new_fr := v_now;
+  END IF;
+
+  -- The resolution clock, together with the outcome the CHECK demands.
+  IF p_action IN ('resolve','close') THEN
+    IF p_outcome IS NULL OR p_outcome NOT IN
+       ('answered','refunded','escalated','no_action','spam','duplicate','withdrawn') THEN
+      RAISE EXCEPTION 'resolving or closing requires a valid outcome'
+        USING ERRCODE = '22023';
+    END IF;
+    -- COALESCE keeps the original timestamp if an enquiry is closed after
+    -- being resolved, so resolution_hours does not drift every time somebody
+    -- tidies the status.
+    v_new_res := COALESCE(v_e.resolved_at, v_now);
+  END IF;
+
+  IF p_action = 'spam' THEN
+    v_new_res := COALESCE(v_e.resolved_at, v_now);
+  END IF;
+
+  -- Reopening means it is not resolved any more. The clock is cleared rather
+  -- than left behind, so resolution_hours cannot be computed against a moment
+  -- that no longer describes the enquiry.
+  IF p_action = 'reopen' THEN
+    v_new_res := NULL;
+  END IF;
+
+  IF p_action = 'assign' AND p_assignee IS NULL THEN
+    RAISE EXCEPTION 'the assign action needs an assignee' USING ERRCODE = '22023';
+  END IF;
+
+  UPDATE public.enquiries AS e
+     SET status            = v_target,
+         first_response_at = v_new_fr,
+         resolved_at       = v_new_res,
+         -- Every right-hand reference is table-qualified. RETURNS TABLE makes
+         -- each output column a plpgsql variable named `status`, `outcome`,
+         -- `resolved_at` and so on, so a bare `outcome` here is ambiguous
+         -- between the OUT parameter and the column and Postgres refuses the
+         -- statement outright (42702). The alias is not decoration: without it
+         -- this function cannot be created at all.
+         outcome           = COALESCE(p_outcome,
+                            CASE WHEN p_action = 'spam' THEN 'spam' ELSE e.outcome END),
+         assigned_to       = COALESCE(p_assignee, e.assigned_to),
+         updated_at        = v_now
+   WHERE e.id = p_enquiry_id;
+
+  RETURN QUERY
+  SELECT
+    p_enquiry_id,
+    v_target,
+    COALESCE(p_outcome,
+      CASE WHEN p_action = 'spam' THEN 'spam' ELSE v_e.outcome END),
+    v_new_fr,
+    -- Minutes, not seconds - see the units note in admin_enquiry_queue.
+    CASE WHEN v_new_fr IS NULL THEN NULL
+         ELSE (EXTRACT(EPOCH FROM (v_new_fr - v_e.received_at)) / 60)::int END,
+    v_new_res,
+    -- Same rule as the queue's column: an unknown middle stays unknown.
+    CASE WHEN v_new_res IS NULL OR v_new_fr IS NULL THEN NULL
+         ELSE ROUND(EXTRACT(EPOCH FROM (v_new_res - v_e.received_at)) / 3600, 2) END,
+    -- True only when THIS call recorded the first response, which is the only
+    -- case that should fire ENQUIRY_FIRST_RESPONDED.
+    (p_action = 'reply' AND v_e.first_response_at IS NULL),
+    -- The honesty flag for the UI: resolved or closed with no reply on record.
+    -- Surfaced rather than smoothed, because it is the difference between "we
+    -- answered in three hours" and "we do not know".
+    (p_action IN ('resolve','close') AND v_e.first_response_at IS NULL);
+END;
+$$;
+
+
+--
+-- Name: FUNCTION admin_enquiry_transition(p_enquiry_id uuid, p_action text, p_outcome text, p_assignee uuid); Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON FUNCTION public.admin_enquiry_transition(p_enquiry_id uuid, p_action text, p_outcome text, p_assignee uuid) IS 'The only writer of enquiries.first_response_at and enquiries.resolved_at. Takes an action verb and derives the status, so the table cannot be placed in a state the workflow does not mean. A first response is recorded only by the reply action, never inferred from resolution and never back-filled after closure - see migration 104 header, section 2.';
 
 
 --
@@ -486,6 +772,130 @@ $$;
 --
 
 COMMENT ON FUNCTION public.creator_coverage_queue(p_limit integer) IS 'TC1 authoring queue, ranked. TEST_CREATOR or ADMIN only, enforced HERE as well as in the route because PostgREST exposes the function directly. Reads the same mv_topic_coverage as A3. While min_items_per_subtopic is NULL, deficit is NULL and ranking falls through to published_count ascending so the queue is not empty. Superseded and dropped the older zero-argument overload (migration 044).';
+
+
+--
+-- Name: enquiry_id_for_source_ref(text); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.enquiry_id_for_source_ref(p_source_ref text) RETURNS uuid
+    LANGUAGE sql STABLE SECURITY DEFINER
+    SET search_path TO 'public', 'pg_catalog'
+    AS $$
+  SELECT e.id
+    FROM public.enquiries e
+   WHERE e.channel = 'web_form'
+     AND e.ingest_source_ref = p_source_ref;
+$$;
+
+
+--
+-- Name: FUNCTION enquiry_id_for_source_ref(p_source_ref text); Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON FUNCTION public.enquiry_id_for_source_ref(p_source_ref text) IS 'Returns the enquiry already recorded under a web-form submission reference, so the route can answer a retry with the same reference instead of a rate-limit refusal. Service-role only; the reference is a 128-bit nonce from a signed token, so it is not enumerable.';
+
+
+--
+-- Name: enquiry_throttle_check(text, integer, integer); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.enquiry_throttle_check(p_fp text, p_min_interval_seconds integer DEFAULT 60, p_daily_cap integer DEFAULT 5) RETURNS TABLE(allowed boolean, retry_after_seconds integer)
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO 'public', 'pg_catalog'
+    AS $_$
+DECLARE
+  v_now     timestamptz := now();
+  v_row     public.enquiry_throttle%ROWTYPE;
+  v_elapsed integer;
+  v_allowed boolean;
+  v_retry   integer;
+BEGIN
+  IF p_fp IS NULL OR p_fp !~ '^[0-9a-f]{64}$' THEN
+    -- An exception, not a refusal: a malformed fingerprint is a bug in the
+    -- route, and answering it with "slow down" would hide it behind a 429.
+    RAISE EXCEPTION 'invalid throttle fingerprint: expected 64 hex characters'
+      USING ERRCODE = '22023';
+  END IF;
+
+  IF p_daily_cap IS NULL OR p_daily_cap < 1 THEN
+    RAISE EXCEPTION 'p_daily_cap must be at least 1' USING ERRCODE = '22023';
+  END IF;
+
+  -- FOR UPDATE serialises concurrent submissions from the same address, so two
+  -- simultaneous POSTs cannot both read submissions=1 and both pass a cap of 5.
+  SELECT * INTO v_row
+    FROM public.enquiry_throttle
+   WHERE fp = p_fp
+     FOR UPDATE;
+
+  IF NOT FOUND THEN
+    -- First sighting is recorded but not yet counted as a submission: the
+    -- UPDATE below is the only place submissions ever becomes 1.
+    INSERT INTO public.enquiry_throttle (fp, last_seen_at, window_start, submissions)
+      VALUES (p_fp, v_now, v_now, 0);
+    v_row.fp := p_fp;
+    v_row.last_seen_at := v_now;
+    v_row.window_start := v_now;
+    v_row.submissions := 0;
+  END IF;
+
+  -- A rolling 24h window rather than a calendar day: a cap that resets at
+  -- midnight lets a bot spend its whole allowance twice in one working day.
+  IF v_now - v_row.window_start >= interval '24 hours' THEN
+    v_row.window_start := v_now;
+    v_row.submissions := 0;
+  END IF;
+
+  v_elapsed := EXTRACT(EPOCH FROM (v_now - v_row.last_seen_at))::integer;
+  v_allowed := TRUE;
+  v_retry   := 0;
+
+  -- The interval applies only after a first accepted submission, so the interval
+  -- and the cap cannot both refuse the same request and disagree about why.
+  IF v_row.submissions > 0
+     AND v_elapsed < greatest(coalesce(p_min_interval_seconds, 60), 0) THEN
+    v_allowed := FALSE;
+    v_retry := greatest(coalesce(p_min_interval_seconds, 60), 0) - v_elapsed;
+  ELSIF v_row.submissions >= p_daily_cap THEN
+    v_allowed := FALSE;
+    v_retry := greatest(
+      1,
+      EXTRACT(EPOCH FROM (v_row.window_start + interval '24 hours' - v_now))::integer
+    );
+  END IF;
+
+  IF v_allowed THEN
+    UPDATE public.enquiry_throttle
+       SET last_seen_at = v_now,
+           window_start = v_row.window_start,
+           submissions  = v_row.submissions + 1
+     WHERE fp = p_fp;
+  ELSE
+    -- A refusal refreshes last_seen_at but NOT the counter: an already-blocked
+    -- address must not extend its own lockout by hammering.
+    UPDATE public.enquiry_throttle
+       SET last_seen_at = v_now
+     WHERE fp = p_fp;
+  END IF;
+
+  -- Opportunistic prune, only on the path that creates a row, so ordinary
+  -- traffic against a settled table does not pay for a delete every call.
+  IF v_row.submissions = 0 THEN
+    DELETE FROM public.enquiry_throttle
+      WHERE last_seen_at < v_now - interval '30 days';
+  END IF;
+
+  RETURN QUERY SELECT v_allowed, v_retry;
+END;
+$_$;
+
+
+--
+-- Name: FUNCTION enquiry_throttle_check(p_fp text, p_min_interval_seconds integer, p_daily_cap integer); Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON FUNCTION public.enquiry_throttle_check(p_fp text, p_min_interval_seconds integer, p_daily_cap integer) IS 'Decide whether a fingerprint may submit an enquiry, and record the decision atomically (SELECT ... FOR UPDATE). A rolling 24h window plus a minimum interval between accepted submissions. The counter advances only for submissions the route already accepted as well-formed, so a filtered bot cannot use the cap to lock a real parent out of the support channel.';
 
 
 --
@@ -2409,7 +2819,7 @@ ALTER TABLE ONLY public.enquiries FORCE ROW LEVEL SECURITY;
 -- Name: TABLE enquiries; Type: COMMENT; Schema: public; Owner: -
 --
 
-COMMENT ON TABLE public.enquiries IS 'Inbound enquiries across web_form, email and chat. Reportable: no free-text field and no contact detail, so reporting.fact_enquiry can be built from this table alone. Written only through public.ingest_enquiry().';
+COMMENT ON TABLE public.enquiries IS 'Inbound enquiries across web_form, email and chat. Reportable: contains no free-text field and no contact detail, so reporting.fact_enquiry can be built from this table alone. Written only through public.ingest_enquiry() - INSERT/UPDATE/DELETE/TRUNCATE/TRIGGER are revoked from anon and authenticated so that the two-table transaction inside that function is the only way an enquiry can come into existence.';
 
 
 --
@@ -2477,6 +2887,29 @@ ALTER TABLE ONLY public.enquiry_contacts FORCE ROW LEVEL SECURITY;
 --
 
 COMMENT ON TABLE public.enquiry_contacts IS 'RESTRICTED. Excluded from the reporting schema: no view, no MV, no join path. NO RLS policy for any role; readable only through public.read_enquiry_contact(enquiry_id, task_reason), which audits before returning.';
+
+
+--
+-- Name: enquiry_throttle; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.enquiry_throttle (
+    fp text NOT NULL,
+    last_seen_at timestamp with time zone DEFAULT now() NOT NULL,
+    window_start timestamp with time zone DEFAULT now() NOT NULL,
+    submissions integer DEFAULT 0 NOT NULL,
+    CONSTRAINT enquiry_throttle_count_shape CHECK ((submissions >= 0)),
+    CONSTRAINT enquiry_throttle_fp_shape CHECK ((fp ~ '^[0-9a-f]{64}$'::text))
+);
+
+ALTER TABLE ONLY public.enquiry_throttle FORCE ROW LEVEL SECURITY;
+
+
+--
+-- Name: TABLE enquiry_throttle; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON TABLE public.enquiry_throttle IS 'Spam control for POST /api/enquiries. One row per visitor fingerprint (peppered SHA-256 of the client IP - the raw IP is never stored). Written and read only by public.enquiry_throttle_check(), which is service-role-only. Excluded from the reporting schema and given no RLS policy for any app role.';
 
 
 --
@@ -2876,7 +3309,7 @@ CREATE TABLE public.questions (
     skip_rate numeric,
     flag_count integer DEFAULT 0,
     CONSTRAINT questions_difficulty_check CHECK (((difficulty >= 1) AND (difficulty <= 5))),
-    CONSTRAINT questions_year_level_check CHECK (((year_level >= 2) AND (year_level <= 8)))
+    CONSTRAINT questions_year_level_check CHECK (((year_level >= 2) AND (year_level <= 9)))
 );
 
 
@@ -2962,7 +3395,7 @@ CREATE TABLE public.student_profiles (
     username text NOT NULL,
     created_at timestamp with time zone DEFAULT now(),
     updated_at timestamp with time zone DEFAULT now(),
-    CONSTRAINT student_profiles_year_level_check CHECK (((year_level >= 2) AND (year_level <= 8)))
+    CONSTRAINT student_profiles_year_level_check CHECK (((year_level >= 2) AND (year_level <= 9)))
 );
 
 
@@ -3081,7 +3514,67 @@ CREATE TABLE public.writing_evaluations (
     improvements jsonb,
     improved_text text,
     raw_response jsonb,
-    created_at timestamp with time zone DEFAULT now()
+    created_at timestamp with time zone DEFAULT now(),
+    text_type text,
+    category_scores jsonb,
+    techniques_used jsonb,
+    practice_exercise text,
+    rubric_version text,
+    model text,
+    word_count integer,
+    graded_at timestamp with time zone,
+    duration_ms integer,
+    improvements_detail jsonb
+);
+
+
+--
+-- Name: writing_practice_sessions; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.writing_practice_sessions (
+    id uuid DEFAULT gen_random_uuid() NOT NULL,
+    student_id uuid NOT NULL,
+    prompt_id text NOT NULL,
+    text_type text NOT NULL,
+    prompt_text text NOT NULL,
+    student_text text NOT NULL,
+    word_count integer DEFAULT 0 NOT NULL,
+    year_level integer NOT NULL,
+    status text DEFAULT 'PENDING'::text NOT NULL,
+    score_out_of100 numeric(5,2),
+    evaluation jsonb,
+    rubric_version text,
+    model text,
+    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    graded_at timestamp with time zone,
+    duration_ms integer
+);
+
+
+--
+-- Name: TABLE writing_practice_sessions; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON TABLE public.writing_practice_sessions IS 'Standalone AI writing practice (AI Practice Lab). Students create their own row but never SELECT it; the evaluation is a result shown only to parents/tutors/admin.';
+
+
+--
+-- Name: writing_prompts; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.writing_prompts (
+    id uuid DEFAULT gen_random_uuid() NOT NULL,
+    year_level integer NOT NULL,
+    territory text NOT NULL,
+    type text NOT NULL,
+    text text NOT NULL,
+    status public.content_status DEFAULT 'DRAFT'::public.content_status NOT NULL,
+    created_by uuid NOT NULL,
+    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    updated_at timestamp with time zone DEFAULT now() NOT NULL,
+    CONSTRAINT writing_prompts_type_check CHECK ((type = ANY (ARRAY['narrative'::text, 'persuasive'::text]))),
+    CONSTRAINT writing_prompts_year_level_check CHECK (((year_level >= 2) AND (year_level <= 9)))
 );
 
 
@@ -3155,6 +3648,14 @@ ALTER TABLE ONLY public.enquiry_contact_access_log
 
 ALTER TABLE ONLY public.enquiry_contacts
     ADD CONSTRAINT enquiry_contacts_pkey PRIMARY KEY (enquiry_id);
+
+
+--
+-- Name: enquiry_throttle enquiry_throttle_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.enquiry_throttle
+    ADD CONSTRAINT enquiry_throttle_pkey PRIMARY KEY (fp);
 
 
 --
@@ -3510,6 +4011,22 @@ ALTER TABLE ONLY public.writing_evaluations
 
 
 --
+-- Name: writing_practice_sessions writing_practice_sessions_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.writing_practice_sessions
+    ADD CONSTRAINT writing_practice_sessions_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: writing_prompts writing_prompts_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.writing_prompts
+    ADD CONSTRAINT writing_prompts_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: attempts_one_in_progress_per_student_test; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -3626,6 +4143,13 @@ CREATE INDEX idx_enquiries_status_received ON public.enquiries USING btree (stat
 --
 
 CREATE INDEX idx_enquiry_contact_log_time ON public.enquiry_contact_access_log USING btree (accessed_at DESC);
+
+
+--
+-- Name: idx_enquiry_throttle_seen; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_enquiry_throttle_seen ON public.enquiry_throttle USING btree (last_seen_at);
 
 
 --
@@ -3906,6 +4430,41 @@ CREATE INDEX idx_tutor_links_student ON public.tutor_student_links USING btree (
 --
 
 CREATE INDEX idx_tutor_links_tutor ON public.tutor_student_links USING btree (tutor_user_id);
+
+
+--
+-- Name: writing_practice_sessions_status_created_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX writing_practice_sessions_status_created_idx ON public.writing_practice_sessions USING btree (status, created_at);
+
+
+--
+-- Name: writing_practice_sessions_student_created_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX writing_practice_sessions_student_created_idx ON public.writing_practice_sessions USING btree (student_id, created_at DESC);
+
+
+--
+-- Name: writing_prompts_created_by_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX writing_prompts_created_by_idx ON public.writing_prompts USING btree (created_by);
+
+
+--
+-- Name: writing_prompts_status_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX writing_prompts_status_idx ON public.writing_prompts USING btree (status);
+
+
+--
+-- Name: writing_prompts_year_type_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX writing_prompts_year_type_idx ON public.writing_prompts USING btree (year_level, type);
 
 
 --
@@ -4325,6 +4884,22 @@ ALTER TABLE ONLY public.writing_evaluations
 
 
 --
+-- Name: writing_practice_sessions writing_practice_sessions_student_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.writing_practice_sessions
+    ADD CONSTRAINT writing_practice_sessions_student_id_fkey FOREIGN KEY (student_id) REFERENCES public.student_profiles(id) ON DELETE CASCADE;
+
+
+--
+-- Name: writing_prompts writing_prompts_created_by_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.writing_prompts
+    ADD CONSTRAINT writing_prompts_created_by_fkey FOREIGN KEY (created_by) REFERENCES auth.users(id) ON DELETE RESTRICT;
+
+
+--
 -- Name: questions Admin can create any question; Type: POLICY; Schema: public; Owner: -
 --
 
@@ -4339,6 +4914,13 @@ CREATE POLICY "Admin can create any test" ON public.tests FOR INSERT WITH CHECK 
 
 
 --
+-- Name: writing_prompts Admin can create writing prompts; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY "Admin can create writing prompts" ON public.writing_prompts FOR INSERT TO authenticated WITH CHECK (public.has_role('ADMIN'::public.user_role));
+
+
+--
 -- Name: questions Admin can delete any question; Type: POLICY; Schema: public; Owner: -
 --
 
@@ -4350,6 +4932,13 @@ CREATE POLICY "Admin can delete any question" ON public.questions FOR DELETE USI
 --
 
 CREATE POLICY "Admin can delete any test" ON public.tests FOR DELETE USING (public.has_role('ADMIN'::public.user_role));
+
+
+--
+-- Name: writing_prompts Admin can delete writing prompts; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY "Admin can delete writing prompts" ON public.writing_prompts FOR DELETE TO authenticated USING (public.has_role('ADMIN'::public.user_role));
 
 
 --
@@ -4451,6 +5040,13 @@ CREATE POLICY "Admin can update profile" ON public.student_profiles FOR UPDATE U
 
 
 --
+-- Name: writing_prompts Admin can update writing prompts; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY "Admin can update writing prompts" ON public.writing_prompts FOR UPDATE TO authenticated USING (public.has_role('ADMIN'::public.user_role)) WITH CHECK (public.has_role('ADMIN'::public.user_role));
+
+
+--
 -- Name: assignments Admin can view all assignments; Type: POLICY; Schema: public; Owner: -
 --
 
@@ -4535,6 +5131,20 @@ CREATE POLICY "Admin can view all tests" ON public.tests FOR SELECT USING (publi
 
 
 --
+-- Name: writing_practice_sessions Admin can view all writing practice; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY "Admin can view all writing practice" ON public.writing_practice_sessions FOR SELECT TO authenticated USING ((public.may_read_results() AND public.has_role('ADMIN'::public.user_role)));
+
+
+--
+-- Name: writing_prompts Admin can view all writing prompts; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY "Admin can view all writing prompts" ON public.writing_prompts FOR SELECT TO authenticated USING (public.has_role('ADMIN'::public.user_role));
+
+
+--
 -- Name: processed_webhook_events Admin can view processed events; Type: POLICY; Schema: public; Owner: -
 --
 
@@ -4605,6 +5215,13 @@ CREATE POLICY "Admin can write test sections" ON public.test_sections USING (pub
 
 
 --
+-- Name: writing_practice_sessions Admin can write writing practice; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY "Admin can write writing practice" ON public.writing_practice_sessions TO authenticated USING (public.has_role('ADMIN'::public.user_role)) WITH CHECK (public.has_role('ADMIN'::public.user_role));
+
+
+--
 -- Name: consent_records Admin manages all consent; Type: POLICY; Schema: public; Owner: -
 --
 
@@ -4616,6 +5233,34 @@ CREATE POLICY "Admin manages all consent" ON public.consent_records USING (publi
 --
 
 CREATE POLICY "Admin manages all tutor links" ON public.tutor_student_links USING (public.has_role('ADMIN'::public.user_role)) WITH CHECK (public.has_role('ADMIN'::public.user_role));
+
+
+--
+-- Name: writing_prompts Creator can create writing prompts; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY "Creator can create writing prompts" ON public.writing_prompts FOR INSERT TO authenticated WITH CHECK (((created_by = auth.uid()) AND public.has_role('TEST_CREATOR'::public.user_role)));
+
+
+--
+-- Name: writing_prompts Creator can delete own writing prompts; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY "Creator can delete own writing prompts" ON public.writing_prompts FOR DELETE TO authenticated USING (((created_by = auth.uid()) AND public.has_role('TEST_CREATOR'::public.user_role)));
+
+
+--
+-- Name: writing_prompts Creator can update own writing prompts; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY "Creator can update own writing prompts" ON public.writing_prompts FOR UPDATE TO authenticated USING (((created_by = auth.uid()) AND public.has_role('TEST_CREATOR'::public.user_role))) WITH CHECK (((created_by = auth.uid()) AND public.has_role('TEST_CREATOR'::public.user_role)));
+
+
+--
+-- Name: writing_prompts Creator can view own writing prompts; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY "Creator can view own writing prompts" ON public.writing_prompts FOR SELECT TO authenticated USING (((created_by = auth.uid()) AND public.has_role('TEST_CREATOR'::public.user_role)));
 
 
 --
@@ -4724,6 +5369,13 @@ CREATE POLICY "Parent can view student responses" ON public.responses FOR SELECT
 
 
 --
+-- Name: writing_practice_sessions Parent can view student writing practice; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY "Parent can view student writing practice" ON public.writing_practice_sessions FOR SELECT TO authenticated USING ((public.may_read_results() AND public.is_parent_of(student_id)));
+
+
+--
 -- Name: student_exam_targets Parent can write linked child exam targets; Type: POLICY; Schema: public; Owner: -
 --
 
@@ -4756,6 +5408,20 @@ CREATE POLICY "Parent reads consent for own children" ON public.consent_records 
 --
 
 CREATE POLICY "Parent revokes consent for own children" ON public.consent_records FOR UPDATE USING (public.is_parent_of(student_id)) WITH CHECK (public.is_parent_of(student_id));
+
+
+--
+-- Name: writing_prompts Signed-in users can view published writing prompts; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY "Signed-in users can view published writing prompts" ON public.writing_prompts FOR SELECT TO authenticated USING (((auth.uid() IS NOT NULL) AND (status = 'PUBLISHED'::public.content_status)));
+
+
+--
+-- Name: writing_practice_sessions Student can create own writing practice; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY "Student can create own writing practice" ON public.writing_practice_sessions FOR INSERT TO authenticated WITH CHECK (public.is_student_self(student_id));
 
 
 --
@@ -5061,6 +5727,12 @@ ALTER TABLE public.enquiry_contact_access_log ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.enquiry_contacts ENABLE ROW LEVEL SECURITY;
 
 --
+-- Name: enquiry_throttle; Type: ROW SECURITY; Schema: public; Owner: -
+--
+
+ALTER TABLE public.enquiry_throttle ENABLE ROW LEVEL SECURITY;
+
+--
 -- Name: entitlements; Type: ROW SECURITY; Schema: public; Owner: -
 --
 
@@ -5229,6 +5901,18 @@ ALTER TABLE public.tutor_student_links ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.writing_evaluations ENABLE ROW LEVEL SECURITY;
 
 --
+-- Name: writing_practice_sessions; Type: ROW SECURITY; Schema: public; Owner: -
+--
+
+ALTER TABLE public.writing_practice_sessions ENABLE ROW LEVEL SECURITY;
+
+--
+-- Name: writing_prompts; Type: ROW SECURITY; Schema: public; Owner: -
+--
+
+ALTER TABLE public.writing_prompts ENABLE ROW LEVEL SECURITY;
+
+--
 -- Name: SCHEMA public; Type: ACL; Schema: -; Owner: -
 --
 
@@ -5254,6 +5938,33 @@ GRANT ALL ON FUNCTION public.admin_coverage_gaps(p_exam_type text) TO service_ro
 REVOKE ALL ON FUNCTION public.admin_data_quality(p_from_date integer, p_to_date integer) FROM PUBLIC;
 GRANT ALL ON FUNCTION public.admin_data_quality(p_from_date integer, p_to_date integer) TO authenticated;
 GRANT ALL ON FUNCTION public.admin_data_quality(p_from_date integer, p_to_date integer) TO service_role;
+
+
+--
+-- Name: FUNCTION admin_enquiry_counts(); Type: ACL; Schema: public; Owner: -
+--
+
+REVOKE ALL ON FUNCTION public.admin_enquiry_counts() FROM PUBLIC;
+GRANT ALL ON FUNCTION public.admin_enquiry_counts() TO service_role;
+GRANT ALL ON FUNCTION public.admin_enquiry_counts() TO authenticated;
+
+
+--
+-- Name: FUNCTION admin_enquiry_queue(p_status text, p_type text, p_unanswered boolean, p_limit integer, p_offset integer); Type: ACL; Schema: public; Owner: -
+--
+
+REVOKE ALL ON FUNCTION public.admin_enquiry_queue(p_status text, p_type text, p_unanswered boolean, p_limit integer, p_offset integer) FROM PUBLIC;
+GRANT ALL ON FUNCTION public.admin_enquiry_queue(p_status text, p_type text, p_unanswered boolean, p_limit integer, p_offset integer) TO service_role;
+GRANT ALL ON FUNCTION public.admin_enquiry_queue(p_status text, p_type text, p_unanswered boolean, p_limit integer, p_offset integer) TO authenticated;
+
+
+--
+-- Name: FUNCTION admin_enquiry_transition(p_enquiry_id uuid, p_action text, p_outcome text, p_assignee uuid); Type: ACL; Schema: public; Owner: -
+--
+
+REVOKE ALL ON FUNCTION public.admin_enquiry_transition(p_enquiry_id uuid, p_action text, p_outcome text, p_assignee uuid) FROM PUBLIC;
+GRANT ALL ON FUNCTION public.admin_enquiry_transition(p_enquiry_id uuid, p_action text, p_outcome text, p_assignee uuid) TO service_role;
+GRANT ALL ON FUNCTION public.admin_enquiry_transition(p_enquiry_id uuid, p_action text, p_outcome text, p_assignee uuid) TO authenticated;
 
 
 --
@@ -5343,6 +6054,22 @@ GRANT ALL ON FUNCTION public.child_attempt_history(p_student_id uuid) TO authent
 REVOKE ALL ON FUNCTION public.creator_coverage_queue(p_limit integer) FROM PUBLIC;
 GRANT ALL ON FUNCTION public.creator_coverage_queue(p_limit integer) TO authenticated;
 GRANT ALL ON FUNCTION public.creator_coverage_queue(p_limit integer) TO service_role;
+
+
+--
+-- Name: FUNCTION enquiry_id_for_source_ref(p_source_ref text); Type: ACL; Schema: public; Owner: -
+--
+
+REVOKE ALL ON FUNCTION public.enquiry_id_for_source_ref(p_source_ref text) FROM PUBLIC;
+GRANT ALL ON FUNCTION public.enquiry_id_for_source_ref(p_source_ref text) TO service_role;
+
+
+--
+-- Name: FUNCTION enquiry_throttle_check(p_fp text, p_min_interval_seconds integer, p_daily_cap integer); Type: ACL; Schema: public; Owner: -
+--
+
+REVOKE ALL ON FUNCTION public.enquiry_throttle_check(p_fp text, p_min_interval_seconds integer, p_daily_cap integer) FROM PUBLIC;
+GRANT ALL ON FUNCTION public.enquiry_throttle_check(p_fp text, p_min_interval_seconds integer, p_daily_cap integer) TO service_role;
 
 
 --
@@ -5793,8 +6520,8 @@ GRANT ALL ON TABLE public.email_log TO service_role;
 -- Name: TABLE enquiries; Type: ACL; Schema: public; Owner: -
 --
 
-GRANT ALL ON TABLE public.enquiries TO anon;
-GRANT ALL ON TABLE public.enquiries TO authenticated;
+GRANT SELECT,MAINTAIN ON TABLE public.enquiries TO anon;
+GRANT SELECT,MAINTAIN ON TABLE public.enquiries TO authenticated;
 GRANT ALL ON TABLE public.enquiries TO service_role;
 
 
@@ -5819,6 +6546,13 @@ GRANT ALL ON SEQUENCE public.enquiry_contact_access_log_log_id_seq TO service_ro
 --
 
 GRANT ALL ON TABLE public.enquiry_contacts TO service_role;
+
+
+--
+-- Name: TABLE enquiry_throttle; Type: ACL; Schema: public; Owner: -
+--
+
+GRANT ALL ON TABLE public.enquiry_throttle TO service_role;
 
 
 --
@@ -6092,6 +6826,22 @@ GRANT ALL ON TABLE public.writing_evaluations TO service_role;
 
 
 --
+-- Name: TABLE writing_practice_sessions; Type: ACL; Schema: public; Owner: -
+--
+
+GRANT ALL ON TABLE public.writing_practice_sessions TO authenticated;
+GRANT ALL ON TABLE public.writing_practice_sessions TO service_role;
+
+
+--
+-- Name: TABLE writing_prompts; Type: ACL; Schema: public; Owner: -
+--
+
+GRANT ALL ON TABLE public.writing_prompts TO authenticated;
+GRANT ALL ON TABLE public.writing_prompts TO service_role;
+
+
+--
 -- Name: DEFAULT PRIVILEGES FOR SEQUENCES; Type: DEFAULT ACL; Schema: public; Owner: -
 --
 
@@ -6155,5 +6905,5 @@ ALTER DEFAULT PRIVILEGES FOR ROLE supabase_admin IN SCHEMA public GRANT ALL ON T
 -- PostgreSQL database dump complete
 --
 
-\unrestrict mqO93Qy8KhL5T37vEpQgZLgZQGPDvYFtyR7Lgy9RVUBvE42i7xzigMwnDObe2PN
+\unrestrict z1Ldo3SjAa8bzeWVaXAti9Buplv6lAXMghEXfMu2V0oTSrie63hHRVGuBhjQlbP
 

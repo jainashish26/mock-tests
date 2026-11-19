@@ -28,6 +28,7 @@ CREATE INDEX idx_dim_test_current ON reporting.dim_test USING btree (test_id) WH
 CREATE UNIQUE INDEX dim_test_family_exam_type_key ON reporting.dim_test_family USING btree (exam_type);
 CREATE UNIQUE INDEX dim_test_family_pkey ON reporting.dim_test_family USING btree (test_family_key);
 CREATE UNIQUE INDEX dim_year_level_cap_pkey ON reporting.dim_year_level_cap USING btree (year_level);
+CREATE UNIQUE INDEX enquiry_thresholds_pkey ON reporting.enquiry_thresholds USING btree (id);
 CREATE UNIQUE INDEX etl_watermark_pkey ON reporting.etl_watermark USING btree (object_name);
 CREATE UNIQUE INDEX experiment_thresholds_pkey ON reporting.experiment_thresholds USING btree (id);
 CREATE UNIQUE INDEX fact_event_event_id_key ON reporting.fact_event USING btree (event_id);

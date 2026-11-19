@@ -754,6 +754,205 @@
 > immediately failed its "no allowlist entry has since been wired" check. The
 > allowlist was corrected — the drift detector working exactly as designed.
 
+> ### ✅ Item 21 Phase A + B — support channel + triage queue (103/104)
+>
+> Two verified commits: `e764c96` (ingest) and `ff42ccc` (triage). The only
+> backlog item that is simultaneously a live product gap and a BI report:
+> `/contact` was mailto-only, `public.enquiries` had 0 rows, and 012's ingest
+> function, restricted contact table and audited drill-down were unreachable —
+> while the Terms promise a 14-day refund and `/contact` promises a reply within
+> one business day. A promise with no record behind it is not a promise.
+>
+> **Phase A — `POST /api/enquiries` + a form on `/contact`.** Four independent
+> filters in ascending cost order: honeypot (discarded with a 200 that looks like
+> success, because a refusal names which field caught it), a server-signed form
+> token (a client-supplied fill-time proves nothing), a per-address DB throttle,
+> and the closed `enquiry_type` list enforced before Postgres sees it — that list
+> is the only way topic text reaches the reporting schema, so validating it is
+> structural, not tidiness. The token is fetched by the client so `/contact`
+> stays **static** (the build confirms it beside a dynamic `/api/enquiries`). The
+> mailto stays: a support channel that needs JavaScript is not a support channel
+> for everyone, and it is the exit the throttled copy points at.
+>
+> Three findings that changed the shape of the work:
+>
+> 1. **A third privilege-escalation-class defect, measured not assumed.**
+>    `public.enquiries` still carried `anon:INSERT/UPDATE/DELETE/TRUNCATE/TRIGGER`.
+>    Worse than a confidentiality gap: a direct anon INSERT satisfies the CHECKs,
+>    so a bot could create an enquiry with **no contact row** — a ticket nobody can
+>    answer — breaking 012's two-table-transaction rule by privilege rather than by
+>    policy. Closed in 103, but **deliberately narrower than 047/048**: SELECT is
+>    kept, because 012 shipped an explicit scoped "Parent can view own enquiries"
+>    policy that the privacy design depends on. Revoking it would kill a feature to
+>    fix nothing. Live-verified: `enquiries` → `anon:SELECT authenticated:SELECT`,
+>    the three others → nothing.
+> 2. **No rate limiting existed anywhere**, and `05-…md §7` recommended four env
+>    vars that **no file in `src/` reads** — now stated in the doc instead of left
+>    to be discovered. The first working limit is DB-backed because Vercel isolates
+>    instances and an in-memory counter that resets per cold start limits nothing.
+>    Keys are a peppered SHA-256 of the client address; the raw address is never
+>    stored, and an unsalted hash is reversible by enumeration.
+> 3. **A retry must not be billed as a new submission.** `ingest_enquiry()` was
+>    already idempotent, but the 60-second interval fired first and would have
+>    answered a double-clicked submit with "you have sent several messages" about
+>    the message that landed two seconds earlier. Fixed with
+>    `enquiry_id_for_source_ref`, consulted **before** the throttle; the nonce in
+>    the signed token doubles as the idempotency key.
+>
+> **IP trust was checked, not assumed:** Vercel documents that it populates
+> `X-Forwarded-For` from the TCP connection and **overwrites any incoming value**
+> to prevent IP spoofing, so at this edge the header is the platform's, not the
+> caller's. Two boundary conditions are recorded in `clientIpFrom()`: a CDN in
+> front would collapse every visitor into one bucket, and local dev sets neither
+> header. `x-real-ip` is read first because it is a single value, so there is no
+> leftmost-entry rule to get wrong.
+>
+> **Live probe 56/56** against the hosted database (committed as
+> `scripts/enquiry-e2e.mjs`; RFC 5737 reserved addresses; teardown by fingerprint,
+> never a blanket delete): honeypot writes nothing · a forgery and a too-fast POST
+> return an identical sentence · a good submission yields exactly one `enquiries`
+> row + one `enquiry_contacts` row + one `ENQUIRY_CREATED` event carrying no
+> contact detail, no message text and **no funnel stage** · the retry returns the
+> same reference with one row and one event · the throttle 429s a second
+> same-address POST while another address is unaffected · the stored keys match
+> the fingerprints the probe computes, so a derivation change breaks loudly
+> instead of leaking state between runs · and anon is refused on INSERT and on all
+> five RPCs.
+>
+> **Phase B — the triage queue.** Without it A13 is a volume counter that can
+> never report a breach: `first_response_at`, `resolved_at`, `status` and
+> `outcome` had **no writer at all** — the exact "mechanics without measurement"
+> failure this document criticises. Added `admin_enquiry_queue` /
+> `admin_enquiry_transition` / `admin_enquiry_counts`, `/admin/enquiries`,
+> `POST /api/admin/enquiries/[id]` and the audited contact reveal.
+>
+> **The decision that matters: a first response is never inferred.** Stamping
+> `first_response_at` at resolution time records the click, not the answer — days
+> apart — and makes every historical response look fast. `12-…md §62` warns about
+> precisely that. So `reply` alone stamps it, and only once; resolving with no
+> recorded reply leaves it NULL and returns `response_was_missing`, rendered as
+> "not recorded" and counted apart; `reply` **after** closure is refused (22023)
+> rather than back-filled; `reopen` clears `resolved_at`, because a stale
+> resolution clock on an open enquiry computes hours against a moment that no
+> longer describes anything. Clients send an **action**, never a status, so the
+> machine lives in one `CASE` — mirrored by `lib/support/triage.ts` so the UI
+> cannot offer a button the database will refuse, with 41 hand-written
+> expectations asserting the mirror.
+>
+> **Three bugs the tests caught, not the reader:**
+> 1. **UNITS.** `EXTRACT(EPOCH FROM interval)` is **seconds**. Three `*_minutes`
+>    columns returned seconds — a 2000-minute fixture reported 120000.
+>    `sla_state` stayed *correct*, because its comparisons divide by 60 inside the
+>    `CASE`, which is exactly why this would have shipped: the visible thing was
+>    right and only the numbers beside it were wrong. It also silently corrupted
+>    `unrecorded_open`, which compares that column against the SLA in minutes.
+>    Caught by hand-computing an expected age.
+> 2. **`RETURNS TABLE` + plpgsql.** Every output column becomes a variable, so the
+>    `UPDATE`'s bare `outcome` was ambiguous with the OUT parameter and Postgres
+>    refused the function outright (42702). Aliased, with the reason recorded in
+>    the file so nobody "simplifies" it back.
+> 3. **A return type cannot be changed** by `CREATE OR REPLACE` (42P13), so adding
+>    `resolution_hours` needed a `DROP` — and the dependency check that justifies a
+>    `DROP` in a migration was **run** over five catalog vectors (views/MVs,
+>    triggers, RLS policies, other function bodies, `cron.job`), all zero, rather
+>    than asserted in the comment.
+>
+> **The attribution writer was built, measured, and removed.** The plan promised
+> to stamp `converted_order_id` so `enquiry_to_customer_rate` would be real. It
+> does not ship. `converted_order_id` FKs to `public.purchases`, and a
+> **subscription** payment never creates one — it writes to `subscriptions`.
+> Attributing only where a purchases row exists would credit one-time packs and
+> systematically exclude the Unlimited monthly and annual plans that `/pricing`
+> presents as the primary product: not imprecise, **biased**, and it would read
+> as a measurement. Doing it properly needs a schema decision — relaxing 012's
+> `enquiries_converted_has_order` CHECK, or a purchases row per subscription
+> period — so it is recorded as an open question in 104 §4 instead of decided
+> here, and the metric reports `NOT_IMPLEMENTED` the way A15 already does for
+> `stripe_reconciliation`. **New question for the next review — Q-11: what does a
+> "converted enquiry" reference when the order is a subscription?**
+>
+> **The SLA is declared, not assumed** (the D-C precedent). `/contact` publishes
+> "one business day" and nothing states calendar-or-business (A-15/Q-5), so config
+> carries `sla_basis` and `sla_is_confirmed`, defaulted to 1440 **calendar**
+> minutes and explicitly unconfirmed, and the queue prints a caveat beside every
+> figure until someone `UPDATE`s the flag. Confirming it is not a migration.
+>
+> **Verified (Phase B):** typecheck 0 · lint ratchet unchanged 60/16 · build 0 ·
+> all 8 Node suites green (**94** enquiry assertions, +41) · 104 applied **from
+> the file** with psql exit 0, so repo and database are literally identical · the
+> state machine exercised in rolled-back live transactions against
+> hand-computed expectations: five SLA states, counts before and after a reply
+> (`unrecorded_open` 1→0), and **seven refusals each matched to its SQLSTATE**
+> (second reply 22023 · reply-after-close 22023 · resolve-without-outcome 22023 ·
+> assign-without-assignee 22023 · unknown action 22023 · unknown id P0002 ·
+> non-admin 42501) · a PARENT JWT gets 0 rows and 0 counts, the same shape for
+> every id, so the error cannot probe which enquiries exist.
+> `ENQUIRY_FIRST_RESPONDED` and `ENQUIRY_RESOLVED` are wired and left the funnel
+> allowlist (wired 51→53, unwired 18→16) — the direction-2 check doing its job.
+>
+> **Not claimed:** the new admin routes' HTTP layer has no live click-through,
+> because the sample auth users cannot sign in by design and no authenticated
+> admin session exists. The functions beneath them are tested in the database;
+> the routes are proven by typecheck and build. A real end-to-end needs a working
+> admin account.
+>
+> **Two stale claims above, corrected while in here:** **C9 (device split) is
+> DONE** — `lib/funnel/device.ts`, the seed assigns a device per parent, and
+> `FunnelPanel segment="device"` is mounted on `/admin/reports`; the line saying
+> it "cannot be yet" was wrong. **D-B tutor semantics is RESOLVED and built**
+> (067–070), not open.
+>
+> ### ⏭ Remaining in item 21, in order
+>
+> 1. **Phase C — A13 itself.** `reporting.fact_enquiry` + `mv_enquiry_daily` at
+>    the §12 grain `(date_key, channel, enquiry_type, status)`;
+>    `load_enquiry_facts` with **delete-then-upsert** (091's lesson: an
+>    upsert-only "full" reload left 45% orphan rows); `admin_enquiry_tracker()`
+>    with the 366-day cap enforced in SQL; a chained cron; API + CSV; and
+>    `EnquiryPanel` — stacked bar by channel/type plus a first-response line
+>    against a **drawn SLA reference** (`13-…md §503`). It must surface
+>    `unrecorded` as its own figure, use the **median** for `resolution_hours`,
+>    keep `support_theme` to the `enquiry_type` enum (§5.8: *"never present a
+>    keyword count as a theme"*), report `enquiry_to_customer_rate` as
+>    `NOT_IMPLEMENTED`, and show the SLA caveat. Deviation to record:
+>    **`reporting.dim_parent` and `reporting.dim_campaign` do not exist**, so
+>    `fact_enquiry` keeps `parent_user_id` plus raw normalised UTM — the same
+>    treatment as P2's missing test-form dimension, and it preserves the spec's
+>    real guarantee that the fact is buildable from `public.enquiries` alone with
+>    no join path to a message body.
+> 2. **Phase D — assurance.** pgtap AC-35/36/37, PR-02 (no reporting object may
+>    reach `enquiry_contacts`), AC-38 extended to the new functions, the
+>    `plan(100)` bump, and the static-gate RPC allowlist once Phase C adds
+>    `admin_enquiry_tracker()`.
+>    **Already closed while in here, because a red assurance check left red is a
+>    lie by omission:** both baselines were regenerated from live and both
+>    validators pass — `schema:validate` **84/84** (counts bumped `24 12 1 26 73
+>    14` → `25 12 1 26 74 14`: one reporting table `enquiry_thresholds`, one index
+>
+>    `idx_enquiry_throttle_seen`; MVs, views, reporting functions and cron
+>    unchanged, because every triage function lives in `public`) and
+>    `schema:validate:app` **41/41**, up from 33, after capture-to-live parity was
+>    restored at **39 tables · 62 functions · 109 policies**.
+>    That check had gone **red** from this work and from objects 096–102 added
+>    without a re-capture — it read 30/33 with all three parity lines failing.
+>    Eight new assertions were added rather than merely re-running the old ones:
+>    the three restricted/throttle tables and the five functions the support
+>    channel cannot work without (`ingest_enquiry`, `read_enquiry_contact`,
+>    `enquiry_throttle_check`, `admin_enquiry_queue`, `admin_enquiry_transition`),
+>    because a restore that had the tables but not the functions would give a
+>    form that accepts a complaint into a table nobody can ever read, and a
+>    missing `enquiry_throttle` would leave the route's fail-open path accepting
+>    everything with no abuse control at all. `app_baseline/README.md`'s counts
+>    were updated from the measured 36/57/96.
+> 3. **Then the rest of P5:** 17 (writing-mark extension → P6/T6/A5/A6/A7),
+>    19 (A2/A4 → T4, still blocked on a pathway column that does not exist), and
+>    14–16 (Stripe revenue), which is the largest remaining block now D-C is
+>    declared.
+
+
+
+
+
 
 | Area | Roadmap says | **Measured** |
 |---|---|---|

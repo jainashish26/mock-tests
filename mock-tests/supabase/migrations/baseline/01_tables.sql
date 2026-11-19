@@ -113,7 +113,7 @@ CREATE TABLE IF NOT EXISTS reporting.dim_student (
   is_current boolean DEFAULT true NOT NULL,
   CONSTRAINT dim_student_pkey PRIMARY KEY (student_key),
   CONSTRAINT dim_student_student_id_valid_from_key UNIQUE (student_id, valid_from),
-  CONSTRAINT dim_student_year_level_check CHECK (((year_level >= 2) AND (year_level <= 8)))
+  CONSTRAINT dim_student_year_level_check CHECK (((year_level >= 2) AND (year_level <= 9)))
 );
 
 CREATE TABLE IF NOT EXISTS reporting.dim_test (
@@ -150,7 +150,25 @@ CREATE TABLE IF NOT EXISTS reporting.dim_year_level_cap (
   max_questions_per_day smallint,
   updated_at timestamp with time zone DEFAULT now() NOT NULL,
   CONSTRAINT dim_year_level_cap_pkey PRIMARY KEY (year_level),
-  CONSTRAINT dim_year_level_cap_year_level_check CHECK (((year_level >= 2) AND (year_level <= 8)))
+  CONSTRAINT dim_year_level_cap_year_level_check CHECK (((year_level >= 2) AND (year_level <= 9)))
+);
+
+CREATE TABLE IF NOT EXISTS reporting.enquiry_thresholds (
+  id integer DEFAULT 1 NOT NULL,
+  first_response_sla_minutes integer DEFAULT 1440 NOT NULL,
+  sla_basis text DEFAULT 'calendar'::text NOT NULL,
+  sla_is_confirmed boolean DEFAULT false NOT NULL,
+  resolution_sla_hours integer DEFAULT 48 NOT NULL,
+  conversion_attribution_days integer DEFAULT 30 NOT NULL,
+  min_enquiries_for_rate integer DEFAULT 20 NOT NULL,
+  updated_at timestamp with time zone DEFAULT now() NOT NULL,
+  CONSTRAINT enquiry_thresholds_conversion_attribution_days_check CHECK (((conversion_attribution_days >= 1) AND (conversion_attribution_days <= 365))),
+  CONSTRAINT enquiry_thresholds_first_response_sla_minutes_check CHECK ((first_response_sla_minutes > 0)),
+  CONSTRAINT enquiry_thresholds_id_check CHECK ((id = 1)),
+  CONSTRAINT enquiry_thresholds_min_enquiries_for_rate_check CHECK ((min_enquiries_for_rate >= 1)),
+  CONSTRAINT enquiry_thresholds_pkey PRIMARY KEY (id),
+  CONSTRAINT enquiry_thresholds_resolution_sla_hours_check CHECK ((resolution_sla_hours > 0)),
+  CONSTRAINT enquiry_thresholds_sla_basis_check CHECK ((sla_basis = ANY (ARRAY['calendar'::text, 'business'::text])))
 );
 
 CREATE TABLE IF NOT EXISTS reporting.etl_watermark (

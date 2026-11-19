@@ -65,6 +65,271 @@ END;
 $function$
 ;
 
+CREATE OR REPLACE FUNCTION public.admin_enquiry_counts()
+ RETURNS TABLE(open_total bigint, breached bigint, at_risk bigint, unrecorded_open bigint, oldest_age_minutes integer, sla_minutes integer, sla_is_confirmed boolean)
+ LANGUAGE sql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'public', 'pg_catalog'
+AS $function$
+  SELECT
+    COUNT(*) FILTER (WHERE q.status NOT IN ('resolved','closed','spam'))::bigint,
+    COUNT(*) FILTER (WHERE q.status NOT IN ('resolved','closed','spam')
+                       AND q.sla_state = 'breached')::bigint,
+    COUNT(*) FILTER (WHERE q.status NOT IN ('resolved','closed','spam')
+                       AND q.sla_state = 'at_risk')::bigint,
+    -- Open, past the window, and no reply recorded yet: these become
+    -- 'unrecorded' silently if nobody acts, so they are counted apart from a
+    -- plain backlog.
+    COUNT(*) FILTER (WHERE q.status NOT IN ('resolved','closed','spam')
+                       AND q.first_response_at IS NULL
+                       AND q.age_minutes > q.sla_minutes)::bigint,
+    COALESCE(MAX(q.age_minutes) FILTER (
+      WHERE q.status NOT IN ('resolved','closed','spam'))::integer, 0),
+    MAX(q.sla_minutes),
+    BOOL_AND(q.sla_is_confirmed)
+  FROM public.admin_enquiry_queue(NULL, NULL, false, 200, 0) q;
+$function$
+;
+
+CREATE OR REPLACE FUNCTION public.admin_enquiry_queue(p_status text DEFAULT NULL::text, p_type text DEFAULT NULL::text, p_unanswered boolean DEFAULT false, p_limit integer DEFAULT 50, p_offset integer DEFAULT 0)
+ RETURNS TABLE(enquiry_id uuid, channel text, enquiry_type text, status text, outcome text, received_at timestamp with time zone, first_response_at timestamp with time zone, resolved_at timestamp with time zone, assigned_to uuid, parent_user_id uuid, converted boolean, age_minutes integer, response_minutes integer, resolution_hours numeric, sla_minutes integer, sla_state text, sla_is_confirmed boolean, utm_source text)
+ LANGUAGE plpgsql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'public', 'pg_catalog'
+AS $function$
+BEGIN
+  -- Authorisation before the parameter validation below: a non-admin must not
+  -- be able to learn the valid status names by observing which of two 400s
+  -- comes back. Silent zero rows is the only answer for an unauthorised
+  -- caller, and it is the same shape for every student and every id.
+  IF NOT public.has_role('ADMIN') THEN
+    RETURN;
+  END IF;
+
+  IF p_limit IS NULL OR p_limit < 1 OR p_limit > 200 THEN
+    RAISE EXCEPTION 'p_limit must be between 1 and 200' USING ERRCODE = '22023';
+  END IF;
+  IF p_offset IS NULL OR p_offset < 0 THEN
+    RAISE EXCEPTION 'p_offset must be zero or greater' USING ERRCODE = '22023';
+  END IF;
+  IF p_status IS NOT NULL AND p_status NOT IN (
+       'new','triaged','in_progress','waiting_on_customer','resolved','closed','spam') THEN
+    RAISE EXCEPTION 'unknown enquiry status: %', p_status USING ERRCODE = '22023';
+  END IF;
+  IF p_type IS NOT NULL AND p_type NOT IN (
+       'billing','technical','privacy','accessibility','product_question',
+       'refund','complaint','other') THEN
+    RAISE EXCEPTION 'unknown enquiry type: %', p_type USING ERRCODE = '22023';
+  END IF;
+
+  RETURN QUERY
+  SELECT
+    e.id,
+    e.channel,
+    e.enquiry_type,
+    e.status,
+    e.outcome,
+    e.received_at,
+    e.first_response_at,
+    e.resolved_at,
+    e.assigned_to,
+    e.parent_user_id,
+    (e.converted_order_id IS NOT NULL),
+    -- Ageing is measured against the clock the database owns, never a
+    -- client-supplied now(), or the queue could be made to look fresh.
+    -- UNITS MATTER, AND THIS LINE IS WHERE THEY WENT WRONG FIRST.
+    -- EXTRACT(EPOCH FROM an interval) is SECONDS. Dividing by 60 is what makes
+    -- a column called age_minutes mean minutes. The SLA comparisons below all
+    -- divide by 60 inside the CASE, so sla_state stayed correct while these
+    -- returned values sixty times too large - which is how the bug survived a
+    -- passing queue and was caught only by hand-computing a fixture's age.
+    -- It also corrupted admin_enquiry_counts(), whose unrecorded_open test
+    -- compares this column against the SLA in minutes.
+    (EXTRACT(EPOCH FROM (now() - e.received_at)) / 60)::int,
+    (EXTRACT(EPOCH FROM (e.first_response_at - e.received_at)) / 60)::int,
+    -- resolution_hours stays NULL without a recorded first response for the
+    -- same reason the response clock does: an enquiry that was answered offline
+    -- and then closed has an unknown middle, and inventing one from the two
+    -- ends would silently fill the report's most interesting gap.
+    CASE WHEN e.resolved_at IS NULL OR e.first_response_at IS NULL THEN NULL
+         ELSE ROUND(EXTRACT(EPOCH FROM (e.resolved_at - e.received_at)) / 3600, 2) END,
+    th.first_response_sla_minutes,
+    -- Five states, and the reason each one exists:
+    --   met        a reply is recorded and it was inside the window
+    --   breached   replied late, OR still unanswered past the window. §5.8 is
+    --              explicit that an unanswered enquiry counts as a breach NOW:
+    --              waiting for it to be resolved is how the worst cases never
+    --              appear on the screen meant to surface them.
+    --   at_risk    still open, inside the window but past three quarters of it
+    --   within     still open, comfortably inside the window
+    --   unrecorded resolved or closed with no reply ever recorded. Not "met":
+    --              calling it met is the fabrication section 2 refuses.
+    CASE
+      WHEN e.status IN ('resolved','closed') AND e.first_response_at IS NULL
+        THEN 'unrecorded'
+      WHEN e.first_response_at IS NOT NULL
+        THEN CASE WHEN EXTRACT(EPOCH FROM (e.first_response_at - e.received_at)) / 60
+                       <= th.first_response_sla_minutes THEN 'met' ELSE 'breached' END
+      WHEN EXTRACT(EPOCH FROM (now() - e.received_at)) / 60
+           > th.first_response_sla_minutes THEN 'breached'
+      WHEN EXTRACT(EPOCH FROM (now() - e.received_at)) / 60
+           > th.first_response_sla_minutes * 0.75 THEN 'at_risk'
+      ELSE 'within'
+    END,
+    th.sla_is_confirmed,
+    e.utm_source
+  FROM public.enquiries e
+  CROSS JOIN reporting.enquiry_thresholds th
+  WHERE th.id = 1
+    AND (p_status IS NULL OR e.status = p_status)
+    -- The default view is the work queue, and spam is not work. Asking for
+    -- status='spam' explicitly still returns it.
+    AND (p_status IS NOT NULL OR e.status <> 'spam')
+    AND (p_type IS NULL OR e.enquiry_type = p_type)
+    AND (NOT p_unanswered OR e.first_response_at IS NULL)
+  ORDER BY e.received_at ASC
+  LIMIT p_limit OFFSET p_offset;
+END;
+$function$
+;
+
+CREATE OR REPLACE FUNCTION public.admin_enquiry_transition(p_enquiry_id uuid, p_action text, p_outcome text DEFAULT NULL::text, p_assignee uuid DEFAULT NULL::uuid)
+ RETURNS TABLE(enquiry_id uuid, status text, outcome text, first_response_at timestamp with time zone, first_response_minutes integer, resolved_at timestamp with time zone, resolution_hours numeric, response_recorded boolean, response_was_missing boolean)
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO 'public', 'pg_catalog'
+AS $function$
+DECLARE
+  v_now     timestamptz := now();
+  v_e       public.enquiries%ROWTYPE;
+  v_target  text;
+  v_new_fr  timestamptz;
+  v_new_res timestamptz;
+BEGIN
+  IF NOT public.has_role('ADMIN') THEN
+    RAISE EXCEPTION 'only an administrator can change an enquiry''s status'
+      USING ERRCODE = '42501';
+  END IF;
+
+  IF p_action IS NULL OR p_action NOT IN
+     ('triage','start','reply','resolve','close','reopen','assign','spam') THEN
+    RAISE EXCEPTION 'unknown enquiry action: %', p_action USING ERRCODE = '22023';
+  END IF;
+
+  -- FOR UPDATE, so two admins clicking the same button at the same moment
+  -- cannot both pass the "is this already resolved?" tests below and both stamp
+  -- a clock. The second sees the row as the first left it.
+  SELECT * INTO v_e FROM public.enquiries WHERE id = p_enquiry_id FOR UPDATE;
+  IF NOT FOUND THEN
+    RAISE EXCEPTION 'no such enquiry' USING ERRCODE = 'P0002';
+  END IF;
+
+  v_target  := v_e.status;
+  v_new_fr  := v_e.first_response_at;
+  v_new_res := v_e.resolved_at;
+
+  -- Each action names the status it produces. The table is never handed a
+  -- status it has to interpret.
+  CASE p_action
+    WHEN 'triage'  THEN v_target := 'triaged';
+    WHEN 'start'   THEN v_target := 'in_progress';
+    WHEN 'reply'   THEN v_target := 'waiting_on_customer';
+    WHEN 'resolve' THEN v_target := 'resolved';
+    WHEN 'close'   THEN v_target := 'closed';
+    WHEN 'reopen'  THEN v_target := 'in_progress';
+    WHEN 'spam'    THEN v_target := 'spam';
+    WHEN 'assign'  THEN v_target := v_e.status;   -- assignment moves nothing
+  END CASE;
+
+  -- The reply clock. Only 'reply' stamps it, and only once: a second reply is
+  -- an ordinary conversation, not a second first response.
+  IF p_action = 'reply' THEN
+    IF v_e.first_response_at IS NOT NULL THEN
+      RAISE EXCEPTION 'the first response was already recorded at %',
+        v_e.first_response_at USING ERRCODE = '22023';
+    END IF;
+    -- Refused after resolution rather than backfilled. A reply entered now
+    -- would be timed from receipt to now, which is the admin's click time and
+    -- not the moment anybody was answered - and it would also violate
+    -- enquiries_timeline_sane. See the header, section 2.
+    IF v_e.resolved_at IS NOT NULL OR v_e.status IN ('resolved','closed') THEN
+      RAISE EXCEPTION
+        'cannot record a first response after an enquiry is resolved or closed; '
+        'the response was never recorded, and A13 reports it as such'
+        USING ERRCODE = '22023';
+    END IF;
+    v_new_fr := v_now;
+  END IF;
+
+  -- The resolution clock, together with the outcome the CHECK demands.
+  IF p_action IN ('resolve','close') THEN
+    IF p_outcome IS NULL OR p_outcome NOT IN
+       ('answered','refunded','escalated','no_action','spam','duplicate','withdrawn') THEN
+      RAISE EXCEPTION 'resolving or closing requires a valid outcome'
+        USING ERRCODE = '22023';
+    END IF;
+    -- COALESCE keeps the original timestamp if an enquiry is closed after
+    -- being resolved, so resolution_hours does not drift every time somebody
+    -- tidies the status.
+    v_new_res := COALESCE(v_e.resolved_at, v_now);
+  END IF;
+
+  IF p_action = 'spam' THEN
+    v_new_res := COALESCE(v_e.resolved_at, v_now);
+  END IF;
+
+  -- Reopening means it is not resolved any more. The clock is cleared rather
+  -- than left behind, so resolution_hours cannot be computed against a moment
+  -- that no longer describes the enquiry.
+  IF p_action = 'reopen' THEN
+    v_new_res := NULL;
+  END IF;
+
+  IF p_action = 'assign' AND p_assignee IS NULL THEN
+    RAISE EXCEPTION 'the assign action needs an assignee' USING ERRCODE = '22023';
+  END IF;
+
+  UPDATE public.enquiries AS e
+     SET status            = v_target,
+         first_response_at = v_new_fr,
+         resolved_at       = v_new_res,
+         -- Every right-hand reference is table-qualified. RETURNS TABLE makes
+         -- each output column a plpgsql variable named `status`, `outcome`,
+         -- `resolved_at` and so on, so a bare `outcome` here is ambiguous
+         -- between the OUT parameter and the column and Postgres refuses the
+         -- statement outright (42702). The alias is not decoration: without it
+         -- this function cannot be created at all.
+         outcome           = COALESCE(p_outcome,
+                            CASE WHEN p_action = 'spam' THEN 'spam' ELSE e.outcome END),
+         assigned_to       = COALESCE(p_assignee, e.assigned_to),
+         updated_at        = v_now
+   WHERE e.id = p_enquiry_id;
+
+  RETURN QUERY
+  SELECT
+    p_enquiry_id,
+    v_target,
+    COALESCE(p_outcome,
+      CASE WHEN p_action = 'spam' THEN 'spam' ELSE v_e.outcome END),
+    v_new_fr,
+    -- Minutes, not seconds - see the units note in admin_enquiry_queue.
+    CASE WHEN v_new_fr IS NULL THEN NULL
+         ELSE (EXTRACT(EPOCH FROM (v_new_fr - v_e.received_at)) / 60)::int END,
+    v_new_res,
+    -- Same rule as the queue's column: an unknown middle stays unknown.
+    CASE WHEN v_new_res IS NULL OR v_new_fr IS NULL THEN NULL
+         ELSE ROUND(EXTRACT(EPOCH FROM (v_new_res - v_e.received_at)) / 3600, 2) END,
+    -- True only when THIS call recorded the first response, which is the only
+    -- case that should fire ENQUIRY_FIRST_RESPONDED.
+    (p_action = 'reply' AND v_e.first_response_at IS NULL),
+    -- The honesty flag for the UI: resolved or closed with no reply on record.
+    -- Surfaced rather than smoothed, because it is the difference between "we
+    -- answered in three hours" and "we do not know".
+    (p_action IN ('resolve','close') AND v_e.first_response_at IS NULL);
+END;
+$function$
+;
+
 CREATE OR REPLACE FUNCTION public.admin_experiment_results()
  RETURNS TABLE(experiment_key text, experiment_name text, status text, variant text, is_control boolean, sample_size bigint, conversions bigint, variant_conversion_rate numeric, control_sample_size bigint, control_rate numeric, diff_pp numeric, ci_lower_pp numeric, ci_upper_pp numeric, p_value_experiment numeric, recommended_decision text, decision_reason text)
  LANGUAGE sql
@@ -300,6 +565,112 @@ BEGIN
   FROM q
   ORDER BY production_priority
   LIMIT LEAST(GREATEST(COALESCE(p_limit, 50), 1), 500);
+END;
+$function$
+;
+
+CREATE OR REPLACE FUNCTION public.enquiry_id_for_source_ref(p_source_ref text)
+ RETURNS uuid
+ LANGUAGE sql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'public', 'pg_catalog'
+AS $function$
+  SELECT e.id
+    FROM public.enquiries e
+   WHERE e.channel = 'web_form'
+     AND e.ingest_source_ref = p_source_ref;
+$function$
+;
+
+CREATE OR REPLACE FUNCTION public.enquiry_throttle_check(p_fp text, p_min_interval_seconds integer DEFAULT 60, p_daily_cap integer DEFAULT 5)
+ RETURNS TABLE(allowed boolean, retry_after_seconds integer)
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO 'public', 'pg_catalog'
+AS $function$
+DECLARE
+  v_now     timestamptz := now();
+  v_row     public.enquiry_throttle%ROWTYPE;
+  v_elapsed integer;
+  v_allowed boolean;
+  v_retry   integer;
+BEGIN
+  IF p_fp IS NULL OR p_fp !~ '^[0-9a-f]{64}$' THEN
+    -- An exception, not a refusal: a malformed fingerprint is a bug in the
+    -- route, and answering it with "slow down" would hide it behind a 429.
+    RAISE EXCEPTION 'invalid throttle fingerprint: expected 64 hex characters'
+      USING ERRCODE = '22023';
+  END IF;
+
+  IF p_daily_cap IS NULL OR p_daily_cap < 1 THEN
+    RAISE EXCEPTION 'p_daily_cap must be at least 1' USING ERRCODE = '22023';
+  END IF;
+
+  -- FOR UPDATE serialises concurrent submissions from the same address, so two
+  -- simultaneous POSTs cannot both read submissions=1 and both pass a cap of 5.
+  SELECT * INTO v_row
+    FROM public.enquiry_throttle
+   WHERE fp = p_fp
+     FOR UPDATE;
+
+  IF NOT FOUND THEN
+    -- First sighting is recorded but not yet counted as a submission: the
+    -- UPDATE below is the only place submissions ever becomes 1.
+    INSERT INTO public.enquiry_throttle (fp, last_seen_at, window_start, submissions)
+      VALUES (p_fp, v_now, v_now, 0);
+    v_row.fp := p_fp;
+    v_row.last_seen_at := v_now;
+    v_row.window_start := v_now;
+    v_row.submissions := 0;
+  END IF;
+
+  -- A rolling 24h window rather than a calendar day: a cap that resets at
+  -- midnight lets a bot spend its whole allowance twice in one working day.
+  IF v_now - v_row.window_start >= interval '24 hours' THEN
+    v_row.window_start := v_now;
+    v_row.submissions := 0;
+  END IF;
+
+  v_elapsed := EXTRACT(EPOCH FROM (v_now - v_row.last_seen_at))::integer;
+  v_allowed := TRUE;
+  v_retry   := 0;
+
+  -- The interval applies only after a first accepted submission, so the interval
+  -- and the cap cannot both refuse the same request and disagree about why.
+  IF v_row.submissions > 0
+     AND v_elapsed < greatest(coalesce(p_min_interval_seconds, 60), 0) THEN
+    v_allowed := FALSE;
+    v_retry := greatest(coalesce(p_min_interval_seconds, 60), 0) - v_elapsed;
+  ELSIF v_row.submissions >= p_daily_cap THEN
+    v_allowed := FALSE;
+    v_retry := greatest(
+      1,
+      EXTRACT(EPOCH FROM (v_row.window_start + interval '24 hours' - v_now))::integer
+    );
+  END IF;
+
+  IF v_allowed THEN
+    UPDATE public.enquiry_throttle
+       SET last_seen_at = v_now,
+           window_start = v_row.window_start,
+           submissions  = v_row.submissions + 1
+     WHERE fp = p_fp;
+  ELSE
+    -- A refusal refreshes last_seen_at but NOT the counter: an already-blocked
+    -- address must not extend its own lockout by hammering.
+    UPDATE public.enquiry_throttle
+       SET last_seen_at = v_now
+     WHERE fp = p_fp;
+  END IF;
+
+  -- Opportunistic prune, only on the path that creates a row, so ordinary
+  -- traffic against a settled table does not pay for a delete every call.
+  IF v_row.submissions = 0 THEN
+    DELETE FROM public.enquiry_throttle
+      WHERE last_seen_at < v_now - interval '30 days';
+  END IF;
+
+  RETURN QUERY SELECT v_allowed, v_retry;
 END;
 $function$
 ;

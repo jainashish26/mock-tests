@@ -21,6 +21,10 @@ INSERT INTO reporting.dim_year_level_cap SELECT * FROM jsonb_populate_record(NUL
 INSERT INTO reporting.dim_year_level_cap SELECT * FROM jsonb_populate_record(NULL::reporting.dim_year_level_cap, '{"updated_at": "2026-10-24T04:50:03.849739+00:00", "year_level": 6, "max_tests_per_day": null, "max_questions_per_day": null}') ON CONFLICT DO NOTHING;
 INSERT INTO reporting.dim_year_level_cap SELECT * FROM jsonb_populate_record(NULL::reporting.dim_year_level_cap, '{"updated_at": "2026-10-24T04:50:03.849739+00:00", "year_level": 7, "max_tests_per_day": null, "max_questions_per_day": null}') ON CONFLICT DO NOTHING;
 INSERT INTO reporting.dim_year_level_cap SELECT * FROM jsonb_populate_record(NULL::reporting.dim_year_level_cap, '{"updated_at": "2026-10-24T04:50:03.849739+00:00", "year_level": 8, "max_tests_per_day": null, "max_questions_per_day": null}') ON CONFLICT DO NOTHING;
+INSERT INTO reporting.dim_year_level_cap SELECT * FROM jsonb_populate_record(NULL::reporting.dim_year_level_cap, '{"updated_at": "2026-11-19T05:49:10.849216+00:00", "year_level": 9, "max_tests_per_day": null, "max_questions_per_day": null}') ON CONFLICT DO NOTHING;
+
+-- enquiry_thresholds
+INSERT INTO reporting.enquiry_thresholds SELECT * FROM jsonb_populate_record(NULL::reporting.enquiry_thresholds, '{"id": 1, "sla_basis": "calendar", "updated_at": "2026-11-19T10:59:11.70409+00:00", "sla_is_confirmed": false, "resolution_sla_hours": 48, "min_enquiries_for_rate": 20, "first_response_sla_minutes": 1440, "conversion_attribution_days": 30}') ON CONFLICT DO NOTHING;
 
 -- experiment_thresholds
 INSERT INTO reporting.experiment_thresholds SELECT * FROM jsonb_populate_record(NULL::reporting.experiment_thresholds, '{"id": 1, "alpha": 0.05, "updated_at": "2026-11-16T06:24:07.718637+00:00", "min_sample_size": 200, "min_meaningful_lift_pp": 2.0}') ON CONFLICT DO NOTHING;

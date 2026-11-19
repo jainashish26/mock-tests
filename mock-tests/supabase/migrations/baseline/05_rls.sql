@@ -14,6 +14,7 @@ ALTER TABLE reporting.dim_student ENABLE ROW LEVEL SECURITY; ALTER TABLE reporti
 ALTER TABLE reporting.dim_test ENABLE ROW LEVEL SECURITY; ALTER TABLE reporting.dim_test FORCE ROW LEVEL SECURITY;
 ALTER TABLE reporting.dim_test_family ENABLE ROW LEVEL SECURITY; ALTER TABLE reporting.dim_test_family FORCE ROW LEVEL SECURITY;
 ALTER TABLE reporting.dim_year_level_cap ENABLE ROW LEVEL SECURITY; ALTER TABLE reporting.dim_year_level_cap FORCE ROW LEVEL SECURITY;
+ALTER TABLE reporting.enquiry_thresholds ENABLE ROW LEVEL SECURITY; ALTER TABLE reporting.enquiry_thresholds FORCE ROW LEVEL SECURITY;
 ALTER TABLE reporting.etl_watermark ENABLE ROW LEVEL SECURITY; ALTER TABLE reporting.etl_watermark FORCE ROW LEVEL SECURITY;
 ALTER TABLE reporting.experiment_thresholds ENABLE ROW LEVEL SECURITY; ALTER TABLE reporting.experiment_thresholds FORCE ROW LEVEL SECURITY;
 ALTER TABLE reporting.fact_event ENABLE ROW LEVEL SECURITY; ALTER TABLE reporting.fact_event FORCE ROW LEVEL SECURITY;

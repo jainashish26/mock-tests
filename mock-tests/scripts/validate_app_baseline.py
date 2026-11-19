@@ -96,6 +96,13 @@ def main() -> int:
         # NB: experiment_thresholds lives in the REPORTING schema and is
         # covered by validate_baseline.py's *_thresholds config discovery.
         "subscriptions", "referral_codes", "referrals",
+        # 103/104. If enquiry_throttle is missing from a restore the support
+        # form still accepts submissions - the throttle function simply has no
+        # table to write to, so the route's fail-open path lets everything
+        # through and the channel silently loses its only abuse control. That
+        # is precisely the "disables a feature without raising" failure this
+        # list exists to catch. (`enquiries` itself is already listed above.)
+        "enquiry_contacts", "enquiry_contact_access_log", "enquiry_throttle",
     ]
     for t in required_tables:
         check(f"capture contains public.{t}", f"CREATE TABLE public.{t} " in capture)
@@ -104,6 +111,19 @@ def main() -> int:
         "capture contains the role-provisioning function (009)",
         "CREATE FUNCTION public.handle_new_auth_user" in capture,
     )
+    # The objects the support channel cannot function without. A capture that
+    # has the tables but not these restores a database where enquiries can be
+    # written by nothing and read by nothing - a form that accepts a complaint
+    # into a table nobody can ever see.
+    for fn in (
+        "ingest_enquiry",
+        "read_enquiry_contact",
+        "enquiry_throttle_check",
+        "admin_enquiry_queue",
+        "admin_enquiry_transition",
+    ):
+        check(f"capture contains public.{fn}()", f"CREATE FUNCTION public.{fn}" in capture)
+
     check(
         "auth trigger capture contains both custom triggers",
         "on_auth_user_created" in triggers and "on_auth_user_created_profile" in triggers,
