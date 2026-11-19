@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { 
   LayoutDashboard, BookOpen, BarChart3, Settings, 
-  Menu, X, Bell, User, Users, Sparkles, Upload, FileQuestion, ClipboardCheck
+  Menu, X, Bell, User, Users, Sparkles, Upload, FileQuestion, ClipboardCheck, PenLine
 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
@@ -79,6 +79,7 @@ export function DashboardLayout({ children, role, userName, hideSidebar = false,
           { icon: <LayoutDashboard size={20} />, label: "Dashboard", href: "/creator" },
           { icon: <BookOpen size={20} />, label: "My Tests", href: "/creator/tests" },
           { icon: <FileQuestion size={20} />, label: "Question Bank", href: "/creator/questions" },
+          { icon: <PenLine size={20} />, label: "Writing Prompts", href: "/creator/writing-prompts" },
           { icon: <Upload size={20} />, label: "Upload CSV", href: "/creator/upload" },
         ];
       default:
@@ -88,6 +89,7 @@ export function DashboardLayout({ children, role, userName, hideSidebar = false,
           { icon: <LayoutDashboard size={20} />, label: "Dashboard", href: "/admin" },
           { icon: <ClipboardCheck size={20} />, label: "Review Tests", href: "/admin/review/tests" },
           { icon: <FileQuestion size={20} />, label: "Review Questions", href: "/admin/review/questions" },
+          { icon: <PenLine size={20} />, label: "Writing Prompts", href: "/creator/writing-prompts" },
           { icon: <Users size={20} />, label: "Users", href: "/admin/users" },
           { icon: <BarChart3 size={20} />, label: "Reports", href: "/admin/reports" },
           { icon: <Settings size={20} />, label: "Settings", href: "/admin/settings" },

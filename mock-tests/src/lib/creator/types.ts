@@ -316,3 +316,34 @@ export interface CreatorStats {
   editableStatuses: ContentStatus[]
   generatedAt: string
 }
+/* -------------------------------------------------------------------------- */
+/* Writing prompts (AI Practice Lab bank, managed by Quiz Master / admin)      */
+/* -------------------------------------------------------------------------- */
+
+export type WritingPromptType = 'narrative' | 'persuasive'
+
+export interface WritingPromptRow {
+  id: string
+  year_level: number
+  territory: string
+  type: WritingPromptType
+  text: string
+  status: ContentStatus
+  created_by?: string | null
+  created_at: string | null
+  updated_at: string | null
+}
+
+export interface WritingPromptListParams extends ListParams {
+  type?: WritingPromptType | ''
+  year_level?: number | ''
+}
+
+/** Body accepted by `writingPromptPayload()`; unknown keys are dropped server-side. */
+export interface WritingPromptInput {
+  year_level?: number | null
+  territory?: string
+  type?: WritingPromptType
+  text?: string
+  status?: ContentStatus
+}

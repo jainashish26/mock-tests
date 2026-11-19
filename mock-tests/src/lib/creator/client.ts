@@ -12,6 +12,9 @@ import type {
   TestInput,
   TestRow,
   UploadQuestionsResult,
+  WritingPromptInput,
+  WritingPromptListParams,
+  WritingPromptRow,
 } from './types'
 
 /**
@@ -149,6 +152,27 @@ export const creatorApi = {
 
   duplicateQuestion: (id: string) =>
     request<DuplicateQuestionResponse>(`/api/creator/questions/${id}/duplicate`, { method: 'POST' }),
+
+  /* Writing prompts — the AI Practice Lab bank (Quiz Master / admin managed). */
+  listWritingPrompts: (params: WritingPromptListParams = {}, signal?: AbortSignal) =>
+    request<ListResponse<WritingPromptRow>>(`/api/creator/writing-prompts${buildQuery(params)}`, { signal }),
+
+  createWritingPrompt: (payload: WritingPromptInput) =>
+    request<{ id: string; prompt: WritingPromptRow }>('/api/creator/writing-prompts', {
+      method: 'POST',
+      body: payload,
+    }),
+
+  updateWritingPrompt: (id: string, payload: WritingPromptInput) =>
+    request<{ prompt: WritingPromptRow }>(`/api/creator/writing-prompts/${id}`, {
+      method: 'PUT',
+      body: payload,
+    }),
+
+  deleteWritingPrompt: (id: string) =>
+    request<{ success: true; id: string }>(`/api/creator/writing-prompts/${id}`, {
+      method: 'DELETE',
+    }),
 
   /** Bulk CSV import; see `POST /api/creator/upload-questions`. */
   uploadQuestions: (file: File, signal?: AbortSignal) => {

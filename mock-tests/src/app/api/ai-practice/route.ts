@@ -4,6 +4,7 @@ import { createClient } from '@/lib/supabase/server'
 import { Client as QStashClient } from '@upstash/qstash'
 import { writingPromptById, promptsFor, calibrationFor, markingCriteria, normalizeYear } from '@/lib/writing/prompts-catalog'
 import { countWords } from '@/lib/writing/word-limits'
+import { createAdminClient } from '@/lib/supabase/admin'
 
 /**
  * AI Practice Lab API.
@@ -29,13 +30,35 @@ export async function GET() {
 
   const year = normalizeYear(profile?.year_level)
   const calibration = calibrationFor(year)
-  const prompts = promptsFor(year).map((p) => ({
-    id: p.id,
-    year: p.year,
-    territory: p.territory,
-    type: p.type,
-    text: p.text,
+
+  // Prompts are managed in the database by the Quiz Master / admin (migration
+  // 102). Serve the published prompts for this year; fall back to the in-code
+  // catalog only if the bank has not been seeded for the year yet.
+  const admin = createAdminClient()
+  const { data: rows } = await admin
+    .from('writing_prompts')
+    .select('id, year_level, territory, type, text')
+    .eq('status', 'PUBLISHED')
+    .eq('year_level', year)
+    .order('type', { ascending: true })
+    .order('territory', { ascending: true })
+
+  let prompts = (rows ?? []).map((r) => ({
+    id: r.id,
+    year: r.year_level,
+    territory: r.territory,
+    type: r.type,
+    text: r.text,
   }))
+  if (prompts.length === 0) {
+    prompts = promptsFor(year).map((p) => ({
+      id: p.id,
+      year: p.year,
+      territory: p.territory,
+      type: p.type,
+      text: p.text,
+    }))
+  }
 
   return NextResponse.json({
     year,
@@ -59,7 +82,16 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'promptId and text are required' }, { status: 400 })
     }
 
-    const meta = writingPromptById(promptId)
+    // Resolve the prompt from the managed bank (DB), falling back to the in-code
+    // catalog for ids issued before the bank was seeded.
+    const admin = createAdminClient()
+    const { data: dbPrompt } = await admin
+      .from('writing_prompts')
+      .select('type, text')
+      .eq('id', promptId)
+      .maybeSingle()
+    const catalogPrompt = dbPrompt ? null : writingPromptById(promptId)
+    const meta = dbPrompt ?? (catalogPrompt ? { type: catalogPrompt.type, text: catalogPrompt.text } : null)
     if (!meta) {
       return NextResponse.json({ error: 'Unknown prompt' }, { status: 400 })
     }
