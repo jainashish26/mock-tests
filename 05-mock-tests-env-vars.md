@@ -21,6 +21,7 @@
 - `APP_ENV` (**SERVER ONLY**) — `development | staging | production`.
 - `APP_URL` (**SERVER ONLY**) — Base URL of the deployed app.
   - Example: `https://yourdomain.com` (prod), `https://<vercel-preview>.vercel.app` (preview)
+- **Current production (deployed 2026-11-19):** `https://mock-tests-eight.vercel.app` — set as `APP_URL`, `NEXT_PUBLIC_APP_URL`, `QSTASH_BASE_CALLBACK_URL` in Vercel (production + preview), with `QSTASH_WRITING_EVAL_ENDPOINT=https://mock-tests-eight.vercel.app/api/jobs/writing-eval`.
 - `NEXT_PUBLIC_APP_URL` (**PUBLIC**) — Same as `APP_URL` but client-readable.
 
 ### 1.2 Security & sessions

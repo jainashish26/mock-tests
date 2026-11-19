@@ -658,6 +658,26 @@
 > Upstash account API key* were shared in chat — rotate both when convenient;
 > app credentials live only in gitignored `.env.local`, never in the repo.
 
+> ### ✅ Vercel production deployment — LIVE (2026-11-19)
+>
+> **https://mock-tests-eight.vercel.app** — project `mock-tests` under team
+> `mock-exams1` (Hobby), deployed via Vercel CLI 66 from `mock-tests/` after
+> the get-started.md playbook (CLI + vercel-labs agent-skills installed;
+> Vercel MCP not visible in-session, CLI covered everything).
+>
+> | Piece | State |
+> |---|---|
+> | **Git integration** | `jainashish26/mock-tests` connected (needed GitHub login-connection + Vercel GitHub App install on the repo); **`rootDirectory` was `null` and silently broken** — git builds would have run at the repo root (docs folder, no package.json); patched to `mock-tests` via API. Push-to-`main` now deploys production. |
+> | **Env vars** | 34 vars × production + preview, bulk-added from `.env.local` via CLI. `SUPABASE_DB_URL` deliberately **excluded** (zero references in `src/`; CI-only via GitHub secrets). The 4 URL vars point at the canonical production domain. The anon key needed `--type config` (CLI credential heuristic vs NEXT_PUBLIC exposure prompt). |
+> | **Deployment Protection** | Was ON (`all_except_custom_domains`) — would have 401'd **Stripe webhooks and QStash deliveries**. Disabled via API (`ssoProtection: null`). |
+> | **Crons** | Registered: `/api/cron/lifecycle` `0 0 * * *`, `/api/cron/writing-backlog` `30 0 * * *` (UTC). **Hobby forces daily-only schedules** — the intended `*/15` sweeper was rejected at deploy validation. Acceptable because the QStash fast path grades within seconds; the sweeper is only the safety net. Pro plan restores sub-daily crons. |
+> | **Hobby compute ceiling** | Function `maxDuration` is capped at **60 s** on Hobby — the writing routes export 120/300 which Hobby clamps. Measured DeepSeek round trips run 18–58 s: the QStash handler fits (barely, with retries as backstop), the **daily sweeper cannot grade its 10-essay batch inside 60 s** — on Hobby it will grade ~1–2 per invocation before timeout. Pro plan (or lowering the batch size) needed if essay volume grows. |
+> | **Upload hygiene** | First CLI upload was **418 MB** (QuestionBank 404 MB!). `.vercelignore` now excludes QuestionBank/MockExams/supabase/scripts — not needed by `next build` (verified: `build` = plain `next build`, blog content is TSX). |
+> | `vercel link` side effect | It appended `VERCEL_OIDC_TOKEN` to `.env.local` — removed (CLI re-downloads per session; file is gitignored anyway). |
+>
+> Supersedes the "For production: push the commit, set ... in Vercel" ask in
+> the QStash section above — done, all of it.
+
 > ### ⏭ Remaining, in priority order
 >
 > 1. **`supabase db reset` CLI compatibility (optional)** - the psql reset is
