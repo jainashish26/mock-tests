@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { logger } from '@/lib/logging/logger'
 import { EVENT_NAMES, EVENT_STEP, isKnownEvent, normalizeUtm, type FunnelEventName } from '@/lib/funnel/events'
-import { trackEvents } from '@/lib/funnel/track'
+import { trackEvents, readAnonymousId } from '@/lib/funnel/track'
 import { classifyDevice } from '@/lib/funnel/device'
 
 /**
@@ -39,8 +39,8 @@ const MAX_BODY_BYTES = 16 * 1024
 /** Cap on free-form props, so one event cannot smuggle a large document. */
 const MAX_PROPS = 12
 
-/** Cookie the client keeps its anonymous id in. */
-const ANON_COOKIE = 'mt_aid'
+// The anonymous-id cookie reader moved to @/lib/funnel/track, where the
+// enquiries route can use the same contract rather than a second copy of it.
 
 // Device classification lives in @/lib/funnel/device so the beacon and the
 // server-side trackEvent path share ONE definition. It was duplicated here,
@@ -72,27 +72,6 @@ function sanitizeProps(raw: unknown): Record<string, unknown> {
   }
 
   return out
-}
-
-/** Read the anonymous id cookie, ignoring anything malformed. */
-function readAnonymousId(req: Request): string | null {
-  const header = req.headers.get('cookie')
-  if (!header) return null
-
-  const match = header
-    .split(';')
-    .map((part) => part.trim())
-    .find((part) => part.startsWith(`${ANON_COOKIE}=`))
-  if (!match) return null
-
-  let value: string
-  try {
-    value = decodeURIComponent(match.slice(ANON_COOKIE.length + 1)).trim()
-  } catch {
-    return null
-  }
-  if (!value || value.length > 64) return null
-  return value
 }
 
 /** Normalise the three accepted body shapes into a flat event list. */

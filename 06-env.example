@@ -160,11 +160,32 @@ WRITING_RUBRIC_CONFIG_JSON=""    # optional JSON string
 
 # ---------- Rate limiting (Recommended) ----------
 # Use Upstash Redis for per-IP / per-user rate limits.
+#
+# MEASURED 2026-11-19: the four variables in this block are read by NOTHING in
+# src/. They document a limiter that was planned and never built - do not set
+# them and conclude the auth or payment endpoints are protected. The only
+# working limit today is ENQUIRY_FORM_SECRET below. See
+# 05-mock-tests-env-vars.md §7.
 UPSTASH_REDIS_REST_URL=""
 UPSTASH_REDIS_REST_TOKEN=""
 
 RATE_LIMIT_WINDOW_SECONDS="60"
 RATE_LIMIT_MAX_REQUESTS="30"
+
+# ---------- Support form (POST /api/enquiries) ----------
+# REQUIRED in production. Any long random string: openssl rand -hex 32
+#
+# One secret does two jobs: it signs the form token (which is what makes the
+# minimum fill-time check real - a client-supplied timestamp proves nothing)
+# and it peppers the SHA-256 of the client IP used by
+# public.enquiry_throttle. The raw address is never stored.
+#
+# Left empty, the form still works: honeypot + validation + the closed type
+# list all still apply, and the throttle stands down because hashing an address
+# without a pepper is reversible by enumeration. Each skipped check logs a warn
+# line rather than failing silently, so the unthrottled state is visible in the
+# log drain instead of looking configured.
+ENQUIRY_FORM_SECRET=""
 
 # ---------- Observability (Recommended) ----------
 SENTRY_DSN=""

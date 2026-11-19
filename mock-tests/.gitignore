@@ -44,3 +44,9 @@ next-env.d.ts
 *.backup
 *.bak
 *.orig
+
+# Live-probe scratch: scripts/enquiry-e2e.mjs runs against a `next start`
+# instance whose redirected stdout lands here. Transient, and it can carry
+# request bodies, so it must never be committed.
+e2e-server*.log
+

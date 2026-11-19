@@ -217,6 +217,39 @@ Full console walkthrough, scopes and provider-specific quirks:
 - `RATE_LIMIT_WINDOW_SECONDS` (**SERVER ONLY, optional**) — e.g., `60`.
 - `RATE_LIMIT_MAX_REQUESTS` (**SERVER ONLY, optional**) — e.g., `30`.
 
+> **Measured state (2026-11-19): none of the four variables above is read by any
+> file in `src/`.** They are the shape of a limiter that was specified in
+> `08-build-prompts.txt` §1382 and never built. Leaving them in this document
+> unmarked invites an operator to set them and believe the endpoints are
+> protected. They are not. The one working limit in the product is §7.3.
+
+### 7.3 Support form — `ENQUIRY_FORM_SECRET` (implemented, required in production)
+- `ENQUIRY_FORM_SECRET` (**SERVER ONLY**) — any long random string, e.g.
+  `openssl rand -hex 32`. One value serves two jobs, both in
+  `POST /api/enquiries`:
+  1. the HMAC key for the signed form token, which is what makes the minimum
+     fill-time check mean anything (an unsigned client timestamp proves
+     nothing), and
+  2. the pepper for the SHA-256 that fingerprints client IPs into
+     `public.enquiry_throttle`.
+
+  **Behaviour when unset:** the form still accepts submissions. The token check
+  is skipped, the throttle stands down entirely (hashing an IP without a pepper
+  would store a value an IPv4 enumeration reverses back to an address), and each
+  skipped check is logged at warn level. This is a deliberate exception to the
+  project's usual fail-closed rule: refusing to take a support message because
+  one variable was never copied is worse than a weak spam filter, and the
+  honeypot plus input validation still apply. It is not a configuration to leave
+  in production — the warn line is the only signal that the channel is
+  unthrottled.
+
+  **Rotating it** invalidates outstanding form tokens (people mid-way through
+  writing a message need to reload the page) and starts a fresh throttle
+  namespace, so a previous block is lifted.
+
+  There is no login/OTP/payment limiter. §7.1/§7.2 remain the unbuilt
+  recommendation for those endpoints.
+
 ---
 
 ## 8) Observability / Monitoring (Recommended)

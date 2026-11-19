@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LegalPage, LegalSection } from "@/components/legal/LegalPage";
+import { EnquiryForm } from "@/features/support/components/EnquiryForm";
 import { faqPageSchema, contactPageGraph } from "@/lib/seo/schema";
 import {
   absoluteUrl,
@@ -42,12 +43,12 @@ const CONTACT_FAQ = [
   {
     question: "How do I request a copy or deletion of my data?",
     answer:
-      "Email " + CONTACT.privacyEmail + ". You can request access to, correction of, or deletion of your personal information and your child's account data. See our privacy policy for the full list of rights and how we handle requests.",
+      "Send us the form above or email " + CONTACT.privacyEmail + ". You can request access to, correction of, or deletion of your personal information and your child's account data. See our privacy policy for the full list of rights and how we handle requests.",
   },
   {
     question: "Do you offer refunds?",
     answer:
-      "Yes - a 14-day money-back guarantee on every purchase, for any reason. Email " + CONTACT.supportEmail + " with your order reference within 14 days of purchase and we refund it in full. No form, no reason required, and you keep any reports generated in the meantime. Subscriptions can also be paused or cancelled at any time from the billing portal. Full wording is in the refunds section of our terms.",
+      "Yes - a 14-day money-back guarantee on every purchase, for any reason. Send us the form above or an email to " + CONTACT.supportEmail + " with your order reference within 14 days of purchase and we refund it in full. No explanation required, and you keep any reports generated in the meantime. Subscriptions can also be paused or cancelled at any time from the billing portal. Full wording is in the refunds section of our terms.",
   },
   {
     question: "Are the practice tests aligned to the Australian Curriculum?",
@@ -64,7 +65,9 @@ export default function ContactPage() {
       title="Contact Us"
       intro={
         "Questions about practice tests, your account, billing, accessibility or privacy? " +
-        "Email us and a real person on the " + SITE_NAME + " team will reply."
+        "Send us a message below and a real person on the " +
+        SITE_NAME +
+        " team will reply."
       }
       updated={LEGAL_LAST_UPDATED}
       path={PATH}
@@ -72,7 +75,42 @@ export default function ContactPage() {
         contactPageGraph(url, PAGE_DESCRIPTION),
         faqPageSchema(CONTACT_FAQ, url),
       ]}
-    >      <LegalSection id="email-us" title="Email us">
+    >
+      <LegalSection id="what-to-include" title="What to include in your message">
+        <p>Including these details lets us answer in one reply instead of several:</p>
+        <ul>
+          <li>The email address registered on the account</li>
+          <li>Which test, report or page you are asking about</li>
+          <li>Your device and browser if you are reporting a technical fault</li>
+          <li>For billing: the order or receipt reference from your confirmation email</li>
+        </ul>
+        <p>
+          Please do not send passwords, full card numbers or other sensitive details —
+          not by email, and not through the form below either.
+        </p>
+      </LegalSection>
+
+      {/*
+        The form follows the advice rather than leading, so a visitor reads what
+        to write before they are asked to write it. The email table stays beneath
+        it as the fallback: a support channel that only works with JavaScript is
+        not a support channel for everyone, and the throttled copy deliberately
+        names the address it cannot use the form for.
+      */}
+      <LegalSection id="message-form" title="Send us a message">
+        <p>
+          Every message through this form is logged with a reference number and a
+          response clock, so nothing sits unanswered in an inbox. Billing and
+          privacy requests may take a little longer where we need to verify your
+          identity first.
+        </p>
+        <EnquiryForm
+          supportEmail={CONTACT.supportEmail}
+          responseTime={CONTACT.responseTime}
+        />
+      </LegalSection>
+
+      <LegalSection id="email-us" title="Email us directly">
         <table>
           <thead>
             <tr>
@@ -92,21 +130,10 @@ export default function ContactPage() {
           </tbody>
         </table>
         <p>
-          We reply within {CONTACT.responseTime}. We are based in {CONTACT.country} and
-          answer in English.
-        </p>
-      </LegalSection>
-
-      <LegalSection id="what-to-include" title="What to include in your message">
-        <p>Including these details lets us answer in one reply instead of several:</p>
-        <ul>
-          <li>The email address registered on the account</li>
-          <li>Which test, report or page you are asking about</li>
-          <li>Your device and browser if you are reporting a technical fault</li>
-          <li>For billing: the order or receipt reference from your confirmation email</li>
-        </ul>
-        <p>
-          Please do not send passwords, full card numbers or other sensitive details by email.
+          A privacy or deletion request is best sent from the address registered on
+          the parent account, so we can verify who is asking. We reply within{" "}
+          {CONTACT.responseTime}. We are based in {CONTACT.country} and answer in
+          English.
         </p>
       </LegalSection>
 

@@ -307,3 +307,44 @@ export async function trackEventOnce(
   return trackEvent(input)
 }
 
+/**
+ * The anonymous visitor id, read from the `mt_aid` cookie set by the client
+ * beacon.
+ *
+ * MOVED OUT OF /api/events RATHER THAN DUPLICATED
+ *   It lived in the beacon route, which was the only caller. Now the enquiries
+ *   route needs it too, and a second copy of a cookie contract is exactly the
+ *   kind of drift that has already produced duplicated device classification in
+ *   this codebase (see the note at the top of ./device.ts). One definition, two
+ *   callers.
+ *
+ * NOTHING IS TRUSTED ABOUT IT
+ *   This value is attacker-controlled: the cookie is set in the browser. It is
+ *   length-capped and used only to group pre-signup events for one visitor, never
+ *   to authorise anything and never as a person's identity. `user_id` continues
+ *   to come only from the session, which is the rule that keeps another family's
+ *   funnel unspoofable.
+ */
+const ANON_COOKIE = 'mt_aid'
+
+export function readAnonymousId(req: Request): string | null {
+  const header = req.headers.get('cookie')
+  if (!header) return null
+
+  const match = header
+    .split(';')
+    .map((part) => part.trim())
+    .find((part) => part.startsWith(`${ANON_COOKIE}=`))
+  if (!match) return null
+
+  let value: string
+  try {
+    value = decodeURIComponent(match.slice(ANON_COOKIE.length + 1)).trim()
+  } catch {
+    return null
+  }
+  if (!value || value.length > 64) return null
+  return value
+}
+
+

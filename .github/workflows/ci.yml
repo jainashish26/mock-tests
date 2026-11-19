@@ -7,6 +7,11 @@ name: CI
 #   inherited reporting_ro membership, column grants that cannot separate parent
 #   from student, and reporting RPCs left executable by `anon`.
 #
+#   `npm run test` is what enforces them, so adding a suite to that script adds it
+#   to CI without touching this file. It currently runs eight suites: consent,
+#   readiness, reporting, funnel coverage, static gates, expansion, writing and
+#   enquiry.
+#
 #   A test that is not enforced is a test that will eventually not be run. This
 #   workflow makes the existing assurance mandatory on every PR.
 #
