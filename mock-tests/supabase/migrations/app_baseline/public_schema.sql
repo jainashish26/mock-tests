@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict JY8D1kTpLfvEDeyEdK68XTTmIxbYgXHkOVgGoD9Rhh6zKvfE05AvaZ2gGThb80e
+\restrict 3aWUNKaq4VlphNFgQsyMOayeX2tGsM5qLeh3U5fIsjvyUx5cPhJmQrEmi86gTkQ
 
 -- Dumped from database version 17.6
 -- Dumped by pg_dump version 17.12
@@ -612,10 +612,10 @@ COMMENT ON FUNCTION public.admin_platform_health(p_from_date integer, p_to_date 
 
 
 --
--- Name: admin_set_year_level_cap(smallint, smallint, smallint, smallint, smallint); Type: FUNCTION; Schema: public; Owner: -
+-- Name: admin_set_year_level_cap(smallint, smallint, smallint, smallint, smallint, text); Type: FUNCTION; Schema: public; Owner: -
 --
 
-CREATE FUNCTION public.admin_set_year_level_cap(p_year_level smallint, p_max_tests smallint, p_max_questions smallint, p_recommended_tests smallint, p_recommended_questions smallint) RETURNS TABLE(year_level smallint, max_tests_per_day smallint, max_questions_per_day smallint, recommended_tests_per_day smallint, recommended_questions_per_day smallint, updated_at timestamp with time zone)
+CREATE FUNCTION public.admin_set_year_level_cap(p_year_level smallint, p_max_tests smallint, p_max_questions smallint, p_recommended_tests smallint, p_recommended_questions smallint, p_daily_target_basis text DEFAULT 'recommended'::text) RETURNS TABLE(year_level smallint, max_tests_per_day smallint, max_questions_per_day smallint, recommended_tests_per_day smallint, recommended_questions_per_day smallint, daily_target_basis text, updated_at timestamp with time zone)
     LANGUAGE plpgsql SECURITY DEFINER
     SET search_path TO 'reporting', 'public', 'pg_catalog'
     AS $$
@@ -652,12 +652,20 @@ BEGIN
     RAISE EXCEPTION 'recommended question target % exceeds the ceiling % for Year %',
       p_recommended_questions, p_max_questions, p_year_level USING ERRCODE = '22023';
   END IF;
+  -- Spelled out rather than trusting the table CHECK, because the failure mode of
+  -- a typo here ('Recommend', 'recommended ') is a row that silently keeps the
+  -- previous policy while the operator believes they changed it.
+  IF p_daily_target_basis IS NULL OR p_daily_target_basis NOT IN ('recommended', 'ceiling') THEN
+    RAISE EXCEPTION 'daily_target_basis must be ''recommended'' or ''ceiling'' (got %)',
+      p_daily_target_basis USING ERRCODE = '22023';
+  END IF;
 
   UPDATE reporting.dim_year_level_cap c
      SET max_tests_per_day             = p_max_tests,
          max_questions_per_day         = p_max_questions,
          recommended_tests_per_day     = p_recommended_tests,
          recommended_questions_per_day = p_recommended_questions,
+         daily_target_basis            = p_daily_target_basis,
          updated_at                    = now()
    WHERE c.year_level = p_year_level;
 
@@ -667,7 +675,7 @@ BEGIN
 
   RETURN QUERY SELECT c.year_level, c.max_tests_per_day, c.max_questions_per_day,
                        c.recommended_tests_per_day, c.recommended_questions_per_day,
-                       c.updated_at
+                       c.daily_target_basis, c.updated_at
                   FROM reporting.dim_year_level_cap c
                  WHERE c.year_level = p_year_level;
 END;
@@ -675,22 +683,23 @@ $$;
 
 
 --
--- Name: FUNCTION admin_set_year_level_cap(p_year_level smallint, p_max_tests smallint, p_max_questions smallint, p_recommended_tests smallint, p_recommended_questions smallint); Type: COMMENT; Schema: public; Owner: -
+-- Name: FUNCTION admin_set_year_level_cap(p_year_level smallint, p_max_tests smallint, p_max_questions smallint, p_recommended_tests smallint, p_recommended_questions smallint, p_daily_target_basis text); Type: COMMENT; Schema: public; Owner: -
 --
 
-COMMENT ON FUNCTION public.admin_set_year_level_cap(p_year_level smallint, p_max_tests smallint, p_max_questions smallint, p_recommended_tests smallint, p_recommended_questions smallint) IS 'Admin write path for the per-year-level daily practice limits. ADMIN only, checked in-body as well as by grant. Validates range and ceiling/target coherence with actionable messages; the table CHECKs are the actual guarantee, so this function improves the error rather than weakening the control. A ceiling change takes effect on the next refresh of mv_student_daily_target, not immediately.';
+COMMENT ON FUNCTION public.admin_set_year_level_cap(p_year_level smallint, p_max_tests smallint, p_max_questions smallint, p_recommended_tests smallint, p_recommended_questions smallint, p_daily_target_basis text) IS 'Admin write path for the per-year-level daily practice limits and the clamp policy. ADMIN only, checked in-body as well as by grant. Validates range, ceiling/target coherence and the basis enum with actionable messages; the table CHECKs are the actual guarantee, so this function improves the error rather than weakening the control. Takes effect on the next refresh of mv_student_daily_target, not immediately.';
 
 
 --
 -- Name: admin_year_level_caps(); Type: FUNCTION; Schema: public; Owner: -
 --
 
-CREATE FUNCTION public.admin_year_level_caps() RETURNS TABLE(year_level smallint, max_tests_per_day smallint, max_questions_per_day smallint, recommended_tests_per_day smallint, recommended_questions_per_day smallint, updated_at timestamp with time zone)
+CREATE FUNCTION public.admin_year_level_caps() RETURNS TABLE(year_level smallint, max_tests_per_day smallint, max_questions_per_day smallint, recommended_tests_per_day smallint, recommended_questions_per_day smallint, daily_target_basis text, updated_at timestamp with time zone)
     LANGUAGE sql STABLE SECURITY DEFINER
     SET search_path TO 'reporting', 'public', 'pg_catalog'
     AS $$
   SELECT c.year_level, c.max_tests_per_day, c.max_questions_per_day,
-         c.recommended_tests_per_day, c.recommended_questions_per_day, c.updated_at
+         c.recommended_tests_per_day, c.recommended_questions_per_day,
+         c.daily_target_basis, c.updated_at
   FROM reporting.dim_year_level_cap c
   WHERE public.has_role('ADMIN')
   ORDER BY c.year_level;
@@ -701,7 +710,7 @@ $$;
 -- Name: FUNCTION admin_year_level_caps(); Type: COMMENT; Schema: public; Owner: -
 --
 
-COMMENT ON FUNCTION public.admin_year_level_caps() IS 'Admin read wrapper over reporting.dim_year_level_cap. ADMIN only, enforced in-body: a non-admin receives zero rows, the same shape for every caller, so the response cannot be used to probe which year levels are configured.';
+COMMENT ON FUNCTION public.admin_year_level_caps() IS 'Admin read wrapper over reporting.dim_year_level_cap, including daily_target_basis so the screen can state which limit is actually clamping a child. ADMIN only, enforced in-body: a non-admin receives zero rows, the same shape for every caller, so the response cannot be used to probe which year levels are configured.';
 
 
 --
@@ -6115,19 +6124,19 @@ GRANT ALL ON FUNCTION public.admin_platform_health(p_from_date integer, p_to_dat
 
 
 --
--- Name: FUNCTION admin_set_year_level_cap(p_year_level smallint, p_max_tests smallint, p_max_questions smallint, p_recommended_tests smallint, p_recommended_questions smallint); Type: ACL; Schema: public; Owner: -
+-- Name: FUNCTION admin_set_year_level_cap(p_year_level smallint, p_max_tests smallint, p_max_questions smallint, p_recommended_tests smallint, p_recommended_questions smallint, p_daily_target_basis text); Type: ACL; Schema: public; Owner: -
 --
 
-REVOKE ALL ON FUNCTION public.admin_set_year_level_cap(p_year_level smallint, p_max_tests smallint, p_max_questions smallint, p_recommended_tests smallint, p_recommended_questions smallint) FROM PUBLIC;
-GRANT ALL ON FUNCTION public.admin_set_year_level_cap(p_year_level smallint, p_max_tests smallint, p_max_questions smallint, p_recommended_tests smallint, p_recommended_questions smallint) TO authenticated;
-GRANT ALL ON FUNCTION public.admin_set_year_level_cap(p_year_level smallint, p_max_tests smallint, p_max_questions smallint, p_recommended_tests smallint, p_recommended_questions smallint) TO service_role;
+REVOKE ALL ON FUNCTION public.admin_set_year_level_cap(p_year_level smallint, p_max_tests smallint, p_max_questions smallint, p_recommended_tests smallint, p_recommended_questions smallint, p_daily_target_basis text) FROM PUBLIC;
+GRANT ALL ON FUNCTION public.admin_set_year_level_cap(p_year_level smallint, p_max_tests smallint, p_max_questions smallint, p_recommended_tests smallint, p_recommended_questions smallint, p_daily_target_basis text) TO authenticated;
+GRANT ALL ON FUNCTION public.admin_set_year_level_cap(p_year_level smallint, p_max_tests smallint, p_max_questions smallint, p_recommended_tests smallint, p_recommended_questions smallint, p_daily_target_basis text) TO service_role;
 
 
 --
 -- Name: FUNCTION admin_year_level_caps(); Type: ACL; Schema: public; Owner: -
 --
 
-REVOKE ALL ON FUNCTION public.admin_year_level_caps() FROM PUBLIC;
+GRANT ALL ON FUNCTION public.admin_year_level_caps() TO anon;
 GRANT ALL ON FUNCTION public.admin_year_level_caps() TO authenticated;
 GRANT ALL ON FUNCTION public.admin_year_level_caps() TO service_role;
 
@@ -7016,5 +7025,5 @@ ALTER DEFAULT PRIVILEGES FOR ROLE supabase_admin IN SCHEMA public GRANT ALL ON T
 -- PostgreSQL database dump complete
 --
 
-\unrestrict JY8D1kTpLfvEDeyEdK68XTTmIxbYgXHkOVgGoD9Rhh6zKvfE05AvaZ2gGThb80e
+\unrestrict 3aWUNKaq4VlphNFgQsyMOayeX2tGsM5qLeh3U5fIsjvyUx5cPhJmQrEmi86gTkQ
 

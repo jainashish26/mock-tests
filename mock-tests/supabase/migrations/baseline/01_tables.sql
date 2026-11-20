@@ -151,6 +151,8 @@ CREATE TABLE IF NOT EXISTS reporting.dim_year_level_cap (
   updated_at timestamp with time zone DEFAULT now() NOT NULL,
   recommended_tests_per_day smallint NOT NULL,
   recommended_questions_per_day smallint NOT NULL,
+  daily_target_basis text DEFAULT 'recommended'::text NOT NULL,
+  CONSTRAINT dim_year_level_cap_basis_known CHECK ((daily_target_basis = ANY (ARRAY['recommended'::text, 'ceiling'::text]))),
   CONSTRAINT dim_year_level_cap_pkey PRIMARY KEY (year_level),
   CONSTRAINT dim_year_level_cap_questions_range CHECK (((max_questions_per_day >= 1) AND (max_questions_per_day <= 2000))),
   CONSTRAINT dim_year_level_cap_questions_target_coherence CHECK (((recommended_questions_per_day >= 2) AND (recommended_questions_per_day <= max_questions_per_day))),

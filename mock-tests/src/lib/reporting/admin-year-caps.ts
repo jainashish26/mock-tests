@@ -33,11 +33,18 @@ import {
  *   mistake as a NULL threshold presenting as a measurement, one level further up.
  */
 
-export type { YearLevelCap, YearLevelCapDraft, CapValidationFailure } from './year-caps'
+export type {
+  CapValidationFailure,
+  DailyTargetBasis,
+  YearLevelCap,
+  YearLevelCapDraft,
+} from './year-caps'
 export {
   CAP_BOUNDS,
   CAP_COLUMN_LABELS,
   CAP_ENFORCEMENT_NOTE,
+  CLAMP_MODE_COPY,
+  DAILY_TARGET_BASES,
   EXPECTED_YEAR_LEVELS,
   QUESTION_MULTIPLIER_NOTE,
   describeCap,
@@ -132,6 +139,7 @@ export async function saveYearLevelCap(draft: YearLevelCapDraft): Promise<SaveCa
     p_max_questions: draft.max_questions,
     p_recommended_tests: draft.recommended_tests,
     p_recommended_questions: draft.recommended_questions,
+    p_daily_target_basis: draft.daily_target_basis,
   })
 
   if (res.error) {

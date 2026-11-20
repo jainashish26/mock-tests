@@ -88,11 +88,14 @@ import {
 } from '@/lib/pricing/offer-personalisation';
 import {
   CAP_BOUNDS,
+  CLAMP_MODE_COPY,
+  DAILY_TARGET_BASES,
   EXPECTED_YEAR_LEVELS,
   describeCap,
   isCapDraftValid,
   missingYearLevels,
   validateYearLevelCap,
+  type DailyTargetBasis,
   type YearLevelCap,
   type YearLevelCapDraft,
 } from '@/lib/reporting/year-caps';
@@ -1041,6 +1044,7 @@ console.log('\n=== Year-level practice caps (decision 4-A) ===');
     max_questions: 250,
     recommended_tests: 2,
     recommended_questions: 50,
+    daily_target_basis: 'recommended',
   };
   const draft = (over: Partial<YearLevelCapDraft>): YearLevelCapDraft => ({ ...base, ...over });
 
@@ -1189,6 +1193,25 @@ console.log('\n=== Year-level practice caps (decision 4-A) ===');
   })());
 
 
+  // The clamp policy. An unknown mode is the one input that does not fail a range
+  // check, so it is easy to imagine this being let through to the database's CHECK
+  // and the operator seeing a constraint name for a dropdown choice.
+  ok('both documented modes are accepted',
+    validateYearLevelCap(draft({ daily_target_basis: 'ceiling' })).length === 0 &&
+    validateYearLevelCap(draft({ daily_target_basis: 'recommended' })).length === 0);
+  ok('the exported modes are exactly the two the database allows',
+    DAILY_TARGET_BASES.join(',') === 'ceiling,recommended' ||
+    DAILY_TARGET_BASES.join(',') === 'recommended,ceiling');
+  ok('an unknown mode is refused by name, not defaulted',
+    validateYearLevelCap(draft({ daily_target_basis: 'Recommend' as DailyTargetBasis })).some(
+      (f) => f.code === 'BASIS_UNKNOWN' && f.field === 'daily_target_basis'
+    ));
+  ok('a missing mode is refused too',
+    validateYearLevelCap(draft({ daily_target_basis: undefined as unknown as DailyTargetBasis }))
+      .some((f) => f.code === 'BASIS_UNKNOWN'));
+  ok('every clamp mode has display copy',
+    DAILY_TARGET_BASES.every((b) => typeof CLAMP_MODE_COPY[b] === 'string' && CLAMP_MODE_COPY[b].length > 20));
+
   // The audit line carries all four numbers, or a changed ceiling hides behind an
   // unchanged target in the toast an operator reads after saving.
   //
@@ -1201,12 +1224,13 @@ console.log('\n=== Year-level practice caps (decision 4-A) ===');
     max_questions_per_day: 500,
     recommended_tests_per_day: 3,
     recommended_questions_per_day: 75,
+    daily_target_basis: 'ceiling',
     updated_at: null,
   };
   const described = describeCap(describedRow);
   ok(
-    'the audit summary carries every configured number',
-    ['Year 7', '20 tests', '500 questions', '3 tests', '75 questions'].every((t) => described.includes(t))
+    'the audit summary carries every configured number and the policy',
+    ['Year 7', '20 tests', '500 questions', '3 tests', '75 questions', 'ceiling'].every((t) => described.includes(t))
   );
 }
 

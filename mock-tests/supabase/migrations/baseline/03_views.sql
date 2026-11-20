@@ -406,9 +406,9 @@ CREATE MATERIALIZED VIEW reporting.mv_student_daily_target AS
         ), rest AS (
          SELECT ds.student_key,
             count(*) AS rest_days_remaining
-           FROM practice_rest_days r
-             JOIN dim_student ds ON ds.student_id = r.student_id AND ds.is_current
-          WHERE r.rest_date > (now() AT TIME ZONE 'Australia/Melbourne'::text)::date
+           FROM practice_rest_days prd
+             JOIN dim_student ds ON ds.student_id = prd.student_id AND ds.is_current
+          WHERE prd.rest_date > (now() AT TIME ZONE 'Australia/Melbourne'::text)::date
           GROUP BY ds.student_key
         ), calc AS (
          SELECT dp.plan_key,
@@ -433,10 +433,18 @@ CREATE MATERIALIZED VIEW reporting.mv_student_daily_target AS
                 END AS required_daily,
             COALESCE(
                 CASE
+                    WHEN c.unit_kind = 'tests'::text AND cap.daily_target_basis = 'ceiling'::text THEN cap.max_tests_per_day::numeric
+                    WHEN c.unit_kind = 'tests'::text THEN cap.recommended_tests_per_day::numeric
+                    WHEN c.unit_kind = 'questions'::text AND cap.daily_target_basis = 'ceiling'::text THEN cap.max_questions_per_day::numeric
+                    WHEN c.unit_kind = 'questions'::text THEN cap.recommended_questions_per_day::numeric
+                    ELSE NULL::numeric
+                END, 2::numeric * ceil(c.weekly_sessions_goal::numeric / 7::numeric))::integer AS effective_cap,
+                CASE
                     WHEN c.unit_kind = 'tests'::text THEN cap.max_tests_per_day
                     WHEN c.unit_kind = 'questions'::text THEN cap.max_questions_per_day
                     ELSE NULL::smallint
-                END::numeric, 2::numeric * ceil(c.weekly_sessions_goal::numeric / 7::numeric))::integer AS effective_cap
+                END::integer AS overload_ceiling,
+            COALESCE(cap.daily_target_basis, 'recommended'::text) AS target_basis
            FROM calc c
              JOIN dim_student ds ON ds.student_key = c.student_key AND ds.is_current
              LEFT JOIN dim_year_level_cap cap ON cap.year_level = ds.year_level
@@ -448,8 +456,10 @@ CREATE MATERIALIZED VIEW reporting.mv_student_daily_target AS
     remaining_days,
     required_daily,
     effective_cap,
+    overload_ceiling,
+    target_basis,
     LEAST(required_daily, effective_cap::numeric) AS daily_target_units,
-    remaining_days > 0 AND required_daily > effective_cap::numeric AS plan_overload_flag
+    remaining_days > 0 AND overload_ceiling IS NOT NULL AND required_daily > overload_ceiling::numeric AS plan_overload_flag
    FROM capped;;
 
 CREATE MATERIALIZED VIEW reporting.mv_study_behaviour AS

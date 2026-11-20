@@ -36,6 +36,8 @@ export interface YearLevelCap {
   max_questions_per_day: number
   recommended_tests_per_day: number
   recommended_questions_per_day: number
+  /** Which of the two numbers above actually clamps a child's daily target. */
+  daily_target_basis: DailyTargetBasis
   updated_at: string | null
 }
 
@@ -46,6 +48,7 @@ export interface YearLevelCapDraft {
   max_questions: number
   recommended_tests: number
   recommended_questions: number
+  daily_target_basis: DailyTargetBasis
 }
 
 /**
@@ -77,6 +80,7 @@ export type CapRejection =
   | 'TARGET_TESTS_EXCEEDS_CEILING'
   | 'TARGET_QUESTIONS_TOO_LOW'
   | 'TARGET_QUESTIONS_EXCEEDS_CEILING'
+  | 'BASIS_UNKNOWN'
 
 export interface CapValidationFailure {
   field: keyof YearLevelCapDraft
@@ -169,6 +173,18 @@ export function validateYearLevelCap(draft: YearLevelCapDraft): CapValidationFai
     )
   }
 
+  // The clamp policy. Checked against the exported list rather than a literal, so
+  // adding a third mode without updating the UI cannot pass validation here and be
+  // rejected by the database's CHECK on the way in - the mismatch would surface as
+  // an admin being unable to save a choice the form offered them.
+  if (!DAILY_TARGET_BASES.includes(draft.daily_target_basis)) {
+    fail(
+      'daily_target_basis',
+      'BASIS_UNKNOWN',
+      `Year ${y}: the clamp must be one of ${DAILY_TARGET_BASES.join(' or ')}, not ${String(draft.daily_target_basis)}.`
+    )
+  }
+
   return failures
 }
 
@@ -180,21 +196,61 @@ export function isCapDraftValid(draft: YearLevelCapDraft): boolean {
 /**
  * The one sentence in this screen that could otherwise be quietly wrong.
  *
- * Rendered beside the recommended-target column so the gap between "configured"
- * and "enforced" is visible where the number is entered, not only in a migration
- * comment nobody reads.
+ * This note existed to say "the recommended target clamps nothing". Migration 108
+ * made that false, which is the point of writing it down in the first place: an
+ * explanation embedded in a component is a claim about the database, and a claim
+ * that outlives the behaviour it describes is worse than no claim, because people
+ * trust it. It now states which limit is applied, how to change it, and - the part
+ * that is easy to get subtly wrong - that the overload alert does NOT move with
+ * the setting.
  */
 export const CAP_ENFORCEMENT_NOTE =
-  'Only the ceilings are enforced. A student’s daily target is clamped to the ceiling by ' +
-  'mv_student_daily_target, and needing more than the ceiling is what raises the parent’s ' +
-  'plan-adjustment notice. The recommended target is stored and displayed, but nothing clamps ' +
-  'to it yet — changing it does not change what any child is asked to do.'
+  'Each row has a Clamp control that chooses which limit applies. By default a child\u2019s daily ' +
+  'target is clamped to the recommended target, and needing more than the ceiling is what raises ' +
+  'the parent\u2019s plan-adjustment notice. Setting a year level to "ceiling" lets a plan that has ' +
+  'fallen behind push a child up to the ceiling instead. The parent\u2019s overload notice is always ' +
+  'measured against the ceiling, whichever clamp you choose.'
 
-/** How the question ceilings were derived, stated so a reader can disagree with it. */
+/** What each clamp mode means, for the control's own labels. */
+export const CLAMP_MODE_COPY: Record<DailyTargetBasis, string> = {
+  recommended: 'Recommended target clamps the child\u2019s daily target (protective default).',
+  ceiling: 'Ceiling clamps the child\u2019s daily target (rule B7 as originally written).',
+}
+
+/**
+ * How the question ceilings were derived, stated so a reader can disagree with it.
+ *
+ * Corrected 2026-11-20: this used to claim the question ceiling was "stricter than
+ * the median, so it binds first", which was wrong and harmless only because
+ * `unit_kind` selects one column per plan. The multiplier is unchanged.
+ */
 export const QUESTION_MULTIPLIER_NOTE =
-  'Question ceilings are derived as ceiling-tests × 25, per decision 4-A. Published tests have a ' +
-  'median of 35 items, so 25 is a policy floor rather than a measurement: it makes the question ' +
-  'ceiling bind sooner than the test ceiling for a typical paper.'
+  'Question ceilings are derived as ceiling-tests \u00d7 25, per decision 4-A. Published tests have a ' +
+  'median of 35 items, so 25 is a policy floor rather than a measurement. A plan is measured in ' +
+  'either tests or questions, never both, so the two ceilings never compete.'
+
+
+/**
+ * Which limit clamps a child's daily target, per year level.
+ *
+ * 'recommended' is the default and the protective choice: the advisory target is
+ * what the plan is allowed to ask for, and the ceiling stays purely as the bound
+ * the overload alert measures against. 'ceiling' restores rule B7 as the reporting
+ * layer was originally written, where a plan that has fallen far behind may push a
+ * child all the way up to the ceiling.
+ *
+ * The alert does not move with this setting. That is deliberate and tested: if
+ * `plan_overload_flag` measured whatever the current clamp happens to be, then
+ * choosing the protective default would make "this plan is infeasible" fire for
+ * nearly every child who is slightly behind, and an alert that always fires is an
+ * alert that gets dismissed.
+ */
+export type DailyTargetBasis = 'recommended' | 'ceiling';
+
+export const DAILY_TARGET_BASES: readonly DailyTargetBasis[] = Object.freeze([
+  'recommended',
+  'ceiling',
+] as const);
 
 /** Column labels, exported so the table and any future CSV export cannot diverge. */
 export const CAP_COLUMN_LABELS = {
@@ -202,7 +258,9 @@ export const CAP_COLUMN_LABELS = {
   max_questions_per_day: 'Ceiling: questions/day',
   recommended_tests_per_day: 'Recommended: tests/day',
   recommended_questions_per_day: 'Recommended: questions/day',
+  daily_target_basis: 'Clamp',
 } as const
+
 
 /**
  * Every year level that must be present, and therefore every one the editor must
@@ -236,7 +294,8 @@ export function describeCap(cap: YearLevelCap): string {
   return (
     `Year ${cap.year_level}: ceiling ${cap.max_tests_per_day} tests ` +
     `(${cap.max_questions_per_day} questions)/day, recommended ` +
-    `${cap.recommended_tests_per_day} tests (${cap.recommended_questions_per_day} questions)`
+    `${cap.recommended_tests_per_day} tests (${cap.recommended_questions_per_day} questions), ` +
+    `clamped to ${cap.daily_target_basis}`
   )
 }
 

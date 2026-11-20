@@ -352,8 +352,129 @@ console.log('\n=== Year-level cap bounds parity (decision 4-A) ===');
   );
   const noteSrc = readFileSync(join(ROOT, 'src', 'lib', 'reporting', 'year-caps.ts'), 'utf8');
   ok(
-    'the note states plainly that nothing clamps to the recommended target',
-    /nothing clamps/.test(noteSrc) && /to it yet/.test(noteSrc)
+    'the note names the clamp control and states that the alert ignores it',
+    /Clamp control/.test(noteSrc) &&
+      /overload notice is always/.test(noteSrc) &&
+      /measured against the ceiling/.test(noteSrc)
+  );
+  ok(
+    'the stale claim is gone',
+    !/nothing clamps/.test(noteSrc),
+    'the note still says the recommended target enforces nothing'
+  );
+
+  // THE MOST IMPORTANT GATE IN THIS FILE.
+  //   Migration 105 had `checkout_abandon_minutes` sitting configured, documented
+  //   and read by nothing: a setting that looks like a control and does nothing.
+  //   `daily_target_basis` is the same shape of object, so the check is not that
+  //   the column exists — it obviously does — but that the materialised view's own
+  //   SQL names it. The baseline capture is the source, because that is what a
+  //   restore replays.
+  const viewsCapture = join(ROOT, 'supabase', 'migrations', 'baseline', '03_views.sql');
+  const mvText = existsSync(viewsCapture)
+    ? stripComments(readFileSync(viewsCapture, 'utf8'))
+    : '';
+  ok('the views capture is present', mvText.length > 0);
+
+  /**
+   * Isolate the MV's own statement.
+   *
+   * Without this, a name appearing anywhere in the 27 KB capture — in another
+   * view, in a comment the stripper missed, in the *renamed* copy of itself —
+   * satisfies the check. The first version of this gate did exactly that:
+   * replacing every `daily_target_basis` with `daily_target_basis_UNUSED` left it
+   * green, because the substring was still present. A gate that cannot fail is not
+   * a weak gate, it is an absent one, and this file exists to catch settings that
+   * are configured, documented and read by nothing.
+   */
+  const mvStmtMatch =
+    /CREATE MATERIALIZED VIEW reporting\.mv_student_daily_target AS([\s\S]*?)(?=\nCREATE |\nGRANT |\nCOMMENT |$)/
+      .exec(mvText);
+  const mvStmt = mvStmtMatch ? mvStmtMatch[1] : '';
+  ok('the MV statement is isolable from the capture', mvStmt.length > 200, `${mvStmt.length} chars`);
+
+  const countOf = (re: RegExp): number => (mvStmt.match(re) ?? []).length;
+
+  ok(
+    'the MV actually branches on the clamp policy (both unit kinds)',
+    countOf(/cap\.daily_target_basis\s*=\s*'ceiling'/g) === 2,
+    `found ${countOf(/cap\.daily_target_basis\s*=\s*'ceiling'/g)} branches, expected 2`
+  );
+  ok(
+    'the MV uses the recommended columns, not just mentions the policy',
+    mvStmt.includes('cap.recommended_tests_per_day') &&
+      mvStmt.includes('cap.recommended_questions_per_day')
+  );
+  ok(
+    'the MV still uses the ceiling columns as the backstop',
+    mvStmt.includes('cap.max_tests_per_day') && mvStmt.includes('cap.max_questions_per_day')
+  );
+  ok(
+    'the clamp is applied with LEAST, so a target can never exceed it',
+    /LEAST\s*\(\s*required_daily,\s*effective_cap/.test(mvStmt)
+  );
+  ok(
+    'the overload flag is measured against overload_ceiling, not the clamp',
+    /required_daily\s*>\s*overload_ceiling/.test(mvStmt) &&
+      !/required_daily\s*>\s*effective_cap/.test(mvStmt)
+  );
+  ok(
+    'daily_target_basis does not leak to the student view',
+    (() => {
+      const m = /CREATE (?:OR REPLACE )?VIEW reporting\.v_student_today AS([\s\S]*?);/.exec(mvText);
+      return m ? !m[1].includes('basis') : false;
+    })()
+  );
+  ok(
+    'the student view still omits every parent-facing target figure',
+    (() => {
+      const m = /CREATE (?:OR REPLACE )?VIEW reporting\.v_student_today AS([\s\S]*?);/.exec(mvText);
+      if (!m) return false;
+      const cols = ['required_daily', 'effective_cap', 'overload_ceiling', 'target_basis', 'plan_overload_flag'];
+      return cols.every((c) => !m[1].includes(c));
+    })(),
+    'v_student_today must never select the parent-facing columns'
+  );
+
+  // The clamp modes the client offers must be exactly the ones the column allows.
+  // Read from the source text rather than imported, keeping this suite a static
+  // analysis that needs no module graph.
+  //
+  // Both cap migrations are scanned. The clamp policy arrived in 108, so reading
+  // only 107 — where the table was created — would find no basis CHECK and report
+  // a mismatch forever, which is the same class of blind spot as the seed parser
+  // that could not read a `::smallint` cast.
+  const mig108 = join(ROOT, 'supabase', 'migrations', '108_daily_target_clamp_policy.sql');
+  ok('the clamp-policy migration is present', existsSync(mig108));
+  const capsSql = existsSync(mig108)
+    ? `${sql}\n${stripComments(readFileSync(mig108, 'utf8'))}`
+    : sql;
+  // Whitespace flattened first: the CHECK is written across three lines in 108,
+  // and a regex that expects one line silently matches nothing.
+  const basisCheck = /CHECK \(?\s*daily_target_basis IN \(([^)]*)\)/.exec(capsSql.replace(/\s+/g, ' '));
+  const sqlBases = basisCheck
+    ? [...basisCheck[1].matchAll(/'([a-z_]+)'/g)].map((m) => m[1]).sort()
+    : [];
+  ok('the basis CHECK is legible to this gate', basisCheck !== null);
+  // Anchored on `Object.freeze([` deliberately: a pattern that starts at
+  // DAILY_TARGET_BASES and looks for the first `[` lands on the empty brackets of
+  // the type annotation (`readonly DailyTargetBasis[]`) and silently extracts
+  // nothing — which this gate then would have reported as a mismatch forever, with
+  // no hint that it was reading the wrong token.
+  const clientBasesBlock =
+    /DAILY_TARGET_BASES[\s\S]{0,200}?Object\.freeze\(\[([\s\S]*?)\]/.exec(noteSrc);
+  const clientBases = clientBasesBlock
+    ? [...clientBasesBlock[1].matchAll(/'([a-z_]+)'/g)].map((m) => m[1]).sort()
+    : [];
+  ok(
+    'client clamp modes are legible to this gate',
+    clientBases.length === 2,
+    clientBases.join(',')
+  );
+  ok(
+    'client clamp modes match the database CHECK exactly',
+    sqlBases.length === 2 && sqlBases.join(',') === clientBases.join(','),
+    `sql [${sqlBases}] vs client [${clientBases}]`
   );
 
   // The client's mandated set must be exactly what the migration seeds. If the

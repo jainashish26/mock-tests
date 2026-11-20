@@ -428,8 +428,8 @@ END;
 $function$
 ;
 
-CREATE OR REPLACE FUNCTION public.admin_set_year_level_cap(p_year_level smallint, p_max_tests smallint, p_max_questions smallint, p_recommended_tests smallint, p_recommended_questions smallint)
- RETURNS TABLE(year_level smallint, max_tests_per_day smallint, max_questions_per_day smallint, recommended_tests_per_day smallint, recommended_questions_per_day smallint, updated_at timestamp with time zone)
+CREATE OR REPLACE FUNCTION public.admin_set_year_level_cap(p_year_level smallint, p_max_tests smallint, p_max_questions smallint, p_recommended_tests smallint, p_recommended_questions smallint, p_daily_target_basis text DEFAULT 'recommended'::text)
+ RETURNS TABLE(year_level smallint, max_tests_per_day smallint, max_questions_per_day smallint, recommended_tests_per_day smallint, recommended_questions_per_day smallint, daily_target_basis text, updated_at timestamp with time zone)
  LANGUAGE plpgsql
  SECURITY DEFINER
  SET search_path TO 'reporting', 'public', 'pg_catalog'
@@ -467,12 +467,20 @@ BEGIN
     RAISE EXCEPTION 'recommended question target % exceeds the ceiling % for Year %',
       p_recommended_questions, p_max_questions, p_year_level USING ERRCODE = '22023';
   END IF;
+  -- Spelled out rather than trusting the table CHECK, because the failure mode of
+  -- a typo here ('Recommend', 'recommended ') is a row that silently keeps the
+  -- previous policy while the operator believes they changed it.
+  IF p_daily_target_basis IS NULL OR p_daily_target_basis NOT IN ('recommended', 'ceiling') THEN
+    RAISE EXCEPTION 'daily_target_basis must be ''recommended'' or ''ceiling'' (got %)',
+      p_daily_target_basis USING ERRCODE = '22023';
+  END IF;
 
   UPDATE reporting.dim_year_level_cap c
      SET max_tests_per_day             = p_max_tests,
          max_questions_per_day         = p_max_questions,
          recommended_tests_per_day     = p_recommended_tests,
          recommended_questions_per_day = p_recommended_questions,
+         daily_target_basis            = p_daily_target_basis,
          updated_at                    = now()
    WHERE c.year_level = p_year_level;
 
@@ -482,7 +490,7 @@ BEGIN
 
   RETURN QUERY SELECT c.year_level, c.max_tests_per_day, c.max_questions_per_day,
                        c.recommended_tests_per_day, c.recommended_questions_per_day,
-                       c.updated_at
+                       c.daily_target_basis, c.updated_at
                   FROM reporting.dim_year_level_cap c
                  WHERE c.year_level = p_year_level;
 END;
@@ -490,13 +498,14 @@ $function$
 ;
 
 CREATE OR REPLACE FUNCTION public.admin_year_level_caps()
- RETURNS TABLE(year_level smallint, max_tests_per_day smallint, max_questions_per_day smallint, recommended_tests_per_day smallint, recommended_questions_per_day smallint, updated_at timestamp with time zone)
+ RETURNS TABLE(year_level smallint, max_tests_per_day smallint, max_questions_per_day smallint, recommended_tests_per_day smallint, recommended_questions_per_day smallint, daily_target_basis text, updated_at timestamp with time zone)
  LANGUAGE sql
  STABLE SECURITY DEFINER
  SET search_path TO 'reporting', 'public', 'pg_catalog'
 AS $function$
   SELECT c.year_level, c.max_tests_per_day, c.max_questions_per_day,
-         c.recommended_tests_per_day, c.recommended_questions_per_day, c.updated_at
+         c.recommended_tests_per_day, c.recommended_questions_per_day,
+         c.daily_target_basis, c.updated_at
   FROM reporting.dim_year_level_cap c
   WHERE public.has_role('ADMIN')
   ORDER BY c.year_level;

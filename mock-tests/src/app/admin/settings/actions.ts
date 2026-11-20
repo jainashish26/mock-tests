@@ -86,6 +86,12 @@ export async function updateYearLevelCap(
     max_questions: Number(input.max_questions),
     recommended_tests: Number(input.recommended_tests),
     recommended_questions: Number(input.recommended_questions),
+    // Passed through rather than defaulted. The obvious-looking
+    // `=== 'ceiling' ? 'ceiling' : 'recommended'` would quietly rewrite anything
+    // unexpected into the safe mode and then report a successful save, which is
+    // how a client bug becomes an operator's false belief about their own
+    // settings. The shared validator refuses it by name instead.
+    daily_target_basis: input.daily_target_basis,
   }
 
   const result = await saveYearLevelCap(draft)

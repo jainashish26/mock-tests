@@ -399,7 +399,9 @@ unvalidated rather than inherited silently from a retired document.
 > the answers live in `16-delivery-backlog.md` item 21's decision table, and one
 > place deciding is the only reason the two documents cannot disagree. As of
 > 2026-11-20: **Q-4** → 4-A (year caps as ceiling + advisory target, stored in the
-> DB), **Q-5** → 1-B (business days; the shipped `sla_basis='calendar'` is interim
+> DB, with a per-year-level `daily_target_basis` toggle deciding which one clamps a
+> child's daily target — defaulting to the advisory target; migration 107/108),
+> **Q-5** → 1-B (business days; the shipped `sla_basis='calendar'` is interim
 > and says so), **Q-6** → 3-A (Resend inbound, built dormant), **Q-9** → 5-B (on
 > the roadmap; design note outstanding), **Q-10** → 6-C (answered above),
 > **Q-11/Q-12/Q-13** → 7-A / closed-by-data / 2-A (§19.1). **Q-1, Q-2, Q-3, Q-7

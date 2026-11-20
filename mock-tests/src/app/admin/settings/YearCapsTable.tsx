@@ -4,6 +4,7 @@ import * as React from 'react'
 
 import { Button } from '@/components/ui/Button'
 import { Input, Label } from '@/components/ui/Input'
+import { Select } from '@/components/ui/Select'
 import { useToast } from '@/components/ui/Toast'
 
 /**
@@ -22,10 +23,13 @@ import { useToast } from '@/components/ui/Toast'
 import {
   CAP_BOUNDS,
   CAP_ENFORCEMENT_NOTE,
+  CLAMP_MODE_COPY,
+  DAILY_TARGET_BASES,
   QUESTION_MULTIPLIER_NOTE,
   describeCap,
   validateYearLevelCap,
   type CapValidationFailure,
+  type DailyTargetBasis,
   type YearLevelCap,
   type YearLevelCapDraft,
 } from '@/lib/reporting/year-caps'
@@ -72,6 +76,7 @@ function toDraft(cap: YearLevelCap): YearLevelCapDraft {
     max_questions: cap.max_questions_per_day,
     recommended_tests: cap.recommended_tests_per_day,
     recommended_questions: cap.recommended_questions_per_day,
+    daily_target_basis: cap.daily_target_basis,
   }
 }
 
@@ -99,6 +104,17 @@ export function YearCapsTable({ caps }: { caps: YearLevelCap[] }) {
     }))
     // Drop the row's errors the moment they edit it: a stale refusal beside a
     // field that has since changed is noise that teaches people to ignore it.
+    setFailures((prev) => (prev[year] ? { ...prev, [year]: [] } : prev))
+  }
+
+  /**
+   * Changing the clamp is a one-field write, unlike the numbers, so it is set
+   * without touching them. Both modes are always coherent — the clamp selects a
+   * column rather than a value — which is why no re-validation of the four
+   * numbers is needed here.
+   */
+  const setBasis = (year: number, basis: DailyTargetBasis): void => {
+    setDrafts((prev) => ({ ...prev, [year]: { ...prev[year], daily_target_basis: basis } }))
     setFailures((prev) => (prev[year] ? { ...prev, [year]: [] } : prev))
   }
 
@@ -151,10 +167,13 @@ export function YearCapsTable({ caps }: { caps: YearLevelCap[] }) {
                 Year
               </th>
               <th scope="col" className="py-2 pr-4 font-semibold" colSpan={2}>
-                Ceiling — the most the system will ever ask
+                Ceiling — the absolute bound, and what the overload alert measures against
               </th>
               <th scope="col" className="py-2 pr-4 font-semibold" colSpan={2}>
-                Recommended — guidance, not enforced
+                Recommended — what a normal day looks like
+              </th>
+              <th scope="col" className="py-2 pr-4 font-semibold">
+                Clamp
               </th>
               <th scope="col" className="py-2 font-semibold">
                 <span className="sr-only">Save</span>
@@ -173,6 +192,9 @@ export function YearCapsTable({ caps }: { caps: YearLevelCap[] }) {
                   {f.label}
                 </th>
               ))}
+              <th scope="col" className="border-l border-border py-1 pl-3 pr-4 font-medium">
+                mode
+              </th>
               <th scope="col" className="py-1">
                 <span className="sr-only">action</span>
               </th>
@@ -188,7 +210,8 @@ export function YearCapsTable({ caps }: { caps: YearLevelCap[] }) {
                 (draft.max_tests !== cap.max_tests_per_day ||
                   draft.max_questions !== cap.max_questions_per_day ||
                   draft.recommended_tests !== cap.recommended_tests_per_day ||
-                  draft.recommended_questions !== cap.recommended_questions_per_day)
+                  draft.recommended_questions !== cap.recommended_questions_per_day ||
+                  draft.daily_target_basis !== cap.daily_target_basis)
 
               return (
                 <tr key={year} className="border-b border-border/60 align-top">
@@ -235,6 +258,59 @@ export function YearCapsTable({ caps }: { caps: YearLevelCap[] }) {
                       </td>
                     )
                   })}
+                  {(() => {
+                    /**
+                     * The clamp selector.
+                     *
+                     * Rendered as a control on the row rather than inferred from
+                     * which column looks bolder, because this single choice decides
+                     * whether a child who has fallen behind is asked for 2 papers or
+                     * 10 — the exact question that the ceilings being seeded raised,
+                     * and one an operator should be able to answer per year level
+                     * without anyone editing SQL.
+                     *
+                     * The option labels are the mode descriptions rather than the
+                     * bare words 'recommended'/'ceiling': two monosyllables in a
+                     * dropdown would not tell anyone which limit ends up in front of
+                     * the child.
+                     */
+                    const basisId = `cap-${year}-basis`
+                    const basisError = rowFailures.find((f) => f.field === 'daily_target_basis')
+                    return (
+                      <td className="border-l border-border py-3 pl-3 pr-4">
+                        <Label htmlFor={basisId} className="sr-only">
+                          Year {year} — which limit clamps this year level&apos;s daily target
+                        </Label>
+                        <Select
+                          id={basisId}
+                          name={basisId}
+                          className="w-40"
+                          value={draft ? draft.daily_target_basis : 'recommended'}
+                          aria-describedby={`${basisId}-hint ${basisId}-error`}
+                          disabled={savingYear !== null}
+                          onChange={(event) =>
+                            setBasis(year, event.target.value as DailyTargetBasis)
+                          }
+                        >
+                          {DAILY_TARGET_BASES.map((basis) => (
+                            <option key={basis} value={basis}>
+                              {basis}
+                            </option>
+                          ))}
+                        </Select>
+                        <p id={`${basisId}-hint`} className="mt-1 text-xs text-muted-foreground">
+                          {CLAMP_MODE_COPY[draft ? draft.daily_target_basis : 'recommended']}
+                        </p>
+                        <p
+                          id={`${basisId}-error`}
+                          role={basisError ? 'alert' : undefined}
+                          className="text-xs text-destructive"
+                        >
+                          {basisError?.message ?? ''}
+                        </p>
+                      </td>
+                    )
+                  })()}
                   <td className="py-3">
                     <Button
                       type="submit"
