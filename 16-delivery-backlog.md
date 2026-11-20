@@ -1684,12 +1684,17 @@
 > `schema:validate` 84/84 and `:app` 41/41 · grants file grew 21,491→22,026 chars
 > as expected · nothing previously captured was lost.
 >
-> **Follow-up recorded, not done here:** the same platform default very likely
-> grants UPDATE/DELETE to `service_role` on other append-only-ish tables
-> (`refresh_log`, event capture). Each needs its own check that no legitimate
-> retention job prunes it before revoking, so they are not batched into a security
-> migration under a "while I'm here" banner — that is how nightly cleanup jobs
-> break.
+> **Follow-up recorded, not done here.** Measured rather than assumed, because the
+> first draft of this paragraph guessed at two table names that do not exist:
+> `service_role` **does** hold UPDATE and DELETE on `public.email_log` and on
+> `public.processed_webhook_events` (the webhook idempotency ledger - editable
+> means a delivery can be made to look never-received, which is the same class of
+> problem as an editable audit trail). It holds **nothing at all** on
+> `reporting.refresh_log`, so the platform default is not uniform across schemas
+> and the pattern cannot be assumed either way. Each of the two remaining tables
+> needs its own check that no legitimate retention job prunes or updates it before
+> revoking, so they are not batched into a security migration under a "while I'm
+> here" banner — that is how nightly cleanup jobs break.
 >
 > **Sequence complete.** Decisions **1–11** are all addressed, Phases **A, B, C and
 > D** have shipped, and the remaining work is operational rather than undecided:
