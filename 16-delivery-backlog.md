@@ -986,7 +986,7 @@
 
 > | **5** | Adaptive engine? | **B — yes, roadmap.** | A design note, not code this quarter. |
 > | **6** | VC2 skill dependency? | **C — retired.** Keep A-9's assumed mapping. | **Done (documentation).** `14-…md` §19 now answers Q-10 in place and §20.5 points the surviving mapping at Q-11/7-A. Migration `026` dropped VC2; only `dim_skill_area` exists. The "biggest schedule risk" framing is corrected rather than deleted. |
-> | **7** | Skill → exam mapping for A-9? | **A — invent it as config, labelled editorial and unvalidated.** | `skill_exam_mapping` table, 11 proposed rows, reviewed before ship. The label is the guarantee: a derived mapping presented as fact is how an unvalidated number becomes a parental decision. **Not yet built** — the proposed rows need your review first. |
+> | **7** | Skill → exam mapping for A-9? | **A — invent it as config, labelled editorial and unvalidated.** | **Built — migration 113.** 26 rows across the 10 unmapped skills, each with a required rationale, `is_validated=false` and `applied_to_readiness=false`. readiness.ts now *reads* the mapping on every report but scores from a row only once `applied_to_readiness` is set, so the proposal is live for review without being able to move a child's band. The label is the guarantee: a derived mapping presented as fact is how an unvalidated number becomes a parental decision. |
 > | **8** | Q-11 identifier collisions? | **B — renumber.** | **Done.** `Q-11` turned out to name **three** different questions, not two, and none was in the canonical register (which stops at Q-10): the skill→exam mapping stays **Q-11**, the `family_group` prerequisite becomes **Q-12** and is **closed by the data** (17/17 populated, verified live), and the converted-enquiry reference becomes **Q-13** (answered 2-A). Both stale cross-references corrected in place. |
 > | **9** | Checkout-abandon window? | **A — 60 minutes.** | **Done, and it was not a config change.** Migration 105: `checkout_abandon_minutes` is 60 and NOT NULL, **and `funnel_outcomes` now reads it** — it previously read nothing, and abandonment was `started AND NOT completed in window`, which counted a parent 90 seconds into a checkout as abandoned. Verified: live abandoned is **1 either way** (4 starts, 3 completed <60 min, 0 late), so no historical figure moves, while the synthetic cases now behave correctly. Recorded as a **deviation**: the register described this as "near-zero-risk config". |
 > | **10** | Paywall threshold? | **A — stays 2 in code.** | **Done — no change.** `PAYWALL_ATTEMPT_THRESHOLD = 2` in `src/lib/funnel/state.ts` stays; backlog §2 row **D-E closed** accordingly. A12 remains the right venue to test 1-vs-2 rather than editing a constant the gift sequence depends on. |
@@ -1518,9 +1518,46 @@
 > not yet know about the report. Support-theme text mining stays out of scope per
 > §5.8 (MVP uses the `enquiry_type` enum only).
 >
-> **Still to do in this sequence:** decisions **7** (`skill_exam_mapping`,
-> proposed rows awaiting your
-> review), **5** (adaptive-engine design note) and **3** (Resend inbound, dormant).
+> ### Decision 7, as built — migration 113 (2026-11-21)
+>
+> **The count in the register was wrong, and it was the register that was wrong.**
+> Q-11 and decision 7 both say "11 skill values"; `SKILL_EXAM_TYPES` holds **ten**.
+> Rather than pick a number, the coverage assertion is driven off the code's own
+> list, and 113's self-check names the ten skills explicitly — so a future
+> eleventh one fails loudly at the gate instead of quietly falling through to the
+> weakest weight, which is the exact bug that created Q-11 in the first place. The
+> seed is 26 rows: ten skills, several mapping to more than one exam.
+>
+> **Two flags, not one.** `is_validated` means the business accepts the assertion;
+> `applied_to_readiness` means it may score a child. They ship false and are set
+> independently, because collapsing "we think this is reasonable" into "this is
+> now a parental number" is the specific failure this whole decision was about.
+> Approving GEOMETRY need not wait on SPELLING.
+>
+> **Read but not yet honoured — and that is a deliberate third state.** 109's
+> finding was that a config column nothing queries is invisible. So `readiness.ts`
+> loads the mapping on every report and consults it; only the *effect* is gated.
+> The load fails closed to an empty mapping, so a database error reproduces
+> pre-113 weighting rather than producing a report where half the skill evidence
+> vanished — the mapping cannot make a score worse by being unavailable.
+>
+> **Applied rows score 0.8, not 1.** An inference is weaker evidence than a paper
+> built for that exam; at 1.0 an editorial row would outrank a purpose-built
+> Selective test in a Selective readiness score.
+>
+> **One gap worth recording rather than hiding.** `readiness_skill_exam_map()` is
+> called through `supabase.rpc(...)` in readiness.ts, not through
+> `callReportingFunction(...)`, so the static gate that requires every reporting
+> RPC to be explicitly allowlisted does **not** see it. Measured: the gate's regex
+> matches only `callReportingFunction|callReportingWrite`, and there are **14**
+> `.rpc(` call sites across `src` — 13 of them predating this work. Widening the
+> gate to catch them was not done here, because that change would make 13
+> pre-existing sites fail the suite in the same commit that adds one, and reviewing
+> them deserves its own pass. But the gate is narrower than its name implies, and
+> that is worth knowing before it is trusted as complete.
+>
+> **Still to do in this sequence:** decisions **5** (adaptive-engine design note)
+> and **3** (Resend inbound, dormant).
 > Decisions **1, 2, 4, 6, 8, 9, 10 and 11 are done**, and **Phase C (A13) has
 > shipped.** Remaining: Phase D (the pgtap assurance items listed for this backlog
 > entry, most of which landed alongside 109-112 rather than after them).

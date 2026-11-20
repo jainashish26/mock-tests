@@ -116,6 +116,77 @@ export const SKILL_EXAM_TYPES: readonly string[] = [
 ] as const
 
 /**
+ * The reviewed mapping from migration 113, as the engine consumes it.
+ *
+ * WHY THIS IS READ AT ALL, WHEN NOTHING IS APPLIED YET
+ *   A configuration table that nothing queries is the defect this project has now
+ *   found four times - `sla_basis`, `checkout_abandon_minutes`,
+ *   `resolution_sla_hours`, `min_enquiries_for_rate` all existed while changing
+ *   nothing. So the mapping is loaded and consulted on every report. What is
+ *   gated is not the reading but the *effect*: a row only moves a weight once a
+ *   human sets `applied_to_readiness`, which is the difference between a proposal
+ *   sitting in a table and a proposal quietly scoring children.
+ *
+ * Fail-closed by construction. `loadSkillExamMapping` returns an empty mapping on
+ * any error, so a database hiccup produces the same scores as before 113 existed
+ * rather than a report where half the skill evidence vanished.
+ */
+export interface SkillExamRow {
+  skill: string
+  readiness_exam: string
+  rationale: string
+  is_validated: boolean
+  applied_to_readiness: boolean
+}
+
+export interface SkillExamMapping {
+  /** skill -> exams, restricted to rows a human has applied. */
+  applied: Map<string, Set<ReadinessExam>>
+  /** Every row, so a surface can show what is proposed and what is live. */
+  rows: SkillExamRow[]
+}
+
+export const EMPTY_SKILL_MAPPING: SkillExamMapping = {
+  applied: new Map<string, Set<ReadinessExam>>(),
+  rows: [],
+}
+
+const READINESS_EXAM_SET = new Set<string>(READINESS_EXAMS)
+
+/**
+ * Fold raw rows into the lookup the engine uses.
+ *
+ * Separated from the fetch so the filtering rule - applied only, and unknown exam
+ * names dropped - is testable without a database. An unapplied row is ignored
+ * here rather than checked at every call site, because "forgot to check the gate"
+ * is the only way this could leak into a score by accident.
+ */
+export function skillMappingFromRows(rows: SkillExamRow[]): SkillExamMapping {
+  const applied = new Map<string, Set<ReadinessExam>>()
+  for (const r of rows) {
+    if (!r.applied_to_readiness) continue
+    if (!READINESS_EXAM_SET.has(r.readiness_exam)) continue
+    const exam = r.readiness_exam as ReadinessExam
+    const existing = applied.get(r.skill)
+    if (existing) existing.add(exam)
+    else applied.set(r.skill, new Set([exam]))
+  }
+  return { applied, rows }
+}
+
+export async function loadSkillExamMapping(
+  supabase: SupabaseClient
+): Promise<SkillExamMapping> {
+  try {
+    const { data, error } = await supabase.rpc('readiness_skill_exam_map')
+    if (error || !Array.isArray(data)) return EMPTY_SKILL_MAPPING
+    return skillMappingFromRows(data as SkillExamRow[])
+  } catch {
+    return EMPTY_SKILL_MAPPING
+  }
+}
+
+/**
  * Selective entry is only meaningful for children actually approaching it.
  *
  * The spec calls out Year 7 and Year 8 specifically. Showing a "Selective
@@ -304,10 +375,19 @@ function clampScore(value: unknown): number {
  * who has only sat the free diagnostic still get a real (if indicative) number
  * instead of an empty report - and an empty report converts nobody.
  */
-function attemptWeight(examType: string | null, exam: ReadinessExam): number {
+function attemptWeight(
+  examType: string | null,
+  exam: ReadinessExam,
+  skillMap?: SkillExamMapping
+): number {
   if (!examType) return 0.4
   if (EXAM_TYPE_TO_READINESS[examType] === exam) return 1
   if (examType === 'BENCHMARK') return 0.6
+  // An applied skill mapping. Deliberately 0.8 rather than 1: a GEOMETRY item
+  // being treated as evidence of Selective readiness is a reviewed *inference*,
+  // and inference is not the same strength of evidence as a paper built for that
+  // exam. Scoring it as 1 would let an editorial row outrank a purpose-built test.
+  if (skillMap && skillMap.applied.get(examType)?.has(exam)) return 0.8
   // A NAPLAN paper still says something about scholarship readiness, less about
   // Olympiad. Cross-exam transfer decays with how different the skill mix is.
   return exam === 'OLYMPIAD' ? 0.15 : 0.35
@@ -395,6 +475,11 @@ export async function buildReadinessReport(
   if (responsesError) return null
   const rows = (responses ?? []) as unknown as Row[]
 
+  // Read once per report, never per attempt. Fails closed to an empty mapping, so
+  // a database error here cannot change a child's score - it simply reproduces the
+  // pre-113 weighting.
+  const skillMapping = await loadSkillExamMapping(supabase)
+
   // ---- Topic rollup --------------------------------------------------------
   const topics = new Map<string, TopicAccumulator>()
   let totalAnswered = 0
@@ -473,7 +558,7 @@ export async function buildReadinessReport(
     overallBand: bandForScore(overallScore),
     attemptsUsed: completed.length,
     questionsAnswered: totalAnswered,
-    exams: buildExamReadiness(completed, rows, yearLevel, topGap),
+    exams: buildExamReadiness(completed, rows, yearLevel, topGap, skillMapping),
     gaps,
     strengths,
     // The step-6 paywall surface. `unlocked` flips once the parent has an
@@ -504,7 +589,8 @@ function buildExamReadiness(
   completed: Row[],
   rows: Row[],
   yearLevel: number,
-  topGap: string | null
+  topGap: string | null,
+  skillMapping: SkillExamMapping
 ): ExamReadiness[] {
   return READINESS_EXAMS.map((exam) => {
     const eligible = isEligibleForExam(exam, yearLevel)
@@ -520,7 +606,7 @@ function buildExamReadiness(
       // rather than silently becoming "[object Object]" and matching nothing.
       const examType =
         typeof nested?.exam_type === 'string' ? (nested.exam_type as string) : null
-      const weight = attemptWeight(examType, exam)
+      const weight = attemptWeight(examType, exam, skillMapping)
       if (weight <= 0) continue
 
       weightedSum += clampScore(attempt.score_out_of100) * weight

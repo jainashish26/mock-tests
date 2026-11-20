@@ -353,23 +353,20 @@ AS $function$
 DECLARE
   t text;
   v_rows text;
-  v_out text := E'-- Hand-maintained reporting configuration (052/064/071/086/109).\n'
+  v_out text := E'-- Hand-maintained reporting configuration (052/064/071/086/109/113).\n'
               || E'-- A schema dump does not carry these, and their absence silently\n'
               || E'-- disables features rather than raising an error.\n\n';
   v_tables text[];
 BEGIN
-  -- Convention-discovered calibration tables, unioned with the few config tables
-  -- that follow no discoverable convention. DISTINCT so a table matched by both
-  -- the name pattern and the singleton check is exported once.
   SELECT array_agg(DISTINCT z.t ORDER BY z.t) INTO v_tables
   FROM (
     -- Not derivable: no `*_thresholds` name and no singleton CHECK.
     SELECT unnest(ARRAY[
       'dim_year_level_cap', 'refresh_blackout',
       'refresh_blackout_exempt', 'product_tax_treatment',
-      -- Added by 109: a multi-row reference table, not a singleton, so neither
-      -- discovery rule can see it.
-      'dim_public_holiday_vic'
+      'dim_public_holiday_vic',
+      -- Added by 113: the reviewed skill -> exam proposal.
+      'skill_exam_mapping'
     ]) AS t
     UNION ALL
     SELECT c.relname

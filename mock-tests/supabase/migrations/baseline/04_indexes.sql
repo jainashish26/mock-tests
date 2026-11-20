@@ -83,3 +83,4 @@ CREATE UNIQUE INDEX refresh_blackout_pkey ON reporting.refresh_blackout USING bt
 CREATE UNIQUE INDEX refresh_blackout_exempt_pkey ON reporting.refresh_blackout_exempt USING btree (object_name);
 CREATE INDEX idx_refresh_log_object ON reporting.refresh_log USING btree (object_name, started_at DESC);
 CREATE UNIQUE INDEX refresh_log_pkey ON reporting.refresh_log USING btree (refresh_id);
+CREATE UNIQUE INDEX skill_exam_mapping_pkey ON reporting.skill_exam_mapping USING btree (skill, readiness_exam);

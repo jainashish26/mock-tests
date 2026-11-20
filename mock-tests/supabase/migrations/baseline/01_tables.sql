@@ -382,3 +382,17 @@ CREATE TABLE IF NOT EXISTS reporting.refresh_log (
   CONSTRAINT refresh_log_pkey PRIMARY KEY (refresh_id)
 );
 
+CREATE TABLE IF NOT EXISTS reporting.skill_exam_mapping (
+  skill text NOT NULL,
+  readiness_exam text NOT NULL,
+  rationale text NOT NULL,
+  is_validated boolean DEFAULT false NOT NULL,
+  applied_to_readiness boolean DEFAULT false NOT NULL,
+  source text DEFAULT 'editorial proposal'::text NOT NULL,
+  updated_at timestamp with time zone DEFAULT now() NOT NULL,
+  CONSTRAINT skill_exam_mapping_pkey PRIMARY KEY (skill, readiness_exam),
+  CONSTRAINT skill_exam_mapping_rationale_check CHECK ((length(btrim(rationale)) >= 20)),
+  CONSTRAINT skill_exam_mapping_readiness_exam_check CHECK ((readiness_exam = ANY (ARRAY['NAPLAN'::text, 'SCHOLARSHIP'::text, 'SELECTIVE'::text, 'OLYMPIAD'::text]))),
+  CONSTRAINT skill_exam_mapping_skill_check CHECK ((btrim(skill) <> ''::text))
+);
+

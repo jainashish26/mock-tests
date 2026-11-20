@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict SnTUpJhZB4XJCn6K5YgsgOWd6fwnTiomMw0iKthEn9qTXb4Jw9OfUlcHGcl5kwW
+\restrict 0AGeg0Lb2M58wWqASF2TaZcxea3GebKbH65e6anYaBEEDvtgIlXTGgO1WiEj50h
 
 -- Dumped from database version 17.6
 -- Dumped by pg_dump version 17.12
@@ -2315,6 +2315,20 @@ BEGIN
   SELECT c.full_name, c.email::text, c.phone, c.message_body
   FROM public.enquiry_contacts c WHERE c.enquiry_id = p_enquiry_id;
 END; $$;
+
+
+--
+-- Name: readiness_skill_exam_map(); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.readiness_skill_exam_map() RETURNS TABLE(skill text, readiness_exam text, rationale text, is_validated boolean, applied_to_readiness boolean)
+    LANGUAGE sql STABLE SECURITY DEFINER
+    SET search_path TO 'reporting', 'public', 'pg_catalog'
+    AS $$
+  SELECT m.skill, m.readiness_exam, m.rationale, m.is_validated, m.applied_to_readiness
+  FROM reporting.skill_exam_mapping m
+  ORDER BY m.skill, m.readiness_exam;
+$$;
 
 
 --
@@ -6667,6 +6681,15 @@ GRANT ALL ON FUNCTION public.read_enquiry_contact(p_enquiry_id uuid, p_task_reas
 
 
 --
+-- Name: FUNCTION readiness_skill_exam_map(); Type: ACL; Schema: public; Owner: -
+--
+
+REVOKE ALL ON FUNCTION public.readiness_skill_exam_map() FROM PUBLIC;
+GRANT ALL ON FUNCTION public.readiness_skill_exam_map() TO authenticated;
+GRANT ALL ON FUNCTION public.readiness_skill_exam_map() TO service_role;
+
+
+--
 -- Name: FUNCTION reporting_refresh_lag(p_object text); Type: ACL; Schema: public; Owner: -
 --
 
@@ -7208,5 +7231,5 @@ ALTER DEFAULT PRIVILEGES FOR ROLE supabase_admin IN SCHEMA public GRANT ALL ON T
 -- PostgreSQL database dump complete
 --
 
-\unrestrict SnTUpJhZB4XJCn6K5YgsgOWd6fwnTiomMw0iKthEn9qTXb4Jw9OfUlcHGcl5kwW
+\unrestrict 0AGeg0Lb2M58wWqASF2TaZcxea3GebKbH65e6anYaBEEDvtgIlXTGgO1WiEj50h
 

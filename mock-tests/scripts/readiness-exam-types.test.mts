@@ -36,6 +36,7 @@
  *
  * Dependency-free, matching scripts/consent.test.mts.
  */
+import { join } from 'node:path';
 import { SKILL_EXAM_TYPES } from '@/lib/report/readiness';
 
 let pass = 0;
@@ -136,6 +137,63 @@ const olympiad = Object.entries(EXPECTED_MAPPING)
 eq('all *_OLYMPIAD subjects map to the same readiness exam',
   new Set(olympiad).size, 1);
 eq('that exam is OLYMPIAD', olympiad[0], 'OLYMPIAD');
+
+// -------------------------------------------------------------------------
+// Decision 7-A: the skill -> exam mapping is data, and data must be reviewable
+//
+// Three properties, all asserted statically against the migration file rather
+// than against a running database, because the thing worth catching is a change
+// to the *proposal* landing without review. The live counts were verified at
+// apply time by 113's own self-test; these guard the file from here on.
+// -------------------------------------------------------------------------
+{
+  const { readFileSync } = await import('node:fs');
+  const { skillMappingFromRows } = await import('@/lib/report/readiness');
+
+  const sql = readFileSync(
+    join(process.cwd(), 'supabase', 'migrations', '113_skill_exam_mapping.sql'),
+    'utf8'
+  );
+
+  // A-9 lists ten unmapped skills and the register said eleven. The seed must
+  // cover exactly what the code declares, so the code is the source of truth and
+  // a future eleventh skill fails here rather than silently falling through.
+  const missing = SKILL_EXAM_TYPES.filter(
+    (s: string) => !new RegExp(`\\('${s}','`).test(sql)
+  );
+  eq('every unmapped skill has at least one mapping row', missing, []);
+
+  // The gate. If a seed row ever ships applied, an unreviewed editorial
+  // assertion starts scoring children on the deploy that added it.
+  const appliedTrue = /applied_to_readiness\s*,?\s*\)?\s*VALUES[\s\S]*?\btrue\b/.test(sql)
+    || /SET\s+applied_to_readiness\s*=\s*true/i.test(sql);
+  ok('the seed never sets applied_to_readiness', !appliedTrue);
+  const validatedTrue = /SET\s+is_validated\s*=\s*true/i.test(sql)
+    || /,\s*true\s*,\s*true\s*\)/.test(sql);
+  ok('the seed never marks a row validated', !validatedTrue);
+
+  // The fold: unapplied rows must be invisible to the engine, and an unknown
+  // exam name must be dropped rather than trusted, since the enum lives in two
+  // places (a DB CHECK and this TS union) and only one of them is checked here.
+  const none = skillMappingFromRows([
+    { skill: 'GEOMETRY', readiness_exam: 'OLYMPIAD', rationale: 'x', is_validated: false, applied_to_readiness: false },
+  ]);
+  eq('an unapplied row changes nothing', none.applied.size, 0);
+  eq('but the row is still returned for review', none.rows.length, 1);
+
+  const some = skillMappingFromRows([
+    { skill: 'GEOMETRY', readiness_exam: 'OLYMPIAD', rationale: 'x', is_validated: true, applied_to_readiness: true },
+    { skill: 'GEOMETRY', readiness_exam: 'NOT_AN_EXAM', rationale: 'x', is_validated: true, applied_to_readiness: true },
+    { skill: 'SPELLING', readiness_exam: 'NAPLAN', rationale: 'x', is_validated: true, applied_to_readiness: true },
+  ]);
+  eq('applied rows appear', some.applied.size, 2);
+  eq('an unknown exam name is dropped, not honoured',
+    some.applied.get('GEOMETRY')?.has('OLYMPIAD'), true);
+  eq('and it is the only thing dropped for that skill',
+    some.applied.get('GEOMETRY')?.size, 1);
+  eq('a wholly unapplied skill stays absent',
+    some.applied.has('WORD_PROBLEMS'), false);
+}
 
 console.log('\n' + (fail === 0
   ? 'ALL PASS (' + pass + ' assertions)'

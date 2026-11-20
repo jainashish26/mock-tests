@@ -1875,6 +1875,18 @@ BEGIN
 END; $function$
 ;
 
+CREATE OR REPLACE FUNCTION public.readiness_skill_exam_map()
+ RETURNS TABLE(skill text, readiness_exam text, rationale text, is_validated boolean, applied_to_readiness boolean)
+ LANGUAGE sql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'reporting', 'public', 'pg_catalog'
+AS $function$
+  SELECT m.skill, m.readiness_exam, m.rationale, m.is_validated, m.applied_to_readiness
+  FROM reporting.skill_exam_mapping m
+  ORDER BY m.skill, m.readiness_exam;
+$function$
+;
+
 CREATE OR REPLACE FUNCTION public.reporting_refresh_lag(p_object text)
  RETURNS TABLE(object_name text, last_refreshed_at timestamp with time zone, lag_minutes bigint)
  LANGUAGE sql
