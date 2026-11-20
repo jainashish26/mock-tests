@@ -182,6 +182,7 @@ CREATE TABLE IF NOT EXISTS reporting.enquiry_thresholds (
   min_enquiries_for_rate integer DEFAULT 20 NOT NULL,
   updated_at timestamp with time zone DEFAULT now() NOT NULL,
   first_response_sla_business_days integer DEFAULT 1 NOT NULL,
+  inbound_email_enabled boolean DEFAULT false NOT NULL,
   CONSTRAINT enquiry_thresholds_business_days_positive CHECK ((first_response_sla_business_days > 0)),
   CONSTRAINT enquiry_thresholds_conversion_attribution_days_check CHECK (((conversion_attribution_days >= 1) AND (conversion_attribution_days <= 365))),
   CONSTRAINT enquiry_thresholds_first_response_sla_minutes_check CHECK ((first_response_sla_minutes > 0)),

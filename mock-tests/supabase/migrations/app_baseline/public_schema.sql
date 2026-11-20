@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict 0AGeg0Lb2M58wWqASF2TaZcxea3GebKbH65e6anYaBEEDvtgIlXTGgO1WiEj50h
+\restrict tzpRI5ZdzyrCl2N6TLksXUprHrsMclSgM4KgRNO1Zqcz0VeiVemX7j6qEpQv3wY
 
 -- Dumped from database version 17.6
 -- Dumped by pg_dump version 17.12
@@ -2332,6 +2332,57 @@ $$;
 
 
 --
+-- Name: record_inbound_email(text, text, text, text, timestamp with time zone, jsonb); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.record_inbound_email(p_provider_message_id text, p_from_address text, p_to_address text, p_subject text DEFAULT NULL::text, p_received_at timestamp with time zone DEFAULT now(), p_payload jsonb DEFAULT '{}'::jsonb) RETURNS TABLE(id uuid, created boolean, accepted boolean, reason text)
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO 'public', 'reporting', 'pg_catalog'
+    AS $$
+DECLARE
+  v_row public.inbound_email_messages%ROWTYPE;
+BEGIN
+  -- Service-role only by grant, but checked again here: this will be called from
+  -- a route handler, and a route that ever forwards a user JWT must not be able
+  -- to inject rows into the capture table.
+  IF auth.role() <> 'service_role' THEN
+    RAISE EXCEPTION 'inbound email may only be recorded by the service role'
+      USING ERRCODE = '42501';
+  END IF;
+
+  IF p_provider_message_id IS NULL OR btrim(p_provider_message_id) = '' THEN
+    RAISE EXCEPTION 'a provider message id is required' USING ERRCODE = '22023';
+  END IF;
+
+  IF NOT (SELECT t.inbound_email_enabled FROM reporting.enquiry_thresholds t WHERE t.id = 1) THEN
+    RETURN QUERY SELECT NULL::uuid, false, false, 'disabled'::text;
+    RETURN;
+  END IF;
+
+  INSERT INTO public.inbound_email_messages
+    (provider_message_id, from_address, to_address, subject, received_at, payload)
+  VALUES
+    (btrim(p_provider_message_id), lower(btrim(p_from_address)), lower(btrim(p_to_address)),
+     nullif(btrim(coalesce(p_subject,'')), ''), p_received_at, coalesce(p_payload, '{}'::jsonb))
+  ON CONFLICT (provider_message_id) DO NOTHING
+  RETURNING * INTO v_row;
+
+  IF v_row.id IS NULL THEN
+    -- A retry, not an error: accepted so the provider stops redelivering,
+    -- created=false so the log cannot claim a new message arrived.
+    SELECT m.id INTO v_row.id
+    FROM public.inbound_email_messages m
+    WHERE m.provider_message_id = btrim(p_provider_message_id);
+    RETURN QUERY SELECT v_row.id, false, true, 'duplicate'::text;
+    RETURN;
+  END IF;
+
+  RETURN QUERY SELECT v_row.id, true, true, 'stored'::text;
+END;
+$$;
+
+
+--
 -- Name: reporting_refresh_lag(text); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -3359,6 +3410,40 @@ COMMENT ON TABLE public.funnel_events IS 'Append-only funnel event store. SELECT
 
 
 --
+-- Name: inbound_email_messages; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.inbound_email_messages (
+    id uuid DEFAULT gen_random_uuid() NOT NULL,
+    provider_message_id text NOT NULL,
+    from_address text NOT NULL,
+    to_address text NOT NULL,
+    subject text,
+    received_at timestamp with time zone DEFAULT now() NOT NULL,
+    payload jsonb NOT NULL,
+    disposition text DEFAULT 'pending'::text NOT NULL,
+    enquiry_id uuid,
+    note text,
+    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    updated_at timestamp with time zone DEFAULT now() NOT NULL,
+    CONSTRAINT inbound_email_converted_has_enquiry CHECK (((disposition <> 'converted'::text) OR (enquiry_id IS NOT NULL))),
+    CONSTRAINT inbound_email_messages_disposition_check CHECK ((disposition = ANY (ARRAY['pending'::text, 'converted'::text, 'rejected'::text, 'ignored'::text]))),
+    CONSTRAINT inbound_email_messages_provider_message_id_check CHECK ((btrim(provider_message_id) <> ''::text)),
+    CONSTRAINT inbound_email_payload_bounded CHECK ((octet_length((payload)::text) <= 262144)),
+    CONSTRAINT inbound_email_pending_has_no_enquiry CHECK (((disposition <> 'pending'::text) OR (enquiry_id IS NULL)))
+);
+
+ALTER TABLE ONLY public.inbound_email_messages FORCE ROW LEVEL SECURITY;
+
+
+--
+-- Name: TABLE inbound_email_messages; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON TABLE public.inbound_email_messages IS 'Inbound support email captured but NOT yet converted to enquiries (decision 3-A, shipped dark). PII-bearing. RLS enabled and forced with no policy: reachable only via record_inbound_email as service_role. Nothing reads disposition yet; conversion awaits a verified provider contract.';
+
+
+--
 -- Name: my_access; Type: VIEW; Schema: public; Owner: -
 --
 
@@ -3993,6 +4078,22 @@ ALTER TABLE ONLY public.funnel_events
 
 ALTER TABLE ONLY public.funnel_state
     ADD CONSTRAINT funnel_state_pkey PRIMARY KEY (user_id);
+
+
+--
+-- Name: inbound_email_messages inbound_email_messages_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.inbound_email_messages
+    ADD CONSTRAINT inbound_email_messages_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: inbound_email_messages inbound_email_messages_provider_message_id_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.inbound_email_messages
+    ADD CONSTRAINT inbound_email_messages_provider_message_id_key UNIQUE (provider_message_id);
 
 
 --
@@ -4714,6 +4815,13 @@ CREATE INDEX idx_tutor_links_tutor ON public.tutor_student_links USING btree (tu
 
 
 --
+-- Name: ix_inbound_email_disposition; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX ix_inbound_email_disposition ON public.inbound_email_messages USING btree (disposition, received_at);
+
+
+--
 -- Name: writing_practice_sessions_status_created_idx; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -4930,6 +5038,14 @@ ALTER TABLE ONLY public.funnel_events
 
 ALTER TABLE ONLY public.funnel_state
     ADD CONSTRAINT funnel_state_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE;
+
+
+--
+-- Name: inbound_email_messages inbound_email_messages_enquiry_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.inbound_email_messages
+    ADD CONSTRAINT inbound_email_messages_enquiry_id_fkey FOREIGN KEY (enquiry_id) REFERENCES public.enquiries(id) ON DELETE SET NULL;
 
 
 --
@@ -6050,6 +6166,12 @@ ALTER TABLE public.funnel_events ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.funnel_state ENABLE ROW LEVEL SECURITY;
 
 --
+-- Name: inbound_email_messages; Type: ROW SECURITY; Schema: public; Owner: -
+--
+
+ALTER TABLE public.inbound_email_messages ENABLE ROW LEVEL SECURITY;
+
+--
 -- Name: notifications; Type: ROW SECURITY; Schema: public; Owner: -
 --
 
@@ -6690,6 +6812,14 @@ GRANT ALL ON FUNCTION public.readiness_skill_exam_map() TO service_role;
 
 
 --
+-- Name: FUNCTION record_inbound_email(p_provider_message_id text, p_from_address text, p_to_address text, p_subject text, p_received_at timestamp with time zone, p_payload jsonb); Type: ACL; Schema: public; Owner: -
+--
+
+REVOKE ALL ON FUNCTION public.record_inbound_email(p_provider_message_id text, p_from_address text, p_to_address text, p_subject text, p_received_at timestamp with time zone, p_payload jsonb) FROM PUBLIC;
+GRANT ALL ON FUNCTION public.record_inbound_email(p_provider_message_id text, p_from_address text, p_to_address text, p_subject text, p_received_at timestamp with time zone, p_payload jsonb) TO service_role;
+
+
+--
 -- Name: FUNCTION reporting_refresh_lag(p_object text); Type: ACL; Schema: public; Owner: -
 --
 
@@ -6942,6 +7072,13 @@ GRANT ALL ON TABLE public.funnel_conversion TO service_role;
 GRANT INSERT,REFERENCES,DELETE,TRIGGER,TRUNCATE,MAINTAIN,UPDATE ON TABLE public.funnel_events TO anon;
 GRANT INSERT,REFERENCES,DELETE,TRIGGER,TRUNCATE,MAINTAIN,UPDATE ON TABLE public.funnel_events TO authenticated;
 GRANT ALL ON TABLE public.funnel_events TO service_role;
+
+
+--
+-- Name: TABLE inbound_email_messages; Type: ACL; Schema: public; Owner: -
+--
+
+GRANT ALL ON TABLE public.inbound_email_messages TO service_role;
 
 
 --
@@ -7231,5 +7368,5 @@ ALTER DEFAULT PRIVILEGES FOR ROLE supabase_admin IN SCHEMA public GRANT ALL ON T
 -- PostgreSQL database dump complete
 --
 
-\unrestrict 0AGeg0Lb2M58wWqASF2TaZcxea3GebKbH65e6anYaBEEDvtgIlXTGgO1WiEj50h
+\unrestrict tzpRI5ZdzyrCl2N6TLksXUprHrsMclSgM4KgRNO1Zqcz0VeiVemX7j6qEpQv3wY
 

@@ -12,3 +12,4 @@ REVOKE SELECT ON TABLE public.experiment_assignments FROM authenticated, anon;
 REVOKE SELECT ON TABLE public.experiment_exposures FROM authenticated, anon;
 REVOKE SELECT ON TABLE public.experiments FROM authenticated, anon;
 REVOKE SELECT ON TABLE public.funnel_events FROM authenticated, anon;
+REVOKE SELECT ON TABLE public.inbound_email_messages FROM authenticated, anon;

@@ -980,7 +980,7 @@
 > |---|---|---|---|
 > | **1** | Is the SLA clock calendar or business days? | **B — business days.** Sub-decision **1a**: due at the *close of the next business day*, which needs only a holiday calendar, not an opening-hours window. | New `reporting.dim_public_holiday_vic`; `sla_basis='business_day'`; `business_day_deadline()`; `sla_state` gains an `unknown_calendar` state so a missing holiday year refuses to compute rather than guessing. **D2 below is now load-bearing.** **Done — migration 109**, and it was not the migration the row describes: see *Decision 1, as built* below. |
 > | **2** | May a converted enquiry point at a non-`purchases` order? | **A — yes.** Relax `enquiries_converted_has_order` and add `converted_ref`. | **Done — migration 110.** Subscription payments create no `purchases` row, so the old CHECK made "converted" unreachable for the majority of revenue. `converted_ref` + `converted_ref_kind` (purchase/subscription/invoice/other), the CHECK widened but still refusing a timestamp with nothing behind it, and `convert`/`unconvert` actions so a conversion is *recorded* by an admin rather than inferred from a matching account. |
-> | **3** | Inbound email channel? | **A — Resend inbound, built dormant.** | Needs a real domain to enable (see 11), so it ships dark: schema + route scaffold, no public promise of an address that does not exist. |
+> | **3** | Inbound email channel? | **A — Resend inbound, built dormant.** | **Built — migration 114 + `POST /api/webhooks/resend-inbound`.** Ships dark behind two independent switches: `RESEND_INBOUND_SIGNING_SECRET` unset → 503, and `enquiry_thresholds.inbound_email_enabled` false (the default) → nothing stored. **It captures and does not convert**: with no domain there has never been a real payload, so writing a parser now would guess at a wire format and auto-create enquiry rows from the guess. The first genuine message is what should shape the converter. |
 > | **4** | Per-year test/question ceilings? | **A — 10/15/15/15/20/20/25/25 tests for Years 2–9, questions = tests × 25**, as a **ceiling**, with a separate **recommended target** of at least 2 tests/day. Stored in DB, not env vars. | **Done — migrations 107 + 108.** `dim_year_level_cap` seeded for all 8 levels with NOT NULL ceilings and NOT NULL recommended targets (2 for Years 2–5, 3 for 6–9; questions = × 25), plus `daily_target_basis` — a per-year-level toggle deciding which of the two clamps a child's daily target, **defaulting to the recommended target**, and editable at `/admin/settings`. `plan_overload_flag` measures against the ceiling in both modes, so choosing the protective clamp does not soften the alert. |
 
 
@@ -1556,8 +1556,80 @@
 > them deserves its own pass. But the gate is narrower than its name implies, and
 > that is worth knowing before it is trusted as complete.
 >
-> **Still to do in this sequence:** decisions **5** (adaptive-engine design note)
-> and **3** (Resend inbound, dormant).
+> ### Decision 5, as designed — adaptive pathway note (5-B, 2026-11-21, no schema)
+>
+> Deferred by choice: this is the design note, not the build. One finding in it is
+> not deferrable, so it is recorded here where the next person will meet it.
+>
+> **The product already promises what the engine does not do.** `src/app/platform`
+> renders "Adaptive Testing — Questions that adjust difficulty in real-time", and
+> the same page lists "adaptive difficulty" among what the platform provides; the
+> charter calls the adaptive engine a Sprint 3 objective, and the readiness
+> report's locked surface names `adaptivePlan` as one of the things an unlock buys.
+> Nothing in the repository selects an item on a child's performance. What looks
+> like the feature is `responses.difficulty_served`, which is written from
+> `test_questions.base_difficulty` at save time — an authored per-test attribute
+> (`record.difficulty || 2`, so it defaults to 2 when the uploader leaves it
+> blank) and the *same value for every child who sits that test*. Recording which
+> difficulty an item was written at is not adaptivity; it is a label. That gap
+> between a static field and a dynamic claim is the same class of problem this
+> backlog has spent five decisions chasing: a column, a field or a sentence that
+> asserts something the system does not do. **Recommendation: soften the copy or
+> build the selector.** Both are cheaper than a parent discovering it the third
+> way, and a paywall that lists `adaptivePlan` among the unlocks makes that
+> discovery likely rather than hypothetical.
+>
+> **What the engine must actually decide.** One question: given a child mid-section,
+> which item next? The charter bounds it — objective items only (MCQ and short
+> answer), adaptivity within a section, never across sections. That boundary is
+> load-bearing for reporting: cross-section adaptivity would change what a section
+> score *means* over time, and every longitudinal figure in A1-A8 would be comparing
+> children who sat different tests under the same label.
+>
+> **Inputs that exist today.** `difficulty_served` per response, item statistics
+> (`mv_item_statistics`: observed accuracy and discrimination per item), topic and
+> skill tags, the child's running section accuracy, and `dim_item`'s year-level and
+> exam-type columns. Enough for a *within-section* step: pick the next item one
+> difficulty band up after two consecutive correct, one band down after two
+> consecutive incorrect, clamped to the items actually available for that topic.
+>
+> **Inputs that do not, and are the reason this is a note.**
+> *No calibration of the difficulty scale.* `difficulty_served` is an author's
+> estimate; nothing has checked it against observed accuracy at scale, and the
+> known `is_correct` contradiction (A-12, 52% of MCQ responses disagreeing with
+> `correct_answer`) means the observed half is not yet trustworthy. An engine that
+> steps down on failure is tuning a thermostat against a thermometer that has not
+> been checked.
+> *No exposure accounting.* If the same 12 items for a topic are all that qualify,
+> adaptivity will cycle them, and repeated exposure inflates accuracy in a way that
+> reads as learning. This is the same measurement-validity problem Q-7 raised for
+> mastery, unsolved there.
+> *No stability requirement decided.* A child who sees difficulty bounce per item
+> experiences the test as unfair; a path that only ever rises feels punitive. Both
+> are product decisions about feel, not parameters to fit.
+>
+> **What must be true before it is built, in order.** (1) Resolve A-12 so accuracy
+> is trustworthy. (2) Publish an item-calibration view — observed accuracy and
+> discrimination per item with an exposure floor, the same `min_attempts` discipline
+> A1 already applies — and check whether the authored `difficulty_served` buckets
+> actually rank. If they do not, the fix is to the scale, not the engine. (3) Decide
+> exposure policy with the item bank's size in hand. (4) Only then the selector,
+> behind a flag, with the *first* adaptation being observable in a report: if the
+> engine changed a child's path, A1/A8 must be able to show it, otherwise a score
+> drop after a rule change will be read as the child getting worse.
+>
+> **Deliberate non-goals.** No new schema in this note (5-B), no IRT or Elo model
+> (both need exposure and calibration data that does not exist), and no use of
+> writing marks as a signal — criterion-marked prose is not comparable item-to-item
+> in the way a step function assumes.
+>
+> **Still to do in this sequence:** nothing in the decision set. **1, 2, 3, 4, 5,
+> 6, 7, 8, 9, 10 and 11 are all addressed**, Phases A/B/C are shipped, and the
+> assurance work landed alongside the migrations that needed it rather than after.
+> What remains is operational rather than undecided: flipping
+> `sla_is_confirmed` once a human has read the first real numbers, reviewing the
+> 113 mapping rows, and the `RESEND_INBOUND_SIGNING_SECRET` plus
+> `inbound_email_enabled` pair that turns capture on once the mail domain exists.
 > Decisions **1, 2, 4, 6, 8, 9, 10 and 11 are done**, and **Phase C (A13) has
 > shipped.** Remaining: Phase D (the pgtap assurance items listed for this backlog
 > entry, most of which landed alongside 109-112 rather than after them).

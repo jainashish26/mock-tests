@@ -9,7 +9,7 @@
 
 | File | Contents | Captured |
 |---|---|---|
-| `public_schema.sql` | `pg_dump --schema-only --no-owner --schema=public`, **ACLs included** (GRANT/REVOKE statements are part of the dump) | 39 tables · 67 functions · 109 RLS policies · 0 triggers |
+| `public_schema.sql` | `pg_dump --schema-only --no-owner --schema=public`, **ACLs included** (GRANT/REVOKE statements are part of the dump) | 40 tables · 68 functions · 109 RLS policies · 0 triggers |
 | `auth_triggers.sql` | The two CUSTOM triggers on `auth.users` (`on_auth_user_created` → role provisioning, `on_auth_user_created_profile` → profile creation). Their functions live in `public` and are inside `public_schema.sql`. | 2 triggers |
 
 Not captured here, deliberately:

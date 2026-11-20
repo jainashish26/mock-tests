@@ -1887,6 +1887,55 @@ AS $function$
 $function$
 ;
 
+CREATE OR REPLACE FUNCTION public.record_inbound_email(p_provider_message_id text, p_from_address text, p_to_address text, p_subject text DEFAULT NULL::text, p_received_at timestamp with time zone DEFAULT now(), p_payload jsonb DEFAULT '{}'::jsonb)
+ RETURNS TABLE(id uuid, created boolean, accepted boolean, reason text)
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO 'public', 'reporting', 'pg_catalog'
+AS $function$
+DECLARE
+  v_row public.inbound_email_messages%ROWTYPE;
+BEGIN
+  -- Service-role only by grant, but checked again here: this will be called from
+  -- a route handler, and a route that ever forwards a user JWT must not be able
+  -- to inject rows into the capture table.
+  IF auth.role() <> 'service_role' THEN
+    RAISE EXCEPTION 'inbound email may only be recorded by the service role'
+      USING ERRCODE = '42501';
+  END IF;
+
+  IF p_provider_message_id IS NULL OR btrim(p_provider_message_id) = '' THEN
+    RAISE EXCEPTION 'a provider message id is required' USING ERRCODE = '22023';
+  END IF;
+
+  IF NOT (SELECT t.inbound_email_enabled FROM reporting.enquiry_thresholds t WHERE t.id = 1) THEN
+    RETURN QUERY SELECT NULL::uuid, false, false, 'disabled'::text;
+    RETURN;
+  END IF;
+
+  INSERT INTO public.inbound_email_messages
+    (provider_message_id, from_address, to_address, subject, received_at, payload)
+  VALUES
+    (btrim(p_provider_message_id), lower(btrim(p_from_address)), lower(btrim(p_to_address)),
+     nullif(btrim(coalesce(p_subject,'')), ''), p_received_at, coalesce(p_payload, '{}'::jsonb))
+  ON CONFLICT (provider_message_id) DO NOTHING
+  RETURNING * INTO v_row;
+
+  IF v_row.id IS NULL THEN
+    -- A retry, not an error: accepted so the provider stops redelivering,
+    -- created=false so the log cannot claim a new message arrived.
+    SELECT m.id INTO v_row.id
+    FROM public.inbound_email_messages m
+    WHERE m.provider_message_id = btrim(p_provider_message_id);
+    RETURN QUERY SELECT v_row.id, false, true, 'duplicate'::text;
+    RETURN;
+  END IF;
+
+  RETURN QUERY SELECT v_row.id, true, true, 'stored'::text;
+END;
+$function$
+;
+
 CREATE OR REPLACE FUNCTION public.reporting_refresh_lag(p_object text)
  RETURNS TABLE(object_name text, last_refreshed_at timestamp with time zone, lag_minutes bigint)
  LANGUAGE sql

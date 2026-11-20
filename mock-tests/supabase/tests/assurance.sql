@@ -38,11 +38,12 @@ CREATE EXTENSION IF NOT EXISTS pgtap WITH SCHEMA extensions;
 -- pgtap's has_role(name). Verified before relying on it. See migration 050.
 SET LOCAL search_path = public, extensions;
 
--- 129 = the 100 this suite planned before migration 109, plus 12 assertions for
+-- 136 = the 100 this suite planned before migration 109, plus 12 assertions for
 -- the business-day SLA clock (AC-41..AC-52), 11 for conversion references
--- (AC-53..AC-63, migration 110) and 6 for the A13 warehouse
--- (AC-64..AC-69, migrations 111/112).
-SELECT extensions.plan(129);
+-- (AC-53..AC-63, migration 110), 6 for the A13 warehouse (AC-64..AC-69,
+-- migrations 111/112) and 7 for inbound capture shipped dark
+-- (AC-70..AC-74, migration 114).
+SELECT extensions.plan(136);
 
 CREATE TEMP TABLE _ids AS
 SELECT
@@ -1464,6 +1465,74 @@ SELECT extensions.is(
     WHERE e.ingest_source_ref = 'a13-silent'),
   0,
   'AC-69 the unrecorded population is identifiable separately from slow');
+
+-- ============================================================================
+-- AC-70 .. AC-74  Inbound email capture, shipped dark (migration 114)
+--
+-- Decision 3-A's entire claim is "built, and off". Two things can be wrong about
+-- that claim and both look like success in a review: the table is readable when
+-- it should not be, or the switch defaults to on. These assert both, plus the
+-- retry property that stops a provider's redelivery becoming duplicate support
+-- history.
+-- ============================================================================
+
+SELECT extensions.is(
+  (SELECT inbound_email_enabled FROM reporting.enquiry_thresholds WHERE id = 1),
+  false,
+  'AC-70 inbound capture is OFF by default - the whole content of decision 3-A');
+
+-- Force-enabled and no policies means every app role sees nothing, including the
+-- owner of the mailbox. Checked as posture rather than by attempting a read,
+-- because the read would be permitted to this superuser session and prove little.
+SELECT extensions.is(
+  (SELECT c.relrowsecurity::text || '/' || c.relforcerowsecurity::text || '/' ||
+          (SELECT count(*)::int FROM pg_policies p
+            WHERE p.schemaname = 'public' AND p.tablename = 'inbound_email_messages')
+     FROM pg_class c JOIN pg_namespace n ON n.oid = c.relnamespace
+    WHERE n.nspname = 'public' AND c.relname = 'inbound_email_messages'),
+  'true/true/0',
+  'AC-71 captured mail is unreadable to every app role (forced RLS, zero policies)');
+
+-- A provider retry must not become a second enquiry-shaped row.
+SELECT set_config('request.jwt.claims', '{"role":"service_role"}', true);
+UPDATE reporting.enquiry_thresholds SET inbound_email_enabled = true WHERE id = 1;
+
+SELECT extensions.is(
+  (SELECT reason FROM public.record_inbound_email('ac72','p@e.invalid','s@e.invalid')),
+  'stored'::text,
+  'AC-72a the first delivery is stored');
+
+SELECT extensions.is(
+  (SELECT count(*)::int FROM public.inbound_email_messages
+    WHERE provider_message_id = 'ac72'),
+  1,
+  'AC-72b and only once');
+
+SELECT extensions.is(
+  (SELECT reason FROM public.record_inbound_email(
+     'ac72','p@e.invalid','s@e.invalid','Again', now(), '{}'::jsonb)),
+  'duplicate'::text,
+  'AC-72c a redelivery is reported as a duplicate, not a new message');
+
+-- The CHECK that keeps 'converted' honest: 110's lesson applied to the next
+-- table rather than relearned by it.
+SELECT extensions.is(
+  (SELECT count(*)::int FROM pg_constraint
+    WHERE conrelid = 'public.inbound_email_messages'::regclass
+      AND conname = 'inbound_email_converted_has_enquiry'),
+  1,
+  'AC-73 a row cannot claim conversion without pointing at an enquiry');
+
+-- Back to dark, and assert it: this suite rolls back, but the intent is that
+-- nothing else run after it finds capture enabled.
+UPDATE reporting.enquiry_thresholds SET inbound_email_enabled = false WHERE id = 1;
+DELETE FROM public.inbound_email_messages;
+SELECT set_config('request.jwt.claims', '{}', true);
+
+SELECT extensions.is(
+  (SELECT inbound_email_enabled FROM reporting.enquiry_thresholds WHERE id = 1),
+  false,
+  'AC-74 the probe left capture disabled again');
 
 SELECT * FROM extensions.finish();
 

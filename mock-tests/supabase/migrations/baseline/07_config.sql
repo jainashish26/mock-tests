@@ -123,7 +123,7 @@ INSERT INTO reporting.dim_year_level_cap SELECT * FROM jsonb_populate_record(NUL
 INSERT INTO reporting.dim_year_level_cap SELECT * FROM jsonb_populate_record(NULL::reporting.dim_year_level_cap, '{"updated_at": "2026-11-19T21:41:32.061234+00:00", "year_level": 9, "max_tests_per_day": 25, "daily_target_basis": "recommended", "max_questions_per_day": 625, "recommended_tests_per_day": 3, "recommended_questions_per_day": 75}') ON CONFLICT DO NOTHING;
 
 -- enquiry_thresholds
-INSERT INTO reporting.enquiry_thresholds SELECT * FROM jsonb_populate_record(NULL::reporting.enquiry_thresholds, '{"id": 1, "sla_basis": "business", "updated_at": "2026-11-19T10:59:11.70409+00:00", "sla_is_confirmed": false, "resolution_sla_hours": 48, "min_enquiries_for_rate": 20, "first_response_sla_minutes": 1440, "conversion_attribution_days": 30, "first_response_sla_business_days": 1}') ON CONFLICT DO NOTHING;
+INSERT INTO reporting.enquiry_thresholds SELECT * FROM jsonb_populate_record(NULL::reporting.enquiry_thresholds, '{"id": 1, "sla_basis": "business", "updated_at": "2026-11-19T10:59:11.70409+00:00", "sla_is_confirmed": false, "resolution_sla_hours": 48, "inbound_email_enabled": false, "min_enquiries_for_rate": 20, "first_response_sla_minutes": 1440, "conversion_attribution_days": 30, "first_response_sla_business_days": 1}') ON CONFLICT DO NOTHING;
 
 -- experiment_thresholds
 INSERT INTO reporting.experiment_thresholds SELECT * FROM jsonb_populate_record(NULL::reporting.experiment_thresholds, '{"id": 1, "alpha": 0.05, "updated_at": "2026-11-16T06:24:07.718637+00:00", "min_sample_size": 200, "min_meaningful_lift_pp": 2.0}') ON CONFLICT DO NOTHING;
