@@ -38,10 +38,11 @@ CREATE EXTENSION IF NOT EXISTS pgtap WITH SCHEMA extensions;
 -- pgtap's has_role(name). Verified before relying on it. See migration 050.
 SET LOCAL search_path = public, extensions;
 
--- 123 = the 100 this suite planned before migration 109, plus 12 assertions for
--- the business-day SLA clock (AC-41..AC-52) and 11 for conversion references
--- (AC-53..AC-63, migration 110).
-SELECT extensions.plan(123);
+-- 129 = the 100 this suite planned before migration 109, plus 12 assertions for
+-- the business-day SLA clock (AC-41..AC-52), 11 for conversion references
+-- (AC-53..AC-63, migration 110) and 6 for the A13 warehouse
+-- (AC-64..AC-69, migrations 111/112).
+SELECT extensions.plan(129);
 
 CREATE TEMP TABLE _ids AS
 SELECT
@@ -1372,6 +1373,97 @@ SELECT extensions.is(
   (SELECT COUNT(*)::bigint FROM public.enquiries WHERE converted_ref_kind IS NOT NULL),
   0::bigint,
   'AC-63 withdraw leaves no orphan reference behind to be counted again');
+
+-- ============================================================================
+-- AC-64 .. AC-69  A13 warehouse (migrations 111/112)
+--
+-- The apply-time self-tests in those migrations already prove the verdict
+-- partitions and that the summary and series agree. What is asserted here is the
+-- set of properties a one-shot check cannot see: behaviour under update and
+-- delete, the timezone the day is keyed on, and whether an unrecorded response
+-- can leak into the median.
+-- ============================================================================
+
+-- REFRESH CONCURRENTLY is what the hourly cron job calls, and it requires a
+-- unique index on the grain. Without one the scheduled job fails at 10 past the
+-- hour and the panel silently serves yesterday - the failure DA-15 exists to
+-- catch, but not the failure to be able to refresh at all.
+SELECT extensions.ok(
+  EXISTS (
+    SELECT 1 FROM pg_index i
+    JOIN pg_class c ON c.oid = i.indrelid
+    JOIN pg_namespace n ON n.oid = c.relnamespace
+    WHERE n.nspname = 'reporting' AND c.relname = 'mv_enquiry_daily' AND i.indisunique),
+  'AC-64 mv_enquiry_daily has the unique index REFRESH CONCURRENTLY requires');
+
+-- Melbourne, not UTC. Received 14:00Z on 20 Nov is 01:00 on 21 Nov in AEDT
+-- (UTC+11), so a UTC key would file this enquiry on the wrong day. Every hour
+-- from 13:00Z onwards belongs to the following Melbourne day, which is most of a
+-- normal working day in Victoria - a silently-shifted daily series, not a
+-- rounding error.
+INSERT INTO public.enquiries (channel, enquiry_type, status, received_at, ingest_source_ref)
+VALUES ('web_form','other','new', timestamptz '2026-11-20 14:00:00+00', 'a13-tz');
+
+-- The loader has to run before the assertion: fact_enquiry is a rebuild, not a
+-- trigger-fed mirror, so a row inserted since the last load simply is not there
+-- yet. (Omitting this made the first draft of AC-65 fail on an absent row and
+-- report it as a timezone bug.)
+SELECT reporting.load_enquiry_facts(true);
+
+SELECT extensions.is(
+  (SELECT f.date_key FROM reporting.fact_enquiry f
+     JOIN public.enquiries e ON e.id = f.enquiry_id
+    WHERE e.ingest_source_ref = 'a13-tz'),
+  20261121,
+  'AC-65 the fact day is keyed on Melbourne, not UTC');
+
+-- The loader is a rebuild, so a triage action taken days later must be reflected.
+-- An incremental-on-received_at design would have frozen this row at 'new'.
+UPDATE public.enquiries
+   SET status = 'resolved', outcome = 'answered', resolved_at = now(),
+       first_response_at = now() - interval '1 hour'
+ WHERE ingest_source_ref = 'a13-tz';
+SELECT reporting.load_enquiry_facts(true);
+
+SELECT extensions.is(
+  (SELECT f.status FROM reporting.fact_enquiry f
+     JOIN public.enquiries e ON e.id = f.enquiry_id
+    WHERE e.ingest_source_ref = 'a13-tz'),
+  'resolved'::text,
+  'AC-66 a later status change is reflected, not frozen at first load');
+
+-- Privacy: an enquiry deleted upstream must not persist in the warehouse.
+DELETE FROM public.enquiries WHERE ingest_source_ref = 'a13-tz';
+
+SELECT extensions.is(
+  (SELECT COUNT(*)::bigint FROM reporting.fact_enquiry f
+     LEFT JOIN public.enquiries e ON e.id = f.enquiry_id
+    WHERE e.id IS NULL),
+  0::bigint,
+  'AC-67 no warehouse row outlives its enquiry');
+
+-- The honesty property the whole report rests on: an enquiry closed with no
+-- recorded response must contribute nothing to the median, because treating the
+-- admin's click as the answer time would report invented speed as real speed.
+INSERT INTO public.enquiries
+  (channel, enquiry_type, status, outcome, received_at, resolved_at, ingest_source_ref)
+VALUES ('web_form','billing','resolved','answered',
+        now() - interval '20 days', now(), 'a13-silent');
+SELECT reporting.load_enquiry_facts(true);
+
+SELECT extensions.is(
+  (SELECT first_response_minutes FROM reporting.fact_enquiry f
+     JOIN public.enquiries e ON e.id = f.enquiry_id
+    WHERE e.ingest_source_ref = 'a13-silent'),
+  NULL::integer,
+  'AC-68 an unrecorded response stays NULL rather than becoming a fast answer');
+
+SELECT extensions.is(
+  (SELECT response_recorded::int FROM reporting.fact_enquiry f
+     JOIN public.enquiries e ON e.id = f.enquiry_id
+    WHERE e.ingest_source_ref = 'a13-silent'),
+  0,
+  'AC-69 the unrecorded population is identifiable separately from slow');
 
 SELECT * FROM extensions.finish();
 

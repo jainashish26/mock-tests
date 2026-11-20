@@ -9,6 +9,7 @@ import { CoverageGapsPanel } from '@/features/report/components/CoveragePanels'
 import { ItemStatisticsPanel } from '@/features/report/components/ItemStatisticsPanel'
 import { FunnelPanel } from '@/features/report/components/FunnelPanel'
 import { ExperimentsPanel } from '@/features/report/components/ExperimentsPanel'
+import { EnquiryPanel } from '@/features/report/components/EnquiryPanel'
 import { defaultDateRange } from '@/lib/reporting/format'
 import { requireRole } from '@/lib/rbac/require-role'
 import { createAdminClient } from '@/lib/supabase/admin'
@@ -161,6 +162,18 @@ export default async function AdminReportsPage() {
       */}
       <div className="mt-4">
         <ExperimentsPanel />
+      </div>
+
+      {/*
+        A13 sits below A12 because the three admin reports answer one chain:
+        A11 says where the funnel leaks, A12 says whether a change fixed it, and
+        A13 says whether the human response behind the promise is actually
+        happening. Read apart, a healthy conversion number can hide an enquiry
+        queue nobody is answering - which is precisely the combination that
+        produces refunds and complaints three months later.
+      */}
+      <div className="mt-4">
+        <EnquiryPanel />
       </div>
 
       <section

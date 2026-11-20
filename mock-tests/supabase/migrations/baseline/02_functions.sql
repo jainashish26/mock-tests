@@ -961,6 +961,81 @@ BEGIN
 END; $function$
 ;
 
+CREATE OR REPLACE FUNCTION reporting.load_enquiry_facts(p_full boolean DEFAULT true)
+ RETURNS integer
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO 'reporting', 'public'
+AS $function$
+DECLARE
+  v_rows integer;
+BEGIN
+  -- The argument exists for symmetry with the other loaders and is honoured as a
+  -- no-op on purpose: there is no cheaper correct plan than the full pass, so an
+  -- incremental call must not silently do something different. See the header.
+  IF NOT p_full THEN
+    RAISE NOTICE 'load_enquiry_facts: no incremental path exists; rebuilding in full, which is the only correct option for a mutable record';
+  END IF;
+
+  -- Truncate rather than delete-and-upsert: the table is rebuilt from
+  -- public.enquiries in the same statement, so any row not in the source is gone
+  -- by construction rather than by a NOT IN that has to be remembered. It also
+  -- means the etl_loaded_at stamp is uniform across the table, so a reader can
+  -- tell how old the whole snapshot is instead of reasoning about 20,000
+  -- individual load times.
+  TRUNCATE TABLE reporting.fact_enquiry;
+
+  INSERT INTO reporting.fact_enquiry (
+    enquiry_id, date_key, received_at, channel, enquiry_type, status, outcome,
+    parent_user_id, utm_source, first_response_at, resolved_at, converted_at,
+    converted_ref_kind, first_response_minutes, resolution_minutes,
+    response_recorded, converted, due_at, sla_measurable, etl_loaded_at)
+  SELECT
+    e.id,
+    to_char(e.received_at AT TIME ZONE 'Australia/Melbourne', 'YYYYMMDD')::int,
+    e.received_at, e.channel, e.enquiry_type, e.status, e.outcome,
+    e.parent_user_id, e.utm_source,
+    e.first_response_at, e.resolved_at, e.converted_at, e.converted_ref_kind,
+    -- EXTRACT(EPOCH ...) is SECONDS; the /60 is what makes the column name true.
+    -- This exact unit error corrupted three *_minutes columns in Phase B and was
+    -- caught only by hand-computing a fixture, so it is written once here.
+    CASE WHEN e.first_response_at IS NULL THEN NULL
+         ELSE (EXTRACT(EPOCH FROM (e.first_response_at - e.received_at)) / 60)::int END,
+    -- Same rule as the queue: a resolution with no recorded response has an
+    -- unknown middle, and inventing one from the two ends would fill the single
+    -- most interesting gap in the report with the admin's click time.
+    CASE WHEN e.resolved_at IS NULL OR e.first_response_at IS NULL THEN NULL
+         ELSE (EXTRACT(EPOCH FROM (e.resolved_at - e.received_at)) / 60)::int END,
+    (e.first_response_at IS NOT NULL),
+    (e.converted_order_id IS NOT NULL OR e.converted_ref IS NOT NULL),
+    d.due_at,
+    (d.due_at IS NOT NULL),
+    now()
+  FROM public.enquiries e
+  CROSS JOIN reporting.enquiry_thresholds th
+  CROSS JOIN LATERAL (
+    SELECT CASE
+             WHEN th.sla_basis = 'business'
+               THEN reporting.business_day_deadline(e.received_at)
+             ELSE e.received_at + make_interval(mins => th.first_response_sla_minutes)
+           END AS due_at
+  ) d
+  WHERE th.id = 1;
+
+  GET DIAGNOSTICS v_rows = ROW_COUNT;
+
+  -- Recorded so DA-15 (refresh lag) can see this object the same way it sees the
+  -- materialised views; a fact table nobody refreshes is a silent lie too.
+  INSERT INTO reporting.etl_watermark (object_name, high_water)
+  VALUES ('fact_enquiry', now())
+  ON CONFLICT (object_name) DO UPDATE
+    SET high_water = EXCLUDED.high_water, updated_at = now();
+
+  RETURN v_rows;
+END;
+$function$
+;
+
 CREATE OR REPLACE FUNCTION reporting.load_event_facts(p_full boolean DEFAULT false)
  RETURNS integer
  LANGUAGE plpgsql

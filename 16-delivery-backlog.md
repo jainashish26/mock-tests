@@ -1447,11 +1447,83 @@
 > re-firing the event, unconvert leaves no orphan kind, and a bare
 > `converted_at` is still rejected by the original constraint.
 >
+> ### Phase C — A13 Enquiry & Support Tracker shipped (2026-11-21, migrations 111 + 112)
+>
+> The reason item 21 exists. 104 gave enquiries a middle and an end, 109 gave the
+> first question a clock and 110 gave the second one a column subscriptions can
+> use; 111/112 turn those into the report the brief specifies — `day × channel ×
+> enquiry type × status`, refreshed hourly — exposed at
+> `GET /api/reporting/admin/enquiries` (JSON + `?format=csv`) and rendered as
+> `EnquiryPanel` under A12 on `/admin/reports`.
+>
+> **One deviation from the plan I set out with, and it matters.** The original
+> intent was a watermark-and-upsert loader like every other fact table here. That
+> would have been wrong: an enquiry is a mutable record, not an event, so keying
+> the watermark on `received_at` would load each row once and freeze it at
+> `status='new'` forever — the report would have claimed a 100% breach rate across
+> all history while the admin queue showed those same enquiries resolved. AC-66
+> pins the property that would have broken. 111 rebuilds the table instead, which
+> is cheap on the smallest table in the schema and correct without depending on an
+> `updated_at` trigger staying switched on.
+>
+> **Three more config columns were decorative, and are now not.** 104 created
+> `resolution_sla_hours`, `min_enquiries_for_rate` and
+> `conversion_attribution_days`; 109 caught `sla_basis` being read by nothing; 112
+> found these three in the same state. All three now change what the report says.
+> Three of the four "settings" on this one config row were inert — which is the
+> real finding, and it now has a rule attached: *a column in a config singleton is
+> only allowed if something reads it.*
+>
+> **Two bugs caught by writing the check before trusting the code.**
+> `CREATE OR REPLACE VIEW` on a new name produces a **plain** view, not a
+> materialised one: the panel would have looked perfect, and `safe_refresh()`
+> would have failed on the first hourly cron with *"is not a materialized view"*.
+> Separately, the summary windowed on `received_at >= now() - 90 days` while the
+> series windowed on a calendar day — the two disagreed by up to a day on the same
+> data, and since one feeds the headline and the other the chart, the disagreement
+> would have been invisible. Both windows now key on `date_key`, and 112's
+> apply-time check asserts the series total equals the summary total so it cannot
+> come apart silently again.
+>
+> **What the report refuses to say.** The breach rate's denominator is
+> `met + breached`, never all enquiries — dividing by the total would let a gap in
+> the holiday calendar *improve* the score. Unmeasurable and unrecorded rows are
+> counted and named on screen. Below `min_enquiries_for_rate` the panel states the
+> count and says the sample is too small to be a trend, rather than printing
+> "50.0%" from four enquiries. An empty window returns NULL and renders
+> "Nothing has been measured in this window yet", never 0%, because 0% reads as
+> "we never miss a deadline". Conversion is never inferred from a matching
+> account, and the panel says so where a zero would otherwise be read as "enquiries
+> do not convert".
+>
+> **Verified (Phase C):** both migrations applied from file, psql exit 0, each
+> with its own apply-time self-test · **129/129 pgtap** (`plan(123)`→`129`;
+> AC-64…AC-69 covering the `CONCURRENTLY` unique index, Melbourne-vs-UTC day
+> keying, rebuild-reflects-updates, cascade on delete, and unrecorded responses
+> staying out of the median) · reporting suite **233** (was 219, +14 asserting the
+> wording of every uncertain state) · all 8 Node suites green · static-gate RPC
+> allowlist extended deliberately for the two new wrappers · `schema:validate`
+> 84/84, `schema:validate:app` 41/41 after re-capturing **both** baselines (the
+> app one is a separate `pg_dump -f`; `schema:rebaseline` does not refresh it, and
+> the counts in its README are now corrected to 66 functions / 15 jobs) ·
+> typecheck 0 · build 0 with `/api/reporting/admin/enquiries` present in the route
+> table · lint ratchet unchanged 60/16 · a seven-row fixture probe reproducing all
+> six SLA verdicts plus a conversion, with **13 hand-computed expectations**
+> asserted in-database (notably 50.0% from 4 measured of 7 total, and
+> `rate_is_reportable=false`).
+>
+> **Not yet done for A13.** The panel has not been exercised in a browser as a
+> signed-in admin — the endpoint and server component compile and the data layer
+> is verified, but the existing `enquiry-e2e.mjs` probe covers the queue and does
+> not yet know about the report. Support-theme text mining stays out of scope per
+> §5.8 (MVP uses the `enquiry_type` enum only).
+>
 > **Still to do in this sequence:** decisions **7** (`skill_exam_mapping`,
 > proposed rows awaiting your
 > review), **5** (adaptive-engine design note) and **3** (Resend inbound, dormant).
-> Decisions **1, 2, 4, 6, 8, 9, 10 and 11 are done.** Then Phase C (A13) and Phase D
-> (pgtap assurance).
+> Decisions **1, 2, 4, 6, 8, 9, 10 and 11 are done**, and **Phase C (A13) has
+> shipped.** Remaining: Phase D (the pgtap assurance items listed for this backlog
+> entry, most of which landed alongside 109-112 rather than after them).
 >
 > **Migration numbering note, recorded because the plan changed under it four
 > times:** the original sequence reserved 105 for the business-day calendar.

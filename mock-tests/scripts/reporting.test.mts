@@ -1235,6 +1235,84 @@ console.log('\n=== Year-level practice caps (decision 4-A) ===');
 }
 
 // ---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
+// A13 wording: how an uncertain number is allowed to be spoken
+//
+// The SQL was verified against hand-computed fixtures at apply time; what is
+// asserted here is the other half - a correct NULL being rendered as a confident
+// zero. Every case below is a shape this report genuinely takes in its first weeks.
+// ---------------------------------------------------------------------------
+{
+  const okD = (label: string, cond: boolean, detail = '') =>
+    eq(cond ? label : (detail ? label + ' -> ' + detail : label), cond, true);
+  const {
+    breachRateSentence,
+    enquiryCaveat,
+    measurableCount,
+  } = await import('@/lib/reporting/enquiry-format');
+
+  const base = {
+    window_days: 90, enquiries: 0, sla_met: 0, sla_breached: 0, sla_at_risk: 0,
+    sla_within: 0, sla_unmeasurable: 0, response_unrecorded: 0, response_recorded: 0,
+    sla_breach_rate: null, rate_is_reportable: false, min_enquiries_for_rate: 20,
+    resolution_over_sla: 0, resolution_sla_hours: 48, sla_minutes: null,
+    first_response_hours_median: null, resolution_hours_median: null,
+    converted: 0, conversion_rate: null, conversion_window_days: 30,
+    sla_basis: 'business', sla_business_days: 1, sla_is_confirmed: false,
+  };
+
+  // The empty-queue case, which is every support queue's first month.
+  const empty = breachRateSentence({ ...base });
+  okD('an unmeasured window never renders a percentage', !empty.includes('%'), empty);
+  eq('an unmeasured window says so plainly',
+    empty, 'Nothing has been measured in this window yet.');
+
+  // Unmeasurable and unrecorded are named rather than absorbed into "nothing yet":
+  // they are evidence of a specific gap, and a reader must be able to see which.
+  const gap = breachRateSentence({
+    ...base, enquiries: 3, sla_unmeasurable: 2, response_unrecorded: 1,
+  });
+  okD('a calendar gap is named as the reason there is no verdict',
+    gap.includes('no computable deadline'), gap);
+  okD('the unrecorded count is stated, not hidden behind a dash',
+    gap.includes('1 was closed without a recorded response'), gap);
+
+  // Below the floor the number exists but must not be presented as a trend.
+  const small = breachRateSentence({
+    ...base, enquiries: 7, sla_met: 2, sla_breached: 2, sla_breach_rate: 50.0,
+  });
+  eq('the measurable denominator is met + breached only',
+    measurableCount({ ...base, sla_met: 2, sla_breached: 2 }), 4);
+  okD('a sub-floor sample still states the figure', small.includes('50% of 4'), small);
+  okD('and says it is below the reporting floor',
+    small.includes('below the 20 needed to report a rate'), small);
+  okD('and tells the reader how to use it',
+    small.includes('Read it as a count, not a trend'), small);
+
+  // Above the floor: the promise quoted back must be the one actually in force.
+  const real = breachRateSentence({
+    ...base, enquiries: 40, sla_met: 30, sla_breached: 10, sla_breach_rate: 25.0,
+    rate_is_reportable: true,
+  });
+  eq('a reportable rate is stated with its denominator',
+    real, '25% of 40 measured enquiries breached the 1-business-day promise.');
+  okD('the business basis is described in days, never hours',
+    !real.includes('hour'), real);
+
+  // Singular/plural, because "1 enquiries" on a board report is the kind of detail
+  // that makes readers doubt every other figure on the page.
+  okD('one measured enquiry reads as one',
+    breachRateSentence({ ...base, sla_met: 1, sla_breach_rate: 0, rate_is_reportable: true })
+      .includes('1 measured enquiry breached'), '');
+
+  // The sign-off caveat.
+  okD('an unconfirmed promise carries a caveat', enquiryCaveat({ ...base }) !== null);
+  eq('a confirmed promise stops hedging',
+    enquiryCaveat({ ...base, sla_is_confirmed: true }), null);
+  okD('the caveat no longer claims the basis is undecided',
+    !enquiryCaveat({ ...base })!.toLowerCase().includes('open question'));
+}
+
 console.log(`\n${'-'.repeat(58)}`);
 
 

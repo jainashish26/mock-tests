@@ -202,6 +202,16 @@ console.log('\n=== reporting RPC surface is explicit ===');
     // act the gate exists to require.
     'admin_year_level_caps',
     'admin_set_year_level_cap',
+    // A13 (migrations 111/112). Both read reporting.fact_enquiry / mv_enquiry_daily
+    // through SECURITY DEFINER wrappers. Neither table is readable by
+    // `authenticated`: reporting.* is RLS-enabled and FORCED with no policy, so a
+    // direct .from() would return zero rows silently rather than erroring. The
+    // summary computes verdicts from the fact table and the series from the
+    // materialised view, which is exactly the pairing the 112 apply-time check
+    // holds against each other - listing them here is the acknowledgement that
+    // two code paths now answer "how many" and must not be allowed to drift.
+    'admin_enquiry_summary',
+    'admin_enquiry_series',
   ]);
 
   const called = new Set<string>();

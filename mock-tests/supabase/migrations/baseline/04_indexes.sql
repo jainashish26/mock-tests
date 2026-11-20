@@ -32,6 +32,9 @@ CREATE UNIQUE INDEX dim_year_level_cap_pkey ON reporting.dim_year_level_cap USIN
 CREATE UNIQUE INDEX enquiry_thresholds_pkey ON reporting.enquiry_thresholds USING btree (id);
 CREATE UNIQUE INDEX etl_watermark_pkey ON reporting.etl_watermark USING btree (object_name);
 CREATE UNIQUE INDEX experiment_thresholds_pkey ON reporting.experiment_thresholds USING btree (id);
+CREATE UNIQUE INDEX fact_enquiry_pkey ON reporting.fact_enquiry USING btree (enquiry_id);
+CREATE INDEX ix_fact_enquiry_date_key ON reporting.fact_enquiry USING btree (date_key);
+CREATE INDEX ix_fact_enquiry_received ON reporting.fact_enquiry USING btree (received_at);
 CREATE UNIQUE INDEX fact_event_event_id_key ON reporting.fact_event USING btree (event_id);
 CREATE UNIQUE INDEX fact_event_pkey ON reporting.fact_event USING btree (event_key);
 CREATE INDEX idx_fev_date ON reporting.fact_event USING btree (date_key, hour_of_day);
@@ -56,6 +59,8 @@ CREATE INDEX idx_mv_ah_student ON reporting.mv_attempt_history USING btree (stud
 CREATE UNIQUE INDEX ux_mv_attempt_history ON reporting.mv_attempt_history USING btree (attempt_id);
 CREATE UNIQUE INDEX idx_mv_data_quality_key ON reporting.mv_data_quality USING btree (check_name, object_name);
 CREATE INDEX idx_mv_data_quality_status ON reporting.mv_data_quality USING btree (status);
+CREATE INDEX ix_mv_enquiry_daily_date ON reporting.mv_enquiry_daily USING btree (date_key);
+CREATE UNIQUE INDEX ux_mv_enquiry_daily ON reporting.mv_enquiry_daily USING btree (date_key, channel, enquiry_type, status);
 CREATE INDEX idx_mv_fs_stage ON reporting.mv_funnel_stage USING btree (stage_rank, date_key);
 CREATE UNIQUE INDEX ux_mv_funnel_stage ON reporting.mv_funnel_stage USING btree (date_key, stage, channel, campaign, device_class);
 CREATE INDEX ix_mv_item_statistics_defective ON reporting.mv_item_statistics USING btree (is_defective) WHERE is_defective;

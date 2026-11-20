@@ -13,6 +13,10 @@ SELECT cron.unschedule('rpt-data-quality') WHERE EXISTS (SELECT 1 FROM cron.job 
 SELECT cron.schedule('rpt-data-quality', '55 17 * * *', 'SELECT reporting.safe_refresh(''reporting.mv_data_quality'', true),
            reporting.snapshot_data_quality()');
 
+SELECT cron.unschedule('rpt-enquiry-daily') WHERE EXISTS (SELECT 1 FROM cron.job WHERE jobname = 'rpt-enquiry-daily');
+SELECT cron.schedule('rpt-enquiry-daily', '10 * * * *', 'SELECT reporting.load_enquiry_facts(true),
+           reporting.safe_refresh(''reporting.mv_enquiry_daily'', true)');
+
 SELECT cron.unschedule('rpt-experiment-results') WHERE EXISTS (SELECT 1 FROM cron.job WHERE jobname = 'rpt-experiment-results');
 SELECT cron.schedule('rpt-experiment-results', '0 2 * * *', 'SELECT reporting.load_event_facts(false)');
 

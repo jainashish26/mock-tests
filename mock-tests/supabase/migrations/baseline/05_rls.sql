@@ -18,6 +18,7 @@ ALTER TABLE reporting.dim_year_level_cap ENABLE ROW LEVEL SECURITY; ALTER TABLE 
 ALTER TABLE reporting.enquiry_thresholds ENABLE ROW LEVEL SECURITY; ALTER TABLE reporting.enquiry_thresholds FORCE ROW LEVEL SECURITY;
 ALTER TABLE reporting.etl_watermark ENABLE ROW LEVEL SECURITY; ALTER TABLE reporting.etl_watermark FORCE ROW LEVEL SECURITY;
 ALTER TABLE reporting.experiment_thresholds ENABLE ROW LEVEL SECURITY; ALTER TABLE reporting.experiment_thresholds FORCE ROW LEVEL SECURITY;
+ALTER TABLE reporting.fact_enquiry ENABLE ROW LEVEL SECURITY; ALTER TABLE reporting.fact_enquiry FORCE ROW LEVEL SECURITY;
 ALTER TABLE reporting.fact_event ENABLE ROW LEVEL SECURITY; ALTER TABLE reporting.fact_event FORCE ROW LEVEL SECURITY;
 ALTER TABLE reporting.fact_item_response ENABLE ROW LEVEL SECURITY; ALTER TABLE reporting.fact_item_response FORCE ROW LEVEL SECURITY;
 ALTER TABLE reporting.fact_test_attempt ENABLE ROW LEVEL SECURITY; ALTER TABLE reporting.fact_test_attempt FORCE ROW LEVEL SECURITY;

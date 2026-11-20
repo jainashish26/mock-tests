@@ -178,6 +178,153 @@ END;
 $function$
 ;
 
+CREATE OR REPLACE FUNCTION public.admin_enquiry_series(p_days integer DEFAULT 90, p_channel text DEFAULT NULL::text, p_type text DEFAULT NULL::text)
+ RETURNS TABLE(date_key integer, the_date date, enquiries bigint, sla_met bigint, sla_breached bigint, response_unrecorded bigint, sla_unmeasurable bigint, first_response_hours_median numeric, converted bigint)
+ LANGUAGE sql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'reporting', 'public', 'pg_catalog'
+AS $function$
+  SELECT
+    m.date_key,
+    m.the_date,
+    SUM(m.enquiries)::bigint,
+    SUM(m.sla_met)::bigint,
+    SUM(m.sla_breached)::bigint,
+    SUM(m.response_unrecorded)::bigint,
+    SUM(m.sla_unmeasurable)::bigint,
+    -- A median of medians is not a median. The daily view already holds the
+    -- per-grain median; re-deriving the true figure would need the underlying
+    -- rows, so this column is explicitly the midpoint of the day's group medians
+    -- and the panel labels it as such rather than presenting it as the day's
+    -- median response time.
+    ROUND(AVG(m.first_response_hours_median)::numeric, 2),
+    SUM(m.converted)::bigint
+  FROM reporting.mv_enquiry_daily m
+  -- Windowed on date_key, not the_date: the_date is nullable now that the view
+  -- left-joins dim_date, and `NULL >= anything` is NULL, which would drop exactly
+  -- the out-of-range rows the LEFT JOIN was added to keep. Same expression as the
+  -- summary uses, so the two windows cannot drift.
+  WHERE m.date_key >= to_char(
+            ((now() AT TIME ZONE 'Australia/Melbourne')::date - p_days), 'YYYYMMDD')::int
+    AND (p_channel IS NULL OR m.channel = p_channel)
+    AND (p_type    IS NULL OR m.enquiry_type = p_type)
+    AND public.has_role('ADMIN')
+  GROUP BY m.date_key, m.the_date
+  ORDER BY m.date_key
+$function$
+;
+
+CREATE OR REPLACE FUNCTION public.admin_enquiry_summary(p_days integer DEFAULT 90, p_channel text DEFAULT NULL::text, p_type text DEFAULT NULL::text)
+ RETURNS TABLE(window_days integer, enquiries bigint, sla_met bigint, sla_breached bigint, sla_at_risk bigint, sla_within bigint, sla_unmeasurable bigint, response_unrecorded bigint, response_recorded bigint, sla_breach_rate numeric, rate_is_reportable boolean, min_enquiries_for_rate integer, resolution_over_sla bigint, resolution_sla_hours integer, sla_minutes integer, first_response_hours_median numeric, resolution_hours_median numeric, converted bigint, conversion_rate numeric, conversion_window_days integer, sla_basis text, sla_business_days integer, sla_is_confirmed boolean, refreshed_at timestamp with time zone)
+ LANGUAGE plpgsql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'reporting', 'public', 'pg_catalog'
+AS $function$
+DECLARE
+  th reporting.enquiry_thresholds%ROWTYPE;
+BEGIN
+  IF NOT public.has_role('ADMIN') THEN
+    RETURN;
+  END IF;
+
+  IF p_days IS NULL OR p_days < 1 OR p_days > 3650 THEN
+    RAISE EXCEPTION 'p_days must be between 1 and 3650' USING ERRCODE = '22023';
+  END IF;
+  IF p_channel IS NOT NULL AND p_channel NOT IN ('web_form','email','chat') THEN
+    RAISE EXCEPTION 'unknown enquiry channel: %', p_channel USING ERRCODE = '22023';
+  END IF;
+  IF p_type IS NOT NULL AND p_type NOT IN (
+       'billing','technical','privacy','accessibility','product_question',
+       'refund','complaint','other') THEN
+    RAISE EXCEPTION 'unknown enquiry type: %', p_type USING ERRCODE = '22023';
+  END IF;
+
+  SELECT * INTO th FROM reporting.enquiry_thresholds WHERE id = 1;
+
+  RETURN QUERY
+  WITH scoped AS (
+    SELECT
+      f.*,
+      CASE
+        WHEN NOT f.sla_measurable THEN 'unmeasurable'
+        WHEN f.status IN ('resolved','closed') AND NOT f.response_recorded
+          THEN 'unrecorded'
+        WHEN f.response_recorded
+          THEN CASE WHEN f.first_response_at <= f.due_at THEN 'met' ELSE 'breached' END
+        WHEN now() > f.due_at THEN 'breached'
+        WHEN now() > f.received_at + ((f.due_at - f.received_at) * 0.75) THEN 'at_risk'
+        ELSE 'within'
+      END AS sla_state,
+      -- A resolution that never happened has no duration to breach with, so this
+      -- stays NULL rather than "still open, therefore late".
+      CASE WHEN f.resolution_minutes IS NULL THEN NULL
+           ELSE f.resolution_minutes > th.resolution_sla_hours * 60 END AS resolution_over
+    FROM reporting.fact_enquiry f
+    -- Windowed on the receipt DAY, not a rolling timestamp, so that this function
+    -- and admin_enquiry_series describe exactly the same period. Keying one on
+    -- now() - 90 days and the other on date - 90 would silently disagree by up to a
+    -- day, and the two figures are read side by side on one screen.
+    WHERE f.date_key >= to_char(
+              ((now() AT TIME ZONE 'Australia/Melbourne')::date - p_days), 'YYYYMMDD')::int
+      AND (p_channel IS NULL OR f.channel = p_channel)
+      AND (p_type    IS NULL OR f.enquiry_type = p_type)
+  ),
+  agg AS (
+    SELECT
+      COUNT(*) AS n,
+      COUNT(*) FILTER (WHERE s.sla_state = 'met')::bigint          AS met,
+      COUNT(*) FILTER (WHERE s.sla_state = 'breached')::bigint     AS breached,
+      COUNT(*) FILTER (WHERE s.sla_state = 'at_risk')::bigint      AS at_risk,
+      COUNT(*) FILTER (WHERE s.sla_state = 'within')::bigint       AS within,
+      COUNT(*) FILTER (WHERE s.sla_state = 'unmeasurable')::bigint AS unmeasurable,
+      COUNT(*) FILTER (WHERE s.sla_state = 'unrecorded')::bigint   AS unrecorded,
+      COUNT(*) FILTER (WHERE s.response_recorded)::bigint          AS recorded,
+      ROUND((percentile_cont(0.5) WITHIN GROUP (ORDER BY s.first_response_minutes))::numeric / 60, 2)
+        AS fr_median,
+      ROUND((percentile_cont(0.5) WITHIN GROUP (ORDER BY s.resolution_minutes))::numeric / 60, 2)
+        AS res_median,
+      COUNT(*) FILTER (WHERE s.resolution_over)::bigint            AS over_sla,
+      -- Counted only when the conversion actually landed inside the attribution
+      -- window, so a reference typed against an unrelated old enquiry cannot
+      -- inflate the number.
+      COUNT(*) FILTER (WHERE s.converted
+                         AND s.converted_at IS NOT NULL
+                         AND s.converted_at >= s.received_at
+                         AND s.converted_at <= s.received_at
+                             + make_interval(days => th.conversion_attribution_days))::bigint
+        AS conv
+    FROM scoped s
+  )
+  SELECT
+    p_days,
+    a.n::bigint,
+    a.met, a.breached, a.at_risk, a.within, a.unmeasurable, a.unrecorded, a.recorded,
+    -- The denominator is enquiries with a measurable verdict, NOT all enquiries.
+    -- Dividing by the total would let a gap in the holiday calendar improve the
+    -- reported score, which is movement that looks like an improvement and is not
+    -- one. Unmeasurable rows are returned separately for exactly that reason.
+    CASE WHEN (a.met + a.breached) = 0 THEN NULL
+         ELSE ROUND(a.breached::numeric / (a.met + a.breached) * 100, 1) END,
+    (a.met + a.breached) >= th.min_enquiries_for_rate,
+    th.min_enquiries_for_rate,
+    a.over_sla,
+    th.resolution_sla_hours,
+    CASE WHEN th.sla_basis = 'calendar' THEN th.first_response_sla_minutes END,
+    a.fr_median,
+    a.res_median,
+    a.conv,
+    CASE WHEN a.n = 0 THEN NULL
+         ELSE ROUND(a.conv::numeric / a.n * 100, 1) END,
+    th.conversion_attribution_days,
+    th.sla_basis,
+    th.first_response_sla_business_days,
+    th.sla_is_confirmed,
+    (SELECT MAX(f.etl_loaded_at) FROM reporting.fact_enquiry f)
+  FROM agg a;
+END;
+$function$
+;
+
 CREATE OR REPLACE FUNCTION public.admin_enquiry_transition(p_enquiry_id uuid, p_action text, p_outcome text DEFAULT NULL::text, p_assignee uuid DEFAULT NULL::uuid, p_convert_ref text DEFAULT NULL::text, p_convert_kind text DEFAULT NULL::text)
  RETURNS TABLE(enquiry_id uuid, status text, outcome text, first_response_at timestamp with time zone, first_response_minutes integer, resolved_at timestamp with time zone, resolution_hours numeric, response_recorded boolean, response_was_missing boolean, converted_at timestamp with time zone, converted_ref text, converted_ref_kind text, conversion_recorded boolean, conversion_withdrawn boolean)
  LANGUAGE plpgsql

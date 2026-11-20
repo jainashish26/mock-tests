@@ -21,7 +21,7 @@
     "lint:ratchet": "node scripts/lint-ratchet.mjs",
     "test:db": "node scripts/run-db-tests.mjs",
     "schema:rebaseline": "C:\\Python314\\python.exe scripts/rebaseline_schema.py",
-    "schema:validate": "C:\\Python314\\python.exe scripts/validate_baseline.py 26 12 1 29 75 14",
+    "schema:validate": "C:\\Python314\\python.exe scripts/validate_baseline.py 27 13 1 30 80 15",
     "schema:validate:app": "C:\\Python314\\python.exe scripts/validate_app_baseline.py",
     "db:reset": "node scripts/reset-via-psql.mjs",
     "test": "npm run test:consent && npm run test:readiness && npm run test:reporting && npm run test:funnel && npm run test:gates && npm run test:expansion && npm run test:writing && npm run test:enquiry",

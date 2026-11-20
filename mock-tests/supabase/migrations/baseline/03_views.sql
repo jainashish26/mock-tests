@@ -208,6 +208,64 @@ CREATE MATERIALIZED VIEW reporting.mv_data_quality AS
     now() AS as_at
    FROM checks c;;
 
+CREATE MATERIALIZED VIEW reporting.mv_enquiry_daily AS
+ WITH rated AS (
+         SELECT f.enquiry_id,
+            f.date_key,
+            f.received_at,
+            f.channel,
+            f.enquiry_type,
+            f.status,
+            f.outcome,
+            f.parent_user_id,
+            f.utm_source,
+            f.first_response_at,
+            f.resolved_at,
+            f.converted_at,
+            f.converted_ref_kind,
+            f.first_response_minutes,
+            f.resolution_minutes,
+            f.response_recorded,
+            f.converted,
+            f.due_at,
+            f.sla_measurable,
+            f.etl_loaded_at,
+                CASE
+                    WHEN NOT f.sla_measurable THEN 'unmeasurable'::text
+                    WHEN (f.status = ANY (ARRAY['resolved'::text, 'closed'::text])) AND NOT f.response_recorded THEN 'unrecorded'::text
+                    WHEN f.response_recorded THEN
+                    CASE
+                        WHEN f.first_response_at <= f.due_at THEN 'met'::text
+                        ELSE 'breached'::text
+                    END
+                    WHEN now() > f.due_at THEN 'breached'::text
+                    WHEN now() > (f.received_at + (f.due_at - f.received_at) * 0.75::double precision) THEN 'at_risk'::text
+                    ELSE 'within'::text
+                END AS sla_state
+           FROM fact_enquiry f
+        )
+ SELECT r.date_key,
+    d.the_date,
+    r.channel,
+    r.enquiry_type,
+    r.status,
+    count(*)::integer AS enquiries,
+    count(*) FILTER (WHERE r.sla_state = 'met'::text)::integer AS sla_met,
+    count(*) FILTER (WHERE r.sla_state = 'breached'::text)::integer AS sla_breached,
+    count(*) FILTER (WHERE r.sla_state = 'at_risk'::text)::integer AS sla_at_risk,
+    count(*) FILTER (WHERE r.sla_state = 'within'::text)::integer AS sla_within,
+    count(*) FILTER (WHERE r.sla_state = 'unmeasurable'::text)::integer AS sla_unmeasurable,
+    count(*) FILTER (WHERE r.sla_state = 'unrecorded'::text)::integer AS response_unrecorded,
+    count(*) FILTER (WHERE r.response_recorded)::integer AS response_recorded,
+    round(percentile_cont(0.5::double precision) WITHIN GROUP (ORDER BY (r.first_response_minutes::double precision))::numeric / 60::numeric, 2) AS first_response_hours_median,
+    round(percentile_cont(0.9::double precision) WITHIN GROUP (ORDER BY (r.first_response_minutes::double precision))::numeric / 60::numeric, 2) AS first_response_hours_p90,
+    round(percentile_cont(0.5::double precision) WITHIN GROUP (ORDER BY (r.resolution_minutes::double precision))::numeric / 60::numeric, 2) AS resolution_hours_median,
+    count(*) FILTER (WHERE r.converted)::integer AS converted,
+    max(r.etl_loaded_at) AS etl_loaded_at
+   FROM rated r
+     LEFT JOIN dim_date d ON d.date_key = r.date_key
+  GROUP BY r.date_key, d.the_date, r.channel, r.enquiry_type, r.status;;
+
 CREATE MATERIALIZED VIEW reporting.mv_funnel_stage AS
  WITH ev AS (
          SELECT f.date_key,
