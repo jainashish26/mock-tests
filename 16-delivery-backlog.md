@@ -1623,13 +1623,79 @@
 > writing marks as a signal — criterion-marked prose is not comparable item-to-item
 > in the way a step function assumes.
 >
-> **Still to do in this sequence:** nothing in the decision set. **1, 2, 3, 4, 5,
-> 6, 7, 8, 9, 10 and 11 are all addressed**, Phases A/B/C are shipped, and the
-> assurance work landed alongside the migrations that needed it rather than after.
-> What remains is operational rather than undecided: flipping
-> `sla_is_confirmed` once a human has read the first real numbers, reviewing the
-> 113 mapping rows, and the `RESEND_INBOUND_SIGNING_SECRET` plus
-> `inbound_email_enabled` pair that turns capture on once the mail domain exists.
+> ### Phase D — contact privacy and audit assurance (2026-11-21, migration 115)
+>
+> An earlier line here said the assurance work "landed alongside the migrations
+> that needed it". That was wrong and is corrected: AC-35/36/37 and the AC-38
+> extension were listed as Phase D and **had never been written**. Checked before
+> claiming it — `enquiry_contacts`, `read_enquiry_contact` and the audit log had
+> zero mentions anywhere in the suite, which held 136 assertions. So the privacy
+> story this backlog item exists to deliver was, at that moment, unasserted.
+>
+> **Writing the assertion found a real defect, on its first run.** AC-37 asks
+> whether the audit trail can be edited. It could: `service_role` held INSERT,
+> SELECT, **UPDATE and DELETE** on `enquiry_contact_access_log` — not from any
+> grant in this project's migrations but from the platform default of ALL on the
+> app schema for the service credential. The consequence is specific: the entire
+> privacy guarantee for enquiry contacts is "details live where no app role can
+> read them, and the one door writes down who opened it". If the credential the
+> backend runs as can quietly delete those writings, the door exists and the
+> ledger does not — while every sentence in 12-...md still reads as true. This is
+> also the least visible class of gap, because nothing in the application ever
+> needs those privileges: an audit trail's guarantees are exercised only when
+> something has already gone wrong, which is precisely when nobody has tested
+> them. 115 revokes UPDATE/DELETE from service_role (keeping INSERT and SELECT,
+> since a table nobody can write to is a different bug) and verifies the only
+> writer, `read_enquiry_contact`, is `SECURITY DEFINER` owned by postgres — so it
+> audits as the owner and is unaffected. AC-36 proving a reveal still logs after
+> the revoke is the check that this hardened the guarantee instead of disabling
+> it.
+>
+> **Two roadmap inaccuracies found while asserting against reality.** AC-37 names
+> a table `admin_access_audit`; no such table exists — the real one is
+> `enquiry_contact_access_log`. The assertions are written against the actual
+> name, because a corrected sentence in a document nobody executes protects
+> nothing. And the roadmap's implied "no app role touches the log" was, as above,
+> not the live state.
+>
+> **AC-38 is stated as two claims rather than one count,** because the policy is
+> genuinely narrower than "nothing executable": `admin_enquiry_summary`,
+> `admin_enquiry_series` and `readiness_skill_exam_map` *are* executable by
+> `authenticated` by design and self-gate on `has_role('ADMIN')` inside. So 38a
+> asserts nothing added by item 21 is reachable anonymously, and 38b asserts the
+> inbound capture writer is service-role-only. Both report the offending name, not
+> a number — "3 functions leaked" is not actionable at 3am and
+> "record_inbound_email leaked" is.
+>
+> **Non-admin reveals are asserted to fail loudly.** `read_enquiry_contact` raises
+> `not authorised` *before* writing the log, which is what makes the follow-on
+> assertion true: a refused attempt leaves no audit row, so the log count remains
+> an accurate record of accesses rather than of attempts. An earlier draft used
+> pgtap's `throws_ok(call, text, text)`, which in this build compares its third
+> argument against the error **message**, so the correctly-refusing function
+> reported as failing — the same trap AC-55..AC-59 hit and why those are probes.
+> Replaced with a `GET STACKED DIAGNOSTICS` probe asserting SQLSTATE and message
+> exactly, rather than reworded until green.
+>
+> **Verified (Phase D):** 115 applied, exit 0, self-test green · **149/149 pgtap**
+> (`plan(136)`→`149`; AC-35a/b, AC-36a/b/c, AC-37, AC-38a/b, AC-39a/b, AC-40,
+> PR-02a/b) · live check after the revoke: `service_role` UPDATE=false DELETE=false
+> INSERT=true, `authenticated` all false · both baselines re-captured,
+> `schema:validate` 84/84 and `:app` 41/41 · grants file grew 21,491→22,026 chars
+> as expected · nothing previously captured was lost.
+>
+> **Follow-up recorded, not done here:** the same platform default very likely
+> grants UPDATE/DELETE to `service_role` on other append-only-ish tables
+> (`refresh_log`, event capture). Each needs its own check that no legitimate
+> retention job prunes it before revoking, so they are not batched into a security
+> migration under a "while I'm here" banner — that is how nightly cleanup jobs
+> break.
+>
+> **Sequence complete.** Decisions **1–11** are all addressed, Phases **A, B, C and
+> D** have shipped, and the remaining work is operational rather than undecided:
+> flipping `sla_is_confirmed` once a human has read the first real numbers,
+> reviewing the 113 mapping rows, and enabling the `RESEND_INBOUND_SIGNING_SECRET`
+> plus `inbound_email_enabled` pair once a mail domain actually exists.
 > Decisions **1, 2, 4, 6, 8, 9, 10 and 11 are done**, and **Phase C (A13) has
 > shipped.** Remaining: Phase D (the pgtap assurance items listed for this backlog
 > entry, most of which landed alongside 109-112 rather than after them).

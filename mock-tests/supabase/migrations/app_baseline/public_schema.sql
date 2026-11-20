@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict tzpRI5ZdzyrCl2N6TLksXUprHrsMclSgM4KgRNO1Zqcz0VeiVemX7j6qEpQv3wY
+\restrict Ic7eCxZlze0mXv0dr3SltOOannknHNVWbRDJqNpAd04t0sUWUfxNQGI5pddPgg0
 
 -- Dumped from database version 17.6
 -- Dumped by pg_dump version 17.12
@@ -3181,7 +3181,7 @@ ALTER TABLE ONLY public.enquiry_contact_access_log FORCE ROW LEVEL SECURITY;
 -- Name: TABLE enquiry_contact_access_log; Type: COMMENT; Schema: public; Owner: -
 --
 
-COMMENT ON TABLE public.enquiry_contact_access_log IS 'Append-only audit of every read of enquiry_contacts. No UPDATE or DELETE policy exists.';
+COMMENT ON TABLE public.enquiry_contact_access_log IS 'Append-only record of every enquiry contact reveal. 115 revoked UPDATE and DELETE from service_role as well as the app roles: the privacy promise this table exists to evidence is only as good as the impossibility of editing it. Owner (postgres) retains all privileges for recovery, and read_enquiry_contact writes as SECURITY DEFINER so it is unaffected.';
 
 
 --
@@ -6985,7 +6985,7 @@ GRANT ALL ON TABLE public.enquiries TO service_role;
 -- Name: TABLE enquiry_contact_access_log; Type: ACL; Schema: public; Owner: -
 --
 
-GRANT ALL ON TABLE public.enquiry_contact_access_log TO service_role;
+GRANT SELECT,INSERT,REFERENCES,TRIGGER,TRUNCATE,MAINTAIN ON TABLE public.enquiry_contact_access_log TO service_role;
 
 
 --
@@ -7368,5 +7368,5 @@ ALTER DEFAULT PRIVILEGES FOR ROLE supabase_admin IN SCHEMA public GRANT ALL ON T
 -- PostgreSQL database dump complete
 --
 
-\unrestrict tzpRI5ZdzyrCl2N6TLksXUprHrsMclSgM4KgRNO1Zqcz0VeiVemX7j6qEpQv3wY
+\unrestrict Ic7eCxZlze0mXv0dr3SltOOannknHNVWbRDJqNpAd04t0sUWUfxNQGI5pddPgg0
 

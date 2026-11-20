@@ -38,12 +38,13 @@ CREATE EXTENSION IF NOT EXISTS pgtap WITH SCHEMA extensions;
 -- pgtap's has_role(name). Verified before relying on it. See migration 050.
 SET LOCAL search_path = public, extensions;
 
--- 136 = the 100 this suite planned before migration 109, plus 12 assertions for
+-- 148 = the 100 this suite planned before migration 109, plus 12 assertions for
 -- the business-day SLA clock (AC-41..AC-52), 11 for conversion references
 -- (AC-53..AC-63, migration 110), 6 for the A13 warehouse (AC-64..AC-69,
--- migrations 111/112) and 7 for inbound capture shipped dark
--- (AC-70..AC-74, migration 114).
-SELECT extensions.plan(136);
+-- migrations 111/112), 7 for inbound capture shipped dark
+-- (AC-70..AC-74, migration 114) and 13 for contact privacy, audit and the
+-- append-only finding (AC-35..AC-40, PR-02, migration 115).
+SELECT extensions.plan(149);
 
 CREATE TEMP TABLE _ids AS
 SELECT
@@ -1533,6 +1534,185 @@ SELECT extensions.is(
   (SELECT inbound_email_enabled FROM reporting.enquiry_thresholds WHERE id = 1),
   false,
   'AC-74 the probe left capture disabled again');
+
+-- ============================================================================
+-- AC-35 .. AC-39  Contact privacy and audit (Phase D, backlog item 21)
+--
+-- These were listed as outstanding and were genuinely absent: the suite asserted
+-- privileges for other objects but never for the one table that holds a parent's
+-- phone number. Two notes on the roadmap while writing them:
+--   * AC-37 names `admin_access_audit`. No such table exists. The real one is
+--     public.enquiry_contact_access_log, asserted here by its actual name rather
+--     than corrected in prose nobody executes.
+--   * AC-35/36/38 are asserted through role-level privilege functions rather than
+--     by SET ROLE and attempting the statement. Both are valid; the privilege
+--     form was chosen because it reports *which* grant is wrong instead of
+--     failing on the first denied statement, which is what makes it useful at 3am.
+-- ============================================================================
+
+-- The restricted table must not be readable by any app role. If this ever fails,
+-- the audited function is no longer the only door and every access becomes
+-- unaudited by construction.
+SELECT extensions.is(
+  has_table_privilege('authenticated', 'public.enquiry_contacts', 'SELECT'),
+  false,
+  'AC-35a authenticated cannot read enquiry_contacts directly');
+SELECT extensions.is(
+  has_table_privilege('anon', 'public.enquiry_contacts', 'SELECT'),
+  false,
+  'AC-35b anon cannot read enquiry_contacts directly');
+
+-- Access must leave evidence. A reveal that is not logged is indistinguishable
+-- from a leak, and the log is the only thing that makes the promise reviewable.
+INSERT INTO public.enquiries (channel, enquiry_type, status, ingest_source_ref, received_at)
+VALUES ('web_form','billing','new','ac36', now() - interval '2 hours');
+
+INSERT INTO public.enquiry_contacts (enquiry_id, full_name, email, phone, message_body)
+SELECT id, 'Test Family', 'ac36@example.invalid', '0400000000',
+       'Please contact me about the yearly plan.'
+FROM public.enquiries WHERE ingest_source_ref = 'ac36';
+
+SELECT set_config('request.jwt.claims',
+  json_build_object(
+    'sub', (SELECT user_id::text FROM public.app_user_roles WHERE role = 'ADMIN' LIMIT 1),
+    'role', 'authenticated')::text, true);
+
+SELECT extensions.is(
+  (SELECT email FROM public.read_enquiry_contact(
+      (SELECT id FROM public.enquiries WHERE ingest_source_ref = 'ac36'),
+      'Answering a billing question about the yearly plan.')),
+  'ac36@example.invalid'::text,
+  'AC-36a an admin with a stated reason can read the contact');
+
+SELECT extensions.is(
+  (SELECT count(*)::int FROM public.enquiry_contact_access_log
+    WHERE enquiry_id = (SELECT id FROM public.enquiries WHERE ingest_source_ref = 'ac36')),
+  1,
+  'AC-36b exactly one audit row per reveal, not zero and not two');
+
+SELECT extensions.is(
+  (SELECT task_reason IS NOT NULL AND admin_user_id IS NOT NULL
+     FROM public.enquiry_contact_access_log
+    WHERE enquiry_id = (SELECT id FROM public.enquiries WHERE ingest_source_ref = 'ac36')),
+  true,
+  'AC-36c the audit row names who asked and why');
+
+-- Append-only: an audit trail that can be edited is not an audit trail.
+SELECT extensions.is(
+  (SELECT count(*)::int FROM (
+     SELECT unnest(ARRAY['anon','authenticated','service_role','reporting_ro']) AS r
+   ) x WHERE has_table_privilege(x.r, 'public.enquiry_contact_access_log', 'UPDATE')
+          OR has_table_privilege(x.r, 'public.enquiry_contact_access_log', 'DELETE')),
+  0,
+  'AC-37 no app role may update or delete the access log');
+
+-- AC-38 extended to everything added by this backlog item.
+--
+-- The policy is not "nothing is executable by app roles" - admin_enquiry_summary,
+-- admin_enquiry_series and readiness_skill_exam_map are granted to authenticated
+-- on purpose and self-gate on has_role('ADMIN') inside. So this is stated as two
+-- real claims: nothing here is reachable anonymously, and the two that must be
+-- service-role-only are exactly that. Written as named offenders rather than a
+-- count, because "3 functions leaked" tells you nothing at 3am and
+-- "record_inbound_email leaked" tells you which grant to revert.
+SELECT extensions.is(
+  (SELECT string_agg(f, ', ') FROM (
+     SELECT unnest(ARRAY[
+       'public.admin_enquiry_summary(integer,text,text)',
+       'public.admin_enquiry_series(integer,text,text)',
+       'public.admin_enquiry_queue(text,text,boolean,integer,integer)',
+       'public.admin_enquiry_counts()',
+       'public.admin_enquiry_transition(uuid,text,text,uuid,text,text)',
+       'public.readiness_skill_exam_map()',
+       'public.record_inbound_email(text,text,text,text,timestamptz,jsonb)'
+     ]) AS f
+   ) y WHERE has_function_privilege('anon', y.f, 'EXECUTE')),
+  NULL::text,
+  'AC-38a nothing added by item 21 is executable anonymously');
+
+SELECT extensions.is(
+  has_function_privilege('authenticated',
+    'public.record_inbound_email(text,text,text,text,timestamptz,jsonb)', 'EXECUTE'),
+  false,
+  'AC-38b inbound capture is executable by the service role and nobody else');
+
+-- A non-admin asking for a parent's phone number must be refused, not silently
+-- answered with an empty record: an empty result and a denial look identical to
+-- the caller and mean opposite things.
+SELECT set_config('request.jwt.claims',
+  json_build_object(
+    'sub', (SELECT u.user_id::text FROM public.app_user_roles u
+             WHERE u.role <> 'ADMIN' LIMIT 1),
+    'role', 'authenticated')::text, true);
+
+-- read_enquiry_contact raises 'not authorised' before touching the log, which is
+-- what makes AC-40 true: the refusal path cannot leave a trace that looks like an
+-- access. Probed via RETURNED_SQLSTATE rather than pgtap's throws_ok, because this
+-- build resolves throws_ok(call, text, text) as (call, sqlstate, MESSAGE) - so the
+-- description lands in the slot compared against the error text and a correctly
+-- refusing function reports as a failure. Same reason AC-55..AC-59 are probes.
+CREATE TEMP TABLE _reveal_probe (p_state text, p_msg text);
+
+DO $$
+DECLARE
+  p_state text;
+  p_msg   text;
+BEGIN
+  BEGIN
+    PERFORM email FROM public.read_enquiry_contact(
+      (SELECT id FROM public.enquiries WHERE ingest_source_ref = 'ac36'),
+      'Answering a billing question.');
+    INSERT INTO _reveal_probe VALUES ('no-exception', NULL);
+  EXCEPTION WHEN OTHERS THEN
+    GET STACKED DIAGNOSTICS p_state = RETURNED_SQLSTATE, p_msg = MESSAGE_TEXT;
+    INSERT INTO _reveal_probe VALUES (p_state, p_msg);
+  END;
+END $$;
+
+SELECT extensions.is(
+  (SELECT p_state FROM _reveal_probe),
+  'P0001'::text,
+  'AC-39a a non-admin reveal attempt is refused outright');
+
+SELECT extensions.is(
+  (SELECT p_msg FROM _reveal_probe),
+  'not authorised'::text,
+  'AC-39b and the refusal says so, rather than returning an empty row');
+
+SELECT extensions.is(
+  (SELECT count(*)::int FROM public.enquiry_contact_access_log
+    WHERE enquiry_id = (SELECT id FROM public.enquiries WHERE ingest_source_ref = 'ac36')),
+  1,
+  'AC-40 a refused reveal adds no audit row, so the log count stays truthful');
+
+-- PR-02: no object in the reporting schema may reach the restricted contact
+-- table. The warehouse is readable by a reporting role with its own grants; if a
+-- view ever joined enquiry_contacts into it, the audited door would become
+-- decorative while every privacy claim in 12-...md still read as true.
+SELECT extensions.is(
+  (SELECT string_agg(p.proname, ', ')
+     FROM pg_proc p JOIN pg_namespace n ON n.oid = p.pronamespace
+    WHERE n.nspname = 'reporting'
+      -- prokind filter: pg_get_functiondef errors on aggregates ("array_agg is
+      -- an aggregate function"), and this suite is not the place to discover a
+      -- scan breaks because the schema gained a custom aggregate.
+      AND p.prokind = 'f'
+      AND pg_get_functiondef(p.oid) ILIKE '%enquiry_contacts%'),
+  NULL::text,
+  'PR-02a no reporting function reads enquiry_contacts');
+
+SELECT extensions.is(
+  (SELECT string_agg(c.relname, ', ')
+     FROM pg_depend d
+     JOIN pg_rewrite r ON r.oid = d.objid
+     JOIN pg_class c ON c.oid = r.ev_class
+     JOIN pg_namespace n ON n.oid = c.relnamespace
+    WHERE n.nspname = 'reporting'
+      AND d.refclassid = 'pg_class'::regclass
+      AND d.refobjid = 'public.enquiry_contacts'::regclass
+      AND c.relkind IN ('v','m')),
+  NULL::text,
+  'PR-02b no reporting view or materialised view depends on enquiry_contacts');
 
 SELECT * FROM extensions.finish();
 
