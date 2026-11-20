@@ -6,6 +6,7 @@ import { Field, Textarea } from "@/components/ui/Input"
 import { Select } from "@/components/ui/Select"
 import {
   SLA_META,
+  SLA_META_UNKNOWN,
   ACTION_LABEL,
   typeLabel,
   outcomeLabel,
@@ -68,7 +69,7 @@ export interface EnquiryCardProps {
 }
 
 export function EnquiryCard({ row, ...p }: EnquiryCardProps) {
-  const meta = SLA_META[row.sla_state] ?? SLA_META.within
+  const meta = SLA_META[row.sla_state] ?? SLA_META_UNKNOWN
   const knowledge = responseKnowledge({
     status: row.status as EnquiryStatus,
     first_response_at: row.first_response_at,

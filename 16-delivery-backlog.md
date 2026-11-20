@@ -978,7 +978,7 @@
 >
 > | # | Question | **Decision** | What it commits to |
 > |---|---|---|---|
-> | **1** | Is the SLA clock calendar or business days? | **B — business days.** Sub-decision **1a**: due at the *close of the next business day*, which needs only a holiday calendar, not an opening-hours window. | New `reporting.dim_public_holiday_vic`; `sla_basis='business_day'`; `business_day_deadline()`; `sla_state` gains an `unknown_calendar` state so a missing holiday year refuses to compute rather than guessing. **D2 below is now load-bearing.** |
+> | **1** | Is the SLA clock calendar or business days? | **B — business days.** Sub-decision **1a**: due at the *close of the next business day*, which needs only a holiday calendar, not an opening-hours window. | New `reporting.dim_public_holiday_vic`; `sla_basis='business_day'`; `business_day_deadline()`; `sla_state` gains an `unknown_calendar` state so a missing holiday year refuses to compute rather than guessing. **D2 below is now load-bearing.** **Done — migration 109**, and it was not the migration the row describes: see *Decision 1, as built* below. |
 > | **2** | May a converted enquiry point at a non-`purchases` order? | **A — yes.** Relax `enquiries_converted_has_order` and add `converted_ref`. | One migration of its own; subscription payments create no `purchases` row, so the current CHECK makes "converted" unreachable for the majority of revenue. |
 > | **3** | Inbound email channel? | **A — Resend inbound, built dormant.** | Needs a real domain to enable (see 11), so it ships dark: schema + route scaffold, no public promise of an address that does not exist. |
 > | **4** | Per-year test/question ceilings? | **A — 10/15/15/15/20/20/25/25 tests for Years 2–9, questions = tests × 25**, as a **ceiling**, with a separate **recommended target** of at least 2 tests/day. Stored in DB, not env vars. | **Done — migrations 107 + 108.** `dim_year_level_cap` seeded for all 8 levels with NOT NULL ceilings and NOT NULL recommended targets (2 for Years 2–5, 3 for 6–9; questions = × 25), plus `daily_target_basis` — a per-year-level toggle deciding which of the two clamps a child's daily target, **defaulting to the recommended target**, and editable at `/admin/settings`. `plan_overload_flag` measures against the ceiling in both modes, so choosing the protective clamp does not soften the alert. |
@@ -1295,12 +1295,117 @@
 > justification that is wrong is still load-bearing when someone later decides
 > whether to trust the number.
 >
-> **Still to do in this sequence:** decisions **1** (business-day SLA — now
-> migration 109; 105 went to decision 9, 106 to D3, 107 to the caps seed, 108 to
-> the clamp policy), **2** (relax `enquiries_converted_has_order` +
+> ### Decision 1, as built — migration 109 (2026-11-21)
+>
+> The row above describes the migration as "add a holiday table, set
+> `sla_basis`, add `business_day_deadline()`". Three of those four things were
+> already in the database or turned out not to be the work. What the work
+> actually was: **`sla_basis` was decorative.**
+>
+> **D4 — the SLA basis column was read by nothing.** `admin_enquiry_queue()`
+> decided every state from `EXTRACT(EPOCH …)/60 <= th.first_response_sla_minutes`.
+> The function body never mentioned `sla_basis`. So the plan recorded in this
+> file — "seed the calendar, flip the flag" — would have changed **no number
+> anywhere**, and nothing would have complained: the flag was set, the calendar
+> was loaded, the queue looked healthy, and every figure was still measured on the
+> old clock. It is the same defect class as `checkout_abandon_minutes` before 105,
+> which decision 9 had just surfaced — configuration that exists but is not
+> consulted. That repetition is the actual finding: **Phase B verified that the
+> config row existed and that the states computed correctly given it. It never
+> verified that every declared column was read.** A green suite can therefore
+> certify a dead setting, and this is the second time in two decisions it has.
+>
+> **Four more defects, all found before writing code rather than after:**
+>
+> 1. **`admin_enquiry_counts().unrecorded_open` compared `age_minutes >
+> sla_minutes`.** Once the business basis makes `sla_minutes` genuinely NULL, that
+> comparison yields NULL, the FILTER never matches, and "reply not recorded" reads
+> **zero** on the one screen whose purpose is to surface it. A zero that means "not
+> computed" is the most misleading figure a queue can show. Now derived from
+> `sla_state`, so the state machine owns "past the window" in either basis.
+> 2. **`EnquiryCard` fell back to `SLA_META.within`** for any unrecognised state.
+> Adding `unknown_calendar` to the SQL without adding a label would have rendered
+> "open and comfortably inside the response window" on rows that have **no
+> window at all** — the new failure mode dressed as good news. The fallback is now
+> a loud, deliberately awkward chip, and a test asserts no unknown state can ever
+> resolve to `met` or `within`.
+> 3. **`triage-service` defaulted `sla_minutes` to 1440.** Under a business-day
+> basis that manufactures a 24-hour calendar window out of a NULL, and the header
+> would have printed "Measured as 24 continuous hours" beside a deadline measured
+> in days. Default removed; NULL now propagates to the caption, which is the only
+> place that can phrase it correctly.
+> 4. **`slaCaveat()` still said calendar-or-business "is still an open question
+> (A-15 / Q-5)".** Q-5 was answered by this very decision. Shipping that string
+> would have contradicted the recorded decision on the operator's own screen, so
+> the caveat now states the basis and leaves only the *sign-off* provisional —
+> which is still true, because `sla_is_confirmed` was deliberately not flipped.
+>
+> **The source is shorter than the decision assumed.** The official iCal feed
+> carries 144 events spanning **2019-01-01 to 2028-12-26**. There is no 2029 or
+> 2030 data anywhere, and the AFL Grand Final Friday is explicitly undetermined
+> until the fixture is published. So the calendar is generated from the rules of
+> the Public Holidays Act 1993 (Vic) rather than pasted, and the generator was
+> **proven against the feed before it was trusted**: for 2024–2028 it reproduces
+> 66 of the feed's 70 dates exactly. The four differences are the two AFL Fridays,
+> where the feed's own *unconfirmed* rows are dated Saturday 2027-09-25 and
+> Saturday 2028-09-30 — the Grand Final day, not the Friday before it. Every
+> confirmed year (2024, 2025, 2026) matches the rule. Copying the feed forward
+> would therefore have seeded the wrong weekday, which is the one case where the
+> source is worse than the derivation.
+>
+> That proof is not left as a comment. **The migration re-runs the diff on every
+> apply and aborts if the generator drifts** from the published calendar, so a
+> later edit to a rule fails loudly instead of seeding a plausible wrong year.
+>
+> **Two design choices worth keeping.** `business_day_deadline()` returns NULL
+> when any year in the scanned window is not *complete* — completeness measured
+> against the generator, so a year holding twelve of thirteen holidays refuses to
+> compute exactly like a missing one. Partial years are the dangerous case: a
+> missing year is obvious, a short one quietly makes every deadline a day strict
+> while the figures still look sourced. And "close of business" is the end of the
+> calendar day rather than an invented 17:00, because no working hours were ever
+> supplied for this promise; end-of-day can only be more generous than the promise,
+> never less.
+>
+> **D5 — the baseline exporter could not see the new table.**
+> `reporting.export_baseline_config()` discovers config tables by two rules: a
+> `*_thresholds` name, or a `(id = 1)` singleton CHECK. A 97-row reference table
+> matches neither, so `07_config.sql` shipped without it — and that file is the
+> only reason a restored database has any configuration at all. The failure is
+> silent and total: an empty calendar, every year incomplete, every deadline
+> `unknown_calendar` forever. The right direction to fail in, but still a feature
+> gone with no error anywhere. Added to the exporter's non-derivable list in 109,
+> and the regenerated capture was diffed to confirm **no previously-captured table
+> was lost**.
+>
+> **Also corrected:** `sla_basis` accepts `'business'`, not the `'business_day'`
+> written in the decision row above; the shipped value wins over the prose.
+>
+> **Verified (109):** applied from the file with psql exit 0 · **112/112 pgtap**
+> (AC-41…AC-52 new, `plan(100)`→`plan(112)`) · all 8 Node suites green,
+> **109 enquiry assertions** (was 94) · `schema:validate` 84/84 and
+> `schema:validate:app` 41/41 after regenerating both baselines · typecheck 0 ·
+> build 0 · lint ratchet unchanged 60/16 · `validate:seo` 2502/0 · 97 rows seeded
+> across 2024–2030, 29 provisional, **0 non-provisional from 2029**, 6 substitutes ·
+> the state machine exercised as a real ADMIN inside a rolled-back transaction with
+> all six states observed, including the case that proves the flip matters: an
+> enquiry received **Mon 2 Nov 2026 is due Wed 4 Nov** because Melbourne Cup falls
+> on the Tuesday — `met` under the business clock, `breached` under the old one.
+> A 365-day property test asserts every 2026 deadline lands on a genuine business
+> day, and DST is checked in both directions so the deadline is a Melbourne wall
+> clock rather than a fixed UTC hour.
+>
+> **One caution for anyone running these gates:** `validate:seo` scans the
+> prerendered HTML under `.next`. Run concurrently with a build and it reports
+> phantom failures that swing between runs (11, then 33, then 0). This session hit
+> exactly that and nearly chased a defect that did not exist. Run the gates
+> sequentially.
+>
+> **Still to do in this sequence:** decisions **2** (relax
+> `enquiries_converted_has_order` +
 > `converted_ref`), **7** (`skill_exam_mapping`, proposed rows awaiting your
 > review), **5** (adaptive-engine design note) and **3** (Resend inbound, dormant).
-> Decisions **4, 6, 8, 9, 10 and 11 are done.** Then Phase C (A13) and Phase D
+> Decisions **1, 4, 6, 8, 9, 10 and 11 are done.** Then Phase C (A13) and Phase D
 > (pgtap assurance).
 >
 > **Migration numbering note, recorded because the plan changed under it four

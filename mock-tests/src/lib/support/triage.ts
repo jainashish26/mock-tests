@@ -169,12 +169,43 @@ export const ACTION_TARGET: Record<EnquiryAction, EnquiryStatus | null> = {
   spam: 'spam',
 }
 
+/**
+ * The six SLA states `admin_enquiry_queue()` can return.
+ *
+ * Listed rather than implied by a `string` so a test can assert the labels
+ * module covers every one. `unknown_calendar` is the newest and the most
+ * important: it exists so that a gap in the public-holiday calendar shows up as
+ * "not computed" instead of silently becoming "within".
+ */
+export const SLA_STATES = [
+  'met',
+  'breached',
+  'at_risk',
+  'within',
+  'unrecorded',
+  'unknown_calendar',
+] as const
+export type SlaState = (typeof SLA_STATES)[number]
+
+/** Which clock the promise is measured against. Mirrors the CHECK in 104/109. */
+export const SLA_BASES = ['calendar', 'business'] as const
+export type SlaBasis = (typeof SLA_BASES)[number]
+
 export interface SlaFacts {
   sla_state: string
   age_minutes: number
   response_minutes: number | null
   resolution_hours: number | null
-  sla_minutes: number
+  /**
+   * Only populated under the 'calendar' basis. NULL under 'business', where the
+   * window is counted in days - which is why nothing may default this to 1440.
+   */
+  sla_minutes: number | null
+  sla_basis: SlaBasis
+  /** Only populated under the 'business' basis. */
+  sla_business_days: number | null
+  /** The computed deadline; NULL when the calendar cannot produce one. */
+  due_at: string | null
   sla_is_confirmed: boolean
 }
 
@@ -194,20 +225,35 @@ export function isBreached(facts: Pick<SlaFacts, 'sla_state'>): boolean {
 /**
  * The sentence a queue header shows beside the breach figures.
  *
- * `sla_is_confirmed` is false until the business answers A-15/Q-5 on the basis
- * of the published response promise. Rendering a breach rate as settled while
- * that is open would present a guess as a measurement on the one screen people
- * use to decide whether to staff up.
+ * Two things changed here in 109, and both were lies waiting to be told:
+ *   * Q-5 is no longer "an open question". Decision 1-B answered it: the clock is
+ *     business days. Repeating that it is unresolved would contradict the
+ *     recorded decision on the screen that most needs to be current.
+ *   * The window is no longer described in hours unconditionally. Under the
+ *     business basis `sla_minutes` is NULL by design, and the old
+ *     `numeric(sla_minutes, 1440)` fallback would have printed "24 continuous
+ *     hours" beside a deadline measured in business days - a confidently wrong
+ *     caption on the one line whose job is to say what was measured.
+ *
+ * What remains provisional is the sign-off, not the question.
  */
 export function slaCaveat(
-  facts: Pick<SlaFacts, 'sla_minutes' | 'sla_is_confirmed'>
+  facts: Pick<SlaFacts, 'sla_basis' | 'sla_minutes' | 'sla_business_days' | 'sla_is_confirmed'>
 ): string | null {
   if (facts.sla_is_confirmed) return null
-  const hours = Math.round(facts.sla_minutes / 60)
+
+  const days = facts.sla_business_days ?? 1
+  const window =
+    facts.sla_basis === 'business'
+      ? `${days} business day${days === 1 ? '' : 's'}, measured to the close of the last ` +
+        'one on the Victorian public-holiday calendar'
+      : `${Math.round((facts.sla_minutes ?? 0) / 60)} continuous hours`
+
   return (
-    `Provisional. Measured as ${hours} continuous hours; whether the published ` +
-    'response time means calendar or business hours is still an open question ' +
-    '(A-15 / Q-5).'
+    `Provisional. Measured as ${window}. The published response time is read as ` +
+    'business days (A-15 / Q-5 answered by decision 1-B); what is still outstanding ' +
+    'is confirmation of that reading, so treat these figures as a measurement ' +
+    'against an unconfirmed promise.'
   )
 }
 

@@ -66,42 +66,47 @@ $function$
 ;
 
 CREATE OR REPLACE FUNCTION public.admin_enquiry_counts()
- RETURNS TABLE(open_total bigint, breached bigint, at_risk bigint, unrecorded_open bigint, oldest_age_minutes integer, sla_minutes integer, sla_is_confirmed boolean)
+ RETURNS TABLE(open_total bigint, breached bigint, at_risk bigint, unrecorded_open bigint, unknown_calendar bigint, oldest_age_minutes integer, sla_minutes integer, sla_business_days integer, sla_basis text, sla_is_confirmed boolean)
  LANGUAGE sql
  STABLE SECURITY DEFINER
  SET search_path TO 'public', 'pg_catalog'
 AS $function$
+  WITH q AS (SELECT * FROM public.admin_enquiry_queue(NULL, NULL, false, 200, 0))
   SELECT
     COUNT(*) FILTER (WHERE q.status NOT IN ('resolved','closed','spam'))::bigint,
     COUNT(*) FILTER (WHERE q.status NOT IN ('resolved','closed','spam')
                        AND q.sla_state = 'breached')::bigint,
     COUNT(*) FILTER (WHERE q.status NOT IN ('resolved','closed','spam')
                        AND q.sla_state = 'at_risk')::bigint,
-    -- Open, past the window, and no reply recorded yet: these become
-    -- 'unrecorded' silently if nobody acts, so they are counted apart from a
-    -- plain backlog.
+    -- Open, past the window, still no reply recorded: these become 'unrecorded'
+    -- silently if nobody acts, so they are counted apart from a plain backlog.
     COUNT(*) FILTER (WHERE q.status NOT IN ('resolved','closed','spam')
                        AND q.first_response_at IS NULL
-                       AND q.age_minutes > q.sla_minutes)::bigint,
+                       AND q.sla_state = 'breached')::bigint,
+    -- Counted separately from breached rather than folded into it: these rows are
+    -- not passing, and they are not known to be late. They are unmeasurable, and
+    -- the header has to be able to say so instead of implying a clean slate.
+    COUNT(*) FILTER (WHERE q.status NOT IN ('resolved','closed','spam')
+                       AND q.sla_state = 'unknown_calendar')::bigint,
     COALESCE(MAX(q.age_minutes) FILTER (
       WHERE q.status NOT IN ('resolved','closed','spam'))::integer, 0),
     MAX(q.sla_minutes),
+    MAX(q.sla_business_days),
+    MAX(q.sla_basis),
     BOOL_AND(q.sla_is_confirmed)
-  FROM public.admin_enquiry_queue(NULL, NULL, false, 200, 0) q;
+  FROM q;
 $function$
 ;
 
 CREATE OR REPLACE FUNCTION public.admin_enquiry_queue(p_status text DEFAULT NULL::text, p_type text DEFAULT NULL::text, p_unanswered boolean DEFAULT false, p_limit integer DEFAULT 50, p_offset integer DEFAULT 0)
- RETURNS TABLE(enquiry_id uuid, channel text, enquiry_type text, status text, outcome text, received_at timestamp with time zone, first_response_at timestamp with time zone, resolved_at timestamp with time zone, assigned_to uuid, parent_user_id uuid, converted boolean, age_minutes integer, response_minutes integer, resolution_hours numeric, sla_minutes integer, sla_state text, sla_is_confirmed boolean, utm_source text)
+ RETURNS TABLE(enquiry_id uuid, channel text, enquiry_type text, status text, outcome text, received_at timestamp with time zone, first_response_at timestamp with time zone, resolved_at timestamp with time zone, assigned_to uuid, parent_user_id uuid, converted boolean, age_minutes integer, response_minutes integer, resolution_hours numeric, sla_minutes integer, sla_state text, sla_is_confirmed boolean, utm_source text, due_at timestamp with time zone, sla_basis text, sla_business_days integer)
  LANGUAGE plpgsql
  STABLE SECURITY DEFINER
  SET search_path TO 'public', 'pg_catalog'
 AS $function$
 BEGIN
-  -- Authorisation before the parameter validation below: a non-admin must not
-  -- be able to learn the valid status names by observing which of two 400s
-  -- comes back. Silent zero rows is the only answer for an unauthorised
-  -- caller, and it is the same shape for every student and every id.
+  -- Authorisation before parameter validation: a non-admin must not be able to
+  -- learn the valid status names by observing which of two 400s comes back.
   IF NOT public.has_role('ADMIN') THEN
     RETURN;
   END IF;
@@ -124,65 +129,55 @@ BEGIN
 
   RETURN QUERY
   SELECT
-    e.id,
-    e.channel,
-    e.enquiry_type,
-    e.status,
-    e.outcome,
-    e.received_at,
-    e.first_response_at,
-    e.resolved_at,
-    e.assigned_to,
-    e.parent_user_id,
+    e.id, e.channel, e.enquiry_type, e.status, e.outcome,
+    e.received_at, e.first_response_at, e.resolved_at,
+    e.assigned_to, e.parent_user_id,
     (e.converted_order_id IS NOT NULL),
-    -- Ageing is measured against the clock the database owns, never a
-    -- client-supplied now(), or the queue could be made to look fresh.
-    -- UNITS MATTER, AND THIS LINE IS WHERE THEY WENT WRONG FIRST.
-    -- EXTRACT(EPOCH FROM an interval) is SECONDS. Dividing by 60 is what makes
-    -- a column called age_minutes mean minutes. The SLA comparisons below all
-    -- divide by 60 inside the CASE, so sla_state stayed correct while these
-    -- returned values sixty times too large - which is how the bug survived a
-    -- passing queue and was caught only by hand-computing a fixture's age.
-    -- It also corrupted admin_enquiry_counts(), whose unrecorded_open test
-    -- compares this column against the SLA in minutes.
+    -- EXTRACT(EPOCH ...) is SECONDS. The /60 is what makes these columns mean
+    -- minutes; dropping it is the bug that once shipped through a passing queue.
     (EXTRACT(EPOCH FROM (now() - e.received_at)) / 60)::int,
     (EXTRACT(EPOCH FROM (e.first_response_at - e.received_at)) / 60)::int,
-    -- resolution_hours stays NULL without a recorded first response for the
-    -- same reason the response clock does: an enquiry that was answered offline
-    -- and then closed has an unknown middle, and inventing one from the two
-    -- ends would silently fill the report's most interesting gap.
     CASE WHEN e.resolved_at IS NULL OR e.first_response_at IS NULL THEN NULL
          ELSE ROUND(EXTRACT(EPOCH FROM (e.resolved_at - e.received_at)) / 3600, 2) END,
-    th.first_response_sla_minutes,
-    -- Five states, and the reason each one exists:
-    --   met        a reply is recorded and it was inside the window
-    --   breached   replied late, OR still unanswered past the window. §5.8 is
-    --              explicit that an unanswered enquiry counts as a breach NOW:
-    --              waiting for it to be resolved is how the worst cases never
-    --              appear on the screen meant to surface them.
-    --   at_risk    still open, inside the window but past three quarters of it
-    --   within     still open, comfortably inside the window
-    --   unrecorded resolved or closed with no reply ever recorded. Not "met":
-    --              calling it met is the fabrication section 2 refuses.
+    -- Each window is reported only under the basis that uses it. Returning
+    -- 1440 beside a business-day deadline would invite a reader to compare an
+    -- age in minutes against a window measured in days.
+    CASE WHEN th.sla_basis = 'calendar' THEN th.first_response_sla_minutes END,
     CASE
+      -- Checked first, unchanged: a finished enquiry with no reply is a gap in
+      -- the record, not a breach, and calling it either would be the fabrication
+      -- section 2 of 104 refuses to make.
       WHEN e.status IN ('resolved','closed') AND e.first_response_at IS NULL
         THEN 'unrecorded'
+      -- The calendar does not cover this enquiry's window. No number is offered.
+      WHEN d.due_at IS NULL
+        THEN 'unknown_calendar'
       WHEN e.first_response_at IS NOT NULL
-        THEN CASE WHEN EXTRACT(EPOCH FROM (e.first_response_at - e.received_at)) / 60
-                       <= th.first_response_sla_minutes THEN 'met' ELSE 'breached' END
-      WHEN EXTRACT(EPOCH FROM (now() - e.received_at)) / 60
-           > th.first_response_sla_minutes THEN 'breached'
-      WHEN EXTRACT(EPOCH FROM (now() - e.received_at)) / 60
-           > th.first_response_sla_minutes * 0.75 THEN 'at_risk'
+        THEN CASE WHEN e.first_response_at <= d.due_at THEN 'met' ELSE 'breached' END
+      -- Unanswered past the window breaches NOW, not when it is eventually
+      -- resolved (104 section 2 / roadmap 5.8).
+      WHEN now() > d.due_at THEN 'breached'
+      WHEN now() > e.received_at + ((d.due_at - e.received_at) * 0.75) THEN 'at_risk'
       ELSE 'within'
     END,
     th.sla_is_confirmed,
-    e.utm_source
+    e.utm_source,
+    d.due_at,
+    th.sla_basis,
+    CASE WHEN th.sla_basis = 'business' THEN th.first_response_sla_business_days END
   FROM public.enquiries e
   CROSS JOIN reporting.enquiry_thresholds th
+  CROSS JOIN LATERAL (
+    SELECT CASE
+             WHEN th.sla_basis = 'business'
+               THEN reporting.business_day_deadline(e.received_at)
+             ELSE e.received_at
+                  + make_interval(mins => th.first_response_sla_minutes)
+           END AS due_at
+  ) d
   WHERE th.id = 1
     AND (p_status IS NULL OR e.status = p_status)
-    -- The default view is the work queue, and spam is not work. Asking for
+    -- Spam is not work, so the default work queue hides it. Asking for
     -- status='spam' explicitly still returns it.
     AND (p_status IS NOT NULL OR e.status <> 'spam')
     AND (p_type IS NULL OR e.enquiry_type = p_type)

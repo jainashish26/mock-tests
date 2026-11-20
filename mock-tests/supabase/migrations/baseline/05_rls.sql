@@ -9,6 +9,7 @@ ALTER TABLE reporting.data_quality_history ENABLE ROW LEVEL SECURITY; ALTER TABL
 ALTER TABLE reporting.dim_date ENABLE ROW LEVEL SECURITY; ALTER TABLE reporting.dim_date FORCE ROW LEVEL SECURITY;
 ALTER TABLE reporting.dim_item ENABLE ROW LEVEL SECURITY; ALTER TABLE reporting.dim_item FORCE ROW LEVEL SECURITY;
 ALTER TABLE reporting.dim_practice_plan ENABLE ROW LEVEL SECURITY; ALTER TABLE reporting.dim_practice_plan FORCE ROW LEVEL SECURITY;
+ALTER TABLE reporting.dim_public_holiday_vic ENABLE ROW LEVEL SECURITY; ALTER TABLE reporting.dim_public_holiday_vic FORCE ROW LEVEL SECURITY;
 ALTER TABLE reporting.dim_skill_area ENABLE ROW LEVEL SECURITY; ALTER TABLE reporting.dim_skill_area FORCE ROW LEVEL SECURITY;
 ALTER TABLE reporting.dim_student ENABLE ROW LEVEL SECURITY; ALTER TABLE reporting.dim_student FORCE ROW LEVEL SECURITY;
 ALTER TABLE reporting.dim_test ENABLE ROW LEVEL SECURITY; ALTER TABLE reporting.dim_test FORCE ROW LEVEL SECURITY;

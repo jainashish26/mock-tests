@@ -166,6 +166,20 @@ export function EnquiryQueue() {
             { label: "Breached", value: counts.breached, tone: "text-destructive" },
             { label: "At risk", value: counts.at_risk, tone: "text-amber-700" },
             { label: "Reply not recorded", value: counts.unrecorded_open, tone: "text-slate-600" },
+            // Shown only when non-zero. A permanent tile reading 0 would train
+            // the operator to ignore it, which is exactly how a calendar gap
+            // becomes invisible again - but a silent omission when it IS
+            // non-zero would imply the queue is fully scored. So: quiet when
+            // there is nothing to report, impossible to miss when there is.
+            ...(counts.unknown_calendar > 0
+              ? [
+                  {
+                    label: "No deadline (calendar gap)",
+                    value: counts.unknown_calendar,
+                    tone: "text-amber-700",
+                  },
+                ]
+              : []),
           ].map((cell) => (
             <div key={cell.label} className="rounded-lg border border-border px-3 py-2">
               <p className="text-xs font-medium text-muted-foreground">{cell.label}</p>

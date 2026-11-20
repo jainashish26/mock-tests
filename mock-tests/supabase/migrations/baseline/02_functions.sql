@@ -3,6 +3,84 @@
 -- Do not hand-edit; regenerate with scripts/rebaseline_schema.py.
 -- See supabase/migrations/README.md for apply order and caveats.
 
+CREATE OR REPLACE FUNCTION reporting.business_day_deadline(p_from timestamp with time zone, p_business_days integer DEFAULT NULL::integer)
+ RETURNS timestamp with time zone
+ LANGUAGE plpgsql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'public', 'pg_catalog'
+AS $function$
+DECLARE
+  v_days    integer;
+  v_local   date := (p_from AT TIME ZONE 'Australia/Melbourne')::date;
+  v_horizon date;
+  v_year    integer;
+  v_cursor  date;
+  v_count   integer := 0;
+BEGIN
+  IF p_from IS NULL THEN
+    RETURN NULL;
+  END IF;
+
+  -- Explicit argument wins; otherwise the config singleton decides. Reading the
+  -- config here is the whole point of this migration: it is the line that makes
+  -- sla_basis load-bearing where before 109 nothing read it.
+  SELECT COALESCE(p_business_days, t.first_response_sla_business_days)
+    INTO v_days
+  FROM reporting.enquiry_thresholds t
+  WHERE t.id = 1;
+
+  IF v_days IS NULL OR v_days < 1 THEN
+    RETURN NULL;
+  END IF;
+
+  -- The furthest this scan can possibly reach. Each business day needs at most
+  -- one calendar day, plus whatever run of non-business days intervenes; the
+  -- longest such stretch in Victoria is Christmas through New Year. Seven days
+  -- per requested day plus a three-weekend allowance cannot be exceeded by any
+  -- calendar this table can hold, and a bounded scan is what makes "no data"
+  -- detectable instead of endless.
+  v_horizon := v_local + (7 * v_days + 20);
+
+  -- Refuse rather than guess. Every year the scan can touch must be seeded and
+  -- complete, so both a missing year and a half-populated one fail closed.
+  v_year := EXTRACT(YEAR FROM v_local)::int;
+  WHILE v_year <= EXTRACT(YEAR FROM v_horizon)::int LOOP
+    IF NOT reporting.holiday_year_is_complete(v_year) THEN
+      RETURN NULL;
+    END IF;
+    v_year := v_year + 1;
+  END LOOP;
+
+  v_cursor := v_local;
+  WHILE v_count < v_days LOOP
+    v_cursor := v_cursor + 1;
+    EXIT WHEN v_cursor > v_horizon;
+    IF EXTRACT(ISODOW FROM v_cursor)::int <= 5
+       AND NOT EXISTS (SELECT 1 FROM reporting.dim_public_holiday_vic h
+                       WHERE h.holiday_date = v_cursor) THEN
+      v_count := v_count + 1;
+    END IF;
+  END LOOP;
+
+  IF v_count < v_days THEN
+    RETURN NULL;
+  END IF;
+
+  -- "Close of" the business day, taken as the end of the calendar day. Deliberately
+  -- not an opening-hours figure: no business hour was ever supplied for this
+  -- promise, and inventing 17:00 would put an unvalidated number inside a
+  -- customer-facing deadline. End-of-day can only be more generous than a
+  -- working-hours reading, so the clock cannot make the published promise look
+  -- better than it is - which is the direction this project consistently chooses.
+  --
+  -- Note the day of receipt never counts, even for a 09:00 enquiry: decision 1a
+  -- is "the NEXT business day", so a Monday-morning enquiry is due at the close of
+  -- Tuesday, not Monday.
+
+  RETURN (v_cursor + TIME '23:59:59') AT TIME ZONE 'Australia/Melbourne';
+END $function$
+;
+
 CREATE OR REPLACE FUNCTION reporting.evaluate_daily_targets(p_date_key integer DEFAULT NULL::integer)
  RETURNS TABLE(target_date integer, students_evaluated bigint, completed bigint, missed bigint, events_inserted bigint)
  LANGUAGE plpgsql
@@ -275,7 +353,7 @@ AS $function$
 DECLARE
   t text;
   v_rows text;
-  v_out text := E'-- Hand-maintained reporting configuration (052/064/071/086).\n'
+  v_out text := E'-- Hand-maintained reporting configuration (052/064/071/086/109).\n'
               || E'-- A schema dump does not carry these, and their absence silently\n'
               || E'-- disables features rather than raising an error.\n\n';
   v_tables text[];
@@ -288,7 +366,10 @@ BEGIN
     -- Not derivable: no `*_thresholds` name and no singleton CHECK.
     SELECT unnest(ARRAY[
       'dim_year_level_cap', 'refresh_blackout',
-      'refresh_blackout_exempt', 'product_tax_treatment'
+      'refresh_blackout_exempt', 'product_tax_treatment',
+      -- Added by 109: a multi-row reference table, not a singleton, so neither
+      -- discovery rule can see it.
+      'dim_public_holiday_vic'
     ]) AS t
     UNION ALL
     SELECT c.relname
@@ -367,6 +448,102 @@ AS $function$
                   CASE WHEN cs.body IS NOT NULL THEN E',\n' || cs.body ELSE '' END),
            '' ORDER BY ct.relname)
   FROM coltext ct LEFT JOIN cons cs ON cs.relid = ct.relid;
+$function$
+;
+
+CREATE OR REPLACE FUNCTION reporting.fn_vic_holidays(p_year integer)
+ RETURNS TABLE(holiday_date date, name text, is_substitute boolean)
+ LANGUAGE sql
+ STABLE
+AS $function$
+  WITH c AS (                       -- Anonymous Gregorian computus
+    SELECT p_year % 19                                  AS a,
+           div(p_year, 100)                              AS b,
+           p_year % 100                                  AS c,
+           div(div(p_year, 100), 4)                      AS d,
+           div(p_year, 100) % 4                          AS e,
+           div(div(p_year, 100) + 8, 25)                 AS f
+  ), g AS (
+    SELECT a, b, c, d, e, f,
+           div(b - f + 1, 3)                             AS g
+    FROM c
+  ), h AS (
+    SELECT a, b, c, d, e, g,
+           (19*a + b - d - g + 15) % 30                  AS h,
+           div(c, 4)                                     AS i,
+           c % 4                                         AS k
+    FROM g
+  ), l AS (
+    SELECT a, d, e, g, h, i, k,
+           (32 + 2*e + 2*i - h - k) % 7                  AS l
+    FROM h
+  ), m AS (
+    SELECT a, g, h, l,
+           div(a + 11*h + 22*l, 451)                     AS m
+    FROM l
+  ), easter AS (
+    SELECT make_date(p_year,
+                     div(h + l - 7*m + 114, 31)::int,
+                     ((h + l - 7*m + 114) % 31 + 1)::int) AS d
+    FROM m
+  ), floating AS (                  -- nth/last weekday rules
+    SELECT make_date(p_year, 3, 1)
+           + ((1 - EXTRACT(ISODOW FROM make_date(p_year, 3, 1))::int + 7) % 7) + 7 AS labour,
+           make_date(p_year, 6, 1)
+           + ((1 - EXTRACT(ISODOW FROM make_date(p_year, 6, 1))::int + 7) % 7) + 7 AS kings,
+           make_date(p_year, 11, 1)
+           + ((2 - EXTRACT(ISODOW FROM make_date(p_year, 11, 1))::int + 7) % 7)     AS cup,
+           -- Last Friday of September. The feed's own note says the holiday
+           -- "typically falls on the last Friday in September"; that is the rule
+           -- confirmed by every year the source has actually finalised.
+           (SELECT (make_date(p_year, 10, 1) - 1)
+                   - ((EXTRACT(ISODOW FROM (make_date(p_year, 10, 1) - 1))::int - 5 + 7) % 7)) AS afl
+  ), principal AS (
+    SELECT make_date(p_year, 1, 1)::date   AS d, 'New Year''s Day'::text   AS n, false AS sub, true  AS relocates
+    UNION ALL SELECT make_date(p_year, 1, 26),  'Australia Day',            false, true
+    UNION ALL SELECT labour,                    'Labour Day',               false, false FROM floating
+    UNION ALL SELECT (SELECT d FROM easter) - 2,'Good Friday',              false, false
+    UNION ALL SELECT (SELECT d FROM easter) - 1,'Saturday before Easter Sunday', false, false
+    UNION ALL SELECT (SELECT d FROM easter),    'Easter Sunday',            false, false
+    UNION ALL SELECT (SELECT d FROM easter) + 1,'Easter Monday',            false, false
+    UNION ALL SELECT make_date(p_year, 4, 25),  'ANZAC Day',                false, false
+    UNION ALL SELECT kings,                     'King''s Birthday',         false, false FROM floating
+    UNION ALL SELECT afl,                       'Friday before the AFL Grand Final', false, false FROM floating
+    UNION ALL SELECT cup,                       'Melbourne Cup',            false, false FROM floating
+    UNION ALL SELECT make_date(p_year, 12, 25), 'Christmas Day',            false, true
+    UNION ALL SELECT make_date(p_year, 12, 26), 'Boxing Day',               false, true
+  ), substitute AS (
+    -- The observed substitute, when the day itself falls on a weekend.
+    --
+    -- Two different rules, each pinned by a year the source has confirmed:
+    --   * New Year's / Australia Day: Saturday -> +2 (2028-01-01 is a Saturday
+    --     and the feed carries Monday 2028-01-03); Sunday -> +1 (2025-01-26 is a
+    --     Sunday and the feed carries Monday 2025-01-27).
+    --   * Christmas / Boxing Day: BOTH weekend positions resolve to +2. When
+    --     Christmas falls on a Saturday the Monday belongs to Christmas and
+    --     Boxing Day, being a Sunday, has to go to the Tuesday - which is 2027
+    --     exactly (the feed carries 2027-12-27 AND 2027-12-28). Boxing Day alone
+    --     on a Saturday also goes +2, giving Monday 2026-12-28. A naive
+    --     "+1 for Sunday" would have put Boxing Day 2027 on a Monday that was
+    --     already taken by Christmas.
+    -- ANZAC Day is deliberately absent: it is commemorated on the day it falls
+    -- and has no replacement, so 2026-04-25 (a Saturday) gets no Monday, and the
+    -- feed agrees.
+    SELECT CASE
+             WHEN n IN ('New Year''s Day','Australia Day')
+                  AND EXTRACT(ISODOW FROM d)::int = 6 THEN d + 2
+             WHEN n IN ('New Year''s Day','Australia Day')
+                  AND EXTRACT(ISODOW FROM d)::int = 7 THEN d + 1
+             WHEN n IN ('Christmas Day','Boxing Day')
+                  AND EXTRACT(ISODOW FROM d)::int IN (6,7) THEN d + 2
+           END AS d, n, true AS sub
+    FROM principal
+    WHERE relocates
+  )
+  SELECT d, n, sub FROM principal
+  UNION ALL
+  SELECT d, n, sub FROM substitute WHERE d IS NOT NULL
+  ORDER BY 1;
 $function$
 ;
 
@@ -513,6 +690,19 @@ AS $function$
                 < t.min_segment_visitors
        FROM reporting.funnel_thresholds t WHERE t.id = 1)
   FROM ev CROSS JOIN st;
+$function$
+;
+
+CREATE OR REPLACE FUNCTION reporting.holiday_year_is_complete(p_year integer)
+ RETURNS boolean
+ LANGUAGE sql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'public', 'pg_catalog'
+AS $function$
+  SELECT count(*) > 0
+     AND count(*) = (SELECT count(*) FROM reporting.fn_vic_holidays(p_year))
+  FROM reporting.dim_public_holiday_vic
+  WHERE EXTRACT(YEAR FROM holiday_date)::int = p_year
 $function$
 ;
 

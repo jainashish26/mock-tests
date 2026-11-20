@@ -44,6 +44,26 @@ export const SLA_META: Record<string, { text: string; tone: string; why: string 
     tone: "bg-slate-100 text-slate-600 border-slate-300",
     why: "Closed or resolved with no first response ever recorded. The response time is unknown, not zero. A13 counts these separately rather than letting them flatter the average.",
   },
+  unknown_calendar: {
+    text: "No deadline",
+    tone: "bg-slate-100 text-slate-600 border-slate-300 border-dashed",
+    why: "The Victorian public-holiday calendar does not cover this enquiry's response window, so no deadline can be computed and the row is neither met nor breached. Fix by adding the missing year to reporting.dim_public_holiday_vic; refusing to guess is deliberate.",
+  },
+}
+
+/**
+ * Fallback for a state this build has never seen.
+ *
+ * It used to be `SLA_META.within`, which meant a new database state rendered as
+ * "open and comfortably inside the response window" - the queue would have
+ * advertised an all-clear for a condition it did not understand. Defaulting an
+ * unknown to good news is the one failure direction a triage screen must not
+ * have, so the fallback is deliberately as loud as a warning.
+ */
+export const SLA_META_UNKNOWN = {
+  text: "Unrecognised state",
+  tone: "bg-amber-100 text-amber-900 border-amber-400 border-dashed",
+  why: "The queue returned an SLA state this build does not know. Treat the figure as unavailable, not as reassurance.",
 }
 
 export const ACTION_LABEL: Record<EnquiryAction, string> = {

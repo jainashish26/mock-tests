@@ -39,6 +39,10 @@ import {
   ipPepper,
   verifyFormToken,
 } from '@/lib/support/form-token';
+import {
+  SLA_META,
+  SLA_META_UNKNOWN,
+} from '@/lib/support/enquiry-labels';
 import type { EnquiryStatus } from '@/lib/support/triage';
 
 let pass = 0;
@@ -281,6 +285,7 @@ console.log('\n=== the triage state machine mirrors the SQL guards ===');
     actionNeedsOutcome,
     isDone,
     slaCaveat,
+    SLA_STATES,
     taskReasonError,
     describeAge,
   } = await import('@/lib/support/triage');
@@ -346,11 +351,54 @@ console.log('\n=== the triage state machine mirrors the SQL guards ===');
 
   console.log('\n=== SLA wording and the audit gate ===');
   // An unconfirmed SLA must say so: this is the A-15/Q-5 gap made visible.
-  ok('an unconfirmed SLA produces a caveat',
-    slaCaveat({ sla_minutes: 1440, sla_is_confirmed: false }) !== null);
-  eq('the caveat names the window in hours, not raw minutes',
-    slaCaveat({ sla_minutes: 1440, sla_is_confirmed: false })?.includes('24 continuous hours'), true);
-  eq('a confirmed SLA stops hedging', slaCaveat({ sla_minutes: 1440, sla_is_confirmed: true }), null);
+  ok('an unconfirmed calendar SLA produces a caveat',
+    slaCaveat({ sla_basis: 'calendar', sla_minutes: 1440, sla_business_days: null, sla_is_confirmed: false }) !== null);
+  eq('the calendar caveat names the window in hours, not raw minutes',
+    slaCaveat({ sla_basis: 'calendar', sla_minutes: 1440, sla_business_days: null, sla_is_confirmed: false })
+      ?.includes('24 continuous hours'), true);
+  eq('a confirmed SLA stops hedging',
+    slaCaveat({ sla_basis: 'business', sla_minutes: null, sla_business_days: 1, sla_is_confirmed: true }), null);
+
+  // 109 / decision 1-B. Under the business basis there is no minute window at
+  // all, so the caption must change with it. These are the assertions the old
+  // `numeric(sla_minutes, 1440)` default made impossible to write, because that
+  // default manufactured a calendar window out of a NULL.
+  const biz = slaCaveat({ sla_basis: 'business', sla_minutes: null, sla_business_days: 1, sla_is_confirmed: false }) ?? '';
+  ok('the business-day caveat speaks in business days', biz.includes('1 business day'));
+  ok('it never claims a continuous-hours window under a day-based clock',
+    !biz.includes('continuous hours'));
+  ok('a NULL minute count is not turned into "0 continuous hours"',
+    !biz.includes('0 continuous hours'));
+  eq('the window pluralises when the promise is wider than a day',
+    (slaCaveat({ sla_basis: 'business', sla_minutes: null, sla_business_days: 3, sla_is_confirmed: false }) ?? '')
+      .includes('3 business days'), true);
+  // Q-5 was ANSWERED by 1-B. Repeating that calendar-or-business is unresolved
+  // would contradict the recorded decision on the operator's own screen.
+  ok('the caveat no longer calls the basis an open question',
+    !biz.toLowerCase().includes('open question'));
+
+  console.log('\n=== every SLA state the database can return has a label ===');
+  // The card used to fall back to SLA_META.within for an unrecognised state, so
+  // adding a state to the SQL without adding it here would have made the queue
+  // print "comfortably inside the response window" for a condition it did not
+  // understand. Defaulting the unknown to good news is the failure direction
+  // these two assertions exist to keep shut.
+  for (const s of SLA_STATES) {
+    ok(`SLA_META covers '${s}'`, Boolean(SLA_META[s]));
+  }
+  ok('each state has a chip and a substantive explanation, not a placeholder',
+    SLA_STATES.every((s) => {
+      const m = SLA_META[s];
+      return Boolean(m && m.text && m.tone && typeof m.why === 'string' && m.why.length > 40);
+    }));
+  ok('unknown_calendar is not worded the same as the reassuring states',
+    SLA_META.unknown_calendar.text !== SLA_META.within.text
+      && SLA_META.unknown_calendar.text !== SLA_META.met.text);
+  ok('the fallback for an unseen state is never the reassuring one',
+    SLA_META_UNKNOWN.text !== SLA_META.within.text
+      && SLA_META_UNKNOWN.text !== SLA_META.met.text);
+  ok('SLA_STATES has no duplicate the labels could disagree about',
+    new Set(SLA_STATES).size === SLA_STATES.length);
 
   // 012's CHECK is length(trim(task_reason)) >= 12; the UI must agree or it
   // sends requests the database will reject.

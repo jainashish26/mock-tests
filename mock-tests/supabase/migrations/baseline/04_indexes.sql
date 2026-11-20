@@ -17,6 +17,7 @@ CREATE INDEX idx_dim_item_status ON reporting.dim_item USING btree (content_stat
 CREATE UNIQUE INDEX dim_practice_plan_pkey ON reporting.dim_practice_plan USING btree (plan_key);
 CREATE UNIQUE INDEX dim_practice_plan_student_id_valid_from_key ON reporting.dim_practice_plan USING btree (student_id, valid_from);
 CREATE INDEX idx_dim_practice_plan_current ON reporting.dim_practice_plan USING btree (student_id) WHERE is_current;
+CREATE UNIQUE INDEX dim_public_holiday_vic_pkey ON reporting.dim_public_holiday_vic USING btree (holiday_date);
 CREATE UNIQUE INDEX dim_skill_area_pkey ON reporting.dim_skill_area USING btree (skill_area_key);
 CREATE UNIQUE INDEX dim_skill_area_subject_topic_sub_topic_key ON reporting.dim_skill_area USING btree (subject, topic, sub_topic);
 CREATE UNIQUE INDEX dim_student_pkey ON reporting.dim_student USING btree (student_key);

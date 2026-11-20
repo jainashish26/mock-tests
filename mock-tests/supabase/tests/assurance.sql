@@ -38,7 +38,9 @@ CREATE EXTENSION IF NOT EXISTS pgtap WITH SCHEMA extensions;
 -- pgtap's has_role(name). Verified before relying on it. See migration 050.
 SET LOCAL search_path = public, extensions;
 
-SELECT extensions.plan(100);
+-- 112 = the 100 this suite planned before migration 109, plus 12 assertions for
+-- the business-day SLA clock (AC-41..AC-52).
+SELECT extensions.plan(112);
 
 CREATE TEMP TABLE _ids AS
 SELECT
@@ -1101,6 +1103,114 @@ SELECT extensions.is(
     WHERE student_id='6a000000-0000-4000-8000-0000000000f1'
       AND at_risk_rule='DECLINING_TREND'),
   0::bigint, 'T3-07 zero completed attempts never fabricates a declining trend');
+
+-- ============================================================================
+-- AC-41 .. AC-52  Business-day SLA clock (migration 109, decision 1-B)
+--
+-- Why these are worth pinning: the calendar is now load-bearing for a
+-- customer-facing promise, and its failure modes are silent. A rule that gets
+-- the Christmas/Boxing Day cascade wrong, a year that is only half populated, or
+-- a deadline expressed as a fixed UTC hour instead of Melbourne wall-clock time
+-- would each produce a plausible number rather than an error. The two refuse
+-- tests (AC-49, AC-50) are the important pair: a MISSING year is easy to notice,
+-- a PARTIAL one is not, and a partial year makes the clock stricter than the
+-- promise while every figure still looks sourced.
+-- ============================================================================
+
+SELECT extensions.ok(
+  (SELECT COUNT(DISTINCT EXTRACT(YEAR FROM holiday_date)) = 7
+     FROM reporting.dim_public_holiday_vic),
+  'AC-41 the holiday calendar spans all seven seeded years 2024-2030');
+
+SELECT extensions.ok(
+  (SELECT BOOL_AND(reporting.holiday_year_is_complete(y))
+     FROM generate_series(2024, 2030) AS y),
+  'AC-42 every seeded year is complete against the generator that made it');
+
+-- The case a naive "+1 for Sunday" rule gets wrong: Christmas 2027 is a Saturday,
+-- so Monday the 27th belongs to Christmas and Boxing Day slips to Tuesday 28th.
+SELECT extensions.is(
+  (SELECT COUNT(*) FROM reporting.dim_public_holiday_vic
+    WHERE holiday_date IN (DATE '2027-12-27', DATE '2027-12-28')
+      AND is_substitute),
+  2::bigint,
+  'AC-43 the 2027 Christmas/Boxing Day double substitute is both present and flagged');
+
+-- ANZAC is the one fixed-date holiday with NO replacement day, and 2026 put it on
+-- a Saturday. If a substitute appeared here the clock would gain a phantom
+-- non-business day every April.
+SELECT extensions.is(
+  (SELECT COUNT(*) FROM reporting.dim_public_holiday_vic
+    WHERE name = 'ANZAC Day' AND is_substitute),
+  0::bigint,
+  'AC-44 ANZAC Day never generates a substitute, in any seeded year');
+
+-- The deadline must be a wall-clock time in Melbourne, not a fixed UTC hour:
+-- AEST is +10 and AEDT is +11, so a naive implementation is an hour wrong for
+-- half the year and nobody would notice in a queue that only ever shows "late".
+SELECT extensions.ok(
+  (SELECT BOOL_AND(to_char(x.d AT TIME ZONE 'Australia/Melbourne', 'HH24:MI') = '23:59')
+     FROM (VALUES (timestamptz '2027-06-10 10:00:00+10'),   -- winter, AEST +10
+                  (timestamptz '2026-12-08 10:00:00+11')    -- summer, AEDT +11
+            ) AS m(t)
+     CROSS JOIN LATERAL (SELECT reporting.business_day_deadline(m.t) AS d) AS x
+    WHERE x.d IS NOT NULL),
+  'AC-45 the deadline is close of business in Melbourne across both DST states');
+
+SELECT extensions.is(
+  (SELECT to_char(reporting.business_day_deadline(timestamptz '2026-11-02 14:00:00+11')
+                    AT TIME ZONE 'Australia/Melbourne', 'YYYY-MM-DD Dy')),
+  '2026-11-04 Wed',
+  'AC-46 a deadline skips Melbourne Cup Day, not just the weekend');
+
+-- Property test: whatever day you start from, the deadline itself always lands on
+-- a business day. One bad rule (say the Cup misfiled as a Saturday) would show up
+-- here rather than in a single hand-picked example.
+SELECT extensions.ok(
+  (SELECT BOOL_AND(
+      EXTRACT(ISODOW FROM d AT TIME ZONE 'Australia/Melbourne') <= 5
+      AND NOT EXISTS (SELECT 1 FROM reporting.dim_public_holiday_vic h
+                       WHERE h.holiday_date = (d AT TIME ZONE 'Australia/Melbourne')::date))
+     FROM (SELECT reporting.business_day_deadline(
+              ((base)::date + TIME '09:00') AT TIME ZONE 'Australia/Melbourne') AS d
+           FROM (SELECT generate_series(DATE '2026-01-01', DATE '2026-12-31', INTERVAL '1 day')::date AS base) b
+          ) x WHERE d IS NOT NULL),
+  'AC-47 every 2026 deadline lands on a real business day (365-day property test)');
+
+SELECT extensions.ok(
+  (SELECT BOOL_AND((d AT TIME ZONE 'Australia/Melbourne')::date > base)
+     FROM (SELECT base, reporting.business_day_deadline(
+              (base + TIME '09:00') AT TIME ZONE 'Australia/Melbourne') AS d
+           FROM (SELECT generate_series(DATE '2026-01-01', DATE '2026-12-31', INTERVAL '1 day')::date AS base) b
+          ) x WHERE d IS NOT NULL),
+  'AC-48 the day of receipt never counts: the deadline is always a later date');
+
+-- Refuse, do not guess. This is the whole point of the unknown_calendar state.
+SELECT extensions.is(
+  reporting.business_day_deadline(timestamptz '2031-03-05 10:00:00+11'),
+  NULL::timestamptz,
+  'AC-49 an unseeded year refuses to produce a deadline');
+
+-- The harder half: delete ONE row from an otherwise seeded year and the clock
+-- must still refuse. Without the completeness test this passes silently and every
+-- figure for that year is quietly a day out.
+DELETE FROM reporting.dim_public_holiday_vic WHERE holiday_date = DATE '2027-11-02';
+
+SELECT extensions.is(
+  reporting.holiday_year_is_complete(2027),
+  false,
+  'AC-50 a year missing a single holiday is detected as incomplete');
+
+SELECT extensions.is(
+  reporting.business_day_deadline(timestamptz '2027-11-01 10:00:00+11'),
+  NULL::timestamptz,
+  'AC-51 a PARTIAL year also refuses to compute, rather than running a day short');
+
+-- Restored by the surrounding ROLLBACK, so the hosted database is untouched.
+SELECT extensions.ok(
+  (SELECT sla_basis = 'business' AND first_response_sla_business_days >= 1
+     FROM reporting.enquiry_thresholds WHERE id = 1),
+  'AC-52 the shipped basis is business days and the promise is at least one day');
 
 SELECT * FROM extensions.finish();
 

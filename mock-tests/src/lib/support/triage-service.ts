@@ -1,6 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import { logger } from '@/lib/logging/logger'
-import type { EnquiryAction, EnquiryOutcome, SlaFacts } from './triage'
+import type { EnquiryAction, EnquiryOutcome, SlaBasis, SlaFacts } from './triage'
 
 /**
  * The IO half of the admin support queue.
@@ -40,8 +40,17 @@ export interface EnquiryCounts {
   breached: number
   at_risk: number
   unrecorded_open: number
+  /**
+   * Rows the business-day calendar cannot produce a deadline for. Deliberately
+   * its own figure rather than folded into `breached` or hidden: these are
+   * unmeasurable, and a header that omits them implies the queue is fully scored.
+   */
+  unknown_calendar: number
   oldest_age_minutes: number
-  sla_minutes: number
+  /** NULL under the business basis, where the window is counted in days. */
+  sla_minutes: number | null
+  sla_business_days: number | null
+  sla_basis: SlaBasis
   sla_is_confirmed: boolean
 }
 
@@ -119,10 +128,18 @@ export async function loadEnquiryQueue(
         breached: numeric(c?.breached),
         at_risk: numeric(c?.at_risk),
         unrecorded_open: numeric(c?.unrecorded_open),
+        unknown_calendar: numeric(c?.unknown_calendar),
         oldest_age_minutes: numeric(c?.oldest_age_minutes),
-        // Falls back to the migration default rather than 0: a header that
-        // reads "SLA 0 minutes" would report every open enquiry as breached.
-        sla_minutes: numeric(c?.sla_minutes, 1440),
+        // Deliberately NOT defaulted. Before 109 this read
+        // `numeric(c?.sla_minutes, 1440)`, which was harmless while the calendar
+        // basis was the only one implemented. Under a business-day basis the
+        // minute window is genuinely absent, and inventing 1440 here would make
+        // the header describe a business-day deadline as "24 continuous hours".
+        // NULL now means "this basis does not measure in minutes" all the way to
+        // the caption that has to phrase it.
+        sla_minutes: c?.sla_minutes == null ? null : numeric(c.sla_minutes),
+        sla_business_days: c?.sla_business_days == null ? null : numeric(c.sla_business_days),
+        sla_basis: c?.sla_basis === 'calendar' ? 'calendar' : 'business',
         sla_is_confirmed: c?.sla_is_confirmed === true,
       },
     },
