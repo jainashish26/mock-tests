@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict Ic7eCxZlze0mXv0dr3SltOOannknHNVWbRDJqNpAd04t0sUWUfxNQGI5pddPgg0
+\restrict 9bfi9TogKjqla10SvQihmzafcwy0do6FduYtAwyzuHa3HPFKd2W0JfjJEd5EUlJ
 
 -- Dumped from database version 17.6
 -- Dumped by pg_dump version 17.12
@@ -1262,6 +1262,18 @@ $$;
 --
 
 COMMENT ON FUNCTION public.experiment_expose(p_experiment_key text, p_subject_key text) IS 'Records that a subject actually SAW their assigned arm. Returns false when they were never assigned, rather than inventing an assignment. Callers must invoke this only when the treatment genuinely rendered - see the N-7 offer page, which skips it when no personalisation applied.';
+
+
+--
+-- Name: export_baseline_function_acls(); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.export_baseline_function_acls() RETURNS text
+    LANGUAGE sql STABLE SECURITY DEFINER
+    SET search_path TO 'reporting', 'pg_catalog'
+    AS $$
+  SELECT reporting.export_baseline_function_acls()
+$$;
 
 
 --
@@ -6528,6 +6540,14 @@ GRANT ALL ON FUNCTION public.experiment_expose(p_experiment_key text, p_subject_
 
 
 --
+-- Name: FUNCTION export_baseline_function_acls(); Type: ACL; Schema: public; Owner: -
+--
+
+REVOKE ALL ON FUNCTION public.export_baseline_function_acls() FROM PUBLIC;
+GRANT ALL ON FUNCTION public.export_baseline_function_acls() TO service_role;
+
+
+--
 -- Name: FUNCTION export_schema_baseline(p_part text); Type: ACL; Schema: public; Owner: -
 --
 
@@ -7368,5 +7388,5 @@ ALTER DEFAULT PRIVILEGES FOR ROLE supabase_admin IN SCHEMA public GRANT ALL ON T
 -- PostgreSQL database dump complete
 --
 
-\unrestrict Ic7eCxZlze0mXv0dr3SltOOannknHNVWbRDJqNpAd04t0sUWUfxNQGI5pddPgg0
+\unrestrict 9bfi9TogKjqla10SvQihmzafcwy0do6FduYtAwyzuHa3HPFKd2W0JfjJEd5EUlJ
 

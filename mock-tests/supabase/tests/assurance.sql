@@ -42,9 +42,11 @@ SET LOCAL search_path = public, extensions;
 -- the business-day SLA clock (AC-41..AC-52), 11 for conversion references
 -- (AC-53..AC-63, migration 110), 6 for the A13 warehouse (AC-64..AC-69,
 -- migrations 111/112), 7 for inbound capture shipped dark
--- (AC-70..AC-74, migration 114) and 13 for contact privacy, audit and the
--- append-only finding (AC-35..AC-40, PR-02, migration 115).
-SELECT extensions.plan(149);
+-- (AC-70..AC-74, migration 114), 13 for contact privacy, audit and the
+-- append-only finding (AC-35..AC-40, PR-02, migration 115) and 3 for keeping the
+-- read-only reporting role read-only (AC-75..AC-76, migration 116) and 3 for the ACL
+-- capture describing the live schema (AC-77..AC-79, migration 117).
+SELECT extensions.plan(155);
 
 CREATE TEMP TABLE _ids AS
 SELECT
@@ -1713,6 +1715,74 @@ SELECT extensions.is(
       AND c.relkind IN ('v','m')),
   NULL::text,
   'PR-02b no reporting view or materialised view depends on enquiry_contacts');
+
+-- ============================================================================
+-- AC-75 .. AC-76  The read-only role must stay read-only (migration 116)
+--
+-- 111 granted EXECUTE on load_enquiry_facts to `reporting_ro`. Because the
+-- function is SECURITY DEFINER and postgres-owned, that let a role with no write
+-- privilege on any table truncate and rebuild the warehouse - the grant bypassed
+-- the very privilege model the role exists to enforce. Measured afterwards: the
+-- other five reporting loaders all return false, so this was never the house
+-- pattern, it was assumed to be.
+--
+-- Asserted as a scan over every load_* rather than by naming this function, so
+-- the next fact table added with the same well-meaning grant fails here.
+-- ============================================================================
+
+SELECT extensions.is(
+  (SELECT string_agg(p.proname, ', ' ORDER BY p.proname)
+     FROM pg_proc p JOIN pg_namespace n ON n.oid = p.pronamespace
+    WHERE n.nspname = 'reporting'
+      AND p.prokind = 'f'
+      AND p.proname LIKE 'load\_%'
+      AND has_function_privilege('reporting_ro', p.oid::regprocedure, 'EXECUTE')),
+  NULL::text,
+  'AC-75 no reporting loader is executable by the read-only role');
+
+-- Hardening that breaks the pipeline is not hardening. Both the owner and the
+-- scheduled job must still be able to do the work.
+SELECT extensions.is(
+  has_function_privilege('postgres', 'reporting.load_enquiry_facts(boolean)', 'EXECUTE'),
+  true,
+  'AC-76a the ETL owner can still load enquiry facts');
+
+SELECT extensions.is(
+  (SELECT count(*)::int FROM cron.job
+    WHERE jobname = 'rpt-enquiry-daily' AND command LIKE '%load_enquiry_facts%'),
+  1,
+  'AC-76b the hourly job that calls it is unchanged');
+
+-- ============================================================================
+-- AC-77  The ACL capture describes the schema that actually exists
+--
+-- 117 exists because supabase/reset/10_reporting_function_acls.sql was generated
+-- once by hand and never regenerated, so every reporting function added since
+-- (including 111's loader) was left PUBLIC-executable on a restored database
+-- while live looked correctly locked down. Live-state checks cannot see that
+-- class of problem at all - the defect only exists on the machine rebuilt from
+-- the backup - so the assertion compares the CAPTURE against live rather than
+-- trusting that someone remembered to run it.
+-- ============================================================================
+
+SELECT extensions.is(
+  (SELECT count(*) FROM (
+     SELECT unnest(string_to_array(reporting.export_baseline_function_acls(), E'\n')) AS line
+   ) x WHERE x.line LIKE 'REVOKE ALL ON FUNCTION%') >= (
+     SELECT count(*)::bigint FROM pg_proc p JOIN pg_namespace n ON n.oid = p.pronamespace
+      WHERE n.nspname = 'reporting' AND p.prokind = 'f'
+        AND p.proname NOT LIKE 'export\_%'
+   ),
+  true,
+  'AC-77 the generated ACL script covers at least as many functions as live has');
+
+SELECT extensions.ok(
+  (SELECT position('load_enquiry_facts' IN reporting.export_baseline_function_acls()) > 0),
+  'AC-78 the function whose grant drift motivated 117 is present in the capture');
+
+SELECT extensions.ok(
+  (SELECT position('reporting.' IN reporting.export_baseline_function_acls()) > 0),
+  'AC-79 signatures are schema-qualified, not left to the restore search_path');
 
 SELECT * FROM extensions.finish();
 

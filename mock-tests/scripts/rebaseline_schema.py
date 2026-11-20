@@ -38,6 +38,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 ENV_FILE = ROOT / ".env.local"
 OUT_DIR = ROOT / "supabase" / "migrations" / "baseline"
+RESET_DIR = ROOT / "supabase" / "reset"
 
 # Apply order. Tables first, then functions, then views: a materialised view can
 # reference a function, and a SQL-language function is validated at creation, so
@@ -141,6 +142,28 @@ def main() -> int:
 
     total = sum(n for _, n in written)
     print(f"\n{len(written)} files, {total:,} chars -> {OUT_DIR}")
+
+    # Function ACLs are captured separately and written to supabase/reset/,
+    # because pg_get_functiondef omits ACLs: without this file a baseline restore
+    # recreates every reporting function PUBLIC-executable. It lives outside
+    # PARTS because it returns one scalar rather than (filename, content) rows and
+    # because its target directory is not the baseline. Generated here so that
+    # adding a reporting function cannot leave the restore script describing an
+    # older schema - the gap migration 117 records.
+    try:
+        acls = rpc(url, key, "export_baseline_function_acls", {})
+        text = acls if isinstance(acls, str) else (acls[0].get("content") if acls else "")
+        if not text:
+            print("FAIL function_acls: empty result")
+            return 1
+        RESET_DIR.mkdir(parents=True, exist_ok=True)
+        acl_path = RESET_DIR / "10_reporting_function_acls.sql"
+        acl_path.write_text(text, encoding="utf-8", newline="\n")
+        n_lines = sum(1 for line in text.splitlines() if line.startswith("REVOKE ALL ON FUNCTION"))
+        print(f"  wrote 10_reporting_function_acls.sql {len(text):>7,} chars ({n_lines} functions)")
+    except Exception as exc:  # noqa: BLE001 - a failed capture must not look like success
+        print(f"FAIL function_acls: {exc}")
+        return 1
     return 0
 
 

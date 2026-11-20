@@ -1022,6 +1022,16 @@ END;
 $function$
 ;
 
+CREATE OR REPLACE FUNCTION public.export_baseline_function_acls()
+ RETURNS text
+ LANGUAGE sql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'reporting', 'pg_catalog'
+AS $function$
+  SELECT reporting.export_baseline_function_acls()
+$function$
+;
+
 CREATE OR REPLACE FUNCTION public.handle_new_auth_user()
  RETURNS trigger
  LANGUAGE plpgsql
