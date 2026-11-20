@@ -99,14 +99,12 @@ $function$
 ;
 
 CREATE OR REPLACE FUNCTION public.admin_enquiry_queue(p_status text DEFAULT NULL::text, p_type text DEFAULT NULL::text, p_unanswered boolean DEFAULT false, p_limit integer DEFAULT 50, p_offset integer DEFAULT 0)
- RETURNS TABLE(enquiry_id uuid, channel text, enquiry_type text, status text, outcome text, received_at timestamp with time zone, first_response_at timestamp with time zone, resolved_at timestamp with time zone, assigned_to uuid, parent_user_id uuid, converted boolean, age_minutes integer, response_minutes integer, resolution_hours numeric, sla_minutes integer, sla_state text, sla_is_confirmed boolean, utm_source text, due_at timestamp with time zone, sla_basis text, sla_business_days integer)
+ RETURNS TABLE(enquiry_id uuid, channel text, enquiry_type text, status text, outcome text, received_at timestamp with time zone, first_response_at timestamp with time zone, resolved_at timestamp with time zone, assigned_to uuid, parent_user_id uuid, converted boolean, age_minutes integer, response_minutes integer, resolution_hours numeric, sla_minutes integer, sla_state text, sla_is_confirmed boolean, utm_source text, due_at timestamp with time zone, sla_basis text, sla_business_days integer, converted_ref text, converted_ref_kind text)
  LANGUAGE plpgsql
  STABLE SECURITY DEFINER
  SET search_path TO 'public', 'pg_catalog'
 AS $function$
 BEGIN
-  -- Authorisation before parameter validation: a non-admin must not be able to
-  -- learn the valid status names by observing which of two 400s comes back.
   IF NOT public.has_role('ADMIN') THEN
     RETURN;
   END IF;
@@ -132,30 +130,21 @@ BEGIN
     e.id, e.channel, e.enquiry_type, e.status, e.outcome,
     e.received_at, e.first_response_at, e.resolved_at,
     e.assigned_to, e.parent_user_id,
-    (e.converted_order_id IS NOT NULL),
-    -- EXTRACT(EPOCH ...) is SECONDS. The /60 is what makes these columns mean
-    -- minutes; dropping it is the bug that once shipped through a passing queue.
+    -- Either path counts. An enquiry that points at a subscription is converted
+    -- as fully as one that points at a purchases row.
+    (e.converted_order_id IS NOT NULL OR e.converted_ref IS NOT NULL),
     (EXTRACT(EPOCH FROM (now() - e.received_at)) / 60)::int,
     (EXTRACT(EPOCH FROM (e.first_response_at - e.received_at)) / 60)::int,
     CASE WHEN e.resolved_at IS NULL OR e.first_response_at IS NULL THEN NULL
          ELSE ROUND(EXTRACT(EPOCH FROM (e.resolved_at - e.received_at)) / 3600, 2) END,
-    -- Each window is reported only under the basis that uses it. Returning
-    -- 1440 beside a business-day deadline would invite a reader to compare an
-    -- age in minutes against a window measured in days.
     CASE WHEN th.sla_basis = 'calendar' THEN th.first_response_sla_minutes END,
     CASE
-      -- Checked first, unchanged: a finished enquiry with no reply is a gap in
-      -- the record, not a breach, and calling it either would be the fabrication
-      -- section 2 of 104 refuses to make.
       WHEN e.status IN ('resolved','closed') AND e.first_response_at IS NULL
         THEN 'unrecorded'
-      -- The calendar does not cover this enquiry's window. No number is offered.
       WHEN d.due_at IS NULL
         THEN 'unknown_calendar'
       WHEN e.first_response_at IS NOT NULL
         THEN CASE WHEN e.first_response_at <= d.due_at THEN 'met' ELSE 'breached' END
-      -- Unanswered past the window breaches NOW, not when it is eventually
-      -- resolved (104 section 2 / roadmap 5.8).
       WHEN now() > d.due_at THEN 'breached'
       WHEN now() > e.received_at + ((d.due_at - e.received_at) * 0.75) THEN 'at_risk'
       ELSE 'within'
@@ -164,21 +153,22 @@ BEGIN
     e.utm_source,
     d.due_at,
     th.sla_basis,
-    CASE WHEN th.sla_basis = 'business' THEN th.first_response_sla_business_days END
+    CASE WHEN th.sla_basis = 'business' THEN th.first_response_sla_business_days END,
+    -- Table-qualified: RETURNS TABLE turns converted_ref into an OUT variable, so
+    -- a bare reference here is ambiguous with the column (42702).
+    e.converted_ref,
+    e.converted_ref_kind
   FROM public.enquiries e
   CROSS JOIN reporting.enquiry_thresholds th
   CROSS JOIN LATERAL (
     SELECT CASE
              WHEN th.sla_basis = 'business'
                THEN reporting.business_day_deadline(e.received_at)
-             ELSE e.received_at
-                  + make_interval(mins => th.first_response_sla_minutes)
+             ELSE e.received_at + make_interval(mins => th.first_response_sla_minutes)
            END AS due_at
   ) d
   WHERE th.id = 1
     AND (p_status IS NULL OR e.status = p_status)
-    -- Spam is not work, so the default work queue hides it. Asking for
-    -- status='spam' explicitly still returns it.
     AND (p_status IS NOT NULL OR e.status <> 'spam')
     AND (p_type IS NULL OR e.enquiry_type = p_type)
     AND (NOT p_unanswered OR e.first_response_at IS NULL)
@@ -188,18 +178,21 @@ END;
 $function$
 ;
 
-CREATE OR REPLACE FUNCTION public.admin_enquiry_transition(p_enquiry_id uuid, p_action text, p_outcome text DEFAULT NULL::text, p_assignee uuid DEFAULT NULL::uuid)
- RETURNS TABLE(enquiry_id uuid, status text, outcome text, first_response_at timestamp with time zone, first_response_minutes integer, resolved_at timestamp with time zone, resolution_hours numeric, response_recorded boolean, response_was_missing boolean)
+CREATE OR REPLACE FUNCTION public.admin_enquiry_transition(p_enquiry_id uuid, p_action text, p_outcome text DEFAULT NULL::text, p_assignee uuid DEFAULT NULL::uuid, p_convert_ref text DEFAULT NULL::text, p_convert_kind text DEFAULT NULL::text)
+ RETURNS TABLE(enquiry_id uuid, status text, outcome text, first_response_at timestamp with time zone, first_response_minutes integer, resolved_at timestamp with time zone, resolution_hours numeric, response_recorded boolean, response_was_missing boolean, converted_at timestamp with time zone, converted_ref text, converted_ref_kind text, conversion_recorded boolean, conversion_withdrawn boolean)
  LANGUAGE plpgsql
  SECURITY DEFINER
  SET search_path TO 'public', 'pg_catalog'
 AS $function$
 DECLARE
-  v_now     timestamptz := now();
-  v_e       public.enquiries%ROWTYPE;
-  v_target  text;
-  v_new_fr  timestamptz;
-  v_new_res timestamptz;
+  v_now      timestamptz := now();
+  v_e        public.enquiries%ROWTYPE;
+  v_target   text;
+  v_new_fr   timestamptz;
+  v_new_res  timestamptz;
+  v_new_conv timestamptz;
+  v_new_ref  text;
+  v_new_kind text;
 BEGIN
   IF NOT public.has_role('ADMIN') THEN
     RAISE EXCEPTION 'only an administrator can change an enquiry''s status'
@@ -207,24 +200,25 @@ BEGIN
   END IF;
 
   IF p_action IS NULL OR p_action NOT IN
-     ('triage','start','reply','resolve','close','reopen','assign','spam') THEN
+     ('triage','start','reply','resolve','close','reopen','assign','spam',
+      'convert','unconvert') THEN
     RAISE EXCEPTION 'unknown enquiry action: %', p_action USING ERRCODE = '22023';
   END IF;
 
-  -- FOR UPDATE, so two admins clicking the same button at the same moment
-  -- cannot both pass the "is this already resolved?" tests below and both stamp
-  -- a clock. The second sees the row as the first left it.
   SELECT * INTO v_e FROM public.enquiries WHERE id = p_enquiry_id FOR UPDATE;
   IF NOT FOUND THEN
     RAISE EXCEPTION 'no such enquiry' USING ERRCODE = 'P0002';
   END IF;
 
-  v_target  := v_e.status;
-  v_new_fr  := v_e.first_response_at;
-  v_new_res := v_e.resolved_at;
+  v_target   := v_e.status;
+  v_new_fr   := v_e.first_response_at;
+  v_new_res  := v_e.resolved_at;
+  -- Carried forward so an unrelated action preserves a conversion recorded
+  -- weeks ago instead of silently blanking it.
+  v_new_conv := v_e.converted_at;
+  v_new_ref  := v_e.converted_ref;
+  v_new_kind := v_e.converted_ref_kind;
 
-  -- Each action names the status it produces. The table is never handed a
-  -- status it has to interpret.
   CASE p_action
     WHEN 'triage'  THEN v_target := 'triaged';
     WHEN 'start'   THEN v_target := 'in_progress';
@@ -233,20 +227,17 @@ BEGIN
     WHEN 'close'   THEN v_target := 'closed';
     WHEN 'reopen'  THEN v_target := 'in_progress';
     WHEN 'spam'    THEN v_target := 'spam';
-    WHEN 'assign'  THEN v_target := v_e.status;   -- assignment moves nothing
+    -- Assignment and conversion move the record without moving the queue.
+    WHEN 'assign'    THEN v_target := v_e.status;
+    WHEN 'convert'   THEN v_target := v_e.status;
+    WHEN 'unconvert' THEN v_target := v_e.status;
   END CASE;
 
-  -- The reply clock. Only 'reply' stamps it, and only once: a second reply is
-  -- an ordinary conversation, not a second first response.
   IF p_action = 'reply' THEN
     IF v_e.first_response_at IS NOT NULL THEN
       RAISE EXCEPTION 'the first response was already recorded at %',
         v_e.first_response_at USING ERRCODE = '22023';
     END IF;
-    -- Refused after resolution rather than backfilled. A reply entered now
-    -- would be timed from receipt to now, which is the admin's click time and
-    -- not the moment anybody was answered - and it would also violate
-    -- enquiries_timeline_sane. See the header, section 2.
     IF v_e.resolved_at IS NOT NULL OR v_e.status IN ('resolved','closed') THEN
       RAISE EXCEPTION
         'cannot record a first response after an enquiry is resolved or closed; '
@@ -256,16 +247,12 @@ BEGIN
     v_new_fr := v_now;
   END IF;
 
-  -- The resolution clock, together with the outcome the CHECK demands.
   IF p_action IN ('resolve','close') THEN
     IF p_outcome IS NULL OR p_outcome NOT IN
        ('answered','refunded','escalated','no_action','spam','duplicate','withdrawn') THEN
       RAISE EXCEPTION 'resolving or closing requires a valid outcome'
         USING ERRCODE = '22023';
     END IF;
-    -- COALESCE keeps the original timestamp if an enquiry is closed after
-    -- being resolved, so resolution_hours does not drift every time somebody
-    -- tidies the status.
     v_new_res := COALESCE(v_e.resolved_at, v_now);
   END IF;
 
@@ -273,9 +260,6 @@ BEGIN
     v_new_res := COALESCE(v_e.resolved_at, v_now);
   END IF;
 
-  -- Reopening means it is not resolved any more. The clock is cleared rather
-  -- than left behind, so resolution_hours cannot be computed against a moment
-  -- that no longer describes the enquiry.
   IF p_action = 'reopen' THEN
     v_new_res := NULL;
   END IF;
@@ -284,20 +268,50 @@ BEGIN
     RAISE EXCEPTION 'the assign action needs an assignee' USING ERRCODE = '22023';
   END IF;
 
+  IF p_action = 'convert' THEN
+    -- Refused rather than rounded: a spam row that "converted" is the metric
+    -- being fed by the queue's own rubbish, and nobody would ever notice.
+    IF v_e.status = 'spam' THEN
+      RAISE EXCEPTION 'a spam enquiry cannot be recorded as a conversion'
+        USING ERRCODE = '22023';
+    END IF;
+    IF p_convert_ref IS NULL OR length(btrim(p_convert_ref)) = 0 THEN
+      RAISE EXCEPTION 'the convert action needs the order reference it points at'
+        USING ERRCODE = '22023';
+    END IF;
+    IF p_convert_kind IS NULL OR p_convert_kind NOT IN
+       ('purchase','subscription','invoice','other') THEN
+      RAISE EXCEPTION
+        'the convert action needs a reference kind of purchase, subscription, invoice or other'
+        USING ERRCODE = '22023';
+    END IF;
+    -- First conversion wins on the timestamp: re-recording corrects what it
+    -- points at, it does not move when the family actually decided.
+    v_new_conv := COALESCE(v_e.converted_at, v_now);
+    v_new_ref  := btrim(p_convert_ref);
+    v_new_kind := p_convert_kind;
+  END IF;
+
+  IF p_action = 'unconvert' THEN
+    v_new_conv := NULL;
+    v_new_ref  := NULL;
+    v_new_kind := NULL;
+  END IF;
+
+  -- Every right-hand reference is table-qualified: RETURNS TABLE turns each
+  -- output column into a plpgsql variable, so a bare `converted_at` here would be
+  -- ambiguous between the OUT parameter and the column (42702).
   UPDATE public.enquiries AS e
-     SET status            = v_target,
-         first_response_at = v_new_fr,
-         resolved_at       = v_new_res,
-         -- Every right-hand reference is table-qualified. RETURNS TABLE makes
-         -- each output column a plpgsql variable named `status`, `outcome`,
-         -- `resolved_at` and so on, so a bare `outcome` here is ambiguous
-         -- between the OUT parameter and the column and Postgres refuses the
-         -- statement outright (42702). The alias is not decoration: without it
-         -- this function cannot be created at all.
-         outcome           = COALESCE(p_outcome,
+     SET status             = v_target,
+         first_response_at  = v_new_fr,
+         resolved_at        = v_new_res,
+         outcome            = COALESCE(p_outcome,
                             CASE WHEN p_action = 'spam' THEN 'spam' ELSE e.outcome END),
-         assigned_to       = COALESCE(p_assignee, e.assigned_to),
-         updated_at        = v_now
+         assigned_to        = COALESCE(p_assignee, e.assigned_to),
+         converted_at       = v_new_conv,
+         converted_ref      = v_new_ref,
+         converted_ref_kind = v_new_kind,
+         updated_at         = v_now
    WHERE e.id = p_enquiry_id;
 
   RETURN QUERY
@@ -307,20 +321,20 @@ BEGIN
     COALESCE(p_outcome,
       CASE WHEN p_action = 'spam' THEN 'spam' ELSE v_e.outcome END),
     v_new_fr,
-    -- Minutes, not seconds - see the units note in admin_enquiry_queue.
+    -- Minutes, not seconds (see the units note in admin_enquiry_queue).
     CASE WHEN v_new_fr IS NULL THEN NULL
          ELSE (EXTRACT(EPOCH FROM (v_new_fr - v_e.received_at)) / 60)::int END,
     v_new_res,
-    -- Same rule as the queue's column: an unknown middle stays unknown.
     CASE WHEN v_new_res IS NULL OR v_new_fr IS NULL THEN NULL
          ELSE ROUND(EXTRACT(EPOCH FROM (v_new_res - v_e.received_at)) / 3600, 2) END,
-    -- True only when THIS call recorded the first response, which is the only
-    -- case that should fire ENQUIRY_FIRST_RESPONDED.
     (p_action = 'reply' AND v_e.first_response_at IS NULL),
-    -- The honesty flag for the UI: resolved or closed with no reply on record.
-    -- Surfaced rather than smoothed, because it is the difference between "we
-    -- answered in three hours" and "we do not know".
-    (p_action IN ('resolve','close') AND v_e.first_response_at IS NULL);
+    (p_action IN ('resolve','close') AND v_e.first_response_at IS NULL),
+    v_new_conv,
+    v_new_ref,
+    v_new_kind,
+    -- Only this call recording a first-ever conversion should fire the event.
+    (p_action = 'convert' AND v_e.converted_at IS NULL),
+    (p_action = 'unconvert' AND v_e.converted_at IS NOT NULL);
 END;
 $function$
 ;

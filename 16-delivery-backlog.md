@@ -979,7 +979,7 @@
 > | # | Question | **Decision** | What it commits to |
 > |---|---|---|---|
 > | **1** | Is the SLA clock calendar or business days? | **B — business days.** Sub-decision **1a**: due at the *close of the next business day*, which needs only a holiday calendar, not an opening-hours window. | New `reporting.dim_public_holiday_vic`; `sla_basis='business_day'`; `business_day_deadline()`; `sla_state` gains an `unknown_calendar` state so a missing holiday year refuses to compute rather than guessing. **D2 below is now load-bearing.** **Done — migration 109**, and it was not the migration the row describes: see *Decision 1, as built* below. |
-> | **2** | May a converted enquiry point at a non-`purchases` order? | **A — yes.** Relax `enquiries_converted_has_order` and add `converted_ref`. | One migration of its own; subscription payments create no `purchases` row, so the current CHECK makes "converted" unreachable for the majority of revenue. |
+> | **2** | May a converted enquiry point at a non-`purchases` order? | **A — yes.** Relax `enquiries_converted_has_order` and add `converted_ref`. | **Done — migration 110.** Subscription payments create no `purchases` row, so the old CHECK made "converted" unreachable for the majority of revenue. `converted_ref` + `converted_ref_kind` (purchase/subscription/invoice/other), the CHECK widened but still refusing a timestamp with nothing behind it, and `convert`/`unconvert` actions so a conversion is *recorded* by an admin rather than inferred from a matching account. |
 > | **3** | Inbound email channel? | **A — Resend inbound, built dormant.** | Needs a real domain to enable (see 11), so it ships dark: schema + route scaffold, no public promise of an address that does not exist. |
 > | **4** | Per-year test/question ceilings? | **A — 10/15/15/15/20/20/25/25 tests for Years 2–9, questions = tests × 25**, as a **ceiling**, with a separate **recommended target** of at least 2 tests/day. Stored in DB, not env vars. | **Done — migrations 107 + 108.** `dim_year_level_cap` seeded for all 8 levels with NOT NULL ceilings and NOT NULL recommended targets (2 for Years 2–5, 3 for 6–9; questions = × 25), plus `daily_target_basis` — a per-year-level toggle deciding which of the two clamps a child's daily target, **defaulting to the recommended target**, and editable at `/admin/settings`. `plan_overload_flag` measures against the ceiling in both modes, so choosing the protective clamp does not soften the alert. |
 
@@ -1401,11 +1401,56 @@
 > exactly that and nearly chased a defect that did not exist. Run the gates
 > sequentially.
 >
-> **Still to do in this sequence:** decisions **2** (relax
-> `enquiries_converted_has_order` +
-> `converted_ref`), **7** (`skill_exam_mapping`, proposed rows awaiting your
+> ### Decision 2, as built — migration 110 (2026-11-21)
+>
+> Two findings worth keeping, because both are the kind that pass silently.
+>
+> **The CHECK I wrote to enforce the new rule did not enforce it.** The natural
+> wording was `converted_ref IS NULL OR (converted_ref_kind IN (…) AND length(…)
+> BETWEEN 1 AND 200)`. When the kind is NULL, `NULL IN (…)` is NULL, `NULL AND
+> true` is NULL, and **a CHECK only rejects on false** — so the exact row the rule
+> existed to refuse, a reference with no stated type, was accepted by the
+> constraint written to stop it. Caught by the apply-time self-test, which is the
+> reason that self-test exists, and now pinned as AC-56 with the reasoning in the
+> comment so nobody re-simplifies it back to the broken form.
+>
+> **The first version of that test also passed for the wrong reason, in three
+> different places.** It counted any `check_violation` as the guard working —
+> but `enquiries` carries six other CHECKs, and one probe actually failed on
+> `enquiries_resolved_has_outcome` rather than the constraint under test. Every
+> probe now records the SQLSTATE *and* the constraint name via `GET STACKED
+> DIAGNOSTICS`, because "some rule objected" is not the same claim as "this rule
+> objected". The same discipline caught a second thing: `pgtap`'s
+> `throws_ok(text,text,text)` in this build takes the expected **message** in the
+> middle argument, not the SQLSTATE, so five correctly-working constraints
+> reported five failures. A test whose failure looks like a passing property and
+> whose success looks like a broken one is the worst possible instrument, and it
+> was replaced rather than reworded until green.
+>
+> **Conversions are recorded, never inferred.** The tempting shortcut — an enquiry
+> with a `parent_user_id` whose owner later subscribed is a conversion — was
+> declined for the same reason 104 refuses to back-fill `first_response_at`: it
+> would manufacture the metric's most interesting number from a correlation
+> nobody observed. `convert` is an explicit admin action, `unconvert` exists
+> because a field that cannot be corrected is a field that will be entered
+> carelessly, a second `convert` corrects the reference without moving the
+> original timestamp, and spam rows are refused so the rate cannot be fed by the
+> queue's own rubbish. The card therefore shows *what* a row converted to, since
+> a withdraw button with nothing to look at is a guess.
+>
+> **Verified (110):** applied from file, psql exit 0, its own self-test green ·
+> **123/123 pgtap** (`plan(112)`→`123`; AC-53…AC-63) · enquiry suite **125**
+> assertions (was 109) · all 8 Node suites green · `schema:validate` 84/84 and
+> `:app` 41/41 after regenerating both baselines · typecheck 0 · build 0 ·
+> lint ratchet unchanged 60/16 · live probe as ADMIN: subscription conversion
+> stored and visible as `converted=true` in the queue, re-convert corrects without
+> re-firing the event, unconvert leaves no orphan kind, and a bare
+> `converted_at` is still rejected by the original constraint.
+>
+> **Still to do in this sequence:** decisions **7** (`skill_exam_mapping`,
+> proposed rows awaiting your
 > review), **5** (adaptive-engine design note) and **3** (Resend inbound, dormant).
-> Decisions **1, 4, 6, 8, 9, 10 and 11 are done.** Then Phase C (A13) and Phase D
+> Decisions **1, 2, 4, 6, 8, 9, 10 and 11 are done.** Then Phase C (A13) and Phase D
 > (pgtap assurance).
 >
 > **Migration numbering note, recorded because the plan changed under it four

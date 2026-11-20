@@ -53,8 +53,23 @@ export const ENQUIRY_ACTIONS = [
   'reopen',
   'assign',
   'spam',
+  'convert',
+  'unconvert',
 ] as const
 export type EnquiryAction = (typeof ENQUIRY_ACTIONS)[number]
+
+/**
+ * What a conversion can point at. Mirrors the CHECK added by 110.
+ *
+ * 'subscription' is listed first because it is the common case for this product
+ * and the entire reason 110 exists: subscription payments write no purchases
+ * row, so under 012's CHECK the majority of revenue could not be recorded as a
+ * conversion at all.
+ */
+export const CONVERT_KINDS = ['subscription', 'purchase', 'invoice', 'other'] as const
+export type ConvertKind = (typeof CONVERT_KINDS)[number]
+
+export const CONVERT_REF_MAX = 200
 
 /**
  * Statuses that mean the work is finished.
@@ -92,6 +107,23 @@ export interface TriageRow {
   status: EnquiryStatus
   first_response_at: string | null
   resolved_at: string | null
+  /**
+   * Whether a conversion is already on record. Optional because the queue row
+   * carries it but the hand-written fixtures in the test suite do not, and an
+   * absent value means "nothing recorded yet", which is the safe reading.
+   */
+  converted?: boolean
+}
+
+/**
+ * Convert or withdraw, depending on what the row already holds.
+ *
+ * Offering exactly one of the two keeps the correction path visible: an operator
+ * who mis-keys a reference can see how to undo it, which is the difference
+ * between a field that is checked and one that is feared.
+ */
+function pushConversion(actions: EnquiryAction[], row: TriageRow): void {
+  actions.push(row.converted ? 'unconvert' : 'convert')
 }
 
 /**
@@ -109,12 +141,15 @@ export function allowedActions(row: TriageRow): EnquiryAction[] {
   actions.push('assign')
 
   if (isDone(row.status)) {
-    // Only reopening. `reply` is refused deliberately, and its absence here is
-    // the UI half of the guard in admin_enquiry_transition: a first response
+    // Only reopening, plus conversion. A family often subscribes days after the
+    // conversation ends, so closing an enquiry must not remove the ability to
+    // record what it became - and `reply` stays refused, because a first response
     // entered now would be timed from receipt to this click, which is not when
-    // anybody was answered. That gap is reported by responseKnowledge rather
-    // than papered over with a button.
+    // anybody was answered.
     actions.push('reopen')
+    // Mirrors the SQL's refusal to convert a spam row. Offering a button the
+    // database will reject is precisely the failure this module exists to stop.
+    if (row.status !== 'spam') pushConversion(actions, row)
     return actions
   }
 
@@ -141,6 +176,7 @@ export function allowedActions(row: TriageRow): EnquiryAction[] {
   // row reaching this line is open and can be ended either way.
   actions.push('resolve', 'close')
   actions.push('spam')
+  pushConversion(actions, row)
 
   return actions
 }
@@ -155,6 +191,34 @@ export function actionNeedsOutcome(action: EnquiryAction): boolean {
   return action === 'resolve' || action === 'close'
 }
 
+/** Whether the action needs a conversion reference before it can be sent. */
+export function actionNeedsConversion(action: EnquiryAction): boolean {
+  return action === 'convert'
+}
+
+/**
+ * Validate a conversion before it leaves the browser.
+ *
+ * Mirrors 110's `enquiries_conversion_reference_sane`, including the detail that
+ * the database checks the *trimmed* length: a reference of spaces is exactly the
+ * input that a CHECK written against the raw value would have waved through.
+ */
+export function conversionError(
+  ref: unknown,
+  kind: unknown
+): string | null {
+  if (typeof ref !== 'string' || ref.trim().length === 0) {
+    return 'Give the order or subscription reference this enquiry became.'
+  }
+  if (ref.trim().length > CONVERT_REF_MAX) {
+    return `That reference is too long; ${CONVERT_REF_MAX} characters at most.`
+  }
+  if (typeof kind !== 'string' || !(CONVERT_KINDS as readonly string[]).includes(kind)) {
+    return 'Choose what the reference points at.'
+  }
+  return null
+}
+
 /** The status each action produces. Mirrors the CASE in the SQL exactly. */
 export const ACTION_TARGET: Record<EnquiryAction, EnquiryStatus | null> = {
   triage: 'triaged',
@@ -167,6 +231,11 @@ export const ACTION_TARGET: Record<EnquiryAction, EnquiryStatus | null> = {
   // current status rather than inventing one.
   assign: null,
   spam: 'spam',
+  // Neither conversion action moves the queue. A family can subscribe while a
+  // question is still open, so forcing a resolve first would make the recorded
+  // timestamp measure the paperwork rather than the decision.
+  convert: null,
+  unconvert: null,
 }
 
 /**

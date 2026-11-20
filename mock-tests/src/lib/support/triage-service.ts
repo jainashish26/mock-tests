@@ -1,6 +1,12 @@
 import { createClient } from '@/lib/supabase/server'
 import { logger } from '@/lib/logging/logger'
-import type { EnquiryAction, EnquiryOutcome, SlaBasis, SlaFacts } from './triage'
+import type {
+  ConvertKind,
+  EnquiryAction,
+  EnquiryOutcome,
+  SlaBasis,
+  SlaFacts,
+} from './triage'
 
 /**
  * The IO half of the admin support queue.
@@ -32,6 +38,8 @@ export interface EnquiryQueueRow extends SlaFacts {
   assigned_to: string | null
   parent_user_id: string | null
   converted: boolean
+  converted_ref: string | null
+  converted_ref_kind: string | null
   utm_source: string | null
 }
 
@@ -156,6 +164,11 @@ export interface TransitionResult {
   resolution_hours: number | null
   response_recorded: boolean
   response_was_missing: boolean
+  converted_at: string | null
+  converted_ref: string | null
+  converted_ref_kind: string | null
+  conversion_recorded: boolean
+  conversion_withdrawn: boolean
 }
 
 /**
@@ -171,13 +184,19 @@ export async function applyEnquiryAction(
   enquiryId: string,
   action: EnquiryAction,
   outcome: EnquiryOutcome | null,
-  assignee: string | null
+  assignee: string | null,
+  conversion: { ref: string; kind: ConvertKind } | null = null
 ): Promise<Coded<TransitionResult>> {
   const { rows, error } = await rpc<TransitionResult>('admin_enquiry_transition', {
     p_enquiry_id: enquiryId,
     p_action: action,
     p_outcome: outcome,
     p_assignee: assignee,
+    // Sent only for convert. `unconvert` deliberately sends nothing at all: the
+    // SQL clears the columns itself, and passing empty strings would make the
+    // server validate an input the caller never intended to give.
+    p_convert_ref: conversion?.ref ?? null,
+    p_convert_kind: conversion?.kind ?? null,
   })
 
   if (error) {

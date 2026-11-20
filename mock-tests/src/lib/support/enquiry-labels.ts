@@ -75,6 +75,20 @@ export const ACTION_LABEL: Record<EnquiryAction, string> = {
   reopen: "Reopen",
   assign: "Assign",
   spam: "Mark spam",
+  convert: "Record conversion",
+  unconvert: "Withdraw conversion",
+}
+
+export const CONVERT_KIND_LABEL: Record<string, string> = {
+  subscription: "Subscription",
+  purchase: "One-off purchase",
+  invoice: "Invoice",
+  other: "Other reference",
+}
+
+export function convertKindLabel(value: string | null): string {
+  if (!value) return "—"
+  return CONVERT_KIND_LABEL[value] ?? value
 }
 
 export const OUTCOME_LABEL: Record<EnquiryOutcome, string> = {

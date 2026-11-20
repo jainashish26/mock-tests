@@ -280,7 +280,10 @@ console.log('\n=== the triage state machine mirrors the SQL guards ===');
     ENQUIRY_ACTIONS,
     ENQUIRY_OUTCOMES,
     ACTION_TARGET,
+    CONVERT_KINDS,
     allowedActions,
+    actionNeedsConversion,
+    conversionError,
     responseKnowledge,
     actionNeedsOutcome,
     isDone,
@@ -295,27 +298,41 @@ console.log('\n=== the triage state machine mirrors the SQL guards ===');
   // admin_enquiry_transition guard it mirrors.
   const cases: Array<{
     label: string
-    row: { status: EnquiryStatus; first_response_at: string | null; resolved_at: string | null }
+    row: {
+      status: EnquiryStatus
+      first_response_at: string | null
+      resolved_at: string | null
+      converted?: boolean
+    }
     expect: string[]
   }> = [
     { label: 'brand new enquiry', row: { status: 'new', first_response_at: null, resolved_at: null },
-      expect: ['assign', 'reply', 'triage', 'start', 'resolve', 'close', 'spam'] },
+      expect: ['assign', 'reply', 'triage', 'start', 'resolve', 'close', 'spam', 'convert'] },
     { label: 'triaged, unanswered', row: { status: 'triaged', first_response_at: null, resolved_at: null },
-      expect: ['assign', 'reply', 'start', 'resolve', 'close', 'spam'] },
+      expect: ['assign', 'reply', 'start', 'resolve', 'close', 'spam', 'convert'] },
     { label: 'in progress, still unanswered', row: { status: 'in_progress', first_response_at: null, resolved_at: null },
-      expect: ['assign', 'reply', 'resolve', 'close', 'spam'] },
+      expect: ['assign', 'reply', 'resolve', 'close', 'spam', 'convert'] },
     // The reply button disappears the moment a first response exists, because
     // the SQL raises 22023 on a second one.
     { label: 'waiting on the family (already replied)', row: { status: 'waiting_on_customer', first_response_at: '2026-01-01T00:00:00Z', resolved_at: null },
-      expect: ['assign', 'start', 'resolve', 'close', 'spam'] },
+      expect: ['assign', 'start', 'resolve', 'close', 'spam', 'convert'] },
+    // Conversion survives resolution on purpose: a family frequently subscribes
+    // days after the conversation ends, and the SQL only refuses spam rows.
     { label: 'resolved', row: { status: 'resolved', first_response_at: '2026-01-01T00:00:00Z', resolved_at: '2026-01-02T00:00:00Z' },
-      expect: ['assign', 'reopen'] },
+      expect: ['assign', 'reopen', 'convert'] },
     // Closing is what makes the reply guard bite: the SQL refuses a reply after
     // closure rather than back-filling a response time nobody saw.
     { label: 'closed with no reply on record', row: { status: 'closed', first_response_at: null, resolved_at: '2026-01-02T00:00:00Z' },
-      expect: ['assign', 'reopen'] },
+      expect: ['assign', 'reopen', 'convert'] },
+    // No 'convert' here. This is the mirror of 110's refusal to record a
+    // conversion against spam - the metric must not be fed by the queue's rubbish.
     { label: 'spam', row: { status: 'spam', first_response_at: null, resolved_at: '2026-01-02T00:00:00Z' },
       expect: ['assign', 'reopen'] },
+    // A row that already converted offers withdrawal, never a second conversion.
+    { label: 'already converted', row: { status: 'in_progress', first_response_at: null, resolved_at: null, converted: true },
+      expect: ['assign', 'reply', 'resolve', 'close', 'spam', 'unconvert'] },
+    { label: 'resolved and converted', row: { status: 'resolved', first_response_at: '2026-01-01T00:00:00Z', resolved_at: '2026-01-02T00:00:00Z', converted: true },
+      expect: ['assign', 'reopen', 'unconvert'] },
   ];
 
   for (const c of cases) {
@@ -342,6 +359,33 @@ console.log('\n=== the triage state machine mirrors the SQL guards ===');
   eq('spam -> spam', ACTION_TARGET.spam, 'spam');
   eq('assign moves nothing', ACTION_TARGET.assign, null);
   eq('start -> in_progress', ACTION_TARGET.start, 'in_progress');
+  // Neither conversion action moves the status: the SQL keeps it where it was.
+  eq('convert moves nothing', ACTION_TARGET.convert, null);
+  eq('unconvert moves nothing', ACTION_TARGET.unconvert, null);
+
+  console.log('\n=== conversion references (110) ===');
+  // Only convert asks for a reference. If unconvert ever did, the withdraw
+  // button would dead-end an operator trying to undo a mistake.
+  eq('only convert takes a conversion reference',
+    ENQUIRY_ACTIONS.filter(actionNeedsConversion), ['convert']);
+  eq('conversion never needs an outcome',
+    ENQUIRY_ACTIONS.filter(actionNeedsOutcome).includes('convert'), false);
+  eq('an empty reference is refused', conversionError('', 'subscription') !== null, true);
+  eq('a whitespace reference is refused, matching the CHECK that trims',
+    conversionError('   ', 'subscription') !== null, true);
+  eq('a reference with no kind is refused', conversionError('sub_1', '') !== null, true);
+  eq('an unknown kind is refused', conversionError('sub_1', 'merch') !== null, true);
+  eq('a valid subscription conversion is accepted',
+    conversionError('sub_1Nk000', 'subscription'), null);
+  // The exact list the database CHECK allows, and the order the UI renders.
+  eq('kinds match the 110 CHECK exactly',
+    CONVERT_KINDS.slice().sort(), ['invoice', 'other', 'purchase', 'subscription']);
+  // 110 bounds the column at 200 after trimming; the form must refuse the same
+  // input rather than round-tripping a 400 the operator cannot act on.
+  eq('a 201-character reference is refused',
+    conversionError('x'.repeat(201), 'purchase') !== null, true);
+  eq('a 200-character reference is accepted',
+    conversionError('x'.repeat(200), 'purchase'), null);
 
   ok('every action has a target and every target is a real status',
     ENQUIRY_ACTIONS.every((a: string) => ACTION_TARGET[a as keyof typeof ACTION_TARGET] === null

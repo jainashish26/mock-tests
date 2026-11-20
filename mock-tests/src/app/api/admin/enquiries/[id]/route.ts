@@ -5,9 +5,13 @@ import { requireRoleJson } from '@/lib/rbac/require-role-json'
 import { applyEnquiryAction } from '@/lib/support/triage-service'
 import {
   ACTION_TARGET,
+  CONVERT_KINDS,
   ENQUIRY_ACTIONS,
   ENQUIRY_OUTCOMES,
+  actionNeedsConversion,
   actionNeedsOutcome,
+  conversionError,
+  type ConvertKind,
   type EnquiryAction,
   type EnquiryOutcome,
 } from '@/lib/support/triage'
@@ -93,11 +97,33 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
     return badRequest('The assign action needs an assignee.')
   }
 
+  // Conversion follows the same discipline as outcome, including the refusal to
+  // quietly drop a value: a reference typed against the wrong action and
+  // silently ignored would leave an operator certain the conversion was recorded
+  // when the row holds nothing.
+  const convertRefRaw =
+    typeof body.convertRef === 'string' ? body.convertRef.trim() : null
+  const convertKindRaw =
+    typeof body.convertKind === 'string' ? body.convertKind : null
+  const needsConversion = actionNeedsConversion(action as EnquiryAction)
+
+  if (needsConversion) {
+    const problem = conversionError(convertRefRaw, convertKindRaw)
+    if (problem) {
+      return badRequest(problem, { allowed: CONVERT_KINDS })
+    }
+  } else if (convertRefRaw !== null || convertKindRaw !== null) {
+    return badRequest(`The ${action} action does not take a conversion reference.`)
+  }
+
   const result = await applyEnquiryAction(
     id,
     action as EnquiryAction,
     outcomeRaw as EnquiryOutcome | null,
-    assignee
+    assignee,
+    needsConversion
+      ? { ref: convertRefRaw as string, kind: convertKindRaw as ConvertKind }
+      : null
   )
 
   if (!result.ok) {

@@ -1,23 +1,29 @@
 "use client"
 
+import { useState } from "react"
+
 import { Badge } from "@/components/ui/Badge"
 import { Button } from "@/components/ui/Button"
-import { Field, Textarea } from "@/components/ui/Input"
+import { Field, Input, Textarea } from "@/components/ui/Input"
 import { Select } from "@/components/ui/Select"
 import {
   SLA_META,
   SLA_META_UNKNOWN,
   ACTION_LABEL,
+  convertKindLabel,
   typeLabel,
   outcomeLabel,
 } from "@/lib/support/enquiry-labels"
 import {
+  CONVERT_KINDS,
   ENQUIRY_OUTCOMES,
   actionNeedsOutcome,
   allowedActions,
+  conversionError,
   describeAge,
   responseKnowledge,
   taskReasonError,
+  type ConvertKind,
   type EnquiryAction,
   type EnquiryOutcome,
   type EnquiryStatus,
@@ -59,7 +65,12 @@ export interface EnquiryCardProps {
   revealReason: string
   revealError: string | null
   revealBusy: boolean
-  onAction: (id: string, action: EnquiryAction, outcome: EnquiryOutcome | null) => Promise<void>
+  onAction: (
+    id: string,
+    action: EnquiryAction,
+    outcome: EnquiryOutcome | null,
+    conversion?: { ref: string; kind: ConvertKind } | null
+  ) => Promise<void>
   onAskOutcome: (p: { id: string; action: EnquiryAction } | null) => void
   onReveal: (id: string) => Promise<void>
   onRevealReasonChange: (v: string) => void
@@ -70,6 +81,13 @@ export interface EnquiryCardProps {
 
 export function EnquiryCard({ row, ...p }: EnquiryCardProps) {
   const meta = SLA_META[row.sla_state] ?? SLA_META_UNKNOWN
+  const [convOpen, setConvOpen] = useState(false)
+  const [convRef, setConvRef] = useState("")
+  const [convKind, setConvKind] = useState<ConvertKind>("subscription")
+  // Validated here with the same function the API route uses, so the button is
+  // disabled for exactly the inputs the server would reject rather than a set
+  // the two files each invent for themselves.
+  const convProblem = conversionError(convRef, convKind)
   const knowledge = responseKnowledge({
     status: row.status as EnquiryStatus,
     first_response_at: row.first_response_at,
@@ -78,6 +96,10 @@ export function EnquiryCard({ row, ...p }: EnquiryCardProps) {
     status: row.status as EnquiryStatus,
     first_response_at: row.first_response_at,
     resolved_at: row.resolved_at,
+    // Passed through so the card offers `unconvert` rather than `convert` on a
+    // row that already has a conversion recorded. Without it the operator would
+    // be invited to record a second one over the first.
+    converted: row.converted,
   })
   const reasonInvalid = taskReasonError(p.revealReason)
 
@@ -133,6 +155,30 @@ export function EnquiryCard({ row, ...p }: EnquiryCardProps) {
                 variant="outline"
                 disabled={p.busy}
                 onClick={() => p.onAskOutcome({ id: row.enquiry_id, action: a })}
+              >
+                {ACTION_LABEL[a]}
+              </Button>
+            ) : a === "convert" ? (
+              <Button
+                key={a}
+                size="sm"
+                variant="outline"
+                disabled={p.busy}
+                aria-expanded={convOpen}
+                onClick={() => setConvOpen((v) => !v)}
+              >
+                {ACTION_LABEL[a]}
+              </Button>
+            ) : a === "unconvert" ? (
+              // The tooltip carries what it points at, because "withdraw" with
+              // no idea which of several orders is being unwound is a guess.
+              <Button
+                key={a}
+                size="sm"
+                variant="ghost"
+                disabled={p.busy}
+                title={row.converted_ref ? `Recorded against ${row.converted_ref}` : undefined}
+                onClick={() => void p.onAction(row.enquiry_id, a, null)}
               >
                 {ACTION_LABEL[a]}
               </Button>
@@ -192,6 +238,74 @@ export function EnquiryCard({ row, ...p }: EnquiryCardProps) {
           <Button size="sm" variant="ghost" onClick={p.onCancelOutcome}>
             Cancel
           </Button>
+        </div>
+      ) : null}
+
+      {row.converted && row.converted_ref ? (
+        <p className="mt-2 text-xs text-muted-foreground">
+          Converted · <span className="font-mono">{row.converted_ref}</span>
+          {" · "}
+          {convertKindLabel(row.converted_ref_kind)}
+        </p>
+      ) : null}
+
+      {convOpen ? (
+        <div className="mt-3 rounded-lg border border-border bg-slate-50 p-2">
+          <div className="flex flex-wrap items-end gap-2">
+            <Field label="Order or subscription reference" htmlFor={`c-${row.enquiry_id}`} className="w-64">
+              <Input
+                id={`c-${row.enquiry_id}`}
+                value={convRef}
+                onChange={(e) => setConvRef(e.target.value)}
+                placeholder="sub_1Nk… or po_…"
+                maxLength={220}
+              />
+            </Field>
+            <Field label="Points at" htmlFor={`ck-${row.enquiry_id}`} className="w-44">
+              <Select
+                id={`ck-${row.enquiry_id}`}
+                value={convKind}
+                onChange={(e) => setConvKind(e.target.value as ConvertKind)}
+              >
+                {CONVERT_KINDS.map((k) => (
+                  <option key={k} value={k}>
+                    {convertKindLabel(k)}
+                  </option>
+                ))}
+              </Select>
+            </Field>
+            <Button
+              size="sm"
+              disabled={convProblem !== null || p.busy}
+              onClick={() =>
+                void p
+                  .onAction(row.enquiry_id, "convert", null, {
+                    ref: convRef.trim(),
+                    kind: convKind,
+                  })
+                  .then(() => {
+                    setConvOpen(false)
+                    setConvRef("")
+                  })
+              }
+            >
+              Record
+            </Button>
+            <Button size="sm" variant="ghost" onClick={() => setConvOpen(false)}>
+              Cancel
+            </Button>
+          </div>
+          {/* Explained rather than enforced silently: an admin who does not know
+              why the button is dead will assume the queue is broken. */}
+          {convRef.length > 0 && convProblem ? (
+            <p className="mt-2 text-xs text-destructive">{convProblem}</p>
+          ) : (
+            <p className="mt-2 text-xs text-muted-foreground">
+              Record this only when the family actually bought something. A
+              conversion is never inferred from a matching account, so an enquiry
+              that subscribed without anyone noting it stays uncounted here.
+            </p>
+          )}
         </div>
       ) : null}
 

@@ -11,6 +11,7 @@ import { TYPE_LABEL } from "@/lib/support/enquiry-labels"
 import {
   ENQUIRY_STATUSES,
   slaCaveat,
+  type ConvertKind,
   type EnquiryAction,
   type EnquiryOutcome,
   type EnquiryStatus,
@@ -99,14 +100,23 @@ export function EnquiryQueue() {
 
   const caveat = useMemo(() => (counts ? slaCaveat(counts) : null), [counts])
 
-  async function runAction(id: string, action: EnquiryAction, outcome: EnquiryOutcome | null) {
+  async function runAction(
+    id: string,
+    action: EnquiryAction,
+    outcome: EnquiryOutcome | null,
+    conversion: { ref: string; kind: ConvertKind } | null = null
+  ) {
     setBusyId(id)
     setError(null)
     try {
       const res = await fetch(`/api/admin/enquiries/${id}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ action, ...(outcome ? { outcome } : {}) }),
+        body: JSON.stringify({
+          action,
+          ...(outcome ? { outcome } : {}),
+          ...(conversion ? { convertRef: conversion.ref, convertKind: conversion.kind } : {}),
+        }),
       })
       const payload = (await res.json().catch(() => null)) as { ok?: boolean; error?: string } | null
       if (!res.ok || !payload?.ok) setError(payload?.error ?? "That change could not be saved.")

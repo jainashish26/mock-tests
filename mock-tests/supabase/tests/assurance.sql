@@ -38,9 +38,10 @@ CREATE EXTENSION IF NOT EXISTS pgtap WITH SCHEMA extensions;
 -- pgtap's has_role(name). Verified before relying on it. See migration 050.
 SET LOCAL search_path = public, extensions;
 
--- 112 = the 100 this suite planned before migration 109, plus 12 assertions for
--- the business-day SLA clock (AC-41..AC-52).
-SELECT extensions.plan(112);
+-- 123 = the 100 this suite planned before migration 109, plus 12 assertions for
+-- the business-day SLA clock (AC-41..AC-52) and 11 for conversion references
+-- (AC-53..AC-63, migration 110).
+SELECT extensions.plan(123);
 
 CREATE TEMP TABLE _ids AS
 SELECT
@@ -1211,6 +1212,166 @@ SELECT extensions.ok(
   (SELECT sla_basis = 'business' AND first_response_sla_business_days >= 1
      FROM reporting.enquiry_thresholds WHERE id = 1),
   'AC-52 the shipped basis is business days and the promise is at least one day');
+
+-- ============================================================================
+-- AC-53 .. AC-63  Conversion references (migration 110, decision 2-A)
+--
+-- The point of these is not that the columns exist. It is that 012's guarantee
+-- survived the relaxation: converted_at used to imply a purchases row, and the
+-- only reason that was acceptable is that subscription payments never create one.
+-- So the tests assert both directions - the subscription conversion now lands,
+-- and a timestamp pointing at nothing is STILL refused - plus the three-valued
+-- logic regression that the apply-time self-test in 110 caught first time.
+-- ============================================================================
+
+-- Authorisation is by auth.uid(), and an earlier block in this suite has already
+-- put a non-admin in the claims, so the queue call below would silently return
+-- zero rows without this. Local to the transaction, so nothing leaks out.
+SELECT set_config('request.jwt.claims',
+  json_build_object(
+    'sub', (SELECT user_id::text FROM public.app_user_roles WHERE role = 'ADMIN' LIMIT 1),
+    'role', 'authenticated')::text, true);
+
+-- received_at AND converted_at are both backdated deliberately: AC-61 has to be
+-- able to tell "the original moment was preserved" apart from "it was stamped by
+-- this run", which is impossible if the fixture starts at now().
+INSERT INTO public.enquiries
+  (channel, enquiry_type, status, outcome, received_at, converted_at, converted_ref, converted_ref_kind)
+VALUES ('web_form','billing','closed','answered',
+        now() - interval '4 days', now() - interval '3 days', 'sub_ac53', 'subscription');
+
+SELECT extensions.is(
+  (SELECT converted_ref_kind FROM public.enquiries WHERE converted_ref = 'sub_ac53'),
+  'subscription'::text,
+  'AC-53 a subscription conversion is stored: the row 012 rejected by CHECK');
+
+SELECT extensions.is(
+  (SELECT COUNT(*)::bigint FROM public.admin_enquiry_queue(NULL,NULL,false,200,0)
+    WHERE converted AND converted_ref = 'sub_ac53'),
+  1::bigint,
+  'AC-54 the queue sees the reference path, not only the purchases foreign key');
+
+-- The five refusals are asserted by SQLSTATE *and* constraint name, captured in
+-- one probe pass, rather than by pgtap's throws_ok. This pgtap build has
+-- throws_ok(text,text,text) whose middle argument is the expected message, not
+-- the SQLSTATE, so the obvious call "failed" five times while the constraints
+-- were in fact working correctly - a test that lies in the unsafe direction. The
+-- probe also distinguishes the constraints from each other: five rows all
+-- rejected by *some* check would prove nothing, and enquiries has six CHECKs plus
+-- the new three.
+CREATE TEMP TABLE _conv_probe (tag text, p_state text, p_cons text);
+
+DO $$
+DECLARE
+  p_state text;
+  p_cons  text;
+BEGIN
+  -- AC-55: the guarantee 012 provided, which the widening must not have lost.
+  BEGIN
+    INSERT INTO public.enquiries (channel, enquiry_type, status, outcome, converted_at)
+    VALUES ('web_form','other','closed','answered', now());
+    INSERT INTO _conv_probe VALUES ('AC-55','no-exception',NULL);
+  EXCEPTION WHEN OTHERS THEN
+    GET STACKED DIAGNOSTICS p_state = RETURNED_SQLSTATE, p_cons = CONSTRAINT_NAME;
+    INSERT INTO _conv_probe VALUES ('AC-55', p_state, p_cons);
+  END;
+
+  -- AC-56: three-valued-logic regression. `converted_ref_kind IN (...)` is NULL
+  -- when the kind is NULL and a CHECK treats NULL as satisfied, so the natural
+  -- wording of this rule passed the exact row it was written to stop. 110's own
+  -- apply-time self-test caught it; this keeps it caught.
+  BEGIN
+    INSERT INTO public.enquiries
+      (channel, enquiry_type, status, outcome, converted_at, converted_ref, converted_ref_kind)
+    VALUES ('web_form','other','closed','answered', now(), 'sub_nokind', NULL);
+    INSERT INTO _conv_probe VALUES ('AC-56','no-exception',NULL);
+  EXCEPTION WHEN OTHERS THEN
+    GET STACKED DIAGNOSTICS p_state = RETURNED_SQLSTATE, p_cons = CONSTRAINT_NAME;
+    INSERT INTO _conv_probe VALUES ('AC-56', p_state, p_cons);
+  END;
+
+  BEGIN
+    INSERT INTO public.enquiries
+      (channel, enquiry_type, status, outcome, converted_ref, converted_ref_kind)
+    VALUES ('web_form','other','closed','answered', 'sub_nowhen','subscription');
+    INSERT INTO _conv_probe VALUES ('AC-57','no-exception',NULL);
+  EXCEPTION WHEN OTHERS THEN
+    GET STACKED DIAGNOSTICS p_state = RETURNED_SQLSTATE, p_cons = CONSTRAINT_NAME;
+    INSERT INTO _conv_probe VALUES ('AC-57', p_state, p_cons);
+  END;
+
+  BEGIN
+    INSERT INTO public.enquiries
+      (channel, enquiry_type, status, outcome, converted_at, converted_ref, converted_ref_kind)
+    VALUES ('web_form','other','closed','answered', now(), '   ','invoice');
+    INSERT INTO _conv_probe VALUES ('AC-58','no-exception',NULL);
+  EXCEPTION WHEN OTHERS THEN
+    GET STACKED DIAGNOSTICS p_state = RETURNED_SQLSTATE, p_cons = CONSTRAINT_NAME;
+    INSERT INTO _conv_probe VALUES ('AC-58', p_state, p_cons);
+  END;
+
+  BEGIN
+    INSERT INTO public.enquiries
+      (channel, enquiry_type, status, outcome, converted_at, converted_ref, converted_ref_kind)
+    VALUES ('web_form','other','closed','answered', now(), 'sub_merch','merch');
+    INSERT INTO _conv_probe VALUES ('AC-59','no-exception',NULL);
+  EXCEPTION WHEN OTHERS THEN
+    GET STACKED DIAGNOSTICS p_state = RETURNED_SQLSTATE, p_cons = CONSTRAINT_NAME;
+    INSERT INTO _conv_probe VALUES ('AC-59', p_state, p_cons);
+  END;
+END $$;
+
+SELECT extensions.is(
+  (SELECT p_state || '|' || COALESCE(p_cons,'-') FROM _conv_probe WHERE tag = 'AC-55'),
+  '23514|enquiries_converted_has_order',
+  'AC-55 a timestamp pointing at nothing is refused by the original constraint');
+
+SELECT extensions.is(
+  (SELECT p_state || '|' || COALESCE(p_cons,'-') FROM _conv_probe WHERE tag = 'AC-56'),
+  '23514|enquiries_conversion_reference_sane',
+  'AC-56 a reference with no kind is refused (NULL must not satisfy a CHECK)');
+
+SELECT extensions.is(
+  (SELECT p_state || '|' || COALESCE(p_cons,'-') FROM _conv_probe WHERE tag = 'AC-57'),
+  '23514|enquiries_conversion_needs_when',
+  'AC-57 a reference with no moment is refused');
+
+SELECT extensions.is(
+  (SELECT p_state || '|' || COALESCE(p_cons,'-') FROM _conv_probe WHERE tag = 'AC-58'),
+  '23514|enquiries_conversion_reference_sane',
+  'AC-58 a whitespace reference is refused, because the CHECK trims before measuring');
+
+SELECT extensions.is(
+  (SELECT p_state || '|' || COALESCE(p_cons,'-') FROM _conv_probe WHERE tag = 'AC-59'),
+  '23514|enquiries_conversion_reference_sane',
+  'AC-59 only the four declared reference kinds are accepted');
+
+SELECT extensions.is(
+  (SELECT converted_ref_kind FROM public.admin_enquiry_transition(
+      (SELECT id FROM public.enquiries WHERE converted_ref = 'sub_ac53'),
+      'convert', NULL, NULL, 'sub_ac60', 'invoice')),
+  'invoice'::text,
+  'AC-60 re-converting corrects what the row points at');
+
+-- The timestamp belongs to the moment the family decided, not to whoever last
+-- edited the field, so a correction must not move it forward. The fixture is
+-- three days old; a re-stamp would land within the last minute.
+SELECT extensions.ok(
+  (SELECT converted_at < now() - interval '1 day'
+     FROM public.enquiries WHERE converted_ref = 'sub_ac60'),
+  'AC-61 a correction preserves the original conversion timestamp');
+
+SELECT extensions.is(
+  (SELECT converted_ref FROM public.admin_enquiry_transition(
+      (SELECT id FROM public.enquiries WHERE converted_ref = 'sub_ac60'),
+      'unconvert')),
+  NULL::text,
+  'AC-62 withdraw clears the reference, so a wrong entry can be undone');
+
+SELECT extensions.is(
+  (SELECT COUNT(*)::bigint FROM public.enquiries WHERE converted_ref_kind IS NOT NULL),
+  0::bigint,
+  'AC-63 withdraw leaves no orphan reference behind to be counted again');
 
 SELECT * FROM extensions.finish();
 
