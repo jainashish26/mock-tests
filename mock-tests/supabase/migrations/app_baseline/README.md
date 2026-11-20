@@ -50,19 +50,35 @@ pg_dump --schema-only --no-owner --schema=public $SUPABASE_DB_URL > supabase/mig
 ```
 
 **Do not use the second form.** A shell redirect re-encodes the output and
-re-terminates its lines, and it does so invisibly: on Windows PowerShell it turned
-`§` into `Â§` and left files holding CRLF line endings plus stray lone CR bytes.
-The damage is not cosmetic in this folder's purpose. These captures exist to be
-**diffed** — `schema:validate:app` and code review both assume the file is what
-`pg_dump` emitted — and a capture with mixed endings differs from a correct one on
-*every line*, which is how a 31-line schema change once arrived as a 13,929-line
-diff that nobody could meaningfully review. `.gitattributes` pins these paths to
-`-text` so git stops converting them; that handles one half. Using `-f` is the
-other half, and it is the half that requires a human to remember it.
+re-terminates its lines, and it does so invisibly: one such capture in this
+project's history holds CRLF terminators *plus 241 stray lone CR bytes*, so it
+differs from a correct one on every line. Encoding is the other hazard — an
+attempt to regenerate this file by redirect produced `Â§` where the database held
+`§`.
+
+That matters because these captures exist to be **diffed**. `schema:validate:app`
+and code review both assume the file is what `pg_dump` emitted, and a capture with
+mixed endings differs from a correct one on every line, which is how a 31-line
+schema change once arrived as a 13,929-line diff that nobody could meaningfully
+review. `.gitattributes` pins this directory to `-text` so git stops converting
+these files, and pins `supabase/migrations/*.sql` to LF so applying a migration
+does not carry CRLF into `pg_proc.prosrc`.
+
+One thing that is *not* corruption, so it is not worth "fixing":
+`baseline/08_public_wrappers.sql` contains 309 CRLF lines because **five live
+function bodies legitimately contain carriage returns** — they were created by
+migrations applied from a CRLF working tree
+(`admin_enquiry_transition` 129 bytes, `admin_enquiry_queue` 94,
+`admin_set_year_level_cap` 61, `admin_enquiry_counts` 18, `admin_year_level_caps`
+7; the total is exactly 309). Carriage returns are whitespace to the SQL parser.
+Those five functions are deliberately left as they are: rewriting three of the
+support access-control RPCs to tidy 309 bytes of whitespace is churn with a real
+risk and no upside. The `.gitattributes` rule stops new ones arriving.
 
 If a capture has already been written by redirect, the recovery is simply to
 re-capture with `-f` and commit that; expect one final whole-file diff, because
 correcting the endings is itself a change to every line.
+
 
 Validate the capture against live at any time:
 

@@ -1201,10 +1201,21 @@
 >    had been smudged to CRLF; the two differ on every line while being identical in
 >    substance. Hand-written source survives this. **A file whose entire purpose is
 >    to be diffed does not.**
-> 2. The earlier capture had been produced through a shell redirect rather than
->    `pg_dump -f`. The same technique corrupted encoding in this session's first
->    attempt — a `>` redirect turned `§` into `Â§` — which is how the damage got
->    baked in the first time.
+> 2. The earlier capture had been written **without `-f`** — through a shell
+>    redirect or an equivalent pipe — which is how mixed terminators reach a file
+>    that `pg_dump` writing to its own output stream would have kept consistent.
+>
+>    **A claim made in the first draft of this note was too strong, and correcting
+>    it matters more than the tidiness of leaving it.** I wrote that the redirect had
+>    also re-encoded the committed capture's UTF-8, turning `§` into `Â§`. Measured,
+>    that is false: the section sign occurs **3 times in both** the old blob and the
+>    new one, so the committed capture's text was never corrupted. The mojibake was
+>    real — it appeared in *this session's* redirect attempt, which is exactly why
+>    `-f` was required — but it was never in the file being replaced. Line-ending
+>    damage: in the committed file. Encoding damage: in my draft capture. Saying
+>    "the redirect corrupted the capture" would have been one clean story with a
+>    false fact inside it, and the false fact was the sort nobody would think to
+>    re-check.
 >
 > **Fixed with `.gitattributes` marking both capture directories `-text`** (store
 > byte-exact, never smudge), so a future capture differs only where the database

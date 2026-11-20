@@ -32,3 +32,19 @@
 mock-tests/supabase/migrations/app_baseline/*.sql  -text
 mock-tests/supabase/migrations/baseline/*.sql      -text
 
+# Migrations are applied by feeding the working-tree file to psql, and whatever
+# line endings that file has are stored verbatim inside `pg_proc.prosrc` for every
+# function it creates. With `core.autocrlf=true` the working copy is CRLF, so five
+# functions currently in the live database carry carriage returns in their bodies
+# (admin_enquiry_transition 129, admin_enquiry_queue 94, admin_set_year_level_cap
+# 61, admin_enquiry_counts 18, admin_year_level_caps 7 - 309 bytes in total, which
+# is exactly the CRLF count in the captured wrappers file).
+#
+# Forcing LF on checkout makes the apply path produce LF bodies from now on. It is
+# cosmetic - carriage returns are whitespace to the SQL parser - and the five
+# existing functions are deliberately left alone: rewriting three of the support
+# access-control RPCs to save 309 bytes of whitespace is churn with no upside and
+# its own risk, which is the wrong trade.
+mock-tests/supabase/migrations/*.sql               text eol=lf
+
+
