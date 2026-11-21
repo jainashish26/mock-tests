@@ -173,6 +173,34 @@ function applyViewsIteratively(path, label, maxRounds = 6) {
 }
 
 /**
+ * Apply the generated reporting function ACL lock-down, tolerating ONLY the
+ * absence of a function name.
+ *
+ * The file now revokes from every reporting function that exists on the machine
+ * the capture ran on (119). A scratch target may legitimately lack one - the
+ * capture tooling is created by migration files that a baseline-only restore
+ * does not include - and that must not abort a restore that is otherwise
+ * faithful. Every other error class still fails the step, and the outcome is
+ * verified independently afterwards by privilege_parity_checks(), so tolerance
+ * here cannot mask an unapplied lock-down: a REVOKE that silently did nothing
+ * would leave a default ACL, which is precisely what that check measures.
+ */
+function applyAclLockdown(path, label) {
+  const res = psqlFile(path, { stop: false });
+  const errors = (res.stderr ?? '').split(/\r?\n/).filter((l) => l.includes('ERROR:'));
+  const unexpected = errors.filter(
+    (l) => !/function .* does not exist/.test(l) && !/operator does not exist: text/.test(l)
+  );
+  if (unexpected.length > 0) {
+    console.log(`FAIL  ${label}: ${unexpected.length} unexpected error(s)`);
+    for (const l of unexpected.slice(0, 5)) console.log(`        ${l.trim()}`);
+    return false;
+  }
+  console.log(`ok    ${label} (${errors.length} absent-on-target revoked anyway)`);
+  return true;
+}
+
+/**
  * Apply a file tolerating ONLY "already exists" errors.
  *
  * 04_indexes.sql was captured from pg_indexes, which also lists the indexes
@@ -259,7 +287,7 @@ const STEPS = [
   // pg_get_functiondef does NOT capture ACLs, so every reporting function would
   // be PUBLIC-executable after a restore - a privilege-escalation gap found by
   // the scratch reset proof. This file replicates the live lock-down.
-  { file: 'supabase/reset/10_reporting_function_acls.sql', label: 'reporting function ACLs (close PUBLIC EXECUTE gap)' },
+  { file: 'supabase/reset/10_reporting_function_acls.sql', label: 'reporting function ACLs (close PUBLIC EXECUTE gap)', acls: true },
   { file: 'supabase/migrations/baseline/10_cron.sql', label: 'pg_cron schedules', needsCron: true, skipIf: () => flag('skip-cron') },
   { file: 'supabase/reset/09_dim_test_family.sql', label: 'dim_test_family rows (needs public.exam_type)' },
   // Content BEFORE expansion_catalog (its bundle derives from tests) and
@@ -319,6 +347,11 @@ for (const step of STEPS) {
     continue;
   }
 
+  if (step.acls) {
+    if (!applyAclLockdown(path, step.label)) { failures++; break; }
+    continue;
+  }
+
   const res = psqlFile(path, { stop: true });
   if (res.status !== 0) {
     console.log(`FAIL  ${step.label} (exit ${res.status})`);
@@ -330,33 +363,114 @@ for (const step of STEPS) {
 }
 
 if (failures === 0) {
-  console.log('\n=== parity checks (expected values = the live captured baseline) ===');
-  const checks = [
-    ['public tables', "SELECT count(*) FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname='public' AND c.relkind='r'", 36],
-    ['public functions', "SELECT count(*) FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace WHERE n.nspname='public'", 57],
-    ['public policies', "SELECT count(*) FROM pg_policies WHERE schemaname='public'", 96],
-    ['auth triggers', "SELECT count(*) FROM pg_trigger WHERE NOT tgisinternal AND tgrelid='auth.users'::regclass", 2],
-    ['reporting tables', "SELECT count(*) FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname='reporting' AND c.relkind='r'", 24],
-    ['reporting matviews', "SELECT count(*) FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname='reporting' AND c.relkind='m'", 12],
-    ['reporting functions', "SELECT count(*) FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace WHERE n.nspname='reporting' AND p.proname<>'export_baseline'", 26],
-    ['reporting indexes', "SELECT count(*) FROM pg_indexes WHERE schemaname='reporting'", 73],
-    ['dim_date populated', "SELECT (count(*) >= 2557)::int FROM reporting.dim_date", 1],
+  // Schema-object expectations come from baseline/parity.json, regenerated from
+  // live by the same command that regenerates the baseline. They used to be
+  // literals in this file and had aged badly (57 public functions against a live
+  // 69), which turns a drift detector into drift noise and teaches whoever reads
+  // it to ignore the failing line - including on the one occasion it matters.
+  const PARITY_FILE = join(ROOT, 'supabase', 'migrations', 'baseline', 'parity.json');
+  let parity = null;
+  if (!existsSync(PARITY_FILE)) {
+    console.log('\nFAIL  parity: baseline/parity.json missing. Run `npm run schema:rebaseline`.');
+    failures++;
+  } else {
+    try {
+      parity = JSON.parse(readFileSync(PARITY_FILE, 'utf8'));
+    } catch (e) {
+      console.log(`\nFAIL  parity: baseline/parity.json is not readable JSON: ${e.message}`);
+      failures++;
+    }
+  }
+
+  if (parity) {
+    console.log('\n=== parity checks (expected values generated from live) ===');
+
+    // Queries keyed by label. A manifest label with no query here would be
+    // skipped silently, so the two lists are compared rather than trusted.
+    const QUERIES = {
+      'public tables': "SELECT count(*) FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname='public' AND c.relkind='r'",
+      'public functions': "SELECT count(*) FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace WHERE n.nspname='public' AND p.prokind='f' AND p.proname NOT IN ('export_schema_baseline','export_baseline_function_acls','export_baseline_parity')",
+      'public policies': "SELECT count(*) FROM pg_policies WHERE schemaname='public'",
+      'auth triggers': "SELECT count(*) FROM pg_trigger WHERE NOT tgisinternal AND tgrelid='auth.users'::regclass",
+      'reporting tables': "SELECT count(*) FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname='reporting' AND c.relkind='r'",
+      'reporting matviews': "SELECT count(*) FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname='reporting' AND c.relkind='m'",
+      'reporting views': "SELECT count(*) FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname='reporting' AND c.relkind='v'",
+      'reporting functions': "SELECT count(*) FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace WHERE n.nspname='reporting' AND p.prokind='f' AND p.proname NOT LIKE 'export_baseline%'",
+      'reporting indexes': "SELECT count(*) FROM pg_indexes WHERE schemaname='reporting'",
+      'dim_date rows': 'SELECT count(*) FROM reporting.dim_date',
+      'rpt cron jobs': "SELECT count(*) FROM cron.job WHERE jobname LIKE 'rpt-%'",
+    };
+
+    const unqueryable = Object.keys(parity.metrics).filter((k) => !QUERIES[k]);
+    if (unqueryable.length > 0) {
+      console.log(`FAIL  parity: manifest labels with no query (would pass silently): ${unqueryable.join(', ')}`);
+      failures++;
+    }
+
+    for (const [label, want] of Object.entries(parity.metrics)) {
+      if (!QUERIES[label]) continue;
+      if (label === 'rpt cron jobs' && (!hasCron || flag('skip-cron'))) {
+        console.log(`SKIP  ${label}: ${want} (pg_cron absent or skipped)`);
+        continue;
+      }
+      const r = psqlSql(QUERIES[label]);
+      const raw = (r.stdout ?? '').trim();
+      const pass = r.status === 0 && Number(raw) === Number(want);
+      console.log(`${pass ? 'PASS' : 'FAIL'}  ${label}: ${raw || '?'} (expected ${want})`);
+      if (!pass) failures++;
+    }
+    // Privilege invariants are asked of THIS database and compared against the
+    // set live was verified to satisfy when the manifest was generated. Object
+    // counts prove the same things exist; these prove they are reachable the same
+    // way, which is the half where 117's defect lived and the half no count can
+    // see. The count is compared too, so a target that lost one of the check
+    // functions cannot report a smaller, all-green list.
+    console.log('\n=== privilege invariants ===');
+    const invRes = psqlSql('SELECT name FROM public.privilege_parity_checks() WHERE NOT holds ORDER BY name');
+    if (invRes.status !== 0) {
+      console.log('FAIL  privilege invariants could not be evaluated on this target');
+      for (const l of (invRes.stderr ?? '').split(/\r?\n/).filter((x) => x.includes('ERROR:')).slice(0, 3)) {
+        console.log(`        ${l.trim()}`);
+      }
+      failures++;
+    } else {
+      const violated = (invRes.stdout ?? '').split(/\r?\n/).map((s) => s.trim()).filter(Boolean);
+      if (violated.length > 0) {
+        console.log(`FAIL  ${violated.length} invariant(s) violated on this target:`);
+        for (const v of violated) console.log(`        ${v}`);
+        failures++;
+      } else {
+        console.log(`PASS  all ${parity.privilege_invariants.length} privilege invariants hold`);
+      }
+
+      const present = psqlSql('SELECT count(*) FROM public.privilege_parity_checks()');
+      const n = Number((present.stdout ?? '').trim());
+      if (present.status !== 0 || n !== parity.privilege_invariants.length) {
+        console.log(`FAIL  invariant set changed: ${Number.isFinite(n) ? n : '?'} on target, expected ${parity.privilege_invariants.length}`);
+        failures++;
+      }
+    }
+  }
+
+  // Seed content is a property of the seed files, not of live, so these stay
+  // explicit. Deriving them from live would grade a content-losing restore
+  // against a live database that had also lost the content, which is a check that
+  // can only ever agree with whatever happened.
+  console.log('\n=== seed content (properties of the seed files, not of live) ===');
+  const seedChecks = [
     ['dim_test_family rows', 'SELECT count(*) FROM reporting.dim_test_family', 17],
     ['offers seeded', 'SELECT count(*) FROM public.offers', 3],
     ['content: tests', 'SELECT count(*) FROM public.tests', 54],
     ['content: questions', 'SELECT count(*) FROM public.questions', 1900],
   ];
   if (flag('with-sample-data')) {
-    checks.push(
+    seedChecks.push(
       ['sample: students', 'SELECT count(*) FROM public.student_profiles', 200],
       ['sample: attempts', "SELECT count(*) > 1000 FROM public.attempts", true],
       ['sample: responses loaded', "SELECT count(*) > 10000 FROM reporting.fact_item_response", true]
     );
   }
-  if (hasCron && !flag('skip-cron')) {
-    checks.push(['rpt-* cron jobs', "SELECT count(*) FROM cron.job WHERE jobname LIKE 'rpt-%'", 14]);
-  }
-  for (const [label, sql, want] of checks) {
+  for (const [label, sql, want] of seedChecks) {
     const r = psqlSql(sql);
     const raw = (r.stdout ?? '').trim();
     const pass =

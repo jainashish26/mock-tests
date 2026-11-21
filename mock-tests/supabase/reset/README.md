@@ -108,3 +108,15 @@ from files alone via `scripts/reset-via-psql.mjs --with-sample-data`:
 3. SQL-language function validation is the ONLY reason reporting must precede
    public. If a future wrapper is rewritten in plpgsql, the constraint relaxes
    for that function — do not rely on it; keep the order.
+4. **The parity figures in the PROOF RECORD above are historical, not current,
+   and are no longer hand-maintained.** Migration 118 found the harness's own
+   literals had aged (57 public functions against a live 69, 24 reporting tables
+   against 28, 14 cron jobs against 15) — which is precisely how a drift detector
+   becomes drift noise. Counts now come from
+   `../migrations/baseline/parity.json`, regenerated from live by
+   `npm run schema:rebaseline`, and a run additionally asserts seven
+   *reachability* invariants (`privilege_parity_checks()`), because the old list
+   counted objects and could never have caught 117's ACL gap.
+   **The harness has not been re-run against a scratch rebuild since migration
+   108**, so migrations 108–119 are unverified by this procedure: the mechanism
+   is proven, the current schema through it is not.

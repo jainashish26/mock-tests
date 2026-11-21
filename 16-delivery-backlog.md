@@ -1758,6 +1758,81 @@
 > lint unchanged 60/16 · ACL file now contains `load_enquiry_facts` where it
 > contained nothing about it before.
 >
+> ### The drift detector had itself drifted — migrations 118, 119 (2026-11-21)
+>
+> Continuing the thread 117 opened, I read the *rest* of the restore harness
+> rather than only the file I had just fixed. The parity checks at the end of
+> `scripts/reset-via-psql.mjs` — the step whose stated job is to prove a rebuilt
+> database matches live — had hand-tuned literals that had aged badly: 57 public
+> functions against a live 69, 24 reporting tables against 28, 14 cron jobs
+> against 15. **The instrument measuring drift was the most drifted thing in the
+> pipeline**, and every restore since would have reported those as failures,
+> training whoever reads it to scroll past the line that matters.
+>
+> Worse, it could not have caught 117 even when current: it counted objects and
+> never inspected a single grant. A restore that recreated every reporting
+> function PUBLIC-executable would pass all 17 checks, because the functions were
+> indeed there.
+>
+> **118 makes the expectations generated.** `export_baseline_parity()` derives
+> every schema count from live and `schema:rebaseline` writes
+> `baseline/parity.json`; the harness reads that file. Regenerating the baseline
+> and regenerating its expectations are now the same act, which is the only
+> arrangement under which they cannot disagree. `privilege_parity_checks()` adds
+> seven reachability invariants asked of whichever database runs them — including
+> **no reporting function carries the default PUBLIC ACL**, which is the check
+> that actually detects an ACL file that failed to apply. The migration refuses
+> to write a manifest if live itself violates any invariant: a reference standard
+> live misses can only ever blame the restore.
+>
+> Seed contents (54 tests, 1900 questions) deliberately stayed literal. Deriving
+> them from live would grade a content-losing restore against a live database
+> that had also lost the content — a check that can only agree with whatever
+> happened.
+>
+> **119 corrected a belief 117 had encoded.** 117 excluded three functions from
+> the ACL script as "live-only, absent from any reset target". Checked against
+> the capture: `export_baseline_config` and `export_baseline_function_acls` are
+> **both present in 02_functions.sql** — they are restored, and were not revoked.
+> The exclusion was an assumption about the capture rather than a fact taken from
+> it, in the one file whose purpose is to keep the capture honest. Coverage is now
+> every reporting function with no exclusions, applied tolerantly: over-covering
+> costs a skippable error on a name a target lacks, under-covering is a silent
+> privilege widening. Coverage is asserted exactly (`named == catalog`), so the
+> two cannot drift apart.
+>
+> **The new invariant exposed a flaw in my own older assertion.** PR-02a — "no
+> reporting function reads enquiry_contacts" — failed, because 119's parity
+> checker mentions the table as an argument to `has_table_privilege()` and reads
+> no rows. The check was flagging *talking about* a table as *reaching* it.
+> Tightened to an access pattern (`FROM|JOIN|UPDATE|INSERT INTO` + the table),
+> and verified against the two functions that legitimately do touch it before
+> trusting the new wording. Then added PR-02c as a control: the same pattern must
+> still fire on real readers. Without that, a typo in the regex would match
+> nothing, PR-02a would pass forever, and the guarantee would be gone while the
+> suite stayed green — the failure mode this whole line of work keeps finding.
+>
+> **Verified (118/119):** both applied, psql exit 0, self-tests green (119's
+> refuses to bless a live that violates its own invariants) · **156/156 pgtap** ·
+> all 8 Node suites green · `schema:validate` 84/84 and `:app` 41/41 after
+> recounting (reporting functions 31→33) · both baselines, `parity.json` and the
+> ACL file regenerated · harness syntax checked, `readFileSync` import confirmed
+> present · **11/11 parity metrics agree between the two independent
+> implementations** (the harness's own SQL strings, extracted from the real
+> source file, versus the database function) — that cross-check is itself new,
+> and it is what stops the two formulations drifting apart unnoticed.
+>
+> **What remains unproven, stated plainly.** The full scratch rebuild has not been
+> re-run since these changes. It needs the `mocktests-reset-proof` project's
+> direct connection string, which is not in `.env.local` (only the live URL is)
+> and is not obtainable through the tools I have. Correcting a claim from the
+> draft of this paragraph: the harness HAS been proven end-to-end before — a full
+> reset on 2026-11-19 with 17/17 parity checks and the assurance suite green on
+> the rebuilt database, recorded in `supabase/reset/README.md`. So this is not a
+> story of an untested mechanism; it is a story of a mechanism that was tested,
+> then left to age, which is the failure 118 was written to prevent. What is
+> untested is 108–119 against a real restore.
+>
 > **Sequence complete.** Decisions **1–11** are all addressed, Phases **A, B, C and
 > D** have shipped, and the remaining work is operational rather than undecided:
 > flipping `sla_is_confirmed` once a human has read the first real numbers,

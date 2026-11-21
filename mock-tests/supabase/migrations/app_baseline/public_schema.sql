@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict 9bfi9TogKjqla10SvQihmzafcwy0do6FduYtAwyzuHa3HPFKd2W0JfjJEd5EUlJ
+\restrict ole5dk7EtKu1pPuWRJKPxgO988Iuyh3AvFgy8XLzYykuW8T9jPGPdrfxPmzbfRc
 
 -- Dumped from database version 17.6
 -- Dumped by pg_dump version 17.12
@@ -1272,7 +1272,19 @@ CREATE FUNCTION public.export_baseline_function_acls() RETURNS text
     LANGUAGE sql STABLE SECURITY DEFINER
     SET search_path TO 'reporting', 'pg_catalog'
     AS $$
-  SELECT reporting.export_baseline_function_acls()
+  SELECT reporting.export_baseline_function_acls();
+$$;
+
+
+--
+-- Name: export_baseline_parity(); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.export_baseline_parity() RETURNS TABLE(label text, expected bigint)
+    LANGUAGE sql STABLE SECURITY DEFINER
+    SET search_path TO 'reporting', 'pg_catalog'
+    AS $$
+  SELECT * FROM reporting.export_baseline_parity();
 $$;
 
 
@@ -2304,6 +2316,18 @@ CREATE FUNCTION public.parent_tutor_consents(p_student_id uuid) RETURNS TABLE(tu
     AND public.may_read_results()
     AND public.is_parent_of(p_student_id)
   ORDER BY is_current DESC, l.created_at;
+$$;
+
+
+--
+-- Name: privilege_parity_checks(); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.privilege_parity_checks() RETURNS TABLE(name text, holds boolean)
+    LANGUAGE sql STABLE SECURITY DEFINER
+    SET search_path TO 'reporting', 'pg_catalog'
+    AS $$
+  SELECT * FROM reporting.privilege_parity_checks();
 $$;
 
 
@@ -6548,6 +6572,14 @@ GRANT ALL ON FUNCTION public.export_baseline_function_acls() TO service_role;
 
 
 --
+-- Name: FUNCTION export_baseline_parity(); Type: ACL; Schema: public; Owner: -
+--
+
+REVOKE ALL ON FUNCTION public.export_baseline_parity() FROM PUBLIC;
+GRANT ALL ON FUNCTION public.export_baseline_parity() TO service_role;
+
+
+--
 -- Name: FUNCTION export_schema_baseline(p_part text); Type: ACL; Schema: public; Owner: -
 --
 
@@ -6811,6 +6843,14 @@ GRANT ALL ON FUNCTION public.parent_study_behaviour(p_student_id uuid, p_weeks i
 REVOKE ALL ON FUNCTION public.parent_tutor_consents(p_student_id uuid) FROM PUBLIC;
 GRANT ALL ON FUNCTION public.parent_tutor_consents(p_student_id uuid) TO authenticated;
 GRANT ALL ON FUNCTION public.parent_tutor_consents(p_student_id uuid) TO service_role;
+
+
+--
+-- Name: FUNCTION privilege_parity_checks(); Type: ACL; Schema: public; Owner: -
+--
+
+REVOKE ALL ON FUNCTION public.privilege_parity_checks() FROM PUBLIC;
+GRANT ALL ON FUNCTION public.privilege_parity_checks() TO service_role;
 
 
 --
@@ -7388,5 +7428,5 @@ ALTER DEFAULT PRIVILEGES FOR ROLE supabase_admin IN SCHEMA public GRANT ALL ON T
 -- PostgreSQL database dump complete
 --
 
-\unrestrict 9bfi9TogKjqla10SvQihmzafcwy0do6FduYtAwyzuHa3HPFKd2W0JfjJEd5EUlJ
+\unrestrict ole5dk7EtKu1pPuWRJKPxgO988Iuyh3AvFgy8XLzYykuW8T9jPGPdrfxPmzbfRc
 

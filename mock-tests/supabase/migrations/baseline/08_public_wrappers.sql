@@ -1028,7 +1028,17 @@ CREATE OR REPLACE FUNCTION public.export_baseline_function_acls()
  STABLE SECURITY DEFINER
  SET search_path TO 'reporting', 'pg_catalog'
 AS $function$
-  SELECT reporting.export_baseline_function_acls()
+  SELECT reporting.export_baseline_function_acls();
+$function$
+;
+
+CREATE OR REPLACE FUNCTION public.export_baseline_parity()
+ RETURNS TABLE(label text, expected bigint)
+ LANGUAGE sql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'reporting', 'pg_catalog'
+AS $function$
+  SELECT * FROM reporting.export_baseline_parity();
 $function$
 ;
 
@@ -1862,6 +1872,16 @@ AS $function$
     AND public.may_read_results()
     AND public.is_parent_of(p_student_id)
   ORDER BY is_current DESC, l.created_at;
+$function$
+;
+
+CREATE OR REPLACE FUNCTION public.privilege_parity_checks()
+ RETURNS TABLE(name text, holds boolean)
+ LANGUAGE sql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'reporting', 'pg_catalog'
+AS $function$
+  SELECT * FROM reporting.privilege_parity_checks();
 $function$
 ;
 

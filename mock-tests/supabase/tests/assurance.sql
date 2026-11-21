@@ -46,7 +46,7 @@ SET LOCAL search_path = public, extensions;
 -- append-only finding (AC-35..AC-40, PR-02, migration 115) and 3 for keeping the
 -- read-only reporting role read-only (AC-75..AC-76, migration 116) and 3 for the ACL
 -- capture describing the live schema (AC-77..AC-79, migration 117).
-SELECT extensions.plan(155);
+SELECT extensions.plan(156);
 
 CREATE TEMP TABLE _ids AS
 SELECT
@@ -1691,21 +1691,34 @@ SELECT extensions.is(
 -- table. The warehouse is readable by a reporting role with its own grants; if a
 -- view ever joined enquiry_contacts into it, the audited door would become
 -- decorative while every privacy claim in 12-...md still read as true.
+--
+-- Matched on an ACCESS pattern, not on the table name appearing anywhere in the
+-- text. The first draft used a loose substring and failed against 119's
+-- privilege_parity_checks, which mentions 'enquiry_contacts' only as an argument
+-- to has_table_privilege() and reads no rows whatsoever - a check that flags
+-- talking about a table as reaching it will be "fixed" by widening the
+-- exemption list until it stops meaning anything.
 SELECT extensions.is(
   (SELECT string_agg(p.proname, ', ')
      FROM pg_proc p JOIN pg_namespace n ON n.oid = p.pronamespace
     WHERE n.nspname = 'reporting'
-      -- prokind filter: pg_get_functiondef errors on aggregates ("array_agg is
-      -- an aggregate function"), and this suite is not the place to discover a
-      -- scan breaks because the schema gained a custom aggregate.
       AND p.prokind = 'f'
-      AND pg_get_functiondef(p.oid) ILIKE '%enquiry_contacts%'),
+      AND p.prosrc ~* '(FROM|JOIN|UPDATE|INSERT INTO)[[:space:]]+(public\.)?enquiry_contacts'),
   NULL::text,
   'PR-02a no reporting function reads enquiry_contacts');
 
+-- The control that makes the assertion above worth having: the same pattern must
+-- still fire on the two functions that legitimately DO touch the table. Without
+-- this, a typo in the regex would match nothing, PR-02a would pass forever, and
+-- the guarantee would be gone while the suite stayed green.
+SELECT extensions.ok(
+  (SELECT count(*) >= 2 FROM pg_proc p JOIN pg_namespace n ON n.oid = p.pronamespace
+    WHERE n.nspname = 'public' AND p.prokind = 'f'
+      AND p.prosrc ~* '(FROM|JOIN|UPDATE|INSERT INTO)[[:space:]]+(public\.)?enquiry_contacts'),
+  'PR-02c the access pattern still detects real readers of enquiry_contacts (control)');
+
 SELECT extensions.is(
-  (SELECT string_agg(c.relname, ', ')
-     FROM pg_depend d
+  (SELECT count(*)::int FROM pg_depend d
      JOIN pg_rewrite r ON r.oid = d.objid
      JOIN pg_class c ON c.oid = r.ev_class
      JOIN pg_namespace n ON n.oid = c.relnamespace
@@ -1713,7 +1726,7 @@ SELECT extensions.is(
       AND d.refclassid = 'pg_class'::regclass
       AND d.refobjid = 'public.enquiry_contacts'::regclass
       AND c.relkind IN ('v','m')),
-  NULL::text,
+  0,
   'PR-02b no reporting view or materialised view depends on enquiry_contacts');
 
 -- ============================================================================
