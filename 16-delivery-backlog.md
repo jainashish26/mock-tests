@@ -2056,6 +2056,49 @@
 > harness under `--with-sample-data`, which runs **003 last** so it sees the writing
 > attempts 004 creates.
 >
+> ### ✅ Tutor + Quiz Master frontend/UX pass (2026-11-22)
+>
+> Four things were broken rather than merely plain, and fixing those was most of the
+> work:
+>
+> 1. **Two dead buttons on the tutor's landing page.** "View Report" and "Assign
+>    Test" both linked to `/tutor/student/:id`, a route that had never been created,
+>    so the two primary actions 404'd. `src/app/tutor/student/[id]/page.tsx` now
+>    exists: one child, their consent window, score/band/movement, assignments with
+>    Remind, ranked skill gaps, and recommendations with Assign — all from the same
+>    loaders T1/T2/T5/T7 use, so the drill-down and the report cannot disagree.
+>    When consent has lapsed the page says so and shows the consent record (state,
+>    granted, expires, revoked) instead of an empty shell: "withdrawn on the 3rd" and
+>    "never granted" are different problems for a tutor chasing a family.
+> 2. **A sidebar where three of four links went to the same page.** Tutor nav is now
+>    Students / Reports / Settings, each a real route (new `/tutor/reports`).
+> 3. **The quiz master's account icon linked to `/creator`** — a control that
+>    reloads the page you are on. `/creator/settings` does not exist, so creators get
+>    no icon rather than a lying one.
+> 4. **Two contradictory student lists on one screen.** The dashboard queried
+>    `parent_student_links` (tutor-as-parent, legacy) while the report above it read
+>    consent. A tutor with consented students could see an empty "My Students" beside
+>    a populated report — which reads as a bug. The consented list is now the only
+>    primary list; self-created profiles are a collapsed, clearly-labelled secondary
+>    section that keeps the create flow alive without competing with the real one.
+>
+> The dashboard is now a **triage board** (consented count · overdue · needs
+> attention · high severity, then student cards with consent expiry and completion),
+> with the six-panel report moved to its own route. Deliberate design call: density
+> over decoration — tabular numerals, hairline rules, and destructive colour
+> reserved for overdue and high severity, because the tutor is looking for two
+> things and decoration competes with both.
+>
+> Also removed the last `as any` casts in the tutor page by normalising the
+> PostgREST to-one join (object *or* array) — lint fell 57 → **53 errors**, ratchet
+> tightened to match.
+>
+> **Verified:** typecheck 0 · lint 68 (53/15, baseline updated) · 10 Node suites 595
+> assertions · all four routes return 307 to `/auth/login` through the running dev
+> server, so the new dynamic route compiles and resolves instead of 404ing.
+> **Not verified:** authenticated rendering — needs a tutor/creator session, which
+> this environment does not have.
+>
 > ### ✅ A1 skip rate now measures something (2026-11-22, migration 123)
 >
 > The formula was never wrong — the denominator was missing. `skip_rate_pct` divided

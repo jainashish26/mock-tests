@@ -65,10 +65,15 @@ export function DashboardLayout({ children, role, userName, hideSidebar = false,
           { icon: <Settings size={20} />, label: "Settings", href: "/parent/settings" },
         ];
       case "TUTOR":
+        // Three of these four links used to point at `/tutor` ("Students", "All
+        // Tests", "Reports"), so two of them did nothing visible and the sidebar
+        // read as broken. A tutor has two real surfaces - the students overview
+        // and the reports - and both are now routes. `/tutor/student/:id` still
+        // matches "Students" (longest-prefix match), and `/tutor/reports` wins
+        // over it by being longer.
         return [
           { icon: <LayoutDashboard size={20} />, label: "Students", href: "/tutor" },
-          { icon: <BookOpen size={20} />, label: "All Tests", href: "/tutor" },
-          { icon: <BarChart3 size={20} />, label: "Reports", href: "/tutor" },
+          { icon: <BarChart3 size={20} />, label: "Reports", href: "/tutor/reports" },
           { icon: <Settings size={20} />, label: "Settings", href: "/tutor/settings" },
         ];
       case "CREATOR":
@@ -133,8 +138,11 @@ export function DashboardLayout({ children, role, userName, hideSidebar = false,
     role === "TUTOR" ? "Tutor account" :
     role === "PARENT" ? "Parent account" : "Student account";
 
-  // `/creator/settings` does not exist; the creator area has no settings page yet.
-  const settingsHref = role === "CREATOR" ? "/creator" : `/${role.toLowerCase()}/settings`;
+  // `/creator/settings` is not a route. Pointing the account icon at `/creator`
+  // made it a link that reloads the page you are already on, which reads as a
+  // broken control - so creators get no icon rather than a dishonest one. The
+  // other four roles all have a real settings page.
+  const settingsHref = role === "CREATOR" ? null : `/${role.toLowerCase()}/settings`;
 
   return (
     <div className="min-h-screen bg-background">
@@ -222,11 +230,13 @@ export function DashboardLayout({ children, role, userName, hideSidebar = false,
               <Button variant="ghost" size="icon" className="">
                 <Bell size={20} />
               </Button>
-              <Link href={settingsHref}>
-                <Button variant="ghost" size="icon" className="">
-                  <User size={20} />
-                </Button>
-              </Link>
+              {settingsHref ? (
+                <Link href={settingsHref} aria-label="Account settings">
+                  <Button variant="ghost" size="icon" className="">
+                    <User size={20} />
+                  </Button>
+                </Link>
+              ) : null}
             </div>
           </header>
         )}

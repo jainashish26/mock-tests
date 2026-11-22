@@ -1,6 +1,6 @@
 {
-  "errors": 57,
-  "warnings": 16,
-  "total": 73,
+  "errors": 53,
+  "warnings": 15,
+  "total": 68,
   "note": "Pre-existing lint debt. CI fails only if this gets worse. Lower it with: node scripts/lint-ratchet.mjs --update"
 }
