@@ -127,7 +127,7 @@
   "metrics": {
     "auth triggers": 2,
     "dim_date rows": 2557,
-    "public policies": 110,
+    "public policies": 111,
     "public tables": 41,
     "reporting indexes": 86,
     "reporting matviews": 13,

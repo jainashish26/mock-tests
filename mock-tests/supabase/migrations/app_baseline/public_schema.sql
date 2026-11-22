@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict C707diJcFYAJgR5lBEt6F6JqsQPaj7ftXK6DcIhu6j7mW63XVJgBpekVVqHHadR
+\restrict MrtbkCIpAY7vgSJmUANY4L4VovNaHKcevlhlxR3CN15b4icgdPboalkzk7dcXfE
 
 -- Dumped from database version 17.6
 -- Dumped by pg_dump version 17.12
@@ -5991,6 +5991,13 @@ CREATE POLICY "Student can read own profile" ON public.student_profiles FOR SELE
 
 
 --
+-- Name: attempt_items_served Student can read own served items; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY "Student can read own served items" ON public.attempt_items_served FOR SELECT TO authenticated USING (public.is_attempt_owner(attempt_id));
+
+
+--
 -- Name: attempt_items_served Student can record own served items; Type: POLICY; Schema: public; Owner: -
 --
 
@@ -7596,5 +7603,5 @@ ALTER DEFAULT PRIVILEGES FOR ROLE supabase_admin IN SCHEMA public GRANT ALL ON T
 -- PostgreSQL database dump complete
 --
 
-\unrestrict C707diJcFYAJgR5lBEt6F6JqsQPaj7ftXK6DcIhu6j7mW63XVJgBpekVVqHHadR
+\unrestrict MrtbkCIpAY7vgSJmUANY4L4VovNaHKcevlhlxR3CN15b4icgdPboalkzk7dcXfE
 

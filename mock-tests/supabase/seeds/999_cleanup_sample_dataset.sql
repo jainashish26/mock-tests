@@ -33,6 +33,10 @@
 --   5c = parent_student_links.id  5d = attempts.id
 --   5e = responses.id             5f = student auth.users.id
 --   59 = funnel_events.id
+--   52 = writing_evaluations.id   53 = writing_practice_sessions.id
+--   54 = purchases.id             55 = entitlements.id
+--   56 = subscriptions.id
+--   attempt_items_served has no id of its own: its rows CASCADE from attempts.
 -- ============================================================================
 
 BEGIN;
@@ -77,6 +81,17 @@ DELETE FROM public.app_user_roles       WHERE user_id::text   LIKE '5f000000-%'
                                              OR user_id::text LIKE '5b000000-%';
 DELETE FROM public.student_profiles     WHERE id::text        LIKE '5a000000-%';
 
+-- 4c. Writing, served-item and revenue fixtures (seeds 003/004/005).
+--     Attempts and responses already went in steps 1-2 (their 5d/5e prefixes);
+--     `attempt_items_served` rows CASCADE from those attempts, so they need no
+--     delete of their own. These four tables do, because their keys are outside
+--     the 5d/5e families and purchases/subscriptions reference auth.users.
+DELETE FROM public.entitlements               WHERE id::text LIKE '55000000-%';
+DELETE FROM public.subscriptions              WHERE id::text LIKE '56000000-%';
+DELETE FROM public.purchases                  WHERE id::text LIKE '54000000-%';
+DELETE FROM public.writing_practice_sessions  WHERE id::text LIKE '53000000-%';
+DELETE FROM public.writing_evaluations        WHERE id::text LIKE '52000000-%';
+
 -- 5. Auth identities last
 DELETE FROM auth.users WHERE email LIKE '%@sample.invalid';
 
@@ -87,6 +102,9 @@ SELECT reporting.load_student_dims();
 SELECT reporting.load_attempt_facts(true);
 SELECT reporting.load_response_facts(true);
 SELECT reporting.load_event_facts(true);
+-- Served items (122): the rows themselves cascaded away with their attempts, but
+-- the fact table was loaded from them, so it is rebuilt from what is left.
+SELECT reporting.load_served_facts();
 
 -- 7. Drop the seeding helper schema entirely, so nothing sample-specific is left
 --    behind in the database.
@@ -102,4 +120,11 @@ SELECT
   (SELECT COUNT(*) FROM public.responses        WHERE id::text LIKE '5e000000-%')     AS responses,
   (SELECT COUNT(*) FROM public.funnel_events    WHERE id::text LIKE '59000000-%')     AS funnel_events,
   (SELECT COUNT(*) FROM public.app_user_roles   WHERE user_id::text LIKE '5b000000-%'
-                                                  OR user_id::text LIKE '5f000000-%') AS roles;
+                                                  OR user_id::text LIKE '5f000000-%') AS roles,
+  (SELECT COUNT(*) FROM public.writing_evaluations        WHERE id::text LIKE '52000000-%') AS marks,
+  (SELECT COUNT(*) FROM public.writing_practice_sessions  WHERE id::text LIKE '53000000-%') AS practice,
+  (SELECT COUNT(*) FROM public.purchases                  WHERE id::text LIKE '54000000-%') AS purchases,
+  (SELECT COUNT(*) FROM public.entitlements               WHERE id::text LIKE '55000000-%') AS entitlements,
+  (SELECT COUNT(*) FROM public.subscriptions              WHERE id::text LIKE '56000000-%') AS subscriptions,
+  (SELECT COUNT(*) FROM public.attempt_items_served
+    WHERE attempt_id::text LIKE '5d000000-%')                                             AS served_rows_remaining;

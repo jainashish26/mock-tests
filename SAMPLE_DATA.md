@@ -6,6 +6,8 @@
 > business decision about actual customers.
 >
 > Seed: `mock-tests/supabase/seeds/001_sample_dataset.sql`
+> Additional fixtures: `002_tutor_fixtures.sql`, `003_sample_served_items.sql`,
+> `004_sample_writing.sql`, `005_sample_revenue.sql` — see *Later fixtures* below.
 > Teardown: `mock-tests/supabase/seeds/999_cleanup_sample_dataset.sql`
 > These are **seeds, not migrations** — they will never replay automatically on a
 > deploy.
@@ -43,6 +45,12 @@ is empty — every table has 0 rows… fixtures are the product."*
 | `auth.users` (tutors) | **2** | `email LIKE 'sample.tutor.%@sample.invalid'`; id prefix `57000000-` |
 | `public.tutor_student_links` | **6** (2 tutors × 3 students) | `id::text LIKE '58000000-%'` |
 | `public.consent_records` | **6**, all ACTIVE, 12-month expiry | `tutor_user_id::text LIKE '57000000-%'` |
+| `public.attempt_items_served` | **20,286** (seeds/003) | `attempt_id::text LIKE '5d000000-%'` |
+| `public.writing_evaluations` | **36** (seeds/004) | `id::text LIKE '52000000-%'` |
+| `public.writing_practice_sessions` | **6** graded (seeds/004) | `id::text LIKE '53000000-%'` |
+| `public.purchases` | **24** (seeds/005) | `id::text LIKE '54000000-%'`; `provider = 'sample'` |
+| `public.entitlements` | **48**, derived from the real bundle (seeds/005) | `id::text LIKE '55000000-%'` |
+| `public.subscriptions` | **8** (5 active, 3 cancelled) (seeds/005) | `id::text LIKE '56000000-%'` |
 | `sample_data` schema | 1 helper function | whole schema is dropped by teardown |
 
 The sample tutors exist so the consent-based tutor surface (T1/T2/T3) and P10 are
@@ -91,13 +99,44 @@ Every synthetic primary key uses a prefix no real `gen_random_uuid()` can produc
 5b000000-…  parent auth.users       5e000000-…  responses
 5c000000-…  parent_student_links    5f000000-…  student auth.users
 59000000-…  funnel_events
+52000000-…  writing_evaluations     55000000-…  entitlements
+53000000-…  writing_practice_sessions 54000000-… purchases
+56000000-…  subscriptions           attempt_items_served has no id (cascades)
 ```
 
 Two independent markers (UUID prefix **and** `sample: true` in props / metadata)
 mean the rows stay identifiable even if someone queries by a column other than
 `id`.
 
-## What is fake about the *values*
+## Later fixtures (2026-11-22) — what filled the remaining empty tables
+
+`001` covered the platform's own usage. Three tables that the *reporting* backlog
+needed stayed empty because nothing wrote to them yet, and 003–005 fill them. Each
+is a separate file so it can be re-run or dropped without touching the other two.
+
+| File | Fills | Unblocks |
+|---|---|---|
+| `003_sample_served_items.sql` | `attempt_items_served` + `reporting.fact_item_served` | A1 `skip_rate` (a denominator exists at last); the served capture that A4's KR-20 will read once the report consumes it |
+| `004_sample_writing.sql` | 36 writing attempts + essays + `writing_evaluations` + 6 practice sessions | P6, T6, A5, A6, A7 — backlog item 17 |
+| `005_sample_revenue.sql` | `purchases`, `entitlements` (from the real bundle), `subscriptions` | N-5 sibling offer and N-8 re-purchase (both require a first purchase), and the `has_entitlement` path |
+
+Three rules they all follow, inherited from 001:
+
+1. **Deterministic.** Every value derives from `md5` of a stable key. No `random()`,
+   no clock state beyond the timestamps being described.
+2. **Reserved prefixes** (below), so the teardown can delete exactly these rows and
+   nothing else. Re-running never duplicates.
+3. **Consistent internals.** A writing mark's five categories sum to its headline
+   score; its criteria sum to each category; a purchase's entitlements are the rows
+   the real webhook would grant from `product_tests`. A fixture whose parts disagree
+   produces report bugs that are not the report's fault.
+
+What they deliberately do **not** do is fake a metric. `005` cannot make A8/A9/A10
+render because those read fact tables that items 14–15 have not built; `004` marks
+every script with one model and one rubric version, because A5's question is whether
+a *change* in version made marking worse. See *Known gaps* for the two places a
+number is still missing and why.
+
 
 The shape is realistic; the values are invented. Specifically:
 
@@ -202,11 +241,20 @@ and A1/T4 item statistics all exercise the real taxonomy rather than invented la
 - `NAPLAN_STYLE_READING` attempts have `score = NULL` because the one published
   test of that type has zero questions. Realistic, but that exam family contributes
   nothing to score-based reports.
-- No **purchases**, **subscriptions** or **entitlements** were seeded: Stripe
-  ingestion does not exist yet (Phase 3), so A8/A9/A10 still render empty. Seeding
-  fake revenue would be actively misleading.
-- No **writing** responses were seeded — criterion-level marking does not exist
-  yet, so P6/T6/A5/A6/A7 remain blocked on real work, not on data.
+- **Revenue data now exists, but A8/A9/A10 still render empty.** `seeds/005` adds 24
+  purchases (provider `sample`, never `Stripe`), 48 entitlements derived from the
+  real bundle, and 8 subscriptions. That unblocks the **entitlement path** and
+  **N-5/N-8 expansion** (which refuse to offer a sibling pack without a first
+  purchase). It does **not** populate the revenue reports: those read
+  `fact_order`/`fact_subscription`, which belong to backlog items 14–15 and do not
+  exist. App-side history is now there to reconcile against once the loader exists.
+- **Writing marks now exist.** `seeds/004` adds 36 writing attempts across the six
+  published writing papers, the essays themselves, and criterion-level
+  `writing_evaluations` whose five categories sum to the headline score exactly as
+  the rubric's maxima (20/15/20/25/20) require, plus 6 graded AI-practice sessions.
+  That unblocks P6/T6/A5/A6/A7 development. The marks are one model and one rubric
+  version by design — a fixture with mixed versions would answer a question about
+  the fixture rather than about marking.
 - No **enquiries** were seeded; that channel has no write path (`/contact` is
   mailto-only).
 - **Per-item evidence is thin, deliberately.** The re-seed spread attempts across
@@ -219,17 +267,26 @@ and A1/T4 item statistics all exercise the real taxonomy rather than invented la
   raise attempt volume in seed §3 (`2 + u01*9` attempts per student) rather than
   lowering `reporting.item_thresholds.min_responses_per_item` — lowering the floor
   would make every report noisier, not better.
-- **Skipped items are not recorded, and cannot be inferred.** The runner is
-  adaptive: attempts answer ~10 of the ~48 items in their test (avg 9.96 answered
-  against 48.46 in `test_questions`), and it writes **no** `responses` row for an
-  item it never serves. `responses.answer` is `NOT NULL` and `is_correct` is never
-  NULL, so there is no "unanswered" marker either — 0 of 17,643 rows in
-  `reporting.fact_item_response` have `is_skipped = true`. A missing row is therefore
-  indistinguishable from a skip, and A1/T4's `skip_rate_pct` computes to **0.0% for
-  every item**. That is the specified formula applied faithfully to data that cannot
-  answer the question, so both reports surface `skip_rate_reliable = false` and the
-  UI renders `n/a` rather than `0%`. Fixing it needs an item-exposure log (which A2's
-  `item_exposure_rate` also needs), not a change to the metric.
+- **Served items are now recorded, but no report reads them yet.** `seeds/003` fills
+  `attempt_items_served` (migration 122): every item each sample attempt ANSWERED,
+  plus the form's first four items as a shared opening prefix, plus two extra items
+  for a seventh of attempts (models the grid navigator). Measured: 20,286 served rows
+  over all 1,279 attempts, **86.6% answered / 13.4% skipped**, and 46 items served to
+  every submitted attempt of their form.
+  **A1 still prints `skip_rate_pct = 0.0%` and `skip_rate_reliable = false`**,
+  because it computes skip from `fact_item_response.is_skipped` and nothing has yet
+  taught it to divide by `fact_item_served`. Wiring that is the next backlog item,
+  deliberately not bundled with the capture so that a number which moves can be
+  attributed to one change. The data it needs is now present and verified.
+- **KR-20 is still uncomputable, and the reason is the 001 responses, not the
+  capture.** No item is ANSWERED by every attempt of its form (attempts answer ~14
+  scattered items out of up to 90), so there is no complete item × person rectangle
+  for a reliability coefficient to describe. Verified after seeding: 4 shared served
+  items, 0 complete matrices. Fixing it means either regenerating 001's responses
+  around a common answered core — which changes every attempt score, since 001
+  derives scores from responses — or adding a dedicated small cohort that answers
+  the same items on purpose. Inventing answers inside the served seed would break
+  the score-reconciliation guarantee DA-03 relies on.
 - **Item statistics are all-time, not per-period.** `questions.flag_count` is a
   running total with no timestamp, so `item_flag_rate_pct` cannot be a period rate.
   §5 anticipates this ("Until then A1 shows a lifetime rate and says so"), and every

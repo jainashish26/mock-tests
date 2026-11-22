@@ -36,11 +36,11 @@
 --   every resumed attempt and every duplicate beacon free.
 --
 -- WHAT IS DELIBERATELY NOT HERE
---   No UPDATE or DELETE policy: a served row is a fact about what happened and no
---   client should be able to rewrite it. No SELECT policy either - the child's
---   own session does not need to read its history back (the reporting layer does,
---   through the fact table), and an INSERT-only table is the smallest surface that
---   still records the truth.
+--   No UPDATE and no DELETE policy: a served row is a fact about what happened and
+--   no client should be able to rewrite it. There IS a SELECT policy, narrowed to
+--   the caller's own attempt, and it is load-bearing rather than generous - see the
+--   note at the policies below, where a missing SELECT turned an idempotent insert
+--   into an RLS error.
 --
 -- Idempotent: safe to re-run.
 -- ============================================================================
@@ -69,10 +69,19 @@ CREATE INDEX IF NOT EXISTS ix_attempt_items_served_question
 ALTER TABLE public.attempt_items_served ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.attempt_items_served FORCE ROW LEVEL SECURITY;
 
--- INSERT only, and only into the caller's own attempt. Mirrors
--- `Student can insert own responses` exactly; is_attempt_owner() already folds in
--- the synthetic-student identity check, so a parent cannot write another family's
--- exposure history.
+-- INSERT, and a SELECT that is deliberately narrow: the caller's own attempt.
+--
+-- The SELECT is not convenience, it is REQUIRED BY THE WRITE PATH. `ON CONFLICT DO
+-- NOTHING` (which the runner's beacon uses, and which is what makes it idempotent)
+-- must read the conflicting row to decide whether to skip it. With no SELECT policy
+-- PostgreSQL cannot perform that check and reports the insert as
+--   "new row violates row-level security policy"
+-- - an error message that blames the INSERT policy for a missing SELECT one. Found
+-- by the pgtap suite, not by reading: a plain INSERT succeeded while the identical
+-- ON CONFLICT INSERT was refused.
+--
+-- Nothing sensitive is exposed by reading this back: a child sees which items they
+-- were shown, which is their own view history and carries no score or correctness.
 DROP POLICY IF EXISTS "Student can record own served items" ON public.attempt_items_served;
 CREATE POLICY "Student can record own served items"
   ON public.attempt_items_served
@@ -80,10 +89,15 @@ CREATE POLICY "Student can record own served items"
   TO authenticated
   WITH CHECK (public.is_attempt_owner(attempt_id));
 
--- No SELECT policy on purpose (see header): default-deny for every browser role.
--- service_role and postgres carry BYPASSRLS, which is how the ETL reads it.
+DROP POLICY IF EXISTS "Student can read own served items" ON public.attempt_items_served;
+CREATE POLICY "Student can read own served items"
+  ON public.attempt_items_served
+  FOR SELECT
+  TO authenticated
+  USING (public.is_attempt_owner(attempt_id));
+
 REVOKE ALL ON TABLE public.attempt_items_served FROM anon;
-GRANT INSERT ON TABLE public.attempt_items_served TO authenticated;
+GRANT SELECT, INSERT ON TABLE public.attempt_items_served TO authenticated;
 
 -- ----------------------------------------------------------------------------
 -- 2. The reporting fact
@@ -246,21 +260,32 @@ BEGIN
     RAISE EXCEPTION '122 self-test: fact_item_served must have RLS enabled and forced';
   END IF;
 
-  -- Least privilege, asserted rather than described in a comment: exactly one
-  -- INSERT policy and no policy at all that grants a read, an update or a delete
-  -- to a browser role.
+  -- Least privilege, asserted rather than described in a comment: one INSERT policy,
+  -- one SELECT policy narrowed to the owner, and nothing that grants an UPDATE or a
+  -- DELETE to a browser role.
   SELECT count(*) INTO v
   FROM pg_policy WHERE polrelid = 'public.attempt_items_served'::regclass;
-  IF v <> 1 THEN
-    RAISE EXCEPTION '122 self-test: expected exactly one policy, found %', v;
+  IF v <> 2 THEN
+    RAISE EXCEPTION '122 self-test: expected INSERT + SELECT policies, found %', v;
   END IF;
 
   SELECT string_agg(polname, ', ') INTO v_bad
   FROM pg_policy
   WHERE polrelid = 'public.attempt_items_served'::regclass
-    AND polcmd <> 'a';
+    AND polcmd NOT IN ('a', 'r');
   IF v_bad IS NOT NULL THEN
-    RAISE EXCEPTION '122 self-test: non-INSERT policy present (%); served rows are insert-only', v_bad;
+    RAISE EXCEPTION '122 self-test: UPDATE/DELETE policy present (%); served rows are append-only', v_bad;
+  END IF;
+
+  -- The SELECT policy is not decoration: without it ON CONFLICT cannot read the
+  -- conflicting row and every idempotent insert fails as an RLS violation.
+  SELECT count(*) INTO v
+  FROM pg_policy
+  WHERE polrelid = 'public.attempt_items_served'::regclass
+    AND polcmd = 'r'
+    AND pg_get_expr(polqual, polrelid) LIKE '%is_attempt_owner%';
+  IF v <> 1 THEN
+    RAISE EXCEPTION '122 self-test: the owner-scoped SELECT policy (needed by ON CONFLICT) is missing';
   END IF;
 
   IF has_table_privilege('anon', 'public.attempt_items_served', 'INSERT')
@@ -290,6 +315,6 @@ BEGIN
     RAISE EXCEPTION '122 self-test: load_served_facts inserted rows on an already-loaded table';
   END IF;
 
-  RAISE NOTICE '122 self-test ok: insert-only capture, RLS forced, loader idempotent (% rows)', v;
+  RAISE NOTICE '122 self-test ok: owner-scoped read + insert, RLS forced, loader idempotent (% rows)', v;
 END;
 $do$;

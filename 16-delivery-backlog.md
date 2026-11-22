@@ -2000,6 +2000,60 @@
 > still use the old definitions. Changing a metric and its input in one commit makes
 > it impossible to say which one moved a number, so consumption is the next item -
 > and it is now a report change with no capture work behind it.
+>
+> ### ✅ Sample fixtures for the empty tables (2026-11-22, seeds 003-005)
+>
+> Three tables the remaining backlog needed were empty for the plain reason that
+> nothing writes to them yet. They are now seeded, deterministically, in the same
+> reserved-prefix style as 001 and removable by 999.
+>
+> | Seed | Fills | Unblocks |
+> |---|---|---|
+> | 003 | `attempt_items_served` + `fact_item_served` | A1 skip rate (denominator), A4 KR-20 input |
+> | 004 | 36 writing attempts + essays + `writing_evaluations` + 6 practice sessions | item 17: P6/T6/A5/A6/A7 |
+> | 005 | 24 purchases, 48 entitlements, 8 subscriptions | N-5/N-8 expansion, `has_entitlement` |
+>
+> **A real defect fell out of writing 003, in the migration it was feeding.** The
+> served table was deliberately insert-only with **no SELECT policy** - and
+> `ON CONFLICT DO NOTHING`, which every beacon uses to be idempotent, must READ the
+> conflicting row. With no SELECT policy PostgreSQL refuses the insert and reports
+> *"new row violates row-level security policy"*, blaming the INSERT policy for a
+> missing SELECT one. A plain insert succeeded while the identical ON CONFLICT insert
+> was refused; pgtap AC-86 caught it, and nothing else would have - the HTTP path
+> cannot be exercised without a signed-in student. Fixed in 122 with an owner-scoped
+> SELECT policy, and asserted in the migration's own self-test so a future
+> "least-privilege" edit cannot remove it again.
+>
+> **Two flavours of the same lesson about fixtures.** AC-86 and AC-89 both failed the
+> moment the sample data existed, because each assumed an empty database: AC-86 did a
+> bare insert that now hit a duplicate, and AC-89 asserted the loader "inserts >= 1"
+> row when everything was already loaded. Both were rewritten to assert the property
+> (the policy permits the write; the fact contains the row) rather than a count that
+> only holds before anyone seeds. A test that passes only on an empty database is a
+> test that stops testing anything the day the product has data.
+>
+> **What the fixtures deliberately still do not do:**
+> - A8/A9/A10 still render empty. They read `fact_order`/`fact_subscription`, which
+>   items 14-15 have not built; seeding `purchases` cannot substitute for ingestion,
+>   and `provider = 'sample'` keeps those rows from ever being mistaken for Stripe's.
+> - A1's `skip_rate_pct` is still 0.0% and `skip_rate_reliable` still false: the
+>   denominator now exists but the report has not been taught to use it.
+> - KR-20 is still uncomputable, and the reason is upstream of capture: **no item is
+>   ANSWERED by every attempt of its form** in the 001 data, so there is no complete
+>   matrix. Verified: 4 shared served items, 0 complete matrices. Fixing it means
+>   regenerating 001's responses around a common core (which changes every derived
+>   score) or a dedicated cohort - not inventing answers inside a served seed.
+>
+> **Measured shape:** 20,322 served rows over 1,279 attempts, **86.6% answered /
+> 13.4% skipped**, 46 items served to every submitted attempt of their form; 36 marks
+> (18 narrative, 18 persuasive) averaging 71.6/72.3/70.8 with category sums that
+> never exceed their maxima; A6's length-score correlation is +0.189 narrative /
+> −0.410 persuasive, so that report has real variance to plot.
+>
+> **Verified:** all three seeds run from file and re-run to zero inserts (004/005) or
+> an identical rebuild (003) · pgtap **170/170** · 10 Node suites 595 · `schema:validate`
+> 84/84 · `schema:validate:app` 41/41 after re-capture · seeds added to the reset
+> harness under `--with-sample-data`.
 
 > **Separate, pre-existing history drift found while applying 105–107, and it is
 > wider than it first looked.** The live

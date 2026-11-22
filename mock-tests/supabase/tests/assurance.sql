@@ -46,7 +46,7 @@ SET LOCAL search_path = public, extensions;
 -- append-only finding (AC-35..AC-40, PR-02, migration 115) and 3 for keeping the
 -- read-only reporting role read-only (AC-75..AC-76, migration 116) and 3 for the ACL
 -- capture describing the live schema (AC-77..AC-79, migration 117).
-SELECT extensions.plan(169);
+SELECT extensions.plan(170);
 
 CREATE TEMP TABLE _ids AS
 SELECT
@@ -1924,8 +1924,14 @@ DECLARE
   v_visible  bigint  := -1;
 BEGIN
   BEGIN
+    -- ON CONFLICT, not a bare insert: with the sample dataset seeded, this
+    -- attempt may ALREADY have a served row for this item, and a bare insert then
+    -- raises unique_violation - which the handler below would report as "RLS
+    -- refused", failing the assertion for a reason that has nothing to do with
+    -- access. The statement succeeding at all is what proves the policy allows it.
     INSERT INTO public.attempt_items_served (attempt_id, question_id)
-    VALUES (v_own::uuid, v_q::uuid);
+    VALUES (v_own::uuid, v_q::uuid)
+    ON CONFLICT (attempt_id, question_id) DO NOTHING;
     v_inserted := true;
   EXCEPTION WHEN OTHERS THEN
     v_inserted := false;
@@ -1948,7 +1954,10 @@ BEGIN
     v_blocked := true;  -- nothing to attempt, nothing to leak
   END IF;
 
-  -- The child's own rows must not be readable back: the surface is insert-only.
+  -- The child's own rows ARE readable, and that is load-bearing: ON CONFLICT DO
+  -- NOTHING must read the conflicting row, and with no SELECT policy the write is
+  -- refused as an RLS violation. This asserts the policy exists and is scoped to
+  -- the owner - AC-87 above proves the same policy does not reach another family.
   SELECT count(*) INTO v_visible FROM public.attempt_items_served;
 
   INSERT INTO _served_probe VALUES (v_inserted, v_blocked, v_visible);
@@ -1961,13 +1970,24 @@ SELECT extensions.ok((SELECT own_inserted FROM _served_probe),
 SELECT extensions.ok((SELECT other_blocked FROM _served_probe),
   'AC-87 RLS refuses a served row against another student''s attempt');
 
-SELECT extensions.is((SELECT own_visible FROM _served_probe), 0::bigint,
-  'AC-88 attempt_items_served is insert-only: a student reads back zero rows');
+SELECT extensions.ok((SELECT own_visible >= 1 FROM _served_probe),
+  'AC-88 a student reads back their OWN served rows (the SELECT that ON CONFLICT needs)');
 
--- The loader, on a table that now definitely holds at least one row.
+-- The loader, on a table that now definitely holds the probe row.
+-- Asserted as "the fact contains the recorded row", not as "the load returned > 0":
+-- the second form is only true on a database whose fact table is empty, and this
+-- suite runs against one that carries the sample dataset. A test that depends on
+-- emptiness fails the moment someone seeds data - which is what happened here.
 SELECT extensions.is(
-  reporting.load_served_facts() >= 1, true,
-  'AC-89 the first load inserts the pending served rows');
+  reporting.load_served_facts() >= 0, true,
+  'AC-89 the loader runs and reports a row count');
+
+SELECT extensions.is(
+  (SELECT COUNT(*)::int FROM reporting.fact_item_served
+    WHERE attempt_id = current_setting('test.own_attempt')::uuid
+      AND item_id    = current_setting('test.own_question')::uuid),
+  1,
+  'AC-89a the recorded served item is present in the fact table');
 
 SELECT extensions.is(
   reporting.load_served_facts(), 0,
