@@ -300,19 +300,33 @@ DECLARE
   v_negative   bigint;
   v_mv         bigint;
   v_items      bigint;
+  v_served     bigint;
 BEGIN
   CREATE TEMP TABLE _it123 ON COMMIT DROP AS
   SELECT * FROM reporting.item_statistics();
 
   SELECT COUNT(*) INTO v_items FROM _it123;
   IF v_items = 0 THEN
-    RAISE EXCEPTION '123 self-test: item_statistics() returned no rows - nothing to assert against';
+    -- Nothing to assert against, and that is a state, not a failure: a fresh
+    -- database has no items until content is loaded. Failing here would make the
+    -- migration unusable on exactly the environment that needs it most.
+    RAISE NOTICE '123 self-test: no item rows yet - structural checks skipped';
+    RETURN;
   END IF;
 
-  -- 1. The change had an effect: at least one item is now measured.
+  -- 1. Where capture exists, at least one item must come back measured. Guarded on
+  --    the capture itself rather than assumed: PRODUCTION HAS NO SERVED ROWS until
+  --    the first child sits a test after 122 ships, so an unconditional "at least
+  --    one measured item" would abort this migration on the very deploy that
+  --    installs it. The metric reporting n/a until traffic arrives is the designed
+  --    behaviour (per-item `skip_rate_reliable`), not a defect to fail on.
+  SELECT COUNT(*) INTO v_served FROM reporting.fact_item_served;
   SELECT COUNT(*) INTO v_reliable FROM _it123 WHERE skip_rate_reliable;
-  IF v_reliable = 0 THEN
-    RAISE EXCEPTION '123 self-test: no item has served history, so skip rate is still unmeasured everywhere';
+  IF v_served > 0 AND v_reliable = 0 THEN
+    RAISE EXCEPTION '123 self-test: % served rows exist but no item reports a measured skip rate', v_served;
+  END IF;
+  IF v_served = 0 THEN
+    RAISE NOTICE '123 self-test: no served rows yet - skip rate reports n/a until runner traffic arrives, and clears itself';
   END IF;
 
   -- 2. The flag and the value cannot disagree. A NULL rate means "not measured";
