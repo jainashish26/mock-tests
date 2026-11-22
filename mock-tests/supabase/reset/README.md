@@ -117,6 +117,4 @@ from files alone via `scripts/reset-via-psql.mjs --with-sample-data`:
    `npm run schema:rebaseline`, and a run additionally asserts seven
    *reachability* invariants (`privilege_parity_checks()`), because the old list
    counted objects and could never have caught 117's ACL gap.
-   **The harness has not been re-run against a scratch rebuild since migration
-   108**, so migrations 108–119 are unverified by this procedure: the mechanism
-   is proven, the current schema through it is not.
+   **RE-RUN AND GREEN on 2026-11-22**, which retires the caveat this paragraph used to carry. `--fresh` against the `mocktests-reset-proof` project: 25 steps ok, 4 skipped by flag, 16/16 parity checks PASS, all 8 privilege invariants hold, RESET COMPLETE - so 108-121 are now verified through this procedure, including the change that made a second run possible at all (`00_fresh_schemas.sql`; without it the same project failed with 303 unexpected `already exists` errors). It also exercises 120 name sets: public 75/75, reporting 37/37 with `export_baseline` declared live-only. The lesson 118 wrote down is confirmed: a proof only ever run once against a pristine target proves the mechanism, not the schema.

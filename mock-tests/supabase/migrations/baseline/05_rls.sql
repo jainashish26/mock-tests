@@ -31,3 +31,4 @@ ALTER TABLE reporting.refresh_blackout ENABLE ROW LEVEL SECURITY; ALTER TABLE re
 ALTER TABLE reporting.refresh_blackout_exempt ENABLE ROW LEVEL SECURITY; ALTER TABLE reporting.refresh_blackout_exempt FORCE ROW LEVEL SECURITY;
 ALTER TABLE reporting.refresh_log ENABLE ROW LEVEL SECURITY; ALTER TABLE reporting.refresh_log FORCE ROW LEVEL SECURITY;
 ALTER TABLE reporting.skill_exam_mapping ENABLE ROW LEVEL SECURITY; ALTER TABLE reporting.skill_exam_mapping FORCE ROW LEVEL SECURITY;
+ALTER TABLE reporting.test_form_thresholds ENABLE ROW LEVEL SECURITY; ALTER TABLE reporting.test_form_thresholds FORCE ROW LEVEL SECURITY;

@@ -447,6 +447,26 @@ END;
 $function$
 ;
 
+CREATE OR REPLACE FUNCTION reporting.export_baseline_function_names()
+ RETURNS TABLE(schema_name text, function_name text)
+ LANGUAGE plpgsql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'reporting', 'public', 'pg_catalog'
+AS $function$
+BEGIN
+  -- Deliberately unfiltered. Every prior attempt to be helpful here - skipping
+  -- "tooling", skipping a name prefix - is what let a missing function pass.
+  RETURN QUERY
+  SELECT n.nspname::text, p.proname::text
+  FROM pg_proc p
+  JOIN pg_namespace n ON n.oid = p.pronamespace
+  WHERE n.nspname IN ('public', 'reporting')
+    AND p.prokind = 'f'
+  ORDER BY 1, 2;
+END;
+$function$
+;
+
 CREATE OR REPLACE FUNCTION reporting.export_baseline_parity()
  RETURNS TABLE(label text, expected bigint)
  LANGUAGE plpgsql
@@ -455,26 +475,17 @@ CREATE OR REPLACE FUNCTION reporting.export_baseline_parity()
 AS $function$
 BEGIN
   RETURN QUERY
-  WITH tooling(name) AS (
-    -- Live-only capture entry points, omitted from the baseline by design: a
-    -- faithful restore therefore does not have them either, and counting them
-    -- would make every parity run fail for a reason that is not a defect.
-    VALUES ('export_schema_baseline'), ('export_baseline_function_acls'),
-           ('export_baseline_parity')
-  )
   SELECT lbl, val FROM (
     SELECT 'public tables'::text AS lbl, count(*)::bigint AS val
     FROM pg_class c JOIN pg_namespace n ON n.oid = c.relnamespace
     WHERE n.nspname = 'public' AND c.relkind = 'r'
 
     UNION ALL
-    SELECT 'public functions', count(*)
-    FROM pg_proc p JOIN pg_namespace n ON n.oid = p.pronamespace
-    WHERE n.nspname = 'public' AND p.prokind = 'f'
-      AND p.proname NOT IN (SELECT name FROM tooling)
-
-    UNION ALL
-    SELECT 'public policies', count(*)
+    -- 'public functions' and 'reporting functions' are GONE from this list,
+    -- along with the tooling CTE and the NOT LIKE exclusion that came with
+    -- them. Function identity is now checked as a name set via
+    -- export_baseline_function_names(); see the header for what the counts hid.
+    SELECT 'public policies'::text AS lbl, count(*)::bigint AS val
     FROM pg_policies WHERE schemaname = 'public'
 
     UNION ALL
@@ -496,12 +507,6 @@ BEGIN
     SELECT 'reporting views', count(*)
     FROM pg_class c JOIN pg_namespace n ON n.oid = c.relnamespace
     WHERE n.nspname = 'reporting' AND c.relkind = 'v'
-
-    UNION ALL
-    SELECT 'reporting functions', count(*)
-    FROM pg_proc p JOIN pg_namespace n ON n.oid = p.pronamespace
-    WHERE n.nspname = 'reporting' AND p.prokind = 'f'
-      AND p.proname NOT LIKE 'export\_baseline%'
 
     UNION ALL
     SELECT 'reporting indexes', count(*)
@@ -1021,6 +1026,28 @@ FROM enriched e;
 $function$
 ;
 
+CREATE OR REPLACE FUNCTION reporting.kr20(p_items integer, p_sum_pq numeric, p_total_variance numeric)
+ RETURNS numeric
+ LANGUAGE sql
+ IMMUTABLE
+ SET search_path TO 'pg_catalog'
+AS $function$
+  SELECT CASE
+    -- k < 2 makes k/(k-1) undefined (or negative). One item carries no
+    -- internal consistency to measure.
+    WHEN p_items IS NULL OR p_items < 2 THEN NULL
+    WHEN p_sum_pq IS NULL OR p_total_variance IS NULL THEN NULL
+    -- Everyone scored identically: the denominator is zero, and a coefficient
+    -- computed from it is undefined rather than perfect.
+    WHEN p_total_variance <= 0 THEN NULL
+    ELSE ROUND(
+      (p_items::numeric / (p_items - 1)) * (1 - (p_sum_pq / p_total_variance)),
+      3
+    )
+  END;
+$function$
+;
+
 CREATE OR REPLACE FUNCTION reporting.load_attempt_facts(p_full boolean DEFAULT false)
  RETURNS integer
  LANGUAGE plpgsql
@@ -1512,6 +1539,7 @@ CREATE OR REPLACE FUNCTION reporting.privilege_parity_checks()
  SET search_path TO 'reporting', 'public', 'pg_catalog'
 AS $function$
 BEGIN
+  -- 1. The condition 117 was written to keep true after a restore.
   RETURN QUERY SELECT 'no reporting function is reachable by anon', NOT EXISTS (
     SELECT 1 FROM pg_proc p
     JOIN pg_namespace n ON n.oid = p.pronamespace
@@ -1519,18 +1547,7 @@ BEGIN
       AND has_function_privilege('anon', p.oid::regprocedure, 'EXECUTE')
   );
 
-  -- The sensitive one. reporting has no USAGE grant for anon, so the check above
-  -- can read true purely because the schema is unreachable - correct protection,
-  -- but blind to an ACL file that never applied. A default ACL (proacl IS NULL)
-  -- means "EXECUTE to PUBLIC", which is exactly the state a restore is left in
-  -- when this lock-down is missing or incomplete, so this is the question whose
-  -- answer actually depends on the thing being verified.
-  RETURN QUERY SELECT 'no reporting function carries the default PUBLIC ACL', NOT EXISTS (
-    SELECT 1 FROM pg_proc p
-    JOIN pg_namespace n ON n.oid = p.pronamespace
-    WHERE n.nspname = 'reporting' AND p.prokind = 'f' AND p.proacl IS NULL
-  );
-
+  -- 2. A read-only role must not be able to run a postgres-owned writer.
   RETURN QUERY SELECT 'no reporting loader is executable by reporting_ro', NOT EXISTS (
     SELECT 1 FROM pg_proc p
     JOIN pg_namespace n ON n.oid = p.pronamespace
@@ -1539,25 +1556,59 @@ BEGIN
       AND has_function_privilege('reporting_ro', p.oid::regprocedure, 'EXECUTE')
   );
 
+  -- 3. The contact audit log is append-only for the service credential, too.
   RETURN QUERY SELECT 'service_role cannot edit the contact audit log',
     NOT has_table_privilege('service_role', 'public.enquiry_contact_access_log', 'UPDATE')
     AND NOT has_table_privilege('service_role', 'public.enquiry_contact_access_log', 'DELETE');
 
+  -- 4. Inbound capture stays service-role-only.
   RETURN QUERY SELECT 'inbound capture is not reachable by app roles',
     NOT has_function_privilege('anon',
       'public.record_inbound_email(text,text,text,text,timestamptz,jsonb)', 'EXECUTE')
     AND NOT has_function_privilege('authenticated',
       'public.record_inbound_email(text,text,text,text,timestamptz,jsonb)', 'EXECUTE');
 
+  -- 5. Restricted contact details stay unreadable outside the audited function.
   RETURN QUERY SELECT 'enquiry_contacts is unreadable by app roles',
     NOT has_table_privilege('authenticated', 'public.enquiry_contacts', 'SELECT')
     AND NOT has_table_privilege('anon', 'public.enquiry_contacts', 'SELECT');
 
+  -- 6. PR-07 as an invariant rather than a count compared against a manifest.
   RETURN QUERY SELECT 'every reporting table forces RLS', NOT EXISTS (
     SELECT 1 FROM pg_class c
     JOIN pg_namespace n ON n.oid = c.relnamespace
     WHERE n.nspname = 'reporting' AND c.relkind = 'r'
       AND (NOT c.relrowsecurity OR NOT c.relforcerowsecurity)
+  );
+
+  -- 7. What an unapplied 10_reporting_function_acls.sql looks like: every
+  --    restored function sitting on the default PUBLIC execute ACL.
+  RETURN QUERY SELECT 'no reporting function carries the default PUBLIC ACL', NOT EXISTS (
+    SELECT 1 FROM pg_proc p
+    JOIN pg_namespace n ON n.oid = p.pronamespace
+    WHERE n.nspname = 'reporting' AND p.prokind = 'f'
+      AND EXISTS (
+        SELECT 1 FROM unnest(COALESCE(p.proacl, ARRAY[]::aclitem[])) a
+        WHERE split_part(a::text, '=', 1) = ''
+      )
+  );
+
+  -- 8. A SECURITY DEFINER capture/inventory wrapper in `public` must not be
+  --    reachable by anon or by PUBLIC: it runs as the owner and returns
+  --    internal structure. The absence of this invariant is what let the hole
+  --    described above exist while every check still reported green.
+  RETURN QUERY SELECT 'no public capture wrapper is reachable by anon', NOT EXISTS (
+    SELECT 1 FROM pg_proc p
+    JOIN pg_namespace n ON n.oid = p.pronamespace
+    WHERE n.nspname = 'public' AND p.prokind = 'f'
+      AND p.prosecdef AND p.proname LIKE 'export\_%'
+      AND (
+        has_function_privilege('anon', p.oid::regprocedure, 'EXECUTE')
+        OR EXISTS (
+          SELECT 1 FROM unnest(COALESCE(p.proacl, ARRAY[]::aclitem[])) a
+          WHERE split_part(a::text, '=', 1) = ''
+        )
+      )
   );
 END;
 $function$
@@ -1730,6 +1781,255 @@ BEGIN
   FROM reporting.v_student_today v
   WHERE v.student_id = p_student_id;
 END;
+$function$
+;
+
+CREATE OR REPLACE FUNCTION reporting.test_form_metrics(p_from_date integer DEFAULT 20240101, p_to_date integer DEFAULT 99991231)
+ RETURNS TABLE(test_id uuid, test_title text, exam_type text, family_label text, family_group text, year_level_min smallint, year_level_max smallint, content_status text, attempts_started bigint, attempts_submitted bigint, abandoned_attempts bigint, completion_rate_pct numeric, completion_reportable boolean, abandonment_point numeric, abandonment_share_pct numeric, abandonment_flagged boolean, items_in_form bigint, items_answered_by_all bigint, reliability_coefficient numeric, reliability_state text, reliability_meets_floor boolean, mean_score numeric, median_score numeric, score_n bigint, as_at timestamp with time zone)
+ LANGUAGE sql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'reporting', 'public', 'pg_catalog'
+AS $function$
+WITH cfg AS (
+  SELECT * FROM reporting.test_form_thresholds WHERE id = 1
+),
+scoped AS (
+  SELECT a.attempt_id, a.test_id, a.score, a.submitted_at
+  FROM reporting.fact_test_attempt a
+  WHERE a.date_key BETWEEN p_from_date AND p_to_date
+),
+form AS (
+  SELECT tq.test_id, COUNT(*)::bigint AS items_in_form
+  FROM public.test_questions tq
+  GROUP BY tq.test_id
+),
+counts AS (
+  SELECT s.test_id,
+         COUNT(*)::bigint                                          AS started,
+         COUNT(*) FILTER (WHERE s.submitted_at IS NOT NULL)::bigint AS submitted
+  FROM scoped s
+  GROUP BY s.test_id
+),
+-- How far through the FORM the child got. LATERAL because the position lives on
+-- the form definition (test_questions.question_order), not on the response.
+reached AS (
+  SELECT s.test_id, s.attempt_id, p.last_position
+  FROM scoped s
+  LEFT JOIN LATERAL (
+    SELECT MAX(tq.question_order) AS last_position
+    FROM reporting.fact_item_response r
+    JOIN public.test_questions tq
+      ON tq.test_id = r.test_id AND tq.question_id = r.item_id
+    WHERE r.attempt_id = s.attempt_id
+  ) p ON true
+),
+abandoned AS (
+  SELECT r.test_id,
+         COUNT(*)::bigint AS abandoned,
+         (PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY r.last_position))::numeric
+           AS abandonment_point
+  FROM reached r
+  WHERE r.last_position IS NOT NULL
+    AND NOT EXISTS (
+      SELECT 1 FROM scoped s
+      WHERE s.attempt_id = r.attempt_id AND s.submitted_at IS NOT NULL
+    )
+  GROUP BY r.test_id
+),
+-- Which items did EVERY submitted attempt answer? This is the gate on KR-20:
+-- with 0 such items there is no complete matrix and no coefficient.
+answered AS (
+  SELECT r.test_id, r.attempt_id, COUNT(DISTINCT r.item_id)::bigint AS answered_items
+  FROM reporting.fact_item_response r
+  JOIN scoped s ON s.attempt_id = r.attempt_id
+  GROUP BY r.test_id, r.attempt_id
+),
+coverage AS (
+  SELECT a.test_id,
+         COUNT(*) FILTER (WHERE a.answered_items = c.submitted)::bigint
+           AS items_answered_by_all
+  FROM answered a
+  JOIN counts c ON c.test_id = a.test_id
+  GROUP BY a.test_id
+),
+complete_attempts AS (
+  SELECT a.test_id, a.attempt_id
+  FROM answered a
+  JOIN form f    ON f.test_id = a.test_id
+  JOIN scoped s  ON s.attempt_id = a.attempt_id
+  WHERE s.submitted_at IS NOT NULL
+    AND a.answered_items = f.items_in_form
+),
+matrix AS (
+  SELECT r.test_id, r.attempt_id, r.item_id, r.is_correct
+  FROM reporting.fact_item_response r
+  JOIN complete_attempts c
+    ON c.attempt_id = r.attempt_id AND c.test_id = r.test_id
+),
+item_p AS (
+  SELECT m.test_id, m.item_id,
+         COUNT(*) FILTER (WHERE m.is_correct)::numeric / NULLIF(COUNT(*), 0) AS p
+  FROM matrix m
+  GROUP BY m.test_id, m.item_id
+),
+pq AS (
+  SELECT i.test_id,
+         SUM(i.p * (1 - i.p)) AS sum_pq,
+         COUNT(*)::bigint     AS scored_items
+  FROM item_p i
+  GROUP BY i.test_id
+),
+totals AS (
+  SELECT m.test_id, m.attempt_id, SUM(m.is_correct::int)::numeric AS total
+  FROM matrix m
+  GROUP BY m.test_id, m.attempt_id
+),
+variance AS (
+  SELECT t.test_id,
+         VAR_SAMP(t.total)::numeric AS total_variance,
+         COUNT(*)::bigint           AS complete_attempts
+  FROM totals t
+  GROUP BY t.test_id
+),
+scores AS (
+  SELECT s.test_id,
+         ROUND(AVG(s.score), 1)    AS mean_score,
+         ROUND((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY s.score))::numeric, 1)
+                                   AS median_score,
+         COUNT(*)::bigint          AS score_n
+  FROM scoped s
+  WHERE s.score IS NOT NULL
+  GROUP BY s.test_id
+)
+SELECT
+  c.test_id,
+  dt.title                                              AS test_title,
+  dt.exam_type,
+  fam.family_label,
+  fam.family_group,
+  dt.year_level_min,
+  dt.year_level_max,
+  dt.content_status,
+  c.started                                             AS attempts_started,
+  c.submitted                                           AS attempts_submitted,
+  COALESCE(ab.abandoned, 0)                             AS abandoned_attempts,
+  ROUND(c.submitted::numeric / NULLIF(c.started, 0) * 100, 1)
+                                                        AS completion_rate_pct,
+  (c.started >= cfg.min_attempts_for_completion)        AS completion_reportable,
+  ROUND(ab.abandonment_point, 1)                        AS abandonment_point,
+  ROUND(COALESCE(ab.abandoned, 0)::numeric / NULLIF(c.started, 0) * 100, 1)
+                                                        AS abandonment_share_pct,
+  (
+    c.started >= cfg.min_attempts_for_completion
+    AND COALESCE(ab.abandoned, 0)::numeric / NULLIF(c.started, 0) * 100
+        > cfg.abandonment_alert_pct
+  )                                                     AS abandonment_flagged,
+  COALESCE(f.items_in_form, 0)                          AS items_in_form,
+  COALESCE(cov.items_answered_by_all, 0)                AS items_answered_by_all,
+  -- ONE definition of the coefficient, in a LATERAL below, used by both columns.
+  -- The first draft called kr20() twice with no attempt-floor gate, and the
+  -- apply-time self-test caught the consequence immediately: a form with five
+  -- complete attempts produced a number while its state said TOO_FEW_ATTEMPTS -
+  -- exactly the "coefficient computed from 5 attempts" section 5 forbids. The
+  -- gate now lives with the formula, so the two columns cannot disagree.
+  rel.coefficient                                       AS reliability_coefficient,
+  CASE
+    WHEN COALESCE(f.items_in_form, 0) < 2               THEN 'TOO_FEW_ITEMS'
+    WHEN COALESCE(cov.items_answered_by_all, 0) = 0     THEN 'NO_COMPLETE_ATTEMPTS'
+    WHEN COALESCE(v.complete_attempts, 0) < cfg.min_attempts_for_reliability
+                                                        THEN 'TOO_FEW_ATTEMPTS'
+    WHEN v.total_variance IS NULL OR v.total_variance <= 0
+                                                        THEN 'NO_VARIANCE'
+    ELSE 'OK'
+  END                                                   AS reliability_state,
+  (rel.coefficient IS NOT NULL
+    AND rel.coefficient >= cfg.reliability_floor)       AS reliability_meets_floor,
+  sc.mean_score,
+  sc.median_score,
+  COALESCE(sc.score_n, 0)                               AS score_n,
+  (
+    SELECT MAX(a.etl_loaded_at)
+    FROM reporting.fact_test_attempt a
+    WHERE a.date_key BETWEEN p_from_date AND p_to_date
+  )                                                     AS as_at
+FROM counts c
+LEFT JOIN form f                       ON f.test_id = c.test_id
+LEFT JOIN abandoned ab                 ON ab.test_id = c.test_id
+LEFT JOIN coverage cov                 ON cov.test_id = c.test_id
+LEFT JOIN variance v                   ON v.test_id = c.test_id
+LEFT JOIN pq                           ON pq.test_id = c.test_id
+LEFT JOIN scores sc                    ON sc.test_id = c.test_id
+-- LEFT, not CROSS: the singleton row is guaranteed by the CHECK and the INSERT
+-- above, but a database where someone deleted it should render "not reportable"
+-- rather than an empty report that reads as "no test forms".
+LEFT JOIN cfg                          ON true
+-- The single gated definition of the coefficient. Every condition that section
+-- 5 requires before a number may be published is in this one place:
+--   * the form has at least two items (k/(k-1) is undefined below that);
+--   * at least one item was answered by every submitted attempt (otherwise
+--     there is no complete matrix and any figure would be fabricated);
+--   * at least min_attempts_for_reliability complete attempts exist.
+-- k passed to kr20() is the number of ITEMS in the matrix, not the number of
+-- attempts - the single easiest way to make a plausible, meaningless number.
+CROSS JOIN LATERAL (
+  SELECT CASE
+           WHEN COALESCE(f.items_in_form, 0) >= 2
+            AND COALESCE(cov.items_answered_by_all, 0) > 0
+            AND COALESCE(v.complete_attempts, 0) >= cfg.min_attempts_for_reliability
+           THEN reporting.kr20(
+                  COALESCE(pq.scored_items, 0)::integer,
+                  pq.sum_pq,
+                  v.total_variance
+                )
+         END AS coefficient
+) rel
+LEFT JOIN reporting.dim_test dt        ON dt.test_id = c.test_id AND dt.is_current
+LEFT JOIN reporting.dim_test_family fam ON fam.exam_type = dt.exam_type
+ORDER BY c.started DESC, dt.title NULLS LAST;
+$function$
+;
+
+CREATE OR REPLACE FUNCTION reporting.test_form_score_distribution(p_test_id uuid, p_from_date integer DEFAULT 20240101, p_to_date integer DEFAULT 99991231)
+ RETURNS TABLE(bucket smallint, score_from numeric, score_to numeric, attempts bigint, as_at timestamp with time zone)
+ LANGUAGE sql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'reporting', 'public', 'pg_catalog'
+AS $function$
+WITH scoped AS (
+  SELECT a.score
+  FROM reporting.fact_test_attempt a
+  WHERE a.test_id = p_test_id
+    AND a.date_key BETWEEN p_from_date AND p_to_date
+    AND a.score IS NOT NULL
+),
+buckets AS (
+  SELECT g.bucket::smallint AS bucket
+  FROM generate_series(1, 10) AS g(bucket)
+),
+counted AS (
+  SELECT
+    -- Clamped: width_bucket returns 0 below the range and 11 above it, and a
+    -- score outside 0..100 would otherwise produce a bucket no chart has a slot
+    -- for and silently vanish from the total.
+    LEAST(10, GREATEST(1, width_bucket(s.score, 0, 100, 10)))::smallint AS bucket,
+    COUNT(*)::bigint AS attempts
+  FROM scoped s
+  GROUP BY 1
+)
+SELECT
+  b.bucket,
+  ((b.bucket - 1) * 10)::numeric                       AS score_from,
+  (b.bucket * 10)::numeric                             AS score_to,
+  COALESCE(c.attempts, 0)                              AS attempts,
+  (
+    SELECT MAX(a.etl_loaded_at)
+    FROM reporting.fact_test_attempt a
+    WHERE a.test_id = p_test_id
+      AND a.date_key BETWEEN p_from_date AND p_to_date
+  )                                                    AS as_at
+FROM buckets b
+LEFT JOIN counted c ON c.bucket = b.bucket
+ORDER BY b.bucket;
 $function$
 ;
 

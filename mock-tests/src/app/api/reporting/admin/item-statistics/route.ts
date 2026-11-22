@@ -29,9 +29,10 @@ import {
  * THE CAVEATS ARE PART OF THE PAYLOAD
  *   Following the A3 precedent: a report whose inputs are compromised must say so
  *   in the response, not only in a code comment. `markingCaveat` is non-null while
- *   `responses.is_correct` contradicts the authored key (currently 52% of MCQ
- *   responses), and `skipRateCaveat` while skips are not captured at all. Both are
- *   derived from the data in SQL, so each clears itself when its defect is fixed.
+ *   `responses.is_correct` contradicts the authored key - measured at ZERO
+ *   disagreements on 2026-11-22, so it is currently silent - and `skipRateCaveat`
+ *   while skips are not captured at all. Both are derived from the data in SQL, so
+ *   each clears itself when its defect is fixed and reappears if it regresses.
  *   Without them this endpoint would return "45% correct" for an item and imply it
  *   was measured, when in fact the marking behind it is noise.
  */

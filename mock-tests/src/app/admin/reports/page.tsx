@@ -7,6 +7,7 @@ import {
 } from '@/features/report/components/AdminOperationsPanels'
 import { CoverageGapsPanel } from '@/features/report/components/CoveragePanels'
 import { ItemStatisticsPanel } from '@/features/report/components/ItemStatisticsPanel'
+import { TestFormMetricsPanel } from '@/features/report/components/TestFormMetricsPanel'
 import { FunnelPanel } from '@/features/report/components/FunnelPanel'
 import { ExperimentsPanel } from '@/features/report/components/ExperimentsPanel'
 import { EnquiryPanel } from '@/features/report/components/EnquiryPanel'
@@ -34,11 +35,26 @@ function firstJoinOf<T>(value: T[] | T | null | undefined): T | null {
  * own report view. Uses the admin client because attempts belong to other
  * users and no RLS policy exposes them cross-user.
  */
-export default async function AdminReportsPage() {
+export default async function AdminReportsPage({
+  searchParams,
+}: {
+  // A4's focus control: clicking a form in the table reloads the page with
+  // ?testId=<id> so the histogram follows that form. Read on the server so the
+  // panel never needs to be a client component.
+  searchParams: Promise<{ testId?: string | string[] }>
+}) {
   await requireRole(['ADMIN'])
+
+  const { testId: rawTestId } = await searchParams
+  const selectedTestId =
+    typeof rawTestId === 'string' && rawTestId.trim() !== '' ? rawTestId.trim() : null
 
   // A11's window. 30 days: see the comment at the FunnelPanel below.
   const funnelRange = defaultDateRange(30)
+  // A4's window is longer on purpose: a single form rarely collects enough
+  // attempts to clear its completion floor inside a month, and a panel that is
+  // permanently greyed teaches operators to stop reading it.
+  const formRange = defaultDateRange(90)
 
   const adminClient = createAdminClient()
 
@@ -107,14 +123,33 @@ export default async function AdminReportsPage() {
         what stops a coverage gap being closed by commissioning more items that
         will themselves fail discrimination.
 
-        It also carries the platform's most serious open data-quality finding:
-        responses.is_correct currently contradicts questions.correct_answer for
-        52% of MCQ responses, so every accuracy-derived figure - here and in P3,
-        T1, T2, T3 and T7 - counts marks rather than right answers. The panel
-        says so above its own chart rather than leaving it to A15.
+        It also carries the platform's most serious data-quality finding of
+        record: responses.is_correct once contradicted questions.correct_answer
+        for a majority of MCQ responses, so every accuracy-derived figure - here
+        and in P3, T1, T2, T3 and T7 - counted marks rather than right answers.
+        That is now measured at zero disagreements (2026-11-22), and the panel
+        still renders the caveat whenever `marking_reliable` is false, so a
+        regression appears in the report rather than in a stale comment.
       */}
       <div className="mt-4">
         <ItemStatisticsPanel />
+      </div>
+
+      {/*
+        A4 sits directly under A1 because they are the two halves of "is this
+        content fit to be live": A1 asks whether individual ITEMS are defective,
+        A4 asks whether the FORM they are assembled into works - does it get
+        finished, where do children stop, and is the score distribution the shape
+        a deliberately built form should have. A form can be made of sound items
+        and still be unfit: bimodal, floor-clumped, or abandoned at one item.
+      */}
+      <div className="mt-4">
+        <TestFormMetricsPanel
+          fromDate={formRange.from}
+          toDate={formRange.to}
+          basePath="/admin/reports"
+          selectedTestId={selectedTestId}
+        />
       </div>
 
       {/*

@@ -212,6 +212,13 @@ console.log('\n=== reporting RPC surface is explicit ===');
     // two code paths now answer "how many" and must not be allowed to drift.
     'admin_enquiry_summary',
     'admin_enquiry_series',
+    // A4 (migration 121). The same pattern again: three wrappers, none of the
+    // reporting tables or the thresholds row readable by `authenticated`
+    // directly (reporting.* is RLS-forced with no policy), so a `.from()` here
+    // would return zero rows and look like "no test forms" rather than an error.
+    'admin_test_form_metrics',
+    'admin_test_form_score_distribution',
+    'admin_test_form_thresholds',
   ]);
 
   const called = new Set<string>();

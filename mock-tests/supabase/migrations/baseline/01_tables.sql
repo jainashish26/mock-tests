@@ -397,3 +397,17 @@ CREATE TABLE IF NOT EXISTS reporting.skill_exam_mapping (
   CONSTRAINT skill_exam_mapping_skill_check CHECK ((btrim(skill) <> ''::text))
 );
 
+CREATE TABLE IF NOT EXISTS reporting.test_form_thresholds (
+  id smallint DEFAULT 1 NOT NULL,
+  min_attempts_for_completion integer DEFAULT 10 NOT NULL,
+  min_attempts_for_reliability integer DEFAULT 30 NOT NULL,
+  reliability_floor numeric(4,3) DEFAULT 0.700 NOT NULL,
+  abandonment_alert_pct numeric(5,2) DEFAULT 40.00 NOT NULL,
+  updated_at timestamp with time zone DEFAULT now() NOT NULL,
+  CONSTRAINT test_form_thresholds_abandonment CHECK (((abandonment_alert_pct >= (0)::numeric) AND (abandonment_alert_pct <= (100)::numeric))),
+  CONSTRAINT test_form_thresholds_counts CHECK (((min_attempts_for_completion > 0) AND (min_attempts_for_reliability >= min_attempts_for_completion))),
+  CONSTRAINT test_form_thresholds_pkey PRIMARY KEY (id),
+  CONSTRAINT test_form_thresholds_reliability CHECK (((reliability_floor > (0)::numeric) AND (reliability_floor <= (1)::numeric))),
+  CONSTRAINT test_form_thresholds_singleton CHECK ((id = 1))
+);
+

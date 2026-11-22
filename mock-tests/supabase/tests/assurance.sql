@@ -46,7 +46,7 @@ SET LOCAL search_path = public, extensions;
 -- append-only finding (AC-35..AC-40, PR-02, migration 115) and 3 for keeping the
 -- read-only reporting role read-only (AC-75..AC-76, migration 116) and 3 for the ACL
 -- capture describing the live schema (AC-77..AC-79, migration 117).
-SELECT extensions.plan(156);
+SELECT extensions.plan(162);
 
 CREATE TEMP TABLE _ids AS
 SELECT
@@ -1796,6 +1796,71 @@ SELECT extensions.ok(
 SELECT extensions.ok(
   (SELECT position('reporting.' IN reporting.export_baseline_function_acls()) > 0),
   'AC-79 signatures are schema-qualified, not left to the restore search_path');
+
+-- ============================================================================
+-- AC-80..AC-85  A4 test-form metrics (migration 121)
+--
+-- The migration carries its own apply-time self-tests, but those run on the
+-- machine where the migration is applied. These run on the machine rebuilt FROM
+-- the backup, which is where 117 found its drift: a function that exists live
+-- but was never captured restores as absent, and everything still looks green.
+-- ============================================================================
+
+-- Identity, not a count: a restore that produced the report but attached it to
+-- the wrong forms would satisfy "returns rows" and nothing else.
+SELECT extensions.is(
+  (SELECT count(*)::int FROM reporting.test_form_metrics()),
+  (SELECT count(DISTINCT test_id)::int FROM reporting.fact_test_attempt),
+  'AC-80 A4 returns exactly one row per form that has attempts');
+
+-- The claim the report exists to avoid: a state saying OK beside a coefficient
+-- that is not there. Checked here as well as at apply time because the two
+-- branches could diverge in a restored database built from an older body.
+SELECT extensions.ok(
+  NOT EXISTS (
+    SELECT 1 FROM reporting.test_form_metrics()
+    WHERE (reliability_state = 'OK') <> (reliability_coefficient IS NOT NULL)
+  ),
+  'AC-81 no A4 form claims a reliability state its coefficient contradicts');
+
+-- Config rows are exactly what a schema dump drops, which is why the baseline
+-- exports them separately. Asserted as a VALUE, not as a row count: a floor of
+-- 0.5 restored from nowhere would still be one row.
+SELECT extensions.is(
+  (SELECT reliability_floor FROM reporting.test_form_thresholds WHERE id = 1),
+  0.700::numeric,
+  'AC-82 the A4 reliability floor survived with its value (0.70)');
+
+-- The formula itself. A capture that restored the signature but an older body
+-- would leave a function that returns a number and means something else.
+SELECT extensions.is(
+  reporting.kr20(4, 1.0, 2.6666666666666667),
+  0.833::numeric,
+  'AC-83 KR-20 still computes the hand-checked textbook value');
+
+-- Same ACL class 120 found in its own new wrapper: a fresh SECURITY DEFINER
+-- function in `public` lands PUBLIC-executable.
+SELECT extensions.ok(
+  NOT EXISTS (
+    SELECT 1 FROM pg_proc p JOIN pg_namespace n ON n.oid = p.pronamespace
+    WHERE n.nspname = 'public'
+      AND p.proname IN ('admin_test_form_metrics', 'admin_test_form_thresholds',
+                        'admin_test_form_score_distribution')
+      AND has_function_privilege('anon', p.oid::regprocedure, 'EXECUTE')
+  ),
+  'AC-84 no A4 admin wrapper is executable by anon');
+
+-- And the reporting side stays unreachable from the app roles, which is what
+-- makes the wrapper the only way in.
+SELECT extensions.ok(
+  NOT EXISTS (
+    SELECT 1 FROM pg_proc p JOIN pg_namespace n ON n.oid = p.pronamespace
+    WHERE n.nspname = 'reporting'
+      AND p.proname IN ('test_form_metrics', 'test_form_score_distribution', 'kr20')
+      AND (has_function_privilege('authenticated', p.oid::regprocedure, 'EXECUTE')
+        OR has_function_privilege('anon', p.oid::regprocedure, 'EXECUTE'))
+  ),
+  'AC-85 the A4 reporting functions are unreachable from app roles');
 
 SELECT * FROM extensions.finish();
 

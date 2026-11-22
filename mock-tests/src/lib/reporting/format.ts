@@ -798,11 +798,17 @@ export function experimentHeadline(rows: ExperimentResultRow[]): string {
  * fixed. That is the point: a warning written into a component would survive the
  * fix and start lying.
  *
- * It exists because `responses.is_correct` currently contradicts
- * `questions.correct_answer` for 52% of MCQ responses - marking is statistically
- * independent of the answer given. Difficulty and discrimination are then counts
- * of marks, not of right answers, and an admin reading "% correct" as "% who got
- * it right" would retire good items and keep bad ones.
+ * It exists because `responses.is_correct` once contradicted
+ * `questions.correct_answer` for a majority of MCQ responses - marking was
+ * statistically independent of the answer given, so difficulty and
+ * discrimination counted marks rather than right answers, and an admin reading
+ * "% correct" as "% who got it right" would retire good items and keep bad ones.
+ *
+ * MEASURED CLEAR ON 2026-11-22: 0 disagreements across 17,604 MCQ responses, so
+ * `marking_reliable` is true for all 1,750 items and this sentence is currently
+ * silent. The number is deliberately NOT restated as a constant anywhere: the
+ * caveat is computed from `marking_reliable`, which means a regression re-enables
+ * it automatically while a hardcoded figure would have to be noticed first.
  */
 export function markingCaveat(rows: { marking_reliable: boolean }[]): string | null {
   if (rows.length === 0) return null

@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict ole5dk7EtKu1pPuWRJKPxgO988Iuyh3AvFgy8XLzYykuW8T9jPGPdrfxPmzbfRc
+\restrict w8or4kbisrEg7PrV7Xk0a8mtZKAgUwXwiQKzgEqMBQ1gJ08qxOA7hhQ1cb8EE98
 
 -- Dumped from database version 17.6
 -- Dumped by pg_dump version 17.12
@@ -836,6 +836,55 @@ COMMENT ON FUNCTION public.admin_set_year_level_cap(p_year_level smallint, p_max
 
 
 --
+-- Name: admin_test_form_metrics(integer, integer); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.admin_test_form_metrics(p_from_date integer, p_to_date integer) RETURNS TABLE(test_id uuid, test_title text, exam_type text, family_label text, family_group text, year_level_min smallint, year_level_max smallint, content_status text, attempts_started bigint, attempts_submitted bigint, abandoned_attempts bigint, completion_rate_pct numeric, completion_reportable boolean, abandonment_point numeric, abandonment_share_pct numeric, abandonment_flagged boolean, items_in_form bigint, items_answered_by_all bigint, reliability_coefficient numeric, reliability_state text, reliability_meets_floor boolean, mean_score numeric, median_score numeric, score_n bigint, as_at timestamp with time zone)
+    LANGUAGE sql STABLE SECURITY DEFINER
+    SET search_path TO 'reporting', 'public', 'pg_catalog'
+    AS $$
+  SELECT m.*
+  FROM reporting.test_form_metrics(p_from_date, p_to_date) m
+  WHERE public.has_role('ADMIN')
+  ORDER BY m.attempts_started DESC, m.test_title NULLS LAST;
+$$;
+
+
+--
+-- Name: admin_test_form_score_distribution(uuid, integer, integer); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.admin_test_form_score_distribution(p_test_id uuid, p_from_date integer, p_to_date integer) RETURNS TABLE(bucket smallint, score_from numeric, score_to numeric, attempts bigint, as_at timestamp with time zone)
+    LANGUAGE sql STABLE SECURITY DEFINER
+    SET search_path TO 'reporting', 'public', 'pg_catalog'
+    AS $$
+  SELECT d.*
+  FROM reporting.test_form_score_distribution(p_test_id, p_from_date, p_to_date) d
+  WHERE public.has_role('ADMIN')
+  ORDER BY d.bucket;
+$$;
+
+
+--
+-- Name: admin_test_form_thresholds(); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.admin_test_form_thresholds() RETURNS TABLE(min_attempts_for_completion integer, min_attempts_for_reliability integer, reliability_floor numeric, abandonment_alert_pct numeric, updated_at timestamp with time zone)
+    LANGUAGE sql STABLE SECURITY DEFINER
+    SET search_path TO 'reporting', 'public', 'pg_catalog'
+    AS $$
+  SELECT t.min_attempts_for_completion,
+         t.min_attempts_for_reliability,
+         t.reliability_floor,
+         t.abandonment_alert_pct,
+         t.updated_at
+  FROM reporting.test_form_thresholds t
+  WHERE t.id = 1
+    AND public.has_role('ADMIN');
+$$;
+
+
+--
 -- Name: admin_year_level_caps(); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -1273,6 +1322,18 @@ CREATE FUNCTION public.export_baseline_function_acls() RETURNS text
     SET search_path TO 'reporting', 'pg_catalog'
     AS $$
   SELECT reporting.export_baseline_function_acls();
+$$;
+
+
+--
+-- Name: export_baseline_function_names(); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.export_baseline_function_names() RETURNS TABLE(schema_name text, function_name text)
+    LANGUAGE sql STABLE SECURITY DEFINER
+    SET search_path TO 'reporting', 'pg_catalog'
+    AS $$
+  SELECT * FROM reporting.export_baseline_function_names();
 $$;
 
 
@@ -6488,6 +6549,33 @@ GRANT ALL ON FUNCTION public.admin_set_year_level_cap(p_year_level smallint, p_m
 
 
 --
+-- Name: FUNCTION admin_test_form_metrics(p_from_date integer, p_to_date integer); Type: ACL; Schema: public; Owner: -
+--
+
+REVOKE ALL ON FUNCTION public.admin_test_form_metrics(p_from_date integer, p_to_date integer) FROM PUBLIC;
+GRANT ALL ON FUNCTION public.admin_test_form_metrics(p_from_date integer, p_to_date integer) TO authenticated;
+GRANT ALL ON FUNCTION public.admin_test_form_metrics(p_from_date integer, p_to_date integer) TO service_role;
+
+
+--
+-- Name: FUNCTION admin_test_form_score_distribution(p_test_id uuid, p_from_date integer, p_to_date integer); Type: ACL; Schema: public; Owner: -
+--
+
+REVOKE ALL ON FUNCTION public.admin_test_form_score_distribution(p_test_id uuid, p_from_date integer, p_to_date integer) FROM PUBLIC;
+GRANT ALL ON FUNCTION public.admin_test_form_score_distribution(p_test_id uuid, p_from_date integer, p_to_date integer) TO authenticated;
+GRANT ALL ON FUNCTION public.admin_test_form_score_distribution(p_test_id uuid, p_from_date integer, p_to_date integer) TO service_role;
+
+
+--
+-- Name: FUNCTION admin_test_form_thresholds(); Type: ACL; Schema: public; Owner: -
+--
+
+REVOKE ALL ON FUNCTION public.admin_test_form_thresholds() FROM PUBLIC;
+GRANT ALL ON FUNCTION public.admin_test_form_thresholds() TO authenticated;
+GRANT ALL ON FUNCTION public.admin_test_form_thresholds() TO service_role;
+
+
+--
 -- Name: FUNCTION admin_year_level_caps(); Type: ACL; Schema: public; Owner: -
 --
 
@@ -6569,6 +6657,14 @@ GRANT ALL ON FUNCTION public.experiment_expose(p_experiment_key text, p_subject_
 
 REVOKE ALL ON FUNCTION public.export_baseline_function_acls() FROM PUBLIC;
 GRANT ALL ON FUNCTION public.export_baseline_function_acls() TO service_role;
+
+
+--
+-- Name: FUNCTION export_baseline_function_names(); Type: ACL; Schema: public; Owner: -
+--
+
+REVOKE ALL ON FUNCTION public.export_baseline_function_names() FROM PUBLIC;
+GRANT ALL ON FUNCTION public.export_baseline_function_names() TO service_role;
 
 
 --
@@ -7428,5 +7524,5 @@ ALTER DEFAULT PRIVILEGES FOR ROLE supabase_admin IN SCHEMA public GRANT ALL ON T
 -- PostgreSQL database dump complete
 --
 
-\unrestrict ole5dk7EtKu1pPuWRJKPxgO988Iuyh3AvFgy8XLzYykuW8T9jPGPdrfxPmzbfRc
+\unrestrict w8or4kbisrEg7PrV7Xk0a8mtZKAgUwXwiQKzgEqMBQ1gJ08qxOA7hhQ1cb8EE98
 

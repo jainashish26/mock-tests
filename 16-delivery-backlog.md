@@ -1853,7 +1853,104 @@
 > with what actually took it.
 
 >
-> **Separate, pre-existing history drift found while applying 105–107, and it is
+> ### ✅ A4 Test-Form Metrics shipped, and the assurance it needed (2026-11-22, migration 121)
+>
+> Closes the **A4 half of backlog item 19** — the last report in the programme that
+> had real data behind it and no code. Item 17 (writing marks) is deliberately NOT
+> built yet and the reason is measured, not assumed: `writing_evaluations` holds
+> **0 rows**, no student has ever sat one of the 6 published writing tests
+> (`writing_responses = 0`), and A5/A6/A7 would therefore render three empty
+> screens. One AI-practice session has been graded (deepseek-flash, rubric v1.0,
+> 55 s), so the pipeline works; the gap is content and assignment, not engineering.
+> Item 14–16 (Stripe revenue) is in the same position: `purchases` and
+> `entitlements` are both empty, so A8/A9/A10 would be empty too.
+>
+> **What was built** — `reporting.test_form_metrics`, `test_form_score_distribution`,
+> a pure `reporting.kr20`, a `test_form_thresholds` config row, three
+> ADMIN-gated public wrappers, `/api/reporting/admin/test-form-metrics` (+CSV), and
+> `TestFormMetricsPanel` on `/admin/reports` under A1.
+>
+> **The honest part, which is most of the work.** KR-20 needs a complete
+> item × person matrix and this runner does not produce one: it serves ~12–21 items
+> from a pool of up to 90 and **writes no row for an unserved item**, so a skip and
+> an unserved item are indistinguishable — the same capture gap A1 reports. Measured
+> before writing anything: **0 items are answered by every submitted attempt, on
+> every one of the 16 forms.** So the coefficient is computed only over attempts
+> that answered the form's full item set, and returns NULL with one of five states
+> (`TOO_FEW_ITEMS`, `NO_COMPLETE_ATTEMPTS`, `TOO_FEW_ATTEMPTS`, `NO_VARIANCE`, `OK`)
+> when it cannot. The three shortcuts that would have produced a number — scoring
+> unserved items wrong, using the pairwise-present subset, or switching to partial
+> Cronbach's α — were each rejected in the migration header with the reason.
+> `items_answered_by_all` is returned beside the coefficient so the gap is visible
+> and shrinks as capture improves.
+>
+> **The apply-time self-test caught a real bug on its first run.** The first draft
+> computed the coefficient with no attempt-floor gate, so a form with fewer than
+> `min_attempts_for_reliability` complete attempts produced a number while its state
+> said `TOO_FEW_ATTEMPTS` — exactly the "never a coefficient from 5 attempts" rule in
+> §5. The gate now lives with the formula in one `LATERAL`, and an assertion fails
+> if a state and a coefficient can ever disagree again.
+>
+> **Verified by execution, not inspection:**
+> `psql -f supabase/migrations/121_test_form_metrics.sql` on live → exit 0 and
+> `121 self-test ok` (so repo and database are literally the same file) ·
+> **pgtap 162/162**, including six new assertions AC-80…85 that exist for the
+> restore, not for live (form-per-row identity, the state/coefficient invariant, the
+> floor's VALUE surviving, the KR-20 textbook value, and both ACL directions) ·
+> all **9 Node suites, 577 assertions** · typecheck 0 · lint ratchet **tightened
+> 60 → 57** · build 0 · `schema:validate` **84/84** after regeneration
+> (29 tables, 38 live / 37 captured functions — the difference is `export_baseline`,
+> which declines to capture itself, per 120) · `schema:validate:app` **41/41** after a
+> fresh `pg_dump -f` capture · SEO **2502** · consent **36**.
+>
+> **And the scratch rebuild is finally green again — the item the backlog has
+> carried as unproven since migration 108.** `npm run db:reset -- --fresh` against
+> `mocktests-reset-proof`: **25 steps ok, 4 skipped by flag, 16/16 parity checks
+> PASS, all 8 privilege invariants hold, `RESET COMPLETE`.** Two things made that
+> possible and both are worth recording: `00_fresh_schemas.sql` (the pipeline was
+> additive end to end, so a second run on the same project died on 303
+> `already exists` errors that the tolerance auditor correctly refused to excuse),
+> and a working **IPv4 route** — the direct `db.<ref>.supabase.co` host resolves
+> AAAA-only here and times out, while `aws-0/aws-1-ap-southeast-2.pooler.supabase.com`
+> works with `postgres.<ref>` as the user. The old `.env.local` password was stale,
+> which is why earlier sessions concluded the database was unreachable: the tooling
+> was fine, the credential was not.
+>
+> **Live output sanity-checked against the facts:** Language Conventions Y7 —
+> 240 started, 227 submitted, 13 abandoned (94.6%, and 240 = 227 + 13), median stop
+> at item 43 of 90, mean 53.2; histogram over 227 attempts totals exactly `score_n`
+> and is unimodal. 6 forms report `TOO_FEW_ITEMS` (single-item speed tests), 5 report
+> `NO_COMPLETE_ATTEMPTS`.
+>
+> **Recorded deviations:** (1) A4 is a live function, not a nightly MV as §4's
+> refresh column says — it aggregates 1,300 attempts in single-digit ms, and a stale
+> "can I unpublish this form this morning" answer is worse than no MV; the trigger to
+> change is stated in the migration. (2) `abandonment_point` takes the average
+> position from `public.test_questions.question_order`, because neither
+> `fact_item_response` nor `public.responses` has a position column.
+>
+> **Two bookkeeping facts, stated rather than tidied away:** migration 121 was
+> applied through the MCP tooling in four parts, so `schema_migrations` holds four
+> rows under that name (the first, an empty placeholder, was removed once its
+> no-op nature was confirmed). And the app-schema capture had drifted further than
+> anyone had measured — it held 69 functions against 75 live, which the re-capture
+> corrects.
+>
+> **Stale-claim sweep, done in the same pass.** Four shipped comments still asserted
+> that `responses.is_correct` disagrees with the answer key for "52% of MCQ
+> responses" and that every accuracy figure in A1/P3/T1/T2/T3/T7 was therefore
+> measuring nothing. It is **0 disagreements across 17,604 MCQ responses**, and
+> `marking_reliable` is true for all 1,750 items — so the caveats those comments
+> describe are correctly silent. All four now say how the caveat is DERIVED
+> (`marking_reliable` from SQL) and record the measurement instead of quoting a
+> percentage that rots.
+>
+> **Still open on A4, deliberately:** T4 and A1 own item-level metrics, so A4 does
+> not restate them; and the reliability column will stay NULL until the runner
+> records served items. That is one change — record `served_items` per attempt — and
+> it unblocks A1's skip rate, A4's KR-20 and A2/A4's pathway work at once. It is
+> now the single highest-value capture change in the programme.
+
 > wider than it first looked.** The live
 > `supabase_migrations.schema_migrations` table keys history on a **timestamp**
 > version (`20261119214132`) plus a name, while every local file is named

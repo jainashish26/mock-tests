@@ -653,6 +653,49 @@ END;
 $function$
 ;
 
+CREATE OR REPLACE FUNCTION public.admin_test_form_metrics(p_from_date integer, p_to_date integer)
+ RETURNS TABLE(test_id uuid, test_title text, exam_type text, family_label text, family_group text, year_level_min smallint, year_level_max smallint, content_status text, attempts_started bigint, attempts_submitted bigint, abandoned_attempts bigint, completion_rate_pct numeric, completion_reportable boolean, abandonment_point numeric, abandonment_share_pct numeric, abandonment_flagged boolean, items_in_form bigint, items_answered_by_all bigint, reliability_coefficient numeric, reliability_state text, reliability_meets_floor boolean, mean_score numeric, median_score numeric, score_n bigint, as_at timestamp with time zone)
+ LANGUAGE sql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'reporting', 'public', 'pg_catalog'
+AS $function$
+  SELECT m.*
+  FROM reporting.test_form_metrics(p_from_date, p_to_date) m
+  WHERE public.has_role('ADMIN')
+  ORDER BY m.attempts_started DESC, m.test_title NULLS LAST;
+$function$
+;
+
+CREATE OR REPLACE FUNCTION public.admin_test_form_score_distribution(p_test_id uuid, p_from_date integer, p_to_date integer)
+ RETURNS TABLE(bucket smallint, score_from numeric, score_to numeric, attempts bigint, as_at timestamp with time zone)
+ LANGUAGE sql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'reporting', 'public', 'pg_catalog'
+AS $function$
+  SELECT d.*
+  FROM reporting.test_form_score_distribution(p_test_id, p_from_date, p_to_date) d
+  WHERE public.has_role('ADMIN')
+  ORDER BY d.bucket;
+$function$
+;
+
+CREATE OR REPLACE FUNCTION public.admin_test_form_thresholds()
+ RETURNS TABLE(min_attempts_for_completion integer, min_attempts_for_reliability integer, reliability_floor numeric, abandonment_alert_pct numeric, updated_at timestamp with time zone)
+ LANGUAGE sql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'reporting', 'public', 'pg_catalog'
+AS $function$
+  SELECT t.min_attempts_for_completion,
+         t.min_attempts_for_reliability,
+         t.reliability_floor,
+         t.abandonment_alert_pct,
+         t.updated_at
+  FROM reporting.test_form_thresholds t
+  WHERE t.id = 1
+    AND public.has_role('ADMIN');
+$function$
+;
+
 CREATE OR REPLACE FUNCTION public.admin_year_level_caps()
  RETURNS TABLE(year_level smallint, max_tests_per_day smallint, max_questions_per_day smallint, recommended_tests_per_day smallint, recommended_questions_per_day smallint, daily_target_basis text, updated_at timestamp with time zone)
  LANGUAGE sql
@@ -1029,6 +1072,16 @@ CREATE OR REPLACE FUNCTION public.export_baseline_function_acls()
  SET search_path TO 'reporting', 'pg_catalog'
 AS $function$
   SELECT reporting.export_baseline_function_acls();
+$function$
+;
+
+CREATE OR REPLACE FUNCTION public.export_baseline_function_names()
+ RETURNS TABLE(schema_name text, function_name text)
+ LANGUAGE sql
+ STABLE SECURITY DEFINER
+ SET search_path TO 'reporting', 'pg_catalog'
+AS $function$
+  SELECT * FROM reporting.export_baseline_function_names();
 $function$
 ;
 

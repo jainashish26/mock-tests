@@ -181,3 +181,6 @@ INSERT INTO reporting.skill_exam_mapping SELECT * FROM jsonb_populate_record(NUL
 INSERT INTO reporting.skill_exam_mapping SELECT * FROM jsonb_populate_record(NULL::reporting.skill_exam_mapping, '{"skill": "CRITICAL_THINKING", "source": "editorial proposal", "rationale": "Selective aptitude sections target reasoning about unfamiliar material.", "updated_at": "2026-11-20T22:50:26.732315+00:00", "is_validated": false, "readiness_exam": "SELECTIVE", "applied_to_readiness": false}') ON CONFLICT DO NOTHING;
 INSERT INTO reporting.skill_exam_mapping SELECT * FROM jsonb_populate_record(NULL::reporting.skill_exam_mapping, '{"skill": "CRITICAL_THINKING", "source": "editorial proposal", "rationale": "Olympiad items require evaluation of approaches, not recall of methods.", "updated_at": "2026-11-20T22:50:26.732315+00:00", "is_validated": false, "readiness_exam": "OLYMPIAD", "applied_to_readiness": false}') ON CONFLICT DO NOTHING;
 
+-- test_form_thresholds
+INSERT INTO reporting.test_form_thresholds SELECT * FROM jsonb_populate_record(NULL::reporting.test_form_thresholds, '{"id": 1, "updated_at": "2026-11-22T11:58:10.828799+00:00", "reliability_floor": 0.700, "abandonment_alert_pct": 40.00, "min_attempts_for_completion": 10, "min_attempts_for_reliability": 30}') ON CONFLICT DO NOTHING;
+

@@ -21,6 +21,8 @@ REVOKE ALL ON FUNCTION reporting.export_baseline_config() FROM PUBLIC, anon, aut
 GRANT EXECUTE ON FUNCTION reporting.export_baseline_config() TO service_role;
 REVOKE ALL ON FUNCTION reporting.export_baseline_function_acls() FROM PUBLIC, anon, authenticated;
 GRANT EXECUTE ON FUNCTION reporting.export_baseline_function_acls() TO service_role;
+REVOKE ALL ON FUNCTION reporting.export_baseline_function_names() FROM PUBLIC, anon, authenticated;
+GRANT EXECUTE ON FUNCTION reporting.export_baseline_function_names() TO service_role;
 REVOKE ALL ON FUNCTION reporting.export_baseline_parity() FROM PUBLIC, anon, authenticated;
 GRANT EXECUTE ON FUNCTION reporting.export_baseline_parity() TO service_role;
 REVOKE ALL ON FUNCTION reporting.export_baseline_tables() FROM PUBLIC, anon, authenticated;
@@ -31,6 +33,8 @@ REVOKE ALL ON FUNCTION reporting.funnel_outcomes(p_from_date integer, p_to_date 
 REVOKE ALL ON FUNCTION reporting.holiday_year_is_complete(p_year integer) FROM PUBLIC, anon, authenticated;
 REVOKE ALL ON FUNCTION reporting.in_blackout() FROM PUBLIC, anon, authenticated;
 REVOKE ALL ON FUNCTION reporting.item_statistics(p_test_id uuid, p_student_ids uuid[]) FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON FUNCTION reporting.kr20(p_items integer, p_sum_pq numeric, p_total_variance numeric) FROM PUBLIC, anon, authenticated;
+GRANT EXECUTE ON FUNCTION reporting.kr20(p_items integer, p_sum_pq numeric, p_total_variance numeric) TO service_role;
 REVOKE ALL ON FUNCTION reporting.load_attempt_facts(p_full boolean) FROM PUBLIC, anon, authenticated;
 GRANT EXECUTE ON FUNCTION reporting.load_attempt_facts(p_full boolean) TO service_role;
 REVOKE ALL ON FUNCTION reporting.load_enquiry_facts(p_full boolean) FROM PUBLIC, anon, authenticated;
@@ -57,5 +61,9 @@ REVOKE ALL ON FUNCTION reporting.safe_refresh(p_object regclass, p_concurrently 
 GRANT EXECUTE ON FUNCTION reporting.safe_refresh(p_object regclass, p_concurrently boolean) TO service_role;
 REVOKE ALL ON FUNCTION reporting.snapshot_data_quality() FROM PUBLIC, anon, authenticated;
 REVOKE ALL ON FUNCTION reporting.student_today(p_student_id uuid) FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON FUNCTION reporting.test_form_metrics(p_from_date integer, p_to_date integer) FROM PUBLIC, anon, authenticated;
+GRANT EXECUTE ON FUNCTION reporting.test_form_metrics(p_from_date integer, p_to_date integer) TO service_role;
+REVOKE ALL ON FUNCTION reporting.test_form_score_distribution(p_test_id uuid, p_from_date integer, p_to_date integer) FROM PUBLIC, anon, authenticated;
+GRANT EXECUTE ON FUNCTION reporting.test_form_score_distribution(p_test_id uuid, p_from_date integer, p_to_date integer) TO service_role;
 REVOKE ALL ON FUNCTION reporting.two_proportion_p_value(p_successes1 bigint, p_trials1 bigint, p_successes2 bigint, p_trials2 bigint) FROM PUBLIC, anon, authenticated;
 REVOKE ALL ON FUNCTION reporting.wilson_bounds(p_successes bigint, p_trials bigint, p_z numeric) FROM PUBLIC, anon, authenticated;

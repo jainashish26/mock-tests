@@ -19,10 +19,13 @@ import type { ItemStatisticsRow } from './types'
  *   Both are computed in SQL from the data, so each clears itself when the
  *   underlying defect is fixed:
  *
- *   - `markingCaveat`: `responses.is_correct` currently contradicts
- *     `questions.correct_answer` for 52% of MCQ responses, so difficulty and
- *     discrimination count marks rather than right answers. A15 fails
- *     `marking_key_disagreement` for the same reason.
+ *   - `markingCaveat`: rendered while `responses.is_correct` disagrees with
+ *     `questions.correct_answer`, in which case difficulty and discrimination
+ *     count marks rather than right answers and A15 fails
+ *     `marking_key_disagreement` for the same reason. Measured at ZERO
+ *     disagreements on 2026-11-22, so it is currently silent - and deliberately
+ *     not restated as a constant here, because the number rots while
+ *     `marking_reliable` does not.
  *   - `skipRateCaveat`: the adaptive runner writes no row for an item it never
  *     serves, so a skip is indistinguishable from "not served" and skip rate
  *     reads 0.0% for every item.
