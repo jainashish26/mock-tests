@@ -2052,8 +2052,59 @@
 >
 > **Verified:** all three seeds run from file and re-run to zero inserts (004/005) or
 > an identical rebuild (003) · pgtap **170/170** · 10 Node suites 595 · `schema:validate`
-> 84/84 · `schema:validate:app` 41/41 after re-capture · seeds added to the reset
-> harness under `--with-sample-data`.
+> 84/84 · `schema:validate:app` 41/41 after re-capture · seeds wired into the reset
+> harness under `--with-sample-data`, which runs **003 last** so it sees the writing
+> attempts 004 creates.
+>
+> ### ✅ A1 skip rate now measures something (2026-11-22, migration 123)
+>
+> The formula was never wrong — the denominator was missing. `skip_rate_pct` divided
+> `COUNT(*) FILTER (WHERE is_skipped)` by `COUNT(*)` over `fact_item_response`, a table
+> that by construction holds a row only for items that were answered. The numerator
+> could never be non-zero, so every item read 0.0% and the column had to be
+> disclaimed. Migration 123 divides by `fact_item_served`:
+> **`(served - answered) / served`**, both terms scoped identically (all attempts in
+> scope, not just scored ones — pairing served against scored-only answers would
+> count unscored attempts as skips).
+>
+> **`skip_rate_reliable` changed shape, and that is the substantive fix.** It was one
+> global flag ("does any row anywhere have is_skipped"). Capture started part-way
+> through the history, so the useful question is per item: *was this item ever
+> recorded as shown?* It is now true only where served rows exist, and those rows
+> carry `skip_rate_pct = NULL` rather than 0.0%. "Not measured" and "measured at
+> zero" must not render the same number, and before this they did.
+>
+> **The caveat became a wording change, not a logic change** — because `format.ts`
+> already computed it from `skip_rate_reliable` rather than restating a constant. It
+> now counts the unmeasured items ("N of M items have no served-item history…")
+> instead of declaring the whole column unavailable, and self-clears as capture
+> accumulates. Same pattern as `markingCaveat`; worth noting because a hardcoded
+> sentence would have needed finding first.
+>
+> **A degenerate fixture was caught by looking at the numbers, not the row count.**
+> The first served seed gave every attempt "the form's first four items", which
+> produced **1,497 items at exactly 0.0%** and a handful at 50–85% — bimodal, with
+> `HIGH_SKIP` unreachable and nothing to plot. Serving a md5-scattered one-or-two
+> un-answered items instead: **19,195 rows / 1,315 attempts / 91.7% answered**, A1
+> reporting **median 6.9%, mean 8.3%, max 75%**, 741 items at zero.
+>
+> `HIGH_SKIP` still fires on **no** item — a defect reason needs ≥20 responses and
+> the sample's high-skip items are its thin ones. Recorded rather than tuned: making
+> a fixture trip a flag on purpose is how thresholds stop meaning anything.
+>
+> **Verified:** migration self-test asserts five invariants (the flag and the value
+> cannot disagree, `HIGH_SKIP` only on measured items, every answered row of a
+> captured attempt has a served row, and the materialised view the admin screen reads
+> carries the same verdict as the function — it is refreshed in the migration, not
+> left to the cron) · pgtap **170/170** · 10 Node suites 595 · `schema:validate`
+> 84/84 · `schema:validate:app` 41/41 · typecheck 0 · lint 57 (ratchet unchanged).
+>
+> **Still open, deliberately:** A4's `items_answered_by_all` keeps its old definition.
+> KR-20 remains `NULL` for all 16 forms and the reason is upstream of everything built
+> this week — **no item is answered by every attempt of its form**, so there is no
+> complete matrix (0 complete matrices, 9 items served to all). Changing A4 needs
+> either a regenerated 001 response set with a common answered core or a dedicated
+> cohort; both change derived scores, so neither belongs in a seed edit.
 
 > **Separate, pre-existing history drift found while applying 105–107, and it is
 > wider than it first looked.** The live

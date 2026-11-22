@@ -824,22 +824,28 @@ export function markingCaveat(rows: { marking_reliable: boolean }[]): string | n
 }
 
 /**
- * The caveat for skip rate, which is a capture gap rather than a marking gap.
+ * The caveat for skip rate, which is a capture-coverage gap rather than a
+ * marking gap.
  *
- * The adaptive runner answers roughly 10 of the ~48 items in a test and writes no
- * row at all for an item it never serves. A missing row therefore cannot be told
- * apart from a skip, and the specified formula returns 0.0% for every item -
- * which reads as "nobody ever skips". Returning null when skips ARE captured
- * keeps this honest in both directions.
+ * Since migration 122 the runner records which items it DISPLAYED, and 123 turned
+ * that into a real rate: `(served - answered) / served`. But capture started on a
+ * date, so items whose only history predates it have no denominator. Those rows
+ * come back with `skip_rate_pct = null` and `skip_rate_reliable = false`, and this
+ * caveat counts them instead of asserting a blanket "skip rate is unavailable" -
+ * which was true before 123 and would now be a lie about the measured majority.
+ *
+ * Returning null once every item is measured keeps it honest in both directions.
  */
 export function skipRateCaveat(rows: { skip_rate_reliable: boolean }[]): string | null {
   if (rows.length === 0) return null
-  if (rows.every((r) => r.skip_rate_reliable)) return null
+  const unmeasured = rows.filter((r) => !r.skip_rate_reliable).length
+  if (unmeasured === 0) return null
 
   return (
-    'Skip rate reads 0.0% because skipped items are not recorded. The runner writes no ' +
-    'response row for an item it never serves, so a skip and an unserved item are ' +
-    'indistinguishable. Treat this column as unavailable, not as zero.'
+    `${unmeasured} of ${rows.length} items have no served-item history, so their skip rate shows as ` +
+    'n/a rather than 0%. The runner only began recording which items it displayed part-way through ' +
+    'this history, and an item with no record of being shown has no denominator. Every item that ' +
+    'does show a percentage is measured: (times shown - times answered) / times shown.'
   )
 }
 

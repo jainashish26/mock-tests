@@ -317,9 +317,14 @@ const STEPS = [
   // writing marks, purchases/entitlements). They run AFTER 001 because they
   // reference its students and attempts, and after the content step because 004
   // sits writing attempts on the real published writing papers.
-  { file: 'supabase/seeds/003_sample_served_items.sql', label: 'sample served items (A1/A4 input)', onlyIf: () => flag('with-sample-data') },
+  //
+  // 003 LAST, not first: it rebuilds served rows for every sample attempt, so it
+  // has to see the attempts 004 creates. Running it before 004 (the order the file
+  // names suggest) silently leaves all 36 writing attempts with no served rows -
+  // the exact gap 003 exists to close, and invisible unless you diff row counts.
   { file: 'supabase/seeds/004_sample_writing.sql', label: 'sample writing attempts + marks', onlyIf: () => flag('with-sample-data') },
   { file: 'supabase/seeds/005_sample_revenue.sql', label: 'sample purchases + entitlements', onlyIf: () => flag('with-sample-data') },
+  { file: 'supabase/seeds/003_sample_served_items.sql', label: 'sample served items (A1/A4 input)', onlyIf: () => flag('with-sample-data') },
   // Build-time refresh: on a fresh database no cron has run yet, and the
   // assurance suite derives fixtures from the MVs. Plain REFRESH (not
   // safe_refresh): this is construction, not live maintenance, so the

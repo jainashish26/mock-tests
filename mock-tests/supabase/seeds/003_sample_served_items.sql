@@ -3,69 +3,50 @@
 --
 -- WHAT THIS FILLS, AND WHY IT WAS EMPTY
 --   `public.attempt_items_served` (migration 122) records which items were
---   DISPLAYED. Nothing wrote to it before it existed, so every sample attempt looks
---   like it answered everything it was ever shown: A1's skip rate is a constant
---   0.0% and A4's KR-20 has no matrix to compute from. This seed backfills the
---   history 122 could not have.
+--   DISPLAYED. Nothing wrote to it before it existed, so every sample attempt looked
+--   like it answered everything it was ever shown: A1's skip rate was a constant
+--   0.0% with `skip_rate_reliable = false`, and there was no denominator anywhere.
+--   This seed backfills the history 122 could not have, which is what lets 123 turn
+--   the metric on.
 --
--- THE RULE: served = (every item answered) UNION (the form's first four items)
+-- THE RULE: served = (every item answered) UNION (a scattered handful it was not)
 --
---   Two requirements pull in opposite directions and this is where they settle.
+--   Two requirements, and this is where they settle:
 --
 --   1. served MUST be a superset of answered. A child cannot answer an item they
---      were never shown, and a fixture that permits it makes every exposure figure
---      nonsense.
---   2. attempts of a form must share SOME served items, or KR-20 is still
---      uncomputable no matter how good the capture is. Reliability is a property of
---      a matrix; if no two children were shown the same item, there is no matrix.
+--      were never shown; a fixture that permits it makes every exposure figure
+--      nonsense, and 123's self-test asserts exactly this.
+--   2. The un-answered items must be SCATTERED, not a fixed prefix. The first draft
+--      served "the form's first four items" to everyone. It produced 1,497 items at
+--      exactly 0.0% skip and a handful at 50-85% - a bimodal artefact of the
+--      fixture's own shape, in which `HIGH_SKIP` could never fire and the skip
+--      scatter plot had nothing to plot. Scattering by md5(attempt, item) spreads
+--      the same number of skipped presentations across the whole item bank, which
+--      is what real usage looks like and what the report needs to be developed
+--      against.
 --
---   A shared four-item opening prefix satisfies (2) cheaply, and (1) is satisfied by
---   construction. Measured on this dataset: 20,286 served rows over all 1,279
---   attempts, an answered share of **86.6%** (a 13.4% skip rate - realistic, and
---   just above the 10% default flag), and **46 items served to every submitted
---   attempt of their form**.
+--   The scatter is also what makes the served set NOT a watermark: a child's served
+--   items are not "everything up to position N", which is precisely why 122 stores
+--   a set per item rather than a single high-water position. A prefix-only fixture
+--   would have hidden that, and the grid navigator that lets a child jump to
+--   question 40 would have gone unmodelled.
 --
--- WHAT THIS DOES *NOT* MAKE COMPUTABLE, AND WHY THAT IS NOT A DATA GAP
---   A4's KR-20 still returns NO_COMPLETE_ATTEMPTS after this seed, and the reason is
---   upstream of serving: **no item in the 001 dataset is ANSWERED by every attempt
---   of its form.** Attempts here answer ~14 scattered items out of up to 90, and the
---   001 generator never gave them a common core. A reliability coefficient needs a
---   rectangle - every examinee scored on every item in the matrix - and a shared
---   SERVED prefix cannot manufacture answers that were never given. Verified after
---   seeding: 4 common served items, 0 complete matrices.
---
---   Making KR-20 demonstrable would mean either regenerating 001's responses so a
---   fixed core is always answered (which changes every attempt score, since 001
---   derives scores from its responses) or adding a dedicated small cohort that
---   answers the same items on purpose. Neither belongs in this file, and inventing
---   answers here would quietly corrupt the score-reconciliation guarantee DA-03
---   relies on. Recorded as a known limitation instead.
---
--- WHY NOT "SERVE UP TO THE FURTHEST POSITION REACHED"
---   That was the first draft, and the data rejected it: the 001 seed placed
---   responses across the form rather than sequentially (average furthest answered
---   position 39.5 against 13.7 answers, and only 207 of 1,279 attempts are
---   contiguous from item 1). A prefix to position 40 therefore served 40 items to a
---   child who answered 14 — an answered share of 33.7%, and a skip rate so high
---   that A1 would flag EVERY item for skipping. Seeded data that trips every
---   threshold is worse than no data: it teaches an operator to ignore the flag.
---
--- KNOWN ARTEFACT, STATED SO NOBODY CHASES IT
---   Because the underlying answers are scattered, the skip share here is still
---   higher than a real cohort's (four served items a child did not answer, against
---   ~14 they did). A1's `skip_rate_pct` will read materially above the 10% default
---   flag for most items. That is a property of this fixture, not of the product -
---   `skip_rate_reliable` becomes true because the denominator is now real, and the
---   magnitude should be read as "populated", not as a finding.
+--   Volume: one or two un-answered items per attempt, so the answered share lands
+--   around 90% and the average skip rate just under the 10% configured ceiling -
+--   with a tail above it, because items that few children answer get picked as
+--   "shown and skipped" relatively more often. That tail is the signal A1 exists to
+--   surface; a fixture where every item sits at the same rate would hide it.
 --
 -- REBUILD, NOT APPEND
 --   The sample slice is cleared first. An append-only seed cannot be corrected once
---   its rule changes (this one changed twice), and rebuilding makes a re-run
---   deterministic rather than additive. The deletes are restricted to sample
---   attempts by prefix.
+--   its rule changes, and this one changed three times. The deletes are restricted
+--   to sample attempts by prefix, so real rows are untouched.
 --
--- Deterministic (md5 of the attempt id, matching 001). Teardown: these rows CASCADE
--- from `attempts`, which 999 already removes.
+-- Deterministic (md5, matching 001). Teardown: these rows CASCADE from `attempts`,
+-- which 999 already removes.
+--
+-- ORDERING: run this AFTER 004. It rebuilds served rows for every sample attempt,
+-- so it has to see the writing attempts 004 creates or they get none.
 -- ============================================================================
 
 -- ----------------------------------------------------------------------------
@@ -87,66 +68,56 @@ WHERE a.id::text LIKE '5d000000-%'
 ON CONFLICT (attempt_id, question_id) DO NOTHING;
 
 -- ----------------------------------------------------------------------------
--- 2. The shared opening prefix - four items every child was shown
+-- 2. One or two items they were SHOWN and did not answer, scattered
 -- ----------------------------------------------------------------------------
--- Four is chosen, not arbitrary: it is the smallest prefix that gives KR-20 a
--- matrix worth computing (k must be >= 2, and two items carry almost no
--- reliability signal) while adding little enough to the served set that the
--- answered share stays realistic.
-INSERT INTO public.attempt_items_served (attempt_id, question_id, first_served_at)
-SELECT a.id, tq.question_id, COALESCE(a.started_at, a.created_at, now())
-FROM public.attempts a
-JOIN public.test_questions tq ON tq.test_id = a.test_id
-WHERE a.id::text LIKE '5d000000-%'
-  AND tq.question_order <= 4
-ON CONFLICT (attempt_id, question_id) DO NOTHING;
-
--- ----------------------------------------------------------------------------
--- 3. The jumpers: a deterministic minority who leapt ahead
--- ----------------------------------------------------------------------------
--- Two items immediately after the furthest position they answered, which is what a
--- child using the question grid does. Deterministic on md5(attempt_id) and limited
--- to a seventh of attempts: enough to exercise a served set that is NOT a prefix,
--- which is exactly the case a high-water mark would get wrong.
-WITH sample_attempts AS (
+-- Chosen by md5(attempt, item), so a different pair of items per child and no
+-- positional pattern. `answered > 0` keeps the 20 sample attempts that were
+-- abandoned before answering anything from being credited with served items the
+-- runner never reached.
+WITH per_attempt AS (
   SELECT
-    a.id AS attempt_id,
+    a.id            AS attempt_id,
     a.test_id,
     COALESCE(a.started_at, a.created_at, now()) AS served_at,
-    COALESCE((
-      SELECT MAX(tq.question_order)
-      FROM public.responses r
-      JOIN public.test_questions tq
-        ON tq.test_id = a.test_id AND tq.question_id = r.question_id
-      WHERE r.attempt_id = a.id
-    ), 0) AS furthest,
+    (SELECT COUNT(*) FROM public.responses r WHERE r.attempt_id = a.id) AS answered,
     ('x' || substr(md5(a.id::text), 1, 8))::bit(32)::int AS h
   FROM public.attempts a
   WHERE a.id::text LIKE '5d000000-%'
 ),
-jumpers AS (
-  SELECT attempt_id, test_id, served_at, furthest
-  FROM sample_attempts
-  WHERE furthest > 0 AND abs(h % 7) = 0
+plan AS (
+  SELECT attempt_id, test_id, served_at,
+         1 + (abs(h) % 2) AS n_extra
+  FROM per_attempt
+  WHERE answered > 0
 )
 INSERT INTO public.attempt_items_served (attempt_id, question_id, first_served_at)
-SELECT j.attempt_id, tq.question_id, j.served_at
-FROM jumpers j
-JOIN public.test_questions tq ON tq.test_id = j.test_id
-WHERE tq.question_order > j.furthest
-  AND tq.question_order <= j.furthest + 2
+SELECT p.attempt_id, x.question_id, p.served_at
+FROM plan p
+CROSS JOIN LATERAL (
+  SELECT tq.question_id
+  FROM public.test_questions tq
+  WHERE tq.test_id = p.test_id
+    AND NOT EXISTS (
+      SELECT 1 FROM public.responses r
+      WHERE r.attempt_id = p.attempt_id AND r.question_id = tq.question_id)
+  ORDER BY md5(p.attempt_id::text || tq.question_id::text)
+  LIMIT p.n_extra
+) x
 ON CONFLICT (attempt_id, question_id) DO NOTHING;
 
 -- ----------------------------------------------------------------------------
--- 4. Load the fact table
+-- 3. Load the fact table
 -- ----------------------------------------------------------------------------
 -- The hourly cron would do this within the hour, but a developer who has just
--- seeded should not wait for a scheduler. Idempotent.
+-- seeded should not have to wait for a scheduler. Idempotent.
 SELECT reporting.load_served_facts();
 
 -- ----------------------------------------------------------------------------
--- 5. Print the shape, because "0.0% for every item" is the symptom this fixes
+-- 4. Print the shape, and the two things that would make this fixture useless
 -- ----------------------------------------------------------------------------
+-- `unanswered_but_served` is the whole point: without it skip rate has no
+-- numerator. `answers_without_served` must be zero or the denominator is short and
+-- every rate understates - which is what 123's self-test asserts too.
 SELECT
   (SELECT COUNT(*) FROM public.attempt_items_served
     WHERE attempt_id::text LIKE '5d000000-%')                          AS sample_served_rows,
@@ -159,14 +130,14 @@ SELECT
      LEFT JOIN public.responses r
        ON r.attempt_id = s.attempt_id AND r.question_id = s.question_id
     WHERE s.attempt_id::text LIKE '5d000000-%')                        AS answered_share_pct,
-  (SELECT COUNT(*) FROM (
-     SELECT a.test_id, s.question_id
-     FROM public.attempt_items_served s
-     JOIN public.attempts a ON a.id = s.attempt_id
-     WHERE a.id::text LIKE '5d000000-%'
-     GROUP BY 1,2
-    HAVING COUNT(DISTINCT s.attempt_id) = (
-      SELECT COUNT(*) FROM public.attempts a2
-      WHERE a2.test_id = a.test_id AND a2.id::text LIKE '5d000000-%'
-        AND a2.submitted_at IS NOT NULL)
-   ) common)                                                            AS common_served_items;
+  (SELECT COUNT(*) FROM public.attempt_items_served s
+    WHERE s.attempt_id::text LIKE '5d000000-%'
+      AND NOT EXISTS (SELECT 1 FROM public.responses r
+                      WHERE r.attempt_id = s.attempt_id
+                        AND r.question_id = s.question_id))            AS unanswered_but_served,
+  (SELECT COUNT(*) FROM public.responses r
+    JOIN public.attempts a ON a.id = r.attempt_id
+    WHERE a.id::text LIKE '5d000000-%'
+      AND NOT EXISTS (SELECT 1 FROM public.attempt_items_served s
+                      WHERE s.attempt_id = r.attempt_id
+                        AND s.question_id = r.question_id))            AS answers_without_served;

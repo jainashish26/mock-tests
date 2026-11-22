@@ -26,9 +26,11 @@ import type { ItemStatisticsRow } from './types'
  *     disagreements on 2026-11-22, so it is currently silent - and deliberately
  *     not restated as a constant here, because the number rots while
  *     `marking_reliable` does not.
- *   - `skipRateCaveat`: the adaptive runner writes no row for an item it never
- *     serves, so a skip is indistinguishable from "not served" and skip rate
- *     reads 0.0% for every item.
+ *   - `skipRateCaveat`: counts the items with no served-item history, whose skip
+ *     rate is `null` rather than 0.0%. Skip rate itself IS measured since 123 -
+ *     `(served - answered) / served` from `fact_item_served` - but the capture
+ *     started part-way through the history, so the coverage gap is reported per
+ *     item instead of disclaiming the whole column.
  *
  *   Following the A3 precedent, an A1 response without these would be actively
  *   misleading: it would look like a clean measurement rather than a compromised

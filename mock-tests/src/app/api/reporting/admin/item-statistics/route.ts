@@ -31,7 +31,8 @@ import {
  *   in the response, not only in a code comment. `markingCaveat` is non-null while
  *   `responses.is_correct` contradicts the authored key - measured at ZERO
  *   disagreements on 2026-11-22, so it is currently silent - and `skipRateCaveat`
- *   while skips are not captured at all. Both are derived from the data in SQL, so
+ *   counts the items whose history predates the served-item capture (122/123) and
+ *   therefore have no skip denominator. Both are derived from the data in SQL, so
  *   each clears itself when its defect is fixed and reappears if it regresses.
  *   Without them this endpoint would return "45% correct" for an item and imply it
  *   was measured, when in fact the marking behind it is noise.

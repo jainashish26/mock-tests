@@ -495,10 +495,11 @@ export interface ItemStatisticsRow {
   median_time_seconds: number | null
   skip_rate_pct: number | null
   /**
-   * False while the runner records no skips. The adaptive runner answers ~10 of
-   * ~48 items and writes no row for an item it never serves, so a missing row
-   * cannot be told apart from a skip and `skip_rate_pct` reads 0.0% for every
-   * item. Derived from the data, so it flips itself when capture is fixed.
+   * Per item since 123: true when the runner recorded displaying this item, so
+   * `(served - answered) / served` has a denominator. False with a NULL
+   * `skip_rate_pct` for items whose history predates that capture - shown as n/a,
+   * never as 0%, because "not measured" and "measured at zero" are different
+   * claims. Derived from the data, so it flips itself as capture accumulates.
    */
   skip_rate_reliable: boolean
   /**

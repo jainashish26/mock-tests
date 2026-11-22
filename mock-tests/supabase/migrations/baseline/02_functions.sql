@@ -864,6 +864,33 @@ scoped AS (
   WHERE (p_test_id IS NULL OR f.test_id = p_test_id)
     AND (p_student_ids IS NULL OR f.student_id = ANY (p_student_ids))
 ),
+-- 123: the denominator skip rate never had. Scoped exactly like `scoped` so the
+-- two terms of the ratio describe the same set of children.
+served AS (
+  SELECT f.test_id, f.item_id, COUNT(*)::bigint AS served_rows
+  FROM reporting.fact_item_served f
+  WHERE (p_test_id IS NULL OR f.test_id = p_test_id)
+    AND (p_student_ids IS NULL OR f.student_id = ANY (p_student_ids))
+  GROUP BY f.test_id, f.item_id
+),
+-- Answered by the SAME population that `served` describes: attempts with served
+-- capture. This is not cosmetic. Counting every response here would put pre-122
+-- answers in the numerator against a denominator that excludes their attempts -
+-- so an item answered only by pre-capture attempts would show a skip rate of 0%
+-- (clamped by GREATEST after going negative) rather than n/a, and every other item
+-- would understate by however many pre-capture answers it carries.
+--
+-- The one real attempt on the live database is exactly that case: 68 answers, no
+-- served rows. It is why this filter exists rather than being assumed.
+answered_all AS (
+  SELECT s.test_id, s.item_id, COUNT(*)::bigint AS answered_rows
+  FROM scoped s
+  WHERE EXISTS (
+    SELECT 1 FROM reporting.fact_item_served c
+    WHERE c.attempt_id = s.attempt_id
+  )
+  GROUP BY s.test_id, s.item_id
+),
 attempt_totals AS (
   SELECT s.attempt_id, SUM(s.is_correct::int) AS total_correct
   FROM scoped s
@@ -888,9 +915,7 @@ per_item AS (
            / NULLIF(COUNT(*), 0)              AS p_value,
          CORR(u.is_correct::int::numeric, u.rest_score::numeric) AS point_biserial,
          (PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY u.time_spent_seconds))::numeric
-                                              AS median_time_seconds,
-         COUNT(*) FILTER (WHERE u.is_skipped)::numeric
-           / NULLIF(COUNT(*), 0) * 100        AS skip_rate_pct
+                                              AS median_time_seconds
   FROM usable u
   GROUP BY u.test_id, u.item_id
 ),
@@ -955,11 +980,6 @@ dead AS (
     )
   GROUP BY p.test_id, p.item_id
 ),
-skip_capable AS (
-  SELECT EXISTS (
-    SELECT 1 FROM reporting.fact_item_response WHERE is_skipped
-  ) AS reliable
-),
 -- 088: one shared rule, so A1/T4 and the A15 check cannot disagree.
 marking_capable AS (
   SELECT (SELECT disagreeing FROM reporting.marking_disagreement()) = 0 AS reliable
@@ -976,8 +996,15 @@ enriched AS (
     CASE WHEN p.responses >= c.min_responses_per_item
          THEN ROUND(p.point_biserial::numeric, 3) END  AS point_biserial,
     ROUND(p.median_time_seconds, 0)                    AS median_time_seconds,
-    ROUND(p.skip_rate_pct, 1)                          AS skip_rate_pct,
-    sk.reliable                                        AS skip_rate_reliable,
+    -- 123: served - answered over the same scoped population. NULL rather than
+    -- 0.0 when the item has no served history, so "never measured" cannot render
+    -- as "measured at zero".
+    CASE WHEN COALESCE(sv.served_rows, 0) = 0 THEN NULL
+         ELSE ROUND(
+                GREATEST(sv.served_rows - COALESCE(aa.answered_rows, 0), 0)::numeric
+                  / sv.served_rows * 100, 1)
+    END                                                AS skip_rate_pct,
+    (COALESCE(sv.served_rows, 0) > 0)                  AS skip_rate_reliable,
     mk.reliable                                        AS marking_reliable,
     ROUND(COALESCE(q.flag_count, 0)::numeric
             / NULLIF(p.responses, 0) * 100, 2)         AS item_flag_rate_pct,
@@ -1002,14 +1029,20 @@ enriched AS (
                 THEN 'KEY_BEATEN' END,
            CASE WHEN p.median_time_seconds > c.median_time_max_seconds
                 THEN 'SLOW' END,
-           CASE WHEN sk.reliable AND p.skip_rate_pct > c.skip_rate_max_pct
+           -- 123: gated on THIS item's capture and on the rate actually exceeding
+           -- the configured ceiling, not on a numerator that could never be
+           -- non-zero.
+           CASE WHEN COALESCE(sv.served_rows, 0) > 0
+                 AND GREATEST(sv.served_rows - COALESCE(aa.answered_rows, 0), 0)::numeric
+                       / sv.served_rows * 100 > c.skip_rate_max_pct
                 THEN 'HIGH_SKIP' END
          ], NULL)
     END                                                AS defect_reasons
   FROM per_item p
   CROSS JOIN cfg c
-  CROSS JOIN skip_capable sk
   CROSS JOIN marking_capable mk
+  LEFT JOIN served       sv ON sv.test_id = p.test_id AND sv.item_id = p.item_id
+  LEFT JOIN answered_all aa ON aa.test_id = p.test_id AND aa.item_id = p.item_id
   LEFT JOIN reporting.dim_item d ON d.item_id = p.item_id
   LEFT JOIN public.questions  q ON q.id      = p.item_id
   LEFT JOIN opt_agg oa ON oa.test_id = p.test_id AND oa.item_id = p.item_id

@@ -45,7 +45,7 @@ is empty — every table has 0 rows… fixtures are the product."*
 | `auth.users` (tutors) | **2** | `email LIKE 'sample.tutor.%@sample.invalid'`; id prefix `57000000-` |
 | `public.tutor_student_links` | **6** (2 tutors × 3 students) | `id::text LIKE '58000000-%'` |
 | `public.consent_records` | **6**, all ACTIVE, 12-month expiry | `tutor_user_id::text LIKE '57000000-%'` |
-| `public.attempt_items_served` | **20,286** (seeds/003) | `attempt_id::text LIKE '5d000000-%'` |
+| `public.attempt_items_served` | **19,195** (seeds/003) | `attempt_id::text LIKE '5d000000-%'` |
 | `public.writing_evaluations` | **36** (seeds/004) | `id::text LIKE '52000000-%'` |
 | `public.writing_practice_sessions` | **6** graded (seeds/004) | `id::text LIKE '53000000-%'` |
 | `public.purchases` | **24** (seeds/005) | `id::text LIKE '54000000-%'`; `provider = 'sample'` |
@@ -116,7 +116,7 @@ is a separate file so it can be re-run or dropped without touching the other two
 
 | File | Fills | Unblocks |
 |---|---|---|
-| `003_sample_served_items.sql` | `attempt_items_served` + `reporting.fact_item_served` | A1 `skip_rate` (a denominator exists at last); the served capture that A4's KR-20 will read once the report consumes it |
+| `003_sample_served_items.sql` | `attempt_items_served` + `reporting.fact_item_served` | A1 `skip_rate` is now **measured** (migration 123); it is the denominator the metric never had |
 | `004_sample_writing.sql` | 36 writing attempts + essays + `writing_evaluations` + 6 practice sessions | P6, T6, A5, A6, A7 — backlog item 17 |
 | `005_sample_revenue.sql` | `purchases`, `entitlements` (from the real bundle), `subscriptions` | N-5 sibling offer and N-8 re-purchase (both require a first purchase), and the `has_entitlement` path |
 
@@ -136,6 +136,13 @@ render because those read fact tables that items 14–15 have not built; `004` m
 every script with one model and one rubric version, because A5's question is whether
 a *change* in version made marking worse. See *Known gaps* for the two places a
 number is still missing and why.
+
+**Order matters: 003 runs LAST.** It rebuilds served rows for every sample attempt,
+so it has to see the attempts `004` creates. Running it before `004` — the order the
+file names suggest — leaves all 36 writing attempts with no served rows, which is
+exactly the gap 003 exists to close and is invisible unless you diff row counts. The
+reset harness (`scripts/reset-via-psql.mjs`, `--with-sample-data`) is ordered
+accordingly.
 
 
 The shape is realistic; the values are invented. Specifically:
@@ -267,26 +274,35 @@ and A1/T4 item statistics all exercise the real taxonomy rather than invented la
   raise attempt volume in seed §3 (`2 + u01*9` attempts per student) rather than
   lowering `reporting.item_thresholds.min_responses_per_item` — lowering the floor
   would make every report noisier, not better.
-- **Served items are now recorded, but no report reads them yet.** `seeds/003` fills
+- **Served items are recorded, and A1 now measures them.** `seeds/003` fills
   `attempt_items_served` (migration 122): every item each sample attempt ANSWERED,
-  plus the form's first four items as a shared opening prefix, plus two extra items
-  for a seventh of attempts (models the grid navigator). Measured: 20,286 served rows
-  over all 1,279 attempts, **86.6% answered / 13.4% skipped**, and 46 items served to
-  every submitted attempt of their form.
-  **A1 still prints `skip_rate_pct = 0.0%` and `skip_rate_reliable = false`**,
-  because it computes skip from `fact_item_response.is_skipped` and nothing has yet
-  taught it to divide by `fact_item_served`. Wiring that is the next backlog item,
-  deliberately not bundled with the capture so that a number which moves can be
-  attributed to one change. The data it needs is now present and verified.
+  plus one or two un-answered items scattered by `md5(attempt, item)`. Measured:
+  **19,195 served rows over 1,315 attempts, 91.7% answered / 8.3% skipped**, with
+  1,584 rows that are shown-but-unanswered — the numerator skip rate never had.
+
+  The scatter is deliberate. The first version served "the form's first four items"
+  to everyone, which produced **1,497 items at exactly 0.0%** and a handful at
+  50–85%: a bimodal artefact of the fixture, where `HIGH_SKIP` could never fire and
+  the scatter plot had nothing to plot. Scattering spreads the same skipped
+  presentations across the whole bank — A1 now reports **median 6.9%, mean 8.3%,
+  max 75%**, with 741 items at zero instead of 1,497.
+
+  `HIGH_SKIP` still fires on **no** item, and that is the data being honest rather
+  than the flag being broken: a defect reason requires ≥20 responses for the item,
+  and the sample's high-skip items are its thin ones. The flag needs both volume and
+  skips, and only ~16 items clear the volume floor.
 - **KR-20 is still uncomputable, and the reason is the 001 responses, not the
   capture.** No item is ANSWERED by every attempt of its form (attempts answer ~14
   scattered items out of up to 90), so there is no complete item × person rectangle
-  for a reliability coefficient to describe. Verified after seeding: 4 shared served
-  items, 0 complete matrices. Fixing it means either regenerating 001's responses
-  around a common answered core — which changes every attempt score, since 001
-  derives scores from responses — or adding a dedicated small cohort that answers
-  the same items on purpose. Inventing answers inside the served seed would break
-  the score-reconciliation guarantee DA-03 relies on.
+  for a reliability coefficient to describe: **0 complete matrices**. Nine items are
+  served to every submitted attempt of their form, down from 46 when everyone got a
+  shared opening prefix — the prefix was removed in favour of the realistic scatter,
+  and it bought nothing anyway; matrix completeness is gated by ANSWERS, not serving.
+  Fixing it means either regenerating 001's responses around a common answered core —
+  which changes every attempt score, since 001 derives scores from responses — or
+  adding a dedicated small cohort that answers the same items on purpose. Inventing
+  answers inside the served seed would break the score-reconciliation guarantee DA-03
+  relies on.
 - **Item statistics are all-time, not per-period.** `questions.flag_count` is a
   running total with no timestamp, so `item_flag_rate_pct` cannot be a period rate.
   §5 anticipates this ("Until then A1 shows a lifetime rate and says so"), and every
