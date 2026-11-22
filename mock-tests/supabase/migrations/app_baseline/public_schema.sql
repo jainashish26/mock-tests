@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict w8or4kbisrEg7PrV7Xk0a8mtZKAgUwXwiQKzgEqMBQ1gJ08qxOA7hhQ1cb8EE98
+\restrict C707diJcFYAJgR5lBEt6F6JqsQPaj7ftXK6DcIhu6j7mW63XVJgBpekVVqHHadR
 
 -- Dumped from database version 17.6
 -- Dumped by pg_dump version 17.12
@@ -3112,6 +3112,26 @@ CREATE TABLE public.assignments (
 
 
 --
+-- Name: attempt_items_served; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.attempt_items_served (
+    attempt_id uuid NOT NULL,
+    question_id uuid NOT NULL,
+    first_served_at timestamp with time zone DEFAULT now() NOT NULL
+);
+
+ALTER TABLE ONLY public.attempt_items_served FORCE ROW LEVEL SECURITY;
+
+
+--
+-- Name: TABLE attempt_items_served; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON TABLE public.attempt_items_served IS 'One row per item DISPLAYED to a child in an attempt. The answer-table complement: responses says what they did, this says what they were given. Written by /api/runner/served, read only by the reporting layer.';
+
+
+--
 -- Name: attempts; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -4058,6 +4078,14 @@ ALTER TABLE ONLY public.assignments
 
 
 --
+-- Name: attempt_items_served attempt_items_served_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.attempt_items_served
+    ADD CONSTRAINT attempt_items_served_pkey PRIMARY KEY (attempt_id, question_id);
+
+
+--
 -- Name: attempts attempts_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -4912,6 +4940,13 @@ CREATE INDEX idx_tutor_links_tutor ON public.tutor_student_links USING btree (tu
 
 
 --
+-- Name: ix_attempt_items_served_question; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX ix_attempt_items_served_question ON public.attempt_items_served USING btree (question_id);
+
+
+--
 -- Name: ix_inbound_email_disposition; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -4983,6 +5018,22 @@ ALTER TABLE ONLY public.assignments
 
 ALTER TABLE ONLY public.assignments
     ADD CONSTRAINT assignments_test_id_fkey FOREIGN KEY (test_id) REFERENCES public.tests(id) ON DELETE RESTRICT;
+
+
+--
+-- Name: attempt_items_served attempt_items_served_attempt_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.attempt_items_served
+    ADD CONSTRAINT attempt_items_served_attempt_id_fkey FOREIGN KEY (attempt_id) REFERENCES public.attempts(id) ON DELETE CASCADE;
+
+
+--
+-- Name: attempt_items_served attempt_items_served_question_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.attempt_items_served
+    ADD CONSTRAINT attempt_items_served_question_id_fkey FOREIGN KEY (question_id) REFERENCES public.questions(id) ON DELETE CASCADE;
 
 
 --
@@ -5940,6 +5991,13 @@ CREATE POLICY "Student can read own profile" ON public.student_profiles FOR SELE
 
 
 --
+-- Name: attempt_items_served Student can record own served items; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY "Student can record own served items" ON public.attempt_items_served FOR INSERT TO authenticated WITH CHECK (public.is_attempt_owner(attempt_id));
+
+
+--
 -- Name: attempts Student can update own attempts; Type: POLICY; Schema: public; Owner: -
 --
 
@@ -6183,6 +6241,12 @@ ALTER TABLE public.app_user_roles ENABLE ROW LEVEL SECURITY;
 --
 
 ALTER TABLE public.assignments ENABLE ROW LEVEL SECURITY;
+
+--
+-- Name: attempt_items_served; Type: ROW SECURITY; Schema: public; Owner: -
+--
+
+ALTER TABLE public.attempt_items_served ENABLE ROW LEVEL SECURITY;
 
 --
 -- Name: attempts; Type: ROW SECURITY; Schema: public; Owner: -
@@ -7102,6 +7166,14 @@ GRANT ALL ON TABLE public.assignments TO service_role;
 
 
 --
+-- Name: TABLE attempt_items_served; Type: ACL; Schema: public; Owner: -
+--
+
+GRANT ALL ON TABLE public.attempt_items_served TO authenticated;
+GRANT ALL ON TABLE public.attempt_items_served TO service_role;
+
+
+--
 -- Name: TABLE attempts; Type: ACL; Schema: public; Owner: -
 --
 
@@ -7524,5 +7596,5 @@ ALTER DEFAULT PRIVILEGES FOR ROLE supabase_admin IN SCHEMA public GRANT ALL ON T
 -- PostgreSQL database dump complete
 --
 
-\unrestrict w8or4kbisrEg7PrV7Xk0a8mtZKAgUwXwiQKzgEqMBQ1gJ08qxOA7hhQ1cb8EE98
+\unrestrict C707diJcFYAJgR5lBEt6F6JqsQPaj7ftXK6DcIhu6j7mW63XVJgBpekVVqHHadR
 

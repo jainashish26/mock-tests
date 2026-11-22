@@ -42,6 +42,8 @@ REVOKE ALL ON FUNCTION reporting.load_event_facts(p_full boolean) FROM PUBLIC, a
 GRANT EXECUTE ON FUNCTION reporting.load_event_facts(p_full boolean) TO service_role;
 REVOKE ALL ON FUNCTION reporting.load_response_facts(p_full boolean) FROM PUBLIC, anon, authenticated;
 GRANT EXECUTE ON FUNCTION reporting.load_response_facts(p_full boolean) TO service_role;
+REVOKE ALL ON FUNCTION reporting.load_served_facts() FROM PUBLIC, anon, authenticated;
+GRANT EXECUTE ON FUNCTION reporting.load_served_facts() TO service_role;
 REVOKE ALL ON FUNCTION reporting.load_skill_areas() FROM PUBLIC, anon, authenticated;
 GRANT EXECUTE ON FUNCTION reporting.load_skill_areas() TO service_role;
 REVOKE ALL ON FUNCTION reporting.load_student_dims() FROM PUBLIC, anon, authenticated;

@@ -5,6 +5,12 @@ import { useRouter } from 'next/navigation'
 import { Flag, Accessibility, Moon, Sun, CloudOff, Cloud, Loader2, ChevronUp, ChevronDown } from 'lucide-react'
 import { trackClientEvent } from '@/features/monetisation/track-client'
 import { scaffoldForYear } from '@/lib/writing/word-limits'
+import {
+  createServedLedger,
+  markServedSent,
+  noteServed,
+  pendingServed,
+} from '@/lib/runner/served'
 import styles from './TestRunner.module.css'
 
 type Theme = 'light' | 'dark' | 'high-contrast'
@@ -216,6 +222,73 @@ export default function TestRunner({
     flushRef.current = flushSyncQueue
   }, [flushSyncQueue])
 
+  // ---- Served-item capture (migration 122) --------------------------------
+  // Records which items were DISPLAYED, which is the half of the input every
+  // accuracy report was missing: without it a skipped item and an item never
+  // served are the same absence, so A1's skip rate read 0.0% for every item and
+  // A4's KR-20 could not be computed at all.
+  //
+  // Fire-and-forget by design. Losing a beacon costs one id until the next
+  // navigation re-sends it (the ledger keeps unaccepted ids pending); waiting on
+  // it would put a reporting write in front of a child's next question.
+  const servedRef = useRef(createServedLedger())
+  const servedFlushingRef = useRef(false)
+
+  const flushServed = useCallback(async () => {
+    if (servedFlushingRef.current) return
+    const batch = pendingServed(servedRef.current).slice()
+    if (batch.length === 0) return
+
+    servedFlushingRef.current = true
+    try {
+      const res = await fetch('/api/runner/served', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ attemptId, questionIds: batch }),
+      })
+      // Only an accepted batch leaves the queue. A 4xx is not retried forever -
+      // it means this runner is sending something the server will never accept -
+      // but 5xx/network failures keep the ids pending for the next navigation.
+      if (res.ok || res.status < 500) markServedSent(servedRef.current, batch)
+    } catch {
+      // Offline: the ids stay pending and go out with the next question.
+    } finally {
+      servedFlushingRef.current = false
+    }
+  }, [attemptId])
+
+  // Note the question currently on screen. Runs on mount too, so the first item
+  // is captured without needing a navigation.
+  useEffect(() => {
+    const shown = questions[currentIndex]
+    if (!shown) return
+    noteServed(servedRef.current, shown.id)
+    void flushServed()
+  }, [currentIndex, questions, flushServed])
+
+  // Last chance: a child who closes the tab, or whose timer auto-submits while
+  // the page is being torn down, should still have their last few items counted.
+  // sendBeacon is the only transport guaranteed to survive unload.
+  useEffect(() => {
+    const onHide = () => {
+      const batch = pendingServed(servedRef.current).slice()
+      if (batch.length === 0) return
+      try {
+        navigator.sendBeacon(
+          '/api/runner/served',
+          new Blob([JSON.stringify({ attemptId, questionIds: batch })], {
+            type: 'application/json',
+          })
+        )
+      } catch {
+        // Best effort by definition; the server was already told about the rest.
+      }
+    }
+
+    window.addEventListener('pagehide', onHide)
+    return () => window.removeEventListener('pagehide', onHide)
+  }, [attemptId])
+
   const enqueueSave = useCallback((question: RunnerQuestion, answer: string) => {
     const enteredAt = questionEnterRef.current
     const now = Date.now()
@@ -347,6 +420,12 @@ export default function TestRunner({
       return
     }
 
+    // Get the served set in before handing in, so the submission snapshot is
+    // complete. Awaiting it is safe here - this is a deliberate, once-per-test
+    // action, unlike navigation - and it is still non-fatal: a failed beacon
+    // leaves ids pending and the pagehide handler gets one more chance.
+    await flushServed()
+
     try {
       const res = await fetch('/api/runner/submit', {
         method: 'POST',
@@ -381,7 +460,7 @@ export default function TestRunner({
         message: (err?.message || '').slice(0, 120),
       })
     }
-  }, [attemptId, router])
+  }, [attemptId, router, flushServed])
 
   // Keep the timer's auto-submit pointing at the latest closure.
   useEffect(() => {

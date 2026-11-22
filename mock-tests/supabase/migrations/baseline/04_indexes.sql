@@ -46,6 +46,10 @@ CREATE UNIQUE INDEX fact_item_response_pkey ON reporting.fact_item_response USIN
 CREATE INDEX idx_fir_item ON reporting.fact_item_response USING btree (item_id, date_key DESC);
 CREATE INDEX idx_fir_loaded ON reporting.fact_item_response USING btree (etl_loaded_at);
 CREATE INDEX idx_fir_student ON reporting.fact_item_response USING btree (student_id, date_key DESC);
+CREATE UNIQUE INDEX fact_item_served_pkey ON reporting.fact_item_served USING btree (attempt_id, item_id);
+CREATE INDEX ix_fact_item_served_item ON reporting.fact_item_served USING btree (item_id, date_key DESC);
+CREATE INDEX ix_fact_item_served_student ON reporting.fact_item_served USING btree (student_id, date_key DESC);
+CREATE INDEX ix_fact_item_served_test ON reporting.fact_item_served USING btree (test_id, item_id);
 CREATE UNIQUE INDEX fact_test_attempt_attempt_id_key ON reporting.fact_test_attempt USING btree (attempt_id);
 CREATE UNIQUE INDEX fact_test_attempt_pkey ON reporting.fact_test_attempt USING btree (attempt_key);
 CREATE INDEX idx_fta_loaded ON reporting.fact_test_attempt USING btree (etl_loaded_at);

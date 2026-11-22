@@ -103,6 +103,7 @@
       "load_enquiry_facts",
       "load_event_facts",
       "load_response_facts",
+      "load_served_facts",
       "load_skill_areas",
       "load_student_dims",
       "marking_disagreement",
@@ -126,13 +127,13 @@
   "metrics": {
     "auth triggers": 2,
     "dim_date rows": 2557,
-    "public policies": 109,
-    "public tables": 40,
-    "reporting indexes": 82,
+    "public policies": 110,
+    "public tables": 41,
+    "reporting indexes": 86,
     "reporting matviews": 13,
-    "reporting tables": 29,
+    "reporting tables": 30,
     "reporting views": 1,
-    "rpt cron jobs": 15
+    "rpt cron jobs": 16
   },
   "privilege_invariants": [
     "no reporting function is reachable by anon",

@@ -1951,6 +1951,57 @@
 > it unblocks A1's skip rate, A4's KR-20 and A2/A4's pathway work at once. It is
 > now the single highest-value capture change in the programme.
 
+> ### ✅ Served-item capture shipped (2026-11-22, migration 122)
+>
+> The item the entry above called the single highest-value capture change. Every
+> accuracy report was missing half its input: `responses` records what a child DID,
+> nothing recorded what they were GIVEN. A skipped item and an unserved item were
+> the same absence, which is why A1 skip rate read 0.0% for all 1,750 items and
+> A4 KR-20 was uncomputable on all 16 forms.
+>
+> **What shipped.** `public.attempt_items_served` - one row per item DISPLAYED,
+> primary key `(attempt_id, question_id)`, INSERT-only, forced RLS, and NO SELECT
+> policy at all (a child's own exposure history is not theirs to read back; the
+> reporting layer reads it through the fact table). `POST /api/runner/served`
+> resolves the attempt through `my_attempt_context`, proves the items belong to that
+> test, and inserts ON CONFLICT DO NOTHING so retries, resumed attempts and racing
+> tabs converge. `reporting.fact_item_served` + `load_served_facts()`
+> (INSERT-missing, PK-guarded, hourly at :20).
+>
+> **The runner side is a ledger, not a watermark.** With the grid navigator a child
+> can jump from question 2 to question 40, so highest-index-reached would claim 38
+> items were served that they never saw. The client keeps a `seen` set and a
+> `pending` queue (`src/lib/runner/served.ts`, pure and unit-tested): a reported id
+> is never re-sent, an unaccepted id stays pending and rides the next navigation,
+> and a pagehide beacon plus a pre-submit flush catch the tail.
+>
+> **Two defects the new assertions caught.**
+>
+> 1. AC-75 failed on a grant this migration had just written - no reporting loader
+>    may be executable by the read-only role. Its comment says it exists so the next
+>    fact table added with the same well-meaning grant fails there, and it did, on
+>    the first run. The subtler half: fixing it required naming `reporting_ro` in
+>    the REVOKE, because grants are additive and `REVOKE ... FROM PUBLIC` does not
+>    undo a grant made to a specific role - so the first fix left the privilege in
+>    place on re-apply.
+> 2. My own pgtap fixture would have passed vacuously. It took `LIMIT 1` from
+>    `student_profiles` and then looked for that student attempts; the first profile
+>    had sat nothing, so every assertion would have compared NULLs. Rewritten to
+>    pick an attempt first and derive its owner, with the JWT claim set to it. A
+>    test that cannot find its subject must fail, not agree.
+>
+> **Verified:** `psql -f 122` exit 0 with `122 self-test ok` (repo == database) -
+> pgtap 169/169 including AC-86..90, which impersonate a student with a real role
+> switch and JWT claim - 10 Node suites, 595 assertions - typecheck 0 - lint ratchet
+> unchanged at 57 - `schema:validate` 84/84 and `schema:validate:app` 41/41 after
+> re-capture.
+>
+> **Not done here, deliberately:** A1 `skip_rate` and A4 `items_answered_by_all`
+> still use the old definitions. Changing a metric and its input in one commit makes
+> it impossible to say which one moved a number, so consumption is the next item -
+> and it is now a report change with no capture work behind it.
+
+> **Separate, pre-existing history drift found while applying 105–107, and it is
 > wider than it first looked.** The live
 > `supabase_migrations.schema_migrations` table keys history on a **timestamp**
 > version (`20261119214132`) plus a name, while every local file is named

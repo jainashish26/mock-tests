@@ -21,6 +21,7 @@ ALTER TABLE reporting.experiment_thresholds ENABLE ROW LEVEL SECURITY; ALTER TAB
 ALTER TABLE reporting.fact_enquiry ENABLE ROW LEVEL SECURITY; ALTER TABLE reporting.fact_enquiry FORCE ROW LEVEL SECURITY;
 ALTER TABLE reporting.fact_event ENABLE ROW LEVEL SECURITY; ALTER TABLE reporting.fact_event FORCE ROW LEVEL SECURITY;
 ALTER TABLE reporting.fact_item_response ENABLE ROW LEVEL SECURITY; ALTER TABLE reporting.fact_item_response FORCE ROW LEVEL SECURITY;
+ALTER TABLE reporting.fact_item_served ENABLE ROW LEVEL SECURITY; ALTER TABLE reporting.fact_item_served FORCE ROW LEVEL SECURITY;
 ALTER TABLE reporting.fact_test_attempt ENABLE ROW LEVEL SECURITY; ALTER TABLE reporting.fact_test_attempt FORCE ROW LEVEL SECURITY;
 ALTER TABLE reporting.funnel_thresholds ENABLE ROW LEVEL SECURITY; ALTER TABLE reporting.funnel_thresholds FORCE ROW LEVEL SECURITY;
 ALTER TABLE reporting.item_thresholds ENABLE ROW LEVEL SECURITY; ALTER TABLE reporting.item_thresholds FORCE ROW LEVEL SECURITY;

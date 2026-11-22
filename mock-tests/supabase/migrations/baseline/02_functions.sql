@@ -1304,6 +1304,42 @@ END;
 $function$
 ;
 
+CREATE OR REPLACE FUNCTION reporting.load_served_facts()
+ RETURNS integer
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO 'reporting', 'public', 'pg_catalog'
+AS $function$
+DECLARE
+  v_rows integer;
+BEGIN
+  INSERT INTO reporting.fact_item_served (
+    attempt_id, item_id, test_id, student_id, date_key, served_at, etl_loaded_at)
+  SELECT s.attempt_id,
+         s.question_id,
+         a.test_id,
+         a.student_id,
+         to_char(s.first_served_at AT TIME ZONE 'Australia/Melbourne', 'YYYYMMDD')::int,
+         s.first_served_at,
+         now()
+  FROM public.attempt_items_served s
+  JOIN public.attempts a ON a.id = s.attempt_id
+  ON CONFLICT (attempt_id, item_id) DO NOTHING;
+
+  GET DIAGNOSTICS v_rows = ROW_COUNT;
+
+  -- Recorded so DA-15 (refresh lag) can see this object the way it sees the
+  -- materialised views; a fact table nobody refreshes is a silent lie too.
+  INSERT INTO reporting.etl_watermark (object_name, high_water)
+  VALUES ('fact_item_served', now())
+  ON CONFLICT (object_name) DO UPDATE
+    SET high_water = EXCLUDED.high_water, updated_at = now();
+
+  RETURN v_rows;
+END;
+$function$
+;
+
 CREATE OR REPLACE FUNCTION reporting.load_skill_areas()
  RETURNS integer
  LANGUAGE plpgsql

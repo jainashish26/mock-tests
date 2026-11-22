@@ -44,6 +44,9 @@ SELECT cron.schedule('rpt-load-student-dims', '45 17 * * *', 'SELECT reporting.l
 SELECT cron.unschedule('rpt-platform-health') WHERE EXISTS (SELECT 1 FROM cron.job WHERE jobname = 'rpt-platform-health');
 SELECT cron.schedule('rpt-platform-health', '*/15 * * * *', 'SELECT reporting.safe_refresh(''reporting.mv_platform_health'', true)');
 
+SELECT cron.unschedule('rpt-served-facts') WHERE EXISTS (SELECT 1 FROM cron.job WHERE jobname = 'rpt-served-facts');
+SELECT cron.schedule('rpt-served-facts', '20 * * * *', 'SELECT reporting.load_served_facts()');
+
 SELECT cron.unschedule('rpt-skill-coverage') WHERE EXISTS (SELECT 1 FROM cron.job WHERE jobname = 'rpt-skill-coverage');
 SELECT cron.schedule('rpt-skill-coverage', '35 16 * * *', 'SELECT reporting.load_skill_areas(),
            reporting.safe_refresh(''reporting.mv_topic_coverage'', true)');

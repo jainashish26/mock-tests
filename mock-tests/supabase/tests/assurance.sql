@@ -46,7 +46,7 @@ SET LOCAL search_path = public, extensions;
 -- append-only finding (AC-35..AC-40, PR-02, migration 115) and 3 for keeping the
 -- read-only reporting role read-only (AC-75..AC-76, migration 116) and 3 for the ACL
 -- capture describing the live schema (AC-77..AC-79, migration 117).
-SELECT extensions.plan(162);
+SELECT extensions.plan(169);
 
 CREATE TEMP TABLE _ids AS
 SELECT
@@ -1861,6 +1861,125 @@ SELECT extensions.ok(
         OR has_function_privilege('anon', p.oid::regprocedure, 'EXECUTE'))
   ),
   'AC-85 the A4 reporting functions are unreachable from app roles');
+
+-- ============================================================================
+-- AC-86..AC-90  Served-item capture (migration 122)
+--
+-- This is the one table whose whole purpose is to be written by a CHILD's own
+-- session, so the access rules are the feature: a policy that let one family
+-- record exposure against another family's attempt would not be a data error, it
+-- would be one child's activity appearing in another child's report. Tested with
+-- a real role switch and a real JWT claim, not by reading the policy text.
+-- ============================================================================
+
+CREATE TEMP TABLE _served_fixture AS
+SELECT
+  a.id            AS own_attempt,
+  sp.auth_user_id AS owner_uid,
+  (SELECT a2.id FROM public.attempts a2
+     JOIN public.student_profiles sp2 ON sp2.id = a2.student_id
+    WHERE sp2.auth_user_id IS DISTINCT FROM sp.auth_user_id
+    LIMIT 1)      AS other_attempt,
+  (SELECT tq.question_id FROM public.test_questions tq
+    WHERE tq.test_id = a.test_id LIMIT 1) AS own_question
+FROM public.attempts a
+JOIN public.student_profiles sp ON sp.id = a.student_id
+WHERE sp.auth_user_id IS NOT NULL
+LIMIT 1;
+
+-- Only meaningful on a database that has attempts; on an empty one this reports
+-- false rather than silently "passing" a comparison of NULLs.
+SELECT extensions.ok(
+  (SELECT own_attempt IS NOT NULL AND own_question IS NOT NULL FROM _served_fixture),
+  'AC-86 fixture: an attempt and an item exist to record against');
+
+-- The claim must be the OWNER of that attempt. The suite's earlier student is an
+-- arbitrary profile and may have sat nothing, which is why the fixture carries
+-- its own subject rather than reusing _ids.student_uid.
+SELECT set_config('request.jwt.claims',
+  json_build_object('sub', (SELECT owner_uid FROM _served_fixture), 'role', 'authenticated')::text,
+  true);
+
+SELECT set_config('test.own_attempt',   (SELECT own_attempt::text   FROM _served_fixture), true),
+       set_config('test.other_attempt', (SELECT other_attempt::text FROM _served_fixture), true),
+       set_config('test.own_question',  (SELECT own_question::text  FROM _served_fixture), true);
+
+CREATE TEMP TABLE _served_probe (own_inserted boolean, other_blocked boolean, own_visible bigint);
+-- The probe is written while the session is impersonating `authenticated`, and a
+-- temp table is owned by the role that created it. Without this the DO block
+-- fails with "permission denied" instead of running the assertions.
+GRANT INSERT ON _served_probe TO authenticated;
+
+SET LOCAL ROLE authenticated;
+DO $$
+DECLARE
+  -- missing_ok = true: on a database with no attempts these settings were never
+  -- written, and current_setting() would otherwise raise instead of letting the
+  -- probe report "nothing to test" honestly.
+  v_own   text := COALESCE(current_setting('test.own_attempt', true), '');
+  v_other text := COALESCE(current_setting('test.other_attempt', true), '');
+  v_q     text := COALESCE(current_setting('test.own_question', true), '');
+  v_inserted boolean := false;
+  v_blocked  boolean := false;
+  v_visible  bigint  := -1;
+BEGIN
+  BEGIN
+    INSERT INTO public.attempt_items_served (attempt_id, question_id)
+    VALUES (v_own::uuid, v_q::uuid);
+    v_inserted := true;
+  EXCEPTION WHEN OTHERS THEN
+    v_inserted := false;
+  END;
+
+  -- The write that must fail: the same child, someone else's attempt.
+  IF v_other IS NOT NULL AND v_other <> '' THEN
+    BEGIN
+      INSERT INTO public.attempt_items_served (attempt_id, question_id)
+      VALUES (v_other::uuid, v_q::uuid);
+      v_blocked := false;
+    EXCEPTION WHEN insufficient_privilege THEN
+      v_blocked := true;
+    WHEN OTHERS THEN
+      -- Any other error is not the RLS refusal we are asserting; leave it false
+      -- so the assertion fails rather than passing for the wrong reason.
+      v_blocked := false;
+    END;
+  ELSE
+    v_blocked := true;  -- nothing to attempt, nothing to leak
+  END IF;
+
+  -- The child's own rows must not be readable back: the surface is insert-only.
+  SELECT count(*) INTO v_visible FROM public.attempt_items_served;
+
+  INSERT INTO _served_probe VALUES (v_inserted, v_blocked, v_visible);
+END $$;
+RESET ROLE;
+
+SELECT extensions.ok((SELECT own_inserted FROM _served_probe),
+  'AC-86 a student can record a served item for their OWN attempt');
+
+SELECT extensions.ok((SELECT other_blocked FROM _served_probe),
+  'AC-87 RLS refuses a served row against another student''s attempt');
+
+SELECT extensions.is((SELECT own_visible FROM _served_probe), 0::bigint,
+  'AC-88 attempt_items_served is insert-only: a student reads back zero rows');
+
+-- The loader, on a table that now definitely holds at least one row.
+SELECT extensions.is(
+  reporting.load_served_facts() >= 1, true,
+  'AC-89 the first load inserts the pending served rows');
+
+SELECT extensions.is(
+  reporting.load_served_facts(), 0,
+  'AC-89b a second load inserts nothing (idempotent by primary key)');
+
+SELECT extensions.ok(
+  (SELECT f.test_id = a.test_id AND f.student_id = a.student_id
+     FROM reporting.fact_item_served f
+     JOIN public.attempts a ON a.id = f.attempt_id
+    WHERE f.attempt_id = current_setting('test.own_attempt')::uuid
+    LIMIT 1),
+  'AC-90 a served fact carries the attempt''s own test and student, not the question''s');
 
 SELECT * FROM extensions.finish();
 
