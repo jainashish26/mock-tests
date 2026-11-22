@@ -48,6 +48,13 @@ export default async function ChildDetailPage({ params }: { params: Promise<{ id
   // values rather than an empty form that then pops into place.
   const planResult = await loadParentPlan(childId)
 
+  // Whether this child has any graded writing (tests or AI practice) to report.
+  const { count: writingCount } = await supabase
+    .from('writing_practice_sessions')
+    .select('id', { count: 'exact', head: true })
+    .eq('student_id', childId)
+    .eq('status', 'GRADED')
+
   // Fetch attempt history
   const { data: attempts } = await supabase
     .from('attempts')
@@ -66,13 +73,47 @@ export default async function ChildDetailPage({ params }: { params: Promise<{ id
         <span style={{ color: 'var(--color-text-muted)' }}>Year {child?.year_level}</span>
       </div>
 
-      <div style={{ marginTop: '0.75rem' }}>
-        <Link href={`/parent/child/${childId}/writing`} style={{ color: 'var(--color-primary)' }}>
-          View writing progress & AI practice →
-        </Link>
+      <div style={{ marginTop: '1rem', display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+        {Number(writingCount ?? 0) > 0 && (
+          <Link
+            href={`/parent/child/${childId}/writing`}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.4rem',
+              padding: '0.55rem 1rem',
+              background: 'var(--color-primary)',
+              color: '#fff',
+              borderRadius: 'var(--radius-md)',
+              fontWeight: 600,
+              fontSize: '0.9rem',
+              textDecoration: 'none',
+            }}
+          >
+            View writing report ({writingCount})
+          </Link>
+        )}
+        <a
+          href="#assign-test"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '0.4rem',
+            padding: '0.55rem 1rem',
+            background: 'var(--color-surface)',
+            color: 'var(--color-primary)',
+            border: '1px solid var(--color-border)',
+            borderRadius: 'var(--radius-md)',
+            fontWeight: 600,
+            fontSize: '0.9rem',
+            textDecoration: 'none',
+          }}
+        >
+          Assign a test
+        </a>
       </div>
 
-      <section style={{ marginTop: '3rem' }}>
+      <section id="assign-test" style={{ marginTop: '3rem' }}>
         <h2>Assign a New Test</h2>
         <p style={{ color: 'var(--color-text-muted)' }}>Select from your available free and purchased tests.</p>
         <AssignTestForm studentId={childId} tests={tests || []} />
@@ -85,7 +126,7 @@ export default async function ChildDetailPage({ params }: { params: Promise<{ id
             <ul style={{ listStyle: 'none', padding: 0 }}>
               {assignments.map(a => (
                 <li key={a.id} style={{ padding: '1rem', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-md)', marginBottom: '0.5rem' }}>
-                  <strong>{(a.tests as any)?.title}</strong>
+                  <strong>{(a.tests as { title?: string } | null)?.title}</strong>
                   <div style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>{new Date(a.assigned_at).toLocaleDateString()}</div>
                 </li>
               ))}
@@ -95,12 +136,25 @@ export default async function ChildDetailPage({ params }: { params: Promise<{ id
 
         <section>
           <h2>Attempt History & Reports</h2>
-          {(!attempts || attempts.length === 0) ? <p>No completed tests yet.</p> : (
+          {(!attempts || attempts.length === 0) ? (
+            <p>
+              No completed tests yet.
+              {Number(writingCount ?? 0) > 0 && (
+                <>
+                  {' '}Graded writing practice appears in the{' '}
+                  <Link href={`/parent/child/${childId}/writing`} style={{ color: 'var(--color-primary)' }}>
+                    writing report
+                  </Link>
+                  .
+                </>
+              )}
+            </p>
+          ) : (
             <ul style={{ listStyle: 'none', padding: 0 }}>
-              {attempts.map((a: any) => (
+              {attempts.map((a) => (
                 <li key={a.id} style={{ padding: '1rem', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-md)', marginBottom: '0.5rem', display: 'flex', justifyContent: 'space-between' }}>
                   <div>
-                    <strong>{(a.tests as any)?.title}</strong>
+                    <strong>{(a.tests as { title?: string } | null)?.title}</strong>
                     <div style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>{a.status}</div>
                   </div>
                   {a.status === 'COMPLETE' && (

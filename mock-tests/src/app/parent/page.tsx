@@ -27,12 +27,21 @@ type Attempt = {
   score_out_of100: number | string | null
 }
 
+type WritingSession = {
+  id: string
+  status: string
+  score_out_of100: number | string | null
+  graded_at: string | null
+  text_type: string | null
+}
+
 type LinkedChild = {
   id: string
   username: string
   year_level: number
   created_at: string | null
   attempts: Attempt[] | null
+  writing_practice_sessions: WritingSession[] | null
 }
 
 function scoreTone(value: number) {
@@ -57,6 +66,13 @@ export default async function ParentDashboard() {
           id,
           status,
           score_out_of100
+        ),
+        writing_practice_sessions (
+          id,
+          status,
+          score_out_of100,
+          graded_at,
+          text_type
         )
       )
     `)
@@ -78,6 +94,14 @@ export default async function ParentDashboard() {
       : null
     const bestScore = scores.length ? Math.max(...scores) : null
 
+    // AI-practice writing results. The dashboard used to read only `attempts`,
+    // so a child whose only work was an AI Practice Lab submission showed
+    // "No tests taken yet" and their graded writing was invisible to the parent.
+    const gradedWriting = (child.writing_practice_sessions ?? [])
+      .filter((w) => w.status === 'GRADED')
+      .sort((a, b) => String(b.graded_at ?? '').localeCompare(String(a.graded_at ?? '')))
+    const latestWriting = gradedWriting[0] ?? null
+
     return {
       id: child.id,
       username: child.username,
@@ -90,6 +114,10 @@ export default async function ParentDashboard() {
       avgScore,
       bestScore,
       scores,
+      writingCount: gradedWriting.length,
+      latestWritingScore: latestWriting ? Math.round(Number(latestWriting.score_out_of100)) : null,
+      latestWritingType: latestWriting?.text_type ?? null,
+      latestWritingDate: latestWriting?.graded_at ?? null,
     }
   })
 
@@ -123,8 +151,11 @@ export default async function ParentDashboard() {
               needs a little more practice.
             </p>
             <div className={css.heroActions}>
-              <Link href="/tests" className={css.heroCtaPrimary}>
-                Browse Test Store <ArrowRight size={16} aria-hidden="true" />
+              <Link href="/parent/reports" className={css.heroCtaPrimary}>
+                View Reports <ArrowRight size={16} aria-hidden="true" />
+              </Link>
+              <Link href="/tests" className={css.heroCtaGhost}>
+                <BookOpen size={16} aria-hidden="true" /> Test Store
               </Link>
               <a href="#add-profile" className={css.heroCtaGhost}>
                 <UserPlus size={16} aria-hidden="true" /> Add Child Profile
@@ -245,10 +276,27 @@ export default async function ParentDashboard() {
                             <div className={css.statLabel}>Best Score</div>
                           </div>
                         </div>
+                      ) : k.latestWritingScore !== null ? (
+                        <div className={css.statsRow}>
+                          <div>
+                            <div className={css.statValue}>{k.latestWritingScore}</div>
+                            <div className={css.statLabel}>Latest Writing Score</div>
+                          </div>
+                          <div>
+                            <div className={css.statValue}>{k.writingCount}</div>
+                            <div className={css.statLabel}>Writing Pieces</div>
+                          </div>
+                          <div>
+                            <div className={css.statValue} style={{ textTransform: 'capitalize' }}>
+                              {k.latestWritingType ?? '—'}
+                            </div>
+                            <div className={css.statLabel}>Latest Type</div>
+                          </div>
+                        </div>
                       ) : (
                         <p className={css.noDataNote}>
-                          <Info size={16} aria-hidden="true" /> No tests taken
-                          yet — assign the first test to see progress here.
+                          <Info size={16} aria-hidden="true" /> No results yet —
+                          assign a test or have your child try AI Practice.
                         </p>
                       )}
                     </div>
@@ -261,6 +309,14 @@ export default async function ParentDashboard() {
                         <ClipboardList size={15} aria-hidden="true" /> Assign
                         Test
                       </Link>
+                      {k.writingCount > 0 && (
+                        <Link
+                          href={`/parent/child/${k.id}/writing`}
+                          className={css.btnOutline}
+                        >
+                          <Sparkles size={15} aria-hidden="true" /> Writing Report
+                        </Link>
+                      )}
                       {k.completedCount > 0 && (
                         <Link
                           href={`/parent/child/${k.id}`}

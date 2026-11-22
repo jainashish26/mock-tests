@@ -61,7 +61,7 @@ export function DashboardLayout({ children, role, userName, hideSidebar = false,
         return [
           { icon: <LayoutDashboard size={20} />, label: "Children", href: "/parent" },
           { icon: <BookOpen size={20} />, label: "Test Store", href: "/tests" },
-          { icon: <BarChart3 size={20} />, label: "Reports", href: "/parent" },
+          { icon: <BarChart3 size={20} />, label: "Reports", href: "/parent/reports" },
           { icon: <Settings size={20} />, label: "Settings", href: "/parent/settings" },
         ];
       case "TUTOR":
