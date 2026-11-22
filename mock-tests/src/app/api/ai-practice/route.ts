@@ -106,9 +106,17 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Profile not found' }, { status: 404 })
     }
 
-    const { data: session, error } = await supabase
+    // The session id is generated here instead of being read back with
+    // `.select()`: students hold INSERT-only RLS on writing_practice_sessions
+    // (migration 096), and Postgres validates INSERT ... RETURNING rows against
+    // the table's SELECT policies - which a student never satisfies - so
+    // chaining .select() after the insert aborts the whole statement with
+    // 42501 "new row violates row-level security policy".
+    const sessionId = crypto.randomUUID()
+    const { error } = await supabase
       .from('writing_practice_sessions')
       .insert({
+        id: sessionId,
         student_id: profile.id,
         prompt_id: promptId,
         text_type: meta.type,
@@ -118,11 +126,13 @@ export async function POST(req: Request) {
         year_level: Number(profile.year_level),
         status: 'PENDING',
       })
-      .select('id')
-      .single()
 
-    if (error || !session) {
-      return NextResponse.json({ error: error?.message ?? 'Failed to save practice' }, { status: 500 })
+    if (error) {
+      console.error('[ai-practice] insert failed', error)
+      return NextResponse.json(
+        { error: 'Could not save your practice. Please try again.' },
+        { status: 500 },
+      )
     }
 
     // Fast path when QStash is configured; the cron sweeper is the safety net.
@@ -130,13 +140,13 @@ export async function POST(req: Request) {
       const token = process.env.QSTASH_TOKEN
       const endpoint = process.env.QSTASH_WRITING_PRACTICE_ENDPOINT
       if (token && endpoint) {
-        await new QStashClient({ token }).publishJSON({ url: endpoint, body: { sessionId: session.id } })
+        await new QStashClient({ token }).publishJSON({ url: endpoint, body: { sessionId } })
       }
     } catch (err) {
       console.error('[ai-practice] failed to enqueue', err)
     }
 
-    return NextResponse.json({ success: true, sessionId: session.id })
+    return NextResponse.json({ success: true, sessionId })
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : 'Failed'
     return NextResponse.json({ error: message }, { status: 500 })
