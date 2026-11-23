@@ -13,6 +13,15 @@ import {
   loadTutorAtRisk,
   loadTutorOverview,
 } from '@/lib/reporting/tutor'
+import {
+  completionLabel,
+  completionPct,
+  consentWindowLabel,
+  initialFor,
+  movementLabel,
+  sortAssignments,
+  MOVEMENT_TONE_CLASS,
+} from '@/lib/reporting/tutor-format'
 import { createClient } from '@/lib/supabase/server'
 
 export const metadata = {
@@ -186,10 +195,8 @@ export default async function TutorDashboard() {
           ) : (
             <ul className="mb-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
               {overview.rows.map((s) => {
-                const completion =
-                  s.assigned_count > 0
-                    ? Math.round((s.completed_count / s.assigned_count) * 100)
-                    : null
+                const completion = completionPct(s.assigned_count, s.completed_count)
+                const movement = movementLabel(s.movement_pp)
 
                 return (
                   <li key={s.student_id} className="h-full">
@@ -203,7 +210,7 @@ export default async function TutorDashboard() {
                             className="flex size-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-primary"
                             aria-hidden
                           >
-                            {s.student_name.charAt(0).toUpperCase()}
+                            {initialFor(s.student_name)}
                           </span>
                           <span className="min-w-0">
                             <span className="block truncate text-sm font-semibold text-foreground">
@@ -226,26 +233,22 @@ export default async function TutorDashboard() {
 
                       <span className="flex items-center justify-between gap-2 text-xs">
                         <span className="text-muted-foreground">Movement</span>
-                        {s.movement_pp === null ? (
-                          <span className="text-muted-foreground">not enough attempts</span>
-                        ) : (
-                          <span
-                            className={`font-semibold tabular-nums ${
-                              s.movement_pp < 0 ? 'text-destructive' : 'text-emerald-600'
-                            }`}
-                          >
-                            {s.movement_pp > 0 ? '+' : ''}
-                            {s.movement_pp} pp
-                          </span>
-                        )}
+                        <span
+                          className={
+                            movement.tone === 'neutral'
+                              ? 'text-muted-foreground'
+                              : `font-semibold tabular-nums ${MOVEMENT_TONE_CLASS[movement.tone]}`
+                          }
+                        >
+                          {movement.text}
+                        </span>
                       </span>
 
                       <span>
                         <span className="flex items-baseline justify-between gap-2 text-xs">
                           <span className="text-muted-foreground">Work completed</span>
                           <span className="tabular-nums text-foreground">
-                            {s.completed_count}/{s.assigned_count}
-                            {completion === null ? '' : ` · ${completion}%`}
+                            {completionLabel(s.assigned_count, s.completed_count)}
                           </span>
                         </span>
                         <span className="mt-1 block h-1 overflow-hidden rounded-full bg-muted">
@@ -259,9 +262,7 @@ export default async function TutorDashboard() {
                       <span className="mt-auto flex items-center justify-between gap-2 border-t border-border pt-2 text-[0.6875rem] text-muted-foreground">
                         <span className="inline-flex items-center gap-1">
                           <CalendarClock size={12} aria-hidden />
-                          {s.consent_expires_at
-                            ? `until ${new Date(s.consent_expires_at).toLocaleDateString()}`
-                            : 'no expiry recorded'}
+                          {consentWindowLabel(s.consent_expires_at) ?? 'no expiry recorded'}
                         </span>
                         <span className="inline-flex items-center gap-1 font-semibold text-primary">
                           Open
@@ -334,7 +335,7 @@ export default async function TutorDashboard() {
                 </p>
               ) : (
                 <ul className="space-y-1.5">
-                  {[...overdue, ...openWork.filter((a) => !a.is_overdue)].slice(0, 6).map((a) => (
+                  {sortAssignments(openWork).slice(0, 6).map((a) => (
                     <li key={a.assignment_id}>
                       <Link
                         href={`/tutor/student/${a.student_id}`}

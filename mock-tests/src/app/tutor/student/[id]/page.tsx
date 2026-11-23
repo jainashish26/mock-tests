@@ -18,6 +18,14 @@ import {
   loadTutorRecommendations,
   loadTutorSkillGaps,
 } from '@/lib/reporting/tutor'
+import {
+  completionLabel,
+  completionPct,
+  consentWindowLabel,
+  movementLabel,
+  sortAssignments,
+  MOVEMENT_TONE_CLASS,
+} from '@/lib/reporting/tutor-format'
 
 export const metadata = {
   title: 'Student | Tutor',
@@ -47,11 +55,6 @@ export const dynamic = 'force-dynamic'
  * T1/T2/T3/T5/T7 use on the reports page, filtered to one student, so this page and
  * the report can never disagree about the same child.
  */
-
-function daysUntil(iso: string | null): number | null {
-  if (!iso) return null
-  return Math.ceil((new Date(iso).getTime() - Date.now()) / 86_400_000)
-}
 
 function Panel({ title, hint, children }: { title: string; hint?: string; children: React.ReactNode }) {
   return (
@@ -98,20 +101,14 @@ export default async function TutorStudentPage({ params }: { params: Promise<{ i
 
   const student = overview.rows.find((r) => r.student_id === id) ?? null
   const consent = consents.rows[0] ?? null
-  const daysLeft = daysUntil(student?.consent_expires_at ?? null)
+  const consentWindow = consentWindowLabel(student?.consent_expires_at ?? null)
+  const movement = movementLabel(student?.movement_pp ?? null)
 
   const myRisk = atRisk.rows.filter((r) => r.student_id === id)
-  const myAssignments = assignments.rows
-    .filter((a) => a.student_id === id)
-    .sort((a, b) => {
-      // Overdue first: this is a chase list, and the reason to open this page is
-      // usually "what is late".
-      if (a.is_overdue !== b.is_overdue) return a.is_overdue ? -1 : 1
-      if (!a.due_at && !b.due_at) return 0
-      if (!a.due_at) return 1
-      if (!b.due_at) return -1
-      return a.due_at.localeCompare(b.due_at)
-    })
+  // Overdue first: this is a chase list, and the reason to open this page is
+  // usually "what is late". The ordering lives in tutor-format so the dashboard's
+  // "Outstanding work" list cannot sort differently from this one.
+  const myAssignments = sortAssignments(assignments.rows.filter((a) => a.student_id === id))
   const myGaps = gaps.rows
     .filter((g) => g.student_id === id && g.has_signal)
     .sort((a, b) => (a.accuracy_pct ?? 999) - (b.accuracy_pct ?? 999))
@@ -146,13 +143,10 @@ export default async function TutorStudentPage({ params }: { params: Promise<{ i
               {consentStateLabel(consent.state)}
             </span>
           ) : null}
-          {student?.consent_expires_at ? (
+          {consentWindow ? (
             <span className="inline-flex items-center gap-1 text-xs">
               <CalendarClock size={12} aria-hidden />
-              Access until {new Date(student.consent_expires_at).toLocaleDateString()}
-              {daysLeft !== null && daysLeft <= 30
-                ? ` · ${daysLeft <= 0 ? 'expired' : `${daysLeft} days left`}`
-                : ''}
+              Access {consentWindow}
             </span>
           ) : null}
         </p>
@@ -215,10 +209,7 @@ export default async function TutorStudentPage({ params }: { params: Promise<{ i
     )
   }
 
-  const completion =
-    student.assigned_count > 0
-      ? Math.round((student.completed_count / student.assigned_count) * 100)
-      : null
+  const completion = completionPct(student.assigned_count, student.completed_count)
 
   return (
     <DashboardLayout role="TUTOR" userName="Tutor Account">
@@ -258,21 +249,22 @@ export default async function TutorStudentPage({ params }: { params: Promise<{ i
         <Metric
           label="Movement"
           value={
-            student.movement_pp === null ? (
-              <span className="text-sm font-semibold text-muted-foreground">not enough attempts</span>
-            ) : (
-              <span className={student.movement_pp < 0 ? 'text-destructive' : 'text-emerald-600'}>
-                {student.movement_pp > 0 ? '+' : ''}
-                {student.movement_pp} pp
-              </span>
-            )
+            <span
+              className={
+                movement.tone === 'neutral'
+                  ? 'text-sm font-semibold text-muted-foreground'
+                  : MOVEMENT_TONE_CLASS[movement.tone]
+              }
+            >
+              {movement.text}
+            </span>
           }
           hint="last 30 days vs the 30 before"
         />
         <Metric
           label="Work completed"
-          value={`${student.completed_count}/${student.assigned_count}`}
-          hint={completion === null ? 'nothing assigned yet' : `${completion}% of what you set`}
+          value={completionLabel(student.assigned_count, student.completed_count)}
+          hint={completion === null ? 'nothing assigned yet' : undefined}
         />
         <Metric
           label="Attempts"
